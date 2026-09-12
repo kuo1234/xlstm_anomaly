@@ -1,0 +1,56 @@
+Independent full-score/metric verification source 3000 rows 480
+Independent full-score/metric verification source 3001 rows 960
+Independent full-score/metric verification source 3002 rows 1440
+Independent full-score/metric verification source 3003 rows 1920
+Independent full-score/metric verification source 3004 rows 2400
+Independent full-score/metric verification source 3005 rows 2880
+Independent full-score/metric verification source 3006 rows 3360
+Independent full-score/metric verification source 3007 rows 3840
+Independent full-score/metric verification source 3008 rows 4320
+Independent full-score/metric verification source 3009 rows 4800
+{
+  "D0": "PASS",
+  "H1_harm": "STOP",
+  "qualifying": [],
+  "natural_SMD_comparisons": [
+    {
+      "status": "NOT_AUTHORIZED",
+      "p": 1.0
+    },
+    {
+      "status": "NOT_AUTHORIZED",
+      "p": 1.0
+    },
+    {
+      "status": "NOT_AUTHORIZED",
+      "p": 1.0
+    },
+    {
+      "status": "NOT_AUTHORIZED",
+      "p": 1.0
+    },
+    {
+      "status": "NOT_AUTHORIZED",
+      "p": 1.0
+    },
+    {
+      "status": "NOT_AUTHORIZED",
+      "p": 1.0
+    }
+  ],
+  "family_size": 22,
+  "statistical_unit": "10 source clusters \u00d75 paired detector seeds;4 scenarios retained jointly",
+  "bootstrap_draws": 10000,
+  "bootstrap_seed": 901,
+  "sign_flip": "Exact two-sided2^10 source-cluster signs",
+  "grid_rows": 4800,
+  "curve_pairs": 800,
+  "all_negative_null_results_reported": true,
+  "measured_pair_total_seconds": 1199.227488921024,
+  "measured_arm_seconds": 965.4143602144904,
+  "peak_gpu_allocated_bytes": 182235648,
+  "peak_gpu_reserved_bytes": 218103808,
+  "no_later_phase": true,
+  "H1_admission": "GO separately established; no new inference here"
+}
+D-v2 FINAL STOP qualifying 0 rows 4800

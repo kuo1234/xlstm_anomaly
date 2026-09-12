@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "tests": 28,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 3.9617885053157806,
+  "cpu_only": true,
+  "no_model_training": true
+}

@@ -10,3 +10,7 @@ rtk /home/p76141495/home/xlstm_anomaly/data/phase_c/venv/bin/python /home/p76141
 rtk /home/p76141495/home/xlstm_anomaly/data/phase_c/venv/bin/python /home/p76141495/home/xlstm_anomaly/scripts/phase_d_v2.py gates pre_grid_gates
 rtk /home/p76141495/home/xlstm_anomaly/data/phase_c/venv/bin/python /home/p76141495/home/xlstm_anomaly/scripts/phase_d_v2.py gates pre_grid_verified
 rtk /home/p76141495/home/xlstm_anomaly/data/phase_c/venv/bin/python /home/p76141495/home/xlstm_anomaly/scripts/phase_d_v2_integrity.py
+rtk /home/p76141495/home/xlstm_anomaly/data/phase_c/venv/bin/python /home/p76141495/home/xlstm_anomaly/scripts/phase_d_v2.py grid full_grid
+rtk /home/p76141495/home/xlstm_anomaly/data/phase_c/venv/bin/python /home/p76141495/home/xlstm_anomaly/scripts/phase_d_v2_tests.py
+rtk /home/p76141495/home/xlstm_anomaly/data/phase_c/venv/bin/python /home/p76141495/home/xlstm_anomaly/scripts/phase_d_v2_tests.py unit_tests_fixed
+rtk /home/p76141495/home/xlstm_anomaly/data/phase_c/venv/bin/python /home/p76141495/home/xlstm_anomaly/scripts/phase_d_v2_finalize.py

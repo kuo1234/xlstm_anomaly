@@ -1,25 +1,12 @@
-# Phase D v2 — backend-state repair
+# Phase D v2
 
-Pre-outcome amendment: `a40634b`. Scientific design remains
-[the original prospective protocol](../phase_d/prospective.md).
-Only accepted backend execution state is restored; deterministic algorithms
-remain disabled. See [backend seal](backend_seal.json).
+**D0 PASS; H1-HARM STOP.** All 4,800 new rows complete; four parity gates and 12 canaries PASS bitwise.
 
-Pre-grid status: all four gates PASS bitwise. See
-[gate results](pre_grid_gates.json), [native parity](operator_parity.json),
-[sealed state reuse](reuse_verification.json) and
-[unchanged implementation/statistics checks](implementation_integrity.json).
-Three update and three zero-update arms ran in distinct fresh processes;
-the separate label-permuted arm produced identical algorithm behavior.
-The native buffer/order and next score segment were independently reconstructed
-from the official dataset. Full arrays/checkpoints have artifact hashes in gates/.
+See [decision and complete negative results](decision.md), [amendment](amendment.md), [unchanged prospective design](../phase_d/prospective.md), [backend seal](backend_seal.json), [reuse verification](reuse_verification.json), [pre-grid gates](pre_grid_gates.json), [real operator parity](operator_parity.json), [canaries](canaries.jsonl), [all results](all_results.csv), [statistics](statistical_summary.json), [buffer manifest](buffer_manifest.json), [environment](environment.json), and [runtime](runtime.json).
 
-Five existing backbones, scalers, calibration arrays/thresholds, SANA/optimizer/RNG
-states and all 160 buffer layouts passed integrity checks. No retraining.
-Conservative grid forecast: 5,588.723 seconds plus generation/startup/canary overhead,
-within the 24-hour gate. These pre-grid records are committed/pushed before launch.
+Pre-outcome amendment a40634b; pre-grid seal 909b326, both pushed before corrected full-grid outcomes. Backend restoration only; no scientific rule changed, no backbone retrained, no quarantined row reused. Native CANDI code remains immutable. External review required before any later phase.
 
-No corrected full-grid outcome has yet been generated at this checkpoint.
-All 498 v1 rows remain permanently quarantined and excluded from inference.
-The v1 report seal was checked by file digests only, not by parsing outcomes.
-No later phase is authorized or executed.
+See also [post-analysis interpretation and sensitivity limits](interpretation.md).
+The small collective-c20 effect is statistically detectable but far below the
+frozen practical margin; low spike AP and high fixed FPR preclude any claim of
+general robustness.

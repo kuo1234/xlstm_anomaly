@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "new_rows_verified": 4800,
+  "new_score_metrics_recomputed": 4800,
+  "canaries_bitwise": 12,
+  "all_input_seals_valid": true,
+  "original_report_seals_unchanged": true,
+  "quarantined_outcomes_used": false,
+  "seconds": 37.44507562601939
+}

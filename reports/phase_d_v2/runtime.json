@@ -1,0 +1,30 @@
+{
+  "grid_wall_seconds": 1206.6388139724731,
+  "grid_process_wall_seconds": 1210.0896181063727,
+  "grid_arm_runtime_seconds": 965.4143602144904,
+  "grid_pair_runtime_seconds": 1199.227488921024,
+  "canary_runtime_seconds": 2.9957294850610197,
+  "canaries": 12,
+  "peak_gpu_allocated_bytes": 182235648,
+  "peak_gpu_reserved_bytes": 218103808,
+  "process_walls": {
+    "repeat_0": 4.341593055985868,
+    "reuse": 42.00009384797886,
+    "full_grid": 1210.0896181063727,
+    "repeat_1": 4.298071294091642,
+    "pre_grid_verified": 3.3936056601814926,
+    "label_permuted": 4.292692086193711,
+    "zero_0": 4.164658820256591,
+    "zero_2": 4.041791245341301,
+    "real_d0": 19.033342137932777,
+    "zero_1": 4.234303543809801,
+    "implementation_integrity": 1.422598279081285,
+    "pre_grid_gates": 3.3002255260944366,
+    "unit_tests_fixed": 4.509718355722725,
+    "unit_tests": 2.5788796902634203,
+    "repeat_2": 4.502660754136741
+  },
+  "gpu_time_note": "GPU workload wall time, not active-kernel time; allocator peak is not full device memory.",
+  "reused_backbones": 5,
+  "retraining_seconds": 0
+}
