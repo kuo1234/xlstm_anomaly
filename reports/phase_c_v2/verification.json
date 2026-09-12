@@ -1,0 +1,21 @@
+{
+  "checks": [
+    "two fresh replay full-array/hash parity with original",
+    "replay candidate/commit/exposure/update/batch and initial RNG equality",
+    "native test-label permutation counter change with full behavior parity",
+    "native control versus original and independent isolated overlay parity",
+    "all seven finite outputs; seed0; checkpoint and official code invariants",
+    "MIN_SAMPLES, updates, five-step exposures, pending queue reconciliation",
+    "all native output artifact hashes and historical report seals",
+    "GPU driver and frozen Python/package/Torch/CUDA/cuDNN/device versions"
+  ],
+  "all_passed": true,
+  "final_harness_sha256": {
+    "scripts/phase_c_run.py": "f06bc67c2d893da7bcdfb1d99ba581a87bc7890d68ba4fe69d7876ee561f0f06",
+    "scripts/phase_c_audit.py": "128682efa37499d9ca54603c25f2a190a6d340417ffebf11a65eaed588078011",
+    "scripts/phase_c_v2.py": "d3f93d8f01469c8856ee662fd8ac1b1debee72336b6616b76f315f41d0d383b1",
+    "scripts/phase_c_v2_finalize.py": "6c87506d94ed060eb14c821e38f297b84a294133025f1cb03d12161fe6d1101c"
+  },
+  "harness_revision_note": "Checkpoint/config preflight guards and code/Python checks added after two replays; replays already recorded checkpoint/config hashes and used unchanged native defaults. No algorithm/RNG change.",
+  "source_syntax_check": "python -m py_compile passed for all four scripts"
+}

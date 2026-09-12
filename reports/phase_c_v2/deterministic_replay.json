@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "original_vs_replay1": {
+    "scores_exact": true,
+    "score_file_hash_equal": true,
+    "final_model_equal": true,
+    "metrics_equal": true,
+    "update_count_equal": true,
+    "config_equal": true,
+    "checkpoint_equal": true
+  },
+  "original_vs_replay2": {
+    "scores_exact": true,
+    "score_file_hash_equal": true,
+    "final_model_equal": true,
+    "metrics_equal": true,
+    "update_count_equal": true,
+    "config_equal": true,
+    "checkpoint_equal": true
+  },
+  "replay1_vs_replay2": {
+    "scores_exact": true,
+    "score_file_hash_equal": true,
+    "final_model_equal": true,
+    "metrics_equal": true,
+    "update_count_equal": true,
+    "config_equal": true,
+    "checkpoint_equal": true,
+    "all_selection_commit_exposure_step_batch_events_equal": true,
+    "initial_model_equal": true,
+    "initial_rng_equal": true
+  }
+}

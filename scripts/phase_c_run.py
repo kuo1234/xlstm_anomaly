@@ -36,12 +36,21 @@ def state_hash(model):
 
 
 def main():
+    global REPORT
     parser = argparse.ArgumentParser()
     parser.add_argument('--machine',choices=list(PUBLISHED),required=True)
     parser.add_argument('--alpha',choices=['0.5','1.0','5.0'],required=True)
-    parser.add_argument('--mode',choices=['native','audit','audit_permuted'],default='native')
+    parser.add_argument('--mode',choices=['native','audit','audit_permuted','native_replay_1','native_replay_2',
+        'native_v2','native_label_control','native_label_permuted'],default='native')
     parser.add_argument('--seed',type=int,default=0)
     args = parser.parse_args()
+    version2 = args.mode.startswith('native_')
+    if version2:
+        assert args.seed==0
+        REPORT = ROOT/'reports/phase_c_v2'
+        from phase_c_v2 import authorize,environment
+        authorize(args.machine,args.alpha,args.mode)
+        environment()
     sys.dont_write_bytecode = True
     sys.path.insert(0,str(OFFICIAL))
     sys.path.insert(0,str(ROOT/'scripts'))
@@ -60,6 +69,10 @@ def main():
     checkpoint_dir = work/'results'/args.machine/'MLP'
     checkpoint_dir.mkdir(parents=True)
     checkpoint = OFFICIAL/'results'/args.machine/'MLP/checkpoint_best.pth'
+    if version2:
+        expected = {'SMD_1-8':'08ec432dc29275114e132002c4599eae391ff2785287948a4f310be1d4fd881e',
+                    'SMD_2-1':'b374a7a9163db506c2f71028fd7c47edb97ada4bdceddc9ffd2e308b246a81a8'}
+        assert digest(checkpoint)==expected[args.machine]
     (checkpoint_dir/'checkpoint_best.pth').symlink_to(checkpoint)
     script = OFFICIAL/'scripts'/args.machine/f'{args.machine}_alpha_{args.alpha}.sh'
     argv = shlex.split(script.read_text())[2:]
@@ -68,6 +81,14 @@ def main():
     os.chdir(work)
     import torch
     import predictor
+    if version2:
+        import utils.parser
+        original_load_config = utils.parser.load_config
+        def guarded_config(*a,**kw):
+            cfg = original_load_config(*a,**kw)
+            assert not cfg.TRAIN.ENABLE and cfg.SEED==0
+            return cfg
+        utils.parser.load_config = guarded_config
     captured = {}
     original_predict = predictor.Predictor.predict
     def observed_predict(self):
@@ -76,7 +97,13 @@ def main():
         return original_predict(self)
     predictor.Predictor.predict = observed_predict
     audit = None
-    if args.mode!='native':
+    if version2:
+        import phase_c_audit
+        phase_c_audit.REPORT = REPORT
+        from tta.candi import adapter_candi
+        audit = phase_c_audit.Audit(args.mode,tag)
+        audit.instrument(adapter_candi,predictor)
+    elif args.mode!='native':
         from phase_c_audit import Audit
         audit = Audit(args.mode,tag)
         audit.install(predictor)
@@ -123,6 +150,11 @@ def main():
         record['final_checkpoint_sha256'] = digest(work/'final_model.pth')
         if audit:
             record['audit'] = audit.finish(p)
+        if version2:
+            import numpy as np
+            assert np.isfinite(p.test_scores_w_tta).all()
+            record['paper_comparison_status'] = 'MATCH' if record['status']=='PASS' else 'MISMATCH'
+            record['status'] = 'COMPLETE_PENDING_V2_VERIFICATION'
     else:
         record['status'] = 'STOP'
     REPORT.mkdir(parents=True,exist_ok=True)

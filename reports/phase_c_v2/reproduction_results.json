@@ -1,0 +1,347 @@
+{
+  "amendment_commit": "a8e07307dd6db8361c2ad5503eb13be5c55da55f",
+  "C1_P": "MISMATCH",
+  "lineage_status": "UNRESOLVED_LINEAGE",
+  "C1_R": "PASS_BOUNDED_SEED0",
+  "rows": [
+    {
+      "machine": "SMD_1-8",
+      "alpha": "0.5",
+      "seed": 0,
+      "paper": {
+        "AUROC": 0.872,
+        "AUPRC": 0.432
+      },
+      "author_cache": {
+        "AUROC": 0.8665758355045806,
+        "AUPRC": 0.44776017682657976
+      },
+      "local": {
+        "AUROC": 0.8524040856820481,
+        "AUPRC": 0.4383890500687414
+      },
+      "absolute_discrepancies": {
+        "paper_vs_local": {
+          "AUROC": 0.019595914317951935,
+          "AUPRC": 0.006389050068741409
+        },
+        "paper_vs_author_cache": {
+          "AUROC": 0.005424164495419381,
+          "AUPRC": 0.015760176826579764
+        },
+        "author_cache_vs_local": {
+          "AUROC": 0.014171749822532553,
+          "AUPRC": 0.009371126757838355
+        }
+      },
+      "comparison_status": {
+        "paper_vs_local": "MATCH",
+        "paper_vs_author_cache": "MATCH",
+        "author_cache_vs_local": "MATCH"
+      },
+      "lineage_status": "UNRESOLVED_LINEAGE",
+      "local_record": "reports/phase_c/runs/SMD_1-8_alpha_0.5_seed_0_native.json",
+      "cache_role": "Lineage only; not a runnable or experimental baseline",
+      "local_score_sha256": "b3965838d1d5ea45adef8573a3c71983f0c3166430a94a00f52c3cc0d2a4d2b2",
+      "cache_score_sha256": "43f73f1eb22dc117cf1c1f5d6c7c926ab6f9cbead06921595cd4c9e8cd5f5580"
+    },
+    {
+      "machine": "SMD_1-8",
+      "alpha": "1.0",
+      "seed": 0,
+      "paper": {
+        "AUROC": 0.872,
+        "AUPRC": 0.434
+      },
+      "author_cache": {
+        "AUROC": 0.8532160510975519,
+        "AUPRC": 0.4389346726889699
+      },
+      "local": {
+        "AUROC": 0.8532123914957194,
+        "AUPRC": 0.4389382704451123
+      },
+      "absolute_discrepancies": {
+        "paper_vs_local": {
+          "AUROC": 0.01878760850428063,
+          "AUPRC": 0.004938270445112303
+        },
+        "paper_vs_author_cache": {
+          "AUROC": 0.018783948902448055,
+          "AUPRC": 0.00493467268896991
+        },
+        "author_cache_vs_local": {
+          "AUROC": 3.6596018325729673e-06,
+          "AUPRC": 3.5977561423927717e-06
+        }
+      },
+      "comparison_status": {
+        "paper_vs_local": "MATCH",
+        "paper_vs_author_cache": "MATCH",
+        "author_cache_vs_local": "MATCH"
+      },
+      "lineage_status": "UNRESOLVED_LINEAGE",
+      "local_record": "reports/phase_c/runs/SMD_1-8_alpha_1.0_seed_0_native.json",
+      "cache_role": "Lineage only; not a runnable or experimental baseline",
+      "local_score_sha256": "01f0404424c665ac952021145f619c06d7e26e434e2a72d0c832ae228ebd1aec",
+      "cache_score_sha256": "d905abd88389b66a1d32647a351ff13900ffd95edf5f966cc97e4e889f9d46ca"
+    },
+    {
+      "machine": "SMD_1-8",
+      "alpha": "5.0",
+      "seed": 0,
+      "paper": {
+        "AUROC": 0.867,
+        "AUPRC": 0.423
+      },
+      "author_cache": {
+        "AUROC": 0.868100630752189,
+        "AUPRC": 0.4499961686346305
+      },
+      "local": {
+        "AUROC": 0.8681006074426231,
+        "AUPRC": 0.44999612203735434
+      },
+      "absolute_discrepancies": {
+        "paper_vs_local": {
+          "AUROC": 0.0011006074426230805,
+          "AUPRC": 0.026996122037354353
+        },
+        "paper_vs_author_cache": {
+          "AUROC": 0.0011006307521890246,
+          "AUPRC": 0.026996168634630502
+        },
+        "author_cache_vs_local": {
+          "AUROC": 2.3309565944096278e-08,
+          "AUPRC": 4.659727614875209e-08
+        }
+      },
+      "comparison_status": {
+        "paper_vs_local": "MISMATCH",
+        "paper_vs_author_cache": "MISMATCH",
+        "author_cache_vs_local": "MATCH"
+      },
+      "lineage_status": "UNRESOLVED_LINEAGE",
+      "local_record": "reports/phase_c/runs/SMD_1-8_alpha_5.0_seed_0_native.json",
+      "cache_role": "Lineage only; not a runnable or experimental baseline",
+      "local_score_sha256": "8f460ebc2a0d534bb648db0a80a8b07d814c6525226de9ba68ce4f82b1c4bca7",
+      "cache_score_sha256": "30f98f0a593a4bd730c64fdc96c2fab192c0770ff6a5a5e24cc70f8e29d90b83"
+    },
+    {
+      "machine": "SMD_2-1",
+      "alpha": "0.5",
+      "seed": 0,
+      "paper": {
+        "AUROC": 0.725,
+        "AUPRC": 0.319
+      },
+      "author_cache": {
+        "AUROC": 0.6912522471724185,
+        "AUPRC": 0.30637354602951333
+      },
+      "local": {
+        "AUROC": 0.6912517441582537,
+        "AUPRC": 0.30637349397804314
+      },
+      "absolute_discrepancies": {
+        "paper_vs_local": {
+          "AUROC": 0.03374825584174623,
+          "AUPRC": 0.012626506021956863
+        },
+        "paper_vs_author_cache": {
+          "AUROC": 0.03374775282758147,
+          "AUPRC": 0.012626453970486673
+        },
+        "author_cache_vs_local": {
+          "AUROC": 5.030141647655029e-07,
+          "AUPRC": 5.2051470189606874e-08
+        }
+      },
+      "comparison_status": {
+        "paper_vs_local": "MISMATCH",
+        "paper_vs_author_cache": "MISMATCH",
+        "author_cache_vs_local": "MATCH"
+      },
+      "lineage_status": "UNRESOLVED_LINEAGE",
+      "local_record": "reports/phase_c_v2/runs/SMD_2-1_alpha_0.5_seed_0_native_v2.json",
+      "cache_role": "Lineage only; not a runnable or experimental baseline",
+      "local_score_sha256": "762c3970863f743b57fff7a89f43e1ddf198fcbab7b66b623afcfff2fe04533e",
+      "cache_score_sha256": "b0630ba52a5bd3efcea7e2a88a6500890eed320bc29f40ad710718ee02149053"
+    },
+    {
+      "machine": "SMD_2-1",
+      "alpha": "1.0",
+      "seed": 0,
+      "paper": {
+        "AUROC": 0.711,
+        "AUPRC": 0.314
+      },
+      "author_cache": {
+        "AUROC": 0.7109177940948634,
+        "AUPRC": 0.314446069260569
+      },
+      "local": {
+        "AUROC": 0.7109353475546885,
+        "AUPRC": 0.3144607540010668
+      },
+      "absolute_discrepancies": {
+        "paper_vs_local": {
+          "AUROC": 6.465244531150827e-05,
+          "AUPRC": 0.00046075400106682096
+        },
+        "paper_vs_author_cache": {
+          "AUROC": 8.220590513652315e-05,
+          "AUPRC": 0.0004460692605690042
+        },
+        "author_cache_vs_local": {
+          "AUROC": 1.7553459825014883e-05,
+          "AUPRC": 1.4684740497816762e-05
+        }
+      },
+      "comparison_status": {
+        "paper_vs_local": "MATCH",
+        "paper_vs_author_cache": "MATCH",
+        "author_cache_vs_local": "MATCH"
+      },
+      "lineage_status": "UNRESOLVED_LINEAGE",
+      "local_record": "reports/phase_c_v2/runs/SMD_2-1_alpha_1.0_seed_0_native_v2.json",
+      "cache_role": "Lineage only; not a runnable or experimental baseline",
+      "local_score_sha256": "c3d26dff144df1568e8a2ceda972d976e3727c890c942e357e318916d874a82e",
+      "cache_score_sha256": "440b4a65c7d65de1302acaa8ce9cf1b0b1c533db3de0da6a7c6f422a89082a95"
+    },
+    {
+      "machine": "SMD_2-1",
+      "alpha": "5.0",
+      "seed": 0,
+      "paper": {
+        "AUROC": 0.78,
+        "AUPRC": 0.348
+      },
+      "author_cache": {
+        "AUROC": 0.7798449578519226,
+        "AUPRC": 0.3478113070789354
+      },
+      "local": {
+        "AUROC": 0.7741388692366458,
+        "AUPRC": 0.33182935325009427
+      },
+      "absolute_discrepancies": {
+        "paper_vs_local": {
+          "AUROC": 0.005861130763354261,
+          "AUPRC": 0.016170646749905704
+        },
+        "paper_vs_author_cache": {
+          "AUROC": 0.00015504214807737782,
+          "AUPRC": 0.00018869292106454827
+        },
+        "author_cache_vs_local": {
+          "AUROC": 0.005706088615276883,
+          "AUPRC": 0.015981953828841156
+        }
+      },
+      "comparison_status": {
+        "paper_vs_local": "MATCH",
+        "paper_vs_author_cache": "MATCH",
+        "author_cache_vs_local": "MATCH"
+      },
+      "lineage_status": "UNRESOLVED_LINEAGE",
+      "local_record": "reports/phase_c_v2/runs/SMD_2-1_alpha_5.0_seed_0_native_v2.json",
+      "cache_role": "Lineage only; not a runnable or experimental baseline",
+      "local_score_sha256": "4e7d680195850a784732c48c1c69ff55536a28a322646ee4fc4fe2e8f53df660",
+      "cache_score_sha256": "b7de54286b939611a1d3f8a896b1ab69c239add3617263e806ef694df6c5050a"
+    }
+  ],
+  "deterministic_replay": {
+    "status": "PASS",
+    "original_vs_replay1": {
+      "scores_exact": true,
+      "score_file_hash_equal": true,
+      "final_model_equal": true,
+      "metrics_equal": true,
+      "update_count_equal": true,
+      "config_equal": true,
+      "checkpoint_equal": true
+    },
+    "original_vs_replay2": {
+      "scores_exact": true,
+      "score_file_hash_equal": true,
+      "final_model_equal": true,
+      "metrics_equal": true,
+      "update_count_equal": true,
+      "config_equal": true,
+      "checkpoint_equal": true
+    },
+    "replay1_vs_replay2": {
+      "scores_exact": true,
+      "score_file_hash_equal": true,
+      "final_model_equal": true,
+      "metrics_equal": true,
+      "update_count_equal": true,
+      "config_equal": true,
+      "checkpoint_equal": true,
+      "all_selection_commit_exposure_step_batch_events_equal": true,
+      "initial_model_equal": true,
+      "initial_rng_equal": true
+    }
+  },
+  "native_label_permutation": {
+    "status": "PASS",
+    "checks": {
+      "scores_exact": true,
+      "score_file_hash_equal": true,
+      "final_model_equal": true,
+      "metrics_equal": true,
+      "update_count_equal": true,
+      "config_equal": true,
+      "checkpoint_equal": true,
+      "all_selection_commit_exposure_step_batch_events_equal": true,
+      "initial_model_equal": true,
+      "initial_rng_equal": true
+    },
+    "original_native_parity": {
+      "scores_exact": true,
+      "score_file_hash_equal": true,
+      "final_model_equal": true,
+      "metrics_equal": true,
+      "update_count_equal": true,
+      "config_equal": true,
+      "checkpoint_equal": true
+    },
+    "adapter_label_positions_changed": 1812,
+    "original_counters": {
+      "iter": 93,
+      "n_adapt": 101,
+      "total_samples_to_adapt_hard": 1275,
+      "total_anomalies_in_hard": 237,
+      "total_samples_to_adapt_moderate": 9747,
+      "total_anomalies_in_moderate": 199,
+      "n_samples_to_adapt_hard": 0,
+      "n_samples_to_adapt_moderate": 1
+    },
+    "permuted_counters": {
+      "iter": 93,
+      "n_adapt": 101,
+      "total_samples_to_adapt_hard": 1275,
+      "total_anomalies_in_hard": 37,
+      "total_samples_to_adapt_moderate": 9747,
+      "total_anomalies_in_moderate": 383,
+      "n_samples_to_adapt_hard": 0,
+      "n_samples_to_adapt_moderate": 1
+    },
+    "independent_label_isolated_overlay_full_trace_equal": true
+  },
+  "five_seed_scientifically_ready": true,
+  "five_seed_authorized": false,
+  "five_seed_run": false,
+  "phase_D_authorized": false,
+  "readiness_scope": "Recommend five-seed replication pending external review; not cross-seed/cross-hardware proof or H1 causal evidence",
+  "runtime_seconds": 184.50640288181603,
+  "cuda_event_span_ms": 184505.6611328125,
+  "peak_gpu_allocated_bytes": 2709062656,
+  "peak_gpu_reserved_bytes": 3586129920,
+  "official_immutable": true,
+  "historical_phase_c_seal_verified": true,
+  "no_retraining": true,
+  "gpu_driver_verified": "NVIDIA GB10, 580.173.02",
+  "metric_semantics": "Native window-any labels; unadjusted AUROC and trapezoidal PR-AUC (not AP)"
+}

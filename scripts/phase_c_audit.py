@@ -41,11 +41,30 @@ class Audit:
         module = importlib.util.module_from_spec(spec)
         sys.modules[spec.name] = module
         spec.loader.exec_module(module)
+        self.instrument(module,predictor)
+
+    def instrument(self,module,predictor):
         original_construct = predictor.construct_adapter
         def construct(cfg,model,thresholder,**kwargs):
-            kwargs.pop('test_labels')  # evaluator array never reaches adapter
+            native = self.mode.startswith('native_')
+            if native:
+                import hashlib, pickle, random
+                def rng_hash():
+                    return hashlib.sha256(pickle.dumps((random.getstate(),np.random.get_state(),
+                        torch.get_rng_state().tolist(),[s.tolist() for s in torch.cuda.get_rng_state_all()]))).hexdigest()
+                self.initial_rng_hash = rng_hash()
+                original_labels = np.array(kwargs['test_labels'],copy=True)
+                if self.mode=='native_label_permuted':
+                    kwargs['test_labels'] = np.random.default_rng(902).permutation(original_labels)
+                self.label_changes = int(np.sum(original_labels!=kwargs['test_labels']))
+                self.permutation_preserved_global_rng = rng_hash()==self.initial_rng_hash
+                assert self.permutation_preserved_global_rng
+            else:
+                kwargs.pop('test_labels')  # evaluator array never reaches adapter
             adapter = original_construct(cfg,model,thresholder,**kwargs)
-            assert not hasattr(adapter,'test_labels') and thresholder.test_labels is None
+            assert thresholder.test_labels is None
+            if not native:
+                assert not hasattr(adapter,'test_labels')
             self.adapter = adapter
             self.initial_model_hash = state_hash(model)
             original_score = model.get_anomaly_scores
@@ -156,4 +175,9 @@ class Audit:
             id_semantics='Window ID = zero-based start in raw native test; batch scores all available at last window end. Latency = commit batch last window ID minus selected window ID.')
         details = dict(selection_and_commit_events=self.events,loss_exposures=self.losses,optimizer_steps=self.steps,batches=self.batches)
         (REPORT/'logs'/f'{self.tag}.audit_events.json').write_text(json.dumps(details,indent=2)+'\n')
+        if self.mode.startswith('native_'):
+            result.update(label_policy='Untouched native label-passing adapter; true labels used only at observer finish for scientific counts',
+                native_counter_note='Native counters untouched; stable observer IDs separate from native offsets',
+                initial_rng_sha256=self.initial_rng_hash,adapter_label_positions_changed=self.label_changes,
+                permutation_preserved_global_rng=self.permutation_preserved_global_rng)
         return result
