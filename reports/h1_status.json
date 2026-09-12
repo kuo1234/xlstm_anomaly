@@ -1,0 +1,13 @@
+{
+  "reporting_amendment": "h1_route_amendment.md",
+  "controlled_evidence_commit": "4f0ad09bcfd33d53759eb80e4d3051e12ea33de5",
+  "D0_implementation_validity": "PASS",
+  "H1_admission": "GO",
+  "H1_controlled_harm": "STOP",
+  "H1_natural_harm": "NOT_RUN",
+  "H1_harm_overall": "UNRESOLVED",
+  "natural_route_waived": false,
+  "H4a": "LOCKED",
+  "H4b": "LOCKED",
+  "controlled_results_recomputed": false
+}
