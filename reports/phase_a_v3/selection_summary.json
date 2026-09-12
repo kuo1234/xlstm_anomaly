@@ -1,0 +1,9 @@
+{
+  "status": "STOP_A2",
+  "A1": "seal_verified",
+  "blocker": "STOP: no globally feasible assignment",
+  "eligible": 37,
+  "native_provenance_unresolved": 0,
+  "rule": "reports/m0_amendment_v3.md",
+  "inference_unit": "source_family_first"
+}

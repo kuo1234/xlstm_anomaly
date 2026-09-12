@@ -1,0 +1,30 @@
+test_all_protocol_invariants (test_correlation.CorrelationTests.test_all_protocol_invariants) ... ok
+test_fixed_permutations (test_correlation.CorrelationTests.test_fixed_permutations) ... ok
+test_no_invalid_manifest_on_global_infeasibility (test_manifest_v3.ManifestTests.test_no_invalid_manifest_on_global_infeasibility) ... ok
+test_solver_lex_ties_and_known_duplicate (test_manifest_v3.ManifestTests.test_solver_lex_ties_and_known_duplicate) ... ok
+test_bad_inputs (test_phase_b.CausalTests.test_bad_inputs) ... ok
+test_candidate_committed_pending_denominators (test_phase_b.CausalTests.test_candidate_committed_pending_denominators) ... ok
+test_fixed_fit_scaler_and_calibration (test_phase_b.CausalTests.test_fixed_fit_scaler_and_calibration) ... ok
+test_future_prefix_invariance_and_reset (test_phase_b.CausalTests.test_future_prefix_invariance_and_reset) ... ok
+test_label_isolation_permutation (test_phase_b.CausalTests.test_label_isolation_permutation) ... ok
+test_score_emit_before_all_updates (test_phase_b.CausalTests.test_score_emit_before_all_updates) ... ok
+test_window_endpoint_and_warmup (test_phase_b.CausalTests.test_window_endpoint_and_warmup) ... ok
+test_all_scenarios_reproducible_finite_clean_prefix (test_phase_b.GeneratorTests.test_all_scenarios_reproducible_finite_clean_prefix) ... ok
+test_identical_observation_opposite_label (test_phase_b.GeneratorTests.test_identical_observation_opposite_label) ... ok
+test_saved_truth_separate_and_no_overwrite (test_phase_b.GeneratorTests.test_saved_truth_separate_and_no_overwrite) ... ok
+test_schedule_types_and_no_latent_contamination (test_phase_b.GeneratorTests.test_schedule_types_and_no_latent_contamination) ... ok
+test_source_disjoint_folds_and_boundaries (test_phase_b.GeneratorTests.test_source_disjoint_folds_and_boundaries) ... ok
+test_perfect_and_reversed (test_phase_b.MetricTests.test_perfect_and_reversed) ... ok
+test_post_shift_recovery_and_censoring (test_phase_b.MetricTests.test_post_shift_recovery_and_censoring) ... ok
+test_ties_not_arbitrary_ranks (test_phase_b.MetricTests.test_ties_not_arbitrary_ranks) ... ok
+test_undefined_metrics (test_phase_b.MetricTests.test_undefined_metrics) ... ok
+test_exact_crop (test_phase_a.AuditTests.test_exact_crop) ... ok
+test_global_assignment_not_greedy (test_phase_a.AuditTests.test_global_assignment_not_greedy) ... ok
+test_invalid_values (test_phase_a.AuditTests.test_invalid_values) ... ok
+test_numeric_and_intervals (test_phase_a.AuditTests.test_numeric_and_intervals) ... ok
+test_shared_bucket_sources_stop (test_phase_a.AuditTests.test_shared_bucket_sources_stop) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 1.947s
+
+OK

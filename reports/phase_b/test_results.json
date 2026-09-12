@@ -1,0 +1,48 @@
+{
+  "tests": 25,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "elapsed_seconds": 1.9472857350483537,
+  "passed": true,
+  "python": "3.12.3",
+  "numpy": "1.26.4",
+  "scipy": "1.17.1",
+  "correlation_checks": {
+    "None": {
+      "lyapunov_max_residual": 0.0,
+      "correlation_difference": 0.4000000000000001,
+      "transition_diagonal_max_error": 0.0
+    },
+    "11": {
+      "lyapunov_max_residual": 0.0,
+      "correlation_difference": 0.39999999999999997,
+      "transition_diagonal_max_error": 0.0
+    },
+    "22": {
+      "lyapunov_max_residual": 0.0,
+      "correlation_difference": 0.4,
+      "transition_diagonal_max_error": 0.0
+    },
+    "33": {
+      "lyapunov_max_residual": 0.0,
+      "correlation_difference": 0.39999999999999997,
+      "transition_diagonal_max_error": 0.0
+    },
+    "44": {
+      "lyapunov_max_residual": 0.0,
+      "correlation_difference": 0.39999999999999997,
+      "transition_diagonal_max_error": 0.0
+    },
+    "55": {
+      "lyapunov_max_residual": 0.0,
+      "correlation_difference": 0.39999999999999997,
+      "transition_diagonal_max_error": 0.0
+    }
+  },
+  "hardware_scope": "CPU only",
+  "model_training": false,
+  "model_result_files_inspected": false,
+  "synthetic_observations": "Software tests only; no full experiment dataset sweep",
+  "original_phase_a_unchanged": true
+}

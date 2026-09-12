@@ -1,0 +1,25 @@
+{
+  "status": "PASS_A2",
+  "A1": "seal_verified",
+  "distinct_families": 10,
+  "sum_squared_family_counts": 18,
+  "family_counts": {
+    "SMAP": 1,
+    "SWaT": 1,
+    "GECCO": 1,
+    "MSL": 1,
+    "Daphnet": 1,
+    "CreditCard": 1,
+    "SMD": 3,
+    "GHL": 1,
+    "OPPORTUNITY": 1,
+    "Exathlon": 1
+  },
+  "repeated_families": {
+    "SMD": 3
+  },
+  "eligible": 60,
+  "native_provenance_unresolved": 9,
+  "rule": "reports/m0_amendment_v3.md",
+  "inference_unit": "source_family_first"
+}
