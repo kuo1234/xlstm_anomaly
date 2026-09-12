@@ -2,6 +2,8 @@
 
 日期：2026-09-12。狀態：**STOP 原版 protocol；先修正再啟動 M0。這不是 hypothesis 的實驗性 STOP。**
 
+修訂：使用者已接受 review，授權 revised M0。執行規格以 `m0_protocol.md` 為準；本文件以下保留原始 adversarial findings。ReCATS 已由使用者獨立核對全文，不再是 blocker。只在 protocol commit 完成且資料 eligibility 通過後進入實驗。
+
 本輪只做文獻、官方程式與資料 metadata review，未安裝模型、訓練、產生模型結果、挑選最佳資料或實作 adaptation。工作目錄原先為空。以下區分已核對事實、review 推論與待驗證事項；不宣稱已完成 reproduction。未建立 `m0_decision.md`，因 H1–H5 尚無本專案實驗證據。
 
 ## 1. 判定與七個問題的直接回答
@@ -14,7 +16,7 @@
 | xLSTMAD 官方實作足以起步？ | 足以做 reproduction 起點；不足以開箱完成 causal streaming / instrumentation。必須區分原投稿版與改良主線。 |
 | CANDI 能 reproduce / 接 delayed commit？ | 有官方 code、指定 SMD scripts 與資料，工程可行性高；必須保留 FPM/SANA、既有 batching，並審核 code/paper 差異。delay 是新增 wrapper，不能稱官方既有機制。 |
 | TSB-drift 適合？ | 適合外部 non-stationary 壓力測試；不能直接提供每個 timestamp 的 legitimate-drift 真值。多標籤分類及可能污染的初始 batch 使原選樣規則不完整。 |
-| 已有 gate-informed safe adaptation 直接重複？ | 本次有界搜尋未確認完全相同工作；不是新穎性證明。safe adaptation / normality shift 本身已有直接 prior art，ReCATS 全文仍待核對。 |
+| 已有 gate-informed safe adaptation 直接重複？ | 本次有界搜尋未確認完全相同工作；不是新穎性證明。safe adaptation / normality shift 本身已有直接 prior art。ReCATS 的設定差異已經獨立全文查核確認。 |
 
 ## 2. Prior art 核對及證據範圍
 
@@ -67,7 +69,7 @@ repo 中 TSB-drift/Datasets 只見一條真實示例及 synthetic 示例；完�
 
 Li et al., *ReCATS: Replay-Free Continual Anomaly Detection for Non-Stationary Multivariate Time Series*, KDD 2026。作者網站可核對題名、作者與 venue；ACM DOI `10.1145/3770855.3817985` 的全文/PDF 存取失敗，作者列表的 PDF 文字沒有可用連結。[作者出版列表](https://tianyili.site/)、[ACM 原文入口](https://doi.org/10.1145/3770855.3817985)。
 
-**未完成全文方法核對。**「預切 task，每 task 有 normal-only training」在此明確記作使用者提供的 protocol 資訊。依此資訊，ReCATS 屬有 task 邊界及乾淨增量訓練的 continual learning，不能直接當 boundary-free unlabeled TTA baseline。需要取得正文確認 task construction、可見資訊與 replay-free 定義；本輪不冒充已讀過。
+**獨立全文查核已完成，來源：使用者於 2026-09-12 提供的查核結果。** 正文明確定義預切 task stream T1…TM，每個 task 的 D_train 只含 normal，D_test 含 normal + anomaly。因此 ReCATS 是 task-incremental continual MTSAD，具乾淨的每-task 訓練資料，不是 boundary-free unlabeled TTA。此項不再阻擋 M0；不要求重複查核，也不把它納入相同資訊條件的直接 baseline。這項更新不表示本代理先前的全文存取已成功。
 
 ## 3. 必須先修正的推論障礙
 
@@ -166,7 +168,7 @@ Pareto axes 用 latency、committed contamination/error、post-shift performance
 
 ## 5. 新穎性搜尋與不得過度推論之處
 
-查詢包括指定六篇的 title/repo，以及 `gate-informed safe adaptation`、`LSTM gates concept drift anomaly`、`gate safe adaptation anomaly detection`，並檢查 CANDI related work。未找到可核實的「直接讀 recurrent internal gate/state，據此在 boundary-free unlabeled multivariate TSAD 延遲提交 adaptation」完全重複工作；但檢索覆蓋有限，ReCATS 全文缺口尚在。
+查詢包括指定六篇的 title/repo，以及 `gate-informed safe adaptation`、`LSTM gates concept drift anomaly`、`gate safe adaptation anomaly detection`，並檢查 CANDI related work。未找到可核實的「直接讀 recurrent internal gate/state，據此在 boundary-free unlabeled multivariate TSAD 延遲提交 adaptation」完全重複工作；但檢索覆蓋有限。ReCATS 的設定已依獨立全文查核更新，不再列為查核缺口。
 
 額外相關工作 OWAD（NDSS 2023）已處理 normality shift detection/explanation/adaptation，涉及降低人工標註成本；所以不能把 normality shift / safe adaptation 本身當首創。[OWAD 原文](https://www.ndss-symposium.org/wp-content/uploads/2023-830-paper.pdf)。CANDI 的 SANA 也有 learnable gating，但那是 adapter residual 控制，不等於讀取 pretrained recurrent gate history 作為安全提交證據。
 
@@ -176,7 +178,7 @@ Pareto axes 用 latency、committed contamination/error、post-shift performance
 
 目前不執行以下模型工作；這是 review 後可採用的最小順序。
 
-1. 補齊 ReCATS 正文查核，固定 protocol/metric/latency/selection 定義；下載 metadata 對應資料、檢查 initial prefix、來源重複與 12 條 eligibility，存 manifest/checksum。若固定 12 條規則不成立，先回報，不換資料湊數。
+1. 固定 protocol/metric/latency/selection 定義；下載 metadata 對應資料、檢查 initial prefix、來源重複與 12 條 eligibility，存 manifest/checksum。若固定 12 條規則不成立，先回報，不換資料湊數。ReCATS 查核已結案。
 2. 只建立 causal stream/evaluator 與 D=8 generator，labels 在 evaluator 隔離。先驗證窗口時間、score-before-update、counter IDs 與 metrics 一致性；不寫完整論文框架。
 3. 固定 SMD 兩機，重現官方 CANDI 與同 backbone static，保留 script/config/environment；同時評估 M2N2 成本。先確認 natural candidate contamination，再做 controlled type-specific causal failure test。
 4. xLSTMAD 原版/主線差異盤點，選定並固定一個 architecture；通過 instrumentation parity 後才訓練 matched LSTM 與 linear probes。失敗則 STOP xLSTM-specific interpretation。
