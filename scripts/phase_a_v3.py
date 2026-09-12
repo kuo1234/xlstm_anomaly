@@ -133,11 +133,22 @@ def main():
             row['source_family'] = row['upstream_dataset']
             row['native_provenance_unresolved'] = row['provenance_status'].startswith('unresolved')
             row['exclusions_v3'] = [e for e in row['exclusions'] if e!='unresolved_original_trace_mapping']
+            # Newly verified source fact; same frozen no-synthetic criterion.
+            if row['source_family']=='GHL':
+                row['exclusions_v3'].append('synthetic_source_excluded_by_protocol')
+                row['synthetic_provenance'] = 'https://arxiv.org/abs/1612.06676'
             row['eligible_v3'] = not row['exclusions_v3']
-    selected, objectives = select(rows, json.loads((OLD/'trace_relations.json').read_text()))
+    try:
+        selected, objectives = select(rows, json.loads((OLD/'trace_relations.json').read_text()))
+        status = 'PASS_A2'
+    except RuntimeError as error:
+        if str(error)!='STOP: no globally feasible assignment':
+            raise
+        selected, objectives = [], dict(blocker=str(error))
+        status = 'STOP_A2'
     OUT.mkdir(parents=True, exist_ok=True)
     for name, obj in [('candidate_inventory.json', rows), ('manifest.json', selected),
-                      ('selection_summary.json', dict(status='PASS_A2', A1='seal_verified', **objectives,
+                      ('selection_summary.json', dict(status=status, A1='seal_verified', **objectives,
                           eligible=sum(r['eligible_v3'] for r in rows),
                           native_provenance_unresolved=sum(r['native_provenance_unresolved'] for r in selected),
                           rule='reports/m0_amendment_v3.md', inference_unit='source_family_first'))]:
