@@ -1,0 +1,156 @@
+{
+  "scope": "Six repeats of same existing c10 buffer, not new H1 curves; no AP or harm comparisons computed",
+  "fresh_process_flags": {
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false,
+    "deterministic_algorithms": false,
+    "float32_matmul_precision": "highest"
+  },
+  "conditions": [
+    {
+      "cudnn_deterministic": false,
+      "cudnn_benchmark": false,
+      "runs": [
+        {
+          "repeat": 0,
+          "pre": {
+            "model": "8a95ff4ab5c668fd15d67e4b5cddd4c3799329eb68427f145a041f96497fd3a4",
+            "optimizer": "6add4fb7d58d75583c3aabc2f2acb11c8f201d41cbaab06eaa02cb1c1bfa385c",
+            "rng": "09c5e372048b3ab42086e83ef9a1da9db7cc45a4aee730b69316be5fc9c3a9d1"
+          },
+          "losses": [
+            1.6072471141815186
+          ],
+          "model_sha256": "a014c15adf078e517efd594bfeeea9bbf8705cb6f4e92dc0bbd1064a5a263c3d",
+          "optimizer_sha256": "389d653aa7060d4f71ba24c9a471b521d5291ad918e33bdda554167c82e8a2da",
+          "score_tensor_sha256": "d2e50281cdcc02cac590cbaac19e57535c6bc099552a8e1341148c564ebf8ce7"
+        },
+        {
+          "repeat": 1,
+          "pre": {
+            "model": "8a95ff4ab5c668fd15d67e4b5cddd4c3799329eb68427f145a041f96497fd3a4",
+            "optimizer": "6add4fb7d58d75583c3aabc2f2acb11c8f201d41cbaab06eaa02cb1c1bfa385c",
+            "rng": "09c5e372048b3ab42086e83ef9a1da9db7cc45a4aee730b69316be5fc9c3a9d1"
+          },
+          "losses": [
+            1.6072471141815186
+          ],
+          "model_sha256": "acb98736b16d447a43e7e3649cf4b37e12d6d4f4718925fe3cb5d2622eb69c05",
+          "optimizer_sha256": "212b626e465459e60f781f58bd93d28b288fc62a2566deabd9db50f73f376bb6",
+          "score_tensor_sha256": "5519d10284b319923004343dc7a1bb0b24860d374f8c62657fd3c81c76503f1c"
+        },
+        {
+          "repeat": 2,
+          "pre": {
+            "model": "8a95ff4ab5c668fd15d67e4b5cddd4c3799329eb68427f145a041f96497fd3a4",
+            "optimizer": "6add4fb7d58d75583c3aabc2f2acb11c8f201d41cbaab06eaa02cb1c1bfa385c",
+            "rng": "09c5e372048b3ab42086e83ef9a1da9db7cc45a4aee730b69316be5fc9c3a9d1"
+          },
+          "losses": [
+            1.6072471141815186
+          ],
+          "model_sha256": "0d269f0cd4e6f3016d747b28514c219689720139524c1ae09879d593126024d6",
+          "optimizer_sha256": "40eba5809427a42940de17953460892071d097b26d9ab280fbb7a5da2d847846",
+          "score_tensor_sha256": "5eb21f25db38ffe7b1b7e3151f5124344b0fa084d1e7d61748b50a2b24593de8"
+        }
+      ],
+      "comparisons": [
+        {
+          "reference": 0,
+          "repeat": 1,
+          "pre_states_exact": true,
+          "loss_exact": true,
+          "model_exact": false,
+          "optimizer_exact": false,
+          "scores_exact": false,
+          "max_parameter_abs_difference": 7.450580596923828e-09,
+          "max_score_abs_difference": 2.6226043701171875e-06
+        },
+        {
+          "reference": 0,
+          "repeat": 2,
+          "pre_states_exact": true,
+          "loss_exact": true,
+          "model_exact": false,
+          "optimizer_exact": false,
+          "scores_exact": false,
+          "max_parameter_abs_difference": 1.862645149230957e-09,
+          "max_score_abs_difference": 2.6226043701171875e-06
+        }
+      ]
+    },
+    {
+      "cudnn_deterministic": true,
+      "cudnn_benchmark": false,
+      "runs": [
+        {
+          "repeat": 0,
+          "pre": {
+            "model": "8a95ff4ab5c668fd15d67e4b5cddd4c3799329eb68427f145a041f96497fd3a4",
+            "optimizer": "6add4fb7d58d75583c3aabc2f2acb11c8f201d41cbaab06eaa02cb1c1bfa385c",
+            "rng": "09c5e372048b3ab42086e83ef9a1da9db7cc45a4aee730b69316be5fc9c3a9d1"
+          },
+          "losses": [
+            1.6072471141815186
+          ],
+          "model_sha256": "41527e099077a9b10daa8024a05f43bed183791dc1538446fc332c8922c47328",
+          "optimizer_sha256": "7de68919eec00a4ad49bebc2ce069835820ae8046972313f465aedcf4320e5d7",
+          "score_tensor_sha256": "e12a7720454616200c05341a5d47c84dbb12633fa4015d324ab60027a326610e"
+        },
+        {
+          "repeat": 1,
+          "pre": {
+            "model": "8a95ff4ab5c668fd15d67e4b5cddd4c3799329eb68427f145a041f96497fd3a4",
+            "optimizer": "6add4fb7d58d75583c3aabc2f2acb11c8f201d41cbaab06eaa02cb1c1bfa385c",
+            "rng": "09c5e372048b3ab42086e83ef9a1da9db7cc45a4aee730b69316be5fc9c3a9d1"
+          },
+          "losses": [
+            1.6072471141815186
+          ],
+          "model_sha256": "41527e099077a9b10daa8024a05f43bed183791dc1538446fc332c8922c47328",
+          "optimizer_sha256": "7de68919eec00a4ad49bebc2ce069835820ae8046972313f465aedcf4320e5d7",
+          "score_tensor_sha256": "e12a7720454616200c05341a5d47c84dbb12633fa4015d324ab60027a326610e"
+        },
+        {
+          "repeat": 2,
+          "pre": {
+            "model": "8a95ff4ab5c668fd15d67e4b5cddd4c3799329eb68427f145a041f96497fd3a4",
+            "optimizer": "6add4fb7d58d75583c3aabc2f2acb11c8f201d41cbaab06eaa02cb1c1bfa385c",
+            "rng": "09c5e372048b3ab42086e83ef9a1da9db7cc45a4aee730b69316be5fc9c3a9d1"
+          },
+          "losses": [
+            1.6072471141815186
+          ],
+          "model_sha256": "41527e099077a9b10daa8024a05f43bed183791dc1538446fc332c8922c47328",
+          "optimizer_sha256": "7de68919eec00a4ad49bebc2ce069835820ae8046972313f465aedcf4320e5d7",
+          "score_tensor_sha256": "e12a7720454616200c05341a5d47c84dbb12633fa4015d324ab60027a326610e"
+        }
+      ],
+      "comparisons": [
+        {
+          "reference": 0,
+          "repeat": 1,
+          "pre_states_exact": true,
+          "loss_exact": true,
+          "model_exact": true,
+          "optimizer_exact": true,
+          "scores_exact": true,
+          "max_parameter_abs_difference": 0.0,
+          "max_score_abs_difference": 0.0
+        },
+        {
+          "reference": 0,
+          "repeat": 2,
+          "pre_states_exact": true,
+          "loss_exact": true,
+          "model_exact": true,
+          "optimizer_exact": true,
+          "scores_exact": true,
+          "max_parameter_abs_difference": 0.0,
+          "max_score_abs_difference": 0.0
+        }
+      ]
+    }
+  ],
+  "interpretation": "Check whether missing cuDNN deterministic flag explains repeat failure; candidate repair only, no grid restart authorized by this diagnostic"
+}

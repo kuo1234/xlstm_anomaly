@@ -1,0 +1,2 @@
+3000_abrupt_spike_11 seconds 2.6962623079307377
+{'dry_run': '3000_abrupt_spike_11', 'dry_seconds': 2.6962623079307377, 'estimated_total_seconds': 4397.704878583085, 'conservative_factor': 2, 'remaining_pairs': 799, 'limit_seconds': 86400, 'status': 'PASS', 'training_seconds': 83.68518589390442}

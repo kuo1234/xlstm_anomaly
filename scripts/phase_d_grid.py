@@ -100,6 +100,7 @@ def run(source,scenario,condition,seed):
 
 
 def check():
+    assert not (REPORT/'execution_stop.json').exists(), 'Phase D stopped: versioned repair and review required; do not resume quarantined grid'
     authorize()
     assert json.loads((REPORT/'operator_parity.json').read_text())['status']=='PASS'
     manifest=json.loads((REPORT/'synthetic_backbone_manifest.json').read_text())

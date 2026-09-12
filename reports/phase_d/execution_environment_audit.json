@@ -1,0 +1,16 @@
+{
+  "binary_version_reference_sha256": "f32c4fe7402172b61ac77ae79c0a0890139cb200ab96233a39c1230417b1ec39",
+  "captured_D0_environment_sha256": "5d9f7db313d3ba78820c59f43fda53364cedd7f94bff219ee233916b223bca5e",
+  "reference_commit_field_note": "environment.json was produced by reused C-v2 recorder and retains a8e0730 reference; actual Phase D prospective commit is9018e86",
+  "D0_native_flags": "Native main calls set_seeds: cudnn.deterministic=True and benchmark=False",
+  "synthetic_training_flags": "Official set_seeds called per seed before training and SANA initialization",
+  "synthetic_grid_flags": {
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false,
+    "deterministic_algorithms": false,
+    "float32_matmul_precision": "highest"
+  },
+  "mismatch": "Same package versions are insufficient: synthetic fresh-process restore_rng omitted backend determinism flags",
+  "prospective_commit": "9018e86",
+  "production_grid_repaired": false
+}

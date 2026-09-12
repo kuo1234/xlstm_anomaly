@@ -1,0 +1,32 @@
+{
+  "status": "STOP_WITH_EVIDENCE_SEALED",
+  "native_buffer_order_independently_reconstructed_exact": true,
+  "native_full_run_scores_final_model_and_all_audit_events_match_sealed_control": true,
+  "native_next_segment_independently_reconstructed_exact": true,
+  "cpu_buffer_tests": {
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "status": "PASS",
+    "model_outcomes_used": false
+  },
+  "statistics_unit_tests": "PASS zero/constant-difference bootstrap/sign-flip and Holm fixtures; no experimental statistics evaluated",
+  "synthetic_default_repeat": "FAIL",
+  "synthetic_deterministic_flag_diagnostic": "PASS3/3 repeats for one c10 buffer, not blanket validation",
+  "exact_buffer_sha256": "0f9320e24abef8a19aaba04947ddbbc20f6941e58c366fa0e29f5a137933e665",
+  "source_hashes": {
+    "scripts/phase_d_backbone.py": "1379033d1e8140fc7fd5baba789b17e39d7b006b19a334699605a27e156f7dff",
+    "scripts/phase_d_buffers.py": "30e325162413c4a9f1ecf627193973cc6d8713ea6aacc38fc9ba9633792f6a30",
+    "scripts/phase_d_finalize.py": "6cf6b6443fb721465c08de2da378b46582eb7c57bf409d2f5d8e1c378bf2595a",
+    "scripts/phase_d_grid.py": "77cd254b8232c12a6cb2179dc917633600bb5caa8c90a6a43a7058130d391bc2",
+    "scripts/phase_d_integrity.py": "cd4ff4047e4f6d93c6360a40384effba3447902fce9f915e1be04ddfbe3130f9",
+    "scripts/phase_d_launch.py": "7876f313118ff570442dfe0c46281277251a0e1a280033662c376c4cbc1eb90b",
+    "scripts/phase_d_operator.py": "1ea6263990691bd2358fff4e32b9f9517e4be56fe199fb673ead13f16a18f24c",
+    "scripts/phase_d_repeat_diagnostic.py": "dba090152eaf822d5b064e3ed2076ce5e88599138ea7ec7976013830e28d34aa",
+    "scripts/phase_d_seal_backbones.py": "d0c06a8e88bb5f48823cb43d302ef579bcca98ac4356e6988124521d76f3cf61",
+    "scripts/phase_d_statistics.py": "4853a60dec6a3963731a6e86e0c5160b80ab6157ace74c7d2a7823ad0e670784",
+    "scripts/phase_d_stop_seal.py": "8bea5580fb9330ca71eb4fb978f28c48feaceab4e34d7e098ea7dd53e58a3ff8",
+    "scripts/test_phase_d.py": "3e67e35b1b5809e185abc1e3f67aed5dd8172333e4e8c1a2b7d4ed178f8db015"
+  },
+  "previous_C_reports_and_official_code_unchanged": true
+}

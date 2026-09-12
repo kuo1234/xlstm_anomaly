@@ -1,0 +1,14 @@
+{
+  "status": "STOP_IMPLEMENTATION_VALIDITY",
+  "reason": "Synthetic fresh-process grid restored RNG but omitted official cudnn.deterministic=True execution flag; identical-buffer repetition changed tensors and scores.",
+  "official_real_operator_parity": "PASS_BITWISE",
+  "synthetic_repeat_parity": "FAIL_AS_EXECUTED",
+  "H1_harm": "INCONCLUSIVE_NOT_VALIDLY_TESTED",
+  "completed_pairs_quarantined": 83,
+  "completed_rows_quarantined": 498,
+  "partial_pair_directories": 1,
+  "grid_relaunch_authorized": false,
+  "minimal_proposed_repair": "Versioned harness must set/check/save/restore native deterministic backend flags in addition to model/optimizer/RNG; require D8 repeat and label-permutation parity before dry-run/grid; rerun every arm into new versioned paths.",
+  "diagnostic_only": "Three identical-buffer replays per deterministic flag condition; no AP/harm comparisons computed. Deterministic=True gave bitwise agreement in this bounded diagnostic only.",
+  "do_not_reinterpret": "Not a modeling-hypothesis STOP. Small numerical differences do not authorize ignoring exact parity or using quarantined results."
+}

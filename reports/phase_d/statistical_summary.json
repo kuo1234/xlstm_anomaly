@@ -1,0 +1,27 @@
+{
+  "D0": "STOP_IMPLEMENTATION_VALIDITY",
+  "real_official_operator_parity": "PASS_BITWISE",
+  "synthetic_repeat_parity": "FAIL",
+  "H1_harm": "INCONCLUSIVE_NOT_VALIDLY_TESTED",
+  "qualifying_comparisons": [],
+  "qualifying_note": "Not evaluated, not evidence that no comparison would qualify",
+  "statistical_tests_on_harm": "NOT_COMPUTED",
+  "curves": "No valid contamination-performance curves; partial results quarantined",
+  "complete_rows": 498,
+  "planned_rows": 4800,
+  "complete_pairs": 83,
+  "partial_pairs": [
+    "3001_abrupt_spike_44"
+  ],
+  "no_later_phase_run": true,
+  "grid_process_stopped": true,
+  "complete_pair_seconds": 126.27273959061131,
+  "complete_arm_seconds": 100.17035328270867,
+  "complete_arm_peak_allocated_bytes": 182235648,
+  "complete_arm_peak_reserved_bytes": 218103808,
+  "logged_process_seconds_sum": 297.51798540866,
+  "process_time_note": "Includes overlapping training processes, setup, data generation and diagnostic overhead; not total elapsed or pure GPU-kernel time",
+  "no_outcomes_discarded": true,
+  "no_threshold_relaxation": true,
+  "no_automatic_repair_or_grid_restart": true
+}

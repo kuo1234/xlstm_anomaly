@@ -1,0 +1,376 @@
+{
+  "tag": "3000_abrupt_collective_55",
+  "rows": [
+    {
+      "source": 3000,
+      "scenario": "abrupt",
+      "condition": "collective",
+      "detector_seed": 55,
+      "c": null,
+      "metrics": {
+        "n": 8236,
+        "positives": 941,
+        "negatives": 7295,
+        "prevalence": 0.11425449247207382,
+        "recall": 0.9936238044633369,
+        "fpr": 0.9287183002056203,
+        "ap": 0.4204013580253128,
+        "pr_auc_trapezoidal": 0.4200728207611284,
+        "auroc": 0.7940518705036494
+      },
+      "stress_metrics": {
+        "n": 1033,
+        "positives": 1033,
+        "negatives": 0,
+        "prevalence": 1.0,
+        "recall": 1.0,
+        "fpr": null,
+        "ap": 1.0,
+        "pr_auc_trapezoidal": 1.0,
+        "auroc": null
+      },
+      "clean_normal_fpr": 0.9287183002056203,
+      "fixed_threshold": 1.1408777236938472,
+      "parameter_delta_l2": 0.0,
+      "update_losses": [],
+      "optimizer_steps": 0,
+      "loss_exposures": 0,
+      "anomalous_loss_exposures": 0,
+      "score_summary": {
+        "mean": 1.851017951965332,
+        "std": 0.565951943397522,
+        "quantiles": [
+          0.6508217453956604,
+          1.4429410099983215,
+          1.764237880706787,
+          2.156082034111023,
+          2.878628730773926,
+          5.508642673492432
+        ],
+        "mean_delta_vs_no_update": 0.0,
+        "mean_abs_delta_vs_no_update": 0.0
+      },
+      "buffer_sha256": null,
+      "pre_model_sha256": "e6836bc426dd61b27cb4920b8dee8d0fc5e69adf6e6f2e8ebe498c6a94f7122d",
+      "pre_optimizer_sha256": "6add4fb7d58d75583c3aabc2f2acb11c8f201d41cbaab06eaa02cb1c1bfa385c",
+      "pre_rng_sha256": "fc5bb5a387d56807dd499d551954e9b86382e9d87a1cf78ef4b72bf18e7aaac2",
+      "final_model_sha256": "e6836bc426dd61b27cb4920b8dee8d0fc5e69adf6e6f2e8ebe498c6a94f7122d",
+      "score_path": "data/phase_d/grid/3000_abrupt_collective_55/scores_no_update.npy",
+      "score_sha256": "9ec0ac00631598a447bd3789f15992c75847d17351789705c2941d7acb8cbce8",
+      "runtime_seconds": 0.19075749069452286,
+      "peak_gpu_allocated_bytes": 119881728,
+      "peak_gpu_reserved_bytes": 218103808
+    },
+    {
+      "source": 3000,
+      "scenario": "abrupt",
+      "condition": "collective",
+      "detector_seed": 55,
+      "c": 0,
+      "metrics": {
+        "n": 8236,
+        "positives": 941,
+        "negatives": 7295,
+        "prevalence": 0.11425449247207382,
+        "recall": 0.9904357066950054,
+        "fpr": 0.9098012337217272,
+        "ap": 0.4182587991999478,
+        "pr_auc_trapezoidal": 0.41793040071595716,
+        "auroc": 0.7942542131036135
+      },
+      "stress_metrics": {
+        "n": 1033,
+        "positives": 1033,
+        "negatives": 0,
+        "prevalence": 1.0,
+        "recall": 1.0,
+        "fpr": null,
+        "ap": 1.0,
+        "pr_auc_trapezoidal": 1.0,
+        "auroc": null
+      },
+      "clean_normal_fpr": 0.9098012337217272,
+      "fixed_threshold": 1.1408777236938472,
+      "parameter_delta_l2": 0.05921254560388211,
+      "update_losses": [
+        1.6353164911270142
+      ],
+      "optimizer_steps": 1,
+      "loss_exposures": 100,
+      "anomalous_loss_exposures": 0,
+      "score_summary": {
+        "mean": 1.8044325113296509,
+        "std": 0.5611862540245056,
+        "quantiles": [
+          0.6068496704101562,
+          1.401258111000061,
+          1.720837652683258,
+          2.1098415851593018,
+          2.8271526098251343,
+          5.411313533782959
+        ],
+        "mean_delta_vs_no_update": -0.046585287898778915,
+        "mean_abs_delta_vs_no_update": 0.04701017588376999
+      },
+      "buffer_sha256": "29168b02a8e7ed2d99c0b68a2d31d2b00e19e186a5612637b6b9fc5078923d46",
+      "pre_model_sha256": "e6836bc426dd61b27cb4920b8dee8d0fc5e69adf6e6f2e8ebe498c6a94f7122d",
+      "pre_optimizer_sha256": "6add4fb7d58d75583c3aabc2f2acb11c8f201d41cbaab06eaa02cb1c1bfa385c",
+      "pre_rng_sha256": "fc5bb5a387d56807dd499d551954e9b86382e9d87a1cf78ef4b72bf18e7aaac2",
+      "final_model_sha256": "6b69b07c86a72bb9d42aeadbdbfaa97f57c525b6934ce6859b78a9a53fdceb7f",
+      "score_path": "data/phase_d/grid/3000_abrupt_collective_55/scores_0.npy",
+      "score_sha256": "d3f90e3c5820f82ae5ad4b80a276b87cf7ff2b29c7099a17a6655016e79e1b32",
+      "runtime_seconds": 0.1983039230108261,
+      "peak_gpu_allocated_bytes": 172025344,
+      "peak_gpu_reserved_bytes": 218103808
+    },
+    {
+      "source": 3000,
+      "scenario": "abrupt",
+      "condition": "collective",
+      "detector_seed": 55,
+      "c": 5,
+      "metrics": {
+        "n": 8236,
+        "positives": 941,
+        "negatives": 7295,
+        "prevalence": 0.11425449247207382,
+        "recall": 0.9904357066950054,
+        "fpr": 0.9096641535298149,
+        "ap": 0.418261523404784,
+        "pr_auc_trapezoidal": 0.41793336268748377,
+        "auroc": 0.7942630264422009
+      },
+      "stress_metrics": {
+        "n": 1033,
+        "positives": 1033,
+        "negatives": 0,
+        "prevalence": 1.0,
+        "recall": 1.0,
+        "fpr": null,
+        "ap": 1.0,
+        "pr_auc_trapezoidal": 1.0,
+        "auroc": null
+      },
+      "clean_normal_fpr": 0.9096641535298149,
+      "fixed_threshold": 1.1408777236938472,
+      "parameter_delta_l2": 0.05930472792882506,
+      "update_losses": [
+        1.6354774236679077
+      ],
+      "optimizer_steps": 1,
+      "loss_exposures": 100,
+      "anomalous_loss_exposures": 5,
+      "score_summary": {
+        "mean": 1.8043625354766846,
+        "std": 0.56117844581604,
+        "quantiles": [
+          0.6069086194038391,
+          1.4012563824653625,
+          1.7207608222961426,
+          2.1098085045814514,
+          2.8273181319236755,
+          5.411443710327148
+        ],
+        "mean_delta_vs_no_update": -0.046655457466840744,
+        "mean_abs_delta_vs_no_update": 0.047082047909498215
+      },
+      "buffer_sha256": "dbb7d229b78f29209c36834303d03d4f1dc115c317a5ed429ee18c2cdafccf4e",
+      "pre_model_sha256": "e6836bc426dd61b27cb4920b8dee8d0fc5e69adf6e6f2e8ebe498c6a94f7122d",
+      "pre_optimizer_sha256": "6add4fb7d58d75583c3aabc2f2acb11c8f201d41cbaab06eaa02cb1c1bfa385c",
+      "pre_rng_sha256": "fc5bb5a387d56807dd499d551954e9b86382e9d87a1cf78ef4b72bf18e7aaac2",
+      "final_model_sha256": "3e1ae56d06ad8ea42e8eaafb9ebe571608332fe4adb8e631990f5839b73cf252",
+      "score_path": "data/phase_d/grid/3000_abrupt_collective_55/scores_5.npy",
+      "score_sha256": "b38580869877d2b2a3eb0f7d72b74c2b9b07f2b0790dab1cefb0f6ae73b52487",
+      "runtime_seconds": 0.1981960190460086,
+      "peak_gpu_allocated_bytes": 182235648,
+      "peak_gpu_reserved_bytes": 218103808
+    },
+    {
+      "source": 3000,
+      "scenario": "abrupt",
+      "condition": "collective",
+      "detector_seed": 55,
+      "c": 10,
+      "metrics": {
+        "n": 8236,
+        "positives": 941,
+        "negatives": 7295,
+        "prevalence": 0.11425449247207382,
+        "recall": 0.9904357066950054,
+        "fpr": 0.9095270733379027,
+        "ap": 0.4182392698427038,
+        "pr_auc_trapezoidal": 0.4179107528345872,
+        "auroc": 0.7942573451164999
+      },
+      "stress_metrics": {
+        "n": 1033,
+        "positives": 1033,
+        "negatives": 0,
+        "prevalence": 1.0,
+        "recall": 1.0,
+        "fpr": null,
+        "ap": 1.0,
+        "pr_auc_trapezoidal": 1.0,
+        "auroc": null
+      },
+      "clean_normal_fpr": 0.9095270733379027,
+      "fixed_threshold": 1.1408777236938472,
+      "parameter_delta_l2": 0.05950492164718786,
+      "update_losses": [
+        1.6420443058013916
+      ],
+      "optimizer_steps": 1,
+      "loss_exposures": 100,
+      "anomalous_loss_exposures": 10,
+      "score_summary": {
+        "mean": 1.8042621612548828,
+        "std": 0.5611650943756104,
+        "quantiles": [
+          0.6066638827323914,
+          1.4011209309101105,
+          1.7205129265785217,
+          2.1101038455963135,
+          2.827108383178711,
+          5.409738063812256
+        ],
+        "mean_delta_vs_no_update": -0.046755559742450714,
+        "mean_abs_delta_vs_no_update": 0.047184672206640244
+      },
+      "buffer_sha256": "e6d802cca760435009b607a343b9aa143aa4bb6496353c8a4ce41966c66a55bc",
+      "pre_model_sha256": "e6836bc426dd61b27cb4920b8dee8d0fc5e69adf6e6f2e8ebe498c6a94f7122d",
+      "pre_optimizer_sha256": "6add4fb7d58d75583c3aabc2f2acb11c8f201d41cbaab06eaa02cb1c1bfa385c",
+      "pre_rng_sha256": "fc5bb5a387d56807dd499d551954e9b86382e9d87a1cf78ef4b72bf18e7aaac2",
+      "final_model_sha256": "37fecb8403c73c34a851e677df2fdcf8d49c558621f69e303df9f483f95e850a",
+      "score_path": "data/phase_d/grid/3000_abrupt_collective_55/scores_10.npy",
+      "score_sha256": "2980c8ecc318c9684ac206c946d456fb57973876962899ac61b995ae7baf5598",
+      "runtime_seconds": 0.1985534429550171,
+      "peak_gpu_allocated_bytes": 182235648,
+      "peak_gpu_reserved_bytes": 218103808
+    },
+    {
+      "source": 3000,
+      "scenario": "abrupt",
+      "condition": "collective",
+      "detector_seed": 55,
+      "c": 20,
+      "metrics": {
+        "n": 8236,
+        "positives": 941,
+        "negatives": 7295,
+        "prevalence": 0.11425449247207382,
+        "recall": 0.9904357066950054,
+        "fpr": 0.9093899931459904,
+        "ap": 0.4182020569674702,
+        "pr_auc_trapezoidal": 0.417873566409053,
+        "auroc": 0.7942537760785596
+      },
+      "stress_metrics": {
+        "n": 1033,
+        "positives": 1033,
+        "negatives": 0,
+        "prevalence": 1.0,
+        "recall": 1.0,
+        "fpr": null,
+        "ap": 1.0,
+        "pr_auc_trapezoidal": 1.0,
+        "auroc": null
+      },
+      "clean_normal_fpr": 0.9093899931459904,
+      "fixed_threshold": 1.1408777236938472,
+      "parameter_delta_l2": 0.05991429224929478,
+      "update_losses": [
+        1.6510318517684937
+      ],
+      "optimizer_steps": 1,
+      "loss_exposures": 100,
+      "anomalous_loss_exposures": 20,
+      "score_summary": {
+        "mean": 1.8040119409561157,
+        "std": 0.5611281991004944,
+        "quantiles": [
+          0.6063123345375061,
+          1.4009202420711517,
+          1.7202435731887817,
+          2.1100966930389404,
+          2.8269461393356323,
+          5.407977104187012
+        ],
+        "mean_delta_vs_no_update": -0.0470057874917984,
+        "mean_abs_delta_vs_no_update": 0.04743720218539238
+      },
+      "buffer_sha256": "f5e1ed5b665be53dc0d70aa4cc5ac39e20b37b3770dde5157a76384c13ae522c",
+      "pre_model_sha256": "e6836bc426dd61b27cb4920b8dee8d0fc5e69adf6e6f2e8ebe498c6a94f7122d",
+      "pre_optimizer_sha256": "6add4fb7d58d75583c3aabc2f2acb11c8f201d41cbaab06eaa02cb1c1bfa385c",
+      "pre_rng_sha256": "fc5bb5a387d56807dd499d551954e9b86382e9d87a1cf78ef4b72bf18e7aaac2",
+      "final_model_sha256": "5a2cb404c61bffacce9132be5a2a5344dc8b10987aaf81f960fdd4fd30a496c3",
+      "score_path": "data/phase_d/grid/3000_abrupt_collective_55/scores_20.npy",
+      "score_sha256": "d5f654eb1e0453a08469979a769bdde9ef2918ef9c7195af0bf6d819cc865895",
+      "runtime_seconds": 0.1983801149763167,
+      "peak_gpu_allocated_bytes": 182235648,
+      "peak_gpu_reserved_bytes": 218103808
+    },
+    {
+      "source": 3000,
+      "scenario": "abrupt",
+      "condition": "collective",
+      "detector_seed": 55,
+      "c": 30,
+      "metrics": {
+        "n": 8236,
+        "positives": 941,
+        "negatives": 7295,
+        "prevalence": 0.11425449247207382,
+        "recall": 0.9904357066950054,
+        "fpr": 0.9095270733379027,
+        "ap": 0.4182112621032716,
+        "pr_auc_trapezoidal": 0.4178819406414191,
+        "auroc": 0.7942645560298895
+      },
+      "stress_metrics": {
+        "n": 1033,
+        "positives": 1033,
+        "negatives": 0,
+        "prevalence": 1.0,
+        "recall": 1.0,
+        "fpr": null,
+        "ap": 1.0,
+        "pr_auc_trapezoidal": 1.0,
+        "auroc": null
+      },
+      "clean_normal_fpr": 0.9095270733379027,
+      "fixed_threshold": 1.1408777236938472,
+      "parameter_delta_l2": 0.06025019158294287,
+      "update_losses": [
+        1.6628775596618652
+      ],
+      "optimizer_steps": 1,
+      "loss_exposures": 100,
+      "anomalous_loss_exposures": 30,
+      "score_summary": {
+        "mean": 1.8038400411605835,
+        "std": 0.561119794845581,
+        "quantiles": [
+          0.6065511703491211,
+          1.400507628917694,
+          1.7201082706451416,
+          2.1100379824638367,
+          2.826893150806427,
+          5.406285285949707
+        ],
+        "mean_delta_vs_no_update": -0.04717770218849182,
+        "mean_abs_delta_vs_no_update": 0.047611042857170105
+      },
+      "buffer_sha256": "fc8dea9d15cbd27d0e023fcfc9dd0122318d6121bec28310ff101837f14e582d",
+      "pre_model_sha256": "e6836bc426dd61b27cb4920b8dee8d0fc5e69adf6e6f2e8ebe498c6a94f7122d",
+      "pre_optimizer_sha256": "6add4fb7d58d75583c3aabc2f2acb11c8f201d41cbaab06eaa02cb1c1bfa385c",
+      "pre_rng_sha256": "fc5bb5a387d56807dd499d551954e9b86382e9d87a1cf78ef4b72bf18e7aaac2",
+      "final_model_sha256": "31074133dacc1cb45431066760f120386eebda9bcb477017fb58e4f03241e2fc",
+      "score_path": "data/phase_d/grid/3000_abrupt_collective_55/scores_30.npy",
+      "score_sha256": "fe790cff9c03752ced3b1363f5316daac203132ba1ad68b80d13fa7687679b08",
+      "runtime_seconds": 0.1985314437188208,
+      "peak_gpu_allocated_bytes": 182235648,
+      "peak_gpu_reserved_bytes": 218103808
+    }
+  ],
+  "total_seconds": 1.4620919558219612
+}
