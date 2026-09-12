@@ -1,4 +1,6 @@
-# Revised M0 protocol v2 — pre-experiment amendment
+# Revised M0 protocol v3 — evidence-tier amendment
+
+The versioned [A1/A2 amendment](m0_amendment_v3.md) supersedes ONLY the Phase A eligibility/selection, TSB inference unit, and Phase B authorization clauses below. The v2 text is retained as historical context where superseded. A1 is the unchanged sealed SMD anchor; A2 is released-series external stress testing with family-clustered inference and explicit unresolved native provenance. H1–H5 thresholds and all causal/synthetic safeguards are unchanged. No GPU experiment or timing pilot is authorized by v3.
 
 Amendment 2026-09-12: accepted red-check requirements supersede v1 H4/H5, H1 operator/realism, correlation construction and H3a feature capacity. This amendment precedes model-outcome inspection. Phase A eligibility audit, sealed manifest and causal evaluator scaffolding are authorized after this amendment is committed and pushed; no long GPU runs in this amendment task.
 
