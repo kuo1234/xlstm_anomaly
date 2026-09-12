@@ -15,7 +15,9 @@ OLD = Path('reports/phase_a')
 OUT = Path('reports/phase_a_v3')
 
 
-def select(rows, relations):
+def select(rows, relations, objective_version=3):
+    if objective_version not in (3,4):
+        raise ValueError('Unknown frozen assignment version')
     rows = sorted([r for r in rows if r['eligible_v3']], key=lambda r: r['file'])
     parent = {r['file']: r['file'] for r in rows}
     def root(x):
@@ -55,9 +57,10 @@ def select(rows, relations):
         if not fcount:
             raise RuntimeError(f'No eligible family in {b}')
         diversity = min(3, fcount)
-        cap = math.ceil(3/diversity)
+        cap = math.ceil(3/diversity) if objective_version==3 else 3
         add([(('x', b, r['file']), 1) for r in pool], 3, 3)
-        add([(('y', b, f), 1) for f in families], diversity, diversity)
+        if objective_version==3:
+            add([(('y', b, f), 1) for f in families], diversity, diversity)
         for f in families:
             members = [(('x', b, r['file']), 1) for r in pool if r['source_family']==f]
             add(members+[(('y', b, f), -cap)], -np.inf, 0)
@@ -90,6 +93,11 @@ def select(rows, relations):
         raise RuntimeError('STOP: no globally feasible assignment')
     optimum = int(diversity @ x)
     constraints.append((diversity, optimum, optimum))
+    within = vector([(('y', b, f), 1) for b in BUCKETS for f in families])
+    if objective_version==4:
+        x = solve(-within)
+        within_optimum = int(within @ x)
+        constraints.append((within, within_optimum, within_optimum))
     squares = vector([(('z', f, k), 2*k-1) for f in families for k in range(1,13)])
     x = solve(squares)
     square_optimum = int(squares @ x)
@@ -112,9 +120,15 @@ def select(rows, relations):
     for b in BUCKETS:
         count = Counter(r['source_family'] for r in selected if r['selection_bucket']==b)
         available = {r['source_family'] for r in rows if b in r['tags']}
-        assert sum(count.values())==3 and len(count)==min(3,len(available))
-        assert max(count.values())<=math.ceil(3/min(3,len(available)))
+        assert sum(count.values())==3
+        if objective_version==3:
+            assert len(count)==min(3,len(available))
+            assert max(count.values())<=math.ceil(3/min(3,len(available)))
+    if objective_version==4:
+        assert sum(len({r['source_family'] for r in selected if r['selection_bucket']==b}) for b in BUCKETS)==within_optimum
     return selected, dict(distinct_families=optimum, sum_squared_family_counts=square_optimum,
+                          within_bucket_unique_family_sum=int(within @ x),
+                          bucket_family_counts={b:dict(Counter(r['source_family'] for r in selected if r['selection_bucket']==b)) for b in BUCKETS},
                           family_counts=dict(counts), repeated_families={k:v for k,v in counts.items() if v>1})
 
 

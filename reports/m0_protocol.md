@@ -1,4 +1,6 @@
-# Revised M0 protocol v3 — evidence-tier amendment
+# Revised M0 protocol v4 — final A2 assignment amendment
+
+The [v4 amendment](m0_amendment_v4.md) supersedes v3's hard within-bucket family-diversity constraint with the user-approved global/within-bucket/squared-count/lexicographic objectives, and clarifies unresolved-provenance summary denominators. Eligibility, family-first inference and H1–H5 remain unchanged. It authorizes the full 125-case CPU generator validation only; no model/GPU work or Phase C.
 
 The versioned [A1/A2 amendment](m0_amendment_v3.md) supersedes ONLY the Phase A eligibility/selection, TSB inference unit, and Phase B authorization clauses below. The v2 text is retained as historical context where superseded. A1 is the unchanged sealed SMD anchor; A2 is released-series external stress testing with family-clustered inference and explicit unresolved native provenance. H1–H5 thresholds and all causal/synthetic safeguards are unchanged. No GPU experiment or timing pilot is authorized by v3.
 
