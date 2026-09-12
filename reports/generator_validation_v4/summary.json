@@ -1,0 +1,25 @@
+{
+  "base_cases": 125,
+  "passed": 125,
+  "failed": 0,
+  "fold_cases": {
+    "train": 50,
+    "validation": 25,
+    "test": 50
+  },
+  "condition_checks": 625,
+  "source_fold_separation": true,
+  "elapsed_seconds": 188.76738612400368,
+  "python": "3.12.3",
+  "numpy": "1.26.4",
+  "scipy": "1.17.1",
+  "scope": "CPU validation only; no model results, scoring, fitting, or GPU training",
+  "array_hash_encoding": "SHA256(sorted-key JSON shape/dtype + newline + C-order array bytes)",
+  "artifact_policy": "Temporary serialized arrays removed after validation; all hashes retained; regenerate from sealed code/config",
+  "code_config_sha256": {
+    "m0/synthetic.py": "6d9243142c7cb95c2c2f5aef2ba8ca7493b369ea754e3405f96afbccec7faac2",
+    "m0/correlation.py": "7211f3e50c12d36864a467933bca093e3ba113f68ea189afa13866b9b8b19dd1",
+    "configs/synthetic_v1.json": "5b1fb7858cf144db3615b91a6a22f21fb52c858fa9669082beca67c26ec8338f",
+    "scripts/validate_generator_full.py": "52aa000a794b307807d2b7dfb7a98ccf3b5a53c3050c3728b0d53696d3d90dc2"
+  }
+}

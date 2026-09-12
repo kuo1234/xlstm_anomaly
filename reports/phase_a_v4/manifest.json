@@ -1,0 +1,669 @@
+[
+  {
+    "file": "154_SMAP_id_11_Sensor_tr_2117_1st_4770.csv",
+    "tags": [
+      "continuous"
+    ],
+    "strad_commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "metadata_sha256": "e109da612a90ce3d7b2fcdf51f1a0982358b889ad38f49e85d5049ba0d2eef5c",
+    "archive_url": "https://www.thedatum.org/datasets/TSB-AD-M.zip",
+    "source_group": null,
+    "provenance_status": "unresolved_original_trace_mapping",
+    "D": 25,
+    "N": 8469,
+    "cutoff": 2117,
+    "fit_interval": [
+      0,
+      1693
+    ],
+    "calibration_interval": [
+      1693,
+      2117
+    ],
+    "test_interval": [
+      2117,
+      8469
+    ],
+    "finite_observations": true,
+    "binary_labels": true,
+    "training_anomaly_count": 0,
+    "first_actual_anomaly": 4770,
+    "constant_channels": 7,
+    "numeric_exclusions": [],
+    "numeric_pass": true,
+    "feature_sha256": "e9b21f0bff03ba955eac712ff02532fdd6218663f6b96ecf20099f72b3f99800",
+    "labels_sha256": "02288750b7ce7ce8932c0af6943d926d011a7e0ccfa3476f5561dfe0cdbef764",
+    "archive_member": "TSB-AD-M/154_SMAP_id_11_Sensor_tr_2117_1st_4770.csv",
+    "raw_sha256": "532b19dfa64a6dea7964afc7204cdb60df4c8fd82579c6aed0167f217b30da3e",
+    "cutoff_provenance": "https://github.com/TheDatumOrg/TSB-AD/blob/6beac72e11d1155ade40870492c00d0d1cfdcaaf/Datasets/README.md",
+    "benchmark_trace": "154_SMAP_id_11_Sensor_tr_2117_1st_4770.csv",
+    "upstream_dataset": "SMAP",
+    "original_dataset_catalog_url": "https://github.com/khundman/telemanom/blob/master/labeled_anomalies.csv",
+    "source_catalog_sha256": "9eb61de65ac2a8e48dd07f55f6072e21b2c8fe80090e2f27d4d619428cffbc70",
+    "archive_sha256_reference": "downloads.json: data/phase_a/TSB-AD-M.zip",
+    "cutoff_semantics": "Original TSB-released prefix cutoff, not necessarily the native source's training partition.",
+    "source_mapping_note": "Catalog identifies dataset only, not native trace/channel/crop transformation; unknown identity cannot qualify.",
+    "exclusions": [
+      "unresolved_original_trace_mapping"
+    ],
+    "eligible": false,
+    "source_family": "SMAP",
+    "native_provenance_unresolved": true,
+    "exclusions_v3": [],
+    "eligible_v3": true,
+    "selection_bucket": "continuous"
+  },
+  {
+    "file": "171_SWaT_id_1_Sensor_tr_3749_1st_9522.csv",
+    "tags": [
+      "continuous",
+      "change_point"
+    ],
+    "strad_commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "metadata_sha256": "e109da612a90ce3d7b2fcdf51f1a0982358b889ad38f49e85d5049ba0d2eef5c",
+    "archive_url": "https://www.thedatum.org/datasets/TSB-AD-M.zip",
+    "source_group": null,
+    "provenance_status": "unresolved_original_trace_mapping",
+    "D": 66,
+    "N": 14996,
+    "cutoff": 3749,
+    "fit_interval": [
+      0,
+      2999
+    ],
+    "calibration_interval": [
+      2999,
+      3749
+    ],
+    "test_interval": [
+      3749,
+      14996
+    ],
+    "finite_observations": true,
+    "binary_labels": true,
+    "training_anomaly_count": 0,
+    "first_actual_anomaly": 9522,
+    "constant_channels": 23,
+    "numeric_exclusions": [],
+    "numeric_pass": true,
+    "feature_sha256": "bb6e2361140f2f6aad205aca1b0f9fc8ea386050124db8525453cb4f988f811f",
+    "labels_sha256": "558e8cb7c5c225b42c312e7b8e83ab0f5eac3f128c72fd1a4aba3b81ffc94875",
+    "archive_member": "TSB-AD-M/171_SWaT_id_1_Sensor_tr_3749_1st_9522.csv",
+    "raw_sha256": "91f3a03ba1ffcd9e4584a1f98c8ec0948f6d12ff80131d28111befb1c50a8c2b",
+    "cutoff_provenance": "https://github.com/TheDatumOrg/TSB-AD/blob/6beac72e11d1155ade40870492c00d0d1cfdcaaf/Datasets/README.md",
+    "benchmark_trace": "171_SWaT_id_1_Sensor_tr_3749_1st_9522.csv",
+    "upstream_dataset": "SWaT",
+    "original_dataset_catalog_url": "https://itrust.sutd.edu.sg/itrust-labs_datasets/dataset_info/",
+    "source_catalog_sha256": "9eb61de65ac2a8e48dd07f55f6072e21b2c8fe80090e2f27d4d619428cffbc70",
+    "archive_sha256_reference": "downloads.json: data/phase_a/TSB-AD-M.zip",
+    "cutoff_semantics": "Original TSB-released prefix cutoff, not necessarily the native source's training partition.",
+    "source_mapping_note": "Catalog identifies dataset only, not native trace/channel/crop transformation; unknown identity cannot qualify.",
+    "exclusions": [
+      "unresolved_original_trace_mapping"
+    ],
+    "eligible": false,
+    "source_family": "SWaT",
+    "native_provenance_unresolved": true,
+    "exclusions_v3": [],
+    "eligible_v3": true,
+    "selection_bucket": "continuous"
+  },
+  {
+    "file": "173_GECCO_id_1_Sensor_tr_16165_1st_16265.csv",
+    "tags": [
+      "continuous"
+    ],
+    "strad_commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "metadata_sha256": "e109da612a90ce3d7b2fcdf51f1a0982358b889ad38f49e85d5049ba0d2eef5c",
+    "archive_url": "https://www.thedatum.org/datasets/TSB-AD-M.zip",
+    "source_group": null,
+    "provenance_status": "unresolved_original_trace_mapping",
+    "D": 9,
+    "N": 138521,
+    "cutoff": 16165,
+    "fit_interval": [
+      0,
+      12932
+    ],
+    "calibration_interval": [
+      12932,
+      16165
+    ],
+    "test_interval": [
+      16165,
+      138521
+    ],
+    "finite_observations": true,
+    "binary_labels": true,
+    "training_anomaly_count": 0,
+    "first_actual_anomaly": 16265,
+    "constant_channels": 0,
+    "numeric_exclusions": [],
+    "numeric_pass": true,
+    "feature_sha256": "96c27922d7697b7ede9464507756fb6d85b855e04fc591eb9b1ecf3f075f65c1",
+    "labels_sha256": "016ba235fae549a8d9aca76b237047aaae95a2c73871bbfc56cf0f505d16f3e5",
+    "archive_member": "TSB-AD-M/173_GECCO_id_1_Sensor_tr_16165_1st_16265.csv",
+    "raw_sha256": "f65cfcf34db8e4d7fac73e8a6d1284a381cffa92bd8fccd8f7433b709d8ed32d",
+    "cutoff_provenance": "https://github.com/TheDatumOrg/TSB-AD/blob/6beac72e11d1155ade40870492c00d0d1cfdcaaf/Datasets/README.md",
+    "benchmark_trace": "173_GECCO_id_1_Sensor_tr_16165_1st_16265.csv",
+    "upstream_dataset": "GECCO",
+    "original_dataset_catalog_url": "https://zenodo.org/records/3884398",
+    "source_catalog_sha256": "9eb61de65ac2a8e48dd07f55f6072e21b2c8fe80090e2f27d4d619428cffbc70",
+    "archive_sha256_reference": "downloads.json: data/phase_a/TSB-AD-M.zip",
+    "cutoff_semantics": "Original TSB-released prefix cutoff, not necessarily the native source's training partition.",
+    "source_mapping_note": "Catalog identifies dataset only, not native trace/channel/crop transformation; unknown identity cannot qualify.",
+    "exclusions": [
+      "unresolved_original_trace_mapping"
+    ],
+    "eligible": false,
+    "source_family": "GECCO",
+    "native_provenance_unresolved": true,
+    "exclusions_v3": [],
+    "eligible_v3": true,
+    "selection_bucket": "continuous"
+  },
+  {
+    "file": "009_MSL_id_8_Sensor_tr_714_1st_1390.csv",
+    "tags": [
+      "change_point"
+    ],
+    "strad_commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "metadata_sha256": "e109da612a90ce3d7b2fcdf51f1a0982358b889ad38f49e85d5049ba0d2eef5c",
+    "archive_url": "https://www.thedatum.org/datasets/TSB-AD-M.zip",
+    "source_group": null,
+    "provenance_status": "unresolved_original_trace_mapping",
+    "D": 55,
+    "N": 2856,
+    "cutoff": 714,
+    "fit_interval": [
+      0,
+      571
+    ],
+    "calibration_interval": [
+      571,
+      714
+    ],
+    "test_interval": [
+      714,
+      2856
+    ],
+    "finite_observations": true,
+    "binary_labels": true,
+    "training_anomaly_count": 0,
+    "first_actual_anomaly": 1390,
+    "constant_channels": 42,
+    "numeric_exclusions": [],
+    "numeric_pass": true,
+    "feature_sha256": "7c45186751e1fe8b9321010c1c3c3ce619ab96369bc7ec511c32ae6a29ea63e1",
+    "labels_sha256": "40d3bc7f403461d77465b4086fc19753180d8ea946ba6b3553fb159c241b7779",
+    "archive_member": "TSB-AD-M/009_MSL_id_8_Sensor_tr_714_1st_1390.csv",
+    "raw_sha256": "18843c9e5be378fa40bc4c7cc5a42374683c18041a7bd286c22b90388d285e07",
+    "cutoff_provenance": "https://github.com/TheDatumOrg/TSB-AD/blob/6beac72e11d1155ade40870492c00d0d1cfdcaaf/Datasets/README.md",
+    "benchmark_trace": "009_MSL_id_8_Sensor_tr_714_1st_1390.csv",
+    "upstream_dataset": "MSL",
+    "original_dataset_catalog_url": "https://www.kaggle.com/datasets/patrickfleith/nasa-anomaly-detection-dataset-smap-msl/code",
+    "source_catalog_sha256": "9eb61de65ac2a8e48dd07f55f6072e21b2c8fe80090e2f27d4d619428cffbc70",
+    "archive_sha256_reference": "downloads.json: data/phase_a/TSB-AD-M.zip",
+    "cutoff_semantics": "Original TSB-released prefix cutoff, not necessarily the native source's training partition.",
+    "source_mapping_note": "Catalog identifies dataset only, not native trace/channel/crop transformation; unknown identity cannot qualify.",
+    "exclusions": [
+      "unresolved_original_trace_mapping"
+    ],
+    "eligible": false,
+    "source_family": "MSL",
+    "native_provenance_unresolved": true,
+    "exclusions_v3": [],
+    "eligible_v3": true,
+    "selection_bucket": "change_point"
+  },
+  {
+    "file": "018_Daphnet_id_1_HumanActivity_tr_9693_1st_20732.csv",
+    "tags": [
+      "change_point"
+    ],
+    "strad_commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "metadata_sha256": "e109da612a90ce3d7b2fcdf51f1a0982358b889ad38f49e85d5049ba0d2eef5c",
+    "archive_url": "https://www.thedatum.org/datasets/TSB-AD-M.zip",
+    "source_group": null,
+    "provenance_status": "unresolved_original_trace_mapping",
+    "D": 9,
+    "N": 38774,
+    "cutoff": 9693,
+    "fit_interval": [
+      0,
+      7754
+    ],
+    "calibration_interval": [
+      7754,
+      9693
+    ],
+    "test_interval": [
+      9693,
+      38774
+    ],
+    "finite_observations": true,
+    "binary_labels": true,
+    "training_anomaly_count": 0,
+    "first_actual_anomaly": 20732,
+    "constant_channels": 0,
+    "numeric_exclusions": [],
+    "numeric_pass": true,
+    "feature_sha256": "1b9227b460967a620995565310fa4e68b2967c0f25f1afd3afa866d57611a03a",
+    "labels_sha256": "d8f5d121bb538116e60a3aeed37434a16a6e2049ca0c04c3188b2f4a32ce0a98",
+    "archive_member": "TSB-AD-M/018_Daphnet_id_1_HumanActivity_tr_9693_1st_20732.csv",
+    "raw_sha256": "5da568d67c693756cdc934ac9ee3a19967a50b420835620f8dd77b45d01872b6",
+    "cutoff_provenance": "https://github.com/TheDatumOrg/TSB-AD/blob/6beac72e11d1155ade40870492c00d0d1cfdcaaf/Datasets/README.md",
+    "benchmark_trace": "018_Daphnet_id_1_HumanActivity_tr_9693_1st_20732.csv",
+    "upstream_dataset": "Daphnet",
+    "original_dataset_catalog_url": "https://archive.ics.uci.edu/dataset/245/daphnet+freezing+of+gait",
+    "source_catalog_sha256": "9eb61de65ac2a8e48dd07f55f6072e21b2c8fe80090e2f27d4d619428cffbc70",
+    "archive_sha256_reference": "downloads.json: data/phase_a/TSB-AD-M.zip",
+    "cutoff_semantics": "Original TSB-released prefix cutoff, not necessarily the native source's training partition.",
+    "source_mapping_note": "Catalog identifies dataset only, not native trace/channel/crop transformation; unknown identity cannot qualify.",
+    "exclusions": [
+      "unresolved_original_trace_mapping"
+    ],
+    "eligible": false,
+    "source_family": "Daphnet",
+    "native_provenance_unresolved": true,
+    "exclusions_v3": [],
+    "eligible_v3": true,
+    "selection_bucket": "change_point"
+  },
+  {
+    "file": "137_CreditCard_id_1_Finance_tr_500_1st_541.csv",
+    "tags": [
+      "change_point"
+    ],
+    "strad_commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "metadata_sha256": "e109da612a90ce3d7b2fcdf51f1a0982358b889ad38f49e85d5049ba0d2eef5c",
+    "archive_url": "https://www.thedatum.org/datasets/TSB-AD-M.zip",
+    "source_group": null,
+    "provenance_status": "unresolved_original_trace_mapping",
+    "D": 29,
+    "N": 284807,
+    "cutoff": 500,
+    "fit_interval": [
+      0,
+      400
+    ],
+    "calibration_interval": [
+      400,
+      500
+    ],
+    "test_interval": [
+      500,
+      284807
+    ],
+    "finite_observations": true,
+    "binary_labels": true,
+    "training_anomaly_count": 0,
+    "first_actual_anomaly": 541,
+    "constant_channels": 0,
+    "numeric_exclusions": [],
+    "numeric_pass": true,
+    "feature_sha256": "6d78a35c734cae12ce882ca991f7dfea57144899171a62785a4e275c556fc66f",
+    "labels_sha256": "bf4271d72b93cfbb89b08ca35270bce4b714dead677588c8d13999a66279d7c3",
+    "archive_member": "TSB-AD-M/137_CreditCard_id_1_Finance_tr_500_1st_541.csv",
+    "raw_sha256": "da4c8913c6b78eec8868911826d049a0c7b506a7c102b89e1aa5eb57ac2d0324",
+    "cutoff_provenance": "https://github.com/TheDatumOrg/TSB-AD/blob/6beac72e11d1155ade40870492c00d0d1cfdcaaf/Datasets/README.md",
+    "benchmark_trace": "137_CreditCard_id_1_Finance_tr_500_1st_541.csv",
+    "upstream_dataset": "CreditCard",
+    "original_dataset_catalog_url": "https://www.unb.ca/cic/datasets/ids-2017.html",
+    "source_catalog_sha256": "9eb61de65ac2a8e48dd07f55f6072e21b2c8fe80090e2f27d4d619428cffbc70",
+    "archive_sha256_reference": "downloads.json: data/phase_a/TSB-AD-M.zip",
+    "cutoff_semantics": "Original TSB-released prefix cutoff, not necessarily the native source's training partition.",
+    "source_mapping_note": "Catalog identifies dataset only, not native trace/channel/crop transformation; unknown identity cannot qualify. Catalog incorrectly links CreditCard finance to CICIDS2017; unresolved contradiction.",
+    "exclusions": [
+      "unresolved_original_trace_mapping"
+    ],
+    "eligible": false,
+    "source_family": "CreditCard",
+    "native_provenance_unresolved": true,
+    "exclusions_v3": [],
+    "eligible_v3": true,
+    "selection_bucket": "change_point"
+  },
+  {
+    "file": "059_SMD_id_3_Facility_tr_757_1st_857.csv",
+    "tags": [
+      "change_point",
+      "periodic",
+      "random_walk"
+    ],
+    "strad_commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "metadata_sha256": "e109da612a90ce3d7b2fcdf51f1a0982358b889ad38f49e85d5049ba0d2eef5c",
+    "archive_url": "https://www.thedatum.org/datasets/TSB-AD-M.zip",
+    "source_group": "SMD/machine-2-3",
+    "provenance_status": "content_verified_exact_original_crop",
+    "D": 38,
+    "N": 23689,
+    "cutoff": 757,
+    "fit_interval": [
+      0,
+      605
+    ],
+    "calibration_interval": [
+      605,
+      757
+    ],
+    "test_interval": [
+      757,
+      23689
+    ],
+    "finite_observations": true,
+    "binary_labels": true,
+    "training_anomaly_count": 0,
+    "first_actual_anomaly": 857,
+    "constant_channels": 6,
+    "numeric_exclusions": [],
+    "numeric_pass": true,
+    "feature_sha256": "dd1efe9a0df5d2c7cfe3703effef7f73f534a63f8bda2cc4a088466e03e613c1",
+    "labels_sha256": "d6658d6394aa3786670a6df8fa382d1102792fc4ecb32da684c8db778a4d26a6",
+    "archive_member": "TSB-AD-M/059_SMD_id_3_Facility_tr_757_1st_857.csv",
+    "raw_sha256": "f024d779045d8934d38207a5b53c2a647a53ed5e876a3dcfb1e386f8c6f9b282",
+    "cutoff_provenance": "https://github.com/TheDatumOrg/TSB-AD/blob/6beac72e11d1155ade40870492c00d0d1cfdcaaf/Datasets/README.md",
+    "benchmark_trace": "059_SMD_id_3_Facility_tr_757_1st_857.csv",
+    "upstream_dataset": "SMD",
+    "original_dataset_catalog_url": "https://github.com/NetManAIOps/OmniAnomaly",
+    "source_catalog_sha256": "9eb61de65ac2a8e48dd07f55f6072e21b2c8fe80090e2f27d4d619428cffbc70",
+    "archive_sha256_reference": "downloads.json: data/phase_a/TSB-AD-M.zip",
+    "cutoff_semantics": "Original TSB-released prefix cutoff, not necessarily the native source's training partition.",
+    "source_mapping_note": "Catalog identifies dataset only, not native trace/channel/crop transformation; unknown identity cannot qualify.",
+    "original_trace": "ServerMachineDataset/test/machine-2-3.txt",
+    "original_trace_sha256": "eaa24c78ff438eec2f847c09eb4de6ab8dbe8a0bb8d77b52ac4ecdee5bd21a7d",
+    "original_offset": 0,
+    "original_commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "original_url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-2-3.txt",
+    "exclusions": [],
+    "eligible": true,
+    "source_family": "SMD",
+    "native_provenance_unresolved": false,
+    "exclusions_v3": [],
+    "eligible_v3": true,
+    "selection_bucket": "periodic"
+  },
+  {
+    "file": "065_SMD_id_9_Facility_tr_737_1st_837.csv",
+    "tags": [
+      "periodic",
+      "change_point",
+      "random_walk"
+    ],
+    "strad_commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "metadata_sha256": "e109da612a90ce3d7b2fcdf51f1a0982358b889ad38f49e85d5049ba0d2eef5c",
+    "archive_url": "https://www.thedatum.org/datasets/TSB-AD-M.zip",
+    "source_group": "SMD/machine-1-7",
+    "provenance_status": "content_verified_exact_original_crop",
+    "D": 38,
+    "N": 23697,
+    "cutoff": 737,
+    "fit_interval": [
+      0,
+      589
+    ],
+    "calibration_interval": [
+      589,
+      737
+    ],
+    "test_interval": [
+      737,
+      23697
+    ],
+    "finite_observations": true,
+    "binary_labels": true,
+    "training_anomaly_count": 0,
+    "first_actual_anomaly": 837,
+    "constant_channels": 4,
+    "numeric_exclusions": [],
+    "numeric_pass": true,
+    "feature_sha256": "93258dec3fc697650d69604974fd8ce38344238f5f445c7d5171a189c101472b",
+    "labels_sha256": "423e99e7ad2b835e3b4b0e5645acd9594302ef737c212b3eab0d65ef7bf765b0",
+    "archive_member": "TSB-AD-M/065_SMD_id_9_Facility_tr_737_1st_837.csv",
+    "raw_sha256": "7203c302aff5fb34602711a6d4fd3dd27875e79f9cfd34fb2923bfde0a47ae60",
+    "cutoff_provenance": "https://github.com/TheDatumOrg/TSB-AD/blob/6beac72e11d1155ade40870492c00d0d1cfdcaaf/Datasets/README.md",
+    "benchmark_trace": "065_SMD_id_9_Facility_tr_737_1st_837.csv",
+    "upstream_dataset": "SMD",
+    "original_dataset_catalog_url": "https://github.com/NetManAIOps/OmniAnomaly",
+    "source_catalog_sha256": "9eb61de65ac2a8e48dd07f55f6072e21b2c8fe80090e2f27d4d619428cffbc70",
+    "archive_sha256_reference": "downloads.json: data/phase_a/TSB-AD-M.zip",
+    "cutoff_semantics": "Original TSB-released prefix cutoff, not necessarily the native source's training partition.",
+    "source_mapping_note": "Catalog identifies dataset only, not native trace/channel/crop transformation; unknown identity cannot qualify.",
+    "original_trace": "ServerMachineDataset/test/machine-1-7.txt",
+    "original_trace_sha256": "785a3f542ef6ac171a3af55c534f9ca598d53fa0371010172c72e33af4588d16",
+    "original_offset": 0,
+    "original_commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "original_url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-1-7.txt",
+    "exclusions": [],
+    "eligible": true,
+    "source_family": "SMD",
+    "native_provenance_unresolved": false,
+    "exclusions_v3": [],
+    "eligible_v3": true,
+    "selection_bucket": "periodic"
+  },
+  {
+    "file": "075_SMD_id_19_Facility_tr_564_1st_664.csv",
+    "tags": [
+      "change_point",
+      "periodic",
+      "random_walk"
+    ],
+    "strad_commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "metadata_sha256": "e109da612a90ce3d7b2fcdf51f1a0982358b889ad38f49e85d5049ba0d2eef5c",
+    "archive_url": "https://www.thedatum.org/datasets/TSB-AD-M.zip",
+    "source_group": "SMD/machine-2-7",
+    "provenance_status": "content_verified_exact_original_crop",
+    "D": 38,
+    "N": 23696,
+    "cutoff": 564,
+    "fit_interval": [
+      0,
+      451
+    ],
+    "calibration_interval": [
+      451,
+      564
+    ],
+    "test_interval": [
+      564,
+      23696
+    ],
+    "finite_observations": true,
+    "binary_labels": true,
+    "training_anomaly_count": 0,
+    "first_actual_anomaly": 664,
+    "constant_channels": 7,
+    "numeric_exclusions": [],
+    "numeric_pass": true,
+    "feature_sha256": "68823e9374a8f154a0d2a01993b6c81a58b8991947f09b03fe1dbb0f0e2b0f65",
+    "labels_sha256": "45dac982ce3aa3bf20cd39eb49d09f32e39d49fc75cfd84c965cf6cd5b1d7c6d",
+    "archive_member": "TSB-AD-M/075_SMD_id_19_Facility_tr_564_1st_664.csv",
+    "raw_sha256": "2e898edb5b017b0156b645c7c72dc1711683ca7c00e6bdf3deb70f270651ec85",
+    "cutoff_provenance": "https://github.com/TheDatumOrg/TSB-AD/blob/6beac72e11d1155ade40870492c00d0d1cfdcaaf/Datasets/README.md",
+    "benchmark_trace": "075_SMD_id_19_Facility_tr_564_1st_664.csv",
+    "upstream_dataset": "SMD",
+    "original_dataset_catalog_url": "https://github.com/NetManAIOps/OmniAnomaly",
+    "source_catalog_sha256": "9eb61de65ac2a8e48dd07f55f6072e21b2c8fe80090e2f27d4d619428cffbc70",
+    "archive_sha256_reference": "downloads.json: data/phase_a/TSB-AD-M.zip",
+    "cutoff_semantics": "Original TSB-released prefix cutoff, not necessarily the native source's training partition.",
+    "source_mapping_note": "Catalog identifies dataset only, not native trace/channel/crop transformation; unknown identity cannot qualify.",
+    "original_trace": "ServerMachineDataset/test/machine-2-7.txt",
+    "original_trace_sha256": "58c3dfd109437ccbedab9d36608d32874c2ae5473484c5941f85349baf32cef8",
+    "original_offset": 0,
+    "original_commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "original_url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-2-7.txt",
+    "exclusions": [],
+    "eligible": true,
+    "source_family": "SMD",
+    "native_provenance_unresolved": false,
+    "exclusions_v3": [],
+    "eligible_v3": true,
+    "selection_bucket": "periodic"
+  },
+  {
+    "file": "129_OPPORTUNITY_id_1_HumanActivity_tr_1801_1st_1901.csv",
+    "tags": [
+      "change_point",
+      "random_walk"
+    ],
+    "strad_commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "metadata_sha256": "e109da612a90ce3d7b2fcdf51f1a0982358b889ad38f49e85d5049ba0d2eef5c",
+    "archive_url": "https://www.thedatum.org/datasets/TSB-AD-M.zip",
+    "source_group": null,
+    "provenance_status": "unresolved_original_trace_mapping",
+    "D": 248,
+    "N": 24693,
+    "cutoff": 1801,
+    "fit_interval": [
+      0,
+      1440
+    ],
+    "calibration_interval": [
+      1440,
+      1801
+    ],
+    "test_interval": [
+      1801,
+      24693
+    ],
+    "finite_observations": true,
+    "binary_labels": true,
+    "training_anomaly_count": 0,
+    "first_actual_anomaly": 1901,
+    "constant_channels": 3,
+    "numeric_exclusions": [],
+    "numeric_pass": true,
+    "feature_sha256": "aa7f0020192ad86cf465d7cc4b09775e66ed5c34c6cd84d3e27fec80ff4e9394",
+    "labels_sha256": "042533cbff0f09a17f549b040d2ceea5a5075e1486403e8673bb245f38340bb3",
+    "archive_member": "TSB-AD-M/129_OPPORTUNITY_id_1_HumanActivity_tr_1801_1st_1901.csv",
+    "raw_sha256": "8c4dd44dc307c2087a49cd5f63780c48400cf6e8616f4338e03a4b619fdc1a4e",
+    "cutoff_provenance": "https://github.com/TheDatumOrg/TSB-AD/blob/6beac72e11d1155ade40870492c00d0d1cfdcaaf/Datasets/README.md",
+    "benchmark_trace": "129_OPPORTUNITY_id_1_HumanActivity_tr_1801_1st_1901.csv",
+    "upstream_dataset": "OPPORTUNITY",
+    "original_dataset_catalog_url": "https://archive.ics.uci.edu/dataset/226/opportunity+activity+recognition",
+    "source_catalog_sha256": "9eb61de65ac2a8e48dd07f55f6072e21b2c8fe80090e2f27d4d619428cffbc70",
+    "archive_sha256_reference": "downloads.json: data/phase_a/TSB-AD-M.zip",
+    "cutoff_semantics": "Original TSB-released prefix cutoff, not necessarily the native source's training partition.",
+    "source_mapping_note": "Catalog identifies dataset only, not native trace/channel/crop transformation; unknown identity cannot qualify.",
+    "exclusions": [
+      "unresolved_original_trace_mapping"
+    ],
+    "eligible": false,
+    "source_family": "OPPORTUNITY",
+    "native_provenance_unresolved": true,
+    "exclusions_v3": [],
+    "eligible_v3": true,
+    "selection_bucket": "random_walk"
+  },
+  {
+    "file": "132_OPPORTUNITY_id_4_HumanActivity_tr_895_1st_995.csv",
+    "tags": [
+      "change_point",
+      "random_walk"
+    ],
+    "strad_commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "metadata_sha256": "e109da612a90ce3d7b2fcdf51f1a0982358b889ad38f49e85d5049ba0d2eef5c",
+    "archive_url": "https://www.thedatum.org/datasets/TSB-AD-M.zip",
+    "source_group": null,
+    "provenance_status": "unresolved_original_trace_mapping",
+    "D": 248,
+    "N": 9323,
+    "cutoff": 895,
+    "fit_interval": [
+      0,
+      716
+    ],
+    "calibration_interval": [
+      716,
+      895
+    ],
+    "test_interval": [
+      895,
+      9323
+    ],
+    "finite_observations": true,
+    "binary_labels": true,
+    "training_anomaly_count": 0,
+    "first_actual_anomaly": 995,
+    "constant_channels": 4,
+    "numeric_exclusions": [],
+    "numeric_pass": true,
+    "feature_sha256": "c6baeb2e9cc48461690f37dd20504e2726bb88d89719c1b6898b8d45b1927e43",
+    "labels_sha256": "a63c87a29e3e3e9793d7ec55b117743f608cf3fbb0426b15bdd3d01d5b4b1f69",
+    "archive_member": "TSB-AD-M/132_OPPORTUNITY_id_4_HumanActivity_tr_895_1st_995.csv",
+    "raw_sha256": "d7938e28e7d877d655e3149d1f1fe5df2970422429f29870513d416abf1704e0",
+    "cutoff_provenance": "https://github.com/TheDatumOrg/TSB-AD/blob/6beac72e11d1155ade40870492c00d0d1cfdcaaf/Datasets/README.md",
+    "benchmark_trace": "132_OPPORTUNITY_id_4_HumanActivity_tr_895_1st_995.csv",
+    "upstream_dataset": "OPPORTUNITY",
+    "original_dataset_catalog_url": "https://archive.ics.uci.edu/dataset/226/opportunity+activity+recognition",
+    "source_catalog_sha256": "9eb61de65ac2a8e48dd07f55f6072e21b2c8fe80090e2f27d4d619428cffbc70",
+    "archive_sha256_reference": "downloads.json: data/phase_a/TSB-AD-M.zip",
+    "cutoff_semantics": "Original TSB-released prefix cutoff, not necessarily the native source's training partition.",
+    "source_mapping_note": "Catalog identifies dataset only, not native trace/channel/crop transformation; unknown identity cannot qualify.",
+    "exclusions": [
+      "unresolved_original_trace_mapping"
+    ],
+    "eligible": false,
+    "source_family": "OPPORTUNITY",
+    "native_provenance_unresolved": true,
+    "exclusions_v3": [],
+    "eligible_v3": true,
+    "selection_bucket": "random_walk"
+  },
+  {
+    "file": "188_Exathlon_id_15_Facility_tr_12538_1st_12638.csv",
+    "tags": [
+      "change_point",
+      "random_walk"
+    ],
+    "strad_commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "metadata_sha256": "e109da612a90ce3d7b2fcdf51f1a0982358b889ad38f49e85d5049ba0d2eef5c",
+    "archive_url": "https://www.thedatum.org/datasets/TSB-AD-M.zip",
+    "source_group": null,
+    "provenance_status": "unresolved_original_trace_mapping",
+    "D": 19,
+    "N": 129197,
+    "cutoff": 12538,
+    "fit_interval": [
+      0,
+      10030
+    ],
+    "calibration_interval": [
+      10030,
+      12538
+    ],
+    "test_interval": [
+      12538,
+      129197
+    ],
+    "finite_observations": true,
+    "binary_labels": true,
+    "training_anomaly_count": 0,
+    "first_actual_anomaly": 12638,
+    "constant_channels": 0,
+    "numeric_exclusions": [],
+    "numeric_pass": true,
+    "feature_sha256": "7d7936de0c322d64edc71da3a4fed4ff09444b127b39cab8600cc76d64924422",
+    "labels_sha256": "30db34b4629bea07b030821bd1f6d341a556e9f380ff8d9134d3d8c512fcb3da",
+    "archive_member": "TSB-AD-M/188_Exathlon_id_15_Facility_tr_12538_1st_12638.csv",
+    "raw_sha256": "ade5f3cdbffa2b3464497babe566041dff871bb9d5e9da9d1e17f3fefdedc16c",
+    "cutoff_provenance": "https://github.com/TheDatumOrg/TSB-AD/blob/6beac72e11d1155ade40870492c00d0d1cfdcaaf/Datasets/README.md",
+    "benchmark_trace": "188_Exathlon_id_15_Facility_tr_12538_1st_12638.csv",
+    "upstream_dataset": "Exathlon",
+    "original_dataset_catalog_url": "https://github.com/exathlonbenchmark/exathlon",
+    "source_catalog_sha256": "9eb61de65ac2a8e48dd07f55f6072e21b2c8fe80090e2f27d4d619428cffbc70",
+    "archive_sha256_reference": "downloads.json: data/phase_a/TSB-AD-M.zip",
+    "cutoff_semantics": "Original TSB-released prefix cutoff, not necessarily the native source's training partition.",
+    "source_mapping_note": "Catalog identifies dataset only, not native trace/channel/crop transformation; unknown identity cannot qualify.",
+    "exclusions": [
+      "unresolved_original_trace_mapping"
+    ],
+    "eligible": false,
+    "source_family": "Exathlon",
+    "native_provenance_unresolved": true,
+    "exclusions_v3": [],
+    "eligible_v3": true,
+    "selection_bucket": "random_walk"
+  }
+]

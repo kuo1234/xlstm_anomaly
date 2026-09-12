@@ -1,0 +1,49 @@
+{
+  "status": "PASS_A2",
+  "A1": "seal_verified",
+  "distinct_families": 9,
+  "sum_squared_family_counts": 20,
+  "within_bucket_unique_family_sum": 9,
+  "bucket_family_counts": {
+    "continuous": {
+      "SMAP": 1,
+      "SWaT": 1,
+      "GECCO": 1
+    },
+    "change_point": {
+      "MSL": 1,
+      "Daphnet": 1,
+      "CreditCard": 1
+    },
+    "periodic": {
+      "SMD": 3
+    },
+    "random_walk": {
+      "OPPORTUNITY": 2,
+      "Exathlon": 1
+    }
+  },
+  "family_counts": {
+    "SMAP": 1,
+    "SWaT": 1,
+    "GECCO": 1,
+    "MSL": 1,
+    "Daphnet": 1,
+    "CreditCard": 1,
+    "SMD": 3,
+    "OPPORTUNITY": 2,
+    "Exathlon": 1
+  },
+  "repeated_families": {
+    "SMD": 3,
+    "OPPORTUNITY": 2
+  },
+  "selected_count": 12,
+  "inventory_count": 75,
+  "eligible_count": 37,
+  "inventory_native_provenance_unresolved": 60,
+  "eligible_inventory_native_provenance_unresolved": 23,
+  "selected_native_provenance_unresolved": 9,
+  "rule": "reports/m0_amendment_v4.md",
+  "inference_unit": "source_family_first"
+}
