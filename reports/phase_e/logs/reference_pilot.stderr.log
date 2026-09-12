@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/home/p76141495/home/xlstm_anomaly/scripts/phase_e_pilot.py", line 125, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/p76141495/home/xlstm_anomaly/scripts/phase_e_pilot.py", line 53, in main
+    single_scores=torch.cat([native_scores(singleton[:,i:i+1],x[i:i+1]) for i in range(4)])
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/p76141495/home/xlstm_anomaly/scripts/phase_e_pilot.py", line 16, in native_scores
+    return (output.view(-1,x.shape[1]*x.shape[2])-x.view(-1,x.shape[1]*x.shape[2])).square().mean(1)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: view size is not compatible with input tensor's size and stride (at least one dimension spans across two contiguous subspaces). Use .reshape(...) instead.

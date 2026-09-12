@@ -1,0 +1,10 @@
+test_batch_permutation (__main__.SchemaTests.test_batch_permutation) ... ok
+test_dimensions_and_no_missing_scalar_fallback (__main__.SchemaTests.test_dimensions_and_no_missing_scalar_fallback) ... ok
+test_previous_timestep_not_previous_window (__main__.SchemaTests.test_previous_timestep_not_previous_window) ... ok
+test_rolling_warmup_causality_and_slope (__main__.SchemaTests.test_rolling_warmup_causality_and_slope) ... ok
+test_zero_initial_delta_and_equal_layer_head_pool (__main__.SchemaTests.test_zero_initial_delta_and_equal_layer_head_pool) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.020s
+
+OK

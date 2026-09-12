@@ -8,7 +8,7 @@ if __name__=='__main__':
     start=time.perf_counter();variant=sys.argv[1] if len(sys.argv)>1 else 'native'
     result=dict(variant=variant,official_modified=False)
     try:
-        model=build(w=50,float32=variant=='float32')
+        model=build(w=50,float32='float32' in variant)
         result['parameters']=sum(p.numel() for p in model.parameters())
         result['resolved_encoder']=dataclasses.asdict(model.lstm_encoder.config)
         x=torch.randn(4,50,8,device='cuda')

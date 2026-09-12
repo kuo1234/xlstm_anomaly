@@ -1,0 +1,199 @@
+{
+  "status": "BLOCKED",
+  "backend": "xlstm2.0.3 vanilla float32 diagnostic, not native CUDA reproduction",
+  "tests": {
+    "observer_output": {
+      "exact": true,
+      "close": true,
+      "max_abs": 0.0
+    },
+    "observer_scores": {
+      "exact": true,
+      "close": true,
+      "max_abs": 0.0
+    },
+    "reference_hidden_and_final_states": {
+      "pass_all": true,
+      "calls": {
+        "lstm_encoder.blocks.1.xlstm.slstm_cell": 1,
+        "lstm_decoder.blocks.1.xlstm.slstm_cell": 64
+      },
+      "max_hidden_abs": 5.960464477539063e-08,
+      "max_final_state_abs": 2.9802322387695312e-08
+    },
+    "schema": {
+      "shape": [
+        4,
+        18
+      ],
+      "finite": true,
+      "columns": [
+        "hidden_mean",
+        "hidden_std",
+        "hidden_rms",
+        "hidden_delta_rms",
+        "input_mean",
+        "input_std",
+        "input_q10",
+        "input_q90",
+        "input_delta_mean",
+        "retention_mean",
+        "retention_std",
+        "retention_q10",
+        "retention_q90",
+        "retention_delta_mean",
+        "memory_mean",
+        "memory_std",
+        "memory_rms",
+        "memory_relative_delta_norm"
+      ],
+      "expanded_count": 234
+    },
+    "reset_after_unrelated_window": {
+      "exact": true,
+      "close": true,
+      "max_abs": 0.0
+    },
+    "model_batch_permutation": {
+      "exact": true,
+      "close": true,
+      "max_abs": 0.0
+    },
+    "native_score_batch_permutation": {
+      "exact": false,
+      "close": false,
+      "max_abs": 0.08668684959411621
+    },
+    "model_batch_partition": {
+      "exact": false,
+      "close": true,
+      "max_abs": 1.5497207641601562e-06
+    },
+    "native_score_batch_partition": {
+      "exact": false,
+      "close": false,
+      "max_abs": 0.05854225158691406
+    },
+    "final_batch_B3_shape": [
+      64,
+      3,
+      8
+    ],
+    "encoder_prefix_output": {
+      "exact": true,
+      "close": true,
+      "max_abs": 0.0
+    },
+    "scalar_prefix": {
+      "hidden": {
+        "exact": true,
+        "close": true,
+        "max_abs": 0.0
+      },
+      "input": {
+        "exact": true,
+        "close": true,
+        "max_abs": 0.0
+      },
+      "retention": {
+        "exact": true,
+        "close": true,
+        "max_abs": 0.0
+      },
+      "memory": {
+        "exact": true,
+        "close": true,
+        "max_abs": 0.0
+      }
+    },
+    "encoder_prefix_length": {
+      "exact": false,
+      "close": true,
+      "max_abs": 8.344650268554688e-07
+    },
+    "encoder_parallel_vs_within_window_step": {
+      "exact": false,
+      "close": true,
+      "max_abs": 2.1457672119140625e-06
+    },
+    "mlstm_parallel_vs_recurrent": {
+      "exact": false,
+      "close": true,
+      "max_abs": 3.5762786865234375e-06
+    },
+    "mlstm_memory_finite": true,
+    "readout_layout": {
+      "output_shape": [
+        64,
+        4,
+        8
+      ],
+      "target_shape": [
+        4,
+        64,
+        8
+      ],
+      "native_score": [
+        1.174782633781433,
+        1.2102816104888916,
+        1.0875153541564941,
+        1.122995376586914
+      ],
+      "batch_partition_native_score": [
+        1.2333248853683472,
+        1.1688218116760254,
+        1.1176602840423584,
+        1.1758331060409546
+      ],
+      "native_uses_view_without_time_batch_transpose": true
+    },
+    "native_W50_reference_observer": {
+      "exact": true,
+      "close": true,
+      "max_abs": 0.0
+    },
+    "native_W50_reference_score_permutation": {
+      "exact": false,
+      "close": false,
+      "max_abs": 0.030260443687438965
+    }
+  },
+  "timings": {
+    "observer_off": {
+      "batches_per_second": 10.736307590452382,
+      "decisions_per_second": 1374.247371577905,
+      "seconds": 0.46570945903658867,
+      "batch_size": 128,
+      "timed_batches": 5,
+      "peak_allocated_bytes": 152089088,
+      "peak_reserved_bytes": 186646528
+    },
+    "observer_on": {
+      "batches_per_second": 7.437592485478388,
+      "decisions_per_second": 952.0118381412336,
+      "seconds": 0.6722605479881167,
+      "batch_size": 128,
+      "timed_batches": 5,
+      "peak_allocated_bytes": 158355968,
+      "peak_reserved_bytes": 195035136
+    },
+    "forward_backward_no_optimizer": {
+      "batches_per_second": 3.186808423824175,
+      "seconds": 0.9413807173259556,
+      "optimizer_steps": 0,
+      "peak_allocated_bytes": 501996544,
+      "peak_reserved_bytes": 572522496
+    },
+    "observer_overhead_ratio": 1.4435192048252992
+  },
+  "artifacts": {
+    "data/phase_e/pilot/observations.npy": "f259b4314a1a2da570281e65a5ed206c5181f4a787ea73466dd307ad3808b165",
+    "data/phase_e/pilot/output.npy": "ae1edb1c9494aae9a5dcfd8ec43b703e4c194724b210452c3afd82c6a36e5d1a",
+    "data/phase_e/pilot/scalar_summary.npy": "d40ba7506439eb0ab79ffe25d9401f18d796fdc446e13f69455265299c6acb11"
+  },
+  "seconds": 5.315387405920774,
+  "no_labels": true,
+  "no_optimizer_updates": true,
+  "no_probe_fit": true,
+  "no_matched_LSTM": true
+}

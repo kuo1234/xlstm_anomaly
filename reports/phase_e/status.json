@@ -1,0 +1,21 @@
+{
+  "Phase_E": "BLOCKED",
+  "H3a": "NOT_TESTED_IMPLEMENTATION_BLOCKED",
+  "required_scalar_features_missing": false,
+  "reference_observation": "PASS",
+  "native_CUDA_reference_parity": "NOT_ESTABLISHED_LINK_FAILURE",
+  "native_score_batch_permutation": "FAIL",
+  "native_score_batch_partition": "FAIL",
+  "H1_controlled_harm": "STOP",
+  "H1_natural_harm": "NOT_RUN",
+  "H1_harm_overall": "UNRESOLVED",
+  "H4a": "LOCKED",
+  "H4b": "LOCKED",
+  "no_probe_fit": true,
+  "no_matched_LSTM_training": true,
+  "no_cross_window_carry": true,
+  "no_optimizer_steps": true,
+  "D_v2_unchanged": true,
+  "original_xlstmad_unchanged": true,
+  "dependency_xlstm_unchanged": true
+}

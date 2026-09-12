@@ -1,0 +1,9 @@
+rtk /home/p76141495/home/xlstm_anomaly/data/phase_e/venv/bin/python /home/p76141495/home/xlstm_anomaly/scripts/phase_e_native.py native
+rtk /home/p76141495/home/xlstm_anomaly/data/phase_e/venv/bin/python /home/p76141495/home/xlstm_anomaly/scripts/phase_e_pilot.py
+rtk /home/p76141495/home/xlstm_anomaly/data/phase_e/venv/bin/python /home/p76141495/home/xlstm_anomaly/scripts/phase_e_pilot.py
+rtk /home/p76141495/home/xlstm_anomaly/data/phase_e/venv/bin/python /home/p76141495/home/xlstm_anomaly/scripts/phase_e_native.py headers_native
+rtk /home/p76141495/home/xlstm_anomaly/data/phase_e/venv/bin/python /home/p76141495/home/xlstm_anomaly/scripts/phase_e_native.py headers_float32
+rtk /home/p76141495/home/xlstm_anomaly/data/phase_e/venv/bin/python /home/p76141495/home/xlstm_anomaly/tests/test_phase_e_schema.py
+rtk /home/p76141495/home/xlstm_anomaly/data/phase_e/venv/bin/python /home/p76141495/home/xlstm_anomaly/scripts/phase_e_diagnostics.py
+rtk /home/p76141495/home/xlstm_anomaly/data/phase_e/venv/bin/python /home/p76141495/home/xlstm_anomaly/scripts/phase_e_metadata.py
+rtk /home/p76141495/home/xlstm_anomaly/data/phase_e/venv/bin/python /home/p76141495/home/xlstm_anomaly/scripts/phase_e_finalize.py

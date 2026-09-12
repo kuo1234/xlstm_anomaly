@@ -1,0 +1,26 @@
+{
+  "status": "PASS_DIAGNOSTIC_FAILURE_LOCALIZED",
+  "nonzero_recurrent_reference_max_abs": 5.960464477539063e-08,
+  "nonzero_R_is_unit_fixture_only": true,
+  "native_layout_other_window_changes_score": true,
+  "marker_score_before": [
+    3.5,
+    3.5,
+    3.5,
+    3.5
+  ],
+  "marker_score_after": [
+    2501.25,
+    2501.25,
+    2501.25,
+    2501.25
+  ],
+  "native_dataset_count": 80,
+  "causally_distinct_windows": 17,
+  "tail_repeats_last_window": true,
+  "tail_indices_inclusive": [
+    16,
+    79
+  ],
+  "detector_or_dataset_fixes_applied": false
+}

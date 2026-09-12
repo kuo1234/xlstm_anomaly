@@ -1,0 +1,452 @@
+{
+  "official_commit": "3a1b0b5aab747bf6381fa4e5a90d895f06ed2fc6",
+  "dependency": "xlstm==2.0.3",
+  "native_entrypoint": {
+    "window": 50,
+    "embedding": 40,
+    "batch": 128,
+    "lr": 0.005
+  },
+  "common": {
+    "window": 64,
+    "embedding": 40,
+    "features": 8,
+    "batch": 128
+  },
+  "config": {
+    "mlstm_block": {
+      "mlstm": {
+        "proj_factor": 2.0,
+        "round_proj_up_dim_up": false,
+        "round_proj_up_to_multiple_of": 5,
+        "_proj_up_dim": 80,
+        "conv1d_kernel_size": 8,
+        "qkv_proj_blocksize": 5,
+        "num_heads": 4,
+        "embedding_dim": 40,
+        "bias": false,
+        "dropout": 0.0,
+        "context_length": 64,
+        "_num_blocks": 3,
+        "_inner_embedding_dim": 80
+      },
+      "_num_blocks": 3,
+      "_block_idx": null
+    },
+    "slstm_block": {
+      "slstm": {
+        "hidden_size": 40,
+        "num_heads": 4,
+        "num_states": 4,
+        "backend": "vanilla",
+        "function": "slstm",
+        "bias_init": "powerlaw_blockdependent",
+        "recurrent_weight_init": "zeros",
+        "_block_idx": null,
+        "_num_blocks": 3,
+        "num_gates": 4,
+        "gradient_recurrent_cut": false,
+        "gradient_recurrent_clipval": null,
+        "forward_clipval": null,
+        "batch_size": 8,
+        "input_shape": "BSGNH",
+        "internal_input_shape": "SBNGH",
+        "output_shape": "BNSH",
+        "constants": {},
+        "dtype": "float32",
+        "dtype_b": "float32",
+        "dtype_r": "float32",
+        "dtype_w": "float32",
+        "dtype_g": "float32",
+        "dtype_s": "float32",
+        "dtype_a": "float32",
+        "enable_automatic_mixed_precision": true,
+        "initial_val": 0.0,
+        "embedding_dim": 40,
+        "conv1d_kernel_size": 4,
+        "group_norm_weight": true,
+        "dropout": 0.0
+      },
+      "feedforward": {
+        "proj_factor": 1.3,
+        "round_proj_up_dim_up": true,
+        "round_proj_up_to_multiple_of": 64,
+        "_proj_up_dim": 64,
+        "act_fn": "gelu",
+        "embedding_dim": 40,
+        "dropout": 0.0,
+        "bias": false,
+        "ff_type": "ffn_gated",
+        "_num_blocks": 1
+      },
+      "_num_blocks": 3,
+      "_block_idx": null
+    },
+    "context_length": 64,
+    "num_blocks": 3,
+    "embedding_dim": 40,
+    "add_post_blocks_norm": true,
+    "bias": false,
+    "dropout": 0.0,
+    "slstm_at": [
+      1
+    ],
+    "_block_map": "0,1,0"
+  },
+  "trainable_parameters": 78080,
+  "parameters": {
+    "encoder_projection.weight": [
+      40,
+      8
+    ],
+    "encoder_projection.bias": [
+      40
+    ],
+    "lstm_encoder.blocks.0.xlstm_norm.weight": [
+      40
+    ],
+    "lstm_encoder.blocks.0.xlstm.learnable_skip": [
+      80
+    ],
+    "lstm_encoder.blocks.0.xlstm.proj_up.weight": [
+      160,
+      40
+    ],
+    "lstm_encoder.blocks.0.xlstm.q_proj.weight": [
+      16,
+      5,
+      5
+    ],
+    "lstm_encoder.blocks.0.xlstm.k_proj.weight": [
+      16,
+      5,
+      5
+    ],
+    "lstm_encoder.blocks.0.xlstm.v_proj.weight": [
+      16,
+      5,
+      5
+    ],
+    "lstm_encoder.blocks.0.xlstm.conv1d.conv.weight": [
+      80,
+      1,
+      8
+    ],
+    "lstm_encoder.blocks.0.xlstm.conv1d.conv.bias": [
+      80
+    ],
+    "lstm_encoder.blocks.0.xlstm.mlstm_cell.igate.weight": [
+      4,
+      240
+    ],
+    "lstm_encoder.blocks.0.xlstm.mlstm_cell.igate.bias": [
+      4
+    ],
+    "lstm_encoder.blocks.0.xlstm.mlstm_cell.fgate.weight": [
+      4,
+      240
+    ],
+    "lstm_encoder.blocks.0.xlstm.mlstm_cell.fgate.bias": [
+      4
+    ],
+    "lstm_encoder.blocks.0.xlstm.mlstm_cell.outnorm.weight": [
+      80
+    ],
+    "lstm_encoder.blocks.0.xlstm.proj_down.weight": [
+      40,
+      80
+    ],
+    "lstm_encoder.blocks.1.xlstm_norm.weight": [
+      40
+    ],
+    "lstm_encoder.blocks.1.xlstm.conv1d.conv.weight": [
+      40,
+      1,
+      4
+    ],
+    "lstm_encoder.blocks.1.xlstm.conv1d.conv.bias": [
+      40
+    ],
+    "lstm_encoder.blocks.1.xlstm.fgate.weight": [
+      4,
+      10,
+      10
+    ],
+    "lstm_encoder.blocks.1.xlstm.igate.weight": [
+      4,
+      10,
+      10
+    ],
+    "lstm_encoder.blocks.1.xlstm.zgate.weight": [
+      4,
+      10,
+      10
+    ],
+    "lstm_encoder.blocks.1.xlstm.ogate.weight": [
+      4,
+      10,
+      10
+    ],
+    "lstm_encoder.blocks.1.xlstm.slstm_cell._recurrent_kernel_": [
+      4,
+      40,
+      10
+    ],
+    "lstm_encoder.blocks.1.xlstm.slstm_cell._bias_": [
+      160
+    ],
+    "lstm_encoder.blocks.1.xlstm.group_norm.weight": [
+      40
+    ],
+    "lstm_encoder.blocks.1.ffn_norm.weight": [
+      40
+    ],
+    "lstm_encoder.blocks.1.ffn.proj_up.weight": [
+      128,
+      40
+    ],
+    "lstm_encoder.blocks.1.ffn.proj_down.weight": [
+      40,
+      64
+    ],
+    "lstm_encoder.blocks.2.xlstm_norm.weight": [
+      40
+    ],
+    "lstm_encoder.blocks.2.xlstm.learnable_skip": [
+      80
+    ],
+    "lstm_encoder.blocks.2.xlstm.proj_up.weight": [
+      160,
+      40
+    ],
+    "lstm_encoder.blocks.2.xlstm.q_proj.weight": [
+      16,
+      5,
+      5
+    ],
+    "lstm_encoder.blocks.2.xlstm.k_proj.weight": [
+      16,
+      5,
+      5
+    ],
+    "lstm_encoder.blocks.2.xlstm.v_proj.weight": [
+      16,
+      5,
+      5
+    ],
+    "lstm_encoder.blocks.2.xlstm.conv1d.conv.weight": [
+      80,
+      1,
+      8
+    ],
+    "lstm_encoder.blocks.2.xlstm.conv1d.conv.bias": [
+      80
+    ],
+    "lstm_encoder.blocks.2.xlstm.mlstm_cell.igate.weight": [
+      4,
+      240
+    ],
+    "lstm_encoder.blocks.2.xlstm.mlstm_cell.igate.bias": [
+      4
+    ],
+    "lstm_encoder.blocks.2.xlstm.mlstm_cell.fgate.weight": [
+      4,
+      240
+    ],
+    "lstm_encoder.blocks.2.xlstm.mlstm_cell.fgate.bias": [
+      4
+    ],
+    "lstm_encoder.blocks.2.xlstm.mlstm_cell.outnorm.weight": [
+      80
+    ],
+    "lstm_encoder.blocks.2.xlstm.proj_down.weight": [
+      40,
+      80
+    ],
+    "lstm_encoder.post_blocks_norm.weight": [
+      40
+    ],
+    "lstm_decoder.blocks.0.xlstm_norm.weight": [
+      40
+    ],
+    "lstm_decoder.blocks.0.xlstm.learnable_skip": [
+      80
+    ],
+    "lstm_decoder.blocks.0.xlstm.proj_up.weight": [
+      160,
+      40
+    ],
+    "lstm_decoder.blocks.0.xlstm.q_proj.weight": [
+      16,
+      5,
+      5
+    ],
+    "lstm_decoder.blocks.0.xlstm.k_proj.weight": [
+      16,
+      5,
+      5
+    ],
+    "lstm_decoder.blocks.0.xlstm.v_proj.weight": [
+      16,
+      5,
+      5
+    ],
+    "lstm_decoder.blocks.0.xlstm.conv1d.conv.weight": [
+      80,
+      1,
+      8
+    ],
+    "lstm_decoder.blocks.0.xlstm.conv1d.conv.bias": [
+      80
+    ],
+    "lstm_decoder.blocks.0.xlstm.mlstm_cell.igate.weight": [
+      4,
+      240
+    ],
+    "lstm_decoder.blocks.0.xlstm.mlstm_cell.igate.bias": [
+      4
+    ],
+    "lstm_decoder.blocks.0.xlstm.mlstm_cell.fgate.weight": [
+      4,
+      240
+    ],
+    "lstm_decoder.blocks.0.xlstm.mlstm_cell.fgate.bias": [
+      4
+    ],
+    "lstm_decoder.blocks.0.xlstm.mlstm_cell.outnorm.weight": [
+      80
+    ],
+    "lstm_decoder.blocks.0.xlstm.proj_down.weight": [
+      40,
+      80
+    ],
+    "lstm_decoder.blocks.1.xlstm_norm.weight": [
+      40
+    ],
+    "lstm_decoder.blocks.1.xlstm.conv1d.conv.weight": [
+      40,
+      1,
+      4
+    ],
+    "lstm_decoder.blocks.1.xlstm.conv1d.conv.bias": [
+      40
+    ],
+    "lstm_decoder.blocks.1.xlstm.fgate.weight": [
+      4,
+      10,
+      10
+    ],
+    "lstm_decoder.blocks.1.xlstm.igate.weight": [
+      4,
+      10,
+      10
+    ],
+    "lstm_decoder.blocks.1.xlstm.zgate.weight": [
+      4,
+      10,
+      10
+    ],
+    "lstm_decoder.blocks.1.xlstm.ogate.weight": [
+      4,
+      10,
+      10
+    ],
+    "lstm_decoder.blocks.1.xlstm.slstm_cell._recurrent_kernel_": [
+      4,
+      40,
+      10
+    ],
+    "lstm_decoder.blocks.1.xlstm.slstm_cell._bias_": [
+      160
+    ],
+    "lstm_decoder.blocks.1.xlstm.group_norm.weight": [
+      40
+    ],
+    "lstm_decoder.blocks.1.ffn_norm.weight": [
+      40
+    ],
+    "lstm_decoder.blocks.1.ffn.proj_up.weight": [
+      128,
+      40
+    ],
+    "lstm_decoder.blocks.1.ffn.proj_down.weight": [
+      40,
+      64
+    ],
+    "lstm_decoder.blocks.2.xlstm_norm.weight": [
+      40
+    ],
+    "lstm_decoder.blocks.2.xlstm.learnable_skip": [
+      80
+    ],
+    "lstm_decoder.blocks.2.xlstm.proj_up.weight": [
+      160,
+      40
+    ],
+    "lstm_decoder.blocks.2.xlstm.q_proj.weight": [
+      16,
+      5,
+      5
+    ],
+    "lstm_decoder.blocks.2.xlstm.k_proj.weight": [
+      16,
+      5,
+      5
+    ],
+    "lstm_decoder.blocks.2.xlstm.v_proj.weight": [
+      16,
+      5,
+      5
+    ],
+    "lstm_decoder.blocks.2.xlstm.conv1d.conv.weight": [
+      80,
+      1,
+      8
+    ],
+    "lstm_decoder.blocks.2.xlstm.conv1d.conv.bias": [
+      80
+    ],
+    "lstm_decoder.blocks.2.xlstm.mlstm_cell.igate.weight": [
+      4,
+      240
+    ],
+    "lstm_decoder.blocks.2.xlstm.mlstm_cell.igate.bias": [
+      4
+    ],
+    "lstm_decoder.blocks.2.xlstm.mlstm_cell.fgate.weight": [
+      4,
+      240
+    ],
+    "lstm_decoder.blocks.2.xlstm.mlstm_cell.fgate.bias": [
+      4
+    ],
+    "lstm_decoder.blocks.2.xlstm.mlstm_cell.outnorm.weight": [
+      80
+    ],
+    "lstm_decoder.blocks.2.xlstm.proj_down.weight": [
+      40,
+      80
+    ],
+    "lstm_decoder.post_blocks_norm.weight": [
+      40
+    ],
+    "fc.weight": [
+      8,
+      40
+    ],
+    "fc.bias": [
+      8
+    ]
+  },
+  "repr": "xLSTMModel(\n  (encoder_projection): Linear(in_features=8, out_features=40, bias=True)\n  (lstm_encoder): xLSTMBlockStack(\n    (blocks): ModuleList(\n      (0): mLSTMBlock(\n        (xlstm_norm): LayerNorm()\n        (xlstm): mLSTMLayer(\n          (proj_up): Linear(in_features=40, out_features=160, bias=False)\n          (q_proj): LinearHeadwiseExpand(in_features=80, num_heads=16, expand_factor_up=1, bias=False, trainable_weight=True, trainable_bias=True, )\n          (k_proj): LinearHeadwiseExpand(in_features=80, num_heads=16, expand_factor_up=1, bias=False, trainable_weight=True, trainable_bias=True, )\n          (v_proj): LinearHeadwiseExpand(in_features=80, num_heads=16, expand_factor_up=1, bias=False, trainable_weight=True, trainable_bias=True, )\n          (conv1d): CausalConv1d(\n            (conv): Conv1d(80, 80, kernel_size=(8,), stride=(1,), padding=(7,), groups=80)\n          )\n          (conv_act_fn): SiLU()\n          (mlstm_cell): mLSTMCell(\n            (igate): Linear(in_features=240, out_features=4, bias=True)\n            (fgate): Linear(in_features=240, out_features=4, bias=True)\n            (outnorm): MultiHeadLayerNorm()\n          )\n          (ogate_act_fn): SiLU()\n          (proj_down): Linear(in_features=80, out_features=40, bias=False)\n          (dropout): Dropout(p=0.0, inplace=False)\n        )\n      )\n      (1): sLSTMBlock(\n        (xlstm_norm): LayerNorm()\n        (xlstm): sLSTMLayer(\n          (conv1d): CausalConv1d(\n            (conv): Conv1d(40, 40, kernel_size=(4,), stride=(1,), padding=(3,), groups=40)\n          )\n          (conv_act_fn): SiLU()\n          (fgate): LinearHeadwiseExpand(in_features=40, num_heads=4, expand_factor_up=1, bias=False, trainable_weight=True, trainable_bias=True, )\n          (igate): LinearHeadwiseExpand(in_features=40, num_heads=4, expand_factor_up=1, bias=False, trainable_weight=True, trainable_bias=True, )\n          (zgate): LinearHeadwiseExpand(in_features=40, num_heads=4, expand_factor_up=1, bias=False, trainable_weight=True, trainable_bias=True, )\n          (ogate): LinearHeadwiseExpand(in_features=40, num_heads=4, expand_factor_up=1, bias=False, trainable_weight=True, trainable_bias=True, )\n          (slstm_cell): sLSTMCell_vanilla(function=slstm, hidden_size=40, num_heads=4)\n          (group_norm): MultiHeadLayerNorm()\n          (dropout): Dropout(p=0.0, inplace=False)\n        )\n        (ffn_norm): LayerNorm()\n        (ffn): GatedFeedForward(\n          (proj_up): Linear(in_features=40, out_features=128, bias=False)\n          (proj_down): Linear(in_features=64, out_features=40, bias=False)\n          (dropout): Dropout(p=0.0, inplace=False)\n        )\n      )\n      (2): mLSTMBlock(\n        (xlstm_norm): LayerNorm()\n        (xlstm): mLSTMLayer(\n          (proj_up): Linear(in_features=40, out_features=160, bias=False)\n          (q_proj): LinearHeadwiseExpand(in_features=80, num_heads=16, expand_factor_up=1, bias=False, trainable_weight=True, trainable_bias=True, )\n          (k_proj): LinearHeadwiseExpand(in_features=80, num_heads=16, expand_factor_up=1, bias=False, trainable_weight=True, trainable_bias=True, )\n          (v_proj): LinearHeadwiseExpand(in_features=80, num_heads=16, expand_factor_up=1, bias=False, trainable_weight=True, trainable_bias=True, )\n          (conv1d): CausalConv1d(\n            (conv): Conv1d(80, 80, kernel_size=(8,), stride=(1,), padding=(7,), groups=80)\n          )\n          (conv_act_fn): SiLU()\n          (mlstm_cell): mLSTMCell(\n            (igate): Linear(in_features=240, out_features=4, bias=True)\n            (fgate): Linear(in_features=240, out_features=4, bias=True)\n            (outnorm): MultiHeadLayerNorm()\n          )\n          (ogate_act_fn): SiLU()\n          (proj_down): Linear(in_features=80, out_features=40, bias=False)\n          (dropout): Dropout(p=0.0, inplace=False)\n        )\n      )\n    )\n    (post_blocks_norm): LayerNorm()\n  )\n  (lstm_decoder): xLSTMBlockStack(\n    (blocks): ModuleList(\n      (0): mLSTMBlock(\n        (xlstm_norm): LayerNorm()\n        (xlstm): mLSTMLayer(\n          (proj_up): Linear(in_features=40, out_features=160, bias=False)\n          (q_proj): LinearHeadwiseExpand(in_features=80, num_heads=16, expand_factor_up=1, bias=False, trainable_weight=True, trainable_bias=True, )\n          (k_proj): LinearHeadwiseExpand(in_features=80, num_heads=16, expand_factor_up=1, bias=False, trainable_weight=True, trainable_bias=True, )\n          (v_proj): LinearHeadwiseExpand(in_features=80, num_heads=16, expand_factor_up=1, bias=False, trainable_weight=True, trainable_bias=True, )\n          (conv1d): CausalConv1d(\n            (conv): Conv1d(80, 80, kernel_size=(8,), stride=(1,), padding=(7,), groups=80)\n          )\n          (conv_act_fn): SiLU()\n          (mlstm_cell): mLSTMCell(\n            (igate): Linear(in_features=240, out_features=4, bias=True)\n            (fgate): Linear(in_features=240, out_features=4, bias=True)\n            (outnorm): MultiHeadLayerNorm()\n          )\n          (ogate_act_fn): SiLU()\n          (proj_down): Linear(in_features=80, out_features=40, bias=False)\n          (dropout): Dropout(p=0.0, inplace=False)\n        )\n      )\n      (1): sLSTMBlock(\n        (xlstm_norm): LayerNorm()\n        (xlstm): sLSTMLayer(\n          (conv1d): CausalConv1d(\n            (conv): Conv1d(40, 40, kernel_size=(4,), stride=(1,), padding=(3,), groups=40)\n          )\n          (conv_act_fn): SiLU()\n          (fgate): LinearHeadwiseExpand(in_features=40, num_heads=4, expand_factor_up=1, bias=False, trainable_weight=True, trainable_bias=True, )\n          (igate): LinearHeadwiseExpand(in_features=40, num_heads=4, expand_factor_up=1, bias=False, trainable_weight=True, trainable_bias=True, )\n          (zgate): LinearHeadwiseExpand(in_features=40, num_heads=4, expand_factor_up=1, bias=False, trainable_weight=True, trainable_bias=True, )\n          (ogate): LinearHeadwiseExpand(in_features=40, num_heads=4, expand_factor_up=1, bias=False, trainable_weight=True, trainable_bias=True, )\n          (slstm_cell): sLSTMCell_vanilla(function=slstm, hidden_size=40, num_heads=4)\n          (group_norm): MultiHeadLayerNorm()\n          (dropout): Dropout(p=0.0, inplace=False)\n        )\n        (ffn_norm): LayerNorm()\n        (ffn): GatedFeedForward(\n          (proj_up): Linear(in_features=40, out_features=128, bias=False)\n          (proj_down): Linear(in_features=64, out_features=40, bias=False)\n          (dropout): Dropout(p=0.0, inplace=False)\n        )\n      )\n      (2): mLSTMBlock(\n        (xlstm_norm): LayerNorm()\n        (xlstm): mLSTMLayer(\n          (proj_up): Linear(in_features=40, out_features=160, bias=False)\n          (q_proj): LinearHeadwiseExpand(in_features=80, num_heads=16, expand_factor_up=1, bias=False, trainable_weight=True, trainable_bias=True, )\n          (k_proj): LinearHeadwiseExpand(in_features=80, num_heads=16, expand_factor_up=1, bias=False, trainable_weight=True, trainable_bias=True, )\n          (v_proj): LinearHeadwiseExpand(in_features=80, num_heads=16, expand_factor_up=1, bias=False, trainable_weight=True, trainable_bias=True, )\n          (conv1d): CausalConv1d(\n            (conv): Conv1d(80, 80, kernel_size=(8,), stride=(1,), padding=(7,), groups=80)\n          )\n          (conv_act_fn): SiLU()\n          (mlstm_cell): mLSTMCell(\n            (igate): Linear(in_features=240, out_features=4, bias=True)\n            (fgate): Linear(in_features=240, out_features=4, bias=True)\n            (outnorm): MultiHeadLayerNorm()\n          )\n          (ogate_act_fn): SiLU()\n          (proj_down): Linear(in_features=80, out_features=40, bias=False)\n          (dropout): Dropout(p=0.0, inplace=False)\n        )\n      )\n    )\n    (post_blocks_norm): LayerNorm()\n  )\n  (relu): GELU(approximate='none')\n  (fc): Linear(in_features=40, out_features=8, bias=True)\n)",
+  "reference_overlay": {
+    "backend": "vanilla",
+    "all_slstm_dtypes": "float32"
+  },
+  "cell_counts": {
+    "slstm": 2,
+    "mlstm": 4
+  },
+  "state_carry_between_windows": false,
+  "decoder_recurrent_state_resets_each_singleton_call": true
+}

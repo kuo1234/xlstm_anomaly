@@ -10,6 +10,8 @@ if __name__=='__main__':
     env=dict(os.environ,PYTHONDONTWRITEBYTECODE='1',WANDB_MODE='disabled',MAX_JOBS='2',
         PATH=str(ROOT/'data/phase_e/venv/bin')+os.pathsep+os.environ['PATH'],
         TORCH_EXTENSIONS_DIR=str(ROOT/'data/phase_e/torch_extensions'))
+    if tag.startswith('headers_'):
+        env['XLSTM_EXTRA_INCLUDE_PATHS']=str(ROOT/'data/phase_e/python_headers/usr/include/python3.12')+':'+str(ROOT/'data/phase_e/python_headers/usr/include')
     with (REPORT/'commands.txt').open('a') as f:f.write(shlex.join(command)+'\n')
     start=time.perf_counter()
     with (REPORT/'logs'/f'{tag}.stdout.log').open('x') as out,(REPORT/'logs'/f'{tag}.stderr.log').open('x') as err:

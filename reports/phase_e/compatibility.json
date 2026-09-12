@@ -1,0 +1,30 @@
+{
+  "official_repo": "https://github.com/Nyderx/xlstmad",
+  "official_commit": "3a1b0b5aab747bf6381fa4e5a90d895f06ed2fc6",
+  "xlstm": "2.0.3",
+  "upstream_source_diff": "",
+  "reference_overlay": "phase_e_common.config_overlay: vanilla backend and all sLSTM dtype fields float32 only",
+  "python_headers": "libpython3.12-dev 3.12.3-1ubuntu0.17 arm64, downloaded and extracted under data/phase_e only; no system install",
+  "header_url": "http://ports.ubuntu.com/ubuntu-ports/pool/main/p/python3.12/libpython3.12-dev_3.12.3-1ubuntu0.17_arm64.deb",
+  "header_sha256": "945ad3f651f683c11e72d19d804b1cff097308dcffa01057635cba038f875164",
+  "build_env": {
+    "MAX_JOBS": 2,
+    "XLSTM_EXTRA_INCLUDE_PATHS": "data/phase_e/python_headers/usr/include/python3.12:data/phase_e/python_headers/usr/include"
+  },
+  "wheel_urls": [
+    "https://pypi.org/project/xlstm/2.0.3/",
+    "https://pypi.org/project/TSB-AD/1.5/",
+    "https://pypi.org/project/ninja/1.11.1.4/"
+  ],
+  "environment_deviations": {
+    "python": "3.12.3; upstream README3.11",
+    "pandas": "3.0.3; upstream2.2.3; not used by observation fixtures",
+    "pysdtw": "Not installed/imported; DTW track excluded. No claim of full historical environment reproduction."
+  },
+  "first_pilot_fixture_error": "Noncontiguous slice passed to exact native view; fixed only the test to score original contiguous singleton outputs; failed log retained.",
+  "native_attempts": [
+    "native_backend.json",
+    "headers_native_backend.json",
+    "headers_float32_backend.json"
+  ]
+}
