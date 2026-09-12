@@ -1,0 +1,454 @@
+ANOMALY_TRANSFORMER:
+  LOSS_NAMES:
+  - Recon
+  - Discrepancy
+  METRIC_NAMES: &id004
+  - Recon
+  activation: gelu
+  c_out: 38
+  d_ff: 512
+  d_model: 512
+  dropout: 0.0
+  e_layers: 3
+  enc_in: 38
+  k: 3
+  n_heads: 8
+  output_attention: true
+  temperature: 50.0
+  win_size: 10
+CAROTS:
+  CAUSALITY_THRESHOLD: 0.5
+  DISTURB_RATIO: 1.0
+  ENCODER_ARCH: lstm
+  INTERPRET: false
+  LOSS_NAMES: &id001
+  - Loss
+  METRIC_NAMES: *id001
+  NEGATIVE_AUGMENTOR:
+    CUTOFF_PROBABILITY: 0.1
+    DISTURB_ALL: false
+    TRANSFORM_NAME: AddBias
+  NOISE_STD: 0.01
+  POSITIVE_AUGMENTOR:
+    ENABLE: true
+    LAMBDA_A: 1.0
+    NOISE_LEVEL: 0.1
+    RESULT_DIR: results/positive_augmentor
+    SOLVER:
+      BASE_LR: 0.0001
+      CRITIC_ITER: 5
+      ITER_PER_EPOCH: 100
+      MAX_EPOCH: 100
+      START_EPOCH: 0
+      WARMUP_EPOCH: 100
+      WEIGHT_CLIP: 0.01
+    TRAIN:
+      BATCH_SIZE: 256
+      CHECKPOINT_DIR: results/positive_augmentor
+      CHECKPOINT_PERIOD: 200
+      DROP_LAST: true
+      ENABLE: true
+      EVAL_PERIOD: 10
+      IS_METRIC_LOWER_BETTER: true
+      METRIC_BEST: .inf
+      PRINT_FREQ: 1
+      RESUME: ''
+      SAVE_EVERY_EVAL: false
+      SHUFFLE: true
+      SPLIT: train
+    VISUALIZE_INTERVAL: 20
+    hidden_dim: 128
+    num_layer: 3
+  PROJECTOR:
+    HIDDEN_DIM: 1024
+    INPUT_DIM: 512
+    OUTPUT_DIM: 512
+  SIM_THRESHOLD: 0.5
+  SIM_THRESHOLD_END: 0.9
+  SIM_THRESHOLD_SCHEDULE: true
+  SIM_THRESHOLD_START: 0.5
+  TEMPERATURE: 0.1
+CAUSALITY:
+  BASE_DIR: /home/gusrl/AAD/results/
+  CUTS_PLUS:
+    RESULT_DIR: CUTS_Plus/results/
+    RETRAIN: false
+    YAML_DIR: CUTS_Plus/opt/
+CAUSAL_DISCOVERER: CUTS_PLUS
+CCIT:
+  LOSS_NAMES: &id002
+  - Forecasting
+  METRIC_NAMES: *id002
+  TYPE: TCN_iTrans
+  activation: gelu
+  d_ff: 512
+  d_model: 512
+  dropout: 0.0
+  e_layers: 1
+  n_heads: 8
+  output_attention: true
+CTAD:
+  DROPOUT: 0.0
+  ENC_TYPE: lstm
+  EPS: 1.0e-12
+  HIDDEN_DIM: 128
+  LAG: 1
+  LOSS_NAMES: &id003
+  - Contrastive Loss
+  METRIC_NAMES: *id003
+  NUM_LAYERS: 1
+  OUT: true
+  PROJECTION1_DIM: 128
+  PROJECTION2_DIM: 128
+  PROJECTION_IN: 128
+  QUEUE_ENABLE: false
+  QUEUE_LENGTH: 4096
+  QUEUE_TOPK: 64
+  QUEUE_UPDATE_CENTROID_PERIOD: 5
+  QUEUE_WARMUP_EPOCHS: 1
+  SCORE_APPLY_TRANSFORM: false
+  SCORE_TYPE: l2
+  TEMPERATURE: 0.1
+  TRANSFORM:
+    AddBias:
+      bias: 0.2
+      channel_select_type: granger_causality
+      n_channel_to_select: 1
+      percent: 1.0
+      pos: random
+    AddNoise:
+      channel_select_type: granger_causality
+      factor: 0.1
+      mean: 0.0
+      n_channel_to_select: 38
+      std: 0.05
+      type: additive
+    Amplify:
+      channel_select_type: granger_causality
+      factor: 1.5
+      n_channel_to_select: 10
+      percent: 1.0
+      pos: random
+    Dropout:
+      channel_select_type: granger_causality
+      n_channel_to_select: 1
+      p: 0.5
+    Identity: {}
+    Mask:
+      channel_select_type: granger_causality
+      n_channel_to_select: 1
+      p: 0.5
+    NEG: Identity_AddBias
+    NEG_CHANNEL_SELECT_TYPE: random
+    POS: AddNoise
+    POS_CHANNEL_SELECT_TYPE: random
+    Permute:
+      channel_select_type: granger_causality
+      k: 10
+      n_channel_to_select: 10
+    Reverse:
+      channel_select_type: granger_causality
+      n_channel_to_select: 10
+      percent: 1.0
+  TYPE: CTAD
+  USE_LAG: false
+CUTS:
+  CAUSALITY_MTX_TYPE: learned
+  CAUSAL_THRES: value_0.5
+  DATA_DIM: 1
+  DATA_PRED:
+    GRADIENT_CLIP: false
+    GRADIENT_CLIP_NORM: 1.0
+    LR_DATA_END: 0.001
+    LR_DATA_START: 0.01
+    MLP_HID: 32
+    MLP_LAYERS: 1
+    MODEL: multi_mlp
+    PRED_STEP: 1
+    PROB: true
+    WEIGHT_DECAY: 0
+  FILL_POLICY: None
+  GRAPH_DISCOV:
+    DYNAMIC_SAMPLING_MILESTONES:
+    - 0
+    DYNAMIC_SAMPLING_PERIODS:
+    - 1
+    END_TAU: 0.1
+    GRADIENT_CLIP: false
+    GRADIENT_CLIP_NORM: 1.0
+    LAMBDA_S_END: 0.01
+    LAMBDA_S_START: 0.1
+    LR_GRAPH_END: 0.0001
+    LR_GRAPH_START: 0.001
+    START_TAU: 1
+  GROUP_POLICY: multiply_2_every_20
+  INPUT_STEP: 9
+  N_GROUPS: 51
+  N_NODES: 38
+  RESULT_DIR: results/cuts/
+  SHOW_GRAPH_EVERY: 10
+  SOLVER:
+    MAX_EPOCH: 50
+  SUPERVISION_POLICY: full
+  TRAIN:
+    BATCH_SIZE: 256
+    CHECKPOINT_DIR: results/cuts/
+    EVAL_PERIOD: 1
+    METRIC_BEST: .inf
+CUTS_PLUS:
+  CAUSALITY_MTX_TYPE: learned
+  CAUSAL_THRES: value_0.5
+  DATA_DIM: 1
+  DATA_PRED:
+    CONCAT_H: true
+    GRADIENT_CLIP: false
+    GRADIENT_CLIP_NORM: 1.0
+    GRU_LAYERS: 1
+    LR_DATA_END: 0.001
+    LR_DATA_START: 0.01
+    MLP_HID: 32
+    MODEL: multi_lstm
+    PRED_STEP: 1
+    PROB: true
+    SHARED_WEIGHTS_DECODER: false
+    WEIGHT_DECAY: 0
+  FILL_POLICY: None
+  GRAPH_DISCOV:
+    DYNAMIC_SAMPLING_MILESTONES:
+    - 0
+    DYNAMIC_SAMPLING_PERIODS:
+    - 1
+    END_TAU: 0.1
+    GRADIENT_CLIP: false
+    GRADIENT_CLIP_NORM: 1.0
+    LAMBDA_S_END: 0.01
+    LAMBDA_S_START: 0.1
+    LR_GRAPH_END: 0.0001
+    LR_GRAPH_START: 0.001
+    START_TAU: 1
+  GROUP_POLICY: multiply_2_every_20
+  INPUT_STEP: 9
+  N_GROUPS: 38
+  N_NODES: 38
+  RESULT_DIR: results/cuts_plus/
+  SHOW_GRAPH_EVERY: 10
+  SOLVER:
+    MAX_EPOCH: 50
+  SUPERVISION_POLICY: full
+  TRAIN:
+    BATCH_SIZE: 256
+    CHECKPOINT_DIR: results/cuts_plus/
+    EVAL_PERIOD: 1
+    METRIC_BEST: .inf
+DATA:
+  BASE_DIR: /mnt/workspace/gusrl/data/TimeSeries/
+  DOWNSAMPLE_RATE: 1
+  INPUT_STEP: 9
+  NAME: SMD_2-1
+  N_VAR: 38
+  PRED_STEP: 1
+  SAMPLING_RATES: 1.0
+  SCALE: standard
+  TEST_STEP: 8
+  TRAIN_RATIO: 0.8
+  TRAIN_STEP: 1
+  WIN_SIZE: 10
+DATA_LOADER:
+  DROP_LAST: true
+  NUM_WORKERS: 2
+  PIN_MEMORY: true
+DATA_PRED:
+  GRADIENT_CLIP: true
+  GRADIENT_CLIP_NORM: 1.0
+  LR_DATA_END: 0.001
+  LR_DATA_START: 0.01
+  WEIGHT_DECAY: 0
+GATV2:
+  DROPOUT: 0.0
+  HEADS: 1
+  HIDDEN_CHANNELS: 32
+  IN_CHANNELS: 32
+  OUT_CHANNELS: 512
+GRAPH_DISCOV:
+  END_TAU: 0.1
+  GRADIENT_CLIP: true
+  GRADIENT_CLIP_NORM: 1.0
+  LAMBDA_S_END: 0.01
+  LAMBDA_S_START: 0.1
+  LR_GRAPH_END: 0.0001
+  LR_GRAPH_START: 0.001
+  SHOW_GRAPH_EVERY: 10
+  START_TAU: 1
+GRU:
+  DROPOUT: 0.0
+  HIDDEN_DIM: 512
+  NUM_LAYERS: 1
+ITRANSFORMER:
+  ACTIVATION: gelu
+  C_OUT: 51
+  DROPOUT: 0.1
+  D_FF: 512
+  D_MODEL: 512
+  EMBED: timeF
+  ENC_IN: 51
+  E_LAYERS: 2
+  FACTOR: 3
+  FREQ: h
+  IGNORE_STAMP: true
+  N_HEADS: 8
+  OUTPUT_ATTENTION: false
+  c_out: 38
+  enc_in: 38
+LOG_TIME: false
+LSTM:
+  DROPOUT: 0.0
+  HIDDEN_DIM: 512
+  NUM_LAYERS: 1
+MLP:
+  LOSS_NAMES: *id004
+  METRIC_NAMES: *id004
+  Z_SIZE: 128
+MODEL:
+  NAME: MLP
+NGC:
+  HIDDEN: 100
+  MODEL: clstm
+NUM_GPUS: 4
+RESULT_DIR: /home/gusrl/Research/TimeSeries/CANDI/results/SMD_2-1/MLP
+SCORER:
+  TYPE: l2
+SEED: 0
+SOLVER:
+  BASE_LR: 0.0001
+  COSINE_AFTER_WARMUP: true
+  COSINE_END_LR: 0.0
+  DAMPENING: 0.0
+  GRADIENT_CLIP: true
+  GRADIENT_CLIP_NORM: 0.5
+  LR_POLICY: cosine
+  MAX_EPOCH: 30
+  MOMENTUM: 0.9
+  NESTEROV: true
+  OPTIMIZING_METHOD: adam
+  START_EPOCH: 0
+  WARMUP_EPOCHS: 5
+  WARMUP_START_LR: 0.0001
+  WEIGHT_DECAY: 0.0001
+SUPPRESS_PRINT: false
+TEST:
+  ANOMALY_SCORES_DIR: ''
+  BATCH_SIZE: 8
+  DROP_LAST: false
+  ENABLE: true
+  POINT_ADJUST: true
+  SHUFFLE: false
+  SPLIT: test
+  THRESHOLD:
+    ANOMALY_RATIO: 0.5
+    TYPE: ratio
+  TTA:
+    CANDI:
+      GATING_INIT: 0.5
+      MIN_SAMPLES: 16
+      ORACLE: false
+      SIM_THRESHOLD: 0.95
+      USE_HARD: true
+      USE_MODERATE: true
+    ENABLE: true
+    M2N2:
+      GAMMA: 0.99999
+    METHOD: M2N2
+    POST_PROCESSING: true
+    SOLVER:
+      BASE_LR: 0.0001
+      DAMPENING: 0.0
+      GRADIENT_CLIP: false
+      GRADIENT_CLIP_NORM: 0.5
+      MOMENTUM: 0.9
+      NESTEROV: true
+      OPTIMIZING_METHOD: adam
+      WEIGHT_DECAY: 0.0001
+    STEPS: 1
+  VIS: true
+TIMESNET:
+  LOSS_NAMES: *id004
+  METRIC_NAMES: *id004
+  anomaly_ratio: 1
+  c_out: 38
+  d_ff: 512
+  d_model: 512
+  dropout: 0.1
+  e_layers: 2
+  embed: timeF
+  enc_in: 38
+  freq: h
+  num_kernels: 6
+  pred_len: 0
+  top_k: 3
+TRAIN:
+  BATCH_SIZE: 256
+  CHECKPOINT_DIR: /home/gusrl/Research/TimeSeries/CANDI/results/SMD_2-1/MLP
+  CHECKPOINT_PERIOD: 200
+  DROP_LAST: true
+  ENABLE: true
+  EVAL_PERIOD: 5
+  IS_METRIC_LOWER_BETTER: true
+  METRIC_BEST: .inf
+  PRINT_FREQ: 100
+  RESUME: ''
+  SAVE_EVERY_EVAL: false
+  SHUFFLE: true
+  SPLIT: train
+TRANSFORM:
+  AddBias:
+    bias_candidates:
+    - 0.5
+    - 0.4
+    - 0.3
+    - 0.2
+    - 0.1
+    - -0.1
+    - -0.2
+    - -0.3
+    - -0.4
+    - -0.5
+    percent: 0.5
+  Amplify:
+    factor_candidates:
+    - 2.5
+    - 2.0
+    - 1.5
+    - 0.75
+    - 0.5
+    - 0.25
+    percent: 0.5
+USAD:
+  LOSS_NAMES:
+  - AE1
+  - AE2
+  - Recon AE1
+  - Recon AE2
+  - Recon AE2 adv
+  METRIC_NAMES:
+  - Recon AE1
+  alpha: 0.5
+  beta: 0.5
+  dec_type: mlp
+  enc_type: mlp
+  n_var: 38
+  w_size: 10
+  z_size: 5
+VAL:
+  BATCH_SIZE: 256
+  DROP_LAST: false
+  SHUFFLE: false
+  SPLIT: val
+  VIS: false
+VISIBLE_DEVICES: 0
+WANDB:
+  DIR: /mnt/workspace/gusrl/CANDI
+  ENABLE: false
+  JOB_TYPE: ''
+  NAME: ''
+  NOTES: ''
+  PROJECT: CANDI

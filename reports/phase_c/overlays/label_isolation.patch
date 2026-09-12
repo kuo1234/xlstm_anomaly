@@ -1,0 +1,46 @@
+--- official/tta/candi/adapter_candi.py
++++ overlay/adapter_labels_isolated.py
+@@ -158,7 +158,6 @@
+         self.total_samples_to_adapt_moderate = 0
+         self.total_anomalies_in_moderate = 0
+ 
+-        self.test_labels = kwargs['test_labels']
+ 
+     @torch.no_grad()
+     def get_samples_to_adapt(self, x, scores):
+@@ -170,11 +169,9 @@
+                 offset = self.iter * len(scores)
+                 selected_indices_moderate_offset = (selected_indices_moderate + offset).tolist()
+ 
+-                selected_labels_moderate = self.test_labels[selected_indices_moderate_offset]
+                 self.n_samples_to_adapt_moderate += len(selected_x_moderate)
+                 self.samples_to_adapt_moderate.append(selected_x_moderate)
+                 self.total_samples_to_adapt_moderate += len(selected_x_moderate)
+-                self.total_anomalies_in_moderate += (selected_labels_moderate == 1).sum().item()
+             return
+ 
+         representations = self.model.get_representations(x)  # (B, D)
+@@ -202,11 +199,9 @@
+                 offset = self.iter * len(scores)
+                 selected_indices_hard = mask_hard.nonzero(as_tuple=True)[0]
+                 selected_indices_hard_offset = (selected_indices_hard + offset).tolist()
+-                selected_labels_hard = self.test_labels[selected_indices_hard_offset]
+                 self.n_samples_to_adapt_hard += len(selected_x_hard)
+                 self.samples_to_adapt_hard.append(selected_x_hard)
+                 self.total_samples_to_adapt_hard += len(selected_x_hard)
+-                self.total_anomalies_in_hard += (selected_labels_hard == 1).sum().item()
+         else:
+             selected_x_hard = torch.tensor([]).to(x.device)
+ 
+@@ -234,11 +229,9 @@
+                 offset = self.iter * len(scores)
+                 selected_indices_moderate_offset = (selected_indices_moderate + offset).tolist()
+ 
+-                selected_labels_moderate = self.test_labels[selected_indices_moderate_offset]
+                 self.n_samples_to_adapt_moderate += len(selected_x_moderate)
+                 self.samples_to_adapt_moderate.append(selected_x_moderate)
+                 self.total_samples_to_adapt_moderate += len(selected_x_moderate)
+-                self.total_anomalies_in_moderate += (selected_labels_moderate == 1).sum().item()
+         else:
+             selected_x_moderate = torch.tensor([]).to(x.device)
+ 

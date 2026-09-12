@@ -1,0 +1,152 @@
+[
+  {
+    "machine": "SMD_1-8",
+    "alpha": "0.5",
+    "published": {
+      "AUROC": 0.872,
+      "AUPRC": 0.432
+    },
+    "checkpoint_sha256": "08ec432dc29275114e132002c4599eae391ff2785287948a4f310be1d4fd881e",
+    "checkpoint_epoch": 29,
+    "upstream_config_sha256": "1b37de89cfbf064dfe53871ebd15b429be84bf81c93df9b043269410487c5e0a",
+    "upstream_test_txt": "AUROC_wo_tta: 0.7279, AUPRC_wo_tta: 0.3678, Precision_wo_tta: 0.4933, Recall_wo_tta: 0.3118, F1_wo_tta: 0.3821, AUROC_w_tta: 0.8666, AUPRC_w_tta: 0.4478, Precision_w_tta: 0.5521, Recall_w_tta: 0.3033, F1_w_tta: 0.3915",
+    "source_type": "author-committed cached outputs: NOT our observed reproduction",
+    "test_scores.npy": {
+      "AUROC": 0.7278766929562828,
+      "AUPRC": 0.36775022387941997,
+      "sha256": "3e5bef8a97882e68e7192196945747ba0ac8257978df08d542c80460a0e0793c",
+      "n": 23690
+    },
+    "test_scores_w_tta.npy": {
+      "AUROC": 0.8665758355045806,
+      "AUPRC": 0.44776017682657976,
+      "sha256": "43f73f1eb22dc117cf1c1f5d6c7c926ab6f9cbead06921595cd4c9e8cd5f5580",
+      "n": 23690
+    }
+  },
+  {
+    "machine": "SMD_1-8",
+    "alpha": "1.0",
+    "published": {
+      "AUROC": 0.872,
+      "AUPRC": 0.434
+    },
+    "checkpoint_sha256": "08ec432dc29275114e132002c4599eae391ff2785287948a4f310be1d4fd881e",
+    "checkpoint_epoch": 29,
+    "upstream_config_sha256": "7d4b7603504d34cfb31956009afc42f22d40f09aad995c8345a8ffe61ec75851",
+    "upstream_test_txt": "AUROC_wo_tta: 0.7279, AUPRC_wo_tta: 0.3678, Precision_wo_tta: 0.4374, Recall_wo_tta: 0.3743, F1_wo_tta: 0.4034, AUROC_w_tta: 0.8532, AUPRC_w_tta: 0.4389, Precision_w_tta: 0.5380, Recall_w_tta: 0.3606, F1_w_tta: 0.4317",
+    "source_type": "author-committed cached outputs: NOT our observed reproduction",
+    "test_scores.npy": {
+      "AUROC": 0.7278766929562828,
+      "AUPRC": 0.36775022387941997,
+      "sha256": "3e5bef8a97882e68e7192196945747ba0ac8257978df08d542c80460a0e0793c",
+      "n": 23690
+    },
+    "test_scores_w_tta.npy": {
+      "AUROC": 0.8532160510975519,
+      "AUPRC": 0.4389346726889699,
+      "sha256": "d905abd88389b66a1d32647a351ff13900ffd95edf5f966cc97e4e889f9d46ca",
+      "n": 23690
+    }
+  },
+  {
+    "machine": "SMD_1-8",
+    "alpha": "5.0",
+    "published": {
+      "AUROC": 0.867,
+      "AUPRC": 0.423
+    },
+    "checkpoint_sha256": "08ec432dc29275114e132002c4599eae391ff2785287948a4f310be1d4fd881e",
+    "checkpoint_epoch": 29,
+    "upstream_config_sha256": "3a047d82081ade07dbb96d62c64328947212dfeee22535f96f3d74cb689cfc40",
+    "upstream_test_txt": "AUROC_wo_tta: 0.7279, AUPRC_wo_tta: 0.3678, Precision_wo_tta: 0.0498, Recall_wo_tta: 0.7434, F1_wo_tta: 0.0933, AUROC_w_tta: 0.8681, AUPRC_w_tta: 0.4500, Precision_w_tta: 0.1674, Recall_w_tta: 0.7497, F1_w_tta: 0.2737",
+    "source_type": "author-committed cached outputs: NOT our observed reproduction",
+    "test_scores.npy": {
+      "AUROC": 0.7278766929562828,
+      "AUPRC": 0.36775022387941997,
+      "sha256": "3e5bef8a97882e68e7192196945747ba0ac8257978df08d542c80460a0e0793c",
+      "n": 23690
+    },
+    "test_scores_w_tta.npy": {
+      "AUROC": 0.868100630752189,
+      "AUPRC": 0.4499961686346305,
+      "sha256": "30f98f0a593a4bd730c64fdc96c2fab192c0770ff6a5a5e24cc70f8e29d90b83",
+      "n": 23690
+    }
+  },
+  {
+    "machine": "SMD_2-1",
+    "alpha": "0.5",
+    "published": {
+      "AUROC": 0.725,
+      "AUPRC": 0.319
+    },
+    "checkpoint_sha256": "b374a7a9163db506c2f71028fd7c47edb97ada4bdceddc9ffd2e308b246a81a8",
+    "checkpoint_epoch": 29,
+    "upstream_config_sha256": "7041541aa070bdf08c5638dd567666be70b87f07348c0e3a97bcbc54f5eb8e11",
+    "upstream_test_txt": "AUROC_wo_tta: 0.6574, AUPRC_wo_tta: 0.2912, Precision_wo_tta: 0.6585, Recall_wo_tta: 0.1663, F1_wo_tta: 0.2655, AUROC_w_tta: 0.6913, AUPRC_w_tta: 0.3064, Precision_w_tta: 0.6796, Recall_w_tta: 0.1632, F1_w_tta: 0.2632",
+    "source_type": "author-committed cached outputs: NOT our observed reproduction",
+    "test_scores.npy": {
+      "AUROC": 0.6573892121708891,
+      "AUPRC": 0.2911558186100937,
+      "sha256": "83013a954dce503f3f8170308a291d7f6dfa0e85fc5dff311aa525eb205521a0",
+      "n": 23685
+    },
+    "test_scores_w_tta.npy": {
+      "AUROC": 0.6912522471724185,
+      "AUPRC": 0.30637354602951333,
+      "sha256": "b0630ba52a5bd3efcea7e2a88a6500890eed320bc29f40ad710718ee02149053",
+      "n": 23685
+    }
+  },
+  {
+    "machine": "SMD_2-1",
+    "alpha": "1.0",
+    "published": {
+      "AUROC": 0.711,
+      "AUPRC": 0.314
+    },
+    "checkpoint_sha256": "b374a7a9163db506c2f71028fd7c47edb97ada4bdceddc9ffd2e308b246a81a8",
+    "checkpoint_epoch": 29,
+    "upstream_config_sha256": "ee45461234f06095238adc6930080ebe5aaa9da35b4be930a7cfcd8ceee0a605",
+    "upstream_test_txt": "AUROC_wo_tta: 0.6574, AUPRC_wo_tta: 0.2912, Precision_wo_tta: 0.5048, Recall_wo_tta: 0.2059, F1_wo_tta: 0.2925, AUROC_w_tta: 0.7109, AUPRC_w_tta: 0.3144, Precision_w_tta: 0.5329, Recall_w_tta: 0.2012, F1_w_tta: 0.2922",
+    "source_type": "author-committed cached outputs: NOT our observed reproduction",
+    "test_scores.npy": {
+      "AUROC": 0.6573892121708891,
+      "AUPRC": 0.2911558186100937,
+      "sha256": "83013a954dce503f3f8170308a291d7f6dfa0e85fc5dff311aa525eb205521a0",
+      "n": 23685
+    },
+    "test_scores_w_tta.npy": {
+      "AUROC": 0.7109177940948634,
+      "AUPRC": 0.314446069260569,
+      "sha256": "440b4a65c7d65de1302acaa8ce9cf1b0b1c533db3de0da6a7c6f422a89082a95",
+      "n": 23685
+    }
+  },
+  {
+    "machine": "SMD_2-1",
+    "alpha": "5.0",
+    "published": {
+      "AUROC": 0.78,
+      "AUPRC": 0.348
+    },
+    "checkpoint_sha256": "b374a7a9163db506c2f71028fd7c47edb97ada4bdceddc9ffd2e308b246a81a8",
+    "checkpoint_epoch": 29,
+    "upstream_config_sha256": "c69023504ff88ea641a208b1d9222f21718e9a828ceba0a3a3a7890f1ebeecd9",
+    "upstream_test_txt": "AUROC_wo_tta: 0.6574, AUPRC_wo_tta: 0.2912, Precision_wo_tta: 0.2512, Recall_wo_tta: 0.3310, F1_wo_tta: 0.2856, AUROC_w_tta: 0.7798, AUPRC_w_tta: 0.3478, Precision_w_tta: 0.2926, Recall_w_tta: 0.3699, F1_w_tta: 0.3267",
+    "source_type": "author-committed cached outputs: NOT our observed reproduction",
+    "test_scores.npy": {
+      "AUROC": 0.6573892121708891,
+      "AUPRC": 0.2911558186100937,
+      "sha256": "83013a954dce503f3f8170308a291d7f6dfa0e85fc5dff311aa525eb205521a0",
+      "n": 23685
+    },
+    "test_scores_w_tta.npy": {
+      "AUROC": 0.7798449578519226,
+      "AUPRC": 0.3478113070789354,
+      "sha256": "b7de54286b939611a1d3f8a896b1ab69c239add3617263e806ef694df6c5050a",
+      "n": 23685
+    }
+  }
+]

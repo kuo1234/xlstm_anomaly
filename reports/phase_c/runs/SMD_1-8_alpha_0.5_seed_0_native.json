@@ -1,0 +1,75 @@
+{
+  "tag": "SMD_1-8_alpha_0.5_seed_0_native",
+  "machine": "SMD_1-8",
+  "alpha": "0.5",
+  "seed": 0,
+  "mode": "native",
+  "official_commit": "28c9679e503832f59e351208cde63657fcb51cad",
+  "official_script": "scripts/SMD_1-8/SMD_1-8_alpha_0.5.sh",
+  "script_sha256": "8eab29d8a0cbc88a62822d122d80437c274bfc1945447b06e6d614be33914ff0",
+  "command": "/home/p76141495/home/xlstm_anomaly/data/phase_c/venv/bin/python /home/p76141495/home/xlstm_anomaly/scripts/phase_c_run.py --machine SMD_1-8 --alpha 0.5 --mode native --seed 0",
+  "native_argv": [
+    "/home/p76141495/home/xlstm_anomaly/data/phase_c/official_candi/main.py",
+    "DATA.NAME",
+    "SMD_1-8",
+    "TEST.TTA.SOLVER.BASE_LR",
+    "0.1",
+    "TEST.TTA.STEPS",
+    "1",
+    "TEST.TTA.CANDI.GATING_INIT",
+    "0.5",
+    "TEST.THRESHOLD.ANOMALY_RATIO",
+    "0.5"
+  ],
+  "working_directory": "/home/p76141495/home/xlstm_anomaly/data/phase_c/runs/SMD_1-8_alpha_0.5_seed_0_native",
+  "checkpoint_sha256": "08ec432dc29275114e132002c4599eae391ff2785287948a4f310be1d4fd881e",
+  "runtime_seconds": 11.037170075811446,
+  "cuda_event_span_ms": 11037.126953125,
+  "peak_gpu_allocated_bytes": 2709062656,
+  "peak_gpu_reserved_bytes": 3581935616,
+  "memory_note": "PyTorch peak allocator statistics; GB10 nvidia-smi device memory accounting unsupported",
+  "cuda_time_note": "Event span includes host gaps; not a sum of active GPU kernel durations",
+  "error": null,
+  "published": {
+    "AUROC": 0.872,
+    "AUPRC": 0.432
+  },
+  "observed": {
+    "AUROC": 0.8524040856820481,
+    "AUPRC": 0.4383890500687414,
+    "Precision": 0.5512572533849118,
+    "Recall": 0.30222693531283107,
+    "F1": 0.39041095890365163
+  },
+  "discrepancy": {
+    "AUROC": 0.019595914317951935,
+    "AUPRC": 0.006389050068741409
+  },
+  "status": "PASS",
+  "resolved_config": "DATA:\n  BASE_DIR: data\n  DOWNSAMPLE_RATE: 1\n  NAME: SMD_1-8\n  N_VAR: 38\n  SAMPLING_RATES: 1.0\n  SCALE: standard\n  TEST_STEP: 1\n  TRAIN_RATIO: 0.8\n  TRAIN_STEP: 1\n  WIN_SIZE: 10\nDATA_LOADER:\n  DROP_LAST: true\n  NUM_WORKERS: 2\n  PIN_MEMORY: true\nMLP:\n  LOSS_NAMES: &id001\n  - Recon\n  METRIC_NAMES: *id001\n  Z_SIZE: 128\nMODEL:\n  NAME: MLP\nNUM_GPUS: 4\nRESULT_DIR: results/SMD_1-8/MLP/0.5\nSANA:\n  TYPE: TCN_iTrans\n  activation: gelu\n  d_ff: 512\n  d_model: 512\n  dropout: 0.0\n  e_layers: 1\n  n_heads: 8\n  output_attention: true\nSEED: 0\nSOLVER:\n  BASE_LR: 0.0001\n  COSINE_AFTER_WARMUP: true\n  COSINE_END_LR: 0.0\n  DAMPENING: 0.0\n  GRADIENT_CLIP: true\n  GRADIENT_CLIP_NORM: 0.5\n  LR_POLICY: cosine\n  MAX_EPOCH: 30\n  MOMENTUM: 0.9\n  NESTEROV: true\n  OPTIMIZING_METHOD: adam\n  START_EPOCH: 0\n  WARMUP_EPOCHS: 5\n  WARMUP_START_LR: 0.0001\n  WEIGHT_DECAY: 0.0001\nTEST:\n  ANOMALY_SCORES_DIR: ''\n  BATCH_SIZE: 256\n  DROP_LAST: false\n  ENABLE: true\n  SHUFFLE: false\n  SPLIT: test\n  THRESHOLD:\n    ANOMALY_RATIO: 0.5\n    TYPE: ratio\n  TTA:\n    CANDI:\n      GATING_INIT: 0.5\n      MIN_SAMPLES: 16\n      USE_FPM: true\n      USE_HARD: true\n      USE_MODERATE: true\n      USE_SANA: true\n    ENABLE: true\n    M2N2:\n      GAMMA: 0.99999\n    METHOD: CANDI\n    SOLVER:\n      BASE_LR: 0.1\n      DAMPENING: 0.0\n      GRADIENT_CLIP: true\n      GRADIENT_CLIP_NORM: 0.5\n      MOMENTUM: 0.9\n      NESTEROV: true\n      OPTIMIZING_METHOD: sgd\n      WEIGHT_DECAY: 0.0001\n    STEPS: 1\nTIMESNET:\n  LOSS_NAMES: *id001\n  METRIC_NAMES: *id001\n  anomaly_ratio: 1\n  c_out: 38\n  d_ff: 512\n  d_model: 512\n  dropout: 0.1\n  e_layers: 2\n  embed: timeF\n  enc_in: 38\n  freq: h\n  num_kernels: 6\n  pred_len: 0\n  top_k: 3\nTRAIN:\n  BATCH_SIZE: 256\n  CHECKPOINT_DIR: results/SMD_1-8/MLP\n  CHECKPOINT_PERIOD: 200\n  DROP_LAST: false\n  ENABLE: false\n  EVAL_PERIOD: 5\n  IS_METRIC_LOWER_BETTER: true\n  METRIC_BEST: .inf\n  PRINT_FREQ: 100\n  RESUME: ''\n  SAVE_EVERY_EVAL: false\n  SHUFFLE: false\n  SPLIT: train\nVAL:\n  BATCH_SIZE: 256\n  DROP_LAST: false\n  SHUFFLE: false\n  SPLIT: val\nVISIBLE_DEVICES: 0\nWANDB:\n  DIR: ''\n  ENABLE: false\n  JOB_TYPE: ''\n  NAME: ''\n  NOTES: ''\n  PROJECT: CANDI\n",
+  "native_threshold": 2.1359095692634633,
+  "final_model_sha256": "239cae4cd17fc5f91e3d6d2d751c2e609a4f7df6cc79c1d34b0c32572af1e903",
+  "native_window_count": 23690,
+  "official_counters": {
+    "iter": 93,
+    "n_adapt": 80,
+    "total_samples_to_adapt_hard": 5,
+    "total_anomalies_in_hard": 5,
+    "total_samples_to_adapt_moderate": 11315,
+    "total_anomalies_in_moderate": 447,
+    "n_samples_to_adapt_hard": 5,
+    "n_samples_to_adapt_moderate": 1
+  },
+  "artifact_hashes": {
+    "results/SMD_1-8/MLP/0.5/config.txt": "18139bc6518e441506c5efa3f5524e959c28919951672067c798477998e08809",
+    "results/SMD_1-8/MLP/0.5/test.txt": "20a6edef5b61145b42701bb868363fea3820d8794eea72f0ee8de21d8c8d29d3",
+    "results/SMD_1-8/MLP/0.5/test_labels.npy": "625958fe9ed64b35c04164eeeeb7a3bac18808bc0d9dce64c32c1dacb3c7b77d",
+    "results/SMD_1-8/MLP/0.5/test_scores.npy": "e06fbdfe1e4fa0fef267c2143e7abe392d8e36eaccbdb059720ae017d2eceb07",
+    "results/SMD_1-8/MLP/0.5/test_scores_w_tta.npy": "b3965838d1d5ea45adef8573a3c71983f0c3166430a94a00f52c3cc0d2a4d2b2",
+    "results/SMD_1-8/MLP/0.5/threshold.npy": "12b190d81ad98ae8652e3ded2da685de6afb3c9d3305fe6df6779e6fe5d79458",
+    "results/SMD_1-8/MLP/0.5/train_scores.npy": "4f81f471a26093b59933a7492d748ffeaf17fe429df1276d5b59ecc9a84bc8ae",
+    "results/SMD_1-8/MLP/0.5/val_representations.npy": "5f7bf9383f3c0ef7abd6e980a93ef4454b21c902892a291cc8f416fc415c6394",
+    "results/SMD_1-8/MLP/0.5/val_scores.npy": "d4773235aa4fb1e29c07edc90bc54a90d91799aec531f6fc399cb70b3aa9b393"
+  },
+  "final_checkpoint_sha256": "12c214456d3a7ca21727264830d53061e46b604bb1f113bf23536f7b12baa678"
+}

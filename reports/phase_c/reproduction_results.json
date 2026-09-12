@@ -1,0 +1,110 @@
+{
+  "C1": "INVESTIGATE",
+  "source": "https://arxiv.org/html/2604.01845v1#S4.T1",
+  "metric_semantics": "Native window-any labels, W=10 stride=1, unadjusted sklearn AUROC and trapezoidal PR-AUC, not AP",
+  "rows": [
+    {
+      "machine": "SMD_1-8",
+      "alpha": "0.5",
+      "published": {
+        "AUROC": 0.872,
+        "AUPRC": 0.432
+      },
+      "observed": {
+        "AUROC": 0.8524040856820481,
+        "AUPRC": 0.4383890500687414,
+        "Precision": 0.5512572533849118,
+        "Recall": 0.30222693531283107,
+        "F1": 0.39041095890365163
+      },
+      "absolute_discrepancy": {
+        "AUROC": 0.019595914317951935,
+        "AUPRC": 0.006389050068741409
+      },
+      "status": "PASS"
+    },
+    {
+      "machine": "SMD_1-8",
+      "alpha": "1.0",
+      "published": {
+        "AUROC": 0.872,
+        "AUPRC": 0.434
+      },
+      "observed": {
+        "AUROC": 0.8532123914957194,
+        "AUPRC": 0.4389382704451123,
+        "Precision": 0.5379746835443029,
+        "Recall": 0.3605514316012721,
+        "F1": 0.43174603174555065
+      },
+      "absolute_discrepancy": {
+        "AUROC": 0.01878760850428063,
+        "AUPRC": 0.004938270445112303
+      },
+      "status": "PASS"
+    },
+    {
+      "machine": "SMD_1-8",
+      "alpha": "5.0",
+      "published": {
+        "AUROC": 0.867,
+        "AUPRC": 0.423
+      },
+      "observed": {
+        "AUROC": 0.8681006074426231,
+        "AUPRC": 0.44999612203735434,
+        "Precision": 0.16741652853421735,
+        "Recall": 0.7497348886532336,
+        "F1": 0.2737127371270728
+      },
+      "absolute_discrepancy": {
+        "AUROC": 0.0011006074426230805,
+        "AUPRC": 0.026996122037354353
+      },
+      "status": "INVESTIGATE"
+    },
+    {
+      "machine": "SMD_2-1",
+      "alpha": "0.5",
+      "published": {
+        "AUROC": 0.725,
+        "AUPRC": 0.319
+      },
+      "observed": null,
+      "absolute_discrepancy": null,
+      "status": "NOT_RUN_STOP_GATE"
+    },
+    {
+      "machine": "SMD_2-1",
+      "alpha": "1.0",
+      "published": {
+        "AUROC": 0.711,
+        "AUPRC": 0.314
+      },
+      "observed": null,
+      "absolute_discrepancy": null,
+      "status": "NOT_RUN_STOP_GATE"
+    },
+    {
+      "machine": "SMD_2-1",
+      "alpha": "5.0",
+      "published": {
+        "AUROC": 0.78,
+        "AUPRC": 0.348
+      },
+      "observed": null,
+      "absolute_discrepancy": null,
+      "status": "NOT_RUN_STOP_GATE"
+    }
+  ],
+  "five_seed_replication_allowed": false,
+  "phase_D_ready": false,
+  "stop_reason": "SMD_1-8 alpha 5 PR-AUC discrepancy 0.026996 > 0.02; expansion stopped before SMD_2-1",
+  "native_total_seconds": 33.05943397292867,
+  "all_runs_total_seconds": 63.463035413995385,
+  "peak_allocated_bytes": 2709062656,
+  "peak_reserved_bytes": 3586129920,
+  "investigation": "Pinned upstream cached alpha=5 PR-AUC also ~0.4500, not paper 0.423. Baseline cached PR-AUC ~0.36775 vs paper 0.332. Paper-to-release checkpoint/result lineage unresolved; do not tune to paper.",
+  "native_code_modified": false,
+  "compatibility_patches": []
+}

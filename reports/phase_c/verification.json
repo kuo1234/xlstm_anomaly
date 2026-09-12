@@ -1,0 +1,14 @@
+{
+  "official_commit": "28c9679e503832f59e351208cde63657fcb51cad",
+  "official_clean": true,
+  "code_hashes_verified": 31,
+  "checks": [
+    "native/audit exact scores and final state",
+    "permuted/unpermuted exact all audit events and every step model hash",
+    "queue/admission/commit/exposure reconciliation",
+    "MIN_SAMPLES>=16",
+    "FPM-off static early return",
+    "native stop gate"
+  ],
+  "no_phase_D": true
+}

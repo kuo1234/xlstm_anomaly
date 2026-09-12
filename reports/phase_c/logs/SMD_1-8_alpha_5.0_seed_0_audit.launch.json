@@ -1,0 +1,17 @@
+{
+  "command": [
+    "rtk",
+    "/home/p76141495/home/xlstm_anomaly/data/phase_c/venv/bin/python",
+    "/home/p76141495/home/xlstm_anomaly/scripts/phase_c_run.py",
+    "--machine",
+    "SMD_1-8",
+    "--alpha",
+    "5.0",
+    "--mode",
+    "audit",
+    "--seed",
+    "0"
+  ],
+  "returncode": 0,
+  "total_process_wall_seconds": 18.753204428125173
+}
