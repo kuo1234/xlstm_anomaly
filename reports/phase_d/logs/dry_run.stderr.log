@@ -1,0 +1,17 @@
+fatal: path 'reports/phase_d/synthetic_backbone_manifest.json' exists on disk, but not in 'origin/main'
+
+Traceback (most recent call last):
+  File "/home/p76141495/home/xlstm_anomaly/scripts/phase_d_grid.py", line 140, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/home/p76141495/home/xlstm_anomaly/scripts/phase_d_grid.py", line 116, in main
+    check()
+  File "/home/p76141495/home/xlstm_anomaly/scripts/phase_d_grid.py", line 112, in check
+    assert subprocess.check_output(['rtk','git','show',f'origin/main:reports/phase_d/{name}'])==(REPORT/name).read_bytes()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['rtk', 'git', 'show', 'origin/main:reports/phase_d/synthetic_backbone_manifest.json']' returned non-zero exit status 128.

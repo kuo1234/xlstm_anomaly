@@ -1,0 +1,10 @@
+{
+  "command": [
+    "rtk",
+    "/home/p76141495/home/xlstm_anomaly/data/phase_c/venv/bin/python",
+    "/home/p76141495/home/xlstm_anomaly/scripts/phase_d_grid.py",
+    "dry"
+  ],
+  "returncode": 1,
+  "wall_seconds": 2.099603765178472
+}
