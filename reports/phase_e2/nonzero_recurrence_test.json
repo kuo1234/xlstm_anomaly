@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "max_hidden_abs": 5.960464477539063e-08,
+  "max_state_abs": 2.384185791015625e-07,
+  "effective_input_range": [
+    0.00896397978067398,
+    1.0
+  ],
+  "effective_retention_range": [
+    1.2425518434611149e-05,
+    1.0
+  ],
+  "note": "Nonzero random recurrent matrix is an isolated unit fixture only; detector weights untouched; no optimizer/labels."
+}

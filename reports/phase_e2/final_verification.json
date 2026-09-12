@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "validity_checks": 40,
+  "schema_tests": 7,
+  "scalar_nonzero_reference": "PASS",
+  "frozen_schema_and_observer_unchanged": true,
+  "upstream_dependency_hashes_unchanged": true,
+  "v1_and_Dv2_report_seals_unchanged": true,
+  "checker_only_change": [
+    "no_fitted_test_scaler_or_threshold"
+  ],
+  "rerun_diagnostic_arrays_bitwise_identical": true,
+  "no_labeled_extraction": true,
+  "no_optimizer_updates": true
+}

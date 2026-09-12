@@ -1,0 +1,6 @@
+E2 BLOCKED {
+  "no_fitted_test_scaler_or_threshold": {
+    "pass_": false,
+    "common_track": "raw fixed observations; later optional train-prefix-only scaler belongs outside model; no fit/test_step/predict labels"
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "status": "MEASURED_PILOT_WITH_CONDITIONAL_EXTRAPOLATIONS",
+  "pilot_total_process_wall_seconds": 49.36518644867465,
+  "pilot_limit_seconds": 1800,
+  "backend": "official vanilla float32; GPU tensors, no custom CUDA extension",
+  "timing_configuration": "D8,W64,embedding40,B128;2warmups/5forward;1warmup/3backward; zero optimizer steps",
+  "E_fit_hours_per_epoch_five_detectors": 0.06911226216686407,
+  "E_validation_hours_per_epoch_five_detectors": 0.00914634223225423,
+  "E_fit_validation_hours_illustrative50epochs": 3.912930219955915,
+  "E_assumption": "10 clean train prefixes4096,5 validation prefixes4096,5detectors.50epoch illustration only; no epoch/config selection authorized.",
+  "G_synthetic_extraction_windows": 53602500,
+  "G_synthetic_extraction_hours": 9.074355009058005,
+  "G_assumption": "25sources*5scenarios*4conditions*5detectors*(21504\u221264+1); includes prefix/history, no class selection.",
+  "real_lengths": [
+    {
+      "file": "154_SMAP_id_11_Sensor_tr_2117_1st_4770.csv",
+      "D": 25,
+      "N": 8469,
+      "fit_windows": 1630,
+      "test_windows": 6289
+    },
+    {
+      "file": "171_SWaT_id_1_Sensor_tr_3749_1st_9522.csv",
+      "D": 66,
+      "N": 14996,
+      "fit_windows": 2936,
+      "test_windows": 11184
+    },
+    {
+      "file": "173_GECCO_id_1_Sensor_tr_16165_1st_16265.csv",
+      "D": 9,
+      "N": 138521,
+      "fit_windows": 12869,
+      "test_windows": 122293
+    },
+    {
+      "file": "009_MSL_id_8_Sensor_tr_714_1st_1390.csv",
+      "D": 55,
+      "N": 2856,
+      "fit_windows": 508,
+      "test_windows": 2079
+    },
+    {
+      "file": "018_Daphnet_id_1_HumanActivity_tr_9693_1st_20732.csv",
+      "D": 9,
+      "N": 38774,
+      "fit_windows": 7691,
+      "test_windows": 29018
+    },
+    {
+      "file": "137_CreditCard_id_1_Finance_tr_500_1st_541.csv",
+      "D": 29,
+      "N": 284807,
+      "fit_windows": 337,
+      "test_windows": 284244
+    },
+    {
+      "file": "059_SMD_id_3_Facility_tr_757_1st_857.csv",
+      "D": 38,
+      "N": 23689,
+      "fit_windows": 542,
+      "test_windows": 22869
+    },
+    {
+      "file": "065_SMD_id_9_Facility_tr_737_1st_837.csv",
+      "D": 38,
+      "N": 23697,
+      "fit_windows": 526,
+      "test_windows": 22897
+    },
+    {
+      "file": "075_SMD_id_19_Facility_tr_564_1st_664.csv",
+      "D": 38,
+      "N": 23696,
+      "fit_windows": 388,
+      "test_windows": 23069
+    },
+    {
+      "file": "129_OPPORTUNITY_id_1_HumanActivity_tr_1801_1st_1901.csv",
+      "D": 248,
+      "N": 24693,
+      "fit_windows": 1377,
+      "test_windows": 22829
+    },
+    {
+      "file": "132_OPPORTUNITY_id_4_HumanActivity_tr_895_1st_995.csv",
+      "D": 248,
+      "N": 9323,
+      "fit_windows": 653,
+      "test_windows": 8365
+    },
+    {
+      "file": "188_Exathlon_id_15_Facility_tr_12538_1st_12638.csv",
+      "D": 19,
+      "N": 129197,
+      "fit_windows": 9967,
+      "test_windows": 116596
+    },
+    {
+      "file": "machine-1-8",
+      "D": 38,
+      "N": 47397,
+      "fit_windows": 18895,
+      "test_windows": 23636
+    },
+    {
+      "file": "machine-2-1",
+      "D": 38,
+      "N": 47387,
+      "fit_windows": 18891,
+      "test_windows": 23631
+    }
+  ],
+  "real_total_test_windows": 718999,
+  "real_five_detector_extraction_hours_D8_proxy": 0.6085958842551837,
+  "real_limitation": "D8 throughput proxy only; actual D up to248, no real input benchmark or labels inspected.",
+  "F_measured_runtime": null,
+  "F_reason": "Matched architecture/training not authorized; cannot claim measured F cost.",
+  "G_probe_fit_runtime": null,
+  "G_probe_reason": "No logistic fit authorized; sample support and solver cost unmeasured.",
+  "total_EFG_runtime": null,
+  "total_reason": "F and probe fitting unmeasured, training budget not frozen; not a complete160h cost certification.",
+  "optional_CUDA": "NOT_RUN_NOT_REQUIRED",
+  "backend_selection_performance_based": false,
+  "observer_time_ratio": 1.871631447871236,
+  "long_runs_authorized": false
+}

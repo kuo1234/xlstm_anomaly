@@ -1,0 +1,40 @@
+E2 validity PASS 40 checks; throughput {
+  "status": "PASS",
+  "timings": {
+    "vanilla": {
+      "seconds": 0.20839767111465335,
+      "batches_per_second": 23.992590575780326,
+      "decisions_per_second": 3071.051593699882,
+      "batch_size": 128,
+      "timed_batches": 5,
+      "peak_allocated_bytes": 158140928,
+      "peak_reserved_bytes": 192937984
+    },
+    "observer": {
+      "seconds": 0.39004363492131233,
+      "batches_per_second": 12.819078565424363,
+      "decisions_per_second": 1640.8420563743184,
+      "batch_size": 128,
+      "timed_batches": 5,
+      "peak_allocated_bytes": 178252288,
+      "peak_reserved_bytes": 218103808
+    },
+    "forward_backward": {
+      "seconds": 0.4724129312671721,
+      "batches_per_second": 6.350376548654119,
+      "optimizer_steps": 0,
+      "peak_allocated_bytes": 673057280,
+      "peak_reserved_bytes": 685768704
+    }
+  },
+  "observer_time_ratio": 1.871631447871236,
+  "cpu_process_peak_rss_kib": 2203304,
+  "total_seconds": 17.792464763857424,
+  "optimizer_steps": 0,
+  "parameters_unchanged": true,
+  "finite_gradients": true,
+  "scientific_checkpoint_saved": false,
+  "probe_fit": false,
+  "matched_LSTM": false,
+  "CUDA_optional": "NOT_RUN_NOT_REQUIRED"
+}

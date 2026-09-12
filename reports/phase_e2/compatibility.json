@@ -1,0 +1,26 @@
+{
+  "implementation_name": "improved official xLSTMAD implementation",
+  "source_url": "https://github.com/Nyderx/xlstmad/tree/e8b56ba27352733bb83729e85b1d6196dca70c99",
+  "pinned_commit": "e8b56ba27352733bb83729e85b1d6196dca70c99",
+  "dependencies": {
+    "xlstm": "2.0.5",
+    "lightning": "2.6.1"
+  },
+  "optional_dependencies": {
+    "pytorch-lightning": "2.6.1",
+    "torchmetrics": "1.8.2",
+    "lightning-utilities": "0.15.2"
+  },
+  "upstream_source_diff": "",
+  "backend": "vanilla",
+  "dtype": "float32",
+  "config_overlay": "Set all sLSTM dtype fields float32, no autocast. Public slstm_backend=vanilla. No layer/readout/equation changes.",
+  "common_boundary": "ObservationWindows passes only internal dummy zeros to native dataset then discards labels; score/extract accept model,x only.",
+  "native_predict_caveat": "predict_step expects reconstruction target, not anomaly labels. Common track scores x_hat against x and never passes dataset y as target.",
+  "native_test_caveat": "test_step uses labels for AUROC only; not called by common feature/score extraction.",
+  "preprocessing": "No scaler fitted by model/extractor. Future common scaler remains train-prefix-only under m0_protocol; none fitted in this pilot.",
+  "earlier_false_block": "validity.json string scan matched threshold in no-threshold docstring. Only checker changed to executable AST calls; validity_verified.json authoritative. All other checks and saved arrays identical.",
+  "warnings": "Native dataset torch.tensor(tensor) copy warnings retained; no patch.",
+  "v1_audit_immutable": true,
+  "original_v1_reproduction_claim": false
+}

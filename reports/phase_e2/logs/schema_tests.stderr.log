@@ -1,0 +1,12 @@
+test_decoder_actual_previous_not_singleton_zero (__main__.E2SchemaTests.test_decoder_actual_previous_not_singleton_zero) ... ok
+test_dimensions_and_exact_cell_binding (__main__.E2SchemaTests.test_dimensions_and_exact_cell_binding) ... ok
+test_equal_heads_layers (__main__.E2SchemaTests.test_equal_heads_layers) ... ok
+test_no_missing_or_nonfinite_scalar (__main__.E2SchemaTests.test_no_missing_or_nonfinite_scalar) ... ok
+test_permutation (__main__.E2SchemaTests.test_permutation) ... ok
+test_trailing_causality_warmup_slope (__main__.E2SchemaTests.test_trailing_causality_warmup_slope) ... ok
+test_zero_origin_only_for_true_singleton (__main__.E2SchemaTests.test_zero_origin_only_for_true_singleton) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.019s
+
+OK

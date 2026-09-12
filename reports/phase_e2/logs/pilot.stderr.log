@@ -1,0 +1,4 @@
+/home/p76141495/home/xlstm_anomaly/data/phase_e2/official_xlstmad/dataset.py:8: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  self.x = torch.tensor(x, dtype=torch.float32)
+/home/p76141495/home/xlstm_anomaly/data/phase_e2/official_xlstmad/dataset.py:9: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  self.y = torch.tensor(y)

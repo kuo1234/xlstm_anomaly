@@ -1,0 +1,555 @@
+{
+  "status": "BLOCKED",
+  "checks": {
+    "output_BWD": {
+      "pass_": true,
+      "shape": [
+        131,
+        64,
+        8
+      ]
+    },
+    "native_MSE_coordinates": {
+      "pass_": true,
+      "exact": true,
+      "max_abs": 0.0,
+      "shape": []
+    },
+    "native_training_loss": {
+      "pass_": true,
+      "exact": true,
+      "max_abs": 0.0,
+      "shape": []
+    },
+    "native_validation_loss": {
+      "pass_": true,
+      "exact": true,
+      "max_abs": 0.0,
+      "shape": []
+    },
+    "native_predict_target_is_x_not_label": {
+      "pass_": true,
+      "exact": true,
+      "max_abs": 0.0,
+      "shape": [
+        131
+      ]
+    },
+    "output_batch_permutation": {
+      "pass_": true,
+      "exact": true,
+      "max_abs": 0.0,
+      "shape": [
+        131,
+        64,
+        8
+      ]
+    },
+    "score_batch_permutation": {
+      "pass_": true,
+      "exact": true,
+      "max_abs": 0.0,
+      "shape": [
+        131
+      ]
+    },
+    "partition_B128_output": {
+      "pass_": true,
+      "exact": false,
+      "max_abs": 4.76837158203125e-07,
+      "shape": [
+        131,
+        64,
+        8
+      ]
+    },
+    "partition_B128_scores": {
+      "pass_": true,
+      "exact": true,
+      "max_abs": 0.0,
+      "shape": [
+        131
+      ],
+      "batch_sizes": [
+        128,
+        3
+      ]
+    },
+    "partition_B3_output": {
+      "pass_": true,
+      "exact": false,
+      "max_abs": 6.034970283508301e-07,
+      "shape": [
+        131,
+        64,
+        8
+      ]
+    },
+    "partition_B3_scores": {
+      "pass_": true,
+      "exact": false,
+      "max_abs": 2.384185791015625e-07,
+      "shape": [
+        131
+      ],
+      "batch_sizes": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2
+      ]
+    },
+    "partition_B1_output": {
+      "pass_": true,
+      "exact": false,
+      "max_abs": 5.513429641723633e-07,
+      "shape": [
+        131,
+        64,
+        8
+      ]
+    },
+    "partition_B1_scores": {
+      "pass_": true,
+      "exact": false,
+      "max_abs": 1.1920928955078125e-07,
+      "shape": [
+        131
+      ],
+      "batch_sizes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "B128_final_B1": {
+      "pass_": true,
+      "exact": true,
+      "max_abs": 0.0,
+      "shape": [
+        129
+      ]
+    },
+    "native_dataset_exact_windows": {
+      "pass_": true,
+      "N": 194,
+      "W": 64,
+      "count": 131,
+      "unique_windows": 131,
+      "last_start": 130,
+      "last_end_exclusive": 194,
+      "tail_repetition": false,
+      "out_of_bounds_raises": true
+    },
+    "dataset_B128_vs_B3": {
+      "pass_": true,
+      "exact": false,
+      "max_abs": 2.384185791015625e-07,
+      "shape": [
+        131
+      ]
+    },
+    "dataset_B128_vs_B1": {
+      "pass_": true,
+      "exact": false,
+      "max_abs": 2.384185791015625e-07,
+      "shape": [
+        131
+      ]
+    },
+    "N_equals_W": {
+      "pass_": true
+    },
+    "short_prefix_not_padded": {
+      "pass_": true
+    },
+    "observer_output_bitwise": {
+      "pass_": true,
+      "exact": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        64,
+        8
+      ]
+    },
+    "observer_scores_bitwise": {
+      "pass_": true,
+      "exact": true,
+      "max_abs": 0.0,
+      "shape": [
+        4
+      ]
+    },
+    "observer_RNG_unchanged": {
+      "pass_": true
+    },
+    "observer_reference": {
+      "pass_": true,
+      "details": [
+        {
+          "cell": "encoder.blocks.0.xlstm.slstm_cell",
+          "sequence_length": 64,
+          "hidden_close": true,
+          "state_close": true,
+          "max_hidden_abs": 2.9802322387695312e-08,
+          "max_state_abs": 2.9802322387695312e-08,
+          "finite": true,
+          "all_float32": true
+        },
+        {
+          "cell": "encoder.blocks.1.xlstm.slstm_cell",
+          "sequence_length": 64,
+          "hidden_close": true,
+          "state_close": true,
+          "max_hidden_abs": 2.9802322387695312e-08,
+          "max_state_abs": 2.9802322387695312e-08,
+          "finite": true,
+          "all_float32": true
+        },
+        {
+          "cell": "decoder.blocks.0.xlstm.slstm_cell",
+          "sequence_length": 64,
+          "hidden_close": true,
+          "state_close": true,
+          "max_hidden_abs": 2.9802322387695312e-08,
+          "max_state_abs": 2.9802322387695312e-08,
+          "finite": true,
+          "all_float32": true
+        },
+        {
+          "cell": "decoder.blocks.1.xlstm.slstm_cell",
+          "sequence_length": 64,
+          "hidden_close": true,
+          "state_close": true,
+          "max_hidden_abs": 5.960464477539063e-08,
+          "max_state_abs": 5.960464477539063e-08,
+          "finite": true,
+          "all_float32": true
+        }
+      ]
+    },
+    "four_full_window_scalar_calls": {
+      "pass_": true,
+      "calls": {
+        "encoder.blocks.0.xlstm.slstm_cell": 1,
+        "encoder.blocks.1.xlstm.slstm_cell": 1,
+        "decoder.blocks.0.xlstm.slstm_cell": 1,
+        "decoder.blocks.1.xlstm.slstm_cell": 1
+      }
+    },
+    "summary_finite18": {
+      "pass_": true,
+      "shape": [
+        4,
+        18
+      ]
+    },
+    "independent_window_reset_output": {
+      "pass_": true,
+      "exact": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        64,
+        8
+      ]
+    },
+    "independent_window_reset_features": {
+      "pass_": true,
+      "exact": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        18
+      ]
+    },
+    "observer_feature_batch_permutation": {
+      "pass_": true,
+      "exact": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        18
+      ]
+    },
+    "observer_feature_batch_partition": {
+      "pass_": true,
+      "exact": false,
+      "max_abs": 1.1920928955078125e-07,
+      "shape": [
+        4,
+        18
+      ]
+    },
+    "model_prefix_future_causality": {
+      "pass_": true,
+      "exact": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        32,
+        8
+      ]
+    },
+    "all_scalar_prefix_causality": {
+      "pass_": true
+    },
+    "schema_prefix_causality": {
+      "pass_": true,
+      "exact": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        18
+      ]
+    },
+    "shorter_prefix_output": {
+      "pass_": true,
+      "exact": false,
+      "max_abs": 5.364418029785156e-07,
+      "shape": [
+        4,
+        32,
+        8
+      ]
+    },
+    "shorter_prefix_summary": {
+      "pass_": true,
+      "exact": false,
+      "max_abs": 1.1920928955078125e-07,
+      "shape": [
+        4,
+        18
+      ]
+    },
+    "decoder_real_previous_delta": {
+      "pass_": true,
+      "exact": false,
+      "max_abs": 1.4901161193847656e-08,
+      "shape": [
+        4
+      ]
+    },
+    "decoder_real_previous_memory": {
+      "pass_": true,
+      "exact": false,
+      "max_abs": 2.384185791015625e-07,
+      "shape": [
+        4
+      ]
+    },
+    "full_model_parallel_vs_within_window_step": {
+      "pass_": true,
+      "exact": false,
+      "max_abs": 5.662441253662109e-07,
+      "shape": [
+        4,
+        64,
+        8
+      ]
+    },
+    "evaluator_label_permutation_closure": {
+      "pass_": true,
+      "model_api": [
+        "model",
+        "x"
+      ],
+      "extract_api": [
+        "model",
+        "x"
+      ],
+      "observation_window_api": [
+        "x",
+        "window"
+      ],
+      "markers_never_passed": true
+    },
+    "no_fitted_test_scaler_or_threshold": {
+      "pass_": false,
+      "common_track": "raw fixed observations; later optional train-prefix-only scaler belongs outside model; no fit/test_step/predict labels"
+    },
+    "state_unchanged_through_tests": {
+      "pass_": true
+    }
+  },
+  "artifacts": {
+    "data/phase_e2/pilot/observations.npy": "f259b4314a1a2da570281e65a5ed206c5181f4a787ea73466dd307ad3808b165",
+    "data/phase_e2/pilot/output.npy": "a5cbd454637f29b5dece45cefe3c0265ea70e236ac2ee9dff34a929439b2fde1",
+    "data/phase_e2/pilot/summary.npy": "a625ad18d7c180bd0f5fc5d43bab9be669d81322d2662060e462ffaaf87978ac",
+    "data/phase_e2/pilot/scores.npy": "72f0c5c5a22c5156bfea8a90ec9fb8eb876b13f8aaf9a9e098e09f83b7e88de3"
+  },
+  "backend": "official vanilla float32",
+  "atol": 1e-05,
+  "rtol": 0.0001,
+  "optimizer_steps": 0,
+  "labels_used": false
+}
