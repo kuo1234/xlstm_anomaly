@@ -1,0 +1,10 @@
+test_all_type_pairs_and_truth_isolation (__main__.Tests.test_all_type_pairs_and_truth_isolation) ... ok
+test_deterministic_regeneration (__main__.Tests.test_deterministic_regeneration) ... ok
+test_layout_unique_causal_and_nested (__main__.Tests.test_layout_unique_causal_and_nested) ... ok
+test_metric_semantics_and_undefined (__main__.Tests.test_metric_semantics_and_undefined) ... ok
+test_mixture_margins (__main__.Tests.test_mixture_margins) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 1.384s
+
+OK

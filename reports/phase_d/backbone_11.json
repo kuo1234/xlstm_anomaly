@@ -1,0 +1,213 @@
+{
+  "detector_seed": 11,
+  "best_epoch": 30,
+  "history": [
+    {
+      "epoch": 1,
+      "train_mse": 1.0047593139252573
+    },
+    {
+      "epoch": 2,
+      "train_mse": 0.948411965520127
+    },
+    {
+      "epoch": 3,
+      "train_mse": 0.8866402015746014
+    },
+    {
+      "epoch": 4,
+      "train_mse": 0.8628816334706433
+    },
+    {
+      "epoch": 5,
+      "train_mse": 0.8329038912395261,
+      "validation_mse": 0.8287809366254664
+    },
+    {
+      "epoch": 6,
+      "train_mse": 0.800870067668411
+    },
+    {
+      "epoch": 7,
+      "train_mse": 0.7758229161208531
+    },
+    {
+      "epoch": 8,
+      "train_mse": 0.7552393142532252
+    },
+    {
+      "epoch": 9,
+      "train_mse": 0.7398723262660908
+    },
+    {
+      "epoch": 10,
+      "train_mse": 0.7266822146169795,
+      "validation_mse": 0.7622962020153459
+    },
+    {
+      "epoch": 11,
+      "train_mse": 0.7166725243412474
+    },
+    {
+      "epoch": 12,
+      "train_mse": 0.7090248098163485
+    },
+    {
+      "epoch": 13,
+      "train_mse": 0.703401727871325
+    },
+    {
+      "epoch": 14,
+      "train_mse": 0.6986520170415722
+    },
+    {
+      "epoch": 15,
+      "train_mse": 0.6940136675564748,
+      "validation_mse": 0.7450048177003685
+    },
+    {
+      "epoch": 16,
+      "train_mse": 0.6895222918792341
+    },
+    {
+      "epoch": 17,
+      "train_mse": 0.6856026210874882
+    },
+    {
+      "epoch": 18,
+      "train_mse": 0.6824870120804265
+    },
+    {
+      "epoch": 19,
+      "train_mse": 0.6800314896511581
+    },
+    {
+      "epoch": 20,
+      "train_mse": 0.6779120508229958,
+      "validation_mse": 0.736334156533865
+    },
+    {
+      "epoch": 21,
+      "train_mse": 0.6761011522521013
+    },
+    {
+      "epoch": 22,
+      "train_mse": 0.6745519064507395
+    },
+    {
+      "epoch": 23,
+      "train_mse": 0.6732486310245106
+    },
+    {
+      "epoch": 24,
+      "train_mse": 0.6721953472251412
+    },
+    {
+      "epoch": 25,
+      "train_mse": 0.6713204136434591,
+      "validation_mse": 0.73334515845306
+    },
+    {
+      "epoch": 26,
+      "train_mse": 0.6707417867468588
+    },
+    {
+      "epoch": 27,
+      "train_mse": 0.6703512608630102
+    },
+    {
+      "epoch": 28,
+      "train_mse": 0.6700683378573483
+    },
+    {
+      "epoch": 29,
+      "train_mse": 0.669988713174496
+    },
+    {
+      "epoch": 30,
+      "train_mse": 0.6700173496450268,
+      "validation_mse": 0.7327750748610304
+    }
+  ],
+  "training_seconds": 10.954680471681058,
+  "total_seconds": 13.559967850800604,
+  "peak_gpu_allocated_bytes": 107212800,
+  "peak_gpu_reserved_bytes": 127926272,
+  "resolved_config": "DATA:\n  BASE_DIR: data\n  DOWNSAMPLE_RATE: 1\n  NAME: synthetic_D8\n  N_VAR: 8\n  SAMPLING_RATES: 1.0\n  SCALE: standard\n  TEST_STEP: 1\n  TRAIN_RATIO: 0.8\n  TRAIN_STEP: 1\n  WIN_SIZE: 10\nDATA_LOADER:\n  DROP_LAST: true\n  NUM_WORKERS: 2\n  PIN_MEMORY: true\nMLP:\n  LOSS_NAMES:\n  - Recon\n  METRIC_NAMES:\n  - Recon\n  Z_SIZE: 128\nMODEL:\n  NAME: MLP\nNUM_GPUS: 4\nRESULT_DIR: /home/p76141495/home/xlstm_anomaly/data/phase_d/backbone_11\nSANA:\n  TYPE: TCN_iTrans\n  activation: gelu\n  d_ff: 512\n  d_model: 512\n  dropout: 0.0\n  e_layers: 1\n  n_heads: 8\n  output_attention: true\nSEED: 11\nSOLVER:\n  BASE_LR: 0.0001\n  COSINE_AFTER_WARMUP: true\n  COSINE_END_LR: 0.0\n  DAMPENING: 0.0\n  GRADIENT_CLIP: true\n  GRADIENT_CLIP_NORM: 0.5\n  LR_POLICY: cosine\n  MAX_EPOCH: 30\n  MOMENTUM: 0.9\n  NESTEROV: true\n  OPTIMIZING_METHOD: adam\n  START_EPOCH: 0\n  WARMUP_EPOCHS: 5\n  WARMUP_START_LR: 0.0001\n  WEIGHT_DECAY: 0.0001\nTEST:\n  ANOMALY_SCORES_DIR: ''\n  BATCH_SIZE: 256\n  DROP_LAST: false\n  ENABLE: true\n  SHUFFLE: false\n  SPLIT: test\n  THRESHOLD:\n    ANOMALY_RATIO: 5.0\n    TYPE: ratio\n  TTA:\n    CANDI:\n      GATING_INIT: 0.5\n      MIN_SAMPLES: 16\n      USE_FPM: true\n      USE_HARD: true\n      USE_MODERATE: true\n      USE_SANA: true\n    ENABLE: true\n    M2N2:\n      GAMMA: 0.99999\n    METHOD: CANDI\n    SOLVER:\n      BASE_LR: 0.03\n      DAMPENING: 0.0\n      GRADIENT_CLIP: true\n      GRADIENT_CLIP_NORM: 0.5\n      MOMENTUM: 0.9\n      NESTEROV: true\n      OPTIMIZING_METHOD: sgd\n      WEIGHT_DECAY: 0.0001\n    STEPS: 1\nTIMESNET:\n  LOSS_NAMES:\n  - Recon\n  METRIC_NAMES:\n  - Recon\n  anomaly_ratio: 1\n  c_out: 8\n  d_ff: 512\n  d_model: 512\n  dropout: 0.1\n  e_layers: 2\n  embed: timeF\n  enc_in: 8\n  freq: h\n  num_kernels: 6\n  pred_len: 0\n  top_k: 3\nTRAIN:\n  BATCH_SIZE: 256\n  CHECKPOINT_DIR: /home/p76141495/home/xlstm_anomaly/data/phase_d/backbone_11\n  CHECKPOINT_PERIOD: 200\n  DROP_LAST: true\n  ENABLE: false\n  EVAL_PERIOD: 5\n  IS_METRIC_LOWER_BETTER: true\n  METRIC_BEST: .inf\n  PRINT_FREQ: 100\n  RESUME: ''\n  SAVE_EVERY_EVAL: false\n  SHUFFLE: true\n  SPLIT: train\nVAL:\n  BATCH_SIZE: 256\n  DROP_LAST: false\n  SHUFFLE: false\n  SPLIT: val\nVISIBLE_DEVICES: 0\nWANDB:\n  DIR: ''\n  ENABLE: false\n  JOB_TYPE: ''\n  NAME: ''\n  NOTES: ''\n  PROJECT: CANDI\n",
+  "preprocessing": {
+    "train_seeds": [
+      1000,
+      1001,
+      1002,
+      1003,
+      1004,
+      1005,
+      1006,
+      1007,
+      1008,
+      1009
+    ],
+    "validation_seeds": [
+      2000,
+      2001,
+      2002,
+      2003,
+      2004
+    ],
+    "fit_interval": [
+      0,
+      4096
+    ],
+    "calibration_interval": [
+      4096,
+      5120
+    ],
+    "train_array_sha256": "3ee8b9db455c7a4ea2f0f469b00f5316a481ed98948c86b66a52a2e04c8e4115",
+    "validation_array_sha256": "879f4d1cd8240428f5c1551d8389dd1a22e83456db9f637429c2d43bcf9ffa83",
+    "calibration_array_sha256": "b123ad0614bbd8f412d310436a37555d69255254e3df8bfb04bb4dfdce236269",
+    "scaler_mean": [
+      -0.0028090649102780418,
+      -0.00549892886800379,
+      -0.008956423164816452,
+      -0.0032481498691063993,
+      -0.0010246308087063956,
+      -0.0003120776101892044,
+      -0.006165678922500277,
+      -0.005874133688906726
+    ],
+    "scaler_scale": [
+      1.0017471739265473,
+      1.0026738277777507,
+      1.0047267216529119,
+      0.9994250063526695,
+      1.0041549075128342,
+      0.9999487269792432,
+      1.0036385462634136,
+      1.0038424462803175
+    ],
+    "scaler_var": [
+      1.003497400469824,
+      1.0053548049104866,
+      1.0094757852034077,
+      0.9988503433230335,
+      1.0083270782821088,
+      0.9998974565874091,
+      1.0072903315457384,
+      1.0076996569540522
+    ]
+  },
+  "backbone_tensor_sha256": "8635f8e6d8690b106b438241681b42253d9d23c8a1585912bac6185a74d7c14f",
+  "initial_model_sha256": "8a95ff4ab5c668fd15d67e4b5cddd4c3799329eb68427f145a041f96497fd3a4",
+  "sana_in_sha256": "defead33b1f9e022949dd60b0cc491c0dc8204e23aeed32b3340b67e7af09160",
+  "sana_out_sha256": "899532af95db6cfbd0cfeac586c628f31fa68828c425e1ca37ee48b6dbcfcbba",
+  "optimizer_sha256": "6add4fb7d58d75583c3aabc2f2acb11c8f201d41cbaab06eaa02cb1c1bfa385c",
+  "rng_sha256": "09c5e372048b3ab42086e83ef9a1da9db7cc45a4aee730b69316be5fc9c3a9d1",
+  "threshold": 1.153200405836105,
+  "artifacts": {
+    "data/phase_d/backbone_11/checkpoint_best.pth": "3c8d4b195370356b85b56c3e15972b81c60b3c422bf1d39ae81966230c28460f",
+    "data/phase_d/backbone_11/pre_intervention.pth": "1ee8aba61dc637076fb2119c015851d48d8e07834d549063098c6f8adcbe7b7e",
+    "data/phase_d/backbone_11/calibration_scores.npy": "2db1140c4d71953868f2b5732000c194b3760f63dac248dbd91d945deb0f54d6"
+  },
+  "authorized_test_sources_used": false,
+  "architecture": "Official MLP 80-40-20-128-20-40-80; reconstruction MSE"
+}

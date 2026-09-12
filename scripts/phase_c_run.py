@@ -41,11 +41,19 @@ def main():
     parser.add_argument('--machine',choices=list(PUBLISHED),required=True)
     parser.add_argument('--alpha',choices=['0.5','1.0','5.0'],required=True)
     parser.add_argument('--mode',choices=['native','audit','audit_permuted','native_replay_1','native_replay_2',
-        'native_v2','native_label_control','native_label_permuted','native_c3'],default='native')
+        'native_v2','native_label_control','native_label_permuted','native_c3','native_d0'],default='native')
     parser.add_argument('--seed',type=int,default=0)
     args = parser.parse_args()
     version2 = args.mode.startswith('native_')
-    if args.mode=='native_c3':
+    if args.mode=='native_d0':
+        assert (args.machine,args.alpha,args.seed)==('SMD_1-8','5.0',0)
+        REPORT=ROOT/'reports/phase_d'
+        import phase_d_operator
+        phase_d_operator.authorize()
+        import phase_c_v2
+        phase_c_v2.REPORT=REPORT
+        phase_c_v2.environment()
+    elif args.mode=='native_c3':
         REPORT = ROOT/'reports/phase_c3'
         from phase_c3 import authorize,environment
         authorize(args.machine,args.alpha,args.seed)
@@ -108,6 +116,9 @@ def main():
         from tta.candi import adapter_candi
         audit = phase_c_audit.Audit(args.mode,tag)
         audit.instrument(adapter_candi,predictor)
+        if args.mode=='native_d0':
+            capture=phase_d_operator.Capture()
+            capture.install(predictor,adapter_candi)
     elif args.mode!='native':
         from phase_c_audit import Audit
         audit = Audit(args.mode,tag)
@@ -155,6 +166,8 @@ def main():
         record['final_checkpoint_sha256'] = digest(work/'final_model.pth')
         if audit:
             record['audit'] = audit.finish(p)
+            if args.mode=='native_d0':
+                capture.verify(audit)
         if version2:
             import numpy as np
             assert np.isfinite(p.test_scores_w_tta).all()
