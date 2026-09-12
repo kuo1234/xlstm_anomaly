@@ -1,0 +1,25 @@
+{
+  "status": "STOP",
+  "candidates": 75,
+  "numeric_pass": 65,
+  "eligible": 14,
+  "eligible_sources_by_bucket": {
+    "continuous": 5,
+    "change_point": 12,
+    "periodic": 3,
+    "random_walk": 3
+  },
+  "unresolved": 60,
+  "relations": 6,
+  "selected": [],
+  "exclusion_counts_nonexclusive": {
+    "contaminated_original_training_prefix": 10,
+    "synthetic_source_excluded_by_protocol": 5,
+    "unresolved_original_trace_mapping": 60
+  },
+  "periodic_remaining_even_if_unresolved_origins_were_independent": [
+    "059_SMD_id_3_Facility_tr_757_1st_857.csv",
+    "065_SMD_id_9_Facility_tr_737_1st_837.csv",
+    "075_SMD_id_19_Facility_tr_564_1st_664.csv"
+  ]
+}

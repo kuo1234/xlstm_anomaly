@@ -1,0 +1,146 @@
+[
+  {
+    "machine": "machine-1-8",
+    "source_group": "SMD/machine-1-8",
+    "D": 38,
+    "N": 47397,
+    "train_N": 23698,
+    "test_N": 23699,
+    "cutoff": 23698,
+    "audit_fit_interval": [
+      0,
+      18958
+    ],
+    "audit_calibration_interval": [
+      18958,
+      23698
+    ],
+    "concatenated_test_interval": [
+      23698,
+      47397
+    ],
+    "official_reproduction": "Keep original separate train/test and CANDI preprocessing; audit splits do not modify reproduction.",
+    "finite_observations": true,
+    "binary_test_labels": true,
+    "train_normality": "Documented normal training split; upstream has no train-label file. Not independently label-verified.",
+    "provenance_url": "https://github.com/NetManAIOps/OmniAnomaly/blob/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/README.md",
+    "candi_commit": "28c9679e503832f59e351208cde63657fcb51cad",
+    "assets": [
+      {
+        "path": "data/phase_a/smd_raw/machine-1-8_train.txt",
+        "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/train/machine-1-8.txt",
+        "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+        "bytes": 8104716,
+        "sha256": "3b46e9754ec06bebd0bf3fe68dbe28b2a4b67298e795c9501d97f42083e337fc"
+      },
+      {
+        "path": "data/phase_a/smd_raw/machine-1-8_test.txt",
+        "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-1-8.txt",
+        "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+        "bytes": 8105058,
+        "sha256": "b8784c3b4169f8a0a2ed9f47b00070d72ed214dae0307553b8cfdb80c712d779"
+      },
+      {
+        "path": "data/phase_a/smd_raw/machine-1-8_test_label.txt",
+        "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test_label/machine-1-8.txt",
+        "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+        "bytes": 47398,
+        "sha256": "8019476032c4c5b4b80127cfb9e74ee7d57fbbd558aa15097518713e16463a47"
+      },
+      {
+        "path": "data/phase_a/smd_candi/machine-1-8_train.pkl",
+        "url": "https://raw.githubusercontent.com/kimanki/CANDI/28c9679e503832f59e351208cde63657fcb51cad/data/ServerMachineDataset/preprocessed/machine-1-8_train.pkl",
+        "commit": "28c9679e503832f59e351208cde63657fcb51cad",
+        "bytes": 3602258,
+        "sha256": "6ef0ba1b21aa7aa5dc0a1338d91429fe6bc7f742f635a09d21dea366dbaf62f2"
+      },
+      {
+        "path": "data/phase_a/smd_candi/machine-1-8_test.pkl",
+        "url": "https://raw.githubusercontent.com/kimanki/CANDI/28c9679e503832f59e351208cde63657fcb51cad/data/ServerMachineDataset/preprocessed/machine-1-8_test.pkl",
+        "commit": "28c9679e503832f59e351208cde63657fcb51cad",
+        "bytes": 3602410,
+        "sha256": "8a8bea56b362927133aca2b06dcb5a1d60d1fb9ab0ed9328ad183c5a5c96921b"
+      },
+      {
+        "path": "data/phase_a/smd_candi/machine-1-8_test_label.pkl",
+        "url": "https://raw.githubusercontent.com/kimanki/CANDI/28c9679e503832f59e351208cde63657fcb51cad/data/ServerMachineDataset/preprocessed/machine-1-8_test_label.pkl",
+        "commit": "28c9679e503832f59e351208cde63657fcb51cad",
+        "bytes": 94956,
+        "sha256": "9fd85777ba9a056585f0abf59c13de8721e7c119c6a450ae481acad85101ff06"
+      }
+    ],
+    "preprocessing_audit": "Byte seal only; no pickle execution, normalization audit, or model run."
+  },
+  {
+    "machine": "machine-2-1",
+    "source_group": "SMD/machine-2-1",
+    "D": 38,
+    "N": 47387,
+    "train_N": 23693,
+    "test_N": 23694,
+    "cutoff": 23693,
+    "audit_fit_interval": [
+      0,
+      18954
+    ],
+    "audit_calibration_interval": [
+      18954,
+      23693
+    ],
+    "concatenated_test_interval": [
+      23693,
+      47387
+    ],
+    "official_reproduction": "Keep original separate train/test and CANDI preprocessing; audit splits do not modify reproduction.",
+    "finite_observations": true,
+    "binary_test_labels": true,
+    "train_normality": "Documented normal training split; upstream has no train-label file. Not independently label-verified.",
+    "provenance_url": "https://github.com/NetManAIOps/OmniAnomaly/blob/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/README.md",
+    "candi_commit": "28c9679e503832f59e351208cde63657fcb51cad",
+    "assets": [
+      {
+        "path": "data/phase_a/smd_raw/machine-2-1_train.txt",
+        "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/train/machine-2-1.txt",
+        "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+        "bytes": 8103006,
+        "sha256": "d6eb13ff74a537cf33686319fffdd4cdcb394862570a3acd519b4c37af97cd2e"
+      },
+      {
+        "path": "data/phase_a/smd_raw/machine-2-1_test.txt",
+        "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-2-1.txt",
+        "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+        "bytes": 8103348,
+        "sha256": "2d103661799271be958227907950a1c76803356442d60a4070671cc0abbefb20"
+      },
+      {
+        "path": "data/phase_a/smd_raw/machine-2-1_test_label.txt",
+        "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test_label/machine-2-1.txt",
+        "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+        "bytes": 47388,
+        "sha256": "416dd20a447f38b8d9394382293ed44f509c1c3f99c4aa2fbff179498626dbdc"
+      },
+      {
+        "path": "data/phase_a/smd_candi/machine-2-1_train.pkl",
+        "url": "https://raw.githubusercontent.com/kimanki/CANDI/28c9679e503832f59e351208cde63657fcb51cad/data/ServerMachineDataset/preprocessed/machine-2-1_train.pkl",
+        "commit": "28c9679e503832f59e351208cde63657fcb51cad",
+        "bytes": 3601498,
+        "sha256": "0f060906a4a16e962cb110c0820d68a987f101b43122e2b62a8c1a2292e3d15c"
+      },
+      {
+        "path": "data/phase_a/smd_candi/machine-2-1_test.pkl",
+        "url": "https://raw.githubusercontent.com/kimanki/CANDI/28c9679e503832f59e351208cde63657fcb51cad/data/ServerMachineDataset/preprocessed/machine-2-1_test.pkl",
+        "commit": "28c9679e503832f59e351208cde63657fcb51cad",
+        "bytes": 3601650,
+        "sha256": "e2ff64b27282538eeb9329fbb9ef78b352fd48195d353474f716478240472991"
+      },
+      {
+        "path": "data/phase_a/smd_candi/machine-2-1_test_label.pkl",
+        "url": "https://raw.githubusercontent.com/kimanki/CANDI/28c9679e503832f59e351208cde63657fcb51cad/data/ServerMachineDataset/preprocessed/machine-2-1_test_label.pkl",
+        "commit": "28c9679e503832f59e351208cde63657fcb51cad",
+        "bytes": 94936,
+        "sha256": "0af3708bb23498e0d12904b8f45669dacd4d84b19cba1e58150cc3347421ee99"
+      }
+    ],
+    "preprocessing_audit": "Byte seal only; no pickle execution, normalization audit, or model run."
+  }
+]

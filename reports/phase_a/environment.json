@@ -1,0 +1,10 @@
+{
+  "python": "3.12.3",
+  "numpy": "1.26.4",
+  "pandas": "3.0.3",
+  "protocol_commit": "5acc64aee055d3c223efc89510c53a92ec319bbc",
+  "kind": "Phase A dataset audit only; not a successful selection manifest",
+  "model_result_files_inspected": false,
+  "detector_training": false,
+  "phase_b": "NOT RUN: Phase A STOP"
+}

@@ -1,0 +1,42 @@
+{
+  "exact_feature_groups": [
+    [
+      "188_Exathlon_id_15_Facility_tr_12538_1st_12638.csv",
+      "190_Exathlon_id_17_Facility_tr_12538_1st_12638.csv",
+      "198_Exathlon_id_25_Facility_tr_12538_1st_12638.csv",
+      "199_Exathlon_id_26_Facility_tr_12538_1st_12638.csv"
+    ]
+  ],
+  "verified_native_sources": {
+    "057_SMD_id_1_Facility_tr_4529_1st_4629.csv": "SMD/machine-1-2",
+    "059_SMD_id_3_Facility_tr_757_1st_857.csv": "SMD/machine-2-3",
+    "060_SMD_id_4_Facility_tr_7176_1st_10609.csv": "SMD/machine-3-7",
+    "061_SMD_id_5_Facility_tr_7176_1st_15144.csv": "SMD/machine-3-8",
+    "064_SMD_id_8_Facility_tr_2272_1st_2372.csv": "SMD/machine-1-3",
+    "065_SMD_id_9_Facility_tr_737_1st_837.csv": "SMD/machine-1-7",
+    "066_SMD_id_10_Facility_tr_2634_1st_2734.csv": "SMD/machine-3-4",
+    "067_SMD_id_11_Facility_tr_1980_1st_2080.csv": "SMD/machine-3-2",
+    "068_SMD_id_12_Facility_tr_1099_1st_1199.csv": "SMD/machine-3-9",
+    "071_SMD_id_15_Facility_tr_1109_1st_1209.csv": "SMD/machine-3-1",
+    "074_SMD_id_18_Facility_tr_7174_1st_21230.csv": "SMD/machine-3-11",
+    "075_SMD_id_19_Facility_tr_564_1st_664.csv": "SMD/machine-2-7",
+    "076_SMD_id_20_Facility_tr_5925_1st_17580.csv": "SMD/machine-2-8",
+    "077_SMD_id_21_Facility_tr_3026_1st_3126.csv": "SMD/machine-1-4",
+    "078_SMD_id_22_Facility_tr_500_1st_326.csv": "SMD/machine-3-10"
+  },
+  "unresolved_by_dataset": {
+    "MSL": 1,
+    "Daphnet": 1,
+    "GHL": 23,
+    "LTDB": 1,
+    "TAO": 8,
+    "OPPORTUNITY": 7,
+    "CreditCard": 1,
+    "CATSv2": 5,
+    "SMAP": 5,
+    "SWaT": 2,
+    "GECCO": 1,
+    "Exathlon": 5
+  },
+  "limitation": "Exact equality/contiguous containment tested across all 75 candidates. Nonidentical crops, transformed traces, and common physical origins are NOT ruled out without source mappings. Unresolved rows are ineligible, not independent singleton sources."
+}

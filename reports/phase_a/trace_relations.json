@@ -1,0 +1,38 @@
+[
+  {
+    "left": "188_Exathlon_id_15_Facility_tr_12538_1st_12638.csv",
+    "right": "190_Exathlon_id_17_Facility_tr_12538_1st_12638.csv",
+    "relation": "exact_duplicate",
+    "offset": 0
+  },
+  {
+    "left": "188_Exathlon_id_15_Facility_tr_12538_1st_12638.csv",
+    "right": "198_Exathlon_id_25_Facility_tr_12538_1st_12638.csv",
+    "relation": "exact_duplicate",
+    "offset": 0
+  },
+  {
+    "left": "188_Exathlon_id_15_Facility_tr_12538_1st_12638.csv",
+    "right": "199_Exathlon_id_26_Facility_tr_12538_1st_12638.csv",
+    "relation": "exact_duplicate",
+    "offset": 0
+  },
+  {
+    "left": "190_Exathlon_id_17_Facility_tr_12538_1st_12638.csv",
+    "right": "198_Exathlon_id_25_Facility_tr_12538_1st_12638.csv",
+    "relation": "exact_duplicate",
+    "offset": 0
+  },
+  {
+    "left": "190_Exathlon_id_17_Facility_tr_12538_1st_12638.csv",
+    "right": "199_Exathlon_id_26_Facility_tr_12538_1st_12638.csv",
+    "relation": "exact_duplicate",
+    "offset": 0
+  },
+  {
+    "left": "198_Exathlon_id_25_Facility_tr_12538_1st_12638.csv",
+    "right": "199_Exathlon_id_26_Facility_tr_12538_1st_12638.csv",
+    "relation": "exact_duplicate",
+    "offset": 0
+  }
+]

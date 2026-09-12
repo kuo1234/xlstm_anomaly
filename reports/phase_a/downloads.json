@@ -1,0 +1,324 @@
+[
+  {
+    "path": "data/phase_a/CD.csv",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/results/benchmark_eval_results/CD.csv",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 18579,
+    "sha256": "e109da612a90ce3d7b2fcdf51f1a0982358b889ad38f49e85d5049ba0d2eef5c"
+  },
+  {
+    "path": "data/phase_a/TSB-AD-M.zip",
+    "url": "https://www.thedatum.org/datasets/TSB-AD-M.zip",
+    "commit": null,
+    "bytes": 540383983,
+    "sha256": "7de86ac27f30eeb48d833bb061055670e3f3de07defd995cf2bd5db10ccc9a0d"
+  },
+  {
+    "path": "data/phase_a/TSB_datasets_README.md",
+    "url": "https://raw.githubusercontent.com/TheDatumOrg/TSB-AD/6beac72e11d1155ade40870492c00d0d1cfdcaaf/Datasets/README.md",
+    "commit": "6beac72e11d1155ade40870492c00d0d1cfdcaaf",
+    "bytes": 974,
+    "sha256": "ccd718505d33de6e0aa222282b0c9bc4a583a51da02ff23321ffa000554148c2"
+  },
+  {
+    "path": "data/phase_a/TSB-AD-M_file_list.csv",
+    "url": "https://raw.githubusercontent.com/TheDatumOrg/TSB-AD/6beac72e11d1155ade40870492c00d0d1cfdcaaf/Datasets/File_List/TSB-AD-M.csv",
+    "commit": "6beac72e11d1155ade40870492c00d0d1cfdcaaf",
+    "bytes": 9013,
+    "sha256": "698eb770bb2a04efc2578695d4115f894780960d7a23f62e59701523427a4950"
+  },
+  {
+    "path": "data/phase_a/OmniAnomaly_README.md",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/README.md",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 3604,
+    "sha256": "19954a7126437e8ecc81ad6d0c7b5bb2b6ef536c15c75f9d58c5bda696f53962"
+  },
+  {
+    "path": "data/phase_a/TSB_source_catalog.html",
+    "url": "https://raw.githubusercontent.com/TheDatumOrg/TSB-AD/6beac72e11d1155ade40870492c00d0d1cfdcaaf/docs/index.html",
+    "commit": "6beac72e11d1155ade40870492c00d0d1cfdcaaf",
+    "bytes": 58582,
+    "sha256": "9eb61de65ac2a8e48dd07f55f6072e21b2c8fe80090e2f27d4d619428cffbc70"
+  },
+  {
+    "path": "data/phase_a/CATSv2_zenodo.json",
+    "url": "https://zenodo.org/api/records/8338435",
+    "commit": null,
+    "bytes": 12000,
+    "sha256": "f1fdecca9378e4bfa7fd6da7d5e183328e11841d260bc19627d98e96103eb1e4"
+  },
+  {
+    "path": "data/phase_a/cutoff_author_comment.json",
+    "url": "https://api.github.com/repos/TheDatumOrg/TSB-AD/issues/comments/2550137783",
+    "commit": null,
+    "bytes": 3358,
+    "sha256": "39aa83fdec6d773c67a1aa8f2410c16f6b0c69cef025c42041991a9f7d73a17d"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-1-8_train.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/train/machine-1-8.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 8104716,
+    "sha256": "3b46e9754ec06bebd0bf3fe68dbe28b2a4b67298e795c9501d97f42083e337fc"
+  },
+  {
+    "path": "data/phase_a/smd_candi/machine-1-8_train.pkl",
+    "url": "https://raw.githubusercontent.com/kimanki/CANDI/28c9679e503832f59e351208cde63657fcb51cad/data/ServerMachineDataset/preprocessed/machine-1-8_train.pkl",
+    "commit": "28c9679e503832f59e351208cde63657fcb51cad",
+    "bytes": 3602258,
+    "sha256": "6ef0ba1b21aa7aa5dc0a1338d91429fe6bc7f742f635a09d21dea366dbaf62f2"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-1-8_test.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-1-8.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 8105058,
+    "sha256": "b8784c3b4169f8a0a2ed9f47b00070d72ed214dae0307553b8cfdb80c712d779"
+  },
+  {
+    "path": "data/phase_a/smd_candi/machine-1-8_test.pkl",
+    "url": "https://raw.githubusercontent.com/kimanki/CANDI/28c9679e503832f59e351208cde63657fcb51cad/data/ServerMachineDataset/preprocessed/machine-1-8_test.pkl",
+    "commit": "28c9679e503832f59e351208cde63657fcb51cad",
+    "bytes": 3602410,
+    "sha256": "8a8bea56b362927133aca2b06dcb5a1d60d1fb9ab0ed9328ad183c5a5c96921b"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-1-8_test_label.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test_label/machine-1-8.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 47398,
+    "sha256": "8019476032c4c5b4b80127cfb9e74ee7d57fbbd558aa15097518713e16463a47"
+  },
+  {
+    "path": "data/phase_a/smd_candi/machine-1-8_test_label.pkl",
+    "url": "https://raw.githubusercontent.com/kimanki/CANDI/28c9679e503832f59e351208cde63657fcb51cad/data/ServerMachineDataset/preprocessed/machine-1-8_test_label.pkl",
+    "commit": "28c9679e503832f59e351208cde63657fcb51cad",
+    "bytes": 94956,
+    "sha256": "9fd85777ba9a056585f0abf59c13de8721e7c119c6a450ae481acad85101ff06"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-2-1_train.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/train/machine-2-1.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 8103006,
+    "sha256": "d6eb13ff74a537cf33686319fffdd4cdcb394862570a3acd519b4c37af97cd2e"
+  },
+  {
+    "path": "data/phase_a/smd_candi/machine-2-1_train.pkl",
+    "url": "https://raw.githubusercontent.com/kimanki/CANDI/28c9679e503832f59e351208cde63657fcb51cad/data/ServerMachineDataset/preprocessed/machine-2-1_train.pkl",
+    "commit": "28c9679e503832f59e351208cde63657fcb51cad",
+    "bytes": 3601498,
+    "sha256": "0f060906a4a16e962cb110c0820d68a987f101b43122e2b62a8c1a2292e3d15c"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-2-1_test.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-2-1.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 8103348,
+    "sha256": "2d103661799271be958227907950a1c76803356442d60a4070671cc0abbefb20"
+  },
+  {
+    "path": "data/phase_a/smd_candi/machine-2-1_test.pkl",
+    "url": "https://raw.githubusercontent.com/kimanki/CANDI/28c9679e503832f59e351208cde63657fcb51cad/data/ServerMachineDataset/preprocessed/machine-2-1_test.pkl",
+    "commit": "28c9679e503832f59e351208cde63657fcb51cad",
+    "bytes": 3601650,
+    "sha256": "e2ff64b27282538eeb9329fbb9ef78b352fd48195d353474f716478240472991"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-2-1_test_label.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test_label/machine-2-1.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 47388,
+    "sha256": "416dd20a447f38b8d9394382293ed44f509c1c3f99c4aa2fbff179498626dbdc"
+  },
+  {
+    "path": "data/phase_a/smd_candi/machine-2-1_test_label.pkl",
+    "url": "https://raw.githubusercontent.com/kimanki/CANDI/28c9679e503832f59e351208cde63657fcb51cad/data/ServerMachineDataset/preprocessed/machine-2-1_test_label.pkl",
+    "commit": "28c9679e503832f59e351208cde63657fcb51cad",
+    "bytes": 94936,
+    "sha256": "0af3708bb23498e0d12904b8f45669dacd4d84b19cba1e58150cc3347421ee99"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-1-1_test.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-1-1.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 9739818,
+    "sha256": "bdb801d8d52ce6b0c4a20c310edf31b5cee9bc82eb84fb38e7d4a19309b16ddb"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-1-2_test.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-1-2.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 8103348,
+    "sha256": "f409991af7c049d3f286a8cf89dc2fa99114bea8753f6c3aea4bd24cb03eb015"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-1-3_test.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-1-3.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 8106426,
+    "sha256": "f3c134d45ffa7aed66587dba893111396c8c7ea3b6fa7f76895955b26b1a75ef"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-1-4_test.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-1-4.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 8107794,
+    "sha256": "98ade00e57eac63e8f81a506a8e848803b58590835ab2b3cf53d1f0459900bd3"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-1-5_test.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-1-5.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 8107452,
+    "sha256": "98b8979f21b4b68c7308f38dd093b9bff4275814578365103c692f28f60f61c5"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-1-6_test.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-1-6.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 8101638,
+    "sha256": "0797fe4bfd25ef13c830955cb9f2a36b4c9d5da265b8e91702408b6b048267f4"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-1-7_test.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-1-7.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 8104374,
+    "sha256": "785a3f542ef6ac171a3af55c534f9ca598d53fa0371010172c72e33af4588d16"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-2-2_test.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-2-2.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 8105400,
+    "sha256": "1cb0dd0a4b8738b184c62bb07700e6800e029f7a76a715fe0ee147c603b2f2c8"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-2-3_test.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-2-3.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 8101638,
+    "sha256": "eaa24c78ff438eec2f847c09eb4de6ab8dbe8a0bb8d77b52ac4ecdee5bd21a7d"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-2-4_test.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-2-4.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 8101638,
+    "sha256": "85ba3101b9ab6a7684cd897b2d4c78e85caa6f5ef1c4f0e153479f4fca01cf38"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-2-5_test.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-2-5.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 8101638,
+    "sha256": "842588acfb9299735a785757fcadd98cc7f69b6a511d28e54e1af05c5e95137b"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-2-6_test.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-2-6.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 9830106,
+    "sha256": "c895144b7c7fb1ff960f506132d5aeefebce4325efad908d071fb7df5b3b1cf1"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-2-7_test.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-2-7.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 8104032,
+    "sha256": "58c3dfd109437ccbedab9d36608d32874c2ae5473484c5941f85349baf32cef8"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-2-8_test.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-2-8.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 8106426,
+    "sha256": "846207955c546f0c3ea57aa7032b8e3c207ad67632a0605c8273f182059d1a72"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-2-9_test.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-2-9.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 9822924,
+    "sha256": "8d93ccd1a6606de3f665cb2e905d206b60ad2b2a58f47e9561b9bb67a2cd4f28"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-3-1_test.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-3-1.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 9815400,
+    "sha256": "b110b204ba4919250351eba7aa253d73ab54af0cf18e272b9b284de5fa7df88d"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-3-2_test.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-3-2.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 8106426,
+    "sha256": "5f83ded5fbfb9b682030bdd7dd82eb53a77f9caa3773ddcc7e38db73c25db46e"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-3-3_test.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-3-3.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 8106426,
+    "sha256": "ecc3140ce24869a44ebac9b03ca372fb1a6eb7e5bde96946f1a350283d4b152a"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-3-4_test.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-3-4.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 8100954,
+    "sha256": "07e1b43e20b7d8300fcd4b4f45ea47ea8c851f3dbd7d1fe971139c32f039357e"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-3-5_test.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-3-5.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 8102322,
+    "sha256": "85dbb13b3076981ad917f42081b71a1440d8b2aafd9bee626f0d1cacff43fcd6"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-3-6_test.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-3-6.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 9824292,
+    "sha256": "04f746a4dde41adbfe5727c6ff77839d1b0b21d6d65bdb0253557e0391c5d44c"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-3-7_test.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-3-7.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 9817110,
+    "sha256": "a4588c1f39905d03bd24fce65052e7b175fba336d081843325ef780c9ed8cdad"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-3-8_test.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-3-8.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 9816768,
+    "sha256": "fa79d5dad3a703fbc13faf0eab26d9466b74789f2bb0d22776f2adaa4236f085"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-3-9_test.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-3-9.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 9819846,
+    "sha256": "5a8968c269a8a3562e54235aa05344b262f44829c2bae04cf9f5d364f388310d"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-3-10_test.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-3-10.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 8103006,
+    "sha256": "febaf197d4a8864f3a70a5e5c0926d6dab8f1b515cf0d90d31ee81a22d80392f"
+  },
+  {
+    "path": "data/phase_a/smd_raw/machine-3-11_test.txt",
+    "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-3-11.txt",
+    "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "bytes": 9814032,
+    "sha256": "c62f52e65d1b892ef8c556b38aa5c1d3504cf0cdd97a94e7df08985b922d7af0"
+  }
+]
