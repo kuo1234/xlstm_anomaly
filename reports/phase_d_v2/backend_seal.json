@@ -1,0 +1,14 @@
+{
+  "cudnn_deterministic": true,
+  "cudnn_benchmark": false,
+  "deterministic_algorithms": false,
+  "float32_matmul_precision": "highest",
+  "matmul_allow_tf32": false,
+  "cudnn_allow_tf32": true,
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "cudnn": 92000,
+  "device": "NVIDIA GB10",
+  "capability": [12, 1],
+  "driver": "580.173.02"
+}
