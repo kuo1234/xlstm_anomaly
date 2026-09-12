@@ -1,0 +1,7 @@
+{
+  "tests_run": 7,
+  "failures": 0,
+  "errors": 0,
+  "successful": true,
+  "scope": "CPU-only authorization/reporting tests; patched gate statuses are test fixtures, not experimental evidence"
+}

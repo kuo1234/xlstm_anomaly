@@ -1,0 +1,32 @@
+{
+  "official_immutable": true,
+  "previous_C_Cv2_seals_unchanged": true,
+  "cpu_tests": {
+    "tests_run": 7,
+    "failures": 0,
+    "errors": 0,
+    "successful": true,
+    "scope": "CPU-only authorization/reporting tests; patched gate statuses are test fixtures, not experimental evidence"
+  },
+  "prospective_commit": "8b554c535d16646229b2a36051e2960725fc6764",
+  "checks": [
+    "pilot seed0 control full trace parity",
+    "same loaded backbone across seeds",
+    "same configs apart from SEED",
+    "independent stable-ID admission/exposure recount",
+    "MIN_SAMPLES and candidate/commit/pending reconciliation",
+    "STEPS exposure multiplicity",
+    "finite score arrays and output artifact hashes",
+    "native AUROC/trapezoidal PR-AUC independently recomputed",
+    "frozen released backbone tensor equality after adaptation",
+    "seed0 alpha1 missing-audit integrity parity",
+    "per-condition initialized/score/final hashes diversity; no pooled replicates"
+  ],
+  "harness_hashes": {
+    "scripts/phase_c3.py": "64849699693987ccf2db3a6baef6837c57158d66c51f19e5819ec26932444932",
+    "scripts/phase_c3_finalize.py": "449dfc76768f7a81e179054b591a3d0006377efb01d9ca11089f00462cd32476",
+    "scripts/phase_c_run.py": "a7c52d694915869b71f3cb772fa1f366ef6f91d53c942ff357f2303bb06f509d",
+    "scripts/phase_c_audit.py": "e5862a8f603778a0e181d888a9f8bab0e908a354f6f2a57949040518f107a509",
+    "scripts/test_phase_c3.py": "692cad834cb083f90ecf15222451e27e271ccc7f0ac155c7411fecf6d93e598a"
+  }
+}

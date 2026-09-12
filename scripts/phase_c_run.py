@@ -41,11 +41,16 @@ def main():
     parser.add_argument('--machine',choices=list(PUBLISHED),required=True)
     parser.add_argument('--alpha',choices=['0.5','1.0','5.0'],required=True)
     parser.add_argument('--mode',choices=['native','audit','audit_permuted','native_replay_1','native_replay_2',
-        'native_v2','native_label_control','native_label_permuted'],default='native')
+        'native_v2','native_label_control','native_label_permuted','native_c3'],default='native')
     parser.add_argument('--seed',type=int,default=0)
     args = parser.parse_args()
     version2 = args.mode.startswith('native_')
-    if version2:
+    if args.mode=='native_c3':
+        REPORT = ROOT/'reports/phase_c3'
+        from phase_c3 import authorize,environment
+        authorize(args.machine,args.alpha,args.seed)
+        environment()
+    elif version2:
         assert args.seed==0
         REPORT = ROOT/'reports/phase_c_v2'
         from phase_c_v2 import authorize,environment
@@ -86,7 +91,7 @@ def main():
         original_load_config = utils.parser.load_config
         def guarded_config(*a,**kw):
             cfg = original_load_config(*a,**kw)
-            assert not cfg.TRAIN.ENABLE and cfg.SEED==0
+            assert not cfg.TRAIN.ENABLE and cfg.SEED==args.seed
             return cfg
         utils.parser.load_config = guarded_config
     captured = {}

@@ -59,9 +59,21 @@ class Audit:
                 self.label_changes = int(np.sum(original_labels!=kwargs['test_labels']))
                 self.permutation_preserved_global_rng = rng_hash()==self.initial_rng_hash
                 assert self.permutation_preserved_global_rng
+                if self.mode=='native_c3':
+                    self.loaded_backbone_hash = state_hash(model)
+                    self.loaded_backbone_keys = list(model.state_dict())
             else:
                 kwargs.pop('test_labels')  # evaluator array never reaches adapter
             adapter = original_construct(cfg,model,thresholder,**kwargs)
+            if self.mode=='native_c3':
+                self.post_construct_rng_hash = rng_hash()
+                self.adaptation_hashes = {name:state_hash(getattr(model,name)) for name in ('sana_in','sana_out')}
+                h = hashlib.sha256()
+                for name,value in sorted(self.adaptation_hashes.items()):
+                    h.update(name.encode()+value.encode())
+                self.adaptation_combined_hash = h.hexdigest()
+                self.adaptation_parameter_names = [name for name,p in model.named_parameters() if p.requires_grad]
+                assert all(name.startswith(('sana_in.','sana_out.')) for name in self.adaptation_parameter_names)
             assert thresholder.test_labels is None
             if not native:
                 assert not hasattr(adapter,'test_labels')
@@ -180,4 +192,12 @@ class Audit:
                 native_counter_note='Native counters untouched; stable observer IDs separate from native offsets',
                 initial_rng_sha256=self.initial_rng_hash,adapter_label_positions_changed=self.label_changes,
                 permutation_preserved_global_rng=self.permutation_preserved_global_rng)
+        if self.mode=='native_c3':
+            result['seed_initialization'] = dict(loaded_backbone_sha256=self.loaded_backbone_hash,
+                loaded_backbone_keys=self.loaded_backbone_keys,adaptation_module_sha256=self.adaptation_hashes,
+                adaptation_combined_sha256=self.adaptation_combined_hash,
+                adaptation_trainable_parameter_names=self.adaptation_parameter_names,
+                global_rng_before_adapter_sha256=self.initial_rng_hash,
+                global_rng_after_adapter_sha256=self.post_construct_rng_hash,
+                semantics='Backbone before construct_adapter; fresh SANA after construction and before test iteration; canonical tensor bytes. RNG is Python/NumPy/Torch CPU/all CUDA states.')
         return result

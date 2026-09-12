@@ -1,0 +1,22 @@
+{
+  "command": [
+    "rtk",
+    "/home/p76141495/home/xlstm_anomaly/data/phase_c/venv/bin/python",
+    "/home/p76141495/home/xlstm_anomaly/scripts/phase_c_run.py",
+    "--machine",
+    "SMD_2-1",
+    "--alpha",
+    "0.5",
+    "--seed",
+    "2",
+    "--mode",
+    "native_c3"
+  ],
+  "returncode": 0,
+  "process_wall_seconds": 47.34400158422068,
+  "harness_hashes": {
+    "scripts/phase_c_run.py": "a7c52d694915869b71f3cb772fa1f366ef6f91d53c942ff357f2303bb06f509d",
+    "scripts/phase_c_audit.py": "e5862a8f603778a0e181d888a9f8bab0e908a354f6f2a57949040518f107a509",
+    "scripts/phase_c3.py": "64849699693987ccf2db3a6baef6837c57158d66c51f19e5819ec26932444932"
+  }
+}
