@@ -1,0 +1,1 @@
+rtk /home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/bin/python /home/p76141495/home/xlstm_anomaly/scripts/phase_e2_common.py
