@@ -1,0 +1,1074 @@
+{
+  "prospective_commit": "9018e86",
+  "rows": [
+    {
+      "detector_seed": 11,
+      "best_epoch": 30,
+      "history": [
+        {
+          "epoch": 1,
+          "train_mse": 1.0047593139252573
+        },
+        {
+          "epoch": 2,
+          "train_mse": 0.948411965520127
+        },
+        {
+          "epoch": 3,
+          "train_mse": 0.8866402015746014
+        },
+        {
+          "epoch": 4,
+          "train_mse": 0.8628816334706433
+        },
+        {
+          "epoch": 5,
+          "train_mse": 0.8329038912395261,
+          "validation_mse": 0.8287809366254664
+        },
+        {
+          "epoch": 6,
+          "train_mse": 0.800870067668411
+        },
+        {
+          "epoch": 7,
+          "train_mse": 0.7758229161208531
+        },
+        {
+          "epoch": 8,
+          "train_mse": 0.7552393142532252
+        },
+        {
+          "epoch": 9,
+          "train_mse": 0.7398723262660908
+        },
+        {
+          "epoch": 10,
+          "train_mse": 0.7266822146169795,
+          "validation_mse": 0.7622962020153459
+        },
+        {
+          "epoch": 11,
+          "train_mse": 0.7166725243412474
+        },
+        {
+          "epoch": 12,
+          "train_mse": 0.7090248098163485
+        },
+        {
+          "epoch": 13,
+          "train_mse": 0.703401727871325
+        },
+        {
+          "epoch": 14,
+          "train_mse": 0.6986520170415722
+        },
+        {
+          "epoch": 15,
+          "train_mse": 0.6940136675564748,
+          "validation_mse": 0.7450048177003685
+        },
+        {
+          "epoch": 16,
+          "train_mse": 0.6895222918792341
+        },
+        {
+          "epoch": 17,
+          "train_mse": 0.6856026210874882
+        },
+        {
+          "epoch": 18,
+          "train_mse": 0.6824870120804265
+        },
+        {
+          "epoch": 19,
+          "train_mse": 0.6800314896511581
+        },
+        {
+          "epoch": 20,
+          "train_mse": 0.6779120508229958,
+          "validation_mse": 0.736334156533865
+        },
+        {
+          "epoch": 21,
+          "train_mse": 0.6761011522521013
+        },
+        {
+          "epoch": 22,
+          "train_mse": 0.6745519064507395
+        },
+        {
+          "epoch": 23,
+          "train_mse": 0.6732486310245106
+        },
+        {
+          "epoch": 24,
+          "train_mse": 0.6721953472251412
+        },
+        {
+          "epoch": 25,
+          "train_mse": 0.6713204136434591,
+          "validation_mse": 0.73334515845306
+        },
+        {
+          "epoch": 26,
+          "train_mse": 0.6707417867468588
+        },
+        {
+          "epoch": 27,
+          "train_mse": 0.6703512608630102
+        },
+        {
+          "epoch": 28,
+          "train_mse": 0.6700683378573483
+        },
+        {
+          "epoch": 29,
+          "train_mse": 0.669988713174496
+        },
+        {
+          "epoch": 30,
+          "train_mse": 0.6700173496450268,
+          "validation_mse": 0.7327750748610304
+        }
+      ],
+      "training_seconds": 10.954680471681058,
+      "total_seconds": 13.559967850800604,
+      "peak_gpu_allocated_bytes": 107212800,
+      "peak_gpu_reserved_bytes": 127926272,
+      "resolved_config": "DATA:\n  BASE_DIR: data\n  DOWNSAMPLE_RATE: 1\n  NAME: synthetic_D8\n  N_VAR: 8\n  SAMPLING_RATES: 1.0\n  SCALE: standard\n  TEST_STEP: 1\n  TRAIN_RATIO: 0.8\n  TRAIN_STEP: 1\n  WIN_SIZE: 10\nDATA_LOADER:\n  DROP_LAST: true\n  NUM_WORKERS: 2\n  PIN_MEMORY: true\nMLP:\n  LOSS_NAMES:\n  - Recon\n  METRIC_NAMES:\n  - Recon\n  Z_SIZE: 128\nMODEL:\n  NAME: MLP\nNUM_GPUS: 4\nRESULT_DIR: /home/p76141495/home/xlstm_anomaly/data/phase_d/backbone_11\nSANA:\n  TYPE: TCN_iTrans\n  activation: gelu\n  d_ff: 512\n  d_model: 512\n  dropout: 0.0\n  e_layers: 1\n  n_heads: 8\n  output_attention: true\nSEED: 11\nSOLVER:\n  BASE_LR: 0.0001\n  COSINE_AFTER_WARMUP: true\n  COSINE_END_LR: 0.0\n  DAMPENING: 0.0\n  GRADIENT_CLIP: true\n  GRADIENT_CLIP_NORM: 0.5\n  LR_POLICY: cosine\n  MAX_EPOCH: 30\n  MOMENTUM: 0.9\n  NESTEROV: true\n  OPTIMIZING_METHOD: adam\n  START_EPOCH: 0\n  WARMUP_EPOCHS: 5\n  WARMUP_START_LR: 0.0001\n  WEIGHT_DECAY: 0.0001\nTEST:\n  ANOMALY_SCORES_DIR: ''\n  BATCH_SIZE: 256\n  DROP_LAST: false\n  ENABLE: true\n  SHUFFLE: false\n  SPLIT: test\n  THRESHOLD:\n    ANOMALY_RATIO: 5.0\n    TYPE: ratio\n  TTA:\n    CANDI:\n      GATING_INIT: 0.5\n      MIN_SAMPLES: 16\n      USE_FPM: true\n      USE_HARD: true\n      USE_MODERATE: true\n      USE_SANA: true\n    ENABLE: true\n    M2N2:\n      GAMMA: 0.99999\n    METHOD: CANDI\n    SOLVER:\n      BASE_LR: 0.03\n      DAMPENING: 0.0\n      GRADIENT_CLIP: true\n      GRADIENT_CLIP_NORM: 0.5\n      MOMENTUM: 0.9\n      NESTEROV: true\n      OPTIMIZING_METHOD: sgd\n      WEIGHT_DECAY: 0.0001\n    STEPS: 1\nTIMESNET:\n  LOSS_NAMES:\n  - Recon\n  METRIC_NAMES:\n  - Recon\n  anomaly_ratio: 1\n  c_out: 8\n  d_ff: 512\n  d_model: 512\n  dropout: 0.1\n  e_layers: 2\n  embed: timeF\n  enc_in: 8\n  freq: h\n  num_kernels: 6\n  pred_len: 0\n  top_k: 3\nTRAIN:\n  BATCH_SIZE: 256\n  CHECKPOINT_DIR: /home/p76141495/home/xlstm_anomaly/data/phase_d/backbone_11\n  CHECKPOINT_PERIOD: 200\n  DROP_LAST: true\n  ENABLE: false\n  EVAL_PERIOD: 5\n  IS_METRIC_LOWER_BETTER: true\n  METRIC_BEST: .inf\n  PRINT_FREQ: 100\n  RESUME: ''\n  SAVE_EVERY_EVAL: false\n  SHUFFLE: true\n  SPLIT: train\nVAL:\n  BATCH_SIZE: 256\n  DROP_LAST: false\n  SHUFFLE: false\n  SPLIT: val\nVISIBLE_DEVICES: 0\nWANDB:\n  DIR: ''\n  ENABLE: false\n  JOB_TYPE: ''\n  NAME: ''\n  NOTES: ''\n  PROJECT: CANDI\n",
+      "preprocessing": {
+        "train_seeds": [
+          1000,
+          1001,
+          1002,
+          1003,
+          1004,
+          1005,
+          1006,
+          1007,
+          1008,
+          1009
+        ],
+        "validation_seeds": [
+          2000,
+          2001,
+          2002,
+          2003,
+          2004
+        ],
+        "fit_interval": [
+          0,
+          4096
+        ],
+        "calibration_interval": [
+          4096,
+          5120
+        ],
+        "train_array_sha256": "3ee8b9db455c7a4ea2f0f469b00f5316a481ed98948c86b66a52a2e04c8e4115",
+        "validation_array_sha256": "879f4d1cd8240428f5c1551d8389dd1a22e83456db9f637429c2d43bcf9ffa83",
+        "calibration_array_sha256": "b123ad0614bbd8f412d310436a37555d69255254e3df8bfb04bb4dfdce236269",
+        "scaler_mean": [
+          -0.0028090649102780418,
+          -0.00549892886800379,
+          -0.008956423164816452,
+          -0.0032481498691063993,
+          -0.0010246308087063956,
+          -0.0003120776101892044,
+          -0.006165678922500277,
+          -0.005874133688906726
+        ],
+        "scaler_scale": [
+          1.0017471739265473,
+          1.0026738277777507,
+          1.0047267216529119,
+          0.9994250063526695,
+          1.0041549075128342,
+          0.9999487269792432,
+          1.0036385462634136,
+          1.0038424462803175
+        ],
+        "scaler_var": [
+          1.003497400469824,
+          1.0053548049104866,
+          1.0094757852034077,
+          0.9988503433230335,
+          1.0083270782821088,
+          0.9998974565874091,
+          1.0072903315457384,
+          1.0076996569540522
+        ]
+      },
+      "backbone_tensor_sha256": "8635f8e6d8690b106b438241681b42253d9d23c8a1585912bac6185a74d7c14f",
+      "initial_model_sha256": "8a95ff4ab5c668fd15d67e4b5cddd4c3799329eb68427f145a041f96497fd3a4",
+      "sana_in_sha256": "defead33b1f9e022949dd60b0cc491c0dc8204e23aeed32b3340b67e7af09160",
+      "sana_out_sha256": "899532af95db6cfbd0cfeac586c628f31fa68828c425e1ca37ee48b6dbcfcbba",
+      "optimizer_sha256": "6add4fb7d58d75583c3aabc2f2acb11c8f201d41cbaab06eaa02cb1c1bfa385c",
+      "rng_sha256": "09c5e372048b3ab42086e83ef9a1da9db7cc45a4aee730b69316be5fc9c3a9d1",
+      "threshold": 1.153200405836105,
+      "artifacts": {
+        "data/phase_d/backbone_11/checkpoint_best.pth": "3c8d4b195370356b85b56c3e15972b81c60b3c422bf1d39ae81966230c28460f",
+        "data/phase_d/backbone_11/pre_intervention.pth": "1ee8aba61dc637076fb2119c015851d48d8e07834d549063098c6f8adcbe7b7e",
+        "data/phase_d/backbone_11/calibration_scores.npy": "2db1140c4d71953868f2b5732000c194b3760f63dac248dbd91d945deb0f54d6"
+      },
+      "authorized_test_sources_used": false,
+      "architecture": "Official MLP 80-40-20-128-20-40-80; reconstruction MSE"
+    },
+    {
+      "detector_seed": 22,
+      "best_epoch": 30,
+      "history": [
+        {
+          "epoch": 1,
+          "train_mse": 1.0028557848630462
+        },
+        {
+          "epoch": 2,
+          "train_mse": 0.9449674213457407
+        },
+        {
+          "epoch": 3,
+          "train_mse": 0.8702617981148966
+        },
+        {
+          "epoch": 4,
+          "train_mse": 0.8244915619586248
+        },
+        {
+          "epoch": 5,
+          "train_mse": 0.7994556513222508,
+          "validation_mse": 0.8059426074194855
+        },
+        {
+          "epoch": 6,
+          "train_mse": 0.782555491669373
+        },
+        {
+          "epoch": 7,
+          "train_mse": 0.7684800789791083
+        },
+        {
+          "epoch": 8,
+          "train_mse": 0.7556259388443809
+        },
+        {
+          "epoch": 9,
+          "train_mse": 0.7435468577738827
+        },
+        {
+          "epoch": 10,
+          "train_mse": 0.7333450962162618,
+          "validation_mse": 0.7621903846466311
+        },
+        {
+          "epoch": 11,
+          "train_mse": 0.7222652559010487
+        },
+        {
+          "epoch": 12,
+          "train_mse": 0.7123536846172884
+        },
+        {
+          "epoch": 13,
+          "train_mse": 0.7055843633675726
+        },
+        {
+          "epoch": 14,
+          "train_mse": 0.700189378276561
+        },
+        {
+          "epoch": 15,
+          "train_mse": 0.695164329975656,
+          "validation_mse": 0.74010526839579
+        },
+        {
+          "epoch": 16,
+          "train_mse": 0.6904508036637457
+        },
+        {
+          "epoch": 17,
+          "train_mse": 0.6867784224216293
+        },
+        {
+          "epoch": 18,
+          "train_mse": 0.6841186806090973
+        },
+        {
+          "epoch": 19,
+          "train_mse": 0.6819149210767926
+        },
+        {
+          "epoch": 20,
+          "train_mse": 0.6800215806601182,
+          "validation_mse": 0.7332689850249265
+        },
+        {
+          "epoch": 21,
+          "train_mse": 0.6786984276471648
+        },
+        {
+          "epoch": 22,
+          "train_mse": 0.6775394378218261
+        },
+        {
+          "epoch": 23,
+          "train_mse": 0.67667884721696
+        },
+        {
+          "epoch": 24,
+          "train_mse": 0.6758763490233032
+        },
+        {
+          "epoch": 25,
+          "train_mse": 0.6755220110311448,
+          "validation_mse": 0.7313343530649774
+        },
+        {
+          "epoch": 26,
+          "train_mse": 0.67510620303124
+        },
+        {
+          "epoch": 27,
+          "train_mse": 0.6749336685774461
+        },
+        {
+          "epoch": 28,
+          "train_mse": 0.6747712894055828
+        },
+        {
+          "epoch": 29,
+          "train_mse": 0.6747510631879171
+        },
+        {
+          "epoch": 30,
+          "train_mse": 0.6744344886743797,
+          "validation_mse": 0.7310640367657741
+        }
+      ],
+      "training_seconds": 15.574902795255184,
+      "total_seconds": 18.25385142629966,
+      "peak_gpu_allocated_bytes": 107212800,
+      "peak_gpu_reserved_bytes": 127926272,
+      "resolved_config": "DATA:\n  BASE_DIR: data\n  DOWNSAMPLE_RATE: 1\n  NAME: synthetic_D8\n  N_VAR: 8\n  SAMPLING_RATES: 1.0\n  SCALE: standard\n  TEST_STEP: 1\n  TRAIN_RATIO: 0.8\n  TRAIN_STEP: 1\n  WIN_SIZE: 10\nDATA_LOADER:\n  DROP_LAST: true\n  NUM_WORKERS: 2\n  PIN_MEMORY: true\nMLP:\n  LOSS_NAMES:\n  - Recon\n  METRIC_NAMES:\n  - Recon\n  Z_SIZE: 128\nMODEL:\n  NAME: MLP\nNUM_GPUS: 4\nRESULT_DIR: /home/p76141495/home/xlstm_anomaly/data/phase_d/backbone_22\nSANA:\n  TYPE: TCN_iTrans\n  activation: gelu\n  d_ff: 512\n  d_model: 512\n  dropout: 0.0\n  e_layers: 1\n  n_heads: 8\n  output_attention: true\nSEED: 22\nSOLVER:\n  BASE_LR: 0.0001\n  COSINE_AFTER_WARMUP: true\n  COSINE_END_LR: 0.0\n  DAMPENING: 0.0\n  GRADIENT_CLIP: true\n  GRADIENT_CLIP_NORM: 0.5\n  LR_POLICY: cosine\n  MAX_EPOCH: 30\n  MOMENTUM: 0.9\n  NESTEROV: true\n  OPTIMIZING_METHOD: adam\n  START_EPOCH: 0\n  WARMUP_EPOCHS: 5\n  WARMUP_START_LR: 0.0001\n  WEIGHT_DECAY: 0.0001\nTEST:\n  ANOMALY_SCORES_DIR: ''\n  BATCH_SIZE: 256\n  DROP_LAST: false\n  ENABLE: true\n  SHUFFLE: false\n  SPLIT: test\n  THRESHOLD:\n    ANOMALY_RATIO: 5.0\n    TYPE: ratio\n  TTA:\n    CANDI:\n      GATING_INIT: 0.5\n      MIN_SAMPLES: 16\n      USE_FPM: true\n      USE_HARD: true\n      USE_MODERATE: true\n      USE_SANA: true\n    ENABLE: true\n    M2N2:\n      GAMMA: 0.99999\n    METHOD: CANDI\n    SOLVER:\n      BASE_LR: 0.03\n      DAMPENING: 0.0\n      GRADIENT_CLIP: true\n      GRADIENT_CLIP_NORM: 0.5\n      MOMENTUM: 0.9\n      NESTEROV: true\n      OPTIMIZING_METHOD: sgd\n      WEIGHT_DECAY: 0.0001\n    STEPS: 1\nTIMESNET:\n  LOSS_NAMES:\n  - Recon\n  METRIC_NAMES:\n  - Recon\n  anomaly_ratio: 1\n  c_out: 8\n  d_ff: 512\n  d_model: 512\n  dropout: 0.1\n  e_layers: 2\n  embed: timeF\n  enc_in: 8\n  freq: h\n  num_kernels: 6\n  pred_len: 0\n  top_k: 3\nTRAIN:\n  BATCH_SIZE: 256\n  CHECKPOINT_DIR: /home/p76141495/home/xlstm_anomaly/data/phase_d/backbone_22\n  CHECKPOINT_PERIOD: 200\n  DROP_LAST: true\n  ENABLE: false\n  EVAL_PERIOD: 5\n  IS_METRIC_LOWER_BETTER: true\n  METRIC_BEST: .inf\n  PRINT_FREQ: 100\n  RESUME: ''\n  SAVE_EVERY_EVAL: false\n  SHUFFLE: true\n  SPLIT: train\nVAL:\n  BATCH_SIZE: 256\n  DROP_LAST: false\n  SHUFFLE: false\n  SPLIT: val\nVISIBLE_DEVICES: 0\nWANDB:\n  DIR: ''\n  ENABLE: false\n  JOB_TYPE: ''\n  NAME: ''\n  NOTES: ''\n  PROJECT: CANDI\n",
+      "preprocessing": {
+        "train_seeds": [
+          1000,
+          1001,
+          1002,
+          1003,
+          1004,
+          1005,
+          1006,
+          1007,
+          1008,
+          1009
+        ],
+        "validation_seeds": [
+          2000,
+          2001,
+          2002,
+          2003,
+          2004
+        ],
+        "fit_interval": [
+          0,
+          4096
+        ],
+        "calibration_interval": [
+          4096,
+          5120
+        ],
+        "train_array_sha256": "3ee8b9db455c7a4ea2f0f469b00f5316a481ed98948c86b66a52a2e04c8e4115",
+        "validation_array_sha256": "879f4d1cd8240428f5c1551d8389dd1a22e83456db9f637429c2d43bcf9ffa83",
+        "calibration_array_sha256": "b123ad0614bbd8f412d310436a37555d69255254e3df8bfb04bb4dfdce236269",
+        "scaler_mean": [
+          -0.0028090649102780418,
+          -0.00549892886800379,
+          -0.008956423164816452,
+          -0.0032481498691063993,
+          -0.0010246308087063956,
+          -0.0003120776101892044,
+          -0.006165678922500277,
+          -0.005874133688906726
+        ],
+        "scaler_scale": [
+          1.0017471739265473,
+          1.0026738277777507,
+          1.0047267216529119,
+          0.9994250063526695,
+          1.0041549075128342,
+          0.9999487269792432,
+          1.0036385462634136,
+          1.0038424462803175
+        ],
+        "scaler_var": [
+          1.003497400469824,
+          1.0053548049104866,
+          1.0094757852034077,
+          0.9988503433230335,
+          1.0083270782821088,
+          0.9998974565874091,
+          1.0072903315457384,
+          1.0076996569540522
+        ]
+      },
+      "backbone_tensor_sha256": "7c3e2d8584ac14133a89a71f5295a43ff8b9221547c476f690027975cd726bec",
+      "initial_model_sha256": "448b5ce621bf97889b49738770fe5c1152e340ca15d5d602e6d63c748eeceeee",
+      "sana_in_sha256": "adb94be094e7693be051cf4d2a030e7f854e38cc40a4bbf833a0969e6f5bb925",
+      "sana_out_sha256": "73940cd8b0c424716fbed8bf76c9d3c9439355b37ddd83ac6f05b7e1c1958e8e",
+      "optimizer_sha256": "6add4fb7d58d75583c3aabc2f2acb11c8f201d41cbaab06eaa02cb1c1bfa385c",
+      "rng_sha256": "18469a3e17301f626620f2647be7a059e46fc8b5491b79a69100ad3f964df7c7",
+      "threshold": 1.155601805448532,
+      "artifacts": {
+        "data/phase_d/backbone_22/checkpoint_best.pth": "c3bdd36f7e109a9bdb2a7fb2c1589e34629c69c9c4c462020a6fb679f53ce498",
+        "data/phase_d/backbone_22/pre_intervention.pth": "810825bf961fd79cd66809d9a9111f74793aec79c166d79170c9122f8aff12e1",
+        "data/phase_d/backbone_22/calibration_scores.npy": "26239bbb758ca4cdbdc6406a409d0b753d2bc651418ab67d5f3ed19c84bbe393"
+      },
+      "authorized_test_sources_used": false,
+      "architecture": "Official MLP 80-40-20-128-20-40-80; reconstruction MSE"
+    },
+    {
+      "detector_seed": 33,
+      "best_epoch": 30,
+      "history": [
+        {
+          "epoch": 1,
+          "train_mse": 1.0040139705879882
+        },
+        {
+          "epoch": 2,
+          "train_mse": 0.9291021284067406
+        },
+        {
+          "epoch": 3,
+          "train_mse": 0.8646938647114256
+        },
+        {
+          "epoch": 4,
+          "train_mse": 0.836031253607768
+        },
+        {
+          "epoch": 5,
+          "train_mse": 0.8096303111352261,
+          "validation_mse": 0.8145740107495948
+        },
+        {
+          "epoch": 6,
+          "train_mse": 0.7871210447647287
+        },
+        {
+          "epoch": 7,
+          "train_mse": 0.7696966277728291
+        },
+        {
+          "epoch": 8,
+          "train_mse": 0.7523574971552914
+        },
+        {
+          "epoch": 9,
+          "train_mse": 0.7385559745554654
+        },
+        {
+          "epoch": 10,
+          "train_mse": 0.725317859424735,
+          "validation_mse": 0.7620197974331723
+        },
+        {
+          "epoch": 11,
+          "train_mse": 0.7136176588400355
+        },
+        {
+          "epoch": 12,
+          "train_mse": 0.7041122658447649
+        },
+        {
+          "epoch": 13,
+          "train_mse": 0.696591595433793
+        },
+        {
+          "epoch": 14,
+          "train_mse": 0.6901302802487739
+        },
+        {
+          "epoch": 15,
+          "train_mse": 0.6851122690446722,
+          "validation_mse": 0.7403939731972183
+        },
+        {
+          "epoch": 16,
+          "train_mse": 0.6815320227131154
+        },
+        {
+          "epoch": 17,
+          "train_mse": 0.6785689798541039
+        },
+        {
+          "epoch": 18,
+          "train_mse": 0.6761615306326428
+        },
+        {
+          "epoch": 19,
+          "train_mse": 0.673761138001328
+        },
+        {
+          "epoch": 20,
+          "train_mse": 0.6716818370909061,
+          "validation_mse": 0.7342815873883656
+        },
+        {
+          "epoch": 21,
+          "train_mse": 0.6700085240340082
+        },
+        {
+          "epoch": 22,
+          "train_mse": 0.66831621658877
+        },
+        {
+          "epoch": 23,
+          "train_mse": 0.6670033451896044
+        },
+        {
+          "epoch": 24,
+          "train_mse": 0.6659338867889261
+        },
+        {
+          "epoch": 25,
+          "train_mse": 0.6651221881122709,
+          "validation_mse": 0.730727672273558
+        },
+        {
+          "epoch": 26,
+          "train_mse": 0.6646456992101369
+        },
+        {
+          "epoch": 27,
+          "train_mse": 0.664196565091235
+        },
+        {
+          "epoch": 28,
+          "train_mse": 0.6640991081231795
+        },
+        {
+          "epoch": 29,
+          "train_mse": 0.663952795589495
+        },
+        {
+          "epoch": 30,
+          "train_mse": 0.6639385744460724,
+          "validation_mse": 0.7301810696692638
+        }
+      ],
+      "training_seconds": 14.916866424959153,
+      "total_seconds": 17.469414968043566,
+      "peak_gpu_allocated_bytes": 107212800,
+      "peak_gpu_reserved_bytes": 127926272,
+      "resolved_config": "DATA:\n  BASE_DIR: data\n  DOWNSAMPLE_RATE: 1\n  NAME: synthetic_D8\n  N_VAR: 8\n  SAMPLING_RATES: 1.0\n  SCALE: standard\n  TEST_STEP: 1\n  TRAIN_RATIO: 0.8\n  TRAIN_STEP: 1\n  WIN_SIZE: 10\nDATA_LOADER:\n  DROP_LAST: true\n  NUM_WORKERS: 2\n  PIN_MEMORY: true\nMLP:\n  LOSS_NAMES:\n  - Recon\n  METRIC_NAMES:\n  - Recon\n  Z_SIZE: 128\nMODEL:\n  NAME: MLP\nNUM_GPUS: 4\nRESULT_DIR: /home/p76141495/home/xlstm_anomaly/data/phase_d/backbone_33\nSANA:\n  TYPE: TCN_iTrans\n  activation: gelu\n  d_ff: 512\n  d_model: 512\n  dropout: 0.0\n  e_layers: 1\n  n_heads: 8\n  output_attention: true\nSEED: 33\nSOLVER:\n  BASE_LR: 0.0001\n  COSINE_AFTER_WARMUP: true\n  COSINE_END_LR: 0.0\n  DAMPENING: 0.0\n  GRADIENT_CLIP: true\n  GRADIENT_CLIP_NORM: 0.5\n  LR_POLICY: cosine\n  MAX_EPOCH: 30\n  MOMENTUM: 0.9\n  NESTEROV: true\n  OPTIMIZING_METHOD: adam\n  START_EPOCH: 0\n  WARMUP_EPOCHS: 5\n  WARMUP_START_LR: 0.0001\n  WEIGHT_DECAY: 0.0001\nTEST:\n  ANOMALY_SCORES_DIR: ''\n  BATCH_SIZE: 256\n  DROP_LAST: false\n  ENABLE: true\n  SHUFFLE: false\n  SPLIT: test\n  THRESHOLD:\n    ANOMALY_RATIO: 5.0\n    TYPE: ratio\n  TTA:\n    CANDI:\n      GATING_INIT: 0.5\n      MIN_SAMPLES: 16\n      USE_FPM: true\n      USE_HARD: true\n      USE_MODERATE: true\n      USE_SANA: true\n    ENABLE: true\n    M2N2:\n      GAMMA: 0.99999\n    METHOD: CANDI\n    SOLVER:\n      BASE_LR: 0.03\n      DAMPENING: 0.0\n      GRADIENT_CLIP: true\n      GRADIENT_CLIP_NORM: 0.5\n      MOMENTUM: 0.9\n      NESTEROV: true\n      OPTIMIZING_METHOD: sgd\n      WEIGHT_DECAY: 0.0001\n    STEPS: 1\nTIMESNET:\n  LOSS_NAMES:\n  - Recon\n  METRIC_NAMES:\n  - Recon\n  anomaly_ratio: 1\n  c_out: 8\n  d_ff: 512\n  d_model: 512\n  dropout: 0.1\n  e_layers: 2\n  embed: timeF\n  enc_in: 8\n  freq: h\n  num_kernels: 6\n  pred_len: 0\n  top_k: 3\nTRAIN:\n  BATCH_SIZE: 256\n  CHECKPOINT_DIR: /home/p76141495/home/xlstm_anomaly/data/phase_d/backbone_33\n  CHECKPOINT_PERIOD: 200\n  DROP_LAST: true\n  ENABLE: false\n  EVAL_PERIOD: 5\n  IS_METRIC_LOWER_BETTER: true\n  METRIC_BEST: .inf\n  PRINT_FREQ: 100\n  RESUME: ''\n  SAVE_EVERY_EVAL: false\n  SHUFFLE: true\n  SPLIT: train\nVAL:\n  BATCH_SIZE: 256\n  DROP_LAST: false\n  SHUFFLE: false\n  SPLIT: val\nVISIBLE_DEVICES: 0\nWANDB:\n  DIR: ''\n  ENABLE: false\n  JOB_TYPE: ''\n  NAME: ''\n  NOTES: ''\n  PROJECT: CANDI\n",
+      "preprocessing": {
+        "train_seeds": [
+          1000,
+          1001,
+          1002,
+          1003,
+          1004,
+          1005,
+          1006,
+          1007,
+          1008,
+          1009
+        ],
+        "validation_seeds": [
+          2000,
+          2001,
+          2002,
+          2003,
+          2004
+        ],
+        "fit_interval": [
+          0,
+          4096
+        ],
+        "calibration_interval": [
+          4096,
+          5120
+        ],
+        "train_array_sha256": "3ee8b9db455c7a4ea2f0f469b00f5316a481ed98948c86b66a52a2e04c8e4115",
+        "validation_array_sha256": "879f4d1cd8240428f5c1551d8389dd1a22e83456db9f637429c2d43bcf9ffa83",
+        "calibration_array_sha256": "b123ad0614bbd8f412d310436a37555d69255254e3df8bfb04bb4dfdce236269",
+        "scaler_mean": [
+          -0.0028090649102780418,
+          -0.00549892886800379,
+          -0.008956423164816452,
+          -0.0032481498691063993,
+          -0.0010246308087063956,
+          -0.0003120776101892044,
+          -0.006165678922500277,
+          -0.005874133688906726
+        ],
+        "scaler_scale": [
+          1.0017471739265473,
+          1.0026738277777507,
+          1.0047267216529119,
+          0.9994250063526695,
+          1.0041549075128342,
+          0.9999487269792432,
+          1.0036385462634136,
+          1.0038424462803175
+        ],
+        "scaler_var": [
+          1.003497400469824,
+          1.0053548049104866,
+          1.0094757852034077,
+          0.9988503433230335,
+          1.0083270782821088,
+          0.9998974565874091,
+          1.0072903315457384,
+          1.0076996569540522
+        ]
+      },
+      "backbone_tensor_sha256": "ab93db91768ee78a70c518a1bfa3468009e74eea40d7d9dbbebef8ccdb998a73",
+      "initial_model_sha256": "4dbe781bb54b2f40c52377fd02aac8a8df900e4df2c386776ce64e6d59eedd20",
+      "sana_in_sha256": "074fbc4bdf0f914ccef311ad01ab1d312444b17bd20629955ba44440eda08017",
+      "sana_out_sha256": "ed52fd07e390de89ac2e49e259a261c9d1c9921f47a184c1b09678fc02714e20",
+      "optimizer_sha256": "6add4fb7d58d75583c3aabc2f2acb11c8f201d41cbaab06eaa02cb1c1bfa385c",
+      "rng_sha256": "469d94955a744d58f12748b2105ed58355478065e2a003664e8cf5491a1e66f4",
+      "threshold": 1.12861949801445,
+      "artifacts": {
+        "data/phase_d/backbone_33/checkpoint_best.pth": "fffb0cdb8127935b3075b7d3f8a66a0416554c1970cd94ba5a299327321bb163",
+        "data/phase_d/backbone_33/pre_intervention.pth": "5ce4ce0893c56d0ebf50cd9bce40052a7b548c73e1c4f542132953cea56b319f",
+        "data/phase_d/backbone_33/calibration_scores.npy": "b201db5d5f016fd9f088cfb1882c1eadaa14bc2d092074c2ae63ff81bccdd5cc"
+      },
+      "authorized_test_sources_used": false,
+      "architecture": "Official MLP 80-40-20-128-20-40-80; reconstruction MSE"
+    },
+    {
+      "detector_seed": 44,
+      "best_epoch": 30,
+      "history": [
+        {
+          "epoch": 1,
+          "train_mse": 1.006681923221492
+        },
+        {
+          "epoch": 2,
+          "train_mse": 0.9599618053286331
+        },
+        {
+          "epoch": 3,
+          "train_mse": 0.8824736985770412
+        },
+        {
+          "epoch": 4,
+          "train_mse": 0.8517344560263291
+        },
+        {
+          "epoch": 5,
+          "train_mse": 0.8161681886738951,
+          "validation_mse": 0.8106299395616055
+        },
+        {
+          "epoch": 6,
+          "train_mse": 0.7869285873647006
+        },
+        {
+          "epoch": 7,
+          "train_mse": 0.7702055689673754
+        },
+        {
+          "epoch": 8,
+          "train_mse": 0.7567285036890762
+        },
+        {
+          "epoch": 9,
+          "train_mse": 0.7438319786539618
+        },
+        {
+          "epoch": 10,
+          "train_mse": 0.7339670343219109,
+          "validation_mse": 0.7674836962806995
+        },
+        {
+          "epoch": 11,
+          "train_mse": 0.723295918425674
+        },
+        {
+          "epoch": 12,
+          "train_mse": 0.7134371062494674
+        },
+        {
+          "epoch": 13,
+          "train_mse": 0.7042547333165534
+        },
+        {
+          "epoch": 14,
+          "train_mse": 0.6966981917807141
+        },
+        {
+          "epoch": 15,
+          "train_mse": 0.6908559120676052,
+          "validation_mse": 0.7407329768215148
+        },
+        {
+          "epoch": 16,
+          "train_mse": 0.6865733704476986
+        },
+        {
+          "epoch": 17,
+          "train_mse": 0.6835540784230022
+        },
+        {
+          "epoch": 18,
+          "train_mse": 0.6810489259425949
+        },
+        {
+          "epoch": 19,
+          "train_mse": 0.6789452733483704
+        },
+        {
+          "epoch": 20,
+          "train_mse": 0.6771978934605917,
+          "validation_mse": 0.7365039797251575
+        },
+        {
+          "epoch": 21,
+          "train_mse": 0.6758792970165517
+        },
+        {
+          "epoch": 22,
+          "train_mse": 0.6749122626376602
+        },
+        {
+          "epoch": 23,
+          "train_mse": 0.6741170463322094
+        },
+        {
+          "epoch": 24,
+          "train_mse": 0.6733092215825927
+        },
+        {
+          "epoch": 25,
+          "train_mse": 0.6728440249491038,
+          "validation_mse": 0.7351967264487629
+        },
+        {
+          "epoch": 26,
+          "train_mse": 0.6724584578718029
+        },
+        {
+          "epoch": 27,
+          "train_mse": 0.6721473343717227
+        },
+        {
+          "epoch": 28,
+          "train_mse": 0.6720221425002476
+        },
+        {
+          "epoch": 29,
+          "train_mse": 0.6719388421976341
+        },
+        {
+          "epoch": 30,
+          "train_mse": 0.6719587992572185,
+          "validation_mse": 0.7349647140036243
+        }
+      ],
+      "training_seconds": 15.586144768167287,
+      "total_seconds": 18.03050191095099,
+      "peak_gpu_allocated_bytes": 107212800,
+      "peak_gpu_reserved_bytes": 127926272,
+      "resolved_config": "DATA:\n  BASE_DIR: data\n  DOWNSAMPLE_RATE: 1\n  NAME: synthetic_D8\n  N_VAR: 8\n  SAMPLING_RATES: 1.0\n  SCALE: standard\n  TEST_STEP: 1\n  TRAIN_RATIO: 0.8\n  TRAIN_STEP: 1\n  WIN_SIZE: 10\nDATA_LOADER:\n  DROP_LAST: true\n  NUM_WORKERS: 2\n  PIN_MEMORY: true\nMLP:\n  LOSS_NAMES:\n  - Recon\n  METRIC_NAMES:\n  - Recon\n  Z_SIZE: 128\nMODEL:\n  NAME: MLP\nNUM_GPUS: 4\nRESULT_DIR: /home/p76141495/home/xlstm_anomaly/data/phase_d/backbone_44\nSANA:\n  TYPE: TCN_iTrans\n  activation: gelu\n  d_ff: 512\n  d_model: 512\n  dropout: 0.0\n  e_layers: 1\n  n_heads: 8\n  output_attention: true\nSEED: 44\nSOLVER:\n  BASE_LR: 0.0001\n  COSINE_AFTER_WARMUP: true\n  COSINE_END_LR: 0.0\n  DAMPENING: 0.0\n  GRADIENT_CLIP: true\n  GRADIENT_CLIP_NORM: 0.5\n  LR_POLICY: cosine\n  MAX_EPOCH: 30\n  MOMENTUM: 0.9\n  NESTEROV: true\n  OPTIMIZING_METHOD: adam\n  START_EPOCH: 0\n  WARMUP_EPOCHS: 5\n  WARMUP_START_LR: 0.0001\n  WEIGHT_DECAY: 0.0001\nTEST:\n  ANOMALY_SCORES_DIR: ''\n  BATCH_SIZE: 256\n  DROP_LAST: false\n  ENABLE: true\n  SHUFFLE: false\n  SPLIT: test\n  THRESHOLD:\n    ANOMALY_RATIO: 5.0\n    TYPE: ratio\n  TTA:\n    CANDI:\n      GATING_INIT: 0.5\n      MIN_SAMPLES: 16\n      USE_FPM: true\n      USE_HARD: true\n      USE_MODERATE: true\n      USE_SANA: true\n    ENABLE: true\n    M2N2:\n      GAMMA: 0.99999\n    METHOD: CANDI\n    SOLVER:\n      BASE_LR: 0.03\n      DAMPENING: 0.0\n      GRADIENT_CLIP: true\n      GRADIENT_CLIP_NORM: 0.5\n      MOMENTUM: 0.9\n      NESTEROV: true\n      OPTIMIZING_METHOD: sgd\n      WEIGHT_DECAY: 0.0001\n    STEPS: 1\nTIMESNET:\n  LOSS_NAMES:\n  - Recon\n  METRIC_NAMES:\n  - Recon\n  anomaly_ratio: 1\n  c_out: 8\n  d_ff: 512\n  d_model: 512\n  dropout: 0.1\n  e_layers: 2\n  embed: timeF\n  enc_in: 8\n  freq: h\n  num_kernels: 6\n  pred_len: 0\n  top_k: 3\nTRAIN:\n  BATCH_SIZE: 256\n  CHECKPOINT_DIR: /home/p76141495/home/xlstm_anomaly/data/phase_d/backbone_44\n  CHECKPOINT_PERIOD: 200\n  DROP_LAST: true\n  ENABLE: false\n  EVAL_PERIOD: 5\n  IS_METRIC_LOWER_BETTER: true\n  METRIC_BEST: .inf\n  PRINT_FREQ: 100\n  RESUME: ''\n  SAVE_EVERY_EVAL: false\n  SHUFFLE: true\n  SPLIT: train\nVAL:\n  BATCH_SIZE: 256\n  DROP_LAST: false\n  SHUFFLE: false\n  SPLIT: val\nVISIBLE_DEVICES: 0\nWANDB:\n  DIR: ''\n  ENABLE: false\n  JOB_TYPE: ''\n  NAME: ''\n  NOTES: ''\n  PROJECT: CANDI\n",
+      "preprocessing": {
+        "train_seeds": [
+          1000,
+          1001,
+          1002,
+          1003,
+          1004,
+          1005,
+          1006,
+          1007,
+          1008,
+          1009
+        ],
+        "validation_seeds": [
+          2000,
+          2001,
+          2002,
+          2003,
+          2004
+        ],
+        "fit_interval": [
+          0,
+          4096
+        ],
+        "calibration_interval": [
+          4096,
+          5120
+        ],
+        "train_array_sha256": "3ee8b9db455c7a4ea2f0f469b00f5316a481ed98948c86b66a52a2e04c8e4115",
+        "validation_array_sha256": "879f4d1cd8240428f5c1551d8389dd1a22e83456db9f637429c2d43bcf9ffa83",
+        "calibration_array_sha256": "b123ad0614bbd8f412d310436a37555d69255254e3df8bfb04bb4dfdce236269",
+        "scaler_mean": [
+          -0.0028090649102780418,
+          -0.00549892886800379,
+          -0.008956423164816452,
+          -0.0032481498691063993,
+          -0.0010246308087063956,
+          -0.0003120776101892044,
+          -0.006165678922500277,
+          -0.005874133688906726
+        ],
+        "scaler_scale": [
+          1.0017471739265473,
+          1.0026738277777507,
+          1.0047267216529119,
+          0.9994250063526695,
+          1.0041549075128342,
+          0.9999487269792432,
+          1.0036385462634136,
+          1.0038424462803175
+        ],
+        "scaler_var": [
+          1.003497400469824,
+          1.0053548049104866,
+          1.0094757852034077,
+          0.9988503433230335,
+          1.0083270782821088,
+          0.9998974565874091,
+          1.0072903315457384,
+          1.0076996569540522
+        ]
+      },
+      "backbone_tensor_sha256": "1a0fe899de20e54803212fbf58295e83769d24dea3ea2d2fd4596a36a5be1fa2",
+      "initial_model_sha256": "abe5405716179e5e6973462b281d558caf103e233944ecbcffe9191b91a5428d",
+      "sana_in_sha256": "8678cf35f63ad25047ff138fbc9f6a1476176e0850e041403758f3a7936a17b1",
+      "sana_out_sha256": "d350a220947f2526a05cf8575f247ea49dc06639412c522a1d6dc6ad057ceec0",
+      "optimizer_sha256": "6add4fb7d58d75583c3aabc2f2acb11c8f201d41cbaab06eaa02cb1c1bfa385c",
+      "rng_sha256": "de7841773dee18450fa7c1ef68c856e3d688fb2aa1a667d21c960e035bc56341",
+      "threshold": 1.1517643749713897,
+      "artifacts": {
+        "data/phase_d/backbone_44/checkpoint_best.pth": "3bfc0ebc011f8f809ad35d78f0af1030132b0f3a52d6d7a546dfea00ec1a7449",
+        "data/phase_d/backbone_44/pre_intervention.pth": "1ea365d5552589f6399c96b31562fcaa2257ad162e3c6f81a3a67d437b2cef71",
+        "data/phase_d/backbone_44/calibration_scores.npy": "1ba2993a8475fe2250c2423c225a0c79308b054038d9546cec37724ff89564ea"
+      },
+      "authorized_test_sources_used": false,
+      "architecture": "Official MLP 80-40-20-128-20-40-80; reconstruction MSE"
+    },
+    {
+      "detector_seed": 55,
+      "best_epoch": 30,
+      "history": [
+        {
+          "epoch": 1,
+          "train_mse": 1.000102312684809
+        },
+        {
+          "epoch": 2,
+          "train_mse": 0.922791840895167
+        },
+        {
+          "epoch": 3,
+          "train_mse": 0.8790506555599237
+        },
+        {
+          "epoch": 4,
+          "train_mse": 0.8520479674609203
+        },
+        {
+          "epoch": 5,
+          "train_mse": 0.8164861453404216,
+          "validation_mse": 0.8159763934474018
+        },
+        {
+          "epoch": 6,
+          "train_mse": 0.7941079132212033
+        },
+        {
+          "epoch": 7,
+          "train_mse": 0.7718238346981552
+        },
+        {
+          "epoch": 8,
+          "train_mse": 0.751883752690921
+        },
+        {
+          "epoch": 9,
+          "train_mse": 0.7363110499561958
+        },
+        {
+          "epoch": 10,
+          "train_mse": 0.7241545638198372,
+          "validation_mse": 0.7599554519522648
+        },
+        {
+          "epoch": 11,
+          "train_mse": 0.7134839596238526
+        },
+        {
+          "epoch": 12,
+          "train_mse": 0.7053313214074141
+        },
+        {
+          "epoch": 13,
+          "train_mse": 0.6982176611258549
+        },
+        {
+          "epoch": 14,
+          "train_mse": 0.691005510354192
+        },
+        {
+          "epoch": 15,
+          "train_mse": 0.6839911791513551,
+          "validation_mse": 0.73447265027641
+        },
+        {
+          "epoch": 16,
+          "train_mse": 0.6781463634293035
+        },
+        {
+          "epoch": 17,
+          "train_mse": 0.6740089235065868
+        },
+        {
+          "epoch": 18,
+          "train_mse": 0.6707200974038562
+        },
+        {
+          "epoch": 19,
+          "train_mse": 0.6682972544394199
+        },
+        {
+          "epoch": 20,
+          "train_mse": 0.6663568432226121,
+          "validation_mse": 0.7247801838336494
+        },
+        {
+          "epoch": 21,
+          "train_mse": 0.6646293064333358
+        },
+        {
+          "epoch": 22,
+          "train_mse": 0.6633857477386043
+        },
+        {
+          "epoch": 23,
+          "train_mse": 0.6623867753916567
+        },
+        {
+          "epoch": 24,
+          "train_mse": 0.6614918026534267
+        },
+        {
+          "epoch": 25,
+          "train_mse": 0.6609530092785193,
+          "validation_mse": 0.7223516721751132
+        },
+        {
+          "epoch": 26,
+          "train_mse": 0.6605397084224149
+        },
+        {
+          "epoch": 27,
+          "train_mse": 0.6601909773904573
+        },
+        {
+          "epoch": 28,
+          "train_mse": 0.6599565257066451
+        },
+        {
+          "epoch": 29,
+          "train_mse": 0.6599457762526266
+        },
+        {
+          "epoch": 30,
+          "train_mse": 0.6599872003561296,
+          "validation_mse": 0.7219722996266745
+        }
+      ],
+      "training_seconds": 13.832657601684332,
+      "total_seconds": 16.3714497378096,
+      "peak_gpu_allocated_bytes": 107212800,
+      "peak_gpu_reserved_bytes": 127926272,
+      "resolved_config": "DATA:\n  BASE_DIR: data\n  DOWNSAMPLE_RATE: 1\n  NAME: synthetic_D8\n  N_VAR: 8\n  SAMPLING_RATES: 1.0\n  SCALE: standard\n  TEST_STEP: 1\n  TRAIN_RATIO: 0.8\n  TRAIN_STEP: 1\n  WIN_SIZE: 10\nDATA_LOADER:\n  DROP_LAST: true\n  NUM_WORKERS: 2\n  PIN_MEMORY: true\nMLP:\n  LOSS_NAMES:\n  - Recon\n  METRIC_NAMES:\n  - Recon\n  Z_SIZE: 128\nMODEL:\n  NAME: MLP\nNUM_GPUS: 4\nRESULT_DIR: /home/p76141495/home/xlstm_anomaly/data/phase_d/backbone_55\nSANA:\n  TYPE: TCN_iTrans\n  activation: gelu\n  d_ff: 512\n  d_model: 512\n  dropout: 0.0\n  e_layers: 1\n  n_heads: 8\n  output_attention: true\nSEED: 55\nSOLVER:\n  BASE_LR: 0.0001\n  COSINE_AFTER_WARMUP: true\n  COSINE_END_LR: 0.0\n  DAMPENING: 0.0\n  GRADIENT_CLIP: true\n  GRADIENT_CLIP_NORM: 0.5\n  LR_POLICY: cosine\n  MAX_EPOCH: 30\n  MOMENTUM: 0.9\n  NESTEROV: true\n  OPTIMIZING_METHOD: adam\n  START_EPOCH: 0\n  WARMUP_EPOCHS: 5\n  WARMUP_START_LR: 0.0001\n  WEIGHT_DECAY: 0.0001\nTEST:\n  ANOMALY_SCORES_DIR: ''\n  BATCH_SIZE: 256\n  DROP_LAST: false\n  ENABLE: true\n  SHUFFLE: false\n  SPLIT: test\n  THRESHOLD:\n    ANOMALY_RATIO: 5.0\n    TYPE: ratio\n  TTA:\n    CANDI:\n      GATING_INIT: 0.5\n      MIN_SAMPLES: 16\n      USE_FPM: true\n      USE_HARD: true\n      USE_MODERATE: true\n      USE_SANA: true\n    ENABLE: true\n    M2N2:\n      GAMMA: 0.99999\n    METHOD: CANDI\n    SOLVER:\n      BASE_LR: 0.03\n      DAMPENING: 0.0\n      GRADIENT_CLIP: true\n      GRADIENT_CLIP_NORM: 0.5\n      MOMENTUM: 0.9\n      NESTEROV: true\n      OPTIMIZING_METHOD: sgd\n      WEIGHT_DECAY: 0.0001\n    STEPS: 1\nTIMESNET:\n  LOSS_NAMES:\n  - Recon\n  METRIC_NAMES:\n  - Recon\n  anomaly_ratio: 1\n  c_out: 8\n  d_ff: 512\n  d_model: 512\n  dropout: 0.1\n  e_layers: 2\n  embed: timeF\n  enc_in: 8\n  freq: h\n  num_kernels: 6\n  pred_len: 0\n  top_k: 3\nTRAIN:\n  BATCH_SIZE: 256\n  CHECKPOINT_DIR: /home/p76141495/home/xlstm_anomaly/data/phase_d/backbone_55\n  CHECKPOINT_PERIOD: 200\n  DROP_LAST: true\n  ENABLE: false\n  EVAL_PERIOD: 5\n  IS_METRIC_LOWER_BETTER: true\n  METRIC_BEST: .inf\n  PRINT_FREQ: 100\n  RESUME: ''\n  SAVE_EVERY_EVAL: false\n  SHUFFLE: true\n  SPLIT: train\nVAL:\n  BATCH_SIZE: 256\n  DROP_LAST: false\n  SHUFFLE: false\n  SPLIT: val\nVISIBLE_DEVICES: 0\nWANDB:\n  DIR: ''\n  ENABLE: false\n  JOB_TYPE: ''\n  NAME: ''\n  NOTES: ''\n  PROJECT: CANDI\n",
+      "preprocessing": {
+        "train_seeds": [
+          1000,
+          1001,
+          1002,
+          1003,
+          1004,
+          1005,
+          1006,
+          1007,
+          1008,
+          1009
+        ],
+        "validation_seeds": [
+          2000,
+          2001,
+          2002,
+          2003,
+          2004
+        ],
+        "fit_interval": [
+          0,
+          4096
+        ],
+        "calibration_interval": [
+          4096,
+          5120
+        ],
+        "train_array_sha256": "3ee8b9db455c7a4ea2f0f469b00f5316a481ed98948c86b66a52a2e04c8e4115",
+        "validation_array_sha256": "879f4d1cd8240428f5c1551d8389dd1a22e83456db9f637429c2d43bcf9ffa83",
+        "calibration_array_sha256": "b123ad0614bbd8f412d310436a37555d69255254e3df8bfb04bb4dfdce236269",
+        "scaler_mean": [
+          -0.0028090649102780418,
+          -0.00549892886800379,
+          -0.008956423164816452,
+          -0.0032481498691063993,
+          -0.0010246308087063956,
+          -0.0003120776101892044,
+          -0.006165678922500277,
+          -0.005874133688906726
+        ],
+        "scaler_scale": [
+          1.0017471739265473,
+          1.0026738277777507,
+          1.0047267216529119,
+          0.9994250063526695,
+          1.0041549075128342,
+          0.9999487269792432,
+          1.0036385462634136,
+          1.0038424462803175
+        ],
+        "scaler_var": [
+          1.003497400469824,
+          1.0053548049104866,
+          1.0094757852034077,
+          0.9988503433230335,
+          1.0083270782821088,
+          0.9998974565874091,
+          1.0072903315457384,
+          1.0076996569540522
+        ]
+      },
+      "backbone_tensor_sha256": "62170000b5cbc1581b175c622e5e9ea56acf37589fbab5971018e764104fcac9",
+      "initial_model_sha256": "e6836bc426dd61b27cb4920b8dee8d0fc5e69adf6e6f2e8ebe498c6a94f7122d",
+      "sana_in_sha256": "acaebe14e096289c7a4c1d36cd451c65aafb0d83748a5e988b58c1c3fcd6cef3",
+      "sana_out_sha256": "ed80526c6133167df9ff6d2a9b598d3e6bf6eb1a2aa59f7f8c0c004d6c187b22",
+      "optimizer_sha256": "6add4fb7d58d75583c3aabc2f2acb11c8f201d41cbaab06eaa02cb1c1bfa385c",
+      "rng_sha256": "fc5bb5a387d56807dd499d551954e9b86382e9d87a1cf78ef4b72bf18e7aaac2",
+      "threshold": 1.1408777236938472,
+      "artifacts": {
+        "data/phase_d/backbone_55/checkpoint_best.pth": "9c3c87d43953ca03bdd91d4db385160c68801c8f7e6ee5b60905152421c934f6",
+        "data/phase_d/backbone_55/pre_intervention.pth": "27ea236dc138247167fdf67f034137a662554f14e9a3ef969bbd04e3f0f53119",
+        "data/phase_d/backbone_55/calibration_scores.npy": "17a740cbe366f6145eda572a0f3cb42336848ba9a3b087c0549c340ff012920e"
+      },
+      "authorized_test_sources_used": false,
+      "architecture": "Official MLP 80-40-20-128-20-40-80; reconstruction MSE"
+    }
+  ],
+  "all_frozen_before_test_harm": true,
+  "buffer_manifest_sha256": "258b02489ec8e6c7530a187c9ced48ae18e16ca6f4f34e8e22f966ba80172e5b",
+  "official_commit": "28c9679e503832f59e351208cde63657fcb51cad",
+  "note": "seed11 timed alone; remaining four training processes launched concurrently. Per-process timings/memory are not aggregate device peaks."
+}

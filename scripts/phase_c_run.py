@@ -41,11 +41,18 @@ def main():
     parser.add_argument('--machine',choices=list(PUBLISHED),required=True)
     parser.add_argument('--alpha',choices=['0.5','1.0','5.0'],required=True)
     parser.add_argument('--mode',choices=['native','audit','audit_permuted','native_replay_1','native_replay_2',
-        'native_v2','native_label_control','native_label_permuted','native_c3','native_d0'],default='native')
+        'native_v2','native_label_control','native_label_permuted','native_c3','native_d0','native_d0_v2'],default='native')
     parser.add_argument('--seed',type=int,default=0)
     args = parser.parse_args()
     version2 = args.mode.startswith('native_')
-    if args.mode=='native_d0':
+    if args.mode=='native_d0_v2':
+        assert (args.machine,args.alpha,args.seed)==('SMD_1-8','5.0',0)
+        import phase_d_v2
+        phase_d_v2.start('real_d0')
+        REPORT=phase_d_v2.REPORT
+        import phase_d_operator
+        phase_d_operator.REPORT=REPORT;phase_d_operator.DATA=phase_d_v2.DATA
+    elif args.mode=='native_d0':
         assert (args.machine,args.alpha,args.seed)==('SMD_1-8','5.0',0)
         REPORT=ROOT/'reports/phase_d'
         import phase_d_operator
@@ -116,7 +123,7 @@ def main():
         from tta.candi import adapter_candi
         audit = phase_c_audit.Audit(args.mode,tag)
         audit.instrument(adapter_candi,predictor)
-        if args.mode=='native_d0':
+        if args.mode in ('native_d0','native_d0_v2'):
             capture=phase_d_operator.Capture()
             capture.install(predictor,adapter_candi)
     elif args.mode!='native':
@@ -166,8 +173,9 @@ def main():
         record['final_checkpoint_sha256'] = digest(work/'final_model.pth')
         if audit:
             record['audit'] = audit.finish(p)
-            if args.mode=='native_d0':
+            if args.mode in ('native_d0','native_d0_v2'):
                 capture.verify(audit)
+                if args.mode=='native_d0_v2':phase_d_v2.assert_backend()
         if version2:
             import numpy as np
             assert np.isfinite(p.test_scores_w_tta).all()

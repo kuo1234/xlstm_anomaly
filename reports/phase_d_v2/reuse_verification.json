@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "rows": [
+    {
+      "seed": 11,
+      "artifacts_exact": true,
+      "scaler_exact": true,
+      "calibration_scores_exact": true,
+      "threshold_exact": true,
+      "sana_exact": true,
+      "optimizer_exact": true,
+      "rng_exact": true,
+      "backbone_exact": true
+    },
+    {
+      "seed": 22,
+      "artifacts_exact": true,
+      "scaler_exact": true,
+      "calibration_scores_exact": true,
+      "threshold_exact": true,
+      "sana_exact": true,
+      "optimizer_exact": true,
+      "rng_exact": true,
+      "backbone_exact": true
+    },
+    {
+      "seed": 33,
+      "artifacts_exact": true,
+      "scaler_exact": true,
+      "calibration_scores_exact": true,
+      "threshold_exact": true,
+      "sana_exact": true,
+      "optimizer_exact": true,
+      "rng_exact": true,
+      "backbone_exact": true
+    },
+    {
+      "seed": 44,
+      "artifacts_exact": true,
+      "scaler_exact": true,
+      "calibration_scores_exact": true,
+      "threshold_exact": true,
+      "sana_exact": true,
+      "optimizer_exact": true,
+      "rng_exact": true,
+      "backbone_exact": true
+    },
+    {
+      "seed": 55,
+      "artifacts_exact": true,
+      "scaler_exact": true,
+      "calibration_scores_exact": true,
+      "threshold_exact": true,
+      "sana_exact": true,
+      "optimizer_exact": true,
+      "rng_exact": true,
+      "backbone_exact": true
+    }
+  ],
+  "buffer_layouts_verified": 160,
+  "no_retraining": true,
+  "quarantined_results_read": false,
+  "backend_fingerprint": "ef012b3196d325d5ec604f31f2af041dd32a3ae53e0bf9b5c70fde3681529693",
+  "input_seals": {
+    "synthetic_backbone_manifest.json": "4f91dda1b226024a03af4a035b32f76ffad149af9bb83b94c44751ef106d237b",
+    "buffer_manifest.json": "258b02489ec8e6c7530a187c9ced48ae18e16ca6f4f34e8e22f966ba80172e5b"
+  }
+}

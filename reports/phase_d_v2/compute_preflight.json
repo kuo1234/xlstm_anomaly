@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "estimated_total_seconds": 5588.722707331181,
+  "conservative_factor": 2,
+  "planned_rows": 4800,
+  "limit_seconds": 86400,
+  "no_training": true,
+  "method": "2 times mean fresh-process update-and-full-suffix-score seconds times 4800 arms; startup, compose and canary overhead additional"
+}

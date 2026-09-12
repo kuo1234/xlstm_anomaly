@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "original_scientific_code_unchanged": [
+    "scripts/phase_d_operator.py",
+    "scripts/phase_d_backbone.py",
+    "scripts/phase_d_buffers.py",
+    "scripts/phase_d_grid.py",
+    "scripts/phase_d_statistics.py",
+    "scripts/phase_d_finalize.py",
+    "reports/phase_d/prospective.md",
+    "reports/m0_protocol.md"
+  ],
+  "prior_report_seals_verified": {
+    "phase_c": 34,
+    "phase_c_v2": 43,
+    "phase_c3": 139,
+    "phase_d": 146
+  },
+  "controlled_update_has_no_label_argument": true,
+  "statistics_tests": [
+    "zero p1/CI0",
+    "signed constant exact sign-flip 2/1024",
+    "constant hierarchical bootstrap",
+    "seed sign counts",
+    "Holm reference"
+  ],
+  "code_sha256": {
+    "scripts/phase_d_operator.py": "1ea6263990691bd2358fff4e32b9f9517e4be56fe199fb673ead13f16a18f24c",
+    "scripts/phase_d_backbone.py": "1379033d1e8140fc7fd5baba789b17e39d7b006b19a334699605a27e156f7dff",
+    "scripts/phase_d_buffers.py": "30e325162413c4a9f1ecf627193973cc6d8713ea6aacc38fc9ba9633792f6a30",
+    "scripts/phase_d_grid.py": "77cd254b8232c12a6cb2179dc917633600bb5caa8c90a6a43a7058130d391bc2",
+    "scripts/phase_d_statistics.py": "4853a60dec6a3963731a6e86e0c5160b80ab6157ace74c7d2a7823ad0e670784",
+    "scripts/phase_d_finalize.py": "6cf6b6443fb721465c08de2da378b46582eb7c57bf409d2f5d8e1c378bf2595a",
+    "reports/phase_d/prospective.md": "94c48e4bf3598e439f7733b7a3c0b59791e73045ba182c29b4299dfc697a9c11",
+    "reports/m0_protocol.md": "dde9d07e692c915f94e2f44d7c8fa11a1ca8c6c3e45f87ed2aefe62a7c0d8ed3",
+    "scripts/phase_d_v2.py": "f09dfdd9c7efcc17aba71fcf970d7c2087a43ae3f4303bf7849f23b9a29fe3f9",
+    "scripts/phase_d_v2_launch.py": "e7b0fc7b538c2a411ef96be8293b0e0dc4c8d874296ef1631cc80e28c14ea4b8",
+    "scripts/phase_d_v2_integrity.py": "200822014de6cb5b5a7033852ad167c381ff51e47f43ad7d0a138e832496c715",
+    "scripts/phase_c_run.py": "d86bf43f2c38f4b5bd0994cebdf8fc65c270cde3f39e69f5084e37e0772a25dc",
+    "m0/__init__.py": "29961ef9850291aac0f19870fe1ac7457a12cc442c6c6f3ac51989f3acff8b60",
+    "m0/causal.py": "2ca7c5417b7cd5e2a1cbfd41ceebc2cf28d0aea114cba6a35672037a70518251",
+    "m0/correlation.py": "7211f3e50c12d36864a467933bca093e3ba113f68ea189afa13866b9b8b19dd1",
+    "m0/metrics.py": "ae73c2fa7ceb8545f9b94a71855c53a6cd6ddcef2008c212a2cfbba7dc65203e",
+    "m0/synthetic.py": "6d9243142c7cb95c2c2f5aef2ba8ca7493b369ea754e3405f96afbccec7faac2"
+  },
+  "quarantined_outcomes_parsed": false,
+  "prior_report_files_read_only_for_digest": true
+}

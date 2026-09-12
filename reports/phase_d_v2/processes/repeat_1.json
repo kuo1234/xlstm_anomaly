@@ -1,0 +1,44 @@
+{
+  "tag": "repeat_1",
+  "pid": 1153143,
+  "incoming": {
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false,
+    "deterministic_algorithms": false,
+    "float32_matmul_precision": "highest",
+    "matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "torch": "2.13.0+cu130",
+    "cuda": "13.0",
+    "cudnn": 92000,
+    "device": "NVIDIA GB10",
+    "capability": [
+      12,
+      1
+    ],
+    "driver": "580.173.02"
+  },
+  "restored": {
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "deterministic_algorithms": false,
+    "float32_matmul_precision": "highest",
+    "matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "torch": "2.13.0+cu130",
+    "cuda": "13.0",
+    "cudnn": 92000,
+    "device": "NVIDIA GB10",
+    "capability": [
+      12,
+      1
+    ],
+    "driver": "580.173.02"
+  },
+  "backend_fingerprint": "ef012b3196d325d5ec604f31f2af041dd32a3ae53e0bf9b5c70fde3681529693",
+  "backend_seal_sha256": "473b80330b9e3cc039fd00b5ac2e4c5dadfab3e11f0c17e048114f7831cc9a55",
+  "device_uuid": "8796b197-6eba-7823-5301-1e9837053193",
+  "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+  "packages_match_frozen": true,
+  "amendment_commit": "a40634b"
+}

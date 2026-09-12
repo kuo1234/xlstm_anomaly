@@ -1,0 +1,10 @@
+{
+  "command": [
+    "rtk",
+    "/home/p76141495/home/xlstm_anomaly/data/phase_c/venv/bin/python",
+    "/home/p76141495/home/xlstm_anomaly/scripts/phase_d_v2.py",
+    "reuse"
+  ],
+  "returncode": 0,
+  "wall_seconds": 42.00009384797886
+}

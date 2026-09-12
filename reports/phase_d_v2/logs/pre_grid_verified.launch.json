@@ -1,0 +1,11 @@
+{
+  "command": [
+    "rtk",
+    "/home/p76141495/home/xlstm_anomaly/data/phase_c/venv/bin/python",
+    "/home/p76141495/home/xlstm_anomaly/scripts/phase_d_v2.py",
+    "gates",
+    "pre_grid_verified"
+  ],
+  "returncode": 0,
+  "wall_seconds": 3.3936056601814926
+}

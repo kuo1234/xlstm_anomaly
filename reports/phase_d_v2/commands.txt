@@ -1,0 +1,12 @@
+rtk /home/p76141495/home/xlstm_anomaly/data/phase_c/venv/bin/python /home/p76141495/home/xlstm_anomaly/scripts/phase_d_v2.py reuse
+rtk /home/p76141495/home/xlstm_anomaly/data/phase_c/venv/bin/python /home/p76141495/home/xlstm_anomaly/scripts/phase_c_run.py --machine SMD_1-8 --alpha 5.0 --seed 0 --mode native_d0_v2
+rtk /home/p76141495/home/xlstm_anomaly/data/phase_c/venv/bin/python /home/p76141495/home/xlstm_anomaly/scripts/phase_d_v2.py repeat repeat_0
+rtk /home/p76141495/home/xlstm_anomaly/data/phase_c/venv/bin/python /home/p76141495/home/xlstm_anomaly/scripts/phase_d_v2.py repeat repeat_1
+rtk /home/p76141495/home/xlstm_anomaly/data/phase_c/venv/bin/python /home/p76141495/home/xlstm_anomaly/scripts/phase_d_v2.py repeat repeat_2
+rtk /home/p76141495/home/xlstm_anomaly/data/phase_c/venv/bin/python /home/p76141495/home/xlstm_anomaly/scripts/phase_d_v2.py label label_permuted
+rtk /home/p76141495/home/xlstm_anomaly/data/phase_c/venv/bin/python /home/p76141495/home/xlstm_anomaly/scripts/phase_d_v2.py zero zero_0
+rtk /home/p76141495/home/xlstm_anomaly/data/phase_c/venv/bin/python /home/p76141495/home/xlstm_anomaly/scripts/phase_d_v2.py zero zero_1
+rtk /home/p76141495/home/xlstm_anomaly/data/phase_c/venv/bin/python /home/p76141495/home/xlstm_anomaly/scripts/phase_d_v2.py zero zero_2
+rtk /home/p76141495/home/xlstm_anomaly/data/phase_c/venv/bin/python /home/p76141495/home/xlstm_anomaly/scripts/phase_d_v2.py gates pre_grid_gates
+rtk /home/p76141495/home/xlstm_anomaly/data/phase_c/venv/bin/python /home/p76141495/home/xlstm_anomaly/scripts/phase_d_v2.py gates pre_grid_verified
+rtk /home/p76141495/home/xlstm_anomaly/data/phase_c/venv/bin/python /home/p76141495/home/xlstm_anomaly/scripts/phase_d_v2_integrity.py

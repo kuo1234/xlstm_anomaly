@@ -1,0 +1,9 @@
+{
+  "command": [
+    "rtk",
+    "/home/p76141495/home/xlstm_anomaly/data/phase_c/venv/bin/python",
+    "/home/p76141495/home/xlstm_anomaly/scripts/phase_d_v2_integrity.py"
+  ],
+  "returncode": 0,
+  "wall_seconds": 1.422598279081285
+}

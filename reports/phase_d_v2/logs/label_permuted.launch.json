@@ -1,0 +1,11 @@
+{
+  "command": [
+    "rtk",
+    "/home/p76141495/home/xlstm_anomaly/data/phase_c/venv/bin/python",
+    "/home/p76141495/home/xlstm_anomaly/scripts/phase_d_v2.py",
+    "label",
+    "label_permuted"
+  ],
+  "returncode": 0,
+  "wall_seconds": 4.292692086193711
+}
