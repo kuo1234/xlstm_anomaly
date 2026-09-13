@@ -1,0 +1,12 @@
+# Diagnostic was run before this amendment; no training/optimizer step:
+rtk data/phase_e2/venv/bin/python scripts/phase_f_v2_spark_cudnn_diagnostic.py
+
+# Commit/push F-v3 amendment before any optimizer step:
+rtk git commit -m 'Scope cuDNN disable to matched LSTM execution'
+rtk git push origin main
+
+# Then run v3 pre-training gates (zero optimizer steps):
+rtk data/phase_e2/venv/bin/python scripts/phase_f_v3_gates.py
+
+# Only after PASS, run all ten fresh-process conditions:
+rtk data/phase_e2/venv/bin/python scripts/phase_f_v3_launch.py

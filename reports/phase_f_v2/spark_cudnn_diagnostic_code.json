@@ -1,0 +1,6 @@
+{
+  "script_sha256": "38fe260497f98a8bb88af84669f48bd97562cddfad6a1ed7c8eb5e0ae4f02338",
+  "command": "rtk data/phase_e2/venv/bin/python scripts/phase_f_v2_spark_cudnn_diagnostic.py",
+  "checkpoint_sha256": "0c6d7fb240dd2f94237aa32ff252bbacbd7e2b6bc60d7947b9fb128c5bf24ee5",
+  "fixture_sha256": "f259b4314a1a2da570281e65a5ed206c5181f4a787ea73466dd307ad3808b165"
+}
