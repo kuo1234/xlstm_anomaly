@@ -1,0 +1,9 @@
+{
+  "script": "scripts/phase_f3_r_seed33_replay.py",
+  "sha256": "d91881d80028df7075412053b2b86c803180138ef059fdfb095b14a1b4fd67d1",
+  "frozen_atol": 1e-05,
+  "frozen_rtol": 0.0001,
+  "upstream_commit": "e8b56ba27352733bb83729e85b1d6196dca70c99",
+  "backend": "vanilla",
+  "architecture": "MatchedLSTM H38; scoped cuDNN disabled"
+}
