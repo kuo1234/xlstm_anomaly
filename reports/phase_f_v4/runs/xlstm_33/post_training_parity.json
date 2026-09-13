@@ -1,0 +1,1235 @@
+{
+  "status": "PASS",
+  "checks": {
+    "BWD": {
+      "pass_": true,
+      "hard": true
+    },
+    "output_permutation": {
+      "pass_": true,
+      "bitwise": true,
+      "max_abs": 0.0,
+      "shape": [
+        131,
+        64,
+        8
+      ],
+      "raw_diagnostic": {
+        "allclose": true,
+        "bitwise": true,
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "failed_element_count": 0,
+        "element_count": 67072,
+        "shape": [
+          131,
+          64,
+          8
+        ],
+        "other_shape": [
+          131,
+          64,
+          8
+        ],
+        "finite": true,
+        "shape_valid": true
+      },
+      "hard": false
+    },
+    "score_permutation": {
+      "pass_": true,
+      "bitwise": true,
+      "max_abs": 0.0,
+      "shape": [
+        131
+      ],
+      "hard": true
+    },
+    "partition_B128_output": {
+      "pass_": true,
+      "bitwise": false,
+      "max_abs": 1.1920928955078125e-06,
+      "shape": [
+        131,
+        64,
+        8
+      ],
+      "raw_diagnostic": {
+        "allclose": true,
+        "bitwise": false,
+        "max_abs": 1.1920928955078125e-06,
+        "mean_abs": 4.469992820332891e-09,
+        "failed_element_count": 0,
+        "element_count": 67072,
+        "shape": [
+          131,
+          64,
+          8
+        ],
+        "other_shape": [
+          131,
+          64,
+          8
+        ],
+        "finite": true,
+        "shape_valid": true
+      },
+      "hard": false
+    },
+    "partition_B128_score": {
+      "pass_": true,
+      "bitwise": false,
+      "max_abs": 2.9103830456733704e-10,
+      "shape": [
+        131
+      ],
+      "hard": true
+    },
+    "partition_B3_output": {
+      "pass_": true,
+      "bitwise": false,
+      "max_abs": 1.9073486328125e-06,
+      "shape": [
+        131,
+        64,
+        8
+      ],
+      "raw_diagnostic": {
+        "allclose": true,
+        "bitwise": false,
+        "max_abs": 1.9073486328125e-06,
+        "mean_abs": 1.9762686065405433e-07,
+        "failed_element_count": 0,
+        "element_count": 67072,
+        "shape": [
+          131,
+          64,
+          8
+        ],
+        "other_shape": [
+          131,
+          64,
+          8
+        ],
+        "finite": true,
+        "shape_valid": true
+      },
+      "hard": false
+    },
+    "partition_B3_score": {
+      "pass_": true,
+      "bitwise": false,
+      "max_abs": 7.34871719032526e-10,
+      "shape": [
+        131
+      ],
+      "hard": true
+    },
+    "partition_B1_output": {
+      "pass_": true,
+      "bitwise": false,
+      "max_abs": 1.6689300537109375e-06,
+      "shape": [
+        131,
+        64,
+        8
+      ],
+      "raw_diagnostic": {
+        "allclose": true,
+        "bitwise": false,
+        "max_abs": 1.6689300537109375e-06,
+        "mean_abs": 2.0057152028130076e-07,
+        "failed_element_count": 0,
+        "element_count": 67072,
+        "shape": [
+          131,
+          64,
+          8
+        ],
+        "other_shape": [
+          131,
+          64,
+          8
+        ],
+        "finite": true,
+        "shape_valid": true
+      },
+      "hard": false
+    },
+    "partition_B1_score": {
+      "pass_": true,
+      "bitwise": false,
+      "max_abs": 9.240466170012951e-10,
+      "shape": [
+        131
+      ],
+      "hard": true
+    },
+    "observer_output_bitwise": {
+      "pass_": true,
+      "bitwise": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        64,
+        8
+      ],
+      "hard": true
+    },
+    "observer_score_bitwise": {
+      "pass_": true,
+      "bitwise": true,
+      "max_abs": 0.0,
+      "shape": [
+        4
+      ],
+      "hard": true
+    },
+    "observer_rng": {
+      "pass_": true,
+      "hard": true
+    },
+    "reference": {
+      "pass_": true,
+      "details": [
+        {
+          "cell": "encoder.blocks.0.xlstm.slstm_cell",
+          "sequence_length": 64,
+          "hidden_close": true,
+          "state_close": true,
+          "max_hidden_abs": 1.1920928955078125e-07,
+          "max_state_abs": 2.86102294921875e-06,
+          "finite": true,
+          "all_float32": true
+        },
+        {
+          "cell": "encoder.blocks.1.xlstm.slstm_cell",
+          "sequence_length": 64,
+          "hidden_close": true,
+          "state_close": true,
+          "max_hidden_abs": 1.7881393432617188e-07,
+          "max_state_abs": 2.86102294921875e-06,
+          "finite": true,
+          "all_float32": true
+        },
+        {
+          "cell": "decoder.blocks.0.xlstm.slstm_cell",
+          "sequence_length": 64,
+          "hidden_close": true,
+          "state_close": true,
+          "max_hidden_abs": 1.1920928955078125e-07,
+          "max_state_abs": 1.9073486328125e-06,
+          "finite": true,
+          "all_float32": true
+        },
+        {
+          "cell": "decoder.blocks.1.xlstm.slstm_cell",
+          "sequence_length": 64,
+          "hidden_close": true,
+          "state_close": true,
+          "max_hidden_abs": 1.7881393432617188e-07,
+          "max_state_abs": 2.86102294921875e-06,
+          "finite": true,
+          "all_float32": true
+        }
+      ],
+      "hard": true
+    },
+    "finite_common18": {
+      "pass_": true,
+      "hard": true
+    },
+    "reset_output": {
+      "pass_": true,
+      "bitwise": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        64,
+        8
+      ],
+      "hard": true
+    },
+    "reset_features": {
+      "pass_": true,
+      "bitwise": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        18
+      ],
+      "hard": true
+    },
+    "feature_permutation": {
+      "pass_": true,
+      "bitwise": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        18
+      ],
+      "hard": true
+    },
+    "feature_partition": {
+      "pass_": true,
+      "bitwise": false,
+      "max_abs": 5.960464477539063e-08,
+      "shape": [
+        4,
+        18
+      ],
+      "hard": true
+    },
+    "prefix_output": {
+      "pass_": true,
+      "bitwise": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        32,
+        8
+      ],
+      "hard": true
+    },
+    "prefix_states": {
+      "pass_": true,
+      "hard": true
+    },
+    "shorter_prefix_output": {
+      "pass_": true,
+      "bitwise": false,
+      "max_abs": 8.344650268554688e-07,
+      "shape": [
+        4,
+        32,
+        8
+      ],
+      "hard": true
+    },
+    "shorter_prefix_schema": {
+      "pass_": true,
+      "bitwise": false,
+      "max_abs": 5.960464477539063e-08,
+      "shape": [
+        4,
+        18
+      ],
+      "hard": true
+    },
+    "no_native_predict": {
+      "pass_": true,
+      "hard": true
+    },
+    "no_parameter_mutation": {
+      "pass_": true,
+      "hard": true
+    },
+    "raw_output_finite_shape": {
+      "pass_": true,
+      "hard": true,
+      "shapes": [
+        [
+          131,
+          64,
+          8
+        ],
+        [
+          128,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          3,
+          64,
+          8
+        ],
+        [
+          2,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ],
+        [
+          1,
+          64,
+          8
+        ]
+      ],
+      "expected_last_two": [
+        64,
+        8
+      ]
+    }
+  },
+  "model_hash": "92f55a0e88319a13b6018f0988b0eba30c2f366cdf07bb24e9c288ff2c945f2e",
+  "atol": 1e-05,
+  "rtol": 0.0001,
+  "random_unlabeled_only": true,
+  "scientific_features_saved": false,
+  "hard_failures": [],
+  "raw_output_partition_contract": "diagnostic_only_allclose; finite_and_shape_remain_hard"
+}

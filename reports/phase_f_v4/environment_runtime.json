@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "phase": "F-v4",
+  "backend": {
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "deterministic_algorithms": false,
+    "matmul_precision": "highest",
+    "matmul_allow_tf32": false,
+    "cudnn_allow_tf32": false,
+    "torch_threads": 4,
+    "torch": "2.13.0+cu130",
+    "cuda": "13.0",
+    "cudnn": 92000,
+    "device": "NVIDIA GB10",
+    "uuid": "8796b197-6eba-7823-5301-1e9837053193",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "upstream_commit": "e8b56ba27352733bb83729e85b1d6196dca70c99",
+    "backend_fingerprint": "bae2b520ad1927ee2a89c85f342188b48e29d01b3289d58cbca7a7f6e91d517f",
+    "config_sha256": "bb3a6addc6e3692b018a8e6073c0b3b7fec013227edbb494f6be6bc9c8dddeaf",
+    "matched_lstm_cudnn_scope": "only inside MatchedLSTM.forward",
+    "matched_lstm_cudnn_enabled": false,
+    "phase_f_version": "v4",
+    "validity_contract": "raw_output_partition_diagnostic_only"
+  },
+  "fresh_run_count": 8,
+  "fresh_training_seconds": {
+    "lstm_33": 1699.7112706471235,
+    "lstm_44": 1699.7112663434818,
+    "lstm_55": 1431.4316953225061,
+    "xlstm_11": 6936.224562548101,
+    "xlstm_22": 6519.049384512939,
+    "xlstm_33": 6572.34132959228,
+    "xlstm_44": 6611.785094161518,
+    "xlstm_55": 4118.054701173678
+  },
+  "launcher_wall_seconds": 19498.930564403534,
+  "gpu_training_ran": true,
+  "labels_used": false,
+  "test_sources_used": false,
+  "probe_fitting": false
+}

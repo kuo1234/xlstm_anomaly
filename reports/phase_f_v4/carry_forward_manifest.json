@@ -1,0 +1,48 @@
+{
+  "status": "REFERENCE_ONLY",
+  "policy": "reference_only_no_checkpoint_copy_no_retraining",
+  "runs": [
+    {
+      "run": "lstm_11",
+      "architecture": "lstm",
+      "seed": 11,
+      "status": "CARRIED_FORWARD",
+      "source_phase": "phase_f_v3",
+      "source_checkpoint": "data/phase_f_v3/runs/lstm_11/best.pt",
+      "source_checkpoint_sha256": "ccd3158a74f154cd4091a64079719f10c1ed01d85f8e24325e7257ec6599db3b",
+      "source_manifest": "reports/phase_f_v3/runs/lstm_11/manifest.json",
+      "source_manifest_sha256": "a85a37fbdd94691cfd2fc7621e3430bd9b4e820819dbe407046eaea84f6e2d57",
+      "source_post_training_parity": "reports/phase_f_v3/runs/lstm_11/post_training_parity.json",
+      "source_post_training_parity_sha256": "5236743398e6ef150e4f0c708855cf651c3225ac130aaef34277edb06ca25d19",
+      "best_model_hash": "7325db28fc45ccd9dc1a778c050cb02e4e2ade55679896e43648ad2bb6d59b06",
+      "selected_epoch": 50,
+      "epochs": 50,
+      "checkpoint_copied": false,
+      "retrained": false,
+      "labels_used": false,
+      "test_sources_used": false,
+      "probe_fitting": false
+    },
+    {
+      "run": "lstm_22",
+      "architecture": "lstm",
+      "seed": 22,
+      "status": "CARRIED_FORWARD",
+      "source_phase": "phase_f_v3",
+      "source_checkpoint": "data/phase_f_v3/runs/lstm_22/best.pt",
+      "source_checkpoint_sha256": "f01170ed4ee5195a83f4072e63e367a84c8fbbaf666560d854bfa1a89713ca53",
+      "source_manifest": "reports/phase_f_v3/runs/lstm_22/manifest.json",
+      "source_manifest_sha256": "d2803982cfd89e0fe2f374fe75323fb6682219649cc84ee05bbd0db9c28a768b",
+      "source_post_training_parity": "reports/phase_f_v3/runs/lstm_22/post_training_parity.json",
+      "source_post_training_parity_sha256": "eaecbf509d2b6c5f18f69876c2dd6edc329283d6d576efd950996ac37f69d2e8",
+      "best_model_hash": "42dcdc8d60505fa94db657b9c50aa57cf6635b081e19fb4be6b2bef4ad94eb00",
+      "selected_epoch": 47,
+      "epochs": 50,
+      "checkpoint_copied": false,
+      "retrained": false,
+      "labels_used": false,
+      "test_sources_used": false,
+      "probe_fitting": false
+    }
+  ]
+}

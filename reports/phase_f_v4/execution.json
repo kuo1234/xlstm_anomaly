@@ -1,0 +1,104 @@
+{
+  "status": "PASS",
+  "completed": [
+    {
+      "run": "lstm_33",
+      "command": [
+        "/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/bin/python",
+        "-u",
+        "/home/p76141495/home/xlstm_anomaly/scripts/phase_f_v4_train.py",
+        "lstm",
+        "33"
+      ],
+      "exit_code": 0,
+      "seconds": 1710.2496819496155
+    },
+    {
+      "run": "lstm_44",
+      "command": [
+        "/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/bin/python",
+        "-u",
+        "/home/p76141495/home/xlstm_anomaly/scripts/phase_f_v4_train.py",
+        "lstm",
+        "44"
+      ],
+      "exit_code": 0,
+      "seconds": 1710.2498362064362
+    },
+    {
+      "run": "lstm_55",
+      "command": [
+        "/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/bin/python",
+        "-u",
+        "/home/p76141495/home/xlstm_anomaly/scripts/phase_f_v4_train.py",
+        "lstm",
+        "55"
+      ],
+      "exit_code": 0,
+      "seconds": 1440.210396528244
+    },
+    {
+      "run": "xlstm_11",
+      "command": [
+        "/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/bin/python",
+        "-u",
+        "/home/p76141495/home/xlstm_anomaly/scripts/phase_f_v4_train.py",
+        "xlstm",
+        "11"
+      ],
+      "exit_code": 0,
+      "seconds": 6998.980257511139
+    },
+    {
+      "run": "xlstm_22",
+      "command": [
+        "/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/bin/python",
+        "-u",
+        "/home/p76141495/home/xlstm_anomaly/scripts/phase_f_v4_train.py",
+        "xlstm",
+        "22"
+      ],
+      "exit_code": 0,
+      "seconds": 6578.876240730286
+    },
+    {
+      "run": "xlstm_33",
+      "command": [
+        "/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/bin/python",
+        "-u",
+        "/home/p76141495/home/xlstm_anomaly/scripts/phase_f_v4_train.py",
+        "xlstm",
+        "33"
+      ],
+      "exit_code": 0,
+      "seconds": 6636.877615451813
+    },
+    {
+      "run": "xlstm_44",
+      "command": [
+        "/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/bin/python",
+        "-u",
+        "/home/p76141495/home/xlstm_anomaly/scripts/phase_f_v4_train.py",
+        "xlstm",
+        "44"
+      ],
+      "exit_code": 0,
+      "seconds": 6664.894816875458
+    },
+    {
+      "run": "xlstm_55",
+      "command": [
+        "/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/bin/python",
+        "-u",
+        "/home/p76141495/home/xlstm_anomaly/scripts/phase_f_v4_train.py",
+        "xlstm",
+        "55"
+      ],
+      "exit_code": 0,
+      "seconds": 4144.814512729645
+    }
+  ],
+  "remaining": [],
+  "active": [],
+  "wall_seconds": 19498.930564403534
+}
