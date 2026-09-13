@@ -757,7 +757,11 @@
             "official_commit": "28c9679e503832f59e351208cde63657fcb51cad",
             "score_window": 10,
             "source_family": "SMD_native_CANDI",
-            "score_result_paths_present": []
+            "checkpoint_sha256": "08ec432dc29275114e132002c4599eae391ff2785287948a4f310be1d4fd881e",
+            "score_result_artifacts": {
+              "results/SMD_1-8/MLP/0.5/test_scores_w_tta.npy": "b3965838d1d5ea45adef8573a3c71983f0c3166430a94a00f52c3cc0d2a4d2b2"
+            },
+            "resolved_config_sha256": "a76ff03abb6d611fe1a1b6152dbd0b0d38ca23c4cca568255d55bbdef62e5d66"
           },
           {
             "run": "SMD_1-8_alpha_1.0_seed_0_native",
@@ -767,7 +771,11 @@
             "official_commit": "28c9679e503832f59e351208cde63657fcb51cad",
             "score_window": 10,
             "source_family": "SMD_native_CANDI",
-            "score_result_paths_present": []
+            "checkpoint_sha256": "08ec432dc29275114e132002c4599eae391ff2785287948a4f310be1d4fd881e",
+            "score_result_artifacts": {
+              "results/SMD_1-8/MLP/1.0/test_scores_w_tta.npy": "01f0404424c665ac952021145f619c06d7e26e434e2a72d0c832ae228ebd1aec"
+            },
+            "resolved_config_sha256": "b85fa1a242e02b86f2bb3d520fa45af48ec55f6c52f97e32c051de8ae4ce006e"
           },
           {
             "run": "SMD_1-8_alpha_5.0_seed_0_native",
@@ -777,7 +785,11 @@
             "official_commit": "28c9679e503832f59e351208cde63657fcb51cad",
             "score_window": 10,
             "source_family": "SMD_native_CANDI",
-            "score_result_paths_present": []
+            "checkpoint_sha256": "08ec432dc29275114e132002c4599eae391ff2785287948a4f310be1d4fd881e",
+            "score_result_artifacts": {
+              "results/SMD_1-8/MLP/5.0/test_scores_w_tta.npy": "8f460ebc2a0d534bb648db0a80a8b07d814c6525226de9ba68ce4f82b1c4bca7"
+            },
+            "resolved_config_sha256": "c32cac2fd34e915415203d4acf90e8f9104d0e2984a3308beaa0bd67826dbb56"
           }
         ],
         "compatibility": "native CANDI evidence, but SMD dimension/domain and W=10 score artifacts are not a sealed D=8/W=64 synthetic control"

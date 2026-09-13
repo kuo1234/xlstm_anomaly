@@ -112,9 +112,13 @@ def candi_candidates() -> dict:
                 "official_commit": row.get("official_commit", "28c9679e503832f59e351208cde63657fcb51cad"),
                 "score_window": 10,
                 "source_family": "SMD_native_CANDI",
-                "score_result_paths_present": sorted(
-                    key for key in row.get("artifacts", {}) if "score" in key.lower()
-                ),
+                "checkpoint_sha256": row.get("checkpoint_sha256"),
+                "score_result_artifacts": {
+                    key: value
+                    for key, value in sorted((row.get("artifact_hashes") or {}).items())
+                    if key.endswith("test_scores_w_tta.npy")
+                },
+                "resolved_config_sha256": sha(PHASE_C / "runs" / path.name),
             }
         )
 
