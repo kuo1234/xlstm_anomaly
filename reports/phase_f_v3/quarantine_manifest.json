@@ -1,0 +1,39 @@
+{
+  "status": "STOP_IMPLEMENTATION_VALIDITY",
+  "artifact_policy": "Partial F-v3 artifacts are immutable provenance only and cannot be reused or included in scientific estimates.",
+  "report_hashes": {
+    "logs/lstm_33.log": "46fed9dfbee793222130acca819c1200e8b0fcfad5d0f45cb4d8c8532e0f8167",
+    "logs/xlstm_11.log": "7946a669154614e6b4c5148f54174c405417d9c6c3617ac02e90b102a879cec2",
+    "execution.json": "927c5578b91271dcc5d7b213f5d8c696c66027f63b0bc7c139fb5cb8c944be9a",
+    "runs/lstm_11/manifest.json": "a85a37fbdd94691cfd2fc7621e3430bd9b4e820819dbe407046eaea84f6e2d57",
+    "runs/lstm_11/post_training_parity.json": "5236743398e6ef150e4f0c708855cf651c3225ac130aaef34277edb06ca25d19",
+    "runs/lstm_22/manifest.json": "d2803982cfd89e0fe2f374fe75323fb6682219649cc84ee05bbd0db9c28a768b",
+    "runs/lstm_22/post_training_parity.json": "eaecbf509d2b6c5f18f69876c2dd6edc329283d6d576efd950996ac37f69d2e8",
+    "runs/lstm_33/curves.json": "704a3a251ef6c9fc7897b69d22b0bedf157ee02a3fc0535742db7e68cf3a0444",
+    "runs/xlstm_11/curves.json": "da8f705636cc098fdb39cd3e6531711ef1a827eb0b2a4d07961021d3052669b2"
+  },
+  "checkpoint_hashes": {
+    "data/phase_f_v3/runs/lstm_11/initial.pt": "758fdcef00dd965b862cad4dce4d42313cbfe71831f1b97103e518b72320ba03",
+    "data/phase_f_v3/runs/lstm_11/best.pt": "ccd3158a74f154cd4091a64079719f10c1ed01d85f8e24325e7257ec6599db3b",
+    "data/phase_f_v3/runs/lstm_11/final.pt": "7663c831ad63690720b3c2ad2c1a1d4ca1fc46b967f84ba8ec106a6aa90353e1",
+    "data/phase_f_v3/runs/lstm_22/initial.pt": "dc171d6480c0b4752cd13bd4c38eb1239a2b72dc947201ce22615b76b15a26cd",
+    "data/phase_f_v3/runs/lstm_22/best.pt": "f01170ed4ee5195a83f4072e63e367a84c8fbbaf666560d854bfa1a89713ca53",
+    "data/phase_f_v3/runs/lstm_22/final.pt": "0faae005e8211cbccc1db90a6c0d370f1064e5472609580a9177bd42c90b4e02",
+    "data/phase_f_v3/runs/lstm_33/initial.pt": "2ac6720af12818aac4716dfdf58401bbf529c026014234556469239106738cc6",
+    "data/phase_f_v3/runs/lstm_33/best.pt": "2e563715000d5ad00da7da349743efeadedb745cfae5238cb35d909163ffe30e",
+    "data/phase_f_v3/runs/xlstm_11/initial.pt": "cc0ee3083c1d7d3a932311234c3559ec4b9e0e54dd38b5df115d0426c02b7dbb",
+    "data/phase_f_v3/runs/xlstm_11/best.pt": "6cb5fd0dc582e5b300b51d26c81ae7c575152c26128293beb8521cbce1e7c0ae"
+  },
+  "completed_pass_manifests": {
+    "lstm_11": {
+      "manifest": "reports/phase_f_v3/runs/lstm_11/manifest.json",
+      "post_training_parity": "PASS",
+      "artifacts_are_not_phase_g_authorization": true
+    },
+    "lstm_22": {
+      "manifest": "reports/phase_f_v3/runs/lstm_22/manifest.json",
+      "post_training_parity": "PASS",
+      "artifacts_are_not_phase_g_authorization": true
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "status": "STOP_IMPLEMENTATION_VALIDITY",
+  "phase": "F-v3",
+  "trigger": {
+    "run": "lstm_33",
+    "failed_stage": "epoch_canary",
+    "last_completed_epoch_with_recorded_canary": 28,
+    "failed_epoch": 29,
+    "failed_checks": ["raw_output"],
+    "allclose_atol": 1e-05,
+    "allclose_rtol": 0.0001,
+    "exit_code": 1,
+    "runtime_seconds": 770.1265053749084,
+    "traceback_log": "reports/phase_f_v3/logs/lstm_33.log"
+  },
+  "launcher": {
+    "fail_fast": true,
+    "terminated_active": ["xlstm_11"],
+    "execution_json_active_field_is_pre_termination_snapshot": true,
+    "execution_json": "reports/phase_f_v3/execution.json"
+  },
+  "runs": {
+    "completed_pass": ["lstm_11", "lstm_22"],
+    "quarantined_partial": ["lstm_33", "xlstm_11"],
+    "not_started": ["xlstm_22", "xlstm_33", "lstm_44", "xlstm_44", "xlstm_55", "lstm_55"]
+  },
+  "scientific_data_access": {
+    "labels_used": false,
+    "test_sources_used": false,
+    "anomaly_metrics_computed": false,
+    "probe_fitting": false,
+    "phase_g_started": false,
+    "f2_weights_reused": false
+  },
+  "interpretation": "Implementation-validity STOP only; no detector or hypothesis conclusion.",
+  "phase_g": "LOCKED",
+  "h1_controlled_harm": "STOP",
+  "h1_natural_harm": "NOT_RUN",
+  "h1_overall": "UNRESOLVED"
+}

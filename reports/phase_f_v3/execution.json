@@ -1,0 +1,73 @@
+{
+  "completed": [
+    {
+      "run": "lstm_11",
+      "command": [
+        "rtk",
+        "/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/bin/python",
+        "-u",
+        "/home/p76141495/home/xlstm_anomaly/scripts/phase_f_v3_train.py",
+        "lstm",
+        "11"
+      ],
+      "exit_code": 0,
+      "seconds": 1308.270606994629
+    },
+    {
+      "run": "lstm_22",
+      "command": [
+        "rtk",
+        "/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/bin/python",
+        "-u",
+        "/home/p76141495/home/xlstm_anomaly/scripts/phase_f_v3_train.py",
+        "lstm",
+        "22"
+      ],
+      "exit_code": 0,
+      "seconds": 1308.2449162006378
+    },
+    {
+      "run": "lstm_33",
+      "command": [
+        "rtk",
+        "/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/bin/python",
+        "-u",
+        "/home/p76141495/home/xlstm_anomaly/scripts/phase_f_v3_train.py",
+        "lstm",
+        "33"
+      ],
+      "exit_code": 1,
+      "seconds": 770.1265053749084
+    }
+  ],
+  "remaining": [
+    [
+      "xlstm",
+      22
+    ],
+    [
+      "xlstm",
+      33
+    ],
+    [
+      "xlstm",
+      44
+    ],
+    [
+      "lstm",
+      44
+    ],
+    [
+      "xlstm",
+      55
+    ],
+    [
+      "lstm",
+      55
+    ]
+  ],
+  "active": [
+    "xlstm_11"
+  ],
+  "wall_seconds": 3390.6479501724243
+}
