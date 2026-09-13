@@ -1,0 +1,389 @@
+{
+  "scope": "random-unlabeled reference diagnosis only; no backend amendment or scientific training",
+  "environment": {
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "deterministic_algorithms": false,
+    "matmul_precision": "highest",
+    "matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "torch_threads": 4,
+    "torch": "2.13.0+cu130",
+    "cuda": "13.0",
+    "cudnn": 92000,
+    "device": "NVIDIA GB10",
+    "uuid": "8796b197-6eba-7823-5301-1e9837053193",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "upstream_commit": "e8b56ba27352733bb83729e85b1d6196dca70c99",
+    "config_sha256": "933b255b6502b3bb8ca7819454d05d2b3b02d8ecf4cad13361b3d3d95072b238"
+  },
+  "conditions": {
+    "frozen_cudnn_tf32_true": {
+      "reference": [
+        {
+          "layer": "encoder.0",
+          "checks": {
+            "sequence_h": {
+              "pass_": false,
+              "max_abs": 0.0001920592039823532
+            },
+            "final_h": {
+              "pass_": false,
+              "max_abs": 0.00013799220323562622
+            },
+            "final_c": {
+              "pass_": false,
+              "max_abs": 0.00019744783639907837
+            },
+            "finite": true,
+            "gate_range": true
+          }
+        },
+        {
+          "layer": "encoder.1",
+          "checks": {
+            "sequence_h": {
+              "pass_": false,
+              "max_abs": 3.4168362617492676e-05
+            },
+            "final_h": {
+              "pass_": false,
+              "max_abs": 2.7865171432495117e-05
+            },
+            "final_c": {
+              "pass_": false,
+              "max_abs": 4.873424768447876e-05
+            },
+            "finite": true,
+            "gate_range": true
+          }
+        },
+        {
+          "layer": "encoder.2",
+          "checks": {
+            "sequence_h": {
+              "pass_": false,
+              "max_abs": 1.790327951312065e-05
+            },
+            "final_h": {
+              "pass_": false,
+              "max_abs": 1.569674350321293e-05
+            },
+            "final_c": {
+              "pass_": false,
+              "max_abs": 3.0757393687963486e-05
+            },
+            "finite": true,
+            "gate_range": true
+          }
+        },
+        {
+          "layer": "decoder.0",
+          "checks": {
+            "sequence_h": {
+              "pass_": false,
+              "max_abs": 1.745671033859253e-05
+            },
+            "final_h": {
+              "pass_": false,
+              "max_abs": 1.3329088687896729e-05
+            },
+            "final_c": {
+              "pass_": false,
+              "max_abs": 2.5659799575805664e-05
+            },
+            "finite": true,
+            "gate_range": true
+          }
+        },
+        {
+          "layer": "decoder.1",
+          "checks": {
+            "sequence_h": {
+              "pass_": false,
+              "max_abs": 1.8794089555740356e-05
+            },
+            "final_h": {
+              "pass_": false,
+              "max_abs": 1.6029924154281616e-05
+            },
+            "final_c": {
+              "pass_": false,
+              "max_abs": 3.317743539810181e-05
+            },
+            "finite": true,
+            "gate_range": true
+          }
+        },
+        {
+          "layer": "decoder.2",
+          "checks": {
+            "sequence_h": {
+              "pass_": false,
+              "max_abs": 2.3143133148550987e-05
+            },
+            "final_h": {
+              "pass_": false,
+              "max_abs": 1.547485589981079e-05
+            },
+            "final_c": {
+              "pass_": false,
+              "max_abs": 3.234297037124634e-05
+            },
+            "finite": true,
+            "gate_range": true
+          }
+        }
+      ],
+      "model_hash": "f0ea70ddbd4e01e88ebb5c3cab2a3927288b677014a302a04bf9de18f2ea8246",
+      "reference_pass": false,
+      "max_output_difference_vs_frozen": 0.0
+    },
+    "diagnostic_only_cudnn_tf32_false": {
+      "reference": [
+        {
+          "layer": "encoder.0",
+          "checks": {
+            "sequence_h": {
+              "pass_": true,
+              "max_abs": 3.635883331298828e-06
+            },
+            "final_h": {
+              "pass_": true,
+              "max_abs": 3.635883331298828e-06
+            },
+            "final_c": {
+              "pass_": true,
+              "max_abs": 3.635883331298828e-06
+            },
+            "finite": true,
+            "gate_range": true
+          }
+        },
+        {
+          "layer": "encoder.1",
+          "checks": {
+            "sequence_h": {
+              "pass_": true,
+              "max_abs": 2.0265579223632812e-06
+            },
+            "final_h": {
+              "pass_": true,
+              "max_abs": 1.385807991027832e-06
+            },
+            "final_c": {
+              "pass_": true,
+              "max_abs": 1.1622905731201172e-06
+            },
+            "finite": true,
+            "gate_range": true
+          }
+        },
+        {
+          "layer": "encoder.2",
+          "checks": {
+            "sequence_h": {
+              "pass_": true,
+              "max_abs": 2.250075340270996e-06
+            },
+            "final_h": {
+              "pass_": true,
+              "max_abs": 1.7881393432617188e-06
+            },
+            "final_c": {
+              "pass_": true,
+              "max_abs": 2.0265579223632812e-06
+            },
+            "finite": true,
+            "gate_range": true
+          }
+        },
+        {
+          "layer": "decoder.0",
+          "checks": {
+            "sequence_h": {
+              "pass_": true,
+              "max_abs": 1.8328428268432617e-06
+            },
+            "final_h": {
+              "pass_": true,
+              "max_abs": 1.519918441772461e-06
+            },
+            "final_c": {
+              "pass_": true,
+              "max_abs": 1.9371509552001953e-06
+            },
+            "finite": true,
+            "gate_range": true
+          }
+        },
+        {
+          "layer": "decoder.1",
+          "checks": {
+            "sequence_h": {
+              "pass_": true,
+              "max_abs": 1.5050172805786133e-06
+            },
+            "final_h": {
+              "pass_": true,
+              "max_abs": 1.341104507446289e-06
+            },
+            "final_c": {
+              "pass_": true,
+              "max_abs": 1.6987323760986328e-06
+            },
+            "finite": true,
+            "gate_range": true
+          }
+        },
+        {
+          "layer": "decoder.2",
+          "checks": {
+            "sequence_h": {
+              "pass_": true,
+              "max_abs": 1.9371509552001953e-06
+            },
+            "final_h": {
+              "pass_": true,
+              "max_abs": 1.4156103134155273e-06
+            },
+            "final_c": {
+              "pass_": true,
+              "max_abs": 8.940696716308594e-07
+            },
+            "finite": true,
+            "gate_range": true
+          }
+        }
+      ],
+      "model_hash": "f0ea70ddbd4e01e88ebb5c3cab2a3927288b677014a302a04bf9de18f2ea8246",
+      "reference_pass": true,
+      "max_output_difference_vs_frozen": 6.735324859619141e-06
+    },
+    "diagnostic_only_CPU": {
+      "reference": [
+        {
+          "layer": "encoder.0",
+          "checks": {
+            "sequence_h": {
+              "pass_": true,
+              "max_abs": 1.4901161193847656e-07
+            },
+            "final_h": {
+              "pass_": true,
+              "max_abs": 7.450580596923828e-08
+            },
+            "final_c": {
+              "pass_": true,
+              "max_abs": 1.1920928955078125e-07
+            },
+            "finite": true,
+            "gate_range": true
+          }
+        },
+        {
+          "layer": "encoder.1",
+          "checks": {
+            "sequence_h": {
+              "pass_": true,
+              "max_abs": 5.960464477539063e-08
+            },
+            "final_h": {
+              "pass_": true,
+              "max_abs": 2.9802322387695312e-08
+            },
+            "final_c": {
+              "pass_": true,
+              "max_abs": 4.470348358154297e-08
+            },
+            "finite": true,
+            "gate_range": true
+          }
+        },
+        {
+          "layer": "encoder.2",
+          "checks": {
+            "sequence_h": {
+              "pass_": true,
+              "max_abs": 5.960464477539063e-08
+            },
+            "final_h": {
+              "pass_": true,
+              "max_abs": 2.9802322387695312e-08
+            },
+            "final_c": {
+              "pass_": true,
+              "max_abs": 4.470348358154297e-08
+            },
+            "finite": true,
+            "gate_range": true
+          }
+        },
+        {
+          "layer": "decoder.0",
+          "checks": {
+            "sequence_h": {
+              "pass_": true,
+              "max_abs": 5.960464477539063e-08
+            },
+            "final_h": {
+              "pass_": true,
+              "max_abs": 2.9802322387695312e-08
+            },
+            "final_c": {
+              "pass_": true,
+              "max_abs": 5.960464477539063e-08
+            },
+            "finite": true,
+            "gate_range": true
+          }
+        },
+        {
+          "layer": "decoder.1",
+          "checks": {
+            "sequence_h": {
+              "pass_": true,
+              "max_abs": 8.940696716308594e-08
+            },
+            "final_h": {
+              "pass_": true,
+              "max_abs": 4.470348358154297e-08
+            },
+            "final_c": {
+              "pass_": true,
+              "max_abs": 5.960464477539063e-08
+            },
+            "finite": true,
+            "gate_range": true
+          }
+        },
+        {
+          "layer": "decoder.2",
+          "checks": {
+            "sequence_h": {
+              "pass_": true,
+              "max_abs": 5.960464477539063e-08
+            },
+            "final_h": {
+              "pass_": true,
+              "max_abs": 3.073364496231079e-08
+            },
+            "final_c": {
+              "pass_": true,
+              "max_abs": 7.636845111846924e-08
+            },
+            "finite": true,
+            "gate_range": true
+          }
+        }
+      ],
+      "model_hash": "f0ea70ddbd4e01e88ebb5c3cab2a3927288b677014a302a04bf9de18f2ea8246",
+      "reference_pass": true,
+      "max_output_difference_vs_frozen": 6.621703505516052e-06
+    }
+  },
+  "seconds": 1.2262254282832146,
+  "optimizer_steps": 0,
+  "frozen_backend_restored": true,
+  "scientific_training_authorized_to_expand": false
+}

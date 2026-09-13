@@ -1,0 +1,19 @@
+# Prospective freeze (completed before mechanical work)
+rtk git commit -m 'Freeze Phase F matched training and clarify E2 predict interface'
+rtk git push origin main
+# Commit 4c76e07 pushed successfully; main matched origin/main.
+
+# Prefix/scaler/order generation; observations from allowed train/validation only
+rtk data/phase_e2/venv/bin/python scripts/phase_f_common.py
+# exit 0
+
+# Mechanical checks + untrained random-unlabeled parity; no optimizer steps
+rtk data/phase_e2/venv/bin/python scripts/phase_f_gates.py
+# exit 2: LSTM recurrence reference failed; no scientific training launched.
+
+# Bounded numerical diagnosis; does not amend the scientific backend
+rtk data/phase_e2/venv/bin/python scripts/phase_f_reference_diagnostic.py
+# exit 0: frozen TF32-on FAIL; diagnostic TF32-off/CPU PASS.
+
+# Integrity/seal only (no test recomputation)
+rtk data/phase_e2/venv/bin/python scripts/phase_f_seal.py

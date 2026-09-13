@@ -1,0 +1,9 @@
+{
+  "E2_sha_lists_verified": {
+    "SHA256SUMS": 36,
+    "local_artifact_SHA256SUMS": 344
+  },
+  "E2_tracked_files_unchanged": 37,
+  "E2_tests_recomputed": false,
+  "scientific_run_directory_absent": true
+}

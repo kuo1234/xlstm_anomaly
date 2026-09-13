@@ -1,0 +1,513 @@
+{
+  "status": "STOP",
+  "architectures": {
+    "xlstm": {
+      "gates": {
+        "finite_loss": true,
+        "finite_gradients": true,
+        "nonzero_recurrent_gradient": true,
+        "unchanged_parameters": true,
+        "no_predict_calls": true,
+        "observation_only_api": true,
+        "E2_seed11_initial_hash": true
+      },
+      "initial_model_hash": "38a6cb747bc5548f2d1e548aa61dcd779bc2c636086d329e56637b0c937f2f8a",
+      "recurrent_gradient_norms": {
+        "encoder.blocks.0.xlstm.slstm_cell._recurrent_kernel_": 0.0998212918639183,
+        "encoder.blocks.1.xlstm.slstm_cell._recurrent_kernel_": 0.055845290422439575,
+        "decoder.blocks.0.xlstm.slstm_cell._recurrent_kernel_": 0.06514362245798111,
+        "decoder.blocks.1.xlstm.slstm_cell._recurrent_kernel_": 0.045501913875341415
+      },
+      "loss": 1.1532068252563477,
+      "seconds_forward_backward_plus_score": 0.914674156345427,
+      "optimizer_steps": 0,
+      "peak_allocated_bytes": 750471680,
+      "peak_reserved_bytes": 763363328,
+      "optimizer_defaults": {
+        "lr": 0.001,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08,
+        "weight_decay": 0,
+        "amsgrad": false,
+        "maximize": false,
+        "foreach": false,
+        "capturable": false,
+        "differentiable": false,
+        "fused": false,
+        "decoupled_weight_decay": false
+      },
+      "parameters": 73504,
+      "untrained_parity": {
+        "status": "PASS",
+        "checks": {
+          "BWD": {
+            "pass_": true
+          },
+          "output_permutation": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "score_permutation": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "partition_B128_output": {
+            "pass_": true,
+            "bitwise": false,
+            "max_abs": 4.76837158203125e-07
+          },
+          "partition_B128_score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "partition_B3_output": {
+            "pass_": true,
+            "bitwise": false,
+            "max_abs": 6.034970283508301e-07
+          },
+          "partition_B3_score": {
+            "pass_": true,
+            "bitwise": false,
+            "max_abs": 1.1920928955078125e-07
+          },
+          "partition_B1_output": {
+            "pass_": true,
+            "bitwise": false,
+            "max_abs": 5.513429641723633e-07
+          },
+          "partition_B1_score": {
+            "pass_": true,
+            "bitwise": false,
+            "max_abs": 1.1920928955078125e-07
+          },
+          "B128_final1_output": {
+            "pass_": true,
+            "bitwise": false,
+            "max_abs": 4.246830940246582e-07
+          },
+          "observer_output_bitwise": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "observer_score_bitwise": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "observer_rng": {
+            "pass_": true
+          },
+          "reference": {
+            "pass_": true,
+            "details": [
+              {
+                "cell": "encoder.blocks.0.xlstm.slstm_cell",
+                "sequence_length": 64,
+                "hidden_close": true,
+                "state_close": true,
+                "max_hidden_abs": 2.9802322387695312e-08,
+                "max_state_abs": 2.9802322387695312e-08,
+                "finite": true,
+                "all_float32": true
+              },
+              {
+                "cell": "encoder.blocks.1.xlstm.slstm_cell",
+                "sequence_length": 64,
+                "hidden_close": true,
+                "state_close": true,
+                "max_hidden_abs": 2.9802322387695312e-08,
+                "max_state_abs": 2.9802322387695312e-08,
+                "finite": true,
+                "all_float32": true
+              },
+              {
+                "cell": "decoder.blocks.0.xlstm.slstm_cell",
+                "sequence_length": 64,
+                "hidden_close": true,
+                "state_close": true,
+                "max_hidden_abs": 2.9802322387695312e-08,
+                "max_state_abs": 2.9802322387695312e-08,
+                "finite": true,
+                "all_float32": true
+              },
+              {
+                "cell": "decoder.blocks.1.xlstm.slstm_cell",
+                "sequence_length": 64,
+                "hidden_close": true,
+                "state_close": true,
+                "max_hidden_abs": 5.960464477539063e-08,
+                "max_state_abs": 5.960464477539063e-08,
+                "finite": true,
+                "all_float32": true
+              }
+            ]
+          },
+          "finite_common18": {
+            "pass_": true
+          },
+          "reset_output": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "reset_features": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "feature_permutation": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "feature_partition": {
+            "pass_": true,
+            "bitwise": false,
+            "max_abs": 1.1920928955078125e-07
+          },
+          "prefix_output": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "prefix_states": {
+            "pass_": true
+          },
+          "shorter_prefix_output": {
+            "pass_": true,
+            "bitwise": false,
+            "max_abs": 5.364418029785156e-07
+          },
+          "shorter_prefix_schema": {
+            "pass_": true,
+            "bitwise": false,
+            "max_abs": 1.1920928955078125e-07
+          },
+          "no_native_predict": {
+            "pass_": true
+          },
+          "no_parameter_mutation": {
+            "pass_": true
+          }
+        },
+        "model_hash": "38a6cb747bc5548f2d1e548aa61dcd779bc2c636086d329e56637b0c937f2f8a",
+        "atol": 1e-05,
+        "rtol": 0.0001,
+        "random_unlabeled_only": true,
+        "scientific_features_saved": false
+      }
+    },
+    "lstm": {
+      "gates": {
+        "finite_loss": true,
+        "finite_gradients": true,
+        "nonzero_recurrent_gradient": true,
+        "unchanged_parameters": true,
+        "no_predict_calls": true,
+        "observation_only_api": true
+      },
+      "initial_model_hash": "f0ea70ddbd4e01e88ebb5c3cab2a3927288b677014a302a04bf9de18f2ea8246",
+      "recurrent_gradient_norms": {
+        "encoder.0.weight_hh_l0": 1.2155473086750135e-05,
+        "encoder.1.weight_hh_l0": 2.302938992215786e-05,
+        "encoder.2.weight_hh_l0": 6.961059989407659e-05,
+        "decoder.0.weight_hh_l0": 0.00026379796327091753,
+        "decoder.1.weight_hh_l0": 0.0013220154214650393,
+        "decoder.2.weight_hh_l0": 0.0032832908909767866
+      },
+      "loss": 0.9737871289253235,
+      "seconds_forward_backward_plus_score": 0.051717907190322876,
+      "optimizer_steps": 0,
+      "peak_allocated_bytes": 796743680,
+      "peak_reserved_bytes": 914358272,
+      "optimizer_defaults": {
+        "lr": 0.001,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08,
+        "weight_decay": 0,
+        "amsgrad": false,
+        "maximize": false,
+        "foreach": false,
+        "capturable": false,
+        "differentiable": false,
+        "fused": false,
+        "decoupled_weight_decay": false
+      },
+      "parameters": 71790,
+      "untrained_parity": {
+        "status": "STOP",
+        "checks": {
+          "BWD": {
+            "pass_": true
+          },
+          "output_permutation": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "score_permutation": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "partition_B128_output": {
+            "pass_": true,
+            "bitwise": false,
+            "max_abs": 3.390014171600342e-07
+          },
+          "partition_B128_score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "partition_B3_output": {
+            "pass_": true,
+            "bitwise": false,
+            "max_abs": 2.4437904357910156e-06
+          },
+          "partition_B3_score": {
+            "pass_": true,
+            "bitwise": false,
+            "max_abs": 1.1920928955078125e-07
+          },
+          "partition_B1_output": {
+            "pass_": true,
+            "bitwise": false,
+            "max_abs": 2.0042061805725098e-06
+          },
+          "partition_B1_score": {
+            "pass_": true,
+            "bitwise": false,
+            "max_abs": 1.1920928955078125e-07
+          },
+          "B128_final1_output": {
+            "pass_": true,
+            "bitwise": false,
+            "max_abs": 6.128102540969849e-07
+          },
+          "observer_output_bitwise": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "observer_score_bitwise": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "observer_rng": {
+            "pass_": true
+          },
+          "reference": {
+            "pass_": false,
+            "details": [
+              {
+                "layer": "encoder.0",
+                "checks": {
+                  "sequence_h": {
+                    "pass_": false,
+                    "max_abs": 0.0001920592039823532
+                  },
+                  "final_h": {
+                    "pass_": false,
+                    "max_abs": 0.00013799220323562622
+                  },
+                  "final_c": {
+                    "pass_": false,
+                    "max_abs": 0.00019744783639907837
+                  },
+                  "finite": true,
+                  "gate_range": true
+                }
+              },
+              {
+                "layer": "encoder.1",
+                "checks": {
+                  "sequence_h": {
+                    "pass_": false,
+                    "max_abs": 3.4168362617492676e-05
+                  },
+                  "final_h": {
+                    "pass_": false,
+                    "max_abs": 2.7865171432495117e-05
+                  },
+                  "final_c": {
+                    "pass_": false,
+                    "max_abs": 4.873424768447876e-05
+                  },
+                  "finite": true,
+                  "gate_range": true
+                }
+              },
+              {
+                "layer": "encoder.2",
+                "checks": {
+                  "sequence_h": {
+                    "pass_": false,
+                    "max_abs": 1.790327951312065e-05
+                  },
+                  "final_h": {
+                    "pass_": false,
+                    "max_abs": 1.569674350321293e-05
+                  },
+                  "final_c": {
+                    "pass_": false,
+                    "max_abs": 3.0757393687963486e-05
+                  },
+                  "finite": true,
+                  "gate_range": true
+                }
+              },
+              {
+                "layer": "decoder.0",
+                "checks": {
+                  "sequence_h": {
+                    "pass_": false,
+                    "max_abs": 1.745671033859253e-05
+                  },
+                  "final_h": {
+                    "pass_": false,
+                    "max_abs": 1.3329088687896729e-05
+                  },
+                  "final_c": {
+                    "pass_": false,
+                    "max_abs": 2.5659799575805664e-05
+                  },
+                  "finite": true,
+                  "gate_range": true
+                }
+              },
+              {
+                "layer": "decoder.1",
+                "checks": {
+                  "sequence_h": {
+                    "pass_": false,
+                    "max_abs": 1.8794089555740356e-05
+                  },
+                  "final_h": {
+                    "pass_": false,
+                    "max_abs": 1.6029924154281616e-05
+                  },
+                  "final_c": {
+                    "pass_": false,
+                    "max_abs": 3.317743539810181e-05
+                  },
+                  "finite": true,
+                  "gate_range": true
+                }
+              },
+              {
+                "layer": "decoder.2",
+                "checks": {
+                  "sequence_h": {
+                    "pass_": false,
+                    "max_abs": 2.3143133148550987e-05
+                  },
+                  "final_h": {
+                    "pass_": false,
+                    "max_abs": 1.547485589981079e-05
+                  },
+                  "final_c": {
+                    "pass_": false,
+                    "max_abs": 3.234297037124634e-05
+                  },
+                  "finite": true,
+                  "gate_range": true
+                }
+              }
+            ]
+          },
+          "finite_common18": {
+            "pass_": true
+          },
+          "reset_output": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "reset_features": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "feature_permutation": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "feature_partition": {
+            "pass_": true,
+            "bitwise": false,
+            "max_abs": 5.960464477539063e-08
+          },
+          "prefix_output": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "prefix_states": {
+            "pass_": true
+          },
+          "shorter_prefix_output": {
+            "pass_": true,
+            "bitwise": false,
+            "max_abs": 7.599592208862305e-07
+          },
+          "shorter_prefix_schema": {
+            "pass_": true,
+            "bitwise": false,
+            "max_abs": 5.960464477539063e-08
+          },
+          "no_native_predict": {
+            "pass_": true
+          },
+          "no_parameter_mutation": {
+            "pass_": true
+          }
+        },
+        "model_hash": "f0ea70ddbd4e01e88ebb5c3cab2a3927288b677014a302a04bf9de18f2ea8246",
+        "atol": 1e-05,
+        "rtol": 0.0001,
+        "random_unlabeled_only": true,
+        "scientific_features_saved": false
+      }
+    }
+  },
+  "native_predict_negative_control": true,
+  "forbidden_sources_rejected": true,
+  "optimizer_semantics_equal": true,
+  "environment": {
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "deterministic_algorithms": false,
+    "matmul_precision": "highest",
+    "matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "torch_threads": 4,
+    "torch": "2.13.0+cu130",
+    "cuda": "13.0",
+    "cudnn": 92000,
+    "device": "NVIDIA GB10",
+    "uuid": "8796b197-6eba-7823-5301-1e9837053193",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "upstream_commit": "e8b56ba27352733bb83729e85b1d6196dca70c99",
+    "config_sha256": "933b255b6502b3bb8ca7819454d05d2b3b02d8ecf4cad13361b3d3d95072b238"
+  },
+  "total_seconds": 9.16527235507965,
+  "cpu_peak_rss_kib": 2339848,
+  "conservative_cold_single_batch_full_training_hours": 21.206936949812288,
+  "estimate_caveat": "one cold batch includes backward plus another score, excludes Adam/validation; E2 warm pilot also reported; not measured full runtime",
+  "scientific_optimizer_steps": 0,
+  "test_sources_used": false,
+  "labels_read": false
+}

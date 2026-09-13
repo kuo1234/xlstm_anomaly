@@ -1,0 +1,21 @@
+{
+  "phase_f": "STOP_IMPLEMENTATION_VALIDITY",
+  "scientific_optimizer_steps": 0,
+  "trained_checkpoints": 0,
+  "post_training_parity": "NOT_RUN",
+  "training_curves": "NOT_RUN",
+  "reason": "Frozen cuDNN TF32-enabled LSTM native/manual scalar-state parity fails",
+  "prospective_commit": "4c76e07",
+  "E2_immutable_commit": "4d49f1d",
+  "H1_controlled_harm": "STOP",
+  "H1_natural_harm": "NOT_RUN",
+  "H1_harm_overall": "UNRESOLVED",
+  "H2_H3": "NOT_TESTED",
+  "phase_g": "LOCKED",
+  "scientific_backend_changed": false,
+  "diagnostic_alternate_backend_only": true,
+  "test_sources_used": false,
+  "labels_extracted": false,
+  "probe_fit": false,
+  "tolerance_changed": false
+}
