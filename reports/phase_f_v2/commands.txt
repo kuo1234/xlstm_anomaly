@@ -1,0 +1,7 @@
+# Must be executed after this amendment commit is pushed; no scientific step
+# occurred before the push.
+rtk data/phase_e2/venv/bin/python scripts/phase_f_v2_gates.py
+# Expected scope: mechanical backward only, zero optimizer steps.
+
+# Only after gates PASS, launch the fixed ten-run grid:
+rtk data/phase_e2/venv/bin/python scripts/phase_f_v2_launch.py
