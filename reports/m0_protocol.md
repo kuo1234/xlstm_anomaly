@@ -1,5 +1,12 @@
 # Revised M0 protocol v4 — final A2 assignment amendment
 
+Phase F prospective matched-training freeze (2026-09-13):
+[phase_f/prospective.md](phase_f/prospective.md) and
+[../configs/phase_f.json](../configs/phase_f.json) resolve the matched training
+budget and H38 six-layer LSTM. The E2 native predict-interface clarification is
+reporting-only; sealed E2 artifacts remain unchanged. Only Phase F is authorized;
+Phase G and all labeled probes require a subsequent external review.
+
 Phase E2 implementation amendment (2026-09-13): [phase_e2/amendment.md](phase_e2/amendment.md)
 supersedes only the pinned xLSTMAD implementation/backend and architecture-specific
 schema binding below. Use the improved official implementation at
