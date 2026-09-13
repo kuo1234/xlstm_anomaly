@@ -1,0 +1,41 @@
+{
+  "phase_f": "STOP_IMPLEMENTATION_VALIDITY",
+  "variant": "F-v2",
+  "amendment_commit": "1b5256c",
+  "gate_commit": "9edbf0f",
+  "pretraining_gates": "PASS",
+  "training_grid": "STOP_AFTER_FIRST_POSTTRAIN_FAILURE",
+  "complete_grid": false,
+  "post_training_validity": "FAIL_LSTM_SEED11_BATCH_PARTITION",
+  "failure": {
+    "run": "lstm_11",
+    "check": "partition_B1_output",
+    "max_abs": 2.9087066650390625e-05,
+    "atol": 1e-05,
+    "rtol": 0.0001,
+    "interpretation": "trained cuDNN nn.LSTM output is not invariant to B128 versus B1 partition under fixed tolerance"
+  },
+  "runs": {
+    "lstm_11": "QUARANTINED",
+    "xlstm_11": "QUARANTINED_PARTIAL_EPOCH2",
+    "seeds_22_33_44_55": "NOT_STARTED"
+  },
+  "optimizer_steps": {
+    "lstm_11": 15800,
+    "xlstm_11": 632
+  },
+  "trained_checkpoints_valid": 0,
+  "scientific_results_valid": 0,
+  "H1_controlled_harm": "STOP",
+  "H1_natural_harm": "NOT_RUN",
+  "H1_harm_overall": "UNRESOLVED",
+  "H2_H3": "NOT_TESTED",
+  "phase_g": "LOCKED",
+  "anomaly_metrics_computed": false,
+  "labels_read": false,
+  "test_sources_used": false,
+  "probe_fit": false,
+  "tolerance_changed": false,
+  "backend_changed": false,
+  "quarantine": true
+}

@@ -1,0 +1,95 @@
+{
+  "completed": [
+    {
+      "run": "lstm_11",
+      "command": [
+        "rtk",
+        "/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/bin/python",
+        "-u",
+        "/home/p76141495/home/xlstm_anomaly/scripts/phase_f_v2_train.py",
+        "lstm",
+        "11"
+      ],
+      "exit_code": 3,
+      "seconds": 248.02477931976318
+    }
+  ],
+  "remaining": [
+    [
+      "xlstm",
+      22
+    ],
+    [
+      "lstm",
+      22
+    ],
+    [
+      "xlstm",
+      33
+    ],
+    [
+      "lstm",
+      33
+    ],
+    [
+      "xlstm",
+      44
+    ],
+    [
+      "lstm",
+      44
+    ],
+    [
+      "xlstm",
+      55
+    ],
+    [
+      "lstm",
+      55
+    ]
+  ],
+  "active": [],
+  "wall_seconds": 248.02629232406616,
+  "active_terminated": true,
+  "stop_reason": "lstm_11_post_training_parity_exit3",
+  "complete_grid": false,
+  "quarantined_runs": [
+    "lstm_11",
+    "xlstm_11"
+  ],
+  "remaining_not_started": [
+    [
+      "xlstm",
+      22
+    ],
+    [
+      "lstm",
+      22
+    ],
+    [
+      "xlstm",
+      33
+    ],
+    [
+      "lstm",
+      33
+    ],
+    [
+      "xlstm",
+      44
+    ],
+    [
+      "lstm",
+      44
+    ],
+    [
+      "xlstm",
+      55
+    ],
+    [
+      "lstm",
+      55
+    ]
+  ],
+  "active_after_termination": []
+}

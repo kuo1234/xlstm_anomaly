@@ -1,0 +1,66 @@
+{
+  "policy": "No Phase F-v2 artifact from this partial grid may enter G or any model-result estimate.",
+  "runs": {
+    "lstm_11": {
+      "data/phase_f_v2/runs/lstm_11/best.pt": "0c6d7fb240dd2f94237aa32ff252bbacbd7e2b6bc60d7947b9fb128c5bf24ee5",
+      "data/phase_f_v2/runs/lstm_11/final.pt": "7fc170c54719ca319f7126b56f8b01c5dda3fdc29724450a268b5792dd4d64d8",
+      "data/phase_f_v2/runs/lstm_11/initial.pt": "758fdcef00dd965b862cad4dce4d42313cbfe71831f1b97103e518b72320ba03"
+    },
+    "xlstm_11": {
+      "data/phase_f_v2/runs/xlstm_11/best.pt": "443c2cd8e1b34c2d4d3f75e14c52a79ae7c81a38fae5226c95f6b48c9c71d5fe",
+      "data/phase_f_v2/runs/xlstm_11/initial.pt": "cc0ee3083c1d7d3a932311234c3559ec4b9e0e54dd38b5df115d0426c02b7dbb"
+    }
+  },
+  "reason": "LSTM seed11 trained best checkpoint fails required post-training B1 output partition invariance.",
+  "failed_checks": {
+    "partition_B1_output": {
+      "pass_": false,
+      "bitwise": false,
+      "max_abs": 2.9087066650390625e-05,
+      "shape": [
+        131,
+        64,
+        8
+      ]
+    }
+  },
+  "training_grid_complete": false,
+  "all_unstarted_runs": [
+    [
+      "xlstm",
+      22
+    ],
+    [
+      "lstm",
+      22
+    ],
+    [
+      "xlstm",
+      33
+    ],
+    [
+      "lstm",
+      33
+    ],
+    [
+      "xlstm",
+      44
+    ],
+    [
+      "lstm",
+      44
+    ],
+    [
+      "xlstm",
+      55
+    ],
+    [
+      "lstm",
+      55
+    ]
+  ],
+  "anomaly_metrics_computed": false,
+  "labels_read": false,
+  "test_sources_used": false,
+  "probes_fit": false
+}
