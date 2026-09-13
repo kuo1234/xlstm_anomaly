@@ -1,0 +1,50 @@
+{
+  "status": "SEALED_PROSPECTIVE",
+  "family_id": "G0_H2_H3a_combined",
+  "familywise_method": "Holm",
+  "alpha": 0.05,
+  "family_size": 4,
+  "members": [
+    {
+      "id": "H2_history_increment",
+      "estimand": "AP(xLSTM history+combined248) - AP(xLSTM history14)",
+      "conditional_on": null,
+      "description": "primary additional window-local internal signal"
+    },
+    {
+      "id": "H3a_A_combined_backbone",
+      "estimand": "AP(xLSTM combined234) - AP(LSTM combined234)",
+      "conditional_on": "H2_history_increment GO",
+      "description": "matched-capacity combined internal features"
+    },
+    {
+      "id": "H3a_B_incremental_backbone",
+      "estimand": "(AP(xLSTM history+combined)-AP(xLSTM history)) - (AP(LSTM history+combined)-AP(LSTM history))",
+      "conditional_on": "H2_history_increment GO",
+      "description": "incremental gain beyond common history control"
+    },
+    {
+      "id": "H3a_C_shared_candi_history",
+      "estimand": "same incremental-gain contrast using one shared frozen CANDI 14-column history control",
+      "conditional_on": "H2_history_increment GO and CANDI control uniquely resolved",
+      "description": "score-source separation; unresolved CANDI control blocks this member"
+    }
+  ],
+  "h2_practical_gate": {
+    "mean_gain_min": 0.02,
+    "paired_ci_lower_gt": 0,
+    "positive_detector_seeds_min": 4,
+    "positive_shifted_scenarios_min": 3,
+    "duration_severity_matched": true
+  },
+  "h3a_requires_h2": true,
+  "descriptive_not_confirmatory": [
+    "history14",
+    "hidden52",
+    "gate130",
+    "memory52",
+    "combined234 ablations"
+  ],
+  "labels_read": false,
+  "test_ap_computed": false
+}

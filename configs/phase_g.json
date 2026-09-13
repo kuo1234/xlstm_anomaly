@@ -1,0 +1,339 @@
+{
+  "version": "phase_g0_v1",
+  "phase": "G0",
+  "protocol_status": "SEALED_PROSPECTIVE",
+  "f4_seal_commit": "a7fa42ff2c0c339c242167c525c39e8ae49184b1",
+  "f4_final_manifest": "reports/phase_f_v4/final_manifest.json",
+  "f4_final_manifest_sha256": "e20f2d349d685919ae1d861c7f47f6f0f4b48d6a28c9973bb4cf95e74daefb9c",
+  "checkpoint_manifest": "reports/phase_g/checkpoint_manifest.json",
+  "schema_binding": "reports/phase_g/schema_binding.json",
+  "confirmatory_family": "reports/phase_g/confirmatory_family.json",
+  "probe_folds": {
+    "train": {
+      "generator_seeds": [
+        1000,
+        1001,
+        1002,
+        1003,
+        1004,
+        1005,
+        1006,
+        1007,
+        1008,
+        1009
+      ],
+      "source_fold": "probe_train"
+    },
+    "validation": {
+      "generator_seeds": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004
+      ],
+      "source_fold": "probe_validation"
+    },
+    "test": {
+      "generator_seeds": [
+        3000,
+        3001,
+        3002,
+        3003,
+        3004,
+        3005,
+        3006,
+        3007,
+        3008,
+        3009
+      ],
+      "source_fold": "probe_test"
+    },
+    "source_fold_separation": true,
+    "generator_config": "configs/synthetic_v1.json",
+    "generator_config_sha256": "5b1fb7858cf144db3615b91a6a22f21fb52c858fa9669082beca67c26ec8338f",
+    "generator_validation_sha256": "21fba11982e5acee4c71e62934b50836878302d0912fe6fa48886fda07ffe221"
+  },
+  "scenarios": {
+    "confirmatory_shifted": [
+      "abrupt",
+      "gradual",
+      "recurring",
+      "correlation"
+    ],
+    "stationary_controls": [
+      "stationary"
+    ],
+    "conditions": [
+      "none",
+      "spike",
+      "collective",
+      "dependency",
+      "mixture"
+    ],
+    "regenerate_or_tune": false
+  },
+  "causal_track": {
+    "window": 64,
+    "stride": 1,
+    "decision_timestamp": "right_edge",
+    "independent_window_reset": true,
+    "optimizer_updates": false,
+    "future_observations": false
+  },
+  "label_construction": {
+    "positive": "anomaly window containing frozen evaluator anomaly activity",
+    "negative": "anomaly-free window in first 256 samples after regime change or active gradual transition",
+    "mixed": "separate stress stratum; never double-labelled or used in primary binary probe",
+    "stable_new_normal_specificity": true,
+    "stationary_normal_specificity": true,
+    "natural_prevalence": true,
+    "labels_to_extractor": false
+  },
+  "feature_schema": {
+    "history": 14,
+    "internal_base": 18,
+    "hidden": 52,
+    "gate": 130,
+    "memory": 52,
+    "combined": 234,
+    "history_plus_combined": 248,
+    "schema_file": "reports/phase_g/schema_binding.json"
+  },
+  "probe_fitting": {
+    "classifier": "L2 logistic regression",
+    "scaler": "StandardScaler fit on probe-train only",
+    "c_grid": [
+      0.01,
+      0.1,
+      1,
+      10
+    ],
+    "selection": "highest validation AP; exact tie smaller C",
+    "split": "source realization/event grouped; no random overlapping-window split",
+    "temporal_purge": 96
+  },
+  "statistics": {
+    "detector_seeds": [
+      11,
+      22,
+      33,
+      44,
+      55
+    ],
+    "macro_unit": "test source realization, paired across backbones",
+    "hierarchical_bootstrap_draws": 10000,
+    "hierarchical_bootstrap_seed": 901,
+    "sign_flip_seed": 902,
+    "holm_family_alpha": 0.05,
+    "family_file": "reports/phase_g/confirmatory_family.json"
+  },
+  "candi_history_control": {
+    "resolution_status": "UNRESOLVED_PRELABEL",
+    "stop_rule": "G0 stops before labels when more than one plausible frozen CANDI control is not uniquely resolved by the existing M0 text",
+    "candidate_sets": {
+      "D8_synthetic_seedwise": {
+        "count": 5,
+        "rows": [
+          {
+            "detector_seed": 11,
+            "source_family": "phase_d_synthetic_candi_backbone",
+            "window": 10,
+            "dimension": 8,
+            "operator": "MLPAdapter.get_anomaly_scores with frozen pre_intervention SANA state",
+            "official_commit": "28c9679e503832f59e351208cde63657fcb51cad",
+            "manifest": "reports/phase_d/synthetic_backbone_manifest.json",
+            "pre_intervention": "data/phase_d/backbone_11/pre_intervention.pth",
+            "checkpoint": "data/phase_d/backbone_11/checkpoint_best.pth",
+            "calibration": "data/phase_d/backbone_11/calibration_scores.npy",
+            "artifacts": {
+              "data/phase_d/backbone_11/calibration_scores.npy": {
+                "sha256": "2db1140c4d71953868f2b5732000c194b3760f63dac248dbd91d945deb0f54d6",
+                "bytes": 40728
+              },
+              "data/phase_d/backbone_11/checkpoint_best.pth": {
+                "sha256": "3c8d4b195370356b85b56c3e15972b81c60b3c422bf1d39ae81966230c28460f",
+                "bytes": 178819
+              },
+              "data/phase_d/backbone_11/pre_intervention.pth": {
+                "sha256": "1ee8aba61dc637076fb2119c015851d48d8e07834d549063098c6f8adcbe7b7e",
+                "bytes": 13207713
+              }
+            },
+            "score_semantics": "native CANDI reconstruction MSE after frozen SANA-in/out; no adaptation during history extraction",
+            "test_or_truth_access": false
+          },
+          {
+            "detector_seed": 22,
+            "source_family": "phase_d_synthetic_candi_backbone",
+            "window": 10,
+            "dimension": 8,
+            "operator": "MLPAdapter.get_anomaly_scores with frozen pre_intervention SANA state",
+            "official_commit": "28c9679e503832f59e351208cde63657fcb51cad",
+            "manifest": "reports/phase_d/synthetic_backbone_manifest.json",
+            "pre_intervention": "data/phase_d/backbone_22/pre_intervention.pth",
+            "checkpoint": "data/phase_d/backbone_22/checkpoint_best.pth",
+            "calibration": "data/phase_d/backbone_22/calibration_scores.npy",
+            "artifacts": {
+              "data/phase_d/backbone_22/calibration_scores.npy": {
+                "sha256": "26239bbb758ca4cdbdc6406a409d0b753d2bc651418ab67d5f3ed19c84bbe393",
+                "bytes": 40728
+              },
+              "data/phase_d/backbone_22/checkpoint_best.pth": {
+                "sha256": "c3bdd36f7e109a9bdb2a7fb2c1589e34629c69c9c4c462020a6fb679f53ce498",
+                "bytes": 178819
+              },
+              "data/phase_d/backbone_22/pre_intervention.pth": {
+                "sha256": "810825bf961fd79cd66809d9a9111f74793aec79c166d79170c9122f8aff12e1",
+                "bytes": 13207777
+              }
+            },
+            "score_semantics": "native CANDI reconstruction MSE after frozen SANA-in/out; no adaptation during history extraction",
+            "test_or_truth_access": false
+          },
+          {
+            "detector_seed": 33,
+            "source_family": "phase_d_synthetic_candi_backbone",
+            "window": 10,
+            "dimension": 8,
+            "operator": "MLPAdapter.get_anomaly_scores with frozen pre_intervention SANA state",
+            "official_commit": "28c9679e503832f59e351208cde63657fcb51cad",
+            "manifest": "reports/phase_d/synthetic_backbone_manifest.json",
+            "pre_intervention": "data/phase_d/backbone_33/pre_intervention.pth",
+            "checkpoint": "data/phase_d/backbone_33/checkpoint_best.pth",
+            "calibration": "data/phase_d/backbone_33/calibration_scores.npy",
+            "artifacts": {
+              "data/phase_d/backbone_33/calibration_scores.npy": {
+                "sha256": "b201db5d5f016fd9f088cfb1882c1eadaa14bc2d092074c2ae63ff81bccdd5cc",
+                "bytes": 40728
+              },
+              "data/phase_d/backbone_33/checkpoint_best.pth": {
+                "sha256": "fffb0cdb8127935b3075b7d3f8a66a0416554c1970cd94ba5a299327321bb163",
+                "bytes": 178819
+              },
+              "data/phase_d/backbone_33/pre_intervention.pth": {
+                "sha256": "5ce4ce0893c56d0ebf50cd9bce40052a7b548c73e1c4f542132953cea56b319f",
+                "bytes": 13207777
+              }
+            },
+            "score_semantics": "native CANDI reconstruction MSE after frozen SANA-in/out; no adaptation during history extraction",
+            "test_or_truth_access": false
+          },
+          {
+            "detector_seed": 44,
+            "source_family": "phase_d_synthetic_candi_backbone",
+            "window": 10,
+            "dimension": 8,
+            "operator": "MLPAdapter.get_anomaly_scores with frozen pre_intervention SANA state",
+            "official_commit": "28c9679e503832f59e351208cde63657fcb51cad",
+            "manifest": "reports/phase_d/synthetic_backbone_manifest.json",
+            "pre_intervention": "data/phase_d/backbone_44/pre_intervention.pth",
+            "checkpoint": "data/phase_d/backbone_44/checkpoint_best.pth",
+            "calibration": "data/phase_d/backbone_44/calibration_scores.npy",
+            "artifacts": {
+              "data/phase_d/backbone_44/calibration_scores.npy": {
+                "sha256": "1ba2993a8475fe2250c2423c225a0c79308b054038d9546cec37724ff89564ea",
+                "bytes": 40728
+              },
+              "data/phase_d/backbone_44/checkpoint_best.pth": {
+                "sha256": "3bfc0ebc011f8f809ad35d78f0af1030132b0f3a52d6d7a546dfea00ec1a7449",
+                "bytes": 178819
+              },
+              "data/phase_d/backbone_44/pre_intervention.pth": {
+                "sha256": "1ea365d5552589f6399c96b31562fcaa2257ad162e3c6f81a3a67d437b2cef71",
+                "bytes": 13207713
+              }
+            },
+            "score_semantics": "native CANDI reconstruction MSE after frozen SANA-in/out; no adaptation during history extraction",
+            "test_or_truth_access": false
+          },
+          {
+            "detector_seed": 55,
+            "source_family": "phase_d_synthetic_candi_backbone",
+            "window": 10,
+            "dimension": 8,
+            "operator": "MLPAdapter.get_anomaly_scores with frozen pre_intervention SANA state",
+            "official_commit": "28c9679e503832f59e351208cde63657fcb51cad",
+            "manifest": "reports/phase_d/synthetic_backbone_manifest.json",
+            "pre_intervention": "data/phase_d/backbone_55/pre_intervention.pth",
+            "checkpoint": "data/phase_d/backbone_55/checkpoint_best.pth",
+            "calibration": "data/phase_d/backbone_55/calibration_scores.npy",
+            "artifacts": {
+              "data/phase_d/backbone_55/calibration_scores.npy": {
+                "sha256": "17a740cbe366f6145eda572a0f3cb42336848ba9a3b087c0549c340ff012920e",
+                "bytes": 40728
+              },
+              "data/phase_d/backbone_55/checkpoint_best.pth": {
+                "sha256": "9c3c87d43953ca03bdd91d4db385160c68801c8f7e6ee5b60905152421c934f6",
+                "bytes": 178819
+              },
+              "data/phase_d/backbone_55/pre_intervention.pth": {
+                "sha256": "27ea236dc138247167fdf67f034137a662554f14e9a3ef969bbd04e3f0f53119",
+                "bytes": 13207713
+              }
+            },
+            "score_semantics": "native CANDI reconstruction MSE after frozen SANA-in/out; no adaptation during history extraction",
+            "test_or_truth_access": false
+          }
+        ],
+        "compatibility": "D=8 compatible, but native W=10 rather than common-track W=64; five seed-keyed controls, not one singular stream"
+      },
+      "SMD_native_phase_c": {
+        "count": 3,
+        "rows": [
+          {
+            "run": "SMD_1-8_alpha_0.5_seed_0_native",
+            "artifact": "reports/phase_c/runs/SMD_1-8_alpha_0.5_seed_0_native.json",
+            "machine": "SMD_1-8",
+            "alpha": "0.5",
+            "official_commit": "28c9679e503832f59e351208cde63657fcb51cad",
+            "score_window": 10,
+            "source_family": "SMD_native_CANDI",
+            "score_result_paths_present": []
+          },
+          {
+            "run": "SMD_1-8_alpha_1.0_seed_0_native",
+            "artifact": "reports/phase_c/runs/SMD_1-8_alpha_1.0_seed_0_native.json",
+            "machine": "SMD_1-8",
+            "alpha": "1.0",
+            "official_commit": "28c9679e503832f59e351208cde63657fcb51cad",
+            "score_window": 10,
+            "source_family": "SMD_native_CANDI",
+            "score_result_paths_present": []
+          },
+          {
+            "run": "SMD_1-8_alpha_5.0_seed_0_native",
+            "artifact": "reports/phase_c/runs/SMD_1-8_alpha_5.0_seed_0_native.json",
+            "machine": "SMD_1-8",
+            "alpha": "5.0",
+            "official_commit": "28c9679e503832f59e351208cde63657fcb51cad",
+            "score_window": 10,
+            "source_family": "SMD_native_CANDI",
+            "score_result_paths_present": []
+          }
+        ],
+        "compatibility": "native CANDI evidence, but SMD dimension/domain and W=10 score artifacts are not a sealed D=8/W=64 synthetic control"
+      }
+    },
+    "canonical_seedwise_interpretation_not_selected": true,
+    "reason": "Existing artifacts contain multiple CANDI score/control candidates and no pre-outcome rule choosing a singular stream or resolving W=10-to-W=64 alignment."
+  },
+  "g0_stop_boundary": {
+    "unresolved_candi_control_stops_before_labels": true,
+    "no_outcome_based_choice": true,
+    "no_labels": true,
+    "no_scaler": true,
+    "no_classifier": true,
+    "no_ap_or_auroc": true
+  },
+  "forbidden_until_external_review": [
+    "labeled feature extraction",
+    "StandardScaler fitting",
+    "logistic fitting or C selection",
+    "AP/AUROC/VUS computation",
+    "bootstrap/sign-flip",
+    "H2/H3a declaration",
+    "H3b/H4/natural-H1",
+    "optimizer updates"
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "status": "PASS",
+  "source_manifest": "reports/phase_f_v4/final_manifest.json",
+  "source_manifest_sha256": "e20f2d349d685919ae1d861c7f47f6f0f4b48d6a28c9973bb4cf95e74daefb9c",
+  "f4_commit": "a7fa42ff2c0c339c242167c525c39e8ae49184b1",
+  "entries": [
+    {
+      "run": "lstm_11",
+      "architecture": "lstm",
+      "detector_seed": 11,
+      "path": "data/phase_f_v3/runs/lstm_11/best.pt",
+      "sha256": "ccd3158a74f154cd4091a64079719f10c1ed01d85f8e24325e7257ec6599db3b",
+      "model_hash": "7325db28fc45ccd9dc1a778c050cb02e4e2ade55679896e43648ad2bb6d59b06",
+      "selected_epoch": 50,
+      "source_status": "CARRIED_FORWARD",
+      "carry_forward_reference": true,
+      "best_only": true
+    },
+    {
+      "run": "lstm_22",
+      "architecture": "lstm",
+      "detector_seed": 22,
+      "path": "data/phase_f_v3/runs/lstm_22/best.pt",
+      "sha256": "f01170ed4ee5195a83f4072e63e367a84c8fbbaf666560d854bfa1a89713ca53",
+      "model_hash": "42dcdc8d60505fa94db657b9c50aa57cf6635b081e19fb4be6b2bef4ad94eb00",
+      "selected_epoch": 47,
+      "source_status": "CARRIED_FORWARD",
+      "carry_forward_reference": true,
+      "best_only": true
+    },
+    {
+      "run": "lstm_33",
+      "architecture": "lstm",
+      "detector_seed": 33,
+      "path": "data/phase_f_v4/runs/lstm_33/best.pt",
+      "sha256": "16907d36d2a26ca6137b25fb0c8a9e217034879d12b99ea735529bdfca228117",
+      "model_hash": "e7cee591b7fc97016d62138d6dba26579a85bd15e83b923a9fe11595aa78eb59",
+      "selected_epoch": 50,
+      "source_status": "PASS",
+      "carry_forward_reference": false,
+      "best_only": true
+    },
+    {
+      "run": "lstm_44",
+      "architecture": "lstm",
+      "detector_seed": 44,
+      "path": "data/phase_f_v4/runs/lstm_44/best.pt",
+      "sha256": "133370d9e066eced0d1b0f2717aa7b80861eec854c1a908016f3c1782ee6f040",
+      "model_hash": "ce6f6ab8e7ad858a928e9e4b144185ce96fd0d238dd21bde8c6fd2745691df02",
+      "selected_epoch": 50,
+      "source_status": "PASS",
+      "carry_forward_reference": false,
+      "best_only": true
+    },
+    {
+      "run": "lstm_55",
+      "architecture": "lstm",
+      "detector_seed": 55,
+      "path": "data/phase_f_v4/runs/lstm_55/best.pt",
+      "sha256": "6c52ee25531dc79f2dea78d193db20d0a69e482af92558d54553c2ddd03a5ef9",
+      "model_hash": "802d15f1f1faf682896e80a305424b2e2bb5d06d9a385275512cd2e20e325d4c",
+      "selected_epoch": 44,
+      "source_status": "PASS",
+      "carry_forward_reference": false,
+      "best_only": true
+    },
+    {
+      "run": "xlstm_11",
+      "architecture": "xlstm",
+      "detector_seed": 11,
+      "path": "data/phase_f_v4/runs/xlstm_11/best.pt",
+      "sha256": "4729a3ba385b285078aa987fce176e61fd382715c5357fc92f2635a929a0ae41",
+      "model_hash": "49cf7982872c53280d315fb529133aaca3ac34609d9a34c7382bccbed0773f15",
+      "selected_epoch": 50,
+      "source_status": "PASS",
+      "carry_forward_reference": false,
+      "best_only": true
+    },
+    {
+      "run": "xlstm_22",
+      "architecture": "xlstm",
+      "detector_seed": 22,
+      "path": "data/phase_f_v4/runs/xlstm_22/best.pt",
+      "sha256": "fbaa0fff2656022f5102942bb3adc7c54f4a08c28dfab8d1d5f081de1ceed561",
+      "model_hash": "ed20366975c9aa9d00fafec5b7c5ca55ce28d68dda34697aeb7dd9c852f3cd9b",
+      "selected_epoch": 50,
+      "source_status": "PASS",
+      "carry_forward_reference": false,
+      "best_only": true
+    },
+    {
+      "run": "xlstm_33",
+      "architecture": "xlstm",
+      "detector_seed": 33,
+      "path": "data/phase_f_v4/runs/xlstm_33/best.pt",
+      "sha256": "0bf53ff5e597c79a35f8eb474aa45e3cf6b9ced1cbf526c8c25a8d34c15a23f7",
+      "model_hash": "92f55a0e88319a13b6018f0988b0eba30c2f366cdf07bb24e9c288ff2c945f2e",
+      "selected_epoch": 46,
+      "source_status": "PASS",
+      "carry_forward_reference": false,
+      "best_only": true
+    },
+    {
+      "run": "xlstm_44",
+      "architecture": "xlstm",
+      "detector_seed": 44,
+      "path": "data/phase_f_v4/runs/xlstm_44/best.pt",
+      "sha256": "68d88df7ea9b2ea87aea405aeea9f23a9df203bf6f62a7aee15e6cc2fd0d865c",
+      "model_hash": "32f1e054c68d1f892d5c3fd2f8d46d0d5d6806d42ea22eeb16ccb8982637fb6a",
+      "selected_epoch": 49,
+      "source_status": "PASS",
+      "carry_forward_reference": false,
+      "best_only": true
+    },
+    {
+      "run": "xlstm_55",
+      "architecture": "xlstm",
+      "detector_seed": 55,
+      "path": "data/phase_f_v4/runs/xlstm_55/best.pt",
+      "sha256": "942c4f260a27952aebc76995b3628ad6d95915317e4ba560fe90e6f4badc4421",
+      "model_hash": "e05d98cd52b4a5d386c3c0712eff0c0e71b5848680ed4e11c8e3020efad40e5c",
+      "selected_epoch": 42,
+      "source_status": "PASS",
+      "carry_forward_reference": false,
+      "best_only": true
+    }
+  ],
+  "forbidden_paths": [
+    "data/phase_f_v3/runs/lstm_33",
+    "data/phase_f_v3/runs/xlstm_11",
+    "data/phase_f_v3/runs/lstm_33/epoch29_replay_diagnostic.pt",
+    "data/phase_f_v4/runs/*/final.pt when best.pt differs",
+    "all F-v1/F-v2 checkpoints"
+  ],
+  "model_policy": "frozen inference only; no optimizer object or update is permitted"
+}
