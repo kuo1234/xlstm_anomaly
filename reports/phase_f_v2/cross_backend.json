@@ -1,0 +1,556 @@
+{
+  "fixture": {
+    "observations": "f259b4314a1a2da570281e65a5ed206c5181f4a787ea73466dd307ad3808b165",
+    "output": "a5cbd454637f29b5dece45cefe3c0265ea70e236ac2ee9dff34a929439b2fde1",
+    "scores": "72f0c5c5a22c5156bfea8a90ec9fb8eb876b13f8aaf9a9e098e09f83b7e88de3",
+    "summary": "a625ad18d7c180bd0f5fc5d43bab9be669d81322d2662060e462ffaaf87978ac"
+  },
+  "old_e2_model_hash": "38a6cb747bc5548f2d1e548aa61dcd779bc2c636086d329e56637b0c937f2f8a",
+  "new_f2_model_hash": "38a6cb747bc5548f2d1e548aa61dcd779bc2c636086d329e56637b0c937f2f8a",
+  "expected_old_initial_hash": "38a6cb747bc5548f2d1e548aa61dcd779bc2c636086d329e56637b0c937f2f8a",
+  "old_fixture_output": {
+    "exact": true,
+    "allclose": true,
+    "max_abs": 0.0,
+    "shape": [
+      4,
+      64,
+      8
+    ],
+    "dtype_a": "torch.float32",
+    "dtype_b": "torch.float32"
+  },
+  "old_fixture_score": {
+    "exact": true,
+    "allclose": true,
+    "max_abs": 0.0,
+    "shape": [
+      4
+    ],
+    "dtype_a": "torch.float32",
+    "dtype_b": "torch.float32"
+  },
+  "old_fixture_common18": {
+    "exact": true,
+    "allclose": true,
+    "max_abs": 0.0,
+    "shape": [
+      4,
+      18
+    ],
+    "dtype_a": "torch.float32",
+    "dtype_b": "torch.float32"
+  },
+  "output": {
+    "exact": true,
+    "allclose": true,
+    "max_abs": 0.0,
+    "shape": [
+      4,
+      64,
+      8
+    ],
+    "dtype_a": "torch.float32",
+    "dtype_b": "torch.float32"
+  },
+  "reconstruction_score": {
+    "exact": true,
+    "allclose": true,
+    "max_abs": 0.0,
+    "shape": [
+      4
+    ],
+    "dtype_a": "torch.float32",
+    "dtype_b": "torch.float32"
+  },
+  "common18_features": {
+    "exact": true,
+    "allclose": true,
+    "max_abs": 0.0,
+    "shape": [
+      4,
+      18
+    ],
+    "dtype_a": "torch.float32",
+    "dtype_b": "torch.float32"
+  },
+  "scalar_hidden_and_final": {
+    "decoder.blocks.0.xlstm.slstm_cell": {
+      "exact": true,
+      "allclose": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        4,
+        10
+      ],
+      "dtype_a": "torch.float32",
+      "dtype_b": "torch.float32"
+    },
+    "decoder.blocks.1.xlstm.slstm_cell": {
+      "exact": true,
+      "allclose": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        4,
+        10
+      ],
+      "dtype_a": "torch.float32",
+      "dtype_b": "torch.float32"
+    },
+    "encoder.blocks.0.xlstm.slstm_cell": {
+      "exact": true,
+      "allclose": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        4,
+        10
+      ],
+      "dtype_a": "torch.float32",
+      "dtype_b": "torch.float32"
+    },
+    "encoder.blocks.1.xlstm.slstm_cell": {
+      "exact": true,
+      "allclose": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        4,
+        10
+      ],
+      "dtype_a": "torch.float32",
+      "dtype_b": "torch.float32"
+    }
+  },
+  "scalar_gate_memory_traces": {
+    "decoder.blocks.0.xlstm.slstm_cell.hidden": {
+      "exact": true,
+      "allclose": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        64,
+        4,
+        10
+      ],
+      "dtype_a": "torch.float32",
+      "dtype_b": "torch.float32"
+    },
+    "decoder.blocks.0.xlstm.slstm_cell.input": {
+      "exact": true,
+      "allclose": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        64,
+        4,
+        10
+      ],
+      "dtype_a": "torch.float32",
+      "dtype_b": "torch.float32"
+    },
+    "decoder.blocks.0.xlstm.slstm_cell.retention": {
+      "exact": true,
+      "allclose": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        64,
+        4,
+        10
+      ],
+      "dtype_a": "torch.float32",
+      "dtype_b": "torch.float32"
+    },
+    "decoder.blocks.0.xlstm.slstm_cell.memory": {
+      "exact": true,
+      "allclose": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        64,
+        4,
+        10
+      ],
+      "dtype_a": "torch.float32",
+      "dtype_b": "torch.float32"
+    },
+    "decoder.blocks.1.xlstm.slstm_cell.hidden": {
+      "exact": true,
+      "allclose": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        64,
+        4,
+        10
+      ],
+      "dtype_a": "torch.float32",
+      "dtype_b": "torch.float32"
+    },
+    "decoder.blocks.1.xlstm.slstm_cell.input": {
+      "exact": true,
+      "allclose": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        64,
+        4,
+        10
+      ],
+      "dtype_a": "torch.float32",
+      "dtype_b": "torch.float32"
+    },
+    "decoder.blocks.1.xlstm.slstm_cell.retention": {
+      "exact": true,
+      "allclose": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        64,
+        4,
+        10
+      ],
+      "dtype_a": "torch.float32",
+      "dtype_b": "torch.float32"
+    },
+    "decoder.blocks.1.xlstm.slstm_cell.memory": {
+      "exact": true,
+      "allclose": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        64,
+        4,
+        10
+      ],
+      "dtype_a": "torch.float32",
+      "dtype_b": "torch.float32"
+    },
+    "encoder.blocks.0.xlstm.slstm_cell.hidden": {
+      "exact": true,
+      "allclose": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        64,
+        4,
+        10
+      ],
+      "dtype_a": "torch.float32",
+      "dtype_b": "torch.float32"
+    },
+    "encoder.blocks.0.xlstm.slstm_cell.input": {
+      "exact": true,
+      "allclose": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        64,
+        4,
+        10
+      ],
+      "dtype_a": "torch.float32",
+      "dtype_b": "torch.float32"
+    },
+    "encoder.blocks.0.xlstm.slstm_cell.retention": {
+      "exact": true,
+      "allclose": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        64,
+        4,
+        10
+      ],
+      "dtype_a": "torch.float32",
+      "dtype_b": "torch.float32"
+    },
+    "encoder.blocks.0.xlstm.slstm_cell.memory": {
+      "exact": true,
+      "allclose": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        64,
+        4,
+        10
+      ],
+      "dtype_a": "torch.float32",
+      "dtype_b": "torch.float32"
+    },
+    "encoder.blocks.1.xlstm.slstm_cell.hidden": {
+      "exact": true,
+      "allclose": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        64,
+        4,
+        10
+      ],
+      "dtype_a": "torch.float32",
+      "dtype_b": "torch.float32"
+    },
+    "encoder.blocks.1.xlstm.slstm_cell.input": {
+      "exact": true,
+      "allclose": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        64,
+        4,
+        10
+      ],
+      "dtype_a": "torch.float32",
+      "dtype_b": "torch.float32"
+    },
+    "encoder.blocks.1.xlstm.slstm_cell.retention": {
+      "exact": true,
+      "allclose": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        64,
+        4,
+        10
+      ],
+      "dtype_a": "torch.float32",
+      "dtype_b": "torch.float32"
+    },
+    "encoder.blocks.1.xlstm.slstm_cell.memory": {
+      "exact": true,
+      "allclose": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        64,
+        4,
+        10
+      ],
+      "dtype_a": "torch.float32",
+      "dtype_b": "torch.float32"
+    }
+  },
+  "backend": {
+    "old_cudnn_allow_tf32": true,
+    "new_cudnn_allow_tf32": false,
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "batch_partition": {
+    "B3": {
+      "old_self_invariant": {
+        "exact": false,
+        "allclose": true,
+        "max_abs": 5.364418029785156e-07,
+        "shape": [
+          4,
+          64,
+          8
+        ],
+        "dtype_a": "torch.float32",
+        "dtype_b": "torch.float32"
+      },
+      "new_self_invariant": {
+        "exact": false,
+        "allclose": true,
+        "max_abs": 5.364418029785156e-07,
+        "shape": [
+          4,
+          64,
+          8
+        ],
+        "dtype_a": "torch.float32",
+        "dtype_b": "torch.float32"
+      },
+      "cross_backend": {
+        "exact": true,
+        "allclose": true,
+        "max_abs": 0.0,
+        "shape": [
+          4,
+          64,
+          8
+        ],
+        "dtype_a": "torch.float32",
+        "dtype_b": "torch.float32"
+      }
+    },
+    "B1": {
+      "old_self_invariant": {
+        "exact": false,
+        "allclose": true,
+        "max_abs": 5.960464477539062e-07,
+        "shape": [
+          4,
+          64,
+          8
+        ],
+        "dtype_a": "torch.float32",
+        "dtype_b": "torch.float32"
+      },
+      "new_self_invariant": {
+        "exact": false,
+        "allclose": true,
+        "max_abs": 5.960464477539062e-07,
+        "shape": [
+          4,
+          64,
+          8
+        ],
+        "dtype_a": "torch.float32",
+        "dtype_b": "torch.float32"
+      },
+      "cross_backend": {
+        "exact": true,
+        "allclose": true,
+        "max_abs": 0.0,
+        "shape": [
+          4,
+          64,
+          8
+        ],
+        "dtype_a": "torch.float32",
+        "dtype_b": "torch.float32"
+      }
+    }
+  },
+  "prefix_causality": {
+    "old_self": {
+      "exact": true,
+      "allclose": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        32,
+        8
+      ],
+      "dtype_a": "torch.float32",
+      "dtype_b": "torch.float32"
+    },
+    "new_self": {
+      "exact": true,
+      "allclose": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        32,
+        8
+      ],
+      "dtype_a": "torch.float32",
+      "dtype_b": "torch.float32"
+    },
+    "cross_original_prefix": {
+      "exact": true,
+      "allclose": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        32,
+        8
+      ],
+      "dtype_a": "torch.float32",
+      "dtype_b": "torch.float32"
+    },
+    "cross_changed_prefix": {
+      "exact": true,
+      "allclose": true,
+      "max_abs": 0.0,
+      "shape": [
+        4,
+        32,
+        8
+      ],
+      "dtype_a": "torch.float32",
+      "dtype_b": "torch.float32"
+    }
+  },
+  "old_observer_checks": [
+    {
+      "cell": "encoder.blocks.0.xlstm.slstm_cell",
+      "sequence_length": 64,
+      "hidden_close": true,
+      "state_close": true,
+      "max_hidden_abs": 2.9802322387695312e-08,
+      "max_state_abs": 2.9802322387695312e-08,
+      "finite": true,
+      "all_float32": true
+    },
+    {
+      "cell": "encoder.blocks.1.xlstm.slstm_cell",
+      "sequence_length": 64,
+      "hidden_close": true,
+      "state_close": true,
+      "max_hidden_abs": 2.9802322387695312e-08,
+      "max_state_abs": 2.9802322387695312e-08,
+      "finite": true,
+      "all_float32": true
+    },
+    {
+      "cell": "decoder.blocks.0.xlstm.slstm_cell",
+      "sequence_length": 64,
+      "hidden_close": true,
+      "state_close": true,
+      "max_hidden_abs": 2.9802322387695312e-08,
+      "max_state_abs": 2.9802322387695312e-08,
+      "finite": true,
+      "all_float32": true
+    },
+    {
+      "cell": "decoder.blocks.1.xlstm.slstm_cell",
+      "sequence_length": 64,
+      "hidden_close": true,
+      "state_close": true,
+      "max_hidden_abs": 5.960464477539063e-08,
+      "max_state_abs": 5.960464477539063e-08,
+      "finite": true,
+      "all_float32": true
+    }
+  ],
+  "new_observer_checks": [
+    {
+      "cell": "encoder.blocks.0.xlstm.slstm_cell",
+      "sequence_length": 64,
+      "hidden_close": true,
+      "state_close": true,
+      "max_hidden_abs": 2.9802322387695312e-08,
+      "max_state_abs": 2.9802322387695312e-08,
+      "finite": true,
+      "all_float32": true
+    },
+    {
+      "cell": "encoder.blocks.1.xlstm.slstm_cell",
+      "sequence_length": 64,
+      "hidden_close": true,
+      "state_close": true,
+      "max_hidden_abs": 2.9802322387695312e-08,
+      "max_state_abs": 2.9802322387695312e-08,
+      "finite": true,
+      "all_float32": true
+    },
+    {
+      "cell": "decoder.blocks.0.xlstm.slstm_cell",
+      "sequence_length": 64,
+      "hidden_close": true,
+      "state_close": true,
+      "max_hidden_abs": 2.9802322387695312e-08,
+      "max_state_abs": 2.9802322387695312e-08,
+      "finite": true,
+      "all_float32": true
+    },
+    {
+      "cell": "decoder.blocks.1.xlstm.slstm_cell",
+      "sequence_length": 64,
+      "hidden_close": true,
+      "state_close": true,
+      "max_hidden_abs": 5.960464477539063e-08,
+      "max_state_abs": 5.960464477539063e-08,
+      "finite": true,
+      "all_float32": true
+    }
+  ],
+  "all_required_cross_comparisons_pass": true
+}
