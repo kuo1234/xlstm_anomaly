@@ -1,0 +1,2422 @@
+{
+  "status": "STOP_CANDI_CONTROL_UNRESOLVED",
+  "backbone_preflight_status": "PASS",
+  "candi_control_status": "UNRESOLVED_PRELABEL",
+  "runs": [
+    {
+      "run": "lstm_11",
+      "architecture": "lstm",
+      "detector_seed": 11,
+      "checkpoint": "data/phase_f_v3/runs/lstm_11/best.pt",
+      "status": "PASS",
+      "hard_failures": [],
+      "checks": {
+        "finite_shape": {
+          "pass_": true
+        },
+        "observer_off_on_output_score": {
+          "output": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4,
+              64,
+              8
+            ],
+            "other_shape": [
+              4,
+              64,
+              8
+            ]
+          },
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4
+            ],
+            "other_shape": [
+              4
+            ]
+          },
+          "pass_": true
+        },
+        "no_native_predict": {
+          "pass_": true
+        },
+        "score_permutation": {
+          "pass_": true,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "shape": [
+            131
+          ],
+          "other_shape": [
+            131
+          ]
+        },
+        "common18_permutation": {
+          "pass_": true,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "shape": [
+            131,
+            18
+          ],
+          "other_shape": [
+            131,
+            18
+          ]
+        },
+        "score_partition_B3": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 7.636845111846924e-07,
+          "shape": [
+            131
+          ],
+          "other_shape": [
+            131
+          ]
+        },
+        "common18_partition_B3": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 3.5762786865234375e-07,
+          "shape": [
+            131,
+            18
+          ],
+          "other_shape": [
+            131,
+            18
+          ]
+        },
+        "score_partition_B1": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 2.0675361156463623e-07,
+          "shape": [
+            131
+          ],
+          "other_shape": [
+            131
+          ]
+        },
+        "common18_partition_B1": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 3.5762786865234375e-07,
+          "shape": [
+            131,
+            18
+          ],
+          "other_shape": [
+            131,
+            18
+          ]
+        },
+        "independent_window_reset": {
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4
+            ],
+            "other_shape": [
+              4
+            ]
+          },
+          "common18": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4,
+              18
+            ],
+            "other_shape": [
+              4,
+              18
+            ]
+          },
+          "pass_": true
+        },
+        "prefix_causality": {
+          "internal": {
+            "pass_": true,
+            "bitwise": false,
+            "nan_count": 3024,
+            "shape": [
+              80,
+              234
+            ]
+          },
+          "history": {
+            "pass_": true,
+            "bitwise": false,
+            "nan_count": 169,
+            "shape": [
+              80,
+              14
+            ]
+          },
+          "pass_": true
+        },
+        "feature_schema": {
+          "pass_": true,
+          "history": [
+            131,
+            14
+          ],
+          "internal_base": [
+            131,
+            18
+          ],
+          "internal_combined": [
+            131,
+            234
+          ],
+          "history_plus_combined": [
+            131,
+            248
+          ]
+        },
+        "dummy_opposite_label_invariance": {
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              8
+            ],
+            "other_shape": [
+              8
+            ]
+          },
+          "features": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              8,
+              18
+            ],
+            "other_shape": [
+              8,
+              18
+            ]
+          },
+          "pass_": true,
+          "labels_passed_to_extractor": false
+        },
+        "common18_finite": {
+          "pass_": true
+        },
+        "checkpoint_unchanged": {
+          "pass_": true
+        }
+      },
+      "native_observer_calls": 6,
+      "output_shape": [
+        131,
+        64,
+        8
+      ],
+      "score_shape": [
+        131
+      ],
+      "features_shape": [
+        131,
+        18
+      ],
+      "labels_read": false,
+      "test_sources_used": false,
+      "test_metrics_computed": false,
+      "optimizer_created_or_stepped": false,
+      "parameter_mutated": false,
+      "exploratory_or_labeled_features": false
+    },
+    {
+      "run": "lstm_22",
+      "architecture": "lstm",
+      "detector_seed": 22,
+      "checkpoint": "data/phase_f_v3/runs/lstm_22/best.pt",
+      "status": "PASS",
+      "hard_failures": [],
+      "checks": {
+        "finite_shape": {
+          "pass_": true
+        },
+        "observer_off_on_output_score": {
+          "output": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4,
+              64,
+              8
+            ],
+            "other_shape": [
+              4,
+              64,
+              8
+            ]
+          },
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4
+            ],
+            "other_shape": [
+              4
+            ]
+          },
+          "pass_": true
+        },
+        "no_native_predict": {
+          "pass_": true
+        },
+        "score_permutation": {
+          "pass_": true,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "shape": [
+            131
+          ],
+          "other_shape": [
+            131
+          ]
+        },
+        "common18_permutation": {
+          "pass_": true,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "shape": [
+            131,
+            18
+          ],
+          "other_shape": [
+            131,
+            18
+          ]
+        },
+        "score_partition_B3": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 2.812594175338745e-07,
+          "shape": [
+            131
+          ],
+          "other_shape": [
+            131
+          ]
+        },
+        "common18_partition_B3": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 2.384185791015625e-07,
+          "shape": [
+            131,
+            18
+          ],
+          "other_shape": [
+            131,
+            18
+          ]
+        },
+        "score_partition_B1": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 7.82310962677002e-08,
+          "shape": [
+            131
+          ],
+          "other_shape": [
+            131
+          ]
+        },
+        "common18_partition_B1": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 2.384185791015625e-07,
+          "shape": [
+            131,
+            18
+          ],
+          "other_shape": [
+            131,
+            18
+          ]
+        },
+        "independent_window_reset": {
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4
+            ],
+            "other_shape": [
+              4
+            ]
+          },
+          "common18": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4,
+              18
+            ],
+            "other_shape": [
+              4,
+              18
+            ]
+          },
+          "pass_": true
+        },
+        "prefix_causality": {
+          "internal": {
+            "pass_": true,
+            "bitwise": false,
+            "nan_count": 3024,
+            "shape": [
+              80,
+              234
+            ]
+          },
+          "history": {
+            "pass_": true,
+            "bitwise": false,
+            "nan_count": 169,
+            "shape": [
+              80,
+              14
+            ]
+          },
+          "pass_": true
+        },
+        "feature_schema": {
+          "pass_": true,
+          "history": [
+            131,
+            14
+          ],
+          "internal_base": [
+            131,
+            18
+          ],
+          "internal_combined": [
+            131,
+            234
+          ],
+          "history_plus_combined": [
+            131,
+            248
+          ]
+        },
+        "dummy_opposite_label_invariance": {
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              8
+            ],
+            "other_shape": [
+              8
+            ]
+          },
+          "features": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              8,
+              18
+            ],
+            "other_shape": [
+              8,
+              18
+            ]
+          },
+          "pass_": true,
+          "labels_passed_to_extractor": false
+        },
+        "common18_finite": {
+          "pass_": true
+        },
+        "checkpoint_unchanged": {
+          "pass_": true
+        }
+      },
+      "native_observer_calls": 6,
+      "output_shape": [
+        131,
+        64,
+        8
+      ],
+      "score_shape": [
+        131
+      ],
+      "features_shape": [
+        131,
+        18
+      ],
+      "labels_read": false,
+      "test_sources_used": false,
+      "test_metrics_computed": false,
+      "optimizer_created_or_stepped": false,
+      "parameter_mutated": false,
+      "exploratory_or_labeled_features": false
+    },
+    {
+      "run": "lstm_33",
+      "architecture": "lstm",
+      "detector_seed": 33,
+      "checkpoint": "data/phase_f_v4/runs/lstm_33/best.pt",
+      "status": "PASS",
+      "hard_failures": [],
+      "checks": {
+        "finite_shape": {
+          "pass_": true
+        },
+        "observer_off_on_output_score": {
+          "output": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4,
+              64,
+              8
+            ],
+            "other_shape": [
+              4,
+              64,
+              8
+            ]
+          },
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4
+            ],
+            "other_shape": [
+              4
+            ]
+          },
+          "pass_": true
+        },
+        "no_native_predict": {
+          "pass_": true
+        },
+        "score_permutation": {
+          "pass_": true,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "shape": [
+            131
+          ],
+          "other_shape": [
+            131
+          ]
+        },
+        "common18_permutation": {
+          "pass_": true,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "shape": [
+            131,
+            18
+          ],
+          "other_shape": [
+            131,
+            18
+          ]
+        },
+        "score_partition_B3": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 1.2293457984924316e-07,
+          "shape": [
+            131
+          ],
+          "other_shape": [
+            131
+          ]
+        },
+        "common18_partition_B3": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 3.5762786865234375e-07,
+          "shape": [
+            131,
+            18
+          ],
+          "other_shape": [
+            131,
+            18
+          ]
+        },
+        "score_partition_B1": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 2.514570951461792e-07,
+          "shape": [
+            131
+          ],
+          "other_shape": [
+            131
+          ]
+        },
+        "common18_partition_B1": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 3.5762786865234375e-07,
+          "shape": [
+            131,
+            18
+          ],
+          "other_shape": [
+            131,
+            18
+          ]
+        },
+        "independent_window_reset": {
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4
+            ],
+            "other_shape": [
+              4
+            ]
+          },
+          "common18": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4,
+              18
+            ],
+            "other_shape": [
+              4,
+              18
+            ]
+          },
+          "pass_": true
+        },
+        "prefix_causality": {
+          "internal": {
+            "pass_": true,
+            "bitwise": false,
+            "nan_count": 3024,
+            "shape": [
+              80,
+              234
+            ]
+          },
+          "history": {
+            "pass_": true,
+            "bitwise": false,
+            "nan_count": 169,
+            "shape": [
+              80,
+              14
+            ]
+          },
+          "pass_": true
+        },
+        "feature_schema": {
+          "pass_": true,
+          "history": [
+            131,
+            14
+          ],
+          "internal_base": [
+            131,
+            18
+          ],
+          "internal_combined": [
+            131,
+            234
+          ],
+          "history_plus_combined": [
+            131,
+            248
+          ]
+        },
+        "dummy_opposite_label_invariance": {
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              8
+            ],
+            "other_shape": [
+              8
+            ]
+          },
+          "features": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              8,
+              18
+            ],
+            "other_shape": [
+              8,
+              18
+            ]
+          },
+          "pass_": true,
+          "labels_passed_to_extractor": false
+        },
+        "common18_finite": {
+          "pass_": true
+        },
+        "checkpoint_unchanged": {
+          "pass_": true
+        }
+      },
+      "native_observer_calls": 6,
+      "output_shape": [
+        131,
+        64,
+        8
+      ],
+      "score_shape": [
+        131
+      ],
+      "features_shape": [
+        131,
+        18
+      ],
+      "labels_read": false,
+      "test_sources_used": false,
+      "test_metrics_computed": false,
+      "optimizer_created_or_stepped": false,
+      "parameter_mutated": false,
+      "exploratory_or_labeled_features": false
+    },
+    {
+      "run": "lstm_44",
+      "architecture": "lstm",
+      "detector_seed": 44,
+      "checkpoint": "data/phase_f_v4/runs/lstm_44/best.pt",
+      "status": "PASS",
+      "hard_failures": [],
+      "checks": {
+        "finite_shape": {
+          "pass_": true
+        },
+        "observer_off_on_output_score": {
+          "output": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4,
+              64,
+              8
+            ],
+            "other_shape": [
+              4,
+              64,
+              8
+            ]
+          },
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4
+            ],
+            "other_shape": [
+              4
+            ]
+          },
+          "pass_": true
+        },
+        "no_native_predict": {
+          "pass_": true
+        },
+        "score_permutation": {
+          "pass_": true,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "shape": [
+            131
+          ],
+          "other_shape": [
+            131
+          ]
+        },
+        "common18_permutation": {
+          "pass_": true,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "shape": [
+            131,
+            18
+          ],
+          "other_shape": [
+            131,
+            18
+          ]
+        },
+        "score_partition_B3": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 5.587935447692871e-09,
+          "shape": [
+            131
+          ],
+          "other_shape": [
+            131
+          ]
+        },
+        "common18_partition_B3": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 2.384185791015625e-07,
+          "shape": [
+            131,
+            18
+          ],
+          "other_shape": [
+            131,
+            18
+          ]
+        },
+        "score_partition_B1": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 6.868503987789154e-09,
+          "shape": [
+            131
+          ],
+          "other_shape": [
+            131
+          ]
+        },
+        "common18_partition_B1": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 2.384185791015625e-07,
+          "shape": [
+            131,
+            18
+          ],
+          "other_shape": [
+            131,
+            18
+          ]
+        },
+        "independent_window_reset": {
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4
+            ],
+            "other_shape": [
+              4
+            ]
+          },
+          "common18": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4,
+              18
+            ],
+            "other_shape": [
+              4,
+              18
+            ]
+          },
+          "pass_": true
+        },
+        "prefix_causality": {
+          "internal": {
+            "pass_": true,
+            "bitwise": false,
+            "nan_count": 3024,
+            "shape": [
+              80,
+              234
+            ]
+          },
+          "history": {
+            "pass_": true,
+            "bitwise": false,
+            "nan_count": 169,
+            "shape": [
+              80,
+              14
+            ]
+          },
+          "pass_": true
+        },
+        "feature_schema": {
+          "pass_": true,
+          "history": [
+            131,
+            14
+          ],
+          "internal_base": [
+            131,
+            18
+          ],
+          "internal_combined": [
+            131,
+            234
+          ],
+          "history_plus_combined": [
+            131,
+            248
+          ]
+        },
+        "dummy_opposite_label_invariance": {
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              8
+            ],
+            "other_shape": [
+              8
+            ]
+          },
+          "features": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              8,
+              18
+            ],
+            "other_shape": [
+              8,
+              18
+            ]
+          },
+          "pass_": true,
+          "labels_passed_to_extractor": false
+        },
+        "common18_finite": {
+          "pass_": true
+        },
+        "checkpoint_unchanged": {
+          "pass_": true
+        }
+      },
+      "native_observer_calls": 6,
+      "output_shape": [
+        131,
+        64,
+        8
+      ],
+      "score_shape": [
+        131
+      ],
+      "features_shape": [
+        131,
+        18
+      ],
+      "labels_read": false,
+      "test_sources_used": false,
+      "test_metrics_computed": false,
+      "optimizer_created_or_stepped": false,
+      "parameter_mutated": false,
+      "exploratory_or_labeled_features": false
+    },
+    {
+      "run": "lstm_55",
+      "architecture": "lstm",
+      "detector_seed": 55,
+      "checkpoint": "data/phase_f_v4/runs/lstm_55/best.pt",
+      "status": "PASS",
+      "hard_failures": [],
+      "checks": {
+        "finite_shape": {
+          "pass_": true
+        },
+        "observer_off_on_output_score": {
+          "output": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4,
+              64,
+              8
+            ],
+            "other_shape": [
+              4,
+              64,
+              8
+            ]
+          },
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4
+            ],
+            "other_shape": [
+              4
+            ]
+          },
+          "pass_": true
+        },
+        "no_native_predict": {
+          "pass_": true
+        },
+        "score_permutation": {
+          "pass_": true,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "shape": [
+            131
+          ],
+          "other_shape": [
+            131
+          ]
+        },
+        "common18_permutation": {
+          "pass_": true,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "shape": [
+            131,
+            18
+          ],
+          "other_shape": [
+            131,
+            18
+          ]
+        },
+        "score_partition_B3": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 4.0978193283081055e-08,
+          "shape": [
+            131
+          ],
+          "other_shape": [
+            131
+          ]
+        },
+        "common18_partition_B3": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 2.384185791015625e-07,
+          "shape": [
+            131,
+            18
+          ],
+          "other_shape": [
+            131,
+            18
+          ]
+        },
+        "score_partition_B1": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 4.470348358154297e-08,
+          "shape": [
+            131
+          ],
+          "other_shape": [
+            131
+          ]
+        },
+        "common18_partition_B1": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 2.384185791015625e-07,
+          "shape": [
+            131,
+            18
+          ],
+          "other_shape": [
+            131,
+            18
+          ]
+        },
+        "independent_window_reset": {
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4
+            ],
+            "other_shape": [
+              4
+            ]
+          },
+          "common18": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4,
+              18
+            ],
+            "other_shape": [
+              4,
+              18
+            ]
+          },
+          "pass_": true
+        },
+        "prefix_causality": {
+          "internal": {
+            "pass_": true,
+            "bitwise": false,
+            "nan_count": 3024,
+            "shape": [
+              80,
+              234
+            ]
+          },
+          "history": {
+            "pass_": true,
+            "bitwise": false,
+            "nan_count": 169,
+            "shape": [
+              80,
+              14
+            ]
+          },
+          "pass_": true
+        },
+        "feature_schema": {
+          "pass_": true,
+          "history": [
+            131,
+            14
+          ],
+          "internal_base": [
+            131,
+            18
+          ],
+          "internal_combined": [
+            131,
+            234
+          ],
+          "history_plus_combined": [
+            131,
+            248
+          ]
+        },
+        "dummy_opposite_label_invariance": {
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              8
+            ],
+            "other_shape": [
+              8
+            ]
+          },
+          "features": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              8,
+              18
+            ],
+            "other_shape": [
+              8,
+              18
+            ]
+          },
+          "pass_": true,
+          "labels_passed_to_extractor": false
+        },
+        "common18_finite": {
+          "pass_": true
+        },
+        "checkpoint_unchanged": {
+          "pass_": true
+        }
+      },
+      "native_observer_calls": 6,
+      "output_shape": [
+        131,
+        64,
+        8
+      ],
+      "score_shape": [
+        131
+      ],
+      "features_shape": [
+        131,
+        18
+      ],
+      "labels_read": false,
+      "test_sources_used": false,
+      "test_metrics_computed": false,
+      "optimizer_created_or_stepped": false,
+      "parameter_mutated": false,
+      "exploratory_or_labeled_features": false
+    },
+    {
+      "run": "xlstm_11",
+      "architecture": "xlstm",
+      "detector_seed": 11,
+      "checkpoint": "data/phase_f_v4/runs/xlstm_11/best.pt",
+      "status": "PASS",
+      "hard_failures": [],
+      "checks": {
+        "finite_shape": {
+          "pass_": true
+        },
+        "observer_off_on_output_score": {
+          "output": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4,
+              64,
+              8
+            ],
+            "other_shape": [
+              4,
+              64,
+              8
+            ]
+          },
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4
+            ],
+            "other_shape": [
+              4
+            ]
+          },
+          "pass_": true
+        },
+        "no_native_predict": {
+          "pass_": true
+        },
+        "score_permutation": {
+          "pass_": true,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "shape": [
+            131
+          ],
+          "other_shape": [
+            131
+          ]
+        },
+        "common18_permutation": {
+          "pass_": true,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "shape": [
+            131,
+            18
+          ],
+          "other_shape": [
+            131,
+            18
+          ]
+        },
+        "score_partition_B3": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 4.984030965715647e-10,
+          "shape": [
+            131
+          ],
+          "other_shape": [
+            131
+          ]
+        },
+        "common18_partition_B3": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 1.1920928955078125e-07,
+          "shape": [
+            131,
+            18
+          ],
+          "other_shape": [
+            131,
+            18
+          ]
+        },
+        "score_partition_B1": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 6.111804395914078e-10,
+          "shape": [
+            131
+          ],
+          "other_shape": [
+            131
+          ]
+        },
+        "common18_partition_B1": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 1.1920928955078125e-07,
+          "shape": [
+            131,
+            18
+          ],
+          "other_shape": [
+            131,
+            18
+          ]
+        },
+        "independent_window_reset": {
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4
+            ],
+            "other_shape": [
+              4
+            ]
+          },
+          "common18": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4,
+              18
+            ],
+            "other_shape": [
+              4,
+              18
+            ]
+          },
+          "pass_": true
+        },
+        "prefix_causality": {
+          "internal": {
+            "pass_": true,
+            "bitwise": false,
+            "nan_count": 3024,
+            "shape": [
+              80,
+              234
+            ]
+          },
+          "history": {
+            "pass_": true,
+            "bitwise": false,
+            "nan_count": 169,
+            "shape": [
+              80,
+              14
+            ]
+          },
+          "pass_": true
+        },
+        "feature_schema": {
+          "pass_": true,
+          "history": [
+            131,
+            14
+          ],
+          "internal_base": [
+            131,
+            18
+          ],
+          "internal_combined": [
+            131,
+            234
+          ],
+          "history_plus_combined": [
+            131,
+            248
+          ]
+        },
+        "dummy_opposite_label_invariance": {
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              8
+            ],
+            "other_shape": [
+              8
+            ]
+          },
+          "features": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              8,
+              18
+            ],
+            "other_shape": [
+              8,
+              18
+            ]
+          },
+          "pass_": true,
+          "labels_passed_to_extractor": false
+        },
+        "common18_finite": {
+          "pass_": true
+        },
+        "checkpoint_unchanged": {
+          "pass_": true
+        }
+      },
+      "native_observer_calls": 4,
+      "output_shape": [
+        131,
+        64,
+        8
+      ],
+      "score_shape": [
+        131
+      ],
+      "features_shape": [
+        131,
+        18
+      ],
+      "labels_read": false,
+      "test_sources_used": false,
+      "test_metrics_computed": false,
+      "optimizer_created_or_stepped": false,
+      "parameter_mutated": false,
+      "exploratory_or_labeled_features": false
+    },
+    {
+      "run": "xlstm_22",
+      "architecture": "xlstm",
+      "detector_seed": 22,
+      "checkpoint": "data/phase_f_v4/runs/xlstm_22/best.pt",
+      "status": "PASS",
+      "hard_failures": [],
+      "checks": {
+        "finite_shape": {
+          "pass_": true
+        },
+        "observer_off_on_output_score": {
+          "output": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4,
+              64,
+              8
+            ],
+            "other_shape": [
+              4,
+              64,
+              8
+            ]
+          },
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4
+            ],
+            "other_shape": [
+              4
+            ]
+          },
+          "pass_": true
+        },
+        "no_native_predict": {
+          "pass_": true
+        },
+        "score_permutation": {
+          "pass_": true,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "shape": [
+            131
+          ],
+          "other_shape": [
+            131
+          ]
+        },
+        "common18_permutation": {
+          "pass_": true,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "shape": [
+            131,
+            18
+          ],
+          "other_shape": [
+            131,
+            18
+          ]
+        },
+        "score_partition_B3": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 6.912159733474255e-10,
+          "shape": [
+            131
+          ],
+          "other_shape": [
+            131
+          ]
+        },
+        "common18_partition_B3": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 1.1920928955078125e-07,
+          "shape": [
+            131,
+            18
+          ],
+          "other_shape": [
+            131,
+            18
+          ]
+        },
+        "score_partition_B1": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 4.1109160520136356e-10,
+          "shape": [
+            131
+          ],
+          "other_shape": [
+            131
+          ]
+        },
+        "common18_partition_B1": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 1.1920928955078125e-07,
+          "shape": [
+            131,
+            18
+          ],
+          "other_shape": [
+            131,
+            18
+          ]
+        },
+        "independent_window_reset": {
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4
+            ],
+            "other_shape": [
+              4
+            ]
+          },
+          "common18": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4,
+              18
+            ],
+            "other_shape": [
+              4,
+              18
+            ]
+          },
+          "pass_": true
+        },
+        "prefix_causality": {
+          "internal": {
+            "pass_": true,
+            "bitwise": false,
+            "nan_count": 3024,
+            "shape": [
+              80,
+              234
+            ]
+          },
+          "history": {
+            "pass_": true,
+            "bitwise": false,
+            "nan_count": 169,
+            "shape": [
+              80,
+              14
+            ]
+          },
+          "pass_": true
+        },
+        "feature_schema": {
+          "pass_": true,
+          "history": [
+            131,
+            14
+          ],
+          "internal_base": [
+            131,
+            18
+          ],
+          "internal_combined": [
+            131,
+            234
+          ],
+          "history_plus_combined": [
+            131,
+            248
+          ]
+        },
+        "dummy_opposite_label_invariance": {
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              8
+            ],
+            "other_shape": [
+              8
+            ]
+          },
+          "features": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              8,
+              18
+            ],
+            "other_shape": [
+              8,
+              18
+            ]
+          },
+          "pass_": true,
+          "labels_passed_to_extractor": false
+        },
+        "common18_finite": {
+          "pass_": true
+        },
+        "checkpoint_unchanged": {
+          "pass_": true
+        }
+      },
+      "native_observer_calls": 4,
+      "output_shape": [
+        131,
+        64,
+        8
+      ],
+      "score_shape": [
+        131
+      ],
+      "features_shape": [
+        131,
+        18
+      ],
+      "labels_read": false,
+      "test_sources_used": false,
+      "test_metrics_computed": false,
+      "optimizer_created_or_stepped": false,
+      "parameter_mutated": false,
+      "exploratory_or_labeled_features": false
+    },
+    {
+      "run": "xlstm_33",
+      "architecture": "xlstm",
+      "detector_seed": 33,
+      "checkpoint": "data/phase_f_v4/runs/xlstm_33/best.pt",
+      "status": "PASS",
+      "hard_failures": [],
+      "checks": {
+        "finite_shape": {
+          "pass_": true
+        },
+        "observer_off_on_output_score": {
+          "output": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4,
+              64,
+              8
+            ],
+            "other_shape": [
+              4,
+              64,
+              8
+            ]
+          },
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4
+            ],
+            "other_shape": [
+              4
+            ]
+          },
+          "pass_": true
+        },
+        "no_native_predict": {
+          "pass_": true
+        },
+        "score_permutation": {
+          "pass_": true,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "shape": [
+            131
+          ],
+          "other_shape": [
+            131
+          ]
+        },
+        "common18_permutation": {
+          "pass_": true,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "shape": [
+            131,
+            18
+          ],
+          "other_shape": [
+            131,
+            18
+          ]
+        },
+        "score_partition_B3": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 5.238689482212067e-10,
+          "shape": [
+            131
+          ],
+          "other_shape": [
+            131
+          ]
+        },
+        "common18_partition_B3": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 1.1920928955078125e-07,
+          "shape": [
+            131,
+            18
+          ],
+          "other_shape": [
+            131,
+            18
+          ]
+        },
+        "score_partition_B1": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 5.638867150992155e-10,
+          "shape": [
+            131
+          ],
+          "other_shape": [
+            131
+          ]
+        },
+        "common18_partition_B1": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 1.1920928955078125e-07,
+          "shape": [
+            131,
+            18
+          ],
+          "other_shape": [
+            131,
+            18
+          ]
+        },
+        "independent_window_reset": {
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4
+            ],
+            "other_shape": [
+              4
+            ]
+          },
+          "common18": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4,
+              18
+            ],
+            "other_shape": [
+              4,
+              18
+            ]
+          },
+          "pass_": true
+        },
+        "prefix_causality": {
+          "internal": {
+            "pass_": true,
+            "bitwise": false,
+            "nan_count": 3024,
+            "shape": [
+              80,
+              234
+            ]
+          },
+          "history": {
+            "pass_": true,
+            "bitwise": false,
+            "nan_count": 169,
+            "shape": [
+              80,
+              14
+            ]
+          },
+          "pass_": true
+        },
+        "feature_schema": {
+          "pass_": true,
+          "history": [
+            131,
+            14
+          ],
+          "internal_base": [
+            131,
+            18
+          ],
+          "internal_combined": [
+            131,
+            234
+          ],
+          "history_plus_combined": [
+            131,
+            248
+          ]
+        },
+        "dummy_opposite_label_invariance": {
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              8
+            ],
+            "other_shape": [
+              8
+            ]
+          },
+          "features": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              8,
+              18
+            ],
+            "other_shape": [
+              8,
+              18
+            ]
+          },
+          "pass_": true,
+          "labels_passed_to_extractor": false
+        },
+        "common18_finite": {
+          "pass_": true
+        },
+        "checkpoint_unchanged": {
+          "pass_": true
+        }
+      },
+      "native_observer_calls": 4,
+      "output_shape": [
+        131,
+        64,
+        8
+      ],
+      "score_shape": [
+        131
+      ],
+      "features_shape": [
+        131,
+        18
+      ],
+      "labels_read": false,
+      "test_sources_used": false,
+      "test_metrics_computed": false,
+      "optimizer_created_or_stepped": false,
+      "parameter_mutated": false,
+      "exploratory_or_labeled_features": false
+    },
+    {
+      "run": "xlstm_44",
+      "architecture": "xlstm",
+      "detector_seed": 44,
+      "checkpoint": "data/phase_f_v4/runs/xlstm_44/best.pt",
+      "status": "PASS",
+      "hard_failures": [],
+      "checks": {
+        "finite_shape": {
+          "pass_": true
+        },
+        "observer_off_on_output_score": {
+          "output": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4,
+              64,
+              8
+            ],
+            "other_shape": [
+              4,
+              64,
+              8
+            ]
+          },
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4
+            ],
+            "other_shape": [
+              4
+            ]
+          },
+          "pass_": true
+        },
+        "no_native_predict": {
+          "pass_": true
+        },
+        "score_permutation": {
+          "pass_": true,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "shape": [
+            131
+          ],
+          "other_shape": [
+            131
+          ]
+        },
+        "common18_permutation": {
+          "pass_": true,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "shape": [
+            131,
+            18
+          ],
+          "other_shape": [
+            131,
+            18
+          ]
+        },
+        "score_partition_B3": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 1.076841726899147e-09,
+          "shape": [
+            131
+          ],
+          "other_shape": [
+            131
+          ]
+        },
+        "common18_partition_B3": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 1.1920928955078125e-07,
+          "shape": [
+            131,
+            18
+          ],
+          "other_shape": [
+            131,
+            18
+          ]
+        },
+        "score_partition_B1": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 1.076841726899147e-09,
+          "shape": [
+            131
+          ],
+          "other_shape": [
+            131
+          ]
+        },
+        "common18_partition_B1": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 1.1920928955078125e-07,
+          "shape": [
+            131,
+            18
+          ],
+          "other_shape": [
+            131,
+            18
+          ]
+        },
+        "independent_window_reset": {
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4
+            ],
+            "other_shape": [
+              4
+            ]
+          },
+          "common18": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4,
+              18
+            ],
+            "other_shape": [
+              4,
+              18
+            ]
+          },
+          "pass_": true
+        },
+        "prefix_causality": {
+          "internal": {
+            "pass_": true,
+            "bitwise": false,
+            "nan_count": 3024,
+            "shape": [
+              80,
+              234
+            ]
+          },
+          "history": {
+            "pass_": true,
+            "bitwise": false,
+            "nan_count": 169,
+            "shape": [
+              80,
+              14
+            ]
+          },
+          "pass_": true
+        },
+        "feature_schema": {
+          "pass_": true,
+          "history": [
+            131,
+            14
+          ],
+          "internal_base": [
+            131,
+            18
+          ],
+          "internal_combined": [
+            131,
+            234
+          ],
+          "history_plus_combined": [
+            131,
+            248
+          ]
+        },
+        "dummy_opposite_label_invariance": {
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              8
+            ],
+            "other_shape": [
+              8
+            ]
+          },
+          "features": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              8,
+              18
+            ],
+            "other_shape": [
+              8,
+              18
+            ]
+          },
+          "pass_": true,
+          "labels_passed_to_extractor": false
+        },
+        "common18_finite": {
+          "pass_": true
+        },
+        "checkpoint_unchanged": {
+          "pass_": true
+        }
+      },
+      "native_observer_calls": 4,
+      "output_shape": [
+        131,
+        64,
+        8
+      ],
+      "score_shape": [
+        131
+      ],
+      "features_shape": [
+        131,
+        18
+      ],
+      "labels_read": false,
+      "test_sources_used": false,
+      "test_metrics_computed": false,
+      "optimizer_created_or_stepped": false,
+      "parameter_mutated": false,
+      "exploratory_or_labeled_features": false
+    },
+    {
+      "run": "xlstm_55",
+      "architecture": "xlstm",
+      "detector_seed": 55,
+      "checkpoint": "data/phase_f_v4/runs/xlstm_55/best.pt",
+      "status": "PASS",
+      "hard_failures": [],
+      "checks": {
+        "finite_shape": {
+          "pass_": true
+        },
+        "observer_off_on_output_score": {
+          "output": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4,
+              64,
+              8
+            ],
+            "other_shape": [
+              4,
+              64,
+              8
+            ]
+          },
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4
+            ],
+            "other_shape": [
+              4
+            ]
+          },
+          "pass_": true
+        },
+        "no_native_predict": {
+          "pass_": true
+        },
+        "score_permutation": {
+          "pass_": true,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "shape": [
+            131
+          ],
+          "other_shape": [
+            131
+          ]
+        },
+        "common18_permutation": {
+          "pass_": true,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "shape": [
+            131,
+            18
+          ],
+          "other_shape": [
+            131,
+            18
+          ]
+        },
+        "score_partition_B3": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 9.74978320300579e-10,
+          "shape": [
+            131
+          ],
+          "other_shape": [
+            131
+          ]
+        },
+        "common18_partition_B3": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 5.960464477539063e-08,
+          "shape": [
+            131,
+            18
+          ],
+          "other_shape": [
+            131,
+            18
+          ]
+        },
+        "score_partition_B1": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 1.0331859812140465e-09,
+          "shape": [
+            131
+          ],
+          "other_shape": [
+            131
+          ]
+        },
+        "common18_partition_B1": {
+          "pass_": true,
+          "bitwise": false,
+          "max_abs": 1.1920928955078125e-07,
+          "shape": [
+            131,
+            18
+          ],
+          "other_shape": [
+            131,
+            18
+          ]
+        },
+        "independent_window_reset": {
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4
+            ],
+            "other_shape": [
+              4
+            ]
+          },
+          "common18": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4,
+              18
+            ],
+            "other_shape": [
+              4,
+              18
+            ]
+          },
+          "pass_": true
+        },
+        "prefix_causality": {
+          "internal": {
+            "pass_": true,
+            "bitwise": false,
+            "nan_count": 3024,
+            "shape": [
+              80,
+              234
+            ]
+          },
+          "history": {
+            "pass_": true,
+            "bitwise": false,
+            "nan_count": 169,
+            "shape": [
+              80,
+              14
+            ]
+          },
+          "pass_": true
+        },
+        "feature_schema": {
+          "pass_": true,
+          "history": [
+            131,
+            14
+          ],
+          "internal_base": [
+            131,
+            18
+          ],
+          "internal_combined": [
+            131,
+            234
+          ],
+          "history_plus_combined": [
+            131,
+            248
+          ]
+        },
+        "dummy_opposite_label_invariance": {
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              8
+            ],
+            "other_shape": [
+              8
+            ]
+          },
+          "features": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              8,
+              18
+            ],
+            "other_shape": [
+              8,
+              18
+            ]
+          },
+          "pass_": true,
+          "labels_passed_to_extractor": false
+        },
+        "common18_finite": {
+          "pass_": true
+        },
+        "checkpoint_unchanged": {
+          "pass_": true
+        }
+      },
+      "native_observer_calls": 4,
+      "output_shape": [
+        131,
+        64,
+        8
+      ],
+      "score_shape": [
+        131
+      ],
+      "features_shape": [
+        131,
+        18
+      ],
+      "labels_read": false,
+      "test_sources_used": false,
+      "test_metrics_computed": false,
+      "optimizer_created_or_stepped": false,
+      "parameter_mutated": false,
+      "exploratory_or_labeled_features": false
+    }
+  ],
+  "feature_schema_expected": {
+    "history": 14,
+    "internal_base": 18,
+    "hidden": 52,
+    "gate": 130,
+    "memory": 52,
+    "combined": 234,
+    "history_plus_combined": 248
+  },
+  "atol": 1e-05,
+  "rtol": 0.0001,
+  "random_unlabeled_only": true,
+  "labels_read": false,
+  "test_sources_used": false,
+  "test_metrics_computed": false,
+  "scaler_fit": false,
+  "classifier_fit": false,
+  "optimizer_created_or_stepped": false,
+  "native_predict_invoked": false,
+  "phase_g_label_join_started": false,
+  "phase_g_statistics_started": false,
+  "preflight_script_sha256": "8c0348a850eb69d1d32090518e6c2c6acf4d98d90584af7412bf293bb0d3a7ee",
+  "environment": {
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "deterministic_algorithms": false,
+    "matmul_precision": "highest",
+    "matmul_allow_tf32": false,
+    "cudnn_allow_tf32": false,
+    "torch_threads": 4,
+    "torch": "2.13.0+cu130",
+    "cuda": "13.0",
+    "cudnn": 92000,
+    "device": "NVIDIA GB10",
+    "uuid": "8796b197-6eba-7823-5301-1e9837053193",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "upstream_commit": "e8b56ba27352733bb83729e85b1d6196dca70c99",
+    "backend_fingerprint": "bae2b520ad1927ee2a89c85f342188b48e29d01b3289d58cbca7a7f6e91d517f",
+    "config_sha256": "bb3a6addc6e3692b018a8e6073c0b3b7fec013227edbb494f6be6bc9c8dddeaf",
+    "matched_lstm_cudnn_scope": "only inside MatchedLSTM.forward",
+    "matched_lstm_cudnn_enabled": false,
+    "phase_f_version": "v4",
+    "validity_contract": "raw_output_partition_diagnostic_only"
+  },
+  "note": "CANDI history control remains unresolved; no labels or model results were used to choose a control."
+}
