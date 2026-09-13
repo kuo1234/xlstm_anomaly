@@ -1,0 +1,61 @@
+{
+  "status": "SEALED_CARRY_FORWARD",
+  "policy": "Reference only; no checkpoint copying or retraining. F3 artifacts remain immutable.",
+  "source_phase": "F-v3",
+  "validity_contract": "F-v3 stricter post-training contract passed; F-v4 changes only raw-output partition classification.",
+  "runs": {
+    "lstm_11": {
+      "source_manifest": "reports/phase_f_v3/runs/lstm_11/manifest.json",
+      "source_post_training_parity": "reports/phase_f_v3/runs/lstm_11/post_training_parity.json",
+      "source_checkpoint_dir": "data/phase_f_v3/runs/lstm_11",
+      "architecture": "lstm",
+      "seed": 11,
+      "status": "PASS",
+      "epochs": 50,
+      "selected_epoch": 50,
+      "initial_model_hash": "f0ea70ddbd4e01e88ebb5c3cab2a3927288b677014a302a04bf9de18f2ea8246",
+      "best_model_hash": "7325db28fc45ccd9dc1a778c050cb02e4e2ade55679896e43648ad2bb6d59b06",
+      "final_model_hash": "7325db28fc45ccd9dc1a778c050cb02e4e2ade55679896e43648ad2bb6d59b06",
+      "checkpoint_sha256": {
+        "initial.pt": "758fdcef00dd965b862cad4dce4d42313cbfe71831f1b97103e518b72320ba03",
+        "best.pt": "ccd3158a74f154cd4091a64079719f10c1ed01d85f8e24325e7257ec6599db3b",
+        "final.pt": "7663c831ad63690720b3c2ad2c1a1d4ca1fc46b967f84ba8ec106a6aa90353e1"
+      },
+      "post_training_parity_status": "PASS",
+      "labels_used": false,
+      "test_sources_used": false,
+      "probe_fitting": false,
+      "copied": false,
+      "retrained": false
+    },
+    "lstm_22": {
+      "source_manifest": "reports/phase_f_v3/runs/lstm_22/manifest.json",
+      "source_post_training_parity": "reports/phase_f_v3/runs/lstm_22/post_training_parity.json",
+      "source_checkpoint_dir": "data/phase_f_v3/runs/lstm_22",
+      "architecture": "lstm",
+      "seed": 22,
+      "status": "PASS",
+      "epochs": 50,
+      "selected_epoch": 47,
+      "initial_model_hash": "aa1f1267e7e5bdd52bd6246aec1f3cc2ac09849387a0afbcd2ec7df8e2b7f67b",
+      "best_model_hash": "42dcdc8d60505fa94db657b9c50aa57cf6635b081e19fb4be6b2bef4ad94eb00",
+      "final_model_hash": "22955584146a552887e69419618d9fe3f72d071702514e7483cd78d8a4096d60",
+      "checkpoint_sha256": {
+        "initial.pt": "dc171d6480c0b4752cd13bd4c38eb1239a2b72dc947201ce22615b76b15a26cd",
+        "best.pt": "f01170ed4ee5195a83f4072e63e367a84c8fbbaf666560d854bfa1a89713ca53",
+        "final.pt": "0faae005e8211cbccc1db90a6c0d370f1064e5472609580a9177bd42c90b4e02"
+      },
+      "post_training_parity_status": "PASS",
+      "labels_used": false,
+      "test_sources_used": false,
+      "probe_fitting": false,
+      "copied": false,
+      "retrained": false
+    }
+  },
+  "forbidden_reuse": [
+    "data/phase_f_v3/runs/lstm_33",
+    "data/phase_f_v3/runs/xlstm_11",
+    "data/phase_f_v3/runs/lstm_33/epoch29_replay_diagnostic.pt"
+  ]
+}
