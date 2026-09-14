@@ -1,0 +1,102 @@
+{
+  "verdict": "PASS_FOR_LABEL_ACCESS",
+  "reviewed_commit": "fe507084b9a1aba0c67a4536c5bb938ea89a4945",
+  "implementation_commit": "fe507084b9a1aba0c67a4536c5bb938ea89a4945",
+  "review_commit_derivation": "The enclosing report-only commit is the G1_REVIEW_COMMIT; its SHA is supplied by the launcher and is not embedded self-referentially.",
+  "files_inspected": [
+    "scripts/phase_g1_core.py",
+    "scripts/phase_g1_pipeline.py",
+    "scripts/phase_g1_run.py",
+    "scripts/phase_g1_stage_a.py",
+    "scripts/phase_g1_adversarial.py",
+    "scripts/phase_g1_postrun_audit.py",
+    "tests/test_phase_g1.py",
+    "reports/phase_g1/adversarial_tests.json",
+    "reports/phase_g1/stage_a_preflight.json"
+  ],
+  "frozen_protocol_files_inspected": [
+    "reports/m0_protocol.md",
+    "configs/phase_g1.json",
+    "reports/phase_g1/g1_1_duration_severity_amendment.md",
+    "reports/phase_g/candi_control_manifest.json",
+    "reports/phase_g/candi_preflight.json",
+    "reports/phase_g/checkpoint_manifest.json",
+    "reports/phase_g/schema_binding.json",
+    "reports/phase_g/prospective.md",
+    "reports/phase_g/confirmatory_family.json"
+  ],
+  "protocol_to_code": [
+    {"requirement": "source folds and four-scenario pooled fitting", "code_path": "phase_g1_core assertions; phase_g1_run.run", "evidence": "Stage-A and adversarial source-fold/pooled-contract tests", "status": "PASS"},
+    {"requirement": "observation-only extraction and post-extraction truth join", "code_path": "phase_g1_run observation helpers; phase_g1_pipeline.join_evaluator_labels", "evidence": "signature, no-label API, and semantic-boundary tests", "status": "PASS"},
+    {"requirement": "W64 right-edge rows, causal warmup and exact paired cohorts", "code_path": "phase_g1_run.run/primary_binary_mask/select_primary_rows", "evidence": "row-order, warmup-removal, causality and cohort guards", "status": "PASS"},
+    {"requirement": "shared CANDI W10 history at t>=63", "code_path": "phase_g1_pipeline.extract_candi_history and shared-control assertions", "evidence": "CANDI alignment and shared tensor tests", "status": "PASS"},
+    {"requirement": "sealed common feature schema and backbone pooling", "code_path": "phase_g1_core.build_feature_groups plus sealed E2/F4 observers", "evidence": "dimensions/reset/finite/schema checks", "status": "PASS"},
+    {"requirement": "train-only scaler and pooled validation C selection", "code_path": "phase_g1_core.fit_probe_pooled", "evidence": "fold/scaler/C-grid/tie and per-scenario rejection tests", "status": "PASS"},
+    {"requirement": "source-pooled AP and four confirmatory contrasts", "code_path": "phase_g1_run source AP/difference helpers; phase_g1_pipeline.build_confirmatory_statistics", "evidence": "shape, direction and four-member family guards", "status": "PASS"},
+    {"requirement": "duration/severity robustness without refit or bin merging", "code_path": "phase_g1_run duration selection/report helpers", "evidence": "G1.1 fixed-bin, support, no-refit and no-merge fixtures", "status": "PASS"},
+    {"requirement": "semantic non-identifiability negative control", "code_path": "phase_g1_run._secondary_streaming_pass", "evidence": "observation/prediction invariance and support-rejection tests", "status": "PASS"},
+    {"requirement": "hierarchical bootstrap, sign-flip and Holm family", "code_path": "phase_g1_pipeline.build_confirmatory_statistics and core helpers", "evidence": "family-size and statistics guards", "status": "PASS"},
+    {"requirement": "conditional H3a and frozen Boolean thresholds", "code_path": "final decision block in phase_g1_run.run", "evidence": "direction/threshold/eligibility tests", "status": "PASS"},
+    {"requirement": "resource-bounded primary and secondary execution", "code_path": "phase_g1_run primary chunk cache, seed-local fit loop, secondary streaming", "evidence": "bounded primary and secondary fixtures; 36/36 adversarial suite", "status": "PASS"},
+    {"requirement": "no optimizer/native predict_step/parameter mutation", "code_path": "phase_g1_core.extract_backbone_rows and launcher guards", "evidence": "entrypoint, mutation and no-predict-step tests", "status": "PASS"}
+  ],
+  "adversarial_tests": {
+    "suite": "scripts/phase_g1_adversarial.py",
+    "count": 36,
+    "status": "PASS",
+    "real_phase_g_labels_read": false,
+    "ap_or_auroc_computed": false,
+    "probe_fitted": false,
+    "optimizer_steps": false
+  },
+  "resource_validation": {
+    "stage_a": "PASS",
+    "primary_cache_fixture": {"status": "PASS", "chunk_count": 24, "max_feature_bytes": 896, "cross_seed_feature_accumulation": false},
+    "secondary_streaming_fixture": {"status": "PASS", "chunk_count": 6, "materialized_artifact_count": 4, "metric_branch_entered": false}
+  },
+  "defects_found": [
+    "Prior review memory blocker: full primary raw_rows and pooled feature matrices were retained across detector seeds."
+  ],
+  "fixes_made": [
+    "Primary stream/arm chunks are persisted and one detector seed is pooled/fitted/materialized at a time.",
+    "Secondary views are regenerated stream-by-stream and robustness/semantic artifacts are materialized incrementally."
+  ],
+  "unresolved_ambiguities": [],
+  "real_phase_g_labels_read": false,
+  "test_source_labels_read": false,
+  "scaler_fitted": false,
+  "logistic_fitted": false,
+  "ap_or_auroc_computed": false,
+  "bootstrap_or_sign_flip": false,
+  "optimizer_created_or_stepped": false,
+  "checkpoint_mutated": false,
+  "scientific_file_sha256": {
+    "configs/phase_g1.json": "ad1ab81ef7178608408c592e769123dbcf9c661da78caaa6a4bfd14d5e93a21b",
+    "reports/m0_protocol.md": "59250d1ea7acb5e91c86fda179ecb951a93c965a7ac986369d9cee45ace10950",
+    "reports/phase_g1/g1_1_duration_severity_amendment.md": "dd67fee66da1048114cbaa0dbf357054cebd1b7e11289132642ca4afbc0693cb",
+    "configs/synthetic_v1.json": "5b1fb7858cf144db3615b91a6a22f21fb52c858fa9669082beca67c26ec8338f",
+    "reports/phase_f/preprocessing_manifest.json": "5910fa70711f2f56df927351675e401587382dc8e17099f75393e6ae715926d1",
+    "reports/phase_e2/source_hashes.json": "a3cf71e2d3abefd98f6e0849a20233a3a9bad3782cd87fa63a9093a870737530",
+    "reports/phase_e2/environment.json": "8149ea9d48b6cf40fa3917cc7f92e77f6206d2f1bb9887f36f0985637025de3d",
+    "reports/phase_e2/dependency_install.json": "e8e601baa74b280feeda7a113c92e501b7978d0eb5b8c95922afaa18757e586e",
+    "m0/synthetic.py": "6d9243142c7cb95c2c2f5aef2ba8ca7493b369ea754e3405f96afbccec7faac2",
+    "m0/correlation.py": "7211f3e50c12d36864a467933bca093e3ba113f68ea189afa13866b9b8b19dd1",
+    "scripts/phase_g1_core.py": "11ad48b264f5afa400cf06f786194de0878b7ca86a2fc19132b1f002d71b9c6c",
+    "scripts/phase_g1_pipeline.py": "a9e83a559352e980d763f7fa0cfeff40e734fe0c5bef697ff4d3d51e6396bb5f",
+    "scripts/phase_g1_run.py": "3cf878b499f47ba2b890822e27b1d87074000766202047214679828f86295825",
+    "scripts/phase_g1_stage_a.py": "1368836eccc0109e830ebb93c6718145c9af5604cccd4e8694e1fe591f78efc1",
+    "scripts/phase_g1_adversarial.py": "e49f727b033e8c690eb7d519657489f6b7744844d59bc9cf27ed4c7bac4ffbf5",
+    "scripts/phase_g1_postrun_audit.py": "d84ccbcb360b4acd0d40b2a0ce1fc4fb4bdde8cc968804f67e1e5234fc3e155e",
+    "scripts/phase_g0_preflight.py": "8c0348a850eb69d1d32090518e6c2c6acf4d98d90584af7412bf293bb0d3a7ee",
+    "scripts/phase_g01_candi_preflight.py": "ba762b5f6d47fd2d58d7efcbb5094297a00aab74656ea896d6bd68c75efd14cd",
+    "scripts/phase_e2_common.py": "5d585f47158d87afaf30acc7d41f3324be500b3a5ddbd619180aeb86569aed10",
+    "scripts/phase_e2_observer.py": "0a1968f3a282d037f772983d85ee40d275d267472548a4ee9b7cc4924daa31b8",
+    "scripts/phase_e2_schema.py": "1e8274c030d2c86eaf5d54f6a52515582106021b644c4e79e1fe10b6d54d04e8",
+    "scripts/phase_f_common.py": "9d20fefb22ec143c3d19d285c11705d1949946b4255c4cf1a2d4882b51344575",
+    "scripts/phase_f_v2_common.py": "6febcd9ee8da01caa96d072c8d60d185b79d3cd884f245b05725f93d3fc26710",
+    "scripts/phase_f_v3_common.py": "a66b09c2cc00386d31c802ab118c560b788603047666dc4cec537c28ec7a2247",
+    "scripts/phase_f_v4_common.py": "1b93a8c5e421741a7e323ec163798de5e77f1780ffda4669b2f09a060f9fb700",
+    "scripts/phase_f_lstm_observer.py": "e58aeef030a85669ef84757d9fd48d83d8d52656e270104d56dbfb37f1c8d570",
+    "tests/test_phase_g1.py": "f43bd8438734f6b21ceb1b716b523594940e4b35dbaca1803f0bd9df227bc26a"
+  }
+}
