@@ -615,6 +615,9 @@ def main() -> None:
         "official_candi_commit": OFFICIAL_CANDI_COMMIT,
         "official_candi_checkout_head": official_head,
         "official_candi_checkout_dirty": bool(official_dirty),
+        "environment": environment,
+        "preflight_script": str(Path(__file__).resolve().relative_to(ROOT)),
+        "preflight_script_sha256": sha(Path(__file__).resolve()),
         "fixture": {
             "source_seed": SOURCE_SEED,
             "source_fold": "probe_validation",

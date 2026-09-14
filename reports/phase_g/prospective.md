@@ -57,5 +57,20 @@ derived preprocessing hashes are sealed in
 [`candi_control_manifest.json`](candi_control_manifest.json). SMD/Phase-C
 native controls are explicitly excluded because they are domain/dimension
 mismatched for the D=8 synthetic source-paired track. The amendment status is
-`PENDING_CANDI_PREFLIGHT`; G0 becomes PASS only if the original ten-backbone
-preflight remains PASS and the alignment preflight passes.
+`PENDING_CANDI_PREFLIGHT` in its prospective commit; G0 could become PASS
+only if the original ten-backbone preflight remained PASS and the alignment
+preflight passed. The resulting status is recorded below.
+
+## G0.1 alignment preflight outcome
+
+The label-blind CANDI alignment preflight passed for all five seed mappings;
+the original ten-backbone preflight also remained PASS. Therefore the current
+G0 status is `PASS`. The sealed report is
+[`candi_preflight.json`](candi_preflight.json) (SHA256
+`5b2492efd6ce505bdd916cd34d6d5a83b5550ed7120c7d13b75f03e27615cb13`). It
+verified common right-edge timestamps 63--191, CANDI W=10 versus xLSTM/LSTM
+W=64 windows from one raw observation stream, 14-column causal history with
+97 valid rows after warmup, paired history reuse and byte-identical row keys,
+future-perturbation causality, reset, finite outputs, state/hash immutability,
+and dummy-label invariance. No labels, test metrics, scaler fitting,
+classifier fitting, optimizer, adaptation, or FPM selection was used.
