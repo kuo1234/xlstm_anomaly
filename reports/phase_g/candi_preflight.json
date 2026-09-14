@@ -1,0 +1,1664 @@
+{
+  "status": "PASS",
+  "g0_status": "PASS",
+  "backbone_preflight": {
+    "path": "reports/phase_g/preflight.json",
+    "sha256": "cabf4a36d885b65b3596a704d0f36afbb2ef657974288a91675fe49bb1253fe6",
+    "status": "STOP_CANDI_CONTROL_UNRESOLVED",
+    "backbone_status": "PASS",
+    "run_count": 10
+  },
+  "candi_control_status": "PASS",
+  "candi_control_manifest": "reports/phase_g/candi_control_manifest.json",
+  "candi_control_manifest_sha256": "f86c8ab05061d9c78da5f98408161d33966dad0335f7ad1450a66fa034c07ca6",
+  "official_candi_commit": "28c9679e503832f59e351208cde63657fcb51cad",
+  "official_candi_checkout_head": "28c9679e503832f59e351208cde63657fcb51cad",
+  "official_candi_checkout_dirty": false,
+  "environment": {
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "deterministic_algorithms": false,
+    "matmul_precision": "highest",
+    "matmul_allow_tf32": false,
+    "cudnn_allow_tf32": false,
+    "torch_threads": 4,
+    "torch": "2.13.0+cu130",
+    "cuda": "13.0",
+    "cudnn": 92000,
+    "device": "NVIDIA GB10",
+    "uuid": "8796b197-6eba-7823-5301-1e9837053193",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "upstream_commit": "e8b56ba27352733bb83729e85b1d6196dca70c99",
+    "backend_fingerprint": "bae2b520ad1927ee2a89c85f342188b48e29d01b3289d58cbca7a7f6e91d517f",
+    "config_sha256": "bb3a6addc6e3692b018a8e6073c0b3b7fec013227edbb494f6be6bc9c8dddeaf",
+    "matched_lstm_cudnn_scope": "only inside MatchedLSTM.forward",
+    "matched_lstm_cudnn_enabled": false,
+    "phase_f_version": "v4",
+    "validity_contract": "raw_output_partition_diagnostic_only"
+  },
+  "preflight_script": "scripts/phase_g01_candi_preflight.py",
+  "preflight_script_sha256": "ba762b5f6d47fd2d58d7efcbb5094297a00aab74656ea896d6bd68c75efd14cd",
+  "fixture": {
+    "source_seed": 2000,
+    "source_fold": "probe_validation",
+    "scenario": "stationary",
+    "condition": "none",
+    "raw_length": 192,
+    "dimension": 8,
+    "raw_observations_sha256": "f29aa268dd60b0b60c0fb0be94acb0e73ac997f4b91f511de5f99da13c6c3492",
+    "phase_f_scaler": "data/phase_f/prefixes/2000/scaler.json",
+    "phase_f_scaler_sha256": "a5e220797f6d49f1109ea43359fa8fcdf9a88018e086f3aa00593e6e8d123e08",
+    "generator_fields_accessed": [
+      "observations"
+    ],
+    "truth_fields_accessed": []
+  },
+  "alignment": {
+    "common_track_first_timestamp": 63,
+    "common_track_timestamp_rule": "right edge t",
+    "xlstm_lstm_window": "raw[t-63:t+1]",
+    "candi_window": "raw[t-9:t+1]",
+    "candi_window_length": 10,
+    "stride": 1,
+    "pre_common_scores_forbidden": true,
+    "history_source": "CANDI scores only at t >= 63",
+    "history_columns": 14,
+    "rolling_widths": [
+      4,
+      8,
+      16,
+      32
+    ],
+    "warmup": "NaN for incomplete history; no padding or imputation"
+  },
+  "expected_feature_schema": {
+    "history": 14,
+    "internal_base": 18,
+    "hidden": 52,
+    "gate": 130,
+    "memory": 52,
+    "combined": 234,
+    "history_plus_combined": 248
+  },
+  "atol": 1e-05,
+  "rtol": 0.0001,
+  "rows": [
+    {
+      "detector_seed": 11,
+      "status": "PASS",
+      "hard_failures": [],
+      "checks": {
+        "raw_stream_hash_shared": {
+          "pass_": true,
+          "raw_stream_sha256": "f29aa268dd60b0b60c0fb0be94acb0e73ac997f4b91f511de5f99da13c6c3492"
+        },
+        "same_raw_stream_to_all_models": {
+          "pass_": true,
+          "raw_stream_sha256": "f29aa268dd60b0b60c0fb0be94acb0e73ac997f4b91f511de5f99da13c6c3492",
+          "xlstm_input_sha256": "32ce1cbd8be6eecb6f7f3f9409438dc44276c18f3f752ec35eb9bcd2e202c6d1",
+          "lstm_input_sha256": "32ce1cbd8be6eecb6f7f3f9409438dc44276c18f3f752ec35eb9bcd2e202c6d1",
+          "candi_input_sha256": "6f3d6f50f1b2044ec4f83d71e6c2b8be784a76246a9282e0250aae27b1da7935",
+          "source_seed": 2000,
+          "scenario": "stationary",
+          "condition": "none"
+        },
+        "common_timestamp_alignment": {
+          "pass_": true,
+          "first_timestamp": 63,
+          "last_timestamp": 191,
+          "count": 129,
+          "pre_common_scores_used": false,
+          "pre_common_score_count": 0,
+          "xlstm_window": "raw[t-63:t+1]",
+          "lstm_window": "raw[t-63:t+1]",
+          "candi_window": "raw[t-9:t+1]"
+        },
+        "candi_history_schema": {
+          "pass_": true,
+          "shape": [
+            129,
+            14
+          ],
+          "expected": [
+            129,
+            14
+          ],
+          "valid_start_index": 32,
+          "valid_rows": 97,
+          "padding_or_imputation": false
+        },
+        "paired_history_reuse": {
+          "pass_": true,
+          "history_tensor_sha256": "ceff6277d23e88008dac1250eda88802e3adbdb063cf03fb9feaf7ff66a8d217",
+          "x_arm_history_sha256": "ceff6277d23e88008dac1250eda88802e3adbdb063cf03fb9feaf7ff66a8d217",
+          "l_arm_history_sha256": "ceff6277d23e88008dac1250eda88802e3adbdb063cf03fb9feaf7ff66a8d217",
+          "same_tensor_object": true,
+          "x_arm_shape": [
+            129,
+            248
+          ],
+          "l_arm_shape": [
+            129,
+            248
+          ]
+        },
+        "row_key_identity": {
+          "pass_": true,
+          "xlstm_key_sha256": "d2b7094b5b2c5b55fa8452d500133d3be4986d8539aaa46b9897e0f588b81750",
+          "lstm_key_sha256": "d2b7094b5b2c5b55fa8452d500133d3be4986d8539aaa46b9897e0f588b81750",
+          "row_count": 129,
+          "key_fields": [
+            "detector_seed",
+            "source_seed",
+            "scenario",
+            "condition",
+            "timestamp"
+          ]
+        },
+        "candi_future_causality": {
+          "pass_": true,
+          "checks": [
+            {
+              "timestamp": 63,
+              "future_mutated_observations": 128,
+              "window_input_equal": true,
+              "score": {
+                "pass_": true,
+                "bitwise": false,
+                "max_abs": 5.960464477539063e-08,
+                "shape": [
+                  1
+                ],
+                "other_shape": [
+                  1
+                ]
+              },
+              "pass_": true
+            },
+            {
+              "timestamp": 79,
+              "future_mutated_observations": 112,
+              "window_input_equal": true,
+              "score": {
+                "pass_": true,
+                "bitwise": true,
+                "max_abs": 0.0,
+                "shape": [
+                  1
+                ],
+                "other_shape": [
+                  1
+                ]
+              },
+              "pass_": true
+            },
+            {
+              "timestamp": 127,
+              "future_mutated_observations": 64,
+              "window_input_equal": true,
+              "score": {
+                "pass_": true,
+                "bitwise": false,
+                "max_abs": 5.960464477539063e-08,
+                "shape": [
+                  1
+                ],
+                "other_shape": [
+                  1
+                ]
+              },
+              "pass_": true
+            }
+          ]
+        },
+        "candi_history_causality": {
+          "pass_": true,
+          "prefix_rows": 80,
+          "check": {
+            "pass_": true,
+            "bitwise": false,
+            "nan_count": 169,
+            "shape": [
+              80,
+              14
+            ]
+          }
+        },
+        "candi_independent_window_reset": {
+          "pass_": true,
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4
+            ],
+            "other_shape": [
+              4
+            ]
+          }
+        },
+        "candi_dummy_label_invariance": {
+          "pass_": true,
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              129
+            ],
+            "other_shape": [
+              129
+            ]
+          },
+          "labels_passed_to_extractor": false
+        },
+        "backbone_dummy_label_invariance": {
+          "pass_": true,
+          "xlstm_score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              129
+            ],
+            "other_shape": [
+              129
+            ]
+          },
+          "xlstm_common18": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              129,
+              18
+            ],
+            "other_shape": [
+              129,
+              18
+            ]
+          },
+          "lstm_score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              129
+            ],
+            "other_shape": [
+              129
+            ]
+          },
+          "lstm_common18": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              129,
+              18
+            ],
+            "other_shape": [
+              129,
+              18
+            ]
+          },
+          "labels_passed_to_extractor": false
+        },
+        "finite_and_shapes": {
+          "pass_": true,
+          "xlstm_output": [
+            129,
+            64,
+            8
+          ],
+          "lstm_output": [
+            129,
+            64,
+            8
+          ],
+          "xlstm_base": [
+            129,
+            18
+          ],
+          "lstm_base": [
+            129,
+            18
+          ],
+          "xlstm_internal": [
+            129,
+            234
+          ],
+          "lstm_internal": [
+            129,
+            234
+          ],
+          "xlstm_arm": [
+            129,
+            248
+          ],
+          "lstm_arm": [
+            129,
+            248
+          ]
+        },
+        "no_state_mutation": {
+          "pass_": true,
+          "xlstm_before": {
+            "model": "d351d0ace4d7ca252709368b56e963f37f89b7ac46dfa1c81719d07008e17f99",
+            "core": "d351d0ace4d7ca252709368b56e963f37f89b7ac46dfa1c81719d07008e17f99",
+            "requires_grad": false,
+            "training": false
+          },
+          "xlstm_after": {
+            "model": "d351d0ace4d7ca252709368b56e963f37f89b7ac46dfa1c81719d07008e17f99",
+            "core": "d351d0ace4d7ca252709368b56e963f37f89b7ac46dfa1c81719d07008e17f99",
+            "requires_grad": false,
+            "training": false
+          },
+          "lstm_before": {
+            "model": "6da45175dfea59195d42cf121c171758603b3637c013c89385efed690c97bfa9",
+            "core": "6da45175dfea59195d42cf121c171758603b3637c013c89385efed690c97bfa9",
+            "requires_grad": false,
+            "training": false
+          },
+          "lstm_after": {
+            "model": "6da45175dfea59195d42cf121c171758603b3637c013c89385efed690c97bfa9",
+            "core": "6da45175dfea59195d42cf121c171758603b3637c013c89385efed690c97bfa9",
+            "requires_grad": false,
+            "training": false
+          },
+          "candi_before": {
+            "model": "8a95ff4ab5c668fd15d67e4b5cddd4c3799329eb68427f145a041f96497fd3a4",
+            "core": "8635f8e6d8690b106b438241681b42253d9d23c8a1585912bac6185a74d7c14f",
+            "requires_grad": false,
+            "training": false
+          },
+          "candi_after": {
+            "model": "8a95ff4ab5c668fd15d67e4b5cddd4c3799329eb68427f145a041f96497fd3a4",
+            "core": "8635f8e6d8690b106b438241681b42253d9d23c8a1585912bac6185a74d7c14f",
+            "requires_grad": false,
+            "training": false
+          },
+          "candi_rng_before": "09c5e372048b3ab42086e83ef9a1da9db7cc45a4aee730b69316be5fc9c3a9d1",
+          "candi_rng_after": "09c5e372048b3ab42086e83ef9a1da9db7cc45a4aee730b69316be5fc9c3a9d1",
+          "optimizer_created_or_stepped": false,
+          "adaptation_or_fpm_invoked": false
+        }
+      },
+      "labels_read": false,
+      "test_sources_used": false,
+      "test_metrics_computed": false,
+      "scaler_fit": false,
+      "classifier_fit": false,
+      "optimizer_created_or_stepped": false,
+      "native_predict_invoked": false,
+      "candi_operator": "official model.get_anomaly_scores only",
+      "candi_seed_mapping": "data/phase_d/backbone_11/pre_intervention.pth"
+    },
+    {
+      "detector_seed": 22,
+      "status": "PASS",
+      "hard_failures": [],
+      "checks": {
+        "raw_stream_hash_shared": {
+          "pass_": true,
+          "raw_stream_sha256": "f29aa268dd60b0b60c0fb0be94acb0e73ac997f4b91f511de5f99da13c6c3492"
+        },
+        "same_raw_stream_to_all_models": {
+          "pass_": true,
+          "raw_stream_sha256": "f29aa268dd60b0b60c0fb0be94acb0e73ac997f4b91f511de5f99da13c6c3492",
+          "xlstm_input_sha256": "32ce1cbd8be6eecb6f7f3f9409438dc44276c18f3f752ec35eb9bcd2e202c6d1",
+          "lstm_input_sha256": "32ce1cbd8be6eecb6f7f3f9409438dc44276c18f3f752ec35eb9bcd2e202c6d1",
+          "candi_input_sha256": "6f3d6f50f1b2044ec4f83d71e6c2b8be784a76246a9282e0250aae27b1da7935",
+          "source_seed": 2000,
+          "scenario": "stationary",
+          "condition": "none"
+        },
+        "common_timestamp_alignment": {
+          "pass_": true,
+          "first_timestamp": 63,
+          "last_timestamp": 191,
+          "count": 129,
+          "pre_common_scores_used": false,
+          "pre_common_score_count": 0,
+          "xlstm_window": "raw[t-63:t+1]",
+          "lstm_window": "raw[t-63:t+1]",
+          "candi_window": "raw[t-9:t+1]"
+        },
+        "candi_history_schema": {
+          "pass_": true,
+          "shape": [
+            129,
+            14
+          ],
+          "expected": [
+            129,
+            14
+          ],
+          "valid_start_index": 32,
+          "valid_rows": 97,
+          "padding_or_imputation": false
+        },
+        "paired_history_reuse": {
+          "pass_": true,
+          "history_tensor_sha256": "46e8d4276ae6bf41998af0a704ad866aa06f3d0ad7f86bc64a22f382265bf9be",
+          "x_arm_history_sha256": "46e8d4276ae6bf41998af0a704ad866aa06f3d0ad7f86bc64a22f382265bf9be",
+          "l_arm_history_sha256": "46e8d4276ae6bf41998af0a704ad866aa06f3d0ad7f86bc64a22f382265bf9be",
+          "same_tensor_object": true,
+          "x_arm_shape": [
+            129,
+            248
+          ],
+          "l_arm_shape": [
+            129,
+            248
+          ]
+        },
+        "row_key_identity": {
+          "pass_": true,
+          "xlstm_key_sha256": "b21827872723efa67e33cc36117cad17c80d7cfc7999bb360d57dfa00fa69836",
+          "lstm_key_sha256": "b21827872723efa67e33cc36117cad17c80d7cfc7999bb360d57dfa00fa69836",
+          "row_count": 129,
+          "key_fields": [
+            "detector_seed",
+            "source_seed",
+            "scenario",
+            "condition",
+            "timestamp"
+          ]
+        },
+        "candi_future_causality": {
+          "pass_": true,
+          "checks": [
+            {
+              "timestamp": 63,
+              "future_mutated_observations": 128,
+              "window_input_equal": true,
+              "score": {
+                "pass_": true,
+                "bitwise": false,
+                "max_abs": 5.960464477539063e-08,
+                "shape": [
+                  1
+                ],
+                "other_shape": [
+                  1
+                ]
+              },
+              "pass_": true
+            },
+            {
+              "timestamp": 79,
+              "future_mutated_observations": 112,
+              "window_input_equal": true,
+              "score": {
+                "pass_": true,
+                "bitwise": true,
+                "max_abs": 0.0,
+                "shape": [
+                  1
+                ],
+                "other_shape": [
+                  1
+                ]
+              },
+              "pass_": true
+            },
+            {
+              "timestamp": 127,
+              "future_mutated_observations": 64,
+              "window_input_equal": true,
+              "score": {
+                "pass_": true,
+                "bitwise": false,
+                "max_abs": 5.960464477539063e-08,
+                "shape": [
+                  1
+                ],
+                "other_shape": [
+                  1
+                ]
+              },
+              "pass_": true
+            }
+          ]
+        },
+        "candi_history_causality": {
+          "pass_": true,
+          "prefix_rows": 80,
+          "check": {
+            "pass_": true,
+            "bitwise": false,
+            "nan_count": 169,
+            "shape": [
+              80,
+              14
+            ]
+          }
+        },
+        "candi_independent_window_reset": {
+          "pass_": true,
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4
+            ],
+            "other_shape": [
+              4
+            ]
+          }
+        },
+        "candi_dummy_label_invariance": {
+          "pass_": true,
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              129
+            ],
+            "other_shape": [
+              129
+            ]
+          },
+          "labels_passed_to_extractor": false
+        },
+        "backbone_dummy_label_invariance": {
+          "pass_": true,
+          "xlstm_score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              129
+            ],
+            "other_shape": [
+              129
+            ]
+          },
+          "xlstm_common18": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              129,
+              18
+            ],
+            "other_shape": [
+              129,
+              18
+            ]
+          },
+          "lstm_score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              129
+            ],
+            "other_shape": [
+              129
+            ]
+          },
+          "lstm_common18": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              129,
+              18
+            ],
+            "other_shape": [
+              129,
+              18
+            ]
+          },
+          "labels_passed_to_extractor": false
+        },
+        "finite_and_shapes": {
+          "pass_": true,
+          "xlstm_output": [
+            129,
+            64,
+            8
+          ],
+          "lstm_output": [
+            129,
+            64,
+            8
+          ],
+          "xlstm_base": [
+            129,
+            18
+          ],
+          "lstm_base": [
+            129,
+            18
+          ],
+          "xlstm_internal": [
+            129,
+            234
+          ],
+          "lstm_internal": [
+            129,
+            234
+          ],
+          "xlstm_arm": [
+            129,
+            248
+          ],
+          "lstm_arm": [
+            129,
+            248
+          ]
+        },
+        "no_state_mutation": {
+          "pass_": true,
+          "xlstm_before": {
+            "model": "940330036a8b4421200df51e2bfd0abfb3105c283a730ad0a8c27b0123a30c95",
+            "core": "940330036a8b4421200df51e2bfd0abfb3105c283a730ad0a8c27b0123a30c95",
+            "requires_grad": false,
+            "training": false
+          },
+          "xlstm_after": {
+            "model": "940330036a8b4421200df51e2bfd0abfb3105c283a730ad0a8c27b0123a30c95",
+            "core": "940330036a8b4421200df51e2bfd0abfb3105c283a730ad0a8c27b0123a30c95",
+            "requires_grad": false,
+            "training": false
+          },
+          "lstm_before": {
+            "model": "ae3d0a93fc2e9e5cb19c7df3d4162be1d44a4148d1e6e987c988fb6198af3929",
+            "core": "ae3d0a93fc2e9e5cb19c7df3d4162be1d44a4148d1e6e987c988fb6198af3929",
+            "requires_grad": false,
+            "training": false
+          },
+          "lstm_after": {
+            "model": "ae3d0a93fc2e9e5cb19c7df3d4162be1d44a4148d1e6e987c988fb6198af3929",
+            "core": "ae3d0a93fc2e9e5cb19c7df3d4162be1d44a4148d1e6e987c988fb6198af3929",
+            "requires_grad": false,
+            "training": false
+          },
+          "candi_before": {
+            "model": "448b5ce621bf97889b49738770fe5c1152e340ca15d5d602e6d63c748eeceeee",
+            "core": "7c3e2d8584ac14133a89a71f5295a43ff8b9221547c476f690027975cd726bec",
+            "requires_grad": false,
+            "training": false
+          },
+          "candi_after": {
+            "model": "448b5ce621bf97889b49738770fe5c1152e340ca15d5d602e6d63c748eeceeee",
+            "core": "7c3e2d8584ac14133a89a71f5295a43ff8b9221547c476f690027975cd726bec",
+            "requires_grad": false,
+            "training": false
+          },
+          "candi_rng_before": "18469a3e17301f626620f2647be7a059e46fc8b5491b79a69100ad3f964df7c7",
+          "candi_rng_after": "18469a3e17301f626620f2647be7a059e46fc8b5491b79a69100ad3f964df7c7",
+          "optimizer_created_or_stepped": false,
+          "adaptation_or_fpm_invoked": false
+        }
+      },
+      "labels_read": false,
+      "test_sources_used": false,
+      "test_metrics_computed": false,
+      "scaler_fit": false,
+      "classifier_fit": false,
+      "optimizer_created_or_stepped": false,
+      "native_predict_invoked": false,
+      "candi_operator": "official model.get_anomaly_scores only",
+      "candi_seed_mapping": "data/phase_d/backbone_22/pre_intervention.pth"
+    },
+    {
+      "detector_seed": 33,
+      "status": "PASS",
+      "hard_failures": [],
+      "checks": {
+        "raw_stream_hash_shared": {
+          "pass_": true,
+          "raw_stream_sha256": "f29aa268dd60b0b60c0fb0be94acb0e73ac997f4b91f511de5f99da13c6c3492"
+        },
+        "same_raw_stream_to_all_models": {
+          "pass_": true,
+          "raw_stream_sha256": "f29aa268dd60b0b60c0fb0be94acb0e73ac997f4b91f511de5f99da13c6c3492",
+          "xlstm_input_sha256": "32ce1cbd8be6eecb6f7f3f9409438dc44276c18f3f752ec35eb9bcd2e202c6d1",
+          "lstm_input_sha256": "32ce1cbd8be6eecb6f7f3f9409438dc44276c18f3f752ec35eb9bcd2e202c6d1",
+          "candi_input_sha256": "6f3d6f50f1b2044ec4f83d71e6c2b8be784a76246a9282e0250aae27b1da7935",
+          "source_seed": 2000,
+          "scenario": "stationary",
+          "condition": "none"
+        },
+        "common_timestamp_alignment": {
+          "pass_": true,
+          "first_timestamp": 63,
+          "last_timestamp": 191,
+          "count": 129,
+          "pre_common_scores_used": false,
+          "pre_common_score_count": 0,
+          "xlstm_window": "raw[t-63:t+1]",
+          "lstm_window": "raw[t-63:t+1]",
+          "candi_window": "raw[t-9:t+1]"
+        },
+        "candi_history_schema": {
+          "pass_": true,
+          "shape": [
+            129,
+            14
+          ],
+          "expected": [
+            129,
+            14
+          ],
+          "valid_start_index": 32,
+          "valid_rows": 97,
+          "padding_or_imputation": false
+        },
+        "paired_history_reuse": {
+          "pass_": true,
+          "history_tensor_sha256": "139ff3d5a60bc2f190828570659f5c4caf2213b62e7c7b0d0ff93e3501419dc0",
+          "x_arm_history_sha256": "139ff3d5a60bc2f190828570659f5c4caf2213b62e7c7b0d0ff93e3501419dc0",
+          "l_arm_history_sha256": "139ff3d5a60bc2f190828570659f5c4caf2213b62e7c7b0d0ff93e3501419dc0",
+          "same_tensor_object": true,
+          "x_arm_shape": [
+            129,
+            248
+          ],
+          "l_arm_shape": [
+            129,
+            248
+          ]
+        },
+        "row_key_identity": {
+          "pass_": true,
+          "xlstm_key_sha256": "83509b5312079a99720245e9766fa5520d26bc4d0d3c9bacb2a450ff9181f392",
+          "lstm_key_sha256": "83509b5312079a99720245e9766fa5520d26bc4d0d3c9bacb2a450ff9181f392",
+          "row_count": 129,
+          "key_fields": [
+            "detector_seed",
+            "source_seed",
+            "scenario",
+            "condition",
+            "timestamp"
+          ]
+        },
+        "candi_future_causality": {
+          "pass_": true,
+          "checks": [
+            {
+              "timestamp": 63,
+              "future_mutated_observations": 128,
+              "window_input_equal": true,
+              "score": {
+                "pass_": true,
+                "bitwise": false,
+                "max_abs": 5.960464477539063e-08,
+                "shape": [
+                  1
+                ],
+                "other_shape": [
+                  1
+                ]
+              },
+              "pass_": true
+            },
+            {
+              "timestamp": 79,
+              "future_mutated_observations": 112,
+              "window_input_equal": true,
+              "score": {
+                "pass_": true,
+                "bitwise": false,
+                "max_abs": 5.960464477539063e-08,
+                "shape": [
+                  1
+                ],
+                "other_shape": [
+                  1
+                ]
+              },
+              "pass_": true
+            },
+            {
+              "timestamp": 127,
+              "future_mutated_observations": 64,
+              "window_input_equal": true,
+              "score": {
+                "pass_": true,
+                "bitwise": false,
+                "max_abs": 1.1920928955078125e-07,
+                "shape": [
+                  1
+                ],
+                "other_shape": [
+                  1
+                ]
+              },
+              "pass_": true
+            }
+          ]
+        },
+        "candi_history_causality": {
+          "pass_": true,
+          "prefix_rows": 80,
+          "check": {
+            "pass_": true,
+            "bitwise": false,
+            "nan_count": 169,
+            "shape": [
+              80,
+              14
+            ]
+          }
+        },
+        "candi_independent_window_reset": {
+          "pass_": true,
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4
+            ],
+            "other_shape": [
+              4
+            ]
+          }
+        },
+        "candi_dummy_label_invariance": {
+          "pass_": true,
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              129
+            ],
+            "other_shape": [
+              129
+            ]
+          },
+          "labels_passed_to_extractor": false
+        },
+        "backbone_dummy_label_invariance": {
+          "pass_": true,
+          "xlstm_score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              129
+            ],
+            "other_shape": [
+              129
+            ]
+          },
+          "xlstm_common18": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              129,
+              18
+            ],
+            "other_shape": [
+              129,
+              18
+            ]
+          },
+          "lstm_score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              129
+            ],
+            "other_shape": [
+              129
+            ]
+          },
+          "lstm_common18": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              129,
+              18
+            ],
+            "other_shape": [
+              129,
+              18
+            ]
+          },
+          "labels_passed_to_extractor": false
+        },
+        "finite_and_shapes": {
+          "pass_": true,
+          "xlstm_output": [
+            129,
+            64,
+            8
+          ],
+          "lstm_output": [
+            129,
+            64,
+            8
+          ],
+          "xlstm_base": [
+            129,
+            18
+          ],
+          "lstm_base": [
+            129,
+            18
+          ],
+          "xlstm_internal": [
+            129,
+            234
+          ],
+          "lstm_internal": [
+            129,
+            234
+          ],
+          "xlstm_arm": [
+            129,
+            248
+          ],
+          "lstm_arm": [
+            129,
+            248
+          ]
+        },
+        "no_state_mutation": {
+          "pass_": true,
+          "xlstm_before": {
+            "model": "d8e2d6358f52acbc2e2d2ac7f603b54c95c2f684530311c04db7e77c62ea8d8f",
+            "core": "d8e2d6358f52acbc2e2d2ac7f603b54c95c2f684530311c04db7e77c62ea8d8f",
+            "requires_grad": false,
+            "training": false
+          },
+          "xlstm_after": {
+            "model": "d8e2d6358f52acbc2e2d2ac7f603b54c95c2f684530311c04db7e77c62ea8d8f",
+            "core": "d8e2d6358f52acbc2e2d2ac7f603b54c95c2f684530311c04db7e77c62ea8d8f",
+            "requires_grad": false,
+            "training": false
+          },
+          "lstm_before": {
+            "model": "14662139c320082998c7bc9d798bd77a45e5b78b164671911ede5f4cad3c1aed",
+            "core": "14662139c320082998c7bc9d798bd77a45e5b78b164671911ede5f4cad3c1aed",
+            "requires_grad": false,
+            "training": false
+          },
+          "lstm_after": {
+            "model": "14662139c320082998c7bc9d798bd77a45e5b78b164671911ede5f4cad3c1aed",
+            "core": "14662139c320082998c7bc9d798bd77a45e5b78b164671911ede5f4cad3c1aed",
+            "requires_grad": false,
+            "training": false
+          },
+          "candi_before": {
+            "model": "4dbe781bb54b2f40c52377fd02aac8a8df900e4df2c386776ce64e6d59eedd20",
+            "core": "ab93db91768ee78a70c518a1bfa3468009e74eea40d7d9dbbebef8ccdb998a73",
+            "requires_grad": false,
+            "training": false
+          },
+          "candi_after": {
+            "model": "4dbe781bb54b2f40c52377fd02aac8a8df900e4df2c386776ce64e6d59eedd20",
+            "core": "ab93db91768ee78a70c518a1bfa3468009e74eea40d7d9dbbebef8ccdb998a73",
+            "requires_grad": false,
+            "training": false
+          },
+          "candi_rng_before": "469d94955a744d58f12748b2105ed58355478065e2a003664e8cf5491a1e66f4",
+          "candi_rng_after": "469d94955a744d58f12748b2105ed58355478065e2a003664e8cf5491a1e66f4",
+          "optimizer_created_or_stepped": false,
+          "adaptation_or_fpm_invoked": false
+        }
+      },
+      "labels_read": false,
+      "test_sources_used": false,
+      "test_metrics_computed": false,
+      "scaler_fit": false,
+      "classifier_fit": false,
+      "optimizer_created_or_stepped": false,
+      "native_predict_invoked": false,
+      "candi_operator": "official model.get_anomaly_scores only",
+      "candi_seed_mapping": "data/phase_d/backbone_33/pre_intervention.pth"
+    },
+    {
+      "detector_seed": 44,
+      "status": "PASS",
+      "hard_failures": [],
+      "checks": {
+        "raw_stream_hash_shared": {
+          "pass_": true,
+          "raw_stream_sha256": "f29aa268dd60b0b60c0fb0be94acb0e73ac997f4b91f511de5f99da13c6c3492"
+        },
+        "same_raw_stream_to_all_models": {
+          "pass_": true,
+          "raw_stream_sha256": "f29aa268dd60b0b60c0fb0be94acb0e73ac997f4b91f511de5f99da13c6c3492",
+          "xlstm_input_sha256": "32ce1cbd8be6eecb6f7f3f9409438dc44276c18f3f752ec35eb9bcd2e202c6d1",
+          "lstm_input_sha256": "32ce1cbd8be6eecb6f7f3f9409438dc44276c18f3f752ec35eb9bcd2e202c6d1",
+          "candi_input_sha256": "6f3d6f50f1b2044ec4f83d71e6c2b8be784a76246a9282e0250aae27b1da7935",
+          "source_seed": 2000,
+          "scenario": "stationary",
+          "condition": "none"
+        },
+        "common_timestamp_alignment": {
+          "pass_": true,
+          "first_timestamp": 63,
+          "last_timestamp": 191,
+          "count": 129,
+          "pre_common_scores_used": false,
+          "pre_common_score_count": 0,
+          "xlstm_window": "raw[t-63:t+1]",
+          "lstm_window": "raw[t-63:t+1]",
+          "candi_window": "raw[t-9:t+1]"
+        },
+        "candi_history_schema": {
+          "pass_": true,
+          "shape": [
+            129,
+            14
+          ],
+          "expected": [
+            129,
+            14
+          ],
+          "valid_start_index": 32,
+          "valid_rows": 97,
+          "padding_or_imputation": false
+        },
+        "paired_history_reuse": {
+          "pass_": true,
+          "history_tensor_sha256": "dd225453e481da7a26fc86d7a09e77e9b2148d7d463f6d1bfa8dbb5855c91d9b",
+          "x_arm_history_sha256": "dd225453e481da7a26fc86d7a09e77e9b2148d7d463f6d1bfa8dbb5855c91d9b",
+          "l_arm_history_sha256": "dd225453e481da7a26fc86d7a09e77e9b2148d7d463f6d1bfa8dbb5855c91d9b",
+          "same_tensor_object": true,
+          "x_arm_shape": [
+            129,
+            248
+          ],
+          "l_arm_shape": [
+            129,
+            248
+          ]
+        },
+        "row_key_identity": {
+          "pass_": true,
+          "xlstm_key_sha256": "11a593cad3811feeb1511961822367ac44532ab5c2022f794bf63bd7e9cfef11",
+          "lstm_key_sha256": "11a593cad3811feeb1511961822367ac44532ab5c2022f794bf63bd7e9cfef11",
+          "row_count": 129,
+          "key_fields": [
+            "detector_seed",
+            "source_seed",
+            "scenario",
+            "condition",
+            "timestamp"
+          ]
+        },
+        "candi_future_causality": {
+          "pass_": true,
+          "checks": [
+            {
+              "timestamp": 63,
+              "future_mutated_observations": 128,
+              "window_input_equal": true,
+              "score": {
+                "pass_": true,
+                "bitwise": false,
+                "max_abs": 5.960464477539063e-08,
+                "shape": [
+                  1
+                ],
+                "other_shape": [
+                  1
+                ]
+              },
+              "pass_": true
+            },
+            {
+              "timestamp": 79,
+              "future_mutated_observations": 112,
+              "window_input_equal": true,
+              "score": {
+                "pass_": true,
+                "bitwise": true,
+                "max_abs": 0.0,
+                "shape": [
+                  1
+                ],
+                "other_shape": [
+                  1
+                ]
+              },
+              "pass_": true
+            },
+            {
+              "timestamp": 127,
+              "future_mutated_observations": 64,
+              "window_input_equal": true,
+              "score": {
+                "pass_": true,
+                "bitwise": true,
+                "max_abs": 0.0,
+                "shape": [
+                  1
+                ],
+                "other_shape": [
+                  1
+                ]
+              },
+              "pass_": true
+            }
+          ]
+        },
+        "candi_history_causality": {
+          "pass_": true,
+          "prefix_rows": 80,
+          "check": {
+            "pass_": true,
+            "bitwise": false,
+            "nan_count": 169,
+            "shape": [
+              80,
+              14
+            ]
+          }
+        },
+        "candi_independent_window_reset": {
+          "pass_": true,
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4
+            ],
+            "other_shape": [
+              4
+            ]
+          }
+        },
+        "candi_dummy_label_invariance": {
+          "pass_": true,
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              129
+            ],
+            "other_shape": [
+              129
+            ]
+          },
+          "labels_passed_to_extractor": false
+        },
+        "backbone_dummy_label_invariance": {
+          "pass_": true,
+          "xlstm_score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              129
+            ],
+            "other_shape": [
+              129
+            ]
+          },
+          "xlstm_common18": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              129,
+              18
+            ],
+            "other_shape": [
+              129,
+              18
+            ]
+          },
+          "lstm_score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              129
+            ],
+            "other_shape": [
+              129
+            ]
+          },
+          "lstm_common18": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              129,
+              18
+            ],
+            "other_shape": [
+              129,
+              18
+            ]
+          },
+          "labels_passed_to_extractor": false
+        },
+        "finite_and_shapes": {
+          "pass_": true,
+          "xlstm_output": [
+            129,
+            64,
+            8
+          ],
+          "lstm_output": [
+            129,
+            64,
+            8
+          ],
+          "xlstm_base": [
+            129,
+            18
+          ],
+          "lstm_base": [
+            129,
+            18
+          ],
+          "xlstm_internal": [
+            129,
+            234
+          ],
+          "lstm_internal": [
+            129,
+            234
+          ],
+          "xlstm_arm": [
+            129,
+            248
+          ],
+          "lstm_arm": [
+            129,
+            248
+          ]
+        },
+        "no_state_mutation": {
+          "pass_": true,
+          "xlstm_before": {
+            "model": "8cbc5f4ce3c0b1c4ff6d32dac90fe2a42d10965cc9a2615e964594fd2c63ef53",
+            "core": "8cbc5f4ce3c0b1c4ff6d32dac90fe2a42d10965cc9a2615e964594fd2c63ef53",
+            "requires_grad": false,
+            "training": false
+          },
+          "xlstm_after": {
+            "model": "8cbc5f4ce3c0b1c4ff6d32dac90fe2a42d10965cc9a2615e964594fd2c63ef53",
+            "core": "8cbc5f4ce3c0b1c4ff6d32dac90fe2a42d10965cc9a2615e964594fd2c63ef53",
+            "requires_grad": false,
+            "training": false
+          },
+          "lstm_before": {
+            "model": "e0929ec20fbbd2087cc91e911e9067cd526002865621ef8df016ca1cd3136b40",
+            "core": "e0929ec20fbbd2087cc91e911e9067cd526002865621ef8df016ca1cd3136b40",
+            "requires_grad": false,
+            "training": false
+          },
+          "lstm_after": {
+            "model": "e0929ec20fbbd2087cc91e911e9067cd526002865621ef8df016ca1cd3136b40",
+            "core": "e0929ec20fbbd2087cc91e911e9067cd526002865621ef8df016ca1cd3136b40",
+            "requires_grad": false,
+            "training": false
+          },
+          "candi_before": {
+            "model": "abe5405716179e5e6973462b281d558caf103e233944ecbcffe9191b91a5428d",
+            "core": "1a0fe899de20e54803212fbf58295e83769d24dea3ea2d2fd4596a36a5be1fa2",
+            "requires_grad": false,
+            "training": false
+          },
+          "candi_after": {
+            "model": "abe5405716179e5e6973462b281d558caf103e233944ecbcffe9191b91a5428d",
+            "core": "1a0fe899de20e54803212fbf58295e83769d24dea3ea2d2fd4596a36a5be1fa2",
+            "requires_grad": false,
+            "training": false
+          },
+          "candi_rng_before": "de7841773dee18450fa7c1ef68c856e3d688fb2aa1a667d21c960e035bc56341",
+          "candi_rng_after": "de7841773dee18450fa7c1ef68c856e3d688fb2aa1a667d21c960e035bc56341",
+          "optimizer_created_or_stepped": false,
+          "adaptation_or_fpm_invoked": false
+        }
+      },
+      "labels_read": false,
+      "test_sources_used": false,
+      "test_metrics_computed": false,
+      "scaler_fit": false,
+      "classifier_fit": false,
+      "optimizer_created_or_stepped": false,
+      "native_predict_invoked": false,
+      "candi_operator": "official model.get_anomaly_scores only",
+      "candi_seed_mapping": "data/phase_d/backbone_44/pre_intervention.pth"
+    },
+    {
+      "detector_seed": 55,
+      "status": "PASS",
+      "hard_failures": [],
+      "checks": {
+        "raw_stream_hash_shared": {
+          "pass_": true,
+          "raw_stream_sha256": "f29aa268dd60b0b60c0fb0be94acb0e73ac997f4b91f511de5f99da13c6c3492"
+        },
+        "same_raw_stream_to_all_models": {
+          "pass_": true,
+          "raw_stream_sha256": "f29aa268dd60b0b60c0fb0be94acb0e73ac997f4b91f511de5f99da13c6c3492",
+          "xlstm_input_sha256": "32ce1cbd8be6eecb6f7f3f9409438dc44276c18f3f752ec35eb9bcd2e202c6d1",
+          "lstm_input_sha256": "32ce1cbd8be6eecb6f7f3f9409438dc44276c18f3f752ec35eb9bcd2e202c6d1",
+          "candi_input_sha256": "6f3d6f50f1b2044ec4f83d71e6c2b8be784a76246a9282e0250aae27b1da7935",
+          "source_seed": 2000,
+          "scenario": "stationary",
+          "condition": "none"
+        },
+        "common_timestamp_alignment": {
+          "pass_": true,
+          "first_timestamp": 63,
+          "last_timestamp": 191,
+          "count": 129,
+          "pre_common_scores_used": false,
+          "pre_common_score_count": 0,
+          "xlstm_window": "raw[t-63:t+1]",
+          "lstm_window": "raw[t-63:t+1]",
+          "candi_window": "raw[t-9:t+1]"
+        },
+        "candi_history_schema": {
+          "pass_": true,
+          "shape": [
+            129,
+            14
+          ],
+          "expected": [
+            129,
+            14
+          ],
+          "valid_start_index": 32,
+          "valid_rows": 97,
+          "padding_or_imputation": false
+        },
+        "paired_history_reuse": {
+          "pass_": true,
+          "history_tensor_sha256": "bd37bbb22b8c5bf1f5b939036435ad67e62b7240375a3a75492a10d8fc686486",
+          "x_arm_history_sha256": "bd37bbb22b8c5bf1f5b939036435ad67e62b7240375a3a75492a10d8fc686486",
+          "l_arm_history_sha256": "bd37bbb22b8c5bf1f5b939036435ad67e62b7240375a3a75492a10d8fc686486",
+          "same_tensor_object": true,
+          "x_arm_shape": [
+            129,
+            248
+          ],
+          "l_arm_shape": [
+            129,
+            248
+          ]
+        },
+        "row_key_identity": {
+          "pass_": true,
+          "xlstm_key_sha256": "6304fe86543a50234e7d01b0d0f3d74834f399dc99b706f52a137f024f7d5727",
+          "lstm_key_sha256": "6304fe86543a50234e7d01b0d0f3d74834f399dc99b706f52a137f024f7d5727",
+          "row_count": 129,
+          "key_fields": [
+            "detector_seed",
+            "source_seed",
+            "scenario",
+            "condition",
+            "timestamp"
+          ]
+        },
+        "candi_future_causality": {
+          "pass_": true,
+          "checks": [
+            {
+              "timestamp": 63,
+              "future_mutated_observations": 128,
+              "window_input_equal": true,
+              "score": {
+                "pass_": true,
+                "bitwise": false,
+                "max_abs": 5.960464477539063e-08,
+                "shape": [
+                  1
+                ],
+                "other_shape": [
+                  1
+                ]
+              },
+              "pass_": true
+            },
+            {
+              "timestamp": 79,
+              "future_mutated_observations": 112,
+              "window_input_equal": true,
+              "score": {
+                "pass_": true,
+                "bitwise": true,
+                "max_abs": 0.0,
+                "shape": [
+                  1
+                ],
+                "other_shape": [
+                  1
+                ]
+              },
+              "pass_": true
+            },
+            {
+              "timestamp": 127,
+              "future_mutated_observations": 64,
+              "window_input_equal": true,
+              "score": {
+                "pass_": true,
+                "bitwise": false,
+                "max_abs": 5.960464477539063e-08,
+                "shape": [
+                  1
+                ],
+                "other_shape": [
+                  1
+                ]
+              },
+              "pass_": true
+            }
+          ]
+        },
+        "candi_history_causality": {
+          "pass_": true,
+          "prefix_rows": 80,
+          "check": {
+            "pass_": true,
+            "bitwise": false,
+            "nan_count": 169,
+            "shape": [
+              80,
+              14
+            ]
+          }
+        },
+        "candi_independent_window_reset": {
+          "pass_": true,
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              4
+            ],
+            "other_shape": [
+              4
+            ]
+          }
+        },
+        "candi_dummy_label_invariance": {
+          "pass_": true,
+          "score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              129
+            ],
+            "other_shape": [
+              129
+            ]
+          },
+          "labels_passed_to_extractor": false
+        },
+        "backbone_dummy_label_invariance": {
+          "pass_": true,
+          "xlstm_score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              129
+            ],
+            "other_shape": [
+              129
+            ]
+          },
+          "xlstm_common18": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              129,
+              18
+            ],
+            "other_shape": [
+              129,
+              18
+            ]
+          },
+          "lstm_score": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              129
+            ],
+            "other_shape": [
+              129
+            ]
+          },
+          "lstm_common18": {
+            "pass_": true,
+            "bitwise": true,
+            "max_abs": 0.0,
+            "shape": [
+              129,
+              18
+            ],
+            "other_shape": [
+              129,
+              18
+            ]
+          },
+          "labels_passed_to_extractor": false
+        },
+        "finite_and_shapes": {
+          "pass_": true,
+          "xlstm_output": [
+            129,
+            64,
+            8
+          ],
+          "lstm_output": [
+            129,
+            64,
+            8
+          ],
+          "xlstm_base": [
+            129,
+            18
+          ],
+          "lstm_base": [
+            129,
+            18
+          ],
+          "xlstm_internal": [
+            129,
+            234
+          ],
+          "lstm_internal": [
+            129,
+            234
+          ],
+          "xlstm_arm": [
+            129,
+            248
+          ],
+          "lstm_arm": [
+            129,
+            248
+          ]
+        },
+        "no_state_mutation": {
+          "pass_": true,
+          "xlstm_before": {
+            "model": "cbfd4db4adf512c6f092c4e3d603029e04b9549e4feeccd70a16f294fad982fb",
+            "core": "cbfd4db4adf512c6f092c4e3d603029e04b9549e4feeccd70a16f294fad982fb",
+            "requires_grad": false,
+            "training": false
+          },
+          "xlstm_after": {
+            "model": "cbfd4db4adf512c6f092c4e3d603029e04b9549e4feeccd70a16f294fad982fb",
+            "core": "cbfd4db4adf512c6f092c4e3d603029e04b9549e4feeccd70a16f294fad982fb",
+            "requires_grad": false,
+            "training": false
+          },
+          "lstm_before": {
+            "model": "ee31c4884792831c21c6fdea24a04b0b9c0bb3e5e1dbcee4d050fe9b680848e4",
+            "core": "ee31c4884792831c21c6fdea24a04b0b9c0bb3e5e1dbcee4d050fe9b680848e4",
+            "requires_grad": false,
+            "training": false
+          },
+          "lstm_after": {
+            "model": "ee31c4884792831c21c6fdea24a04b0b9c0bb3e5e1dbcee4d050fe9b680848e4",
+            "core": "ee31c4884792831c21c6fdea24a04b0b9c0bb3e5e1dbcee4d050fe9b680848e4",
+            "requires_grad": false,
+            "training": false
+          },
+          "candi_before": {
+            "model": "e6836bc426dd61b27cb4920b8dee8d0fc5e69adf6e6f2e8ebe498c6a94f7122d",
+            "core": "62170000b5cbc1581b175c622e5e9ea56acf37589fbab5971018e764104fcac9",
+            "requires_grad": false,
+            "training": false
+          },
+          "candi_after": {
+            "model": "e6836bc426dd61b27cb4920b8dee8d0fc5e69adf6e6f2e8ebe498c6a94f7122d",
+            "core": "62170000b5cbc1581b175c622e5e9ea56acf37589fbab5971018e764104fcac9",
+            "requires_grad": false,
+            "training": false
+          },
+          "candi_rng_before": "fc5bb5a387d56807dd499d551954e9b86382e9d87a1cf78ef4b72bf18e7aaac2",
+          "candi_rng_after": "fc5bb5a387d56807dd499d551954e9b86382e9d87a1cf78ef4b72bf18e7aaac2",
+          "optimizer_created_or_stepped": false,
+          "adaptation_or_fpm_invoked": false
+        }
+      },
+      "labels_read": false,
+      "test_sources_used": false,
+      "test_metrics_computed": false,
+      "scaler_fit": false,
+      "classifier_fit": false,
+      "optimizer_created_or_stepped": false,
+      "native_predict_invoked": false,
+      "candi_operator": "official model.get_anomaly_scores only",
+      "candi_seed_mapping": "data/phase_d/backbone_55/pre_intervention.pth"
+    }
+  ],
+  "random_unlabeled_only": true,
+  "labels_read": false,
+  "test_sources_used": false,
+  "test_metrics_computed": false,
+  "scaler_fit": false,
+  "classifier_fit": false,
+  "optimizer_created_or_stepped": false,
+  "native_predict_invoked": false,
+  "adaptation_or_fpm_invoked": false,
+  "phase_g_label_join_started": false,
+  "phase_g_statistics_started": false,
+  "note": "CANDI controls were selected prospectively by G0.1. This report contains alignment/invariance checks only; no labels or detector metrics were read or computed."
+}

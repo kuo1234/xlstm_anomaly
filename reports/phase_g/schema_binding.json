@@ -1,5 +1,5 @@
 {
-  "status": "SEALED_WITH_CANDI_CONTROL_RESOLVED_PENDING_PREFLIGHT",
+  "status": "PASS",
   "schema_version": "G0-H3a-common18-v1",
   "source_e2_schema": "reports/phase_e2/schema.json",
   "source_e2_schema_sha256": "9b7b5a102b33d9c79e5742f87e6555f95bd84facd0555da8e6de000ad9d90455",
@@ -597,8 +597,8 @@
     "retention_gate": "sigmoid(f_t)"
   },
   "candi_history_control": {
-    "resolution_status": "RESOLVED_PROSPECTIVE_PENDING_PREFLIGHT",
-    "stop_rule": "G0 stops before labels when more than one plausible frozen CANDI control is not uniquely resolved by the existing M0 text",
+    "resolution_status": "PASS",
+    "stop_rule": "G0.1 resolved the control prospectively and its label-blind alignment preflight passed",
     "candidate_sets": {
       "D8_synthetic_seedwise": {
         "count": 5,
@@ -851,8 +851,10 @@
   ],
   "labels_extracted": false,
   "scaler_fit": false,
-  "g0_status": "PENDING_CANDI_PREFLIGHT",
+  "g0_status": "PASS",
   "g0_base_commit": "ddb8e3c",
   "candi_control_manifest": "reports/phase_g/candi_control_manifest.json",
-  "candi_control_manifest_sha256": "f86c8ab05061d9c78da5f98408161d33966dad0335f7ad1450a66fa034c07ca6"
+  "candi_control_manifest_sha256": "f86c8ab05061d9c78da5f98408161d33966dad0335f7ad1450a66fa034c07ca6",
+  "candi_alignment_preflight": "reports/phase_g/candi_preflight.json",
+  "candi_alignment_preflight_sha256": "6bb3e7cec12584d8c334ef6f5e252ca5b94f63e019e0f66f255f2c1516976b2c"
 }

@@ -67,7 +67,7 @@ The label-blind CANDI alignment preflight passed for all five seed mappings;
 the original ten-backbone preflight also remained PASS. Therefore the current
 G0 status is `PASS`. The sealed report is
 [`candi_preflight.json`](candi_preflight.json) (SHA256
-`5b2492efd6ce505bdd916cd34d6d5a83b5550ed7120c7d13b75f03e27615cb13`). It
+`6bb3e7cec12584d8c334ef6f5e252ca5b94f63e019e0f66f255f2c1516976b2c`). It
 verified common right-edge timestamps 63--191, CANDI W=10 versus xLSTM/LSTM
 W=64 windows from one raw observation stream, 14-column causal history with
 97 valid rows after warmup, paired history reuse and byte-identical row keys,

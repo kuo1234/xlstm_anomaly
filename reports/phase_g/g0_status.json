@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "basis": {
+    "original_backbone_preflight": "reports/phase_g/preflight.json",
+    "original_backbone_preflight_sha256": "cabf4a36d885b65b3596a704d0f36afbb2ef657974288a91675fe49bb1253fe6",
+    "candi_alignment_preflight": "reports/phase_g/candi_preflight.json",
+    "candi_alignment_preflight_sha256": "6bb3e7cec12584d8c334ef6f5e252ca5b94f63e019e0f66f255f2c1516976b2c",
+    "candi_control_manifest": "reports/phase_g/candi_control_manifest.json",
+    "candi_control_manifest_sha256": "f86c8ab05061d9c78da5f98408161d33966dad0335f7ad1450a66fa034c07ca6"
+  },
+  "labels_read": false,
+  "probe_results_read": false,
+  "test_metrics_computed": false,
+  "scaler_fit": false,
+  "classifier_fit": false,
+  "optimizer_created_or_stepped": false,
+  "h2_h3a_declared": false
+}
