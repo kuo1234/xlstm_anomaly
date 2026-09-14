@@ -95,10 +95,11 @@ def array_hash(array: np.ndarray) -> str:
 
 def tensor_hash(value: torch.Tensor) -> str:
     value = value.detach().cpu().contiguous()
+    array = value.numpy()
     digest = hashlib.sha256()
-    digest.update(str(value.dtype).encode())
-    digest.update(str(tuple(value.shape)).encode())
-    digest.update(value.numpy().tobytes())
+    digest.update(str(array.dtype).encode())
+    digest.update(str(array.shape).encode())
+    digest.update(array.tobytes())
     return digest.hexdigest()
 
 
@@ -108,10 +109,11 @@ def state_hash(module: torch.nn.Module, include=None) -> str:
         if include is not None and not include(name):
             continue
         tensor = value.detach().cpu().contiguous()
+        array = tensor.numpy()
         digest.update(name.encode())
-        digest.update(str(tensor.dtype).encode())
-        digest.update(str(tuple(tensor.shape)).encode())
-        digest.update(tensor.numpy().tobytes())
+        digest.update(str(array.dtype).encode())
+        digest.update(str(array.shape).encode())
+        digest.update(array.tobytes())
     return digest.hexdigest()
 
 
