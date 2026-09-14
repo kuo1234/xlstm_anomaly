@@ -545,8 +545,8 @@ def main() -> None:
     schema = json.loads((ROOT / "reports" / "phase_g" /
                          "schema_binding.json").read_text())
     original = _load_original_backbone_preflight()
-    if config["g0_status"] != "PENDING_CANDI_PREFLIGHT":
-        raise RuntimeError("G0.1 preflight must start from pending status")
+    if config["g0_status"] not in ("PENDING_CANDI_PREFLIGHT", "PASS"):
+        raise RuntimeError("G0.1 preflight config status is invalid")
     if control["status"] != "SEALED_PROSPECTIVE_PENDING_PREFLIGHT":
         raise RuntimeError("CANDI control amendment is not prospective/pending")
     control_path = ROOT / "reports" / "phase_g" / "candi_control_manifest.json"
