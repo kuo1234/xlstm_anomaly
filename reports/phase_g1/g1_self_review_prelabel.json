@@ -1,0 +1,221 @@
+{
+  "reviewed_commit": "5c707618e78749f119bbdc722fc6c163e73f5a83",
+  "review_scope": "Stage A/B label-blind adversarial review of the executable G1 pipeline",
+  "verdict": "STOP_PROTOCOL_AMBIGUITY",
+  "labels_read": false,
+  "scientific_outcomes_read": false,
+  "probe_fit_executed": false,
+  "test_ap_or_auroc_computed": false,
+  "bootstrap_or_sign_flip_executed": false,
+  "optimizer_created_or_stepped": false,
+  "files_inspected": [
+    "configs/phase_g1.json",
+    "configs/synthetic_v1.json",
+    "reports/m0_protocol.md",
+    "reports/phase_g/prospective.md",
+    "reports/phase_g/checkpoint_manifest.json",
+    "reports/phase_g/schema_binding.json",
+    "reports/phase_g/confirmatory_family.json",
+    "reports/phase_g/candi_control_manifest.json",
+    "reports/phase_g/candi_preflight.json",
+    "reports/phase_g/preflight.json",
+    "reports/phase_g/g0_status.json",
+    "reports/phase_g1/stage_a_preflight.json",
+    "reports/phase_g1/adversarial_tests.json",
+    "scripts/phase_g1_core.py",
+    "scripts/phase_g1_pipeline.py",
+    "scripts/phase_g1_run.py",
+    "scripts/phase_g1_stage_a.py",
+    "scripts/phase_g1_adversarial.py",
+    "scripts/phase_g1_postrun_audit.py",
+    "tests/test_phase_g1.py",
+    "m0/synthetic.py",
+    "m0/correlation.py",
+    "scripts/phase_e2_common.py",
+    "scripts/phase_e2_observer.py",
+    "scripts/phase_e2_schema.py",
+    "scripts/phase_f_common.py",
+    "scripts/phase_f_v2_common.py",
+    "scripts/phase_f_v3_common.py",
+    "scripts/phase_f_v4_common.py",
+    "scripts/phase_f_lstm_observer.py"
+  ],
+  "frozen_protocol_files_inspected": [
+    "reports/m0_protocol.md",
+    "configs/phase_g1.json",
+    "reports/phase_g/prospective.md",
+    "reports/phase_g/confirmatory_family.json",
+    "reports/phase_g/schema_binding.json",
+    "reports/phase_g/candi_control_manifest.json",
+    "reports/phase_g/candi_preflight.json",
+    "reports/phase_g/checkpoint_manifest.json",
+    "reports/phase_f_v4/final_manifest.json"
+  ],
+  "protocol_to_code": [
+    {
+      "requirement": "Strict source folds 1000..1009 / 2000..2004 / 3000..3009",
+      "code_path": "phase_g1_core.py TRAIN_SOURCES, VALIDATION_SOURCES, TEST_SOURCES; phase_g1_run.py fold loop",
+      "evidence": "Stage-A source_fold_separation and pooled-fold checks PASS; ProbeSplit.validate enforces fold membership",
+      "status": "PASS"
+    },
+    {
+      "requirement": "One pooled probe fit across abrupt, gradual, recurring, correlation; C selected on pooled validation only",
+      "code_path": "phase_g1_run.py pooled train/validation construction; phase_g1_core.py fit_probe_pooled",
+      "evidence": "assert_pooled_shifted_rows and reject_per_scenario_selection are executable guards; adversarial per-scenario-C fixture PASS",
+      "status": "PASS"
+    },
+    {
+      "requirement": "Evaluator-only labels; anomaly/drift primary binary; mixed excluded",
+      "code_path": "phase_g1_core.py build_evaluator_rows/primary_binary_mask; phase_g1_pipeline.py join_evaluator_labels/select_primary_rows; phase_g1_run.py observation-then-label boundary",
+      "evidence": "extract_backbone_rows accepts observations/scaler/timestamps only; label-argument fixture and no-native-predict check PASS",
+      "status": "PASS"
+    },
+    {
+      "requirement": "Common row cohort and byte-identical ordered row-key hashes for every comparison",
+      "code_path": "phase_g1_run.py common_mask, _assert_paired_arms, assert_common_cohort; phase_g1_core.py assert_same_row_order/paired_intersection",
+      "evidence": "permuted-order, removed-row, reordered-source, and shifted-key fixtures all reject; paired keys are stored",
+      "status": "PASS"
+    },
+    {
+      "requirement": "Frozen six feature groups and dimensions 14/52/130/52/234/248",
+      "code_path": "phase_g1_core.py build_feature_groups/internal_groups/history14/expand_internal234; phase E observers",
+      "evidence": "Stage-A sealed_feature_dimensions and causal expansion PASS; expected dimensions are checked before fitting",
+      "status": "PASS"
+    },
+    {
+      "requirement": "xLSTM four eligible scalar sLSTM cells; LSTM equal pooling over all six layers",
+      "code_path": "sealed phase E2 schema/observers loaded through phase_g0_preflight and phase_f_lstm_observer",
+      "evidence": "G0 schema and F4 validity seals are hash-checked; no layer-selection code in G1",
+      "status": "PASS"
+    },
+    {
+      "requirement": "Shared CANDI W10 history at common right-edge t>=63; one tensor reused in both arms",
+      "code_path": "phase_g1_pipeline.py _candi_rows/load_candi_controls/extract_candi_history; phase_g1_run.py per-stream single extraction and shared-control assertions",
+      "evidence": "G0.1 mapping/config hashes verified; CANDI alignment/shared-tensor fixtures PASS; no adaptation/FPM/SANA/optimizer path",
+      "status": "PASS"
+    },
+    {
+      "requirement": "Train-only StandardScaler; C grid {0.01,.1,1,10}; exact smaller-C validation tie",
+      "code_path": "phase_g1_core.py fit_scaler_train_only/fit_probe_pooled",
+      "evidence": "scaler validation-inclusion fixture PASS; ProbeSplit fold validation and stored candidates enforce pooled selection",
+      "status": "PASS"
+    },
+    {
+      "requirement": "Primary AP differences pooled by source over all four scenarios, then detector-seed/source macro",
+      "code_path": "phase_g1_run.py _pooled_source_ap/_difference_table; phase_g1_pipeline.py build_confirmatory_statistics",
+      "evidence": "primary statistics reject descriptive [10,5,4] tensors and require [10,5]; all four frozen subtraction formulas are explicit",
+      "status": "PASS"
+    },
+    {
+      "requirement": "Duration/severity-matched analysis must support H2/H3a",
+      "code_path": "phase_g1_run.py _duration_matched_rows/_matched_effect_table; configs/phase_g1.json duration_severity_matching",
+      "evidence": "The only frozen semantic counterpart is observation-identical with opposite evaluator semantics; this is the separately specified non-identifiability control, not a supportive matched estimand. Runner now fails closed before generation when status is UNRESOLVED_PROTOCOL",
+      "status": "STOP_PROTOCOL_AMBIGUITY"
+    },
+    {
+      "requirement": "Hierarchical bootstrap source-first/seed-second, sign-flip, Holm family exactly four",
+      "code_path": "phase_g1_core.py hierarchical_bootstrap/source_cluster_sign_flip/holm_adjust; phase_g1_pipeline.py build_confirmatory_statistics",
+      "evidence": "family-size and fifth-member fixtures PASS; fixed seeds 901/902 and family names are sealed",
+      "status": "PASS"
+    },
+    {
+      "requirement": "Frozen H2/H3a Boolean directions, margins, CI strictness, conditionality",
+      "code_path": "phase_g1_core.py h2_go/h3a_go; phase_g1_run.py decision construction",
+      "evidence": "reversed-subtraction fixture rejects wrong formula while allowing a genuine negative effect; unresolved matched gate prevents a false scientific decision",
+      "status": "PASS_WITH_LABEL_ACCESS_BLOCKED"
+    },
+    {
+      "requirement": "Secondary anomaly-type/mixed, specificity and natural-prevalence reporting",
+      "code_path": "phase_g1_run.py _descriptive_strata_summary/_specificity_summary/_natural_prevalence_summary",
+      "evidence": "Evaluator-side summaries now include counts, prevalence, fixed-threshold rate, mean probability and AP where both classes exist; no post-outcome selection",
+      "status": "PASS"
+    },
+    {
+      "requirement": "Independent post-run recomputation and execution forensics",
+      "code_path": "phase_g1_postrun_audit.py; phase_g1_run.py metadata-only execution ledger",
+      "evidence": "Auditor independently reconstructs AP/C/statistics and rejects missing/exceptional/incomplete ledger; no labeled run exists yet",
+      "status": "PASS_FOR_LABEL_ACCESS_BLOCKED"
+    },
+    {
+      "requirement": "No native predict_step or optimizer/model mutation in common extraction",
+      "code_path": "phase_g1_core.py extract_backbone_rows/ensure_no_native_predict_path; G1 Stage-A checks",
+      "evidence": "no-native-predict and import smoke tests PASS; extractor state hash guard present",
+      "status": "PASS"
+    },
+    {
+      "requirement": "Scientific dependency closure and sealed inputs",
+      "code_path": "phase_g1_pipeline.py SCIENTIFIC_PRELABEL_FILES/require_prelabel_seal/assert_sealed_inputs",
+      "evidence": "25-file closure present; all G0/F4 hashes and base config hash PASS; review guard requires committed exact review bytes",
+      "status": "PASS_FOR_LABEL_ACCESS_BLOCKED"
+    }
+  ],
+  "adversarial_tests": {
+    "stage_a_status": "PASS",
+    "stage_a_labels_read": false,
+    "test_status": "PASS",
+    "test_count": 18,
+    "failed": [],
+    "fixtures": [
+      "permuted_test_row_order",
+      "removed_warmup_valid_row",
+      "validation_row_in_train_scaler",
+      "shifted_candi_timestamp",
+      "different_shared_candi_tensor",
+      "reversed_subtraction",
+      "fifth_holm_member",
+      "per_scenario_c_selection",
+      "extractor_label_argument",
+      "reordered_source_pair",
+      "unresolved_duration_protocol_blocks_label_access"
+    ]
+  },
+  "defects_found_and_actions": [
+    "Separated the identical-observation/opposite-semantic control from the unresolved supportive duration/severity estimand.",
+    "Added a fail-closed duration-matching resolution guard before checkpoint loading or stream generation.",
+    "Separated H2 matched support from H3a matched support metadata.",
+    "Distinguished unresolved/insufficient matched evidence from a negative scientific result.",
+    "Added full natural-prevalence and descriptive-stratum probability diagnostics.",
+    "Added metadata-only execution start/progress/exception/terminal ledger and independent auditor checks.",
+    "No scientific output was regenerated or interpreted while making these pre-label fixes."
+  ],
+  "unresolved_ambiguities": [
+    {
+      "issue": "The protocol requires a duration/severity-matched analysis that supports H2/H3a, but does not define the legitimate comparison cohort or estimand. The sealed generator's semantic=legitimate path is an observation-identical/opposite-label non-identifiability control and cannot provide supportive information content.",
+      "scientific_consequence": "Using it as the mandatory support would guarantee a null AP/incremental result and conflate a negative control with the required matched analysis; using an invented alternative would be post-hoc protocol selection.",
+      "minimum_external_resolution": "Define, before labels, the legitimate-excursion cohort, matching variables/algorithm, source/event weighting, AP estimand and support/GO semantics. Preserve the existing identical-observation control separately.",
+      "status": "BLOCKS_LABEL_ACCESS"
+    }
+  ],
+  "scientific_file_sha256": {
+    "configs/phase_g1.json": "4cb94f235a9ec27949f391c46d7f638d993d48bc6ec4256ca5d343261111b25a",
+    "configs/synthetic_v1.json": "5b1fb7858cf144db3615b91a6a22f21fb52c858fa9669082beca67c26ec8338f",
+    "data/phase_e2/dependency_install.json": "e8e601baa74b280feeda7a113c92e501b7978d0eb5b8c95922afaa18757e586e",
+    "m0/correlation.py": "7211f3e50c12d36864a467933bca093e3ba113f68ea189afa13866b9b8b19dd1",
+    "m0/synthetic.py": "6d9243142c7cb95c2c2f5aef2ba8ca7493b369ea754e3405f96afbccec7faac2",
+    "reports/phase_e2/environment.json": "8149ea9d48b6cf40fa3917cc7f92e77f6206d2f1bb9887f36f0985637025de3d",
+    "reports/phase_e2/source_hashes.json": "a3cf71e2d3abefd98f6e0849a20233a3a9bad3782cd87fa63a9093a870737530",
+    "reports/phase_f/preprocessing_manifest.json": "5910fa70711f2f56df927351675e401587382dc8e17099f75393e6ae715926d1",
+    "scripts/phase_e2_common.py": "5d585f47158d87afaf30acc7d41f3324be500b3a5ddbd619180aeb86569aed10",
+    "scripts/phase_e2_observer.py": "0a1968f3a282d037f772983d85ee40d275d267472548a4ee9b7cc4924daa31b8",
+    "scripts/phase_e2_schema.py": "1e8274c030d2c86eaf5d54f6a52515582106021b644c4e79e1fe10b6d54d04e8",
+    "scripts/phase_f_common.py": "9d20fefb22ec143c3d19d285c11705d1949946b4255c4cf1a2d4882b51344575",
+    "scripts/phase_f_lstm_observer.py": "e58aeef030a85669ef84757d9fd48d83d8d52656e270104d56dbfb37f1c8d570",
+    "scripts/phase_f_v2_common.py": "6febcd9ee8da01caa96d072c8d60d185b79d3cd884f245b05725f93d3fc26710",
+    "scripts/phase_f_v3_common.py": "a66b09c2cc00386d31c802ab118c560b788603047666dc4cec537c28ec7a2247",
+    "scripts/phase_f_v4_common.py": "1b93a8c5e421741a7e323ec163798de5e77f1780ffda4669b2f09a060f9fb700",
+    "scripts/phase_g01_candi_preflight.py": "ba762b5f6d47fd2d58d7efcbb5094297a00aab74656ea896d6bd68c75efd14cd",
+    "scripts/phase_g0_preflight.py": "8c0348a850eb69d1d32090518e6c2c6acf4d98d90584af7412bf293bb0d3a7ee",
+    "scripts/phase_g1_adversarial.py": "e49f727b033e8c690eb7d519657489f6b7744844d59bc9cf27ed4c7bac4ffbf5",
+    "scripts/phase_g1_core.py": "ea23c64746ac3c90ff373025402d14338d575980f639e3e5669eac363b7821a5",
+    "scripts/phase_g1_pipeline.py": "1158e1882f57f7769835f9c5eaa82ea660b9efcdbae92b15afe9dbd6351a2528",
+    "scripts/phase_g1_postrun_audit.py": "1f82f54859682431fce4dcfefbd4e82d569b8b6c30afa885e69ff105e43f63c4",
+    "scripts/phase_g1_run.py": "f3c356d8ab89b908817621f6d9bf0b5853bdd21210e106f6647eb244d94da038",
+    "scripts/phase_g1_stage_a.py": "5ac3299fd297fe8335a7627ef6e3900d63a514bb36d782aca6bca95d8e7ae644",
+    "tests/test_phase_g1.py": "17cc960b9c416435cfe362047d95f5e093d1585100d02b8c367e7c77a2764857"
+  },
+  "prelabel_seal": {
+    "created": false,
+    "reason": "A PASS_FOR_LABEL_ACCESS seal is forbidden while duration/severity supportive estimand remains unresolved",
+    "required_next_step": "External prospective protocol amendment, then rerun all Stage-A tests and this adversarial review from the beginning"
+  }
+}

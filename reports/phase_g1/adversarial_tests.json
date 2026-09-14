@@ -1,0 +1,83 @@
+{
+  "status": "PASS",
+  "test_count": 18,
+  "results": [
+    {
+      "name": "test_all_g1_entrypoints_import_without_label_execution",
+      "status": "PASS"
+    },
+    {
+      "name": "test_candi_history_and_feature_extraction_do_not_accept_truth_arguments",
+      "status": "PASS"
+    },
+    {
+      "name": "test_different_shared_candi_tensor_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "test_fifth_holm_member_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "test_frozen_dimensions_and_causal_expansion",
+      "status": "PASS"
+    },
+    {
+      "name": "test_labels_cannot_be_passed_to_observation_extractor",
+      "status": "PASS"
+    },
+    {
+      "name": "test_no_native_predict_step_in_common_path",
+      "status": "PASS"
+    },
+    {
+      "name": "test_per_scenario_c_selection_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "test_permuted_test_row_order_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "test_primary_statistics_require_source_pooled_shape",
+      "status": "PASS"
+    },
+    {
+      "name": "test_removed_warmup_valid_row_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "test_reordered_source_realization_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "test_reversed_confirmatory_subtraction_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "test_scaler_validation_inclusion_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "test_shifted_candi_timestamp_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "test_source_folds_are_disjoint_and_shifted_rows_are_pooled",
+      "status": "PASS"
+    },
+    {
+      "name": "test_stage_a_source_contains_no_metric_or_label_execution",
+      "status": "PASS"
+    },
+    {
+      "name": "test_unresolved_duration_protocol_blocks_label_access",
+      "status": "PASS"
+    }
+  ],
+  "failed": [],
+  "real_phase_g_labels_read": false,
+  "ap_or_auroc_computed": false,
+  "probe_fitted": false,
+  "optimizer_steps": false
+}

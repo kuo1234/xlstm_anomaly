@@ -1,0 +1,121 @@
+{
+  "version": "phase_g1_stage_a_v1",
+  "phase": "G1",
+  "status": "PROSPECTIVE_PRELABEL",
+  "base_g0_config": "configs/phase_g.json",
+  "base_g0_config_sha256": "cb2b3234d4cbf2efac535a12c90708ab65ea43532159a4b4dbffa83edc5a83b6",
+  "sealed_input_sha256": {
+    "reports/phase_g/checkpoint_manifest.json": "370143954cd8cdf4fa200808d75ef5dc09f377199dfd1d75675b5e1cd6a0b6f0",
+    "reports/phase_g/schema_binding.json": "7481c68f89e08bdbb98c58ae8f6f717304aaed7eae0810b466747afc4b00492a",
+    "reports/phase_g/confirmatory_family.json": "5d45b6ef82ebc65f83e6ebbfbc6d9cc3bc18e68dcd4909fa58ecc9fb810500eb",
+    "reports/phase_g/candi_control_manifest.json": "f86c8ab05061d9c78da5f98408161d33966dad0335f7ad1450a66fa034c07ca6",
+    "reports/phase_g/candi_preflight.json": "6bb3e7cec12584d8c334ef6f5e252ca5b94f63e019e0f66f255f2c1516976b2c",
+    "reports/phase_f_v4/final_manifest.json": "e20f2d349d685919ae1d861c7f47f6f0f4b48d6a28c9973bb4cf95e74daefb9c"
+  },
+  "checkpoint_manifest": "reports/phase_g/checkpoint_manifest.json",
+  "schema_binding": "reports/phase_g/schema_binding.json",
+  "confirmatory_family": "reports/phase_g/confirmatory_family.json",
+  "candi_control_manifest": "reports/phase_g/candi_control_manifest.json",
+  "candi_preflight": "reports/phase_g/candi_preflight.json",
+  "folds": {
+    "train": [1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009],
+    "validation": [2000, 2001, 2002, 2003, 2004],
+    "test": [3000, 3001, 3002, 3003, 3004, 3005, 3006, 3007, 3008, 3009],
+    "source_disjoint": true
+  },
+  "scenarios": {
+    "confirmatory_shifted": ["abrupt", "gradual", "recurring", "correlation"],
+    "stationary_specificity_only": true,
+    "conditions": ["none", "spike", "collective", "dependency", "mixture"],
+    "pooled_probe_fit": true,
+    "per_scenario_c_forbidden": true
+  },
+  "causal_track": {
+    "window": 64,
+    "stride": 1,
+    "decision_timestamp": "right_edge",
+    "first_common_timestamp": 63,
+    "future_observations_forbidden": true,
+    "independent_window_reset": true,
+    "optimizer_updates": false
+  },
+  "label_boundary": {
+    "positive": "anomaly windows",
+    "negative": "anomaly-free drift/transition windows",
+    "mixed": "separate stress stratum excluded from primary binary probe",
+    "stable_new_normal": "specificity only",
+    "stationary_normal": "specificity only",
+    "extractor_receives_labels": false,
+    "extractor_receives_regime_or_event_metadata": false
+  },
+  "duration_severity_matching": {
+    "status": "UNRESOLVED_PROTOCOL",
+    "opposite_semantic_control": "identical_observation_opposite_semantic_labels_only",
+    "supportive_estimand": "not defined; requires prospective external protocol amendment",
+    "label_access_blocked": true
+  },
+  "feature_groups": {
+    "history14": 14,
+    "hidden52": 52,
+    "gate130": 130,
+    "memory52": 52,
+    "combined234": 234,
+    "history_plus_combined248": 248,
+    "rolling_widths": [4, 8, 16, 32],
+    "xLSTM_scalar_cells": "four eligible scalar sLSTM cells only",
+    "LSTM_layers": "all six recurrent layers with equal pooling",
+    "mLSTM_confirmatory_features": false
+  },
+  "candi_control": {
+    "official_commit": "28c9679e503832f59e351208cde63657fcb51cad",
+    "window": 10,
+    "stride": 1,
+    "seed_mapping": {
+      "11": "data/phase_d/backbone_11/pre_intervention.pth",
+      "22": "data/phase_d/backbone_22/pre_intervention.pth",
+      "33": "data/phase_d/backbone_33/pre_intervention.pth",
+      "44": "data/phase_d/backbone_44/pre_intervention.pth",
+      "55": "data/phase_d/backbone_55/pre_intervention.pth"
+    },
+    "history_only_at_or_after_t": 63,
+    "same_tensor_reused_between_backbones": true,
+    "adaptation": false,
+    "fpm": false,
+    "sana_update": false,
+    "optimizer_step": false
+  },
+  "probe": {
+    "classifier": "L2 logistic regression",
+    "scaler": "StandardScaler fit on train only",
+    "c_grid": [0.01, 0.1, 1, 10],
+    "validation_selection": "pooled validation AP; exact tie smaller C",
+    "temporal_purge": 96,
+    "random_overlapping_window_split": false
+  },
+  "statistics": {
+    "detector_seeds": [11, 22, 33, 44, 55],
+    "macro_unit": "source realization",
+    "hierarchical_bootstrap_draws": 10000,
+    "hierarchical_bootstrap_seed": 901,
+    "sign_flip_seed": 902,
+    "holm_alpha": 0.05,
+    "holm_family_size": 4,
+    "holm_family_names": ["H2", "H3a-A", "H3a-B", "H3a-C"]
+  },
+  "decision_rules": {
+    "practical_margin": 0.02,
+    "ci_lower_strictly_positive": true,
+    "h2_positive_detector_seeds": 4,
+    "h2_positive_scenarios": 3,
+    "h3a_conditional_on_h2": true,
+    "h3b_locked_until_h3a": true
+  },
+  "stage_a_stop_boundary": {
+    "real_labels_read": false,
+    "standard_scaler_fit": false,
+    "logistic_fit": false,
+    "ap_or_auroc_computed": false,
+    "bootstrap_or_sign_flip": false,
+    "test_result_metrics": false
+  }
+}

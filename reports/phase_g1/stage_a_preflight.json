@@ -1,0 +1,212 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "source_fold_separation",
+      "status": "PASS"
+    },
+    {
+      "name": "extractor_observation_only_signature",
+      "status": "PASS",
+      "parameters": [
+        "model",
+        "architecture",
+        "observations",
+        "scaler",
+        "timestamps",
+        "batch_size"
+      ],
+      "forbidden": [],
+      "var_kwargs": false
+    },
+    {
+      "name": "sealed_feature_dimensions",
+      "status": "PASS",
+      "dimensions": {
+        "history14": [
+          96,
+          14
+        ],
+        "hidden52": [
+          96,
+          52
+        ],
+        "gate130": [
+          96,
+          130
+        ],
+        "memory52": [
+          96,
+          52
+        ],
+        "combined234": [
+          96,
+          234
+        ],
+        "history_plus_combined248": [
+          96,
+          248
+        ]
+      }
+    },
+    {
+      "name": "prefix_causality",
+      "status": "PASS",
+      "history": true,
+      "internal": true
+    },
+    {
+      "name": "paired_row_key_intersection",
+      "status": "PASS",
+      "row_key_sha256": "4a7631a80eb4360dc961352108120a00fe6fe35de894776044c9f4e63bf0017b"
+    },
+    {
+      "name": "candi_alignment_shared_control",
+      "status": "PASS",
+      "first_timestamp": 63,
+      "window": 10
+    },
+    {
+      "name": "pooled_four_scenario_contract",
+      "status": "PASS"
+    },
+    {
+      "name": "holm_family_size_four",
+      "status": "PASS"
+    },
+    {
+      "name": "c_grid_and_purge",
+      "status": "PASS"
+    },
+    {
+      "name": "unresolved_duration_protocol_blocks_label_access",
+      "status": "PASS"
+    },
+    {
+      "name": "f_v4_backend_configured_before_inference",
+      "status": "PASS"
+    },
+    {
+      "name": "scientific_dependency_closure_present",
+      "status": "PASS",
+      "file_count": 25
+    },
+    {
+      "name": "entrypoint_import_and_symbol_smoke",
+      "status": "PASS"
+    },
+    {
+      "name": "permuted_test_row_order",
+      "status": "PASS",
+      "rejected": true
+    },
+    {
+      "name": "removed_warmup_valid_row",
+      "status": "PASS",
+      "rejected": true
+    },
+    {
+      "name": "validation_row_in_train_scaler",
+      "status": "PASS",
+      "rejected": true
+    },
+    {
+      "name": "shifted_candi_timestamp",
+      "status": "PASS",
+      "rejected": true
+    },
+    {
+      "name": "different_shared_candi_tensor",
+      "status": "PASS",
+      "rejected": true
+    },
+    {
+      "name": "reversed_subtraction",
+      "status": "PASS",
+      "rejected": true
+    },
+    {
+      "name": "fifth_holm_member",
+      "status": "PASS",
+      "rejected": true
+    },
+    {
+      "name": "per_scenario_c_selection",
+      "status": "PASS",
+      "rejected": true
+    },
+    {
+      "name": "extractor_label_argument",
+      "status": "PASS",
+      "rejected": true
+    },
+    {
+      "name": "reordered_source_pair",
+      "status": "PASS",
+      "rejected": true
+    },
+    {
+      "name": "stage_a_no_metric_execution",
+      "status": "PASS",
+      "forbidden_calls": []
+    },
+    {
+      "name": "sealed_g0_f4_input_hashes",
+      "status": "PASS",
+      "files": [
+        {
+          "path": "reports/phase_g/checkpoint_manifest.json",
+          "expected": "370143954cd8cdf4fa200808d75ef5dc09f377199dfd1d75675b5e1cd6a0b6f0",
+          "actual": "370143954cd8cdf4fa200808d75ef5dc09f377199dfd1d75675b5e1cd6a0b6f0",
+          "pass_": true
+        },
+        {
+          "path": "reports/phase_g/schema_binding.json",
+          "expected": "7481c68f89e08bdbb98c58ae8f6f717304aaed7eae0810b466747afc4b00492a",
+          "actual": "7481c68f89e08bdbb98c58ae8f6f717304aaed7eae0810b466747afc4b00492a",
+          "pass_": true
+        },
+        {
+          "path": "reports/phase_g/confirmatory_family.json",
+          "expected": "5d45b6ef82ebc65f83e6ebbfbc6d9cc3bc18e68dcd4909fa58ecc9fb810500eb",
+          "actual": "5d45b6ef82ebc65f83e6ebbfbc6d9cc3bc18e68dcd4909fa58ecc9fb810500eb",
+          "pass_": true
+        },
+        {
+          "path": "reports/phase_g/candi_control_manifest.json",
+          "expected": "f86c8ab05061d9c78da5f98408161d33966dad0335f7ad1450a66fa034c07ca6",
+          "actual": "f86c8ab05061d9c78da5f98408161d33966dad0335f7ad1450a66fa034c07ca6",
+          "pass_": true
+        },
+        {
+          "path": "reports/phase_g/candi_preflight.json",
+          "expected": "6bb3e7cec12584d8c334ef6f5e252ca5b94f63e019e0f66f255f2c1516976b2c",
+          "actual": "6bb3e7cec12584d8c334ef6f5e252ca5b94f63e019e0f66f255f2c1516976b2c",
+          "pass_": true
+        },
+        {
+          "path": "reports/phase_f_v4/final_manifest.json",
+          "expected": "e20f2d349d685919ae1d861c7f47f6f0f4b48d6a28c9973bb4cf95e74daefb9c",
+          "actual": "e20f2d349d685919ae1d861c7f47f6f0f4b48d6a28c9973bb4cf95e74daefb9c",
+          "pass_": true
+        }
+      ]
+    },
+    {
+      "name": "base_g0_config_hash",
+      "status": "PASS",
+      "expected": "cb2b3234d4cbf2efac535a12c90708ab65ea43532159a4b4dbffa83edc5a83b6",
+      "actual": "cb2b3234d4cbf2efac535a12c90708ab65ea43532159a4b4dbffa83edc5a83b6"
+    }
+  ],
+  "failed_checks": [],
+  "real_phase_g_labels_read": false,
+  "test_source_labels_read": false,
+  "scaler_fitted": false,
+  "logistic_fitted": false,
+  "ap_or_auroc_computed": false,
+  "bootstrap_or_sign_flip": false,
+  "optimizer_created_or_stepped": false,
+  "checkpoint_mutated": false,
+  "phase": "G1 Stage A"
+}
