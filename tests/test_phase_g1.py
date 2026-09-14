@@ -10,6 +10,7 @@ import ast
 import sys
 from contextlib import contextmanager
 from pathlib import Path
+from types import SimpleNamespace
 
 import numpy as np
 try:
@@ -242,6 +243,62 @@ def test_g11_duration_stratum_row_cohort_mismatch_is_rejected():
     right[-1] = dict(right[-1], timestamp=right[-1]["timestamp"] + 1)
     with pytest.raises(core.ProtocolViolation):
         core.assert_same_row_order(left, right)
+
+
+def test_g11_joined_feature_record_retains_timestamps_for_semantic_alignment():
+    pipeline = __import__("phase_g1_pipeline")
+    runner = __import__("phase_g1_run")
+    timestamps = np.asarray([63, 64], dtype=np.int64)
+    groups = {"history14": np.arange(28, dtype=np.float64).reshape(2, 14)}
+    record = pipeline.FeatureRecord(
+        detector_seed=11,
+        architecture="lstm",
+        source_seed=3000,
+        scenario="abrupt",
+        condition="spike",
+        timestamps=timestamps,
+        groups=groups,
+        scores=np.asarray([0.1, 0.2], dtype=np.float64),
+        source_fold="test",
+    )
+    labels = np.zeros(80, dtype=np.int8)
+    labels[63:65] = 1
+    event_ids = np.full(80, -1, dtype=np.int32)
+    event_ids[63:65] = 0
+    stream = SimpleNamespace(
+        labels=labels,
+        drift_active=np.zeros(80, dtype=bool),
+        regime=np.zeros(80, dtype=np.int8),
+        event_ids=event_ids,
+        events=({"id": 0, "type": "spike", "duration": 1, "severity": 1},),
+    )
+    joined = pipeline.join_evaluator_labels(record, stream)
+    assert np.array_equal(joined["timestamps"], timestamps)
+    paired = runner._semantic_pair_rows(joined, {"history14": groups["history14"].copy()}, "history14", [True, True])
+    assert paired["keys"] and np.array_equal(paired["anomaly_X"], paired["legitimate_X"])
+
+
+def test_g11_robustness_retains_drift_when_requested_bin_is_absent():
+    runner = __import__("phase_g1_run")
+    timestamps = np.asarray([63, 64, 65], dtype=np.int64)
+    joined = {
+        "keys": core.make_row_keys(11, 3000, "abrupt", "none", timestamps, [-1, -1, 0]),
+        "groups": {"history14": np.zeros((3, 14), dtype=np.float64)},
+        "label": np.asarray([0, 0, 1], dtype=np.int8),
+        "stratum": np.asarray(["drift", "drift", "anomaly"], dtype=object),
+        "event": np.asarray([-1, -1, 0], dtype=np.int32),
+        "event_type": np.asarray([None, None, "spike"], dtype=object),
+        "duration": np.asarray([None, None, 64], dtype=object),
+        "severity": np.asarray([None, None, 1], dtype=object),
+        "source_seed": np.asarray([3000, 3000, 3000], dtype=np.int64),
+        "scenario": np.asarray(["abrupt"] * 3, dtype=object),
+    }
+    absent = runner._select_duration_or_severity_rows(joined, "history14", [True, True, True], "duration", 1)
+    assert len(absent["keys"]) == 2
+    assert absent["positive_rows"] == 0 and absent["negative_rows"] == 2 and not absent["support"]
+    present = runner._select_duration_or_severity_rows(joined, "history14", [True, True, True], "duration", 64)
+    assert len(present["keys"]) == 3
+    assert present["positive_rows"] == 1 and present["negative_rows"] == 2 and present["support"]
 
 
 def _matching_rows(duration=(16, 16), severity=(1, 1), labels=(1, 0)):

@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "test_count": 33,
+  "test_count": 35,
   "results": [
     {
       "name": "test_all_g1_entrypoints_import_without_label_execution",
@@ -39,6 +39,10 @@
       "status": "PASS"
     },
     {
+      "name": "test_g11_joined_feature_record_retains_timestamps_for_semantic_alignment",
+      "status": "PASS"
+    },
+    {
       "name": "test_g11_rejects_missing_required_exclusion",
       "status": "PASS"
     },
@@ -60,6 +64,10 @@
     },
     {
       "name": "test_g11_reports_insufficient_support_without_merging_bins",
+      "status": "PASS"
+    },
+    {
+      "name": "test_g11_robustness_retains_drift_when_requested_bin_is_absent",
       "status": "PASS"
     },
     {

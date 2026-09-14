@@ -71,7 +71,9 @@ SCIENTIFIC_PRELABEL_FILES = (
     "reports/phase_f/preprocessing_manifest.json",
     "reports/phase_e2/source_hashes.json",
     "reports/phase_e2/environment.json",
-    "data/phase_e2/dependency_install.json",
+    # The original data/ path is git-ignored; the byte-identical tracked
+    # report copy is the immutable dependency metadata used by the seal.
+    "reports/phase_e2/dependency_install.json",
     "m0/synthetic.py",
     "m0/correlation.py",
     "scripts/phase_g1_core.py",
@@ -406,6 +408,7 @@ def join_evaluator_labels(record: FeatureRecord, stream: Any) -> dict[str, Any]:
     keys = make_row_keys(record.detector_seed, record.source_seed, record.scenario, record.condition, record.timestamps, truth["event"])
     return {
         "keys": keys,
+        "timestamps": np.asarray(record.timestamps, dtype=np.int64).copy(),
         "groups": {name: np.asarray(value) for name, value in record.groups.items()},
         "label": truth["label"],
         "stratum": truth["stratum"],

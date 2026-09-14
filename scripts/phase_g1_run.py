@@ -324,8 +324,13 @@ def _select_duration_or_severity_rows(
     positive = (strata == "anomaly") & (events >= 0) & np.isin(types, NONSTRESS_EVENT_TYPES)
     positive &= np.asarray([item is not None and int(item) == int(value) for item in metadata], dtype=bool)
     negative = strata == "drift"
+    # Keep every eligible drift row even when this individual
+    # source/scenario/condition has no positive event in the requested bin.
+    # Two-class support is assessed only after the prescribed pooling across
+    # streams, so a sparse event-duration bin cannot silently change the
+    # negative cohort.
     selected = positive | negative
-    if not np.any(positive) or not np.any(negative):
+    if not np.any(selected):
         return {
             "X": np.empty((0, base["X"].shape[1]), dtype=np.float64),
             "y": np.empty((0,), dtype=np.int8),
@@ -338,8 +343,8 @@ def _select_duration_or_severity_rows(
             "severity": np.empty((0,), dtype=object),
             "stratum": np.empty((0,), dtype=object),
             "support": False,
-            "positive_rows": 0,
-            "negative_rows": 0,
+            "positive_rows": int(np.sum(positive)),
+            "negative_rows": int(np.sum(negative)),
             "excluded_multi_event": int(np.sum((strata == "anomaly") & (events < 0))),
             "excluded_persistent_fault": int(np.sum((strata == "anomaly") & (types == "persistent_fault"))),
             "excluded_mixed": int(np.sum(strata == "mixed")),
@@ -356,7 +361,7 @@ def _select_duration_or_severity_rows(
         "duration": np.asarray(base["duration"], dtype=object)[selected],
         "severity": np.asarray(base["severity"], dtype=object)[selected],
         "stratum": np.asarray(base["stratum"], dtype=object)[selected],
-        "support": True,
+        "support": bool(np.any(positive) and np.any(negative)),
         "positive_rows": int(np.sum(positive)),
         "negative_rows": int(np.sum(negative)),
         "excluded_multi_event": int(np.sum((strata == "anomaly") & (events < 0))),
