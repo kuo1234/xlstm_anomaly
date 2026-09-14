@@ -27,3 +27,35 @@ The existing artifacts expose more than one plausible frozen CANDI control: five
 The accompanying preflight is allowed to load frozen checkpoints and use random unlabeled tensors only. It verifies hashes, finite output/score/features, dimensions, causal rolling transforms, reset, permutation/partition invariance, observer OFF/ON parity, no native `predict_step`, no optimizer/parameter mutation, and identical-observation/dummy-opposite-label invariance. It must not calculate a test metric or join labels. If the CANDI control remains unresolved, the report is a fail-closed pre-label STOP even if backbone-only checks pass.
 
 Phase G0 does not authorize any labeled feature extraction, StandardScaler/logistic fitting, C selection, AP/AUROC/statistics, H3b, H4, natural-H1, or architecture/backend change.
+
+## G0.1 prospective CANDI-control amendment
+
+The external protocol resolution supersedes the earlier unresolved-control
+paragraph above, before any Phase-G labels, feature extraction, scaler fitting,
+classifier fitting, or metric computation. The shared H3a-C history control is
+the existing Phase-D D=8 synthetic CANDI family, paired by detector seed:
+
+| detector seed | frozen pre-intervention state |
+|---:|---|
+| 11 | `data/phase_d/backbone_11/pre_intervention.pth` |
+| 22 | `data/phase_d/backbone_22/pre_intervention.pth` |
+| 33 | `data/phase_d/backbone_33/pre_intervention.pth` |
+| 44 | `data/phase_d/backbone_44/pre_intervention.pth` |
+| 55 | `data/phase_d/backbone_55/pre_intervention.pth` |
+
+These are the official CANDI commit
+`28c9679e503832f59e351208cde63657fcb51cad` with frozen pre-intervention
+MLP/SANA states, no adaptation, no optimizer step, no FPM selection, and no
+truth access. The native CANDI window remains W=10; it is not retrained or
+converted to W=64. At each shared right-edge timestamp `t >= 63`, xLSTM/LSTM
+consume `raw[t-63:t+1]` and CANDI consumes `raw[t-9:t+1]`. Only CANDI scores
+at those common timestamps enter the 14-column causal history; all earlier
+scores are forbidden and incomplete rolling histories remain NaN warmup.
+
+The exact mapping, Phase-D manifest hash, preprocessing/scaler values and
+derived preprocessing hashes are sealed in
+[`candi_control_manifest.json`](candi_control_manifest.json). SMD/Phase-C
+native controls are explicitly excluded because they are domain/dimension
+mismatched for the D=8 synthetic source-paired track. The amendment status is
+`PENDING_CANDI_PREFLIGHT`; G0 becomes PASS only if the original ten-backbone
+preflight remains PASS and the alignment preflight passes.

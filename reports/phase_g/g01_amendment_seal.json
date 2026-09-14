@@ -1,0 +1,10 @@
+{
+  "status": "SEALED_PROSPECTIVE_PENDING_PREFLIGHT",
+  "amendment_manifest": "reports/phase_g/candi_control_manifest.json",
+  "amendment_manifest_sha256": "f86c8ab05061d9c78da5f98408161d33966dad0335f7ad1450a66fa034c07ca6",
+  "amendment_manifest_canonical_sha256": "e324679df5d14aec59c31f8a4c8917bf405a51b64dbf4a9aff6ab3ed56abb9d9",
+  "base_g0_commit": "ddb8e3c",
+  "labels_read": false,
+  "probe_results_read": false,
+  "metrics_computed": false
+}

@@ -1,5 +1,5 @@
 {
-  "status": "SEALED_WITH_CANDI_CONTROL_UNRESOLVED",
+  "status": "SEALED_WITH_CANDI_CONTROL_RESOLVED_PENDING_PREFLIGHT",
   "schema_version": "G0-H3a-common18-v1",
   "source_e2_schema": "reports/phase_e2/schema.json",
   "source_e2_schema_sha256": "9b7b5a102b33d9c79e5742f87e6555f95bd84facd0555da8e6de000ad9d90455",
@@ -597,7 +597,7 @@
     "retention_gate": "sigmoid(f_t)"
   },
   "candi_history_control": {
-    "resolution_status": "UNRESOLVED_PRELABEL",
+    "resolution_status": "RESOLVED_PROSPECTIVE_PENDING_PREFLIGHT",
     "stop_rule": "G0 stops before labels when more than one plausible frozen CANDI control is not uniquely resolved by the existing M0 text",
     "candidate_sets": {
       "D8_synthetic_seedwise": {
@@ -795,8 +795,54 @@
         "compatibility": "native CANDI evidence, but SMD dimension/domain and W=10 score artifacts are not a sealed D=8/W=64 synthetic control"
       }
     },
-    "canonical_seedwise_interpretation_not_selected": true,
-    "reason": "Existing artifacts contain multiple CANDI score/control candidates and no pre-outcome rule choosing a singular stream or resolving W=10-to-W=64 alignment."
+    "canonical_seedwise_interpretation_not_selected": false,
+    "reason": "External protocol resolution made before Phase-G labels/AP/results: D8 synthetic Phase-D controls match the Phase-G source family and provide deterministic detector-seed pairing; native W10 is retained.",
+    "selected_control": "D8_synthetic_seedwise",
+    "selected_manifest": "reports/phase_g/candi_control_manifest.json",
+    "official_candi_commit": "28c9679e503832f59e351208cde63657fcb51cad",
+    "seed_mapping": {
+      "11": "data/phase_d/backbone_11/pre_intervention.pth",
+      "22": "data/phase_d/backbone_22/pre_intervention.pth",
+      "33": "data/phase_d/backbone_33/pre_intervention.pth",
+      "44": "data/phase_d/backbone_44/pre_intervention.pth",
+      "55": "data/phase_d/backbone_55/pre_intervention.pth"
+    },
+    "window_alignment": {
+      "common_track_first_timestamp": 63,
+      "common_track_timestamp_rule": "right edge t",
+      "xlstm_lstm_window": "raw[t-63:t+1]",
+      "candi_window": "raw[t-9:t+1]",
+      "candi_window_length": 10,
+      "stride": 1,
+      "pre_common_scores_forbidden": true,
+      "history_source": "CANDI scores only at t >= 63",
+      "history_columns": 14,
+      "rolling_widths": [
+        4,
+        8,
+        16,
+        32
+      ],
+      "warmup": "NaN for incomplete history; no padding or imputation"
+    },
+    "paired_reuse": {
+      "history_vector_once_per_key": true,
+      "reused_arms": [
+        "CANDI_history14 + xLSTM_internal234",
+        "CANDI_history14 + LSTM_internal234"
+      ],
+      "row_key": [
+        "detector_seed",
+        "source_seed",
+        "scenario",
+        "condition",
+        "timestamp"
+      ],
+      "keys_byte_identical": true
+    },
+    "excluded_controls": {
+      "SMD_native_phase_c": "excluded before outcomes: SMD/domain and W10 native artifacts cannot form D8 synthetic source-paired H3a controls"
+    }
   },
   "exploratory_only": [
     "xLSTM mLSTM matrix/readout summaries",
@@ -804,5 +850,9 @@
     "sLSTM stabilizer/n summaries"
   ],
   "labels_extracted": false,
-  "scaler_fit": false
+  "scaler_fit": false,
+  "g0_status": "PENDING_CANDI_PREFLIGHT",
+  "g0_base_commit": "ddb8e3c",
+  "candi_control_manifest": "reports/phase_g/candi_control_manifest.json",
+  "candi_control_manifest_sha256": "f86c8ab05061d9c78da5f98408161d33966dad0335f7ad1450a66fa034c07ca6"
 }

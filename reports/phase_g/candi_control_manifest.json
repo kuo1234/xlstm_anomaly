@@ -1,0 +1,537 @@
+{
+  "status": "SEALED_PROSPECTIVE_PENDING_PREFLIGHT",
+  "amendment": "G0.1",
+  "base_g0_commit": "ddb8e3c",
+  "phase_d_manifest": "reports/phase_d/synthetic_backbone_manifest.json",
+  "phase_d_manifest_sha256": "4f91dda1b226024a03af4a035b32f76ffad149af9bb83b94c44751ef106d237b",
+  "phase_d_backbone_prospective_commit": "9018e86",
+  "official_candi_commit": "28c9679e503832f59e351208cde63657fcb51cad",
+  "control_family": "Phase-D D=8 synthetic seed-wise CANDI controls",
+  "seed_mapping": {
+    "11": "data/phase_d/backbone_11/pre_intervention.pth",
+    "22": "data/phase_d/backbone_22/pre_intervention.pth",
+    "33": "data/phase_d/backbone_33/pre_intervention.pth",
+    "44": "data/phase_d/backbone_44/pre_intervention.pth",
+    "55": "data/phase_d/backbone_55/pre_intervention.pth"
+  },
+  "controls": [
+    {
+      "detector_seed": 11,
+      "pre_intervention": "data/phase_d/backbone_11/pre_intervention.pth",
+      "checkpoint": "data/phase_d/backbone_11/checkpoint_best.pth",
+      "calibration": "data/phase_d/backbone_11/calibration_scores.npy",
+      "artifacts": {
+        "data/phase_d/backbone_11/calibration_scores.npy": {
+          "sha256": "2db1140c4d71953868f2b5732000c194b3760f63dac248dbd91d945deb0f54d6",
+          "bytes": 40728
+        },
+        "data/phase_d/backbone_11/checkpoint_best.pth": {
+          "sha256": "3c8d4b195370356b85b56c3e15972b81c60b3c422bf1d39ae81966230c28460f",
+          "bytes": 178819
+        },
+        "data/phase_d/backbone_11/pre_intervention.pth": {
+          "sha256": "1ee8aba61dc637076fb2119c015851d48d8e07834d549063098c6f8adcbe7b7e",
+          "bytes": 13207713
+        }
+      },
+      "backbone_tensor_sha256": "8635f8e6d8690b106b438241681b42253d9d23c8a1585912bac6185a74d7c14f",
+      "sana_in_sha256": "defead33b1f9e022949dd60b0cc491c0dc8204e23aeed32b3340b67e7af09160",
+      "sana_out_sha256": "899532af95db6cfbd0cfeac586c628f31fa68828c425e1ca37ee48b6dbcfcbba",
+      "optimizer_sha256": "6add4fb7d58d75583c3aabc2f2acb11c8f201d41cbaab06eaa02cb1c1bfa385c",
+      "rng_sha256": "09c5e372048b3ab42086e83ef9a1da9db7cc45a4aee730b69316be5fc9c3a9d1",
+      "threshold": 1.153200405836105,
+      "preprocessing": {
+        "train_seeds": [
+          1000,
+          1001,
+          1002,
+          1003,
+          1004,
+          1005,
+          1006,
+          1007,
+          1008,
+          1009
+        ],
+        "validation_seeds": [
+          2000,
+          2001,
+          2002,
+          2003,
+          2004
+        ],
+        "fit_interval": [
+          0,
+          4096
+        ],
+        "calibration_interval": [
+          4096,
+          5120
+        ],
+        "train_array_sha256": "3ee8b9db455c7a4ea2f0f469b00f5316a481ed98948c86b66a52a2e04c8e4115",
+        "validation_array_sha256": "879f4d1cd8240428f5c1551d8389dd1a22e83456db9f637429c2d43bcf9ffa83",
+        "calibration_array_sha256": "b123ad0614bbd8f412d310436a37555d69255254e3df8bfb04bb4dfdce236269",
+        "scaler_mean": [
+          -0.0028090649102780418,
+          -0.00549892886800379,
+          -0.008956423164816452,
+          -0.0032481498691063993,
+          -0.0010246308087063956,
+          -0.0003120776101892044,
+          -0.006165678922500277,
+          -0.005874133688906726
+        ],
+        "scaler_scale": [
+          1.0017471739265473,
+          1.0026738277777507,
+          1.0047267216529119,
+          0.9994250063526695,
+          1.0041549075128342,
+          0.9999487269792432,
+          1.0036385462634136,
+          1.0038424462803175
+        ],
+        "scaler_var": [
+          1.003497400469824,
+          1.0053548049104866,
+          1.0094757852034077,
+          0.9988503433230335,
+          1.0083270782821088,
+          0.9998974565874091,
+          1.0072903315457384,
+          1.0076996569540522
+        ]
+      },
+      "preprocessing_object_sha256": "5695dc06cbbd619ee242a16f999f38d86273988585a7b9b7766c9a66b7475d03",
+      "score_semantics": "official MLPAdapter.get_anomaly_scores reconstruction MSE after frozen SANA-in/out; no adaptation",
+      "official_candi_commit": "28c9679e503832f59e351208cde63657fcb51cad",
+      "native_window": 10,
+      "dimension": 8,
+      "test_or_truth_access": false
+    },
+    {
+      "detector_seed": 22,
+      "pre_intervention": "data/phase_d/backbone_22/pre_intervention.pth",
+      "checkpoint": "data/phase_d/backbone_22/checkpoint_best.pth",
+      "calibration": "data/phase_d/backbone_22/calibration_scores.npy",
+      "artifacts": {
+        "data/phase_d/backbone_22/calibration_scores.npy": {
+          "sha256": "26239bbb758ca4cdbdc6406a409d0b753d2bc651418ab67d5f3ed19c84bbe393",
+          "bytes": 40728
+        },
+        "data/phase_d/backbone_22/checkpoint_best.pth": {
+          "sha256": "c3bdd36f7e109a9bdb2a7fb2c1589e34629c69c9c4c462020a6fb679f53ce498",
+          "bytes": 178819
+        },
+        "data/phase_d/backbone_22/pre_intervention.pth": {
+          "sha256": "810825bf961fd79cd66809d9a9111f74793aec79c166d79170c9122f8aff12e1",
+          "bytes": 13207777
+        }
+      },
+      "backbone_tensor_sha256": "7c3e2d8584ac14133a89a71f5295a43ff8b9221547c476f690027975cd726bec",
+      "sana_in_sha256": "adb94be094e7693be051cf4d2a030e7f854e38cc40a4bbf833a0969e6f5bb925",
+      "sana_out_sha256": "73940cd8b0c424716fbed8bf76c9d3c9439355b37ddd83ac6f05b7e1c1958e8e",
+      "optimizer_sha256": "6add4fb7d58d75583c3aabc2f2acb11c8f201d41cbaab06eaa02cb1c1bfa385c",
+      "rng_sha256": "18469a3e17301f626620f2647be7a059e46fc8b5491b79a69100ad3f964df7c7",
+      "threshold": 1.155601805448532,
+      "preprocessing": {
+        "train_seeds": [
+          1000,
+          1001,
+          1002,
+          1003,
+          1004,
+          1005,
+          1006,
+          1007,
+          1008,
+          1009
+        ],
+        "validation_seeds": [
+          2000,
+          2001,
+          2002,
+          2003,
+          2004
+        ],
+        "fit_interval": [
+          0,
+          4096
+        ],
+        "calibration_interval": [
+          4096,
+          5120
+        ],
+        "train_array_sha256": "3ee8b9db455c7a4ea2f0f469b00f5316a481ed98948c86b66a52a2e04c8e4115",
+        "validation_array_sha256": "879f4d1cd8240428f5c1551d8389dd1a22e83456db9f637429c2d43bcf9ffa83",
+        "calibration_array_sha256": "b123ad0614bbd8f412d310436a37555d69255254e3df8bfb04bb4dfdce236269",
+        "scaler_mean": [
+          -0.0028090649102780418,
+          -0.00549892886800379,
+          -0.008956423164816452,
+          -0.0032481498691063993,
+          -0.0010246308087063956,
+          -0.0003120776101892044,
+          -0.006165678922500277,
+          -0.005874133688906726
+        ],
+        "scaler_scale": [
+          1.0017471739265473,
+          1.0026738277777507,
+          1.0047267216529119,
+          0.9994250063526695,
+          1.0041549075128342,
+          0.9999487269792432,
+          1.0036385462634136,
+          1.0038424462803175
+        ],
+        "scaler_var": [
+          1.003497400469824,
+          1.0053548049104866,
+          1.0094757852034077,
+          0.9988503433230335,
+          1.0083270782821088,
+          0.9998974565874091,
+          1.0072903315457384,
+          1.0076996569540522
+        ]
+      },
+      "preprocessing_object_sha256": "5695dc06cbbd619ee242a16f999f38d86273988585a7b9b7766c9a66b7475d03",
+      "score_semantics": "official MLPAdapter.get_anomaly_scores reconstruction MSE after frozen SANA-in/out; no adaptation",
+      "official_candi_commit": "28c9679e503832f59e351208cde63657fcb51cad",
+      "native_window": 10,
+      "dimension": 8,
+      "test_or_truth_access": false
+    },
+    {
+      "detector_seed": 33,
+      "pre_intervention": "data/phase_d/backbone_33/pre_intervention.pth",
+      "checkpoint": "data/phase_d/backbone_33/checkpoint_best.pth",
+      "calibration": "data/phase_d/backbone_33/calibration_scores.npy",
+      "artifacts": {
+        "data/phase_d/backbone_33/calibration_scores.npy": {
+          "sha256": "b201db5d5f016fd9f088cfb1882c1eadaa14bc2d092074c2ae63ff81bccdd5cc",
+          "bytes": 40728
+        },
+        "data/phase_d/backbone_33/checkpoint_best.pth": {
+          "sha256": "fffb0cdb8127935b3075b7d3f8a66a0416554c1970cd94ba5a299327321bb163",
+          "bytes": 178819
+        },
+        "data/phase_d/backbone_33/pre_intervention.pth": {
+          "sha256": "5ce4ce0893c56d0ebf50cd9bce40052a7b548c73e1c4f542132953cea56b319f",
+          "bytes": 13207777
+        }
+      },
+      "backbone_tensor_sha256": "ab93db91768ee78a70c518a1bfa3468009e74eea40d7d9dbbebef8ccdb998a73",
+      "sana_in_sha256": "074fbc4bdf0f914ccef311ad01ab1d312444b17bd20629955ba44440eda08017",
+      "sana_out_sha256": "ed52fd07e390de89ac2e49e259a261c9d1c9921f47a184c1b09678fc02714e20",
+      "optimizer_sha256": "6add4fb7d58d75583c3aabc2f2acb11c8f201d41cbaab06eaa02cb1c1bfa385c",
+      "rng_sha256": "469d94955a744d58f12748b2105ed58355478065e2a003664e8cf5491a1e66f4",
+      "threshold": 1.12861949801445,
+      "preprocessing": {
+        "train_seeds": [
+          1000,
+          1001,
+          1002,
+          1003,
+          1004,
+          1005,
+          1006,
+          1007,
+          1008,
+          1009
+        ],
+        "validation_seeds": [
+          2000,
+          2001,
+          2002,
+          2003,
+          2004
+        ],
+        "fit_interval": [
+          0,
+          4096
+        ],
+        "calibration_interval": [
+          4096,
+          5120
+        ],
+        "train_array_sha256": "3ee8b9db455c7a4ea2f0f469b00f5316a481ed98948c86b66a52a2e04c8e4115",
+        "validation_array_sha256": "879f4d1cd8240428f5c1551d8389dd1a22e83456db9f637429c2d43bcf9ffa83",
+        "calibration_array_sha256": "b123ad0614bbd8f412d310436a37555d69255254e3df8bfb04bb4dfdce236269",
+        "scaler_mean": [
+          -0.0028090649102780418,
+          -0.00549892886800379,
+          -0.008956423164816452,
+          -0.0032481498691063993,
+          -0.0010246308087063956,
+          -0.0003120776101892044,
+          -0.006165678922500277,
+          -0.005874133688906726
+        ],
+        "scaler_scale": [
+          1.0017471739265473,
+          1.0026738277777507,
+          1.0047267216529119,
+          0.9994250063526695,
+          1.0041549075128342,
+          0.9999487269792432,
+          1.0036385462634136,
+          1.0038424462803175
+        ],
+        "scaler_var": [
+          1.003497400469824,
+          1.0053548049104866,
+          1.0094757852034077,
+          0.9988503433230335,
+          1.0083270782821088,
+          0.9998974565874091,
+          1.0072903315457384,
+          1.0076996569540522
+        ]
+      },
+      "preprocessing_object_sha256": "5695dc06cbbd619ee242a16f999f38d86273988585a7b9b7766c9a66b7475d03",
+      "score_semantics": "official MLPAdapter.get_anomaly_scores reconstruction MSE after frozen SANA-in/out; no adaptation",
+      "official_candi_commit": "28c9679e503832f59e351208cde63657fcb51cad",
+      "native_window": 10,
+      "dimension": 8,
+      "test_or_truth_access": false
+    },
+    {
+      "detector_seed": 44,
+      "pre_intervention": "data/phase_d/backbone_44/pre_intervention.pth",
+      "checkpoint": "data/phase_d/backbone_44/checkpoint_best.pth",
+      "calibration": "data/phase_d/backbone_44/calibration_scores.npy",
+      "artifacts": {
+        "data/phase_d/backbone_44/calibration_scores.npy": {
+          "sha256": "1ba2993a8475fe2250c2423c225a0c79308b054038d9546cec37724ff89564ea",
+          "bytes": 40728
+        },
+        "data/phase_d/backbone_44/checkpoint_best.pth": {
+          "sha256": "3bfc0ebc011f8f809ad35d78f0af1030132b0f3a52d6d7a546dfea00ec1a7449",
+          "bytes": 178819
+        },
+        "data/phase_d/backbone_44/pre_intervention.pth": {
+          "sha256": "1ea365d5552589f6399c96b31562fcaa2257ad162e3c6f81a3a67d437b2cef71",
+          "bytes": 13207713
+        }
+      },
+      "backbone_tensor_sha256": "1a0fe899de20e54803212fbf58295e83769d24dea3ea2d2fd4596a36a5be1fa2",
+      "sana_in_sha256": "8678cf35f63ad25047ff138fbc9f6a1476176e0850e041403758f3a7936a17b1",
+      "sana_out_sha256": "d350a220947f2526a05cf8575f247ea49dc06639412c522a1d6dc6ad057ceec0",
+      "optimizer_sha256": "6add4fb7d58d75583c3aabc2f2acb11c8f201d41cbaab06eaa02cb1c1bfa385c",
+      "rng_sha256": "de7841773dee18450fa7c1ef68c856e3d688fb2aa1a667d21c960e035bc56341",
+      "threshold": 1.1517643749713897,
+      "preprocessing": {
+        "train_seeds": [
+          1000,
+          1001,
+          1002,
+          1003,
+          1004,
+          1005,
+          1006,
+          1007,
+          1008,
+          1009
+        ],
+        "validation_seeds": [
+          2000,
+          2001,
+          2002,
+          2003,
+          2004
+        ],
+        "fit_interval": [
+          0,
+          4096
+        ],
+        "calibration_interval": [
+          4096,
+          5120
+        ],
+        "train_array_sha256": "3ee8b9db455c7a4ea2f0f469b00f5316a481ed98948c86b66a52a2e04c8e4115",
+        "validation_array_sha256": "879f4d1cd8240428f5c1551d8389dd1a22e83456db9f637429c2d43bcf9ffa83",
+        "calibration_array_sha256": "b123ad0614bbd8f412d310436a37555d69255254e3df8bfb04bb4dfdce236269",
+        "scaler_mean": [
+          -0.0028090649102780418,
+          -0.00549892886800379,
+          -0.008956423164816452,
+          -0.0032481498691063993,
+          -0.0010246308087063956,
+          -0.0003120776101892044,
+          -0.006165678922500277,
+          -0.005874133688906726
+        ],
+        "scaler_scale": [
+          1.0017471739265473,
+          1.0026738277777507,
+          1.0047267216529119,
+          0.9994250063526695,
+          1.0041549075128342,
+          0.9999487269792432,
+          1.0036385462634136,
+          1.0038424462803175
+        ],
+        "scaler_var": [
+          1.003497400469824,
+          1.0053548049104866,
+          1.0094757852034077,
+          0.9988503433230335,
+          1.0083270782821088,
+          0.9998974565874091,
+          1.0072903315457384,
+          1.0076996569540522
+        ]
+      },
+      "preprocessing_object_sha256": "5695dc06cbbd619ee242a16f999f38d86273988585a7b9b7766c9a66b7475d03",
+      "score_semantics": "official MLPAdapter.get_anomaly_scores reconstruction MSE after frozen SANA-in/out; no adaptation",
+      "official_candi_commit": "28c9679e503832f59e351208cde63657fcb51cad",
+      "native_window": 10,
+      "dimension": 8,
+      "test_or_truth_access": false
+    },
+    {
+      "detector_seed": 55,
+      "pre_intervention": "data/phase_d/backbone_55/pre_intervention.pth",
+      "checkpoint": "data/phase_d/backbone_55/checkpoint_best.pth",
+      "calibration": "data/phase_d/backbone_55/calibration_scores.npy",
+      "artifacts": {
+        "data/phase_d/backbone_55/calibration_scores.npy": {
+          "sha256": "17a740cbe366f6145eda572a0f3cb42336848ba9a3b087c0549c340ff012920e",
+          "bytes": 40728
+        },
+        "data/phase_d/backbone_55/checkpoint_best.pth": {
+          "sha256": "9c3c87d43953ca03bdd91d4db385160c68801c8f7e6ee5b60905152421c934f6",
+          "bytes": 178819
+        },
+        "data/phase_d/backbone_55/pre_intervention.pth": {
+          "sha256": "27ea236dc138247167fdf67f034137a662554f14e9a3ef969bbd04e3f0f53119",
+          "bytes": 13207713
+        }
+      },
+      "backbone_tensor_sha256": "62170000b5cbc1581b175c622e5e9ea56acf37589fbab5971018e764104fcac9",
+      "sana_in_sha256": "acaebe14e096289c7a4c1d36cd451c65aafb0d83748a5e988b58c1c3fcd6cef3",
+      "sana_out_sha256": "ed80526c6133167df9ff6d2a9b598d3e6bf6eb1a2aa59f7f8c0c004d6c187b22",
+      "optimizer_sha256": "6add4fb7d58d75583c3aabc2f2acb11c8f201d41cbaab06eaa02cb1c1bfa385c",
+      "rng_sha256": "fc5bb5a387d56807dd499d551954e9b86382e9d87a1cf78ef4b72bf18e7aaac2",
+      "threshold": 1.1408777236938472,
+      "preprocessing": {
+        "train_seeds": [
+          1000,
+          1001,
+          1002,
+          1003,
+          1004,
+          1005,
+          1006,
+          1007,
+          1008,
+          1009
+        ],
+        "validation_seeds": [
+          2000,
+          2001,
+          2002,
+          2003,
+          2004
+        ],
+        "fit_interval": [
+          0,
+          4096
+        ],
+        "calibration_interval": [
+          4096,
+          5120
+        ],
+        "train_array_sha256": "3ee8b9db455c7a4ea2f0f469b00f5316a481ed98948c86b66a52a2e04c8e4115",
+        "validation_array_sha256": "879f4d1cd8240428f5c1551d8389dd1a22e83456db9f637429c2d43bcf9ffa83",
+        "calibration_array_sha256": "b123ad0614bbd8f412d310436a37555d69255254e3df8bfb04bb4dfdce236269",
+        "scaler_mean": [
+          -0.0028090649102780418,
+          -0.00549892886800379,
+          -0.008956423164816452,
+          -0.0032481498691063993,
+          -0.0010246308087063956,
+          -0.0003120776101892044,
+          -0.006165678922500277,
+          -0.005874133688906726
+        ],
+        "scaler_scale": [
+          1.0017471739265473,
+          1.0026738277777507,
+          1.0047267216529119,
+          0.9994250063526695,
+          1.0041549075128342,
+          0.9999487269792432,
+          1.0036385462634136,
+          1.0038424462803175
+        ],
+        "scaler_var": [
+          1.003497400469824,
+          1.0053548049104866,
+          1.0094757852034077,
+          0.9988503433230335,
+          1.0083270782821088,
+          0.9998974565874091,
+          1.0072903315457384,
+          1.0076996569540522
+        ]
+      },
+      "preprocessing_object_sha256": "5695dc06cbbd619ee242a16f999f38d86273988585a7b9b7766c9a66b7475d03",
+      "score_semantics": "official MLPAdapter.get_anomaly_scores reconstruction MSE after frozen SANA-in/out; no adaptation",
+      "official_candi_commit": "28c9679e503832f59e351208cde63657fcb51cad",
+      "native_window": 10,
+      "dimension": 8,
+      "test_or_truth_access": false
+    }
+  ],
+  "operator": {
+    "model": "official CANDI MLP with frozen pre_intervention model/SANA state",
+    "score": "MLPAdapter.get_anomaly_scores",
+    "adaptation": false,
+    "optimizer_steps": false,
+    "fpm_candidate_selection": false,
+    "labels_or_truth_to_extractor": false
+  },
+  "alignment": {
+    "common_track_first_timestamp": 63,
+    "common_track_timestamp_rule": "right edge t",
+    "xlstm_lstm_window": "raw[t-63:t+1]",
+    "candi_window": "raw[t-9:t+1]",
+    "candi_window_length": 10,
+    "stride": 1,
+    "pre_common_scores_forbidden": true,
+    "history_source": "CANDI scores only at t >= 63",
+    "history_columns": 14,
+    "rolling_widths": [
+      4,
+      8,
+      16,
+      32
+    ],
+    "warmup": "NaN for incomplete history; no padding or imputation"
+  },
+  "paired_reuse": {
+    "history_vector_once_per_key": true,
+    "reused_arms": [
+      "CANDI_history14 + xLSTM_internal234",
+      "CANDI_history14 + LSTM_internal234"
+    ],
+    "row_key": [
+      "detector_seed",
+      "source_seed",
+      "scenario",
+      "condition",
+      "timestamp"
+    ],
+    "keys_byte_identical": true
+  },
+  "excluded_controls": {
+    "SMD_native_phase_c": "excluded before outcomes: SMD/domain and W10 native artifacts cannot form D8 synthetic source-paired H3a controls"
+  },
+  "selection_basis": "External protocol resolution made before Phase-G labels/AP/results: D8 synthetic Phase-D controls match the Phase-G source family and provide deterministic detector-seed pairing; native W10 is retained.",
+  "labels_read": false,
+  "probe_results_read": false,
+  "metrics_computed": false
+}
