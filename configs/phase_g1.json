@@ -1,7 +1,11 @@
 {
-  "version": "phase_g1_stage_a_v1",
+  "version": "phase_g1_stage_a_v2_g1_1",
   "phase": "G1",
   "status": "PROSPECTIVE_PRELABEL",
+  "amendment": "G1.1 duration/severity robustness resolution; semantic non-identifiability remains a separate negative control",
+  "prelabel_review_path": "reports/phase_g1/g1_self_review_prelabel_v2.json",
+  "implementation_commit_required": true,
+  "review_commit_required": true,
   "base_g0_config": "configs/phase_g.json",
   "base_g0_config_sha256": "cb2b3234d4cbf2efac535a12c90708ab65ea43532159a4b4dbffa83edc5a83b6",
   "sealed_input_sha256": {
@@ -49,10 +53,28 @@
     "extractor_receives_regime_or_event_metadata": false
   },
   "duration_severity_matching": {
-    "status": "UNRESOLVED_PROTOCOL",
-    "opposite_semantic_control": "identical_observation_opposite_semantic_labels_only",
-    "supportive_estimand": "not defined; requires prospective external protocol amendment",
-    "label_access_blocked": true
+    "status": "RESOLVED",
+    "supportive_analysis_name": "duration_severity_stratified_robustness",
+    "supportive_estimand": "test-only subgroup evaluation of the already-fitted pooled probe; positive event-duration/severity strata versus the same eligible anomaly-free drift/transition cohort for each source/scenario",
+    "duration_strata": [1, 16, 64, 256],
+    "severity_strata": [1, 2, 3],
+    "exclude_persistent_fault": true,
+    "exclude_mixed_windows": true,
+    "exclude_multi_event_windows": true,
+    "negative_duration_or_severity_label": false,
+    "no_refit_or_rescaling": true,
+    "h2_duration_macro_min": 0.02,
+    "h2_positive_duration_min": 3,
+    "h2_severity_macro_min": 0.02,
+    "h2_positive_severity_min": 2,
+    "h3a_a_duration_macro_min": 0.02,
+    "h3a_a_severity_macro_min": 0.02,
+    "h3a_increment_duration_macro_min": 0.0,
+    "h3a_increment_severity_macro_min": 0.0,
+    "positive_strata_are_strictly_positive": true,
+    "insufficient_support_status": "INSUFFICIENT_SUPPORT",
+    "semantic_nonidentifiability_control": "identical_observation_opposite_semantic_control",
+    "label_access_blocked": false
   },
   "feature_groups": {
     "history14": 14,

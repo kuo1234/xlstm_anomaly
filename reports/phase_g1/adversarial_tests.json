@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "test_count": 18,
+  "test_count": 32,
   "results": [
     {
       "name": "test_all_g1_entrypoints_import_without_label_execution",
@@ -20,6 +20,62 @@
     },
     {
       "name": "test_frozen_dimensions_and_causal_expansion",
+      "status": "PASS"
+    },
+    {
+      "name": "test_g11_accepts_one_fixed_supported_bin",
+      "status": "PASS"
+    },
+    {
+      "name": "test_g11_duration_severity_metadata_is_rejected_by_extractor_api",
+      "status": "PASS"
+    },
+    {
+      "name": "test_g11_duration_stratum_c_refit_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "test_g11_duration_stratum_row_cohort_mismatch_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "test_g11_rejects_missing_required_exclusion",
+      "status": "PASS"
+    },
+    {
+      "name": "test_g11_rejects_nonbinary_matching_label",
+      "status": "PASS"
+    },
+    {
+      "name": "test_g11_rejects_out_of_stratum_duration_or_severity",
+      "status": "PASS"
+    },
+    {
+      "name": "test_g11_rejects_strata_drift",
+      "status": "PASS"
+    },
+    {
+      "name": "test_g11_rejects_unresolved_matching_config",
+      "status": "PASS"
+    },
+    {
+      "name": "test_g11_reports_insufficient_support_without_merging_bins",
+      "status": "PASS"
+    },
+    {
+      "name": "test_g11_semantic_control_cannot_support_h2",
+      "status": "PASS"
+    },
+    {
+      "name": "test_g11_semantic_truth_change_keeps_observation_features_identical",
+      "status": "PASS"
+    },
+    {
+      "name": "test_g11_severity_stratum_scaler_refit_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "test_g11_unsupported_duration_merge_is_rejected",
       "status": "PASS"
     },
     {
@@ -51,6 +107,10 @@
       "status": "PASS"
     },
     {
+      "name": "test_resolved_duration_protocol_allows_label_access",
+      "status": "PASS"
+    },
+    {
       "name": "test_reversed_confirmatory_subtraction_is_rejected",
       "status": "PASS"
     },
@@ -68,10 +128,6 @@
     },
     {
       "name": "test_stage_a_source_contains_no_metric_or_label_execution",
-      "status": "PASS"
-    },
-    {
-      "name": "test_unresolved_duration_protocol_blocks_label_access",
       "status": "PASS"
     }
   ],

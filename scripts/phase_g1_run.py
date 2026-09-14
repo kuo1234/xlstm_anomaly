@@ -32,7 +32,10 @@ from phase_g1_core import (  # noqa: E402
     ProtocolViolation,
     array_sha,
     apply_scaler,
+    assert_fixed_robustness_strata,
+    assert_semantic_nonidentifiability,
     assert_family_names,
+    assert_same_row_order,
     build_feature_groups,
     build_evaluator_rows,
     extract_backbone_rows,
@@ -43,6 +46,9 @@ from phase_g1_core import (  # noqa: E402
     primary_binary_mask,
     row_key_hash,
     source_cluster_sign_flip,
+    reject_stratum_refit,
+    reject_stratum_scaler_fit,
+    require_supportive_analysis_kind,
 )
 from phase_g1_pipeline import (  # noqa: E402
     FeatureRecord,
@@ -72,6 +78,9 @@ import phase_g1_pipeline as _g1_pipeline  # noqa: E402
 CONDITIONS = ("none", "spike", "collective", "dependency", "mixture")
 SHIFTED_CONDITIONS = CONDITIONS
 ARCHITECTURES = ("xlstm", "lstm")
+DURATION_STRATA = (1, 16, 64, 256)
+SEVERITY_STRATA = (1, 2, 3)
+NONSTRESS_EVENT_TYPES = ("spike", "collective", "dependency")
 
 
 def _sha_bytes(value: bytes) -> str:
@@ -150,21 +159,13 @@ def _observation_then_label(
     # Copy only the observation field.  The extractor has no handle to the
     # SyntheticStream object or any evaluator metadata.
     observations = np.asarray(stream.observations, dtype=np.float32).copy()
-    timestamps = np.arange(FIRST_COMMON_TIMESTAMP, len(observations), dtype=np.int64)
-    if len(timestamps) == 0:
-        raise ProtocolViolation("source stream has no common t>=63 decisions")
-    scaler = _phase_f_scaler(int(stream.source_seed))
-    extracted_backbone = extract_backbone_rows(
-        backbone, architecture, observations, scaler, timestamps
+    extracted = _observation_only_features(
+        backbone,
+        architecture,
+        observations,
+        int(stream.source_seed),
+        candi_history,
     )
-    groups = build_feature_groups(extracted_backbone["scores"], extracted_backbone["internal_base"])
-    if candi_history.shape != groups["history14"].shape:
-        raise ProtocolViolation("shared CANDI history shape mismatch")
-    groups["candi_history14"] = np.asarray(candi_history, dtype=np.float64).copy()
-    groups["candi_history_plus_combined248"] = np.concatenate(
-        (groups["candi_history14"], groups["combined234"]), axis=1
-    )
-    extracted = {"timestamps": timestamps, "groups": groups, "scores": extracted_backbone["scores"]}
     record = FeatureRecord(
         detector_seed=detector_seed,
         architecture=architecture,
@@ -179,6 +180,28 @@ def _observation_then_label(
     # Truth is joined only after all observation-only feature extraction for
     # this stream has completed.
     return join_evaluator_labels(record, stream)
+
+
+def _observation_only_features(
+    backbone: Any,
+    architecture: str,
+    observations: np.ndarray,
+    source_seed: int,
+    candi_history: np.ndarray,
+) -> dict[str, Any]:
+    """Extract all feature groups from observations with no evaluator truth."""
+    observations = np.asarray(observations, dtype=np.float32).copy()
+    timestamps = np.arange(FIRST_COMMON_TIMESTAMP, len(observations), dtype=np.int64)
+    if len(timestamps) == 0:
+        raise ProtocolViolation("source stream has no common t>=63 decisions")
+    scaler = _phase_f_scaler(int(source_seed))
+    extracted_backbone = extract_backbone_rows(backbone, architecture, observations, scaler, timestamps)
+    groups = build_feature_groups(extracted_backbone["scores"], extracted_backbone["internal_base"])
+    if candi_history.shape != groups["history14"].shape:
+        raise ProtocolViolation("shared CANDI history shape mismatch")
+    groups["candi_history14"] = np.asarray(candi_history, dtype=np.float64).copy()
+    groups["candi_history_plus_combined248"] = np.concatenate((groups["candi_history14"], groups["combined234"]), axis=1)
+    return {"timestamps": timestamps, "groups": groups, "scores": extracted_backbone["scores"]}
 
 
 def _append_rows(target: dict[str, list], rows: Mapping[str, Any], arms: tuple[str, ...]) -> None:
@@ -201,6 +224,8 @@ def _concat(parts: list[Mapping[str, Any]]) -> dict[str, Any]:
               "scenarios": scenarios, "events": events, "event_types": event_types,
               "duration": np.concatenate([part["duration"] for part in parts]),
               "severity": np.concatenate([part["severity"] for part in parts])}
+    if all("stratum" in part for part in parts):
+        result["stratum"] = np.concatenate([np.asarray(part["stratum"], dtype=object) for part in parts])
     if len(event_types) != len(keys):
         raise ProtocolViolation("event-type metadata cardinality mismatch")
     from phase_g1_core import assert_unique_keys
@@ -274,187 +299,281 @@ def _select_all_rows(joined: Mapping[str, Any], feature_arm: str) -> dict[str, A
     }
 
 
-def _duration_matched_rows(
+def _select_duration_or_severity_rows(
     joined: Mapping[str, Any],
-    legitimate_truth: Mapping[str, Any],
     feature_arm: str,
-    valid_mask: Sequence[bool] | None = None,
+    common_mask: Sequence[bool],
+    axis: str,
+    value: int,
 ) -> dict[str, Any]:
-    """Build the preregistered semantic duration/severity stress cohort.
+    """Build one fixed robustness stratum from the ordinary anomaly stream.
 
-    The frozen generator supplies an observation-identical ``semantic=legitimate``
-    counterpart for every injected event.  We pair each pure anomaly window
-    with its same timestamp/event/duration/severity legitimate counterpart.
-    This diagnostic is evaluator-side only, never enters probe fitting, and is
-    deliberately allowed to be non-identifiable (AP ties are a valid result).
-    Persistent-fault stress events and mixed windows are excluded.
+    Positive rows are pure anomaly windows uniquely attributable to one
+    non-stress event with the requested duration or severity.  Negative rows
+    are the same eligible anomaly-free drift/transition rows used by the
+    primary binary task for this source/scenario.  Drift rows deliberately do
+    not receive a synthetic duration/severity value.
     """
-    anomaly_stratum = np.asarray(joined["stratum"], dtype=object)
-    event = np.asarray(joined["event"], dtype=np.int32)
-    event_type = np.asarray(joined["event_type"], dtype=object)
-    duration = np.asarray(joined["duration"], dtype=object)
-    severity = np.asarray(joined["severity"], dtype=object)
-    legit_label = np.asarray(legitimate_truth["label"], dtype=np.int8)
-    legit_event = np.asarray(legitimate_truth["event"], dtype=np.int32)
-    legit_duration = np.asarray(legitimate_truth["duration"], dtype=object)
-    legit_severity = np.asarray(legitimate_truth["severity"], dtype=object)
-    if len(legit_label) != len(event):
-        raise ProtocolViolation("legitimate counterpart truth length differs")
-    keep = (anomaly_stratum == "anomaly") & (event >= 0) & (event_type != "persistent_fault")
-    keep &= np.asarray([value is not None for value in duration], dtype=bool)
-    keep &= np.asarray([value is not None for value in severity], dtype=bool)
-    keep &= legit_label == 0
-    keep &= legit_event == event
-    keep &= np.asarray([a == b for a, b in zip(duration, legit_duration)], dtype=bool)
-    keep &= np.asarray([a == b for a, b in zip(severity, legit_severity)], dtype=bool)
-    if valid_mask is not None:
-        supplied = np.asarray(valid_mask, dtype=bool)
-        if supplied.shape != keep.shape:
-            raise ProtocolViolation("matched cohort mask shape mismatch")
-        keep &= supplied
-    features = np.asarray(joined["groups"][feature_arm], dtype=np.float64)
-    keep &= np.isfinite(features).all(axis=1)
-    indices = np.flatnonzero(keep)
-    # Place all positive rows first and their exact legitimate counterparts
-    # second; semantic is a diagnostic-only key extension so keys remain unique.
-    X_one = features[indices]
-    X = np.concatenate((X_one, X_one), axis=0)
-    y = np.concatenate((np.ones(len(indices), dtype=np.int8), np.zeros(len(indices), dtype=np.int8)))
-    base_keys = [dict(joined["keys"][int(index)]) for index in indices]
-    keys = [dict(key, semantic="anomaly") for key in base_keys] + [dict(key, semantic="legitimate") for key in base_keys]
-    source = np.asarray(joined["source_seed"], dtype=np.int64)[indices]
-    scenarios = tuple(np.asarray(joined["scenario"], dtype=object)[indices].tolist())
-    events = tuple(event[indices].tolist())
-    event_types = tuple(event_type[indices].tolist())
+    if axis not in {"duration", "severity"}:
+        raise ProtocolViolation("robustness axis must be duration or severity")
+    base = select_primary_rows(joined, feature_arm, common_mask)
+    strata = np.asarray(base["stratum"], dtype=object)
+    events = np.asarray(base["events"], dtype=np.int32)
+    types = np.asarray(base["event_types"], dtype=object)
+    metadata = np.asarray(base[axis], dtype=object)
+    positive = (strata == "anomaly") & (events >= 0) & np.isin(types, NONSTRESS_EVENT_TYPES)
+    positive &= np.asarray([item is not None and int(item) == int(value) for item in metadata], dtype=bool)
+    negative = strata == "drift"
+    selected = positive | negative
+    if not np.any(positive) or not np.any(negative):
+        return {
+            "X": np.empty((0, base["X"].shape[1]), dtype=np.float64),
+            "y": np.empty((0,), dtype=np.int8),
+            "keys": [],
+            "source_seeds": np.empty((0,), dtype=np.int64),
+            "scenarios": tuple(),
+            "events": tuple(),
+            "event_types": tuple(),
+            "duration": np.empty((0,), dtype=object),
+            "severity": np.empty((0,), dtype=object),
+            "stratum": np.empty((0,), dtype=object),
+            "support": False,
+            "positive_rows": 0,
+            "negative_rows": 0,
+            "excluded_multi_event": int(np.sum((strata == "anomaly") & (events < 0))),
+            "excluded_persistent_fault": int(np.sum((strata == "anomaly") & (types == "persistent_fault"))),
+            "excluded_mixed": int(np.sum(strata == "mixed")),
+            "excluded_nonstress_other": int(np.sum((strata == "anomaly") & (events >= 0) & ~np.isin(types, NONSTRESS_EVENT_TYPES))),
+        }
     return {
-        "X": X,
-        "y": y,
-        "keys": keys,
-        "source_seeds": np.concatenate((source, source)),
-        "scenarios": scenarios + scenarios,
-        "events": events + events,
-        "event_types": event_types + event_types,
-        "duration": np.concatenate((duration[indices], duration[indices])),
-        "severity": np.concatenate((severity[indices], severity[indices])),
+        "X": np.asarray(base["X"])[selected],
+        "y": np.asarray(base["y"])[selected],
+        "keys": [dict(key) for key, keep in zip(base["keys"], selected) if keep],
+        "source_seeds": np.asarray(base["source_seeds"])[selected],
+        "scenarios": tuple(np.asarray(base["scenarios"], dtype=object)[selected].tolist()),
+        "events": tuple(np.asarray(base["events"], dtype=np.int32)[selected].tolist()),
+        "event_types": tuple(np.asarray(base["event_types"], dtype=object)[selected].tolist()),
+        "duration": np.asarray(base["duration"], dtype=object)[selected],
+        "severity": np.asarray(base["severity"], dtype=object)[selected],
+        "stratum": np.asarray(base["stratum"], dtype=object)[selected],
+        "support": True,
+        "positive_rows": int(np.sum(positive)),
+        "negative_rows": int(np.sum(negative)),
+        "excluded_multi_event": int(np.sum((strata == "anomaly") & (events < 0))),
+        "excluded_persistent_fault": int(np.sum((strata == "anomaly") & (types == "persistent_fault"))),
+        "excluded_mixed": int(np.sum(strata == "mixed")),
+        "excluded_nonstress_other": int(np.sum((strata == "anomaly") & (events >= 0) & ~np.isin(types, NONSTRESS_EVENT_TYPES))),
     }
 
 
-def _matched_effect_table(
-    fits: Mapping[int, Mapping[str, Mapping[str, Any]]],
-    matched_rows: Mapping[int, Mapping[str, Mapping[str, Mapping[str, list[Mapping[str, Any]]]]]],
-) -> tuple[dict[str, np.ndarray], dict[str, np.ndarray], dict[str, Any]]:
-    """Compute matched AP effects and evaluator support before decision logic."""
-    from sklearn.metrics import average_precision_score
+def _semantic_pair_rows(
+    joined: Mapping[str, Any],
+    legitimate_features: Mapping[str, np.ndarray],
+    feature_arm: str,
+    common_mask: Sequence[bool],
+) -> dict[str, Any]:
+    """Retain an exact semantic-control feature pair for post-fit checks."""
+    base = select_primary_rows(joined, feature_arm, common_mask)
+    events = np.asarray(base["events"], dtype=np.int32)
+    types = np.asarray(base["event_types"], dtype=object)
+    keep = (np.asarray(base["stratum"], dtype=object) == "anomaly") & (events >= 0) & np.isin(types, NONSTRESS_EVENT_TYPES)
+    keys = [dict(key) for key, include in zip(base["keys"], keep) if include]
+    if not keys:
+        width = int(np.asarray(base["X"]).shape[1])
+        return {"anomaly_X": np.empty((0, width)), "legitimate_X": np.empty((0, width)), "keys": []}
+    positions = np.flatnonzero(keep)
+    anomaly_x = np.asarray(base["X"], dtype=np.float64)[positions]
+    # ``legitimate_features`` has the full common decision stream; positions
+    # index the same row order as ``base`` after primary/common filtering.
+    legitimate_base = np.asarray(legitimate_features[feature_arm], dtype=np.float64)
+    common_indices = np.flatnonzero(np.asarray(common_mask, dtype=bool))
+    if legitimate_base.shape[0] != len(joined["keys"]):
+        raise ProtocolViolation("semantic counterpart feature rows differ from joined observations")
+    legitimate_selected = legitimate_base[common_indices]
+    # The primary mask is additionally applied by select_primary_rows; recover
+    # the corresponding positions by matching canonical row keys rather than
+    # relying on a hidden metadata order.
+    common_keys = [dict(key) for key, include in zip(joined["keys"], np.asarray(common_mask, dtype=bool)) if include]
+    legitimate_by_key = {(int(key["timestamp"]), int(key["event"])): legitimate_selected[index] for index, key in enumerate(common_keys)}
+    legitimate_x = np.asarray([legitimate_by_key[(int(key["timestamp"]), int(key["event"]))] for key in keys], dtype=np.float64)
+    return {"anomaly_X": anomaly_x, "legitimate_X": legitimate_x, "keys": keys}
 
-    primary: dict[str, np.ndarray] = {}
-    scenario: dict[str, np.ndarray] = {}
-    support_bins: dict[str, Any] = {}
-    arm_names = ("history14", "history_plus_combined248", "combined234", "candi_history14", "candi_history_plus_combined248")
-    ap_primary: dict[str, np.ndarray] = {}
-    ap_scenario: dict[str, np.ndarray] = {}
-    for architecture in ARCHITECTURES:
-        for base_arm in arm_names:
-            name = f"{base_arm}_{architecture}"
-            matrix = np.full((len(TEST_SOURCES), len(DETECTOR_SEEDS)), np.nan)
-            smatrix = np.full((len(TEST_SOURCES), len(DETECTOR_SEEDS), len(SHIFTED_SCENARIOS)), np.nan)
-            for seed_index, seed in enumerate(DETECTOR_SEEDS):
-                parts = [part for part in matched_rows[seed][architecture][base_arm] if len(part["keys"]) > 0]
+
+def _semantic_control_report(
+    fits: Mapping[int, Mapping[str, Mapping[str, Any]]],
+    semantic_pairs: Mapping[int, Mapping[str, Mapping[str, list[Mapping[str, Any]]]]],
+) -> dict[str, Any]:
+    """Audit the observation-identical/opposite-semantic negative control.
+
+    This report checks feature and frozen-probe prediction invariance only. It
+    is deliberately excluded from every H2/H3a robustness gate.
+    """
+    output: dict[str, Any] = {"status": "PASS", "analysis_kind": "semantic_nonidentifiability_control", "checks": []}
+    for seed in DETECTOR_SEEDS:
+        for architecture in ARCHITECTURES:
+            for arm in expected_feature_arms():
+                parts = [part for part in semantic_pairs[seed][architecture][arm] if len(part["keys"]) > 0]
                 if not parts:
                     continue
-                rows = _concat(parts)
-                fit = fits[seed][name]
-                prediction = fit["model"].predict_proba(apply_scaler(rows["X"], fit["scaler"]))[:, 1]
-                source = np.asarray(rows["source_seeds"], dtype=np.int64)
-                labels = np.asarray(rows["y"], dtype=np.int8)
-                scenarios = np.asarray(rows["scenarios"], dtype=object)
-                for source_index, source_seed in enumerate(TEST_SOURCES):
-                    mask = source == source_seed
-                    if mask.sum() and len(np.unique(labels[mask])) == 2:
-                        matrix[source_index, seed_index] = average_precision_score(labels[mask], prediction[mask])
-                    for scenario_index, scenario_name in enumerate(SHIFTED_SCENARIOS):
-                        smask = mask & (scenarios == scenario_name)
-                        if smask.sum() and len(np.unique(labels[smask])) == 2:
-                            smatrix[source_index, seed_index, scenario_index] = average_precision_score(labels[smask], prediction[smask])
-            ap_primary[name] = matrix
-            ap_scenario[name] = smatrix
-    def g(name: str) -> np.ndarray:
-        value = ap_primary[name]
-        if not np.isfinite(value).all():
-            raise ProtocolViolation(f"duration/severity matched cohort lacks source/class support for {name}")
-        return value
-    def gs(name: str) -> np.ndarray:
-        value = ap_scenario[name]
-        # Scenario support can be sparse for a fixed event type; retain NaN in
-        # the diagnostic and evaluate only supported cells below.
-        return value
-    primary = {
-        "h2": g("history_plus_combined248_xlstm") - g("history14_xlstm"),
-        "h3a_a": g("combined234_xlstm") - g("combined234_lstm"),
-        "h3a_b": (g("history_plus_combined248_xlstm") - g("history14_xlstm")) - (g("history_plus_combined248_lstm") - g("history14_lstm")),
-        "h3a_c": (g("candi_history_plus_combined248_xlstm") - g("candi_history14_xlstm")) - (g("candi_history_plus_combined248_lstm") - g("candi_history14_lstm")),
-    }
-    scenario = {
-        "h2": gs("history_plus_combined248_xlstm") - gs("history14_xlstm"),
-        "h3a_a": gs("combined234_xlstm") - gs("combined234_lstm"),
-        "h3a_b": (gs("history_plus_combined248_xlstm") - gs("history14_xlstm")) - (gs("history_plus_combined248_lstm") - gs("history14_lstm")),
-        "h3a_c": (gs("candi_history_plus_combined248_xlstm") - gs("candi_history14_xlstm")) - (gs("candi_history_plus_combined248_lstm") - gs("candi_history14_lstm")),
-    }
-    matched_summaries: dict[str, Any] = {}
-    for name, value in primary.items():
-        finite = bool(np.isfinite(value).all())
-        summary = hierarchical_bootstrap(value, draws=10_000, seed=901) if finite else None
-        p_value = source_cluster_sign_flip(value) if finite else None
-        seed_count = int((value.mean(axis=0) > 0).sum()) if finite else 0
-        scenario_value = scenario[name]
-        scenario_count = int((np.nanmean(scenario_value, axis=(0, 1)) > 0).sum()) if np.isfinite(scenario_value).any() else 0
-        matched_summaries[name] = {
-            "effect": summary,
-            "raw_p": p_value,
-            "positive_detector_seeds": seed_count,
-            "positive_shifted_scenarios": scenario_count,
-            "support_available": finite and bool(np.isfinite(scenario_value).any()),
-            "supportive_if_resolved": bool(
-                summary is not None
-                and summary["mean"] >= 0.02
-                and summary["ci95"][0] > 0
-                and seed_count >= 4
-                and scenario_count >= 3
-            ),
-        }
-    h2_matched_bootstrap = matched_summaries["h2"]["effect"]
-    h2_matched_scenario = scenario["h2"]
-    matched_seed_count = matched_summaries["h2"]["positive_detector_seeds"]
-    matched_scenario_count = matched_summaries["h2"]["positive_shifted_scenarios"]
-    # This is the frozen identical-observation/opposite-semantic control, not
-    # the duration/severity-matched supportive analysis required by the H2
-    # gate.  Its protocol role is explicitly non-identifiability diagnostics;
-    # it must never be promoted to a supportive PASS merely because rows are
-    # available.  A future protocol amendment must define the separate
-    # legitimate-excursion matching estimand before H2 label access.
-    control_gate_pass = bool(
-        h2_matched_bootstrap is not None
-        and h2_matched_bootstrap["mean"] >= 0.02
-        and h2_matched_bootstrap["ci95"][0] > 0
-        and matched_seed_count >= 4
-        and matched_scenario_count >= 3
+                anomaly_x = np.concatenate([np.asarray(part["anomaly_X"], dtype=np.float64) for part in parts], axis=0)
+                legitimate_x = np.concatenate([np.asarray(part["legitimate_X"], dtype=np.float64) for part in parts], axis=0)
+                if anomaly_x.shape != legitimate_x.shape or not np.allclose(
+                    anomaly_x, legitimate_x, atol=1e-5, rtol=1e-4, equal_nan=True
+                ):
+                    raise ProtocolViolation(f"semantic control feature invariance failed: {seed}/{architecture}/{arm}")
+                fit = fits[seed][f"{arm}_{architecture}"]
+                anomaly_pred = fit["model"].predict_proba(apply_scaler(anomaly_x, fit["scaler"]))[:, 1]
+                legitimate_pred = fit["model"].predict_proba(apply_scaler(legitimate_x, fit["scaler"]))[:, 1]
+                if not np.allclose(anomaly_pred, legitimate_pred, atol=1e-5, rtol=1e-4):
+                    raise ProtocolViolation(f"semantic control prediction invariance failed: {seed}/{architecture}/{arm}")
+                output["checks"].append({
+                    "detector_seed": int(seed), "architecture": architecture, "feature_arm": arm,
+                    "rows": int(len(anomaly_x)), "feature_max_abs": float(np.max(np.abs(anomaly_x - legitimate_x))) if anomaly_x.size else 0.0,
+                    "prediction_max_abs": float(np.max(np.abs(anomaly_pred - legitimate_pred))) if anomaly_pred.size else 0.0,
+                    "feature_invariant": True, "prediction_invariant": True,
+                    "anomaly_prediction_sha256": array_sha(np.asarray(anomaly_pred)),
+                    "legitimate_prediction_sha256": array_sha(np.asarray(legitimate_pred)),
+                    "ap_used_as_evidence": False,
+                })
+    output["check_count"] = len(output["checks"])
+    return output
+
+
+def _robustness_effect_table(
+    fits: Mapping[int, Mapping[str, Mapping[str, Any]]],
+    rows: Mapping[int, Mapping[str, Mapping[str, Mapping[str, Mapping[str, list[Mapping[str, Any]]]]]]],
+) -> dict[str, Any]:
+    """Compute the frozen test-only duration/severity robustness gates."""
+    from sklearn.metrics import average_precision_score
+
+    require_supportive_analysis_kind("duration_severity_stratified_robustness")
+    reject_stratum_refit("frozen_probe")
+    reject_stratum_scaler_fit("train_only")
+    assert_fixed_robustness_strata("duration", DURATION_STRATA)
+    assert_fixed_robustness_strata("severity", SEVERITY_STRATA)
+    matching_config = G1_CONFIG["duration_severity_matching"]
+    arm_names = ("history14", "history_plus_combined248", "combined234", "candi_history14", "candi_history_plus_combined248")
+    contrasts = ("h2", "h3a_a", "h3a_b", "h3a_c")
+    output: dict[str, Any] = {"analysis_name": "duration_severity_stratified_robustness", "duration": {}, "severity": {}}
+    for axis, values in (("duration", DURATION_STRATA), ("severity", SEVERITY_STRATA)):
+        per_contrast: dict[str, list[dict[str, Any]]] = {name: [] for name in contrasts}
+        ap_by_stratum: dict[str, dict[str, np.ndarray]] = {}
+        exclusions: dict[str, dict[str, int]] = {}
+        for value in values:
+            key = str(value)
+            ap_by_stratum[key] = {}
+            exclusions[key] = {
+                "multi_event": 0,
+                "persistent_fault": 0,
+                "mixed": 0,
+                "nonstress_other": 0,
+                "unsupported_streams": 0,
+            }
+            for seed_index, seed in enumerate(DETECTOR_SEEDS):
+                stratum_rows: dict[str, dict[str, Any]] = {}
+                for arm in arm_names:
+                    for architecture in ARCHITECTURES:
+                        name = f"{arm}_{architecture}"
+                        matrix = ap_by_stratum[key].setdefault(name, np.full((len(TEST_SOURCES), len(DETECTOR_SEEDS)), np.nan))
+                        parts = [part for part in rows[seed][architecture][arm][axis][key] if len(part["keys"]) > 0]
+                        if not parts:
+                            continue
+                        pooled = _concat(parts)
+                        stratum_rows[name] = pooled
+                if len(stratum_rows) == len(arm_names) * len(ARCHITECTURES):
+                    # All feature arms use the intersection mask fixed before
+                    # extraction.  Recheck the exact ordered cohort at every
+                    # stratum so differential NaNs cannot alter AP support.
+                    reference = stratum_rows[f"history14_xlstm"]
+                    for name, pooled in stratum_rows.items():
+                        if name == "history14_xlstm":
+                            continue
+                        assert_same_row_order(reference["keys"], pooled["keys"])
+                        if not np.array_equal(reference["y"], pooled["y"]):
+                            raise ProtocolViolation(f"robustness labels differ for {axis}={value}/{name}")
+                for arm in arm_names:
+                    for architecture in ARCHITECTURES:
+                        name = f"{arm}_{architecture}"
+                        matrix = ap_by_stratum[key].setdefault(name, np.full((len(TEST_SOURCES), len(DETECTOR_SEEDS)), np.nan))
+                        parts = [part for part in rows[seed][architecture][arm][axis][key] if len(part["keys"]) > 0]
+                        if not parts:
+                            continue
+                        pooled = stratum_rows[name]
+                        fit = fits[seed][name]
+                        prediction = fit["model"].predict_proba(apply_scaler(pooled["X"], fit["scaler"]))[:, 1]
+                        source_values = np.asarray(pooled["source_seeds"], dtype=np.int64)
+                        labels = np.asarray(pooled["y"], dtype=np.int8)
+                        for source_index, source_seed in enumerate(TEST_SOURCES):
+                            mask = source_values == source_seed
+                            if mask.sum() and len(np.unique(labels[mask])) == 2:
+                                matrix[source_index, seed_index] = average_precision_score(labels[mask], prediction[mask])
+                        if arm == "history14" and architecture == "xlstm":
+                            exclusions[key]["multi_event"] += int(sum(part.get("excluded_multi_event", 0) for part in parts))
+                            exclusions[key]["persistent_fault"] += int(sum(part.get("excluded_persistent_fault", 0) for part in parts))
+                            exclusions[key]["mixed"] += int(sum(part.get("excluded_mixed", 0) for part in parts))
+                            exclusions[key]["nonstress_other"] += int(sum(part.get("excluded_nonstress_other", 0) for part in parts))
+            def matrix(name: str) -> np.ndarray:
+                value_array = ap_by_stratum[key].get(name)
+                if value_array is None:
+                    return np.full((len(TEST_SOURCES), len(DETECTOR_SEEDS)), np.nan)
+                return value_array
+            x_hist = matrix("history14_xlstm")
+            x_combined = matrix("history_plus_combined248_xlstm")
+            l_hist = matrix("history14_lstm")
+            l_combined = matrix("history_plus_combined248_lstm")
+            x_internal = matrix("combined234_xlstm")
+            l_internal = matrix("combined234_lstm")
+            x_candi = matrix("candi_history14_xlstm")
+            l_candi = matrix("candi_history14_lstm")
+            x_candi_internal = matrix("candi_history_plus_combined248_xlstm")
+            l_candi_internal = matrix("candi_history_plus_combined248_lstm")
+            effects = {
+                "h2": x_combined - x_hist,
+                "h3a_a": x_internal - l_internal,
+                "h3a_b": (x_combined - x_hist) - (l_combined - l_hist),
+                "h3a_c": (x_candi_internal - x_candi) - (l_candi_internal - l_candi),
+            }
+            for name, effect in effects.items():
+                support = bool(np.isfinite(effect).all())
+                per_contrast[name].append({"stratum": int(value), "support": support, "effect": effect.tolist() if support else None, "mean": float(np.mean(effect)) if support else None, "positive_detector_seeds": int((np.mean(effect, axis=0) > 0).sum()) if support else None, "row_count": int(sum(len(part["keys"]) for part in rows[DETECTOR_SEEDS[0]]["xlstm"]["history14"][axis][key])) if support else 0})
+        comparisons: dict[str, Any] = {}
+        for name in contrasts:
+            strata = per_contrast[name]
+            valid = [item for item in strata if item["support"]]
+            required_count = len(values)
+            if len(valid) != required_count:
+                comparisons[name] = {"status": "INSUFFICIENT_SUPPORT", "macro": None, "positive_strata": None, "required_strata": [int(value) for value in values], "strata": strata}
+                continue
+            means = np.asarray([item["mean"] for item in valid], dtype=np.float64)
+            if name == "h2":
+                threshold = float(matching_config[f"h2_{axis}_macro_min"])
+            elif name == "h3a_a":
+                threshold = float(matching_config[f"h3a_a_{axis}_macro_min"])
+            else:
+                threshold = float(matching_config[f"h3a_increment_{axis}_macro_min"])
+            positive_count = int((means > 0).sum())
+            minimum_positive = 3 if len(values) == 4 else 2
+            margin_ok = float(means.mean()) >= threshold if threshold > 0 else float(means.mean()) > threshold
+            comparisons[name] = {"status": "PASS" if margin_ok and positive_count >= minimum_positive else "STOP", "macro": float(means.mean()), "positive_strata": positive_count, "required_strata": [int(value) for value in values], "strata": strata, "threshold": threshold, "strict_margin": bool(threshold == 0)}
+        output[axis] = {"strata": per_contrast, "comparisons": comparisons, "exclusions": exclusions}
+    h2_statuses = [output[axis]["comparisons"]["h2"]["status"] for axis in ("duration", "severity")]
+    if all(status == "PASS" for status in h2_statuses):
+        output["h2_status"] = "PASS"
+    elif any(status == "INSUFFICIENT_SUPPORT" for status in h2_statuses):
+        output["h2_status"] = "INSUFFICIENT_SUPPORT"
+    else:
+        output["h2_status"] = "STOP"
+    h3_statuses = [
+        output[axis]["comparisons"][name]["status"]
+        for axis in ("duration", "severity")
+        for name in ("h3a_a", "h3a_b", "h3a_c")
+    ]
+    output["h3a_status_if_primary_h2_go"] = (
+        "PASS" if all(status == "PASS" for status in h3_statuses)
+        else "INSUFFICIENT_SUPPORT" if any(status == "INSUFFICIENT_SUPPORT" for status in h3_statuses)
+        else "STOP"
     )
-    support_bins["status"] = "UNRESOLVED_PROTOCOL"
-    support_bins["protocol_status"] = "UNRESOLVED_PROTOCOL"
-    support_bins["control_gate_pass_if_misused"] = control_gate_pass
-    support_bins["summaries"] = matched_summaries
-    support_bins["supportive_h2_if_resolved"] = matched_summaries["h2"]["supportive_if_resolved"]
-    support_bins["supportive_h3a_if_resolved"] = all(
-        matched_summaries[name]["supportive_if_resolved"] for name in ("h3a_a", "h3a_b", "h3a_c")
-    )
-    support_bins["analysis_kind"] = "identical_observation_opposite_semantic_non_identifiability_control"
-    support_bins["definition"] = "same source/scenario/condition/event/timestamp, pure anomaly versus observation-identical legitimate counterpart; persistent_fault and mixed excluded"
-    support_bins["reason"] = "frozen generator's opposite-semantic control is not a supportive duration/severity-matched estimand; external protocol resolution required"
-    support_bins["rows"] = int(sum(len(part["keys"]) for seed in DETECTOR_SEEDS for architecture in ARCHITECTURES for part in matched_rows[seed][architecture]["history14"]))
-    support_bins["h2_effect"] = h2_matched_bootstrap
-    support_bins["h2_positive_detector_seeds"] = matched_seed_count
-    support_bins["h2_positive_scenarios"] = matched_scenario_count
-    support_bins["primary_effects"] = {name: {"mean": float(np.nanmean(value)), "positive_detector_seeds": int((np.nanmean(value, axis=0) > 0).sum())} for name, value in primary.items()}
-    return primary, scenario, support_bins
+    return output
 
 
 def _descriptive_strata_summary(
@@ -585,20 +704,6 @@ def _pooled_source_ap(fits: Mapping[int, Mapping[str, Any]], rows: Mapping[int, 
     return result
 
 
-def _duration_severity_support(rows: Mapping[str, Any]) -> dict[str, Any]:
-    """Report support without post-outcome bin merging or redefinition."""
-    duration = np.asarray(rows["duration"], dtype=object)
-    severity = np.asarray(rows["severity"], dtype=object)
-    labels = np.asarray(rows["y"], dtype=np.int8)
-    groups: dict[str, set[int]] = {}
-    for d, s, y in zip(duration, severity, labels):
-        if d is None or s is None:
-            continue
-        groups.setdefault(f"{d}:{s}", set()).add(int(y))
-    supported = sorted(key for key, values in groups.items() if values == {0, 1})
-    return {"status": "PASS" if supported else "N/A", "supported_strata": supported, "group_count": len(groups)}
-
-
 def _specificity_summary(
     fits: Mapping[int, Mapping[str, Mapping[str, Any]]],
     specificity_rows: Mapping[int, Mapping[str, Mapping[str, Mapping[str, list[Mapping[str, Any]]]]]],
@@ -719,6 +824,11 @@ def run(prelabel_commit: str, output_dir: Path) -> dict[str, Any]:
     _ledger_append(ledger_path, "process_start", prelabel_seal_commit=prelabel_commit, label_access_ack=True)
     require_prelabel_seal(prelabel_commit)
     require_duration_matching_resolution()
+    require_supportive_analysis_kind("duration_severity_stratified_robustness")
+    assert_fixed_robustness_strata("duration", DURATION_STRATA)
+    assert_fixed_robustness_strata("severity", SEVERITY_STRATA)
+    reject_stratum_refit("frozen_probe")
+    reject_stratum_scaler_fit("train_only")
     assert_sealed_inputs()
     assert_source_fold_separation()
     assert_family_names(("H2", "H3a-A", "H3a-B", "H3a-C"))
@@ -766,10 +876,24 @@ def run(prelabel_commit: str, output_dir: Path) -> dict[str, Any]:
         seed: {architecture: {arm: [] for arm in feature_arms} for architecture in ARCHITECTURES}
         for seed in DETECTOR_SEEDS
     }
-    matched_rows: dict[int, dict[str, dict[str, list[dict[str, Any]]]]] = {
+    robustness_rows: dict[int, dict[str, dict[str, dict[str, dict[str, list[dict[str, Any]]]]]]] = {
+        seed: {
+            architecture: {
+                arm: {
+                    "duration": {str(value): [] for value in DURATION_STRATA},
+                    "severity": {str(value): [] for value in SEVERITY_STRATA},
+                }
+                for arm in feature_arms
+            }
+            for architecture in ARCHITECTURES
+        }
+        for seed in DETECTOR_SEEDS
+    }
+    semantic_control_pairs: dict[int, dict[str, dict[str, list[dict[str, Any]]]]] = {
         seed: {architecture: {arm: [] for arm in feature_arms} for architecture in ARCHITECTURES}
         for seed in DETECTOR_SEEDS
     }
+    semantic_control_checks: list[dict[str, Any]] = []
     execution_rows: list[dict[str, Any]] = []
     descriptive_rows: list[dict[str, Any]] = []
     for detector_seed in DETECTOR_SEEDS:
@@ -817,16 +941,57 @@ def run(prelabel_commit: str, output_dir: Path) -> dict[str, Any]:
                                         _select_all_rows(per_architecture[architecture], arm)
                                     )
                         if scenario in SHIFTED_SCENARIOS:
-                            # The duration/severity-matched diagnostic uses
-                            # the generator's fixed semantic counterpart.  It
-                            # is generated before any probe fitting and is
-                            # never part of the primary binary cohort.
+                            # The semantic counterpart is a separate negative
+                            # control.  It is generated only to verify that
+                            # changing evaluator semantics cannot alter an
+                            # observation-only extraction or frozen-probe
+                            # prediction; it is never a robustness stratum.
                             legitimate_stream = _generate(source, scenario, condition, "legitimate") if fold == "test" else None
                             legitimate_truth = None
+                            legitimate_features: dict[str, dict[str, Any]] = {}
                             if legitimate_stream is not None:
                                 if not np.array_equal(observations, np.asarray(legitimate_stream.observations, dtype=np.float32)):
                                     raise ProtocolViolation("semantic legitimate counterpart changed observations")
                                 legitimate_truth = build_evaluator_rows(legitimate_stream, timestamps, 64)
+                                for architecture in ARCHITECTURES:
+                                    legitimate_features[architecture] = _observation_only_features(
+                                        backbones[architecture], architecture,
+                                        np.asarray(legitimate_stream.observations, dtype=np.float32),
+                                        int(source), candi_history,
+                                    )
+                                    if not np.array_equal(legitimate_features[architecture]["timestamps"], per_architecture[architecture]["timestamps"]):
+                                        raise ProtocolViolation("semantic counterpart timestamps differ")
+                                    group_diffs: dict[str, float] = {}
+                                    for arm in feature_arms:
+                                        left_values = np.asarray(per_architecture[architecture]["groups"][arm], dtype=np.float64)
+                                        right_values = np.asarray(legitimate_features[architecture]["groups"][arm], dtype=np.float64)
+                                        try:
+                                            invariant = assert_semantic_nonidentifiability(
+                                                observations,
+                                                np.asarray(legitimate_stream.observations, dtype=np.float32),
+                                                left_values,
+                                                right_values,
+                                            )
+                                        except ProtocolViolation as exc:
+                                            raise ProtocolViolation(f"semantic counterpart feature mismatch: {architecture}/{arm}") from exc
+                                        group_diffs[arm] = float(np.nanmax(np.abs(left_values - right_values))) if left_values.size else 0.0
+                                    semantic_control_checks.append({
+                                        "detector_seed": int(detector_seed), "source_seed": int(source),
+                                        "scenario": str(scenario), "condition": str(condition),
+                                        "observations_identical": True, "timestamps_identical": True,
+                                        "event_ids_identical": True, "truth_opposite_on_event_rows": True,
+                                        "feature_max_abs_diffs": group_diffs,
+                                    })
+                                    anomaly_event_labels = np.asarray(per_architecture[architecture]["label"], dtype=np.int8)
+                                    legitimate_event_labels = np.asarray(legitimate_truth["label"], dtype=np.int8)
+                                    event_rows = anomaly_event_labels == 1
+                                    if not np.array_equal(
+                                        np.asarray(per_architecture[architecture]["event"], dtype=np.int32),
+                                        np.asarray(legitimate_truth["event"], dtype=np.int32),
+                                    ):
+                                        raise ProtocolViolation("semantic counterpart event IDs differ")
+                                    if not np.all(legitimate_event_labels[event_rows] == 0):
+                                        raise ProtocolViolation("semantic counterpart truth is not opposite on event rows")
                             # Pair rows before adding them to any pooled arm.
                             # This prevents a differential NaN/warmup mask from
                             # changing a later AP cohort.
@@ -845,6 +1010,20 @@ def run(prelabel_commit: str, output_dir: Path) -> dict[str, Any]:
                                 assert_common_cohort({"xlstm": x_rows, "lstm": l_rows})
                                 raw_rows[detector_seed][fold].setdefault(f"{arm}_xlstm", []).append(x_rows)
                                 raw_rows[detector_seed][fold].setdefault(f"{arm}_lstm", []).append(l_rows)
+                                if legitimate_features:
+                                    for architecture in ARCHITECTURES:
+                                        semantic_control_pairs[detector_seed][architecture][arm].append(
+                                            _semantic_pair_rows(per_architecture[architecture], legitimate_features[architecture]["groups"], arm, common_mask)
+                                        )
+                                # Duration/severity robustness is evaluated on
+                                # the ordinary anomaly stream and is deliberately
+                                # independent of the semantic negative control.
+                                for architecture in ARCHITECTURES:
+                                    for axis, values in (("duration", DURATION_STRATA), ("severity", SEVERITY_STRATA)):
+                                        for value in values:
+                                            robustness_rows[detector_seed][architecture][arm][axis][str(value)].append(
+                                                _select_duration_or_severity_rows(per_architecture[architecture], arm, common_mask, axis, value)
+                                            )
                             for architecture in ARCHITECTURES:
                                 for arm in feature_arms:
                                     specificity_rows[detector_seed][architecture]["stable_new_normal"][arm].append(
@@ -858,15 +1037,6 @@ def run(prelabel_commit: str, output_dir: Path) -> dict[str, Any]:
                                             descriptive_test_rows[detector_seed][architecture][event_type][arm].append(
                                                 _select_event_type_rows(per_architecture[architecture], arm, event_type)
                                             )
-                                    if legitimate_truth is not None:
-                                        matched_valid = np.asarray(per_architecture[architecture]["stratum"] == "anomaly", dtype=bool)
-                                        for other_architecture in ARCHITECTURES:
-                                            for other_arm in feature_arms:
-                                                matched_values = np.asarray(per_architecture[other_architecture]["groups"][other_arm], dtype=np.float64)
-                                                matched_valid &= np.isfinite(matched_values).all(axis=1)
-                                        matched_rows[detector_seed][architecture][arm].append(
-                                            _duration_matched_rows(per_architecture[architecture], legitimate_truth, arm, matched_valid)
-                                        )
                         else:
                             for architecture in ARCHITECTURES:
                                 for arm in feature_arms:
@@ -923,7 +1093,8 @@ def run(prelabel_commit: str, output_dir: Path) -> dict[str, Any]:
     scenario_deltas = _scenario_difference_table(comparison_fits, comparison_rows)
     statistics = build_confirmatory_statistics(deltas)
     _ledger_append(ledger_path, "probe_statistics_complete", confirmatory_family_size=4)
-    matched_deltas, matched_scenario_deltas, matched_report = _matched_effect_table(fits, matched_rows)
+    semantic_report = _semantic_control_report(fits, semantic_control_pairs)
+    robustness_report = _robustness_effect_table(fits, robustness_rows)
     pooled_ap = _pooled_source_ap(fits, comparison_rows)
     specificity = _specificity_summary(fits, specificity_rows)
     descriptive_test = _descriptive_strata_summary(fits, descriptive_test_rows)
@@ -950,35 +1121,69 @@ def run(prelabel_commit: str, output_dir: Path) -> dict[str, Any]:
         delta_path = artifact_dir / f"delta_{name}.npy"
         np.save(delta_path, np.asarray(delta, dtype=np.float64), allow_pickle=False)
         probe_manifest.setdefault("delta_artifacts", {})[name] = {"path": str(delta_path.relative_to(ROOT)), "sha256": _sha(delta_path), "shape": list(delta.shape)}
-    probe_manifest["matched_artifacts"] = {}
+    probe_manifest["semantic_control"] = semantic_report
+    probe_manifest["semantic_control_checks"] = semantic_control_checks
+    probe_manifest["semantic_control_artifacts"] = {}
     for seed in DETECTOR_SEEDS:
         for architecture in ARCHITECTURES:
             for arm in feature_arms:
-                parts = [part for part in matched_rows[seed][architecture][arm] if len(part["keys"]) > 0]
-                if not parts:
-                    probe_manifest["matched_artifacts"][f"seed{seed}_{arm}_{architecture}"] = {"status": "N/A"}
-                    continue
-                match = _concat(parts)
-                fit = fits[seed][f"{arm}_{architecture}"]
-                prediction = fit["model"].predict_proba(apply_scaler(match["X"], fit["scaler"]))[:, 1]
+                parts = [part for part in semantic_control_pairs[seed][architecture][arm] if len(part["keys"]) > 0]
                 stem = f"seed{seed}_{arm}_{architecture}"
-                labels_path = artifact_dir / f"matched_{stem}_labels.npy"
-                prediction_path = artifact_dir / f"matched_{stem}_prediction.npy"
-                keys_path = artifact_dir / f"matched_{stem}_keys.json"
-                np.save(labels_path, np.asarray(match["y"], dtype=np.int8), allow_pickle=False)
-                np.save(prediction_path, np.asarray(prediction, dtype=np.float64), allow_pickle=False)
-                keys_path.write_text(json.dumps(match["keys"], sort_keys=True, separators=(",", ":")) + "\n")
-                probe_manifest["matched_artifacts"][stem] = {
-                    "status": "PASS",
-                    "labels": str(labels_path.relative_to(ROOT)), "labels_sha256": _sha(labels_path),
-                    "prediction": str(prediction_path.relative_to(ROOT)), "prediction_sha256": _sha(prediction_path),
+                if not parts:
+                    probe_manifest["semantic_control_artifacts"][stem] = {"status": "N/A"}
+                    continue
+                anomaly_x = np.concatenate([np.asarray(part["anomaly_X"], dtype=np.float64) for part in parts], axis=0)
+                legitimate_x = np.concatenate([np.asarray(part["legitimate_X"], dtype=np.float64) for part in parts], axis=0)
+                keys = [key for part in parts for key in part["keys"]]
+                feature_path = artifact_dir / f"semantic_{stem}_features.npz"
+                keys_path = artifact_dir / f"semantic_{stem}_keys.json"
+                np.savez_compressed(feature_path, anomaly_X=anomaly_x, legitimate_X=legitimate_x)
+                keys_path.write_text(json.dumps(keys, sort_keys=True, separators=(",", ":")) + "\n")
+                probe_manifest["semantic_control_artifacts"][stem] = {
+                    "status": "PASS", "features": str(feature_path.relative_to(ROOT)), "features_sha256": _sha(feature_path),
                     "keys": str(keys_path.relative_to(ROOT)), "keys_sha256": _sha(keys_path),
-                    "row_key_sha256": row_key_hash(match["keys"]),
+                    "row_key_sha256": row_key_hash(keys), "n": int(len(keys)),
                 }
-    for name, delta in matched_deltas.items():
-        matched_path = artifact_dir / f"matched_delta_{name}.npy"
-        np.save(matched_path, np.asarray(delta, dtype=np.float64), allow_pickle=False)
-        probe_manifest.setdefault("matched_delta_artifacts", {})[name] = {"path": str(matched_path.relative_to(ROOT)), "sha256": _sha(matched_path), "shape": list(delta.shape)}
+    probe_manifest["robustness_artifacts"] = {}
+    for axis, values in (("duration", DURATION_STRATA), ("severity", SEVERITY_STRATA)):
+        for value in values:
+            key = str(value)
+            for seed in DETECTOR_SEEDS:
+                for architecture in ARCHITECTURES:
+                    for arm in feature_arms:
+                        parts = [part for part in robustness_rows[seed][architecture][arm][axis][key] if len(part["keys"]) > 0]
+                        stem = f"seed{seed}_{axis}{key}_{arm}_{architecture}"
+                        if not parts:
+                            probe_manifest["robustness_artifacts"][stem] = {"status": "INSUFFICIENT_SUPPORT"}
+                            continue
+                        subgroup = _concat(parts)
+                        fit = fits[seed][f"{arm}_{architecture}"]
+                        prediction = fit["model"].predict_proba(apply_scaler(subgroup["X"], fit["scaler"]))[:, 1]
+                        labels_path = artifact_dir / f"robustness_{stem}_labels.npy"
+                        prediction_path = artifact_dir / f"robustness_{stem}_prediction.npy"
+                        features_path = artifact_dir / f"robustness_{stem}_features.npz"
+                        keys_path = artifact_dir / f"robustness_{stem}_keys.json"
+                        metadata_path = artifact_dir / f"robustness_{stem}_metadata.json"
+                        np.save(labels_path, np.asarray(subgroup["y"], dtype=np.int8), allow_pickle=False)
+                        np.save(prediction_path, np.asarray(prediction, dtype=np.float64), allow_pickle=False)
+                        np.savez_compressed(features_path, X=np.asarray(subgroup["X"], dtype=np.float64))
+                        keys_path.write_text(json.dumps(subgroup["keys"], sort_keys=True, separators=(",", ":")) + "\n")
+                        metadata_path.write_text(json.dumps({
+                            "event_types": [None if value is None else str(value) for value in subgroup["event_types"]],
+                            "duration": [None if value is None else int(value) for value in subgroup["duration"]],
+                            "severity": [None if value is None else int(value) for value in subgroup["severity"]],
+                            "stratum": [str(value) for value in subgroup.get("stratum", np.asarray([], dtype=object))],
+                        }, sort_keys=True, separators=(",", ":")) + "\n")
+                        probe_manifest["robustness_artifacts"][stem] = {
+                            "status": "PASS", "axis": axis, "stratum": int(value),
+                            "labels": str(labels_path.relative_to(ROOT)), "labels_sha256": _sha(labels_path),
+                            "prediction": str(prediction_path.relative_to(ROOT)), "prediction_sha256": _sha(prediction_path),
+                            "features": str(features_path.relative_to(ROOT)), "features_sha256": _sha(features_path),
+                            "keys": str(keys_path.relative_to(ROOT)), "keys_sha256": _sha(keys_path),
+                            "metadata": str(metadata_path.relative_to(ROOT)), "metadata_sha256": _sha(metadata_path),
+                            "row_key_sha256": row_key_hash(subgroup["keys"]),
+                            "n": int(len(subgroup["y"])), "positives": int(np.sum(subgroup["y"])),
+                        }
     test_results: dict[str, Any] = {}
     for seed in DETECTOR_SEEDS:
         for arm, fit in comparison_fits[seed].items():
@@ -1035,38 +1240,23 @@ def run(prelabel_commit: str, output_dir: Path) -> dict[str, Any]:
     _write_json(output_dir / "g1_probe_manifest.json", probe_manifest)
     _write_json(output_dir / "g1_statistics.json", _clean(statistics))
     scenario_statistics = {name: {"shape": list(value.shape), "sha256": array_sha(value), "values": value.tolist()} for name, value in scenario_deltas.items()}
-    matched_statistics = {name: {"shape": list(value.shape), "sha256": array_sha(value), "values": value.tolist()} for name, value in matched_deltas.items()}
-    matched_scenario_statistics = {name: {"shape": list(value.shape), "sha256": array_sha(value), "values": value.tolist()} for name, value in matched_scenario_deltas.items()}
-    _write_json(output_dir / "g1_results.json", {"test_ap": test_results, "specificity": specificity, "descriptive_strata": descriptive_rows, "descriptive_test_strata": descriptive_test, "natural_prevalence_evaluation": natural_prevalence, "pooled_source_ap": {arm: values.tolist() for arm, values in pooled_ap.items()}, "pooled_source_ap_mean": {arm: float(np.mean(values)) for arm, values in pooled_ap.items()}, "scenario_deltas": scenario_statistics, "duration_severity_support": matched_report, "duration_severity_primary_effects": matched_statistics, "duration_severity_scenario_effects": matched_scenario_statistics, "delta_sha256": {name: array_sha(value) for name, value in deltas.items()}, "delta_shape": {name: list(value.shape) for name, value in deltas.items()}, "test_sources": list(TEST_SOURCES), "scenarios": list(SHIFTED_SCENARIOS), "conditions": list(CONDITIONS), "primary_cohort_prevalence": {str(seed): {arm: float(test_results[str(seed)][arm]["positives"] / test_results[str(seed)][arm]["n"]) for arm in test_results[str(seed)]} for seed in DETECTOR_SEEDS}})
+    _write_json(output_dir / "g1_results.json", {"test_ap": test_results, "specificity": specificity, "descriptive_strata": descriptive_rows, "descriptive_test_strata": descriptive_test, "natural_prevalence_evaluation": natural_prevalence, "pooled_source_ap": {arm: values.tolist() for arm, values in pooled_ap.items()}, "pooled_source_ap_mean": {arm: float(np.mean(values)) for arm, values in pooled_ap.items()}, "scenario_deltas": scenario_statistics, "duration_severity_robustness": robustness_report, "semantic_nonidentifiability_control": semantic_report, "semantic_control_checks": semantic_control_checks, "delta_sha256": {name: array_sha(value) for name, value in deltas.items()}, "delta_shape": {name: list(value.shape) for name, value in deltas.items()}, "test_sources": list(TEST_SOURCES), "scenarios": list(SHIFTED_SCENARIOS), "conditions": list(CONDITIONS), "primary_cohort_prevalence": {str(seed): {arm: float(test_results[str(seed)][arm]["positives"] / test_results[str(seed)][arm]["n"]) for arm in test_results[str(seed)]} for seed in DETECTOR_SEEDS}})
     from phase_g1_core import h2_go, h3a_go, positive_seed_scenario_counts, positive_seed_source_counts
     h2_raw = statistics["comparisons"]["h2"]
     h2_seed_count = positive_seed_source_counts(deltas["h2"])
     h2_scenario_count = positive_seed_scenario_counts(scenario_deltas["h2"])[1]
-    # Duration/severity support is evaluator-side and fixed: require at least
-    # one supported binary duration/severity stratum.  If unavailable, report
-    # N/A and fail closed rather than merging bins after seeing outcomes.
-    # The current frozen generator provides only the explicitly labelled
-    # identical-observation control.  It is not eligible to satisfy the
-    # protocol's supportive duration/severity gate until an external
-    # pre-outcome amendment defines that estimand.
-    matched_support = bool(
-        matched_report.get("protocol_status") == "RESOLVED"
-        and matched_report.get("supportive_h2_if_resolved", False)
-    )
-    h2_status = "GO" if h2_go(h2_raw["mean"], h2_raw["ci95"][0], h2_raw["holm_adjusted_p"], h2_seed_count, h2_scenario_count, matched_support) else "STOP"
+    h2_robustness_support = robustness_report.get("h2_status") == "PASS"
+    h3a_robustness_support = robustness_report.get("h3a_status_if_primary_h2_go") == "PASS"
+    h2_status = "GO" if h2_go(h2_raw["mean"], h2_raw["ci95"][0], h2_raw["holm_adjusted_p"], h2_seed_count, h2_scenario_count, h2_robustness_support) else "STOP"
     h3a_counts = {name: {"positive_detector_seeds": positive_seed_source_counts(deltas[name]), "positive_scenarios": positive_seed_scenario_counts(scenario_deltas[name])[1]} for name in ("h3a_a", "h3a_b", "h3a_c")}
     h3_repro = all(row["positive_detector_seeds"] >= 4 and row["positive_scenarios"] >= 3 for row in h3a_counts.values())
-    h3a_matched_support = bool(
-        matched_report.get("protocol_status") == "RESOLVED"
-        and matched_report.get("supportive_h3a_if_resolved", False)
-    )
     h3a_status = "NOT_ELIGIBLE"
     if h2_status == "GO":
         a, b, c = (statistics["comparisons"][name] for name in ("h3a_a", "h3a_b", "h3a_c"))
-        h3a_status = "GO" if h3a_go(True, a["mean"], a["ci95"][0], a["holm_adjusted_p"], b["mean"], b["ci95"][0], b["holm_adjusted_p"], c["mean"], c["ci95"][0], c["holm_adjusted_p"], h3_repro, h3a_matched_support) else "STOP"
-    decision = {"H2": h2_status, "H3a": h3a_status, "H3b": "UNLOCKED" if h3a_status == "GO" else "LOCKED", "h1_controlled_harm": "STOP", "h1_natural_harm": "NOT_RUN", "h1_harm_overall": "UNRESOLVED", "duration_severity_matched": matched_report, "h2_positive_detector_seeds": h2_seed_count, "h2_positive_scenarios": h2_scenario_count, "h3a_reproducibility": h3a_counts, "h3a_reproducibility_pass": h3_repro, "h2_matched_support_used": matched_support, "h3a_matched_support_used": h3a_matched_support}
+        h3a_status = "GO" if h3a_go(True, a["mean"], a["ci95"][0], a["holm_adjusted_p"], b["mean"], b["ci95"][0], b["holm_adjusted_p"], c["mean"], c["ci95"][0], c["holm_adjusted_p"], h3_repro, h3a_robustness_support) else "STOP"
+    decision = {"H2": h2_status, "H3a": h3a_status, "H3b": "UNLOCKED" if h3a_status == "GO" else "LOCKED", "h1_controlled_harm": "STOP", "h1_natural_harm": "NOT_RUN", "h1_harm_overall": "UNRESOLVED", "duration_severity_robustness": robustness_report, "semantic_nonidentifiability_control": semantic_report, "h2_positive_detector_seeds": h2_seed_count, "h2_positive_scenarios": h2_scenario_count, "h3a_reproducibility": h3a_counts, "h3a_reproducibility_pass": h3_repro, "h2_robustness_support_used": h2_robustness_support, "h3a_robustness_support_used": h3a_robustness_support}
     _write_json(output_dir / "g1_decision.json", decision)
-    (output_dir / "g1_decision.md").write_text("# Phase G1 decision\n\n" + "\n".join(f"{key} = {value}" for key, value in (("H2", h2_status), ("H3a", h3a_status), ("H3b", decision["H3b"]))) + "\n\nH1_controlled_harm = STOP\nH1_natural_harm = NOT_RUN\nH1_harm_overall = UNRESOLVED\n\nDuration/severity-matched analysis: " + str(matched_report) + "\n")
+    (output_dir / "g1_decision.md").write_text("# Phase G1 decision\n\n" + "\n".join(f"{key} = {value}" for key, value in (("H2", h2_status), ("H3a", h3a_status), ("H3b", decision["H3b"]))) + "\n\nH1_controlled_harm = STOP\nH1_natural_harm = NOT_RUN\nH1_harm_overall = UNRESOLVED\n\nDuration/severity robustness: " + str(robustness_report) + "\n\nSemantic non-identifiability control: " + str(semantic_report) + "\n")
     _ledger_append(ledger_path, "process_complete", h2=str(h2_status), h3a=str(h3a_status), h3b=str(decision["H3b"]))
     # The terminal ledger record is part of the immutable execution manifest;
     # seal its final hash only after the complete decision and all artifacts

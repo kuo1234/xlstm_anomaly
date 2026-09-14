@@ -79,7 +79,25 @@
       "status": "PASS"
     },
     {
-      "name": "unresolved_duration_protocol_blocks_label_access",
+      "name": "resolved_duration_protocol",
+      "status": "PASS"
+    },
+    {
+      "name": "g11_amendment_documented",
+      "status": "PASS",
+      "path": "reports/phase_g1/g1_1_duration_severity_amendment.md"
+    },
+    {
+      "name": "prelabel_review_path_frozen",
+      "status": "PASS",
+      "path": "reports/phase_g1/g1_self_review_prelabel_v2.json"
+    },
+    {
+      "name": "duration_matching_resolution",
+      "status": "PASS"
+    },
+    {
+      "name": "g11_runner_contract_bound",
       "status": "PASS"
     },
     {
@@ -89,7 +107,7 @@
     {
       "name": "scientific_dependency_closure_present",
       "status": "PASS",
-      "file_count": 25
+      "file_count": 27
     },
     {
       "name": "entrypoint_import_and_symbol_smoke",
@@ -144,6 +162,74 @@
       "name": "reordered_source_pair",
       "status": "PASS",
       "rejected": true
+    },
+    {
+      "name": "g11_unresolved_matching_config",
+      "status": "PASS",
+      "rejected": true
+    },
+    {
+      "name": "g11_duration_strata_drift",
+      "status": "PASS",
+      "rejected": true
+    },
+    {
+      "name": "g11_severity_strata_drift",
+      "status": "PASS",
+      "rejected": true
+    },
+    {
+      "name": "g11_nonbinary_matching_label",
+      "status": "PASS",
+      "rejected": true
+    },
+    {
+      "name": "g11_missing_exclusion",
+      "status": "PASS",
+      "rejected": true
+    },
+    {
+      "name": "g11_semantic_control_as_support",
+      "status": "PASS",
+      "rejected": true
+    },
+    {
+      "name": "g11_duration_stratum_probe_refit",
+      "status": "PASS",
+      "rejected": true
+    },
+    {
+      "name": "g11_severity_stratum_scaler_refit",
+      "status": "PASS",
+      "rejected": true
+    },
+    {
+      "name": "g11_unsupported_duration_merge",
+      "status": "PASS",
+      "rejected": true
+    },
+    {
+      "name": "g11_metadata_into_observation_api",
+      "status": "PASS",
+      "rejected": true
+    },
+    {
+      "name": "g11_semantic_observation_mismatch",
+      "status": "PASS",
+      "rejected": true
+    },
+    {
+      "name": "g11_duration_row_cohort_mismatch",
+      "status": "PASS",
+      "rejected": true
+    },
+    {
+      "name": "g11_fixed_matching_bin",
+      "status": "PASS"
+    },
+    {
+      "name": "g11_insufficient_support_no_merge",
+      "status": "PASS"
     },
     {
       "name": "stage_a_no_metric_execution",

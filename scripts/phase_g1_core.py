@@ -37,6 +37,8 @@ DETECTOR_SEEDS = (11, 22, 33, 44, 55)
 SHIFTED_SCENARIOS = ("abrupt", "gradual", "recurring", "correlation")
 STATIONARY_SCENARIO = "stationary"
 ROLLING_WIDTHS = (4, 8, 16, 32)
+DURATION_STRATA = (1, 16, 64, 256)
+SEVERITY_STRATA = (1, 2, 3)
 WINDOW = 64
 CANDI_WINDOW = 10
 FIRST_COMMON_TIMESTAMP = 63
@@ -67,9 +69,15 @@ FORBIDDEN_EXTRACTOR_NAMES = frozenset(
         "regime",
         "regime_id",
         "event_id",
+        "event",
         "event_age",
         "event_end",
+        "event_type",
+        "duration",
         "severity",
+        "condition",
+        "semantic",
+        "truth",
         "anomaly_type",
         "generator_parameters",
         "metadata",
@@ -660,8 +668,12 @@ def duration_severity_match_status(
         raise ProtocolViolation("duration/severity/label arrays differ")
     bins: dict[str, dict[str, int]] = {}
     for duration, severity, label in zip(durations, severities, labels):
+        if int(label) not in (0, 1):
+            raise ProtocolViolation("duration/severity matching labels must be binary")
         if duration is None or severity is None:
             continue
+        if int(duration) not in DURATION_STRATA or int(severity) not in SEVERITY_STRATA:
+            raise ProtocolViolation("duration/severity value is outside the sealed strata")
         key = f"duration={int(duration)}|severity={int(severity)}"
         row = bins.setdefault(key, {"positive": 0, "negative": 0})
         row["positive" if int(label) == 1 else "negative"] += 1
@@ -672,6 +684,125 @@ def duration_severity_match_status(
         "usable_bins": usable,
         "reason": None if usable else "no fixed duration/severity bin contains both classes",
     }
+
+
+def assert_duration_severity_protocol(config: Mapping[str, Any] | None = None) -> dict[str, Any]:
+    """Validate the prospective G1.1 matched-analysis contract.
+
+    This guard is intentionally independent of any model result.  It prevents
+    label access when the fixed event-duration/severity strata, exclusions, or
+    support semantics drift from the sealed configuration.
+    """
+    matching = dict((G1_CONFIG if config is None else config).get("duration_severity_matching", {}))
+    required = {
+        "status": "RESOLVED",
+        "supportive_analysis_name": "duration_severity_stratified_robustness",
+        "duration_strata": list(DURATION_STRATA),
+        "severity_strata": list(SEVERITY_STRATA),
+        "exclude_persistent_fault": True,
+        "exclude_mixed_windows": True,
+        "exclude_multi_event_windows": True,
+        "negative_duration_or_severity_label": False,
+        "no_refit_or_rescaling": True,
+        "insufficient_support_status": "INSUFFICIENT_SUPPORT",
+        "positive_strata_are_strictly_positive": True,
+        "h2_duration_macro_min": 0.02,
+        "h2_positive_duration_min": 3,
+        "h2_severity_macro_min": 0.02,
+        "h2_positive_severity_min": 2,
+        "h3a_a_duration_macro_min": 0.02,
+        "h3a_a_severity_macro_min": 0.02,
+        "h3a_increment_duration_macro_min": 0.0,
+        "h3a_increment_severity_macro_min": 0.0,
+        "semantic_nonidentifiability_control": "identical_observation_opposite_semantic_control",
+        "label_access_blocked": False,
+    }
+    failures = [key for key, expected in required.items() if matching.get(key) != expected]
+    if failures:
+        raise ProtocolViolation(f"duration/severity protocol drift: {failures}")
+    return {"status": "PASS", "duration_strata": list(DURATION_STRATA), "severity_strata": list(SEVERITY_STRATA)}
+
+
+def require_supportive_analysis_kind(kind: str) -> None:
+    """Reject the semantic-identical control as matched H2/H3a evidence.
+
+    The observation-identical/opposite-semantic stream is a negative control
+    for non-identifiability only.  The only supportive robustness estimand is
+    the ordinary anomaly stream stratified by evaluator-only duration or
+    severity metadata.
+    """
+    expected = "duration_severity_stratified_robustness"
+    if str(kind) != expected:
+        raise ProtocolViolation(
+            f"{kind!r} cannot be used as supportive H2/H3a evidence; expected {expected!r}"
+        )
+
+
+def reject_stratum_refit(scope: str) -> None:
+    """Fail closed if a robustness stratum attempts probe refitting."""
+    if str(scope) != "frozen_probe":
+        raise ProtocolViolation("duration/severity robustness must reuse the frozen pooled probe")
+
+
+def reject_stratum_scaler_fit(scope: str) -> None:
+    """Fail closed if a robustness stratum attempts scaler fitting."""
+    if str(scope) != "train_only":
+        raise ProtocolViolation("duration/severity robustness cannot fit a subgroup scaler")
+
+
+def assert_fixed_robustness_strata(axis: str, values: Sequence[int]) -> None:
+    """Reject unsupported bins and post-outcome bin merging."""
+    expected = DURATION_STRATA if str(axis) == "duration" else SEVERITY_STRATA if str(axis) == "severity" else None
+    if expected is None or tuple(int(value) for value in values) != tuple(expected):
+        raise ProtocolViolation(f"{axis!r} strata differ from the sealed fixed bins")
+
+
+def assert_semantic_nonidentifiability(
+    observations_left: np.ndarray,
+    observations_right: np.ndarray,
+    features_left: np.ndarray,
+    features_right: np.ndarray,
+    predictions_left: np.ndarray | None = None,
+    predictions_right: np.ndarray | None = None,
+) -> dict[str, Any]:
+    """Check the observation-identical/opposite-semantic negative control.
+
+    No truth or semantic metadata is accepted.  Equal observations must yield
+    equal observation-only features and (when supplied) equal predictions.
+    """
+    left_obs = np.asarray(observations_left)
+    right_obs = np.asarray(observations_right)
+    left_features = np.asarray(features_left)
+    right_features = np.asarray(features_right)
+    if left_obs.shape != right_obs.shape or not np.array_equal(left_obs, right_obs):
+        raise ProtocolViolation("semantic control observations are not identical")
+    if left_features.shape != right_features.shape or not np.allclose(
+        left_features, right_features, atol=ATOL, rtol=RTOL, equal_nan=True
+    ):
+        raise ProtocolViolation("semantic control observation-only features differ")
+    if np.isinf(left_features).any() or np.isinf(right_features).any():
+        raise ProtocolViolation("semantic control features contain infinity")
+    result: dict[str, Any] = {
+        "observations_identical": True,
+        "features_invariant": True,
+        "feature_max_abs": float(np.nanmax(np.abs(left_features - right_features)))
+        if left_features.size and not np.all(np.isnan(left_features))
+        else 0.0,
+    }
+    if (predictions_left is None) != (predictions_right is None):
+        raise ProtocolViolation("semantic control predictions must be supplied as a pair")
+    if predictions_left is not None and predictions_right is not None:
+        left_pred = np.asarray(predictions_left)
+        right_pred = np.asarray(predictions_right)
+        if left_pred.shape != right_pred.shape or not np.allclose(
+            left_pred, right_pred, atol=ATOL, rtol=RTOL, equal_nan=True
+        ):
+            raise ProtocolViolation("semantic control predictions differ")
+        if not np.isfinite(left_pred).all() or not np.isfinite(right_pred).all():
+            raise ProtocolViolation("semantic control predictions are non-finite")
+        result["predictions_invariant"] = True
+        result["prediction_max_abs"] = float(np.nanmax(np.abs(left_pred - right_pred))) if left_pred.size else 0.0
+    return result
 
 
 def assert_shared_control(left_history: np.ndarray, right_history: np.ndarray, left_keys: Sequence[Mapping[str, Any]], right_keys: Sequence[Mapping[str, Any]]) -> None:
@@ -907,7 +1038,15 @@ __all__ = [
     "positive_seed_source_counts",
     "primary_binary_mask",
     "duration_severity_match_status",
+    "assert_duration_severity_protocol",
+    "assert_fixed_robustness_strata",
+    "assert_semantic_nonidentifiability",
+    "DURATION_STRATA",
+    "SEVERITY_STRATA",
     "reject_per_scenario_selection",
+    "reject_stratum_refit",
+    "reject_stratum_scaler_fit",
+    "require_supportive_analysis_kind",
     "row_key_hash",
     "scale_observations",
     "source_cluster_sign_flip",

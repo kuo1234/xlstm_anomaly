@@ -177,6 +177,107 @@ def test_primary_statistics_require_source_pooled_shape():
         )
 
 
-def test_unresolved_duration_protocol_blocks_label_access():
+def test_resolved_duration_protocol_allows_label_access():
+    assert core.assert_duration_severity_protocol()["status"] == "PASS"
+
+
+def test_g11_semantic_control_cannot_support_h2():
     with pytest.raises(core.ProtocolViolation):
-        __import__("phase_g1_pipeline").require_duration_matching_resolution()
+        core.require_supportive_analysis_kind("semantic_nonidentifiability_control")
+
+
+def test_g11_duration_stratum_c_refit_is_rejected():
+    with pytest.raises(core.ProtocolViolation):
+        core.reject_stratum_refit("duration=16")
+
+
+def test_g11_severity_stratum_scaler_refit_is_rejected():
+    with pytest.raises(core.ProtocolViolation):
+        core.reject_stratum_scaler_fit("severity=2")
+
+
+def test_g11_unsupported_duration_merge_is_rejected():
+    with pytest.raises(core.ProtocolViolation):
+        core.assert_fixed_robustness_strata("duration", (1, 16, 256))
+
+
+def test_g11_duration_severity_metadata_is_rejected_by_extractor_api():
+    def extractor(observations, duration):
+        return observations
+
+    with pytest.raises(core.ProtocolViolation):
+        core.assert_observation_only_api(extractor)
+
+
+def test_g11_semantic_truth_change_keeps_observation_features_identical():
+    observations = np.arange(16, dtype=np.float32).reshape(2, 8)
+    features = np.arange(6, dtype=np.float64).reshape(2, 3)
+    predictions = np.asarray([0.2, 0.8], dtype=np.float64)
+    anomaly_truth = np.ones(2, dtype=np.int8)
+    legitimate_truth = np.zeros(2, dtype=np.int8)
+    assert not np.array_equal(anomaly_truth, legitimate_truth)
+    result = core.assert_semantic_nonidentifiability(observations, observations.copy(), features, features.copy(), predictions, predictions.copy())
+    assert result["features_invariant"] and result["predictions_invariant"]
+
+
+def test_g11_duration_stratum_row_cohort_mismatch_is_rejected():
+    left = _keys(n=4)
+    right = _keys(n=4)
+    right[-1] = dict(right[-1], timestamp=right[-1]["timestamp"] + 1)
+    with pytest.raises(core.ProtocolViolation):
+        core.assert_same_row_order(left, right)
+
+
+def _matching_rows(duration=(16, 16), severity=(1, 1), labels=(1, 0)):
+    return {
+        "duration": np.asarray(duration, dtype=object),
+        "severity": np.asarray(severity, dtype=object),
+        "label": np.asarray(labels, dtype=np.int8),
+    }
+
+
+def test_g11_rejects_unresolved_matching_config():
+    config = dict(core.G1_CONFIG)
+    config["duration_severity_matching"] = {"status": "UNRESOLVED", "label_access_blocked": True}
+    with pytest.raises(core.ProtocolViolation):
+        core.assert_duration_severity_protocol(config)
+
+
+def test_g11_rejects_strata_drift():
+    config = dict(core.G1_CONFIG)
+    config["duration_severity_matching"] = dict(config["duration_severity_matching"])
+    config["duration_severity_matching"]["duration_strata"] = [1, 32, 64, 256]
+    with pytest.raises(core.ProtocolViolation):
+        core.assert_duration_severity_protocol(config)
+
+
+def test_g11_rejects_missing_required_exclusion():
+    config = dict(core.G1_CONFIG)
+    config["duration_severity_matching"] = dict(config["duration_severity_matching"])
+    config["duration_severity_matching"]["exclude_mixed_windows"] = False
+    with pytest.raises(core.ProtocolViolation):
+        core.assert_duration_severity_protocol(config)
+
+
+def test_g11_rejects_out_of_stratum_duration_or_severity():
+    with pytest.raises(core.ProtocolViolation):
+        core.duration_severity_match_status(_matching_rows(duration=(17, 17)))
+    with pytest.raises(core.ProtocolViolation):
+        core.duration_severity_match_status(_matching_rows(severity=(4, 4)))
+
+
+def test_g11_rejects_nonbinary_matching_label():
+    with pytest.raises(core.ProtocolViolation):
+        core.duration_severity_match_status(_matching_rows(labels=(1, 2)))
+
+
+def test_g11_reports_insufficient_support_without_merging_bins():
+    result = core.duration_severity_match_status(_matching_rows(duration=(16,), severity=(1,), labels=(1,)))
+    assert result["status"] == "N/A"
+    assert result["usable_bins"] == {}
+
+
+def test_g11_accepts_one_fixed_supported_bin():
+    result = core.duration_severity_match_status(_matching_rows(duration=(16, 16), severity=(1, 1), labels=(1, 0)))
+    assert result["status"] == "PASS"
+    assert result["usable_bins"] == {"duration=16|severity=1": {"positive": 1, "negative": 1}}

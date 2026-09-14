@@ -38,6 +38,7 @@ from phase_g1_core import (
     apply_scaler,
     array_sha,
     assert_candi_alignment,
+    assert_duration_severity_protocol,
     assert_same_row_order,
     assert_shared_control,
     build_evaluator_rows,
@@ -64,6 +65,8 @@ FEATURE_DIR = ROOT / "data" / "phase_g1" / "features"
 # cannot mask an uncommitted edit to an imported helper.
 SCIENTIFIC_PRELABEL_FILES = (
     "configs/phase_g1.json",
+    "reports/m0_protocol.md",
+    "reports/phase_g1/g1_1_duration_severity_amendment.md",
     "configs/synthetic_v1.json",
     "reports/phase_f/preprocessing_manifest.json",
     "reports/phase_e2/source_hashes.json",
@@ -113,12 +116,32 @@ def require_prelabel_seal(expected_commit: str) -> None:
     actual = current_commit()
     if actual != expected_commit:
         raise ProtocolViolation(f"labelled execution commit {actual} != seal {expected_commit}")
-    review_path = REPORT / "g1_self_review_prelabel.json"
+    review_relative = str(G1_CONFIG.get("prelabel_review_path", "reports/phase_g1/g1_self_review_prelabel_v2.json"))
+    review_path = ROOT / review_relative
     if not review_path.exists():
         raise ProtocolViolation("missing PASS_FOR_LABEL_ACCESS pre-label review")
     review = _json(review_path)
     if review.get("verdict") != "PASS_FOR_LABEL_ACCESS":
         raise ProtocolViolation("pre-label review is not PASS_FOR_LABEL_ACCESS")
+    reviewed_commit = review.get("reviewed_commit")
+    implementation_commit = review.get("implementation_commit") or reviewed_commit
+    review_commit = review.get("review_commit")
+    if not isinstance(implementation_commit, str) or not isinstance(review_commit, str):
+        raise ProtocolViolation("pre-label review lacks exact implementation/review commit provenance")
+    if review_commit != expected_commit:
+        raise ProtocolViolation("pre-label review commit does not equal the requested seal commit")
+    if reviewed_commit is not None and reviewed_commit != implementation_commit:
+        raise ProtocolViolation("pre-label review reviewed_commit and implementation_commit disagree")
+    try:
+        subprocess.run(
+            ["git", "merge-base", "--is-ancestor", implementation_commit, expected_commit],
+            cwd=ROOT,
+            check=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+    except Exception as exc:
+        raise ProtocolViolation("reviewed implementation commit is not an ancestor of the review seal") from exc
     sealed_hashes = review.get("scientific_file_sha256", {})
     if set(sealed_hashes) != set(SCIENTIFIC_PRELABEL_FILES):
         raise ProtocolViolation("pre-label review does not seal every scientific file")
@@ -130,14 +153,24 @@ def require_prelabel_seal(expected_commit: str) -> None:
     if changed:
         raise ProtocolViolation(f"scientific files changed after pre-label seal: {changed}")
     try:
-        committed_review = subprocess.check_output(
-            ["git", "show", f"{expected_commit}:reports/phase_g1/g1_self_review_prelabel.json"],
-            cwd=ROOT,
-        )
+        committed_review = subprocess.check_output(["git", "show", f"{expected_commit}:{review_relative}"], cwd=ROOT)
     except Exception as exc:
         raise ProtocolViolation(f"pre-label review is not present in sealed commit: {exc}") from exc
     if committed_review != review_path.read_bytes():
         raise ProtocolViolation("working-tree pre-label review differs from committed seal")
+    # The review commit is intentionally report-only.  Verify that every
+    # scientific byte sealed by the reviewer is exactly the byte present in
+    # the reviewed implementation commit and in the current review tree.
+    for relative in SCIENTIFIC_PRELABEL_FILES:
+        try:
+            implementation_bytes = subprocess.check_output(
+                ["git", "show", f"{implementation_commit}:{relative}"], cwd=ROOT
+            )
+            review_bytes = subprocess.check_output(["git", "show", f"{expected_commit}:{relative}"], cwd=ROOT)
+        except Exception as exc:
+            raise ProtocolViolation(f"scientific file missing from sealed commit history: {relative}") from exc
+        if implementation_bytes != review_bytes or implementation_bytes != (ROOT / relative).read_bytes():
+            raise ProtocolViolation(f"scientific file changed between implementation/review seal: {relative}")
 
 
 def assert_sealed_inputs() -> dict:
@@ -156,18 +189,8 @@ def assert_sealed_inputs() -> dict:
 
 
 def require_duration_matching_resolution() -> None:
-    """Block label access until the mandatory matched estimand is defined.
-
-    The frozen generator currently exposes only an
-    identical-observation/opposite-semantic control.  That control is useful
-    as a non-identifiability check but cannot satisfy the protocol's separate
-    duration/severity supportive-analysis gate.  This guard prevents a
-    future accidental PASS review from turning that unresolved definition
-    into a scientific H2 STOP/GO result.
-    """
-    matching = G1_CONFIG.get("duration_severity_matching", {})
-    if matching.get("status") != "RESOLVED" or matching.get("label_access_blocked") is True:
-        raise ProtocolViolation("duration/severity supportive estimand is unresolved; label access is blocked")
+    """Block label access unless the G1.1 robustness estimand is resolved."""
+    assert_duration_severity_protocol(G1_CONFIG)
 
 
 def scientific_file_sha256() -> dict[str, str]:

@@ -25,6 +25,9 @@ from phase_g1_core import (
     assert_candi_alignment,
     assert_confirmatory_direction,
     assert_difference_formula,
+    assert_duration_severity_protocol,
+    assert_fixed_robustness_strata,
+    assert_semantic_nonidentifiability,
     assert_family_names,
     assert_observation_only_api,
     assert_pooled_shifted_rows,
@@ -37,7 +40,11 @@ from phase_g1_core import (
     history14,
     make_row_keys,
     paired_intersection,
+    duration_severity_match_status,
     reject_per_scenario_selection,
+    reject_stratum_refit,
+    reject_stratum_scaler_fit,
+    require_supportive_analysis_kind,
     row_key_hash,
 )
 from phase_g1_pipeline import SCIENTIFIC_PRELABEL_FILES, require_duration_matching_resolution
@@ -133,14 +140,26 @@ def run() -> dict:
     assert_family_names(("H2", "H3a-A", "H3a-B", "H3a-C"))
     checks.append({"name": "holm_family_size_four", "status": "PASS"})
     checks.append({"name": "c_grid_and_purge", "status": "PASS" if C_GRID == (0.01, 0.1, 1.0, 10.0) and PURGE == 96 else "FAIL"})
+    checks.append({"name": "resolved_duration_protocol", "status": "PASS" if assert_duration_severity_protocol()["status"] == "PASS" else "FAIL"})
+    amendment_path = ROOT / "reports" / "phase_g1" / "g1_1_duration_severity_amendment.md"
+    checks.append({"name": "g11_amendment_documented", "status": "PASS" if amendment_path.exists() else "FAIL", "path": str(amendment_path.relative_to(ROOT))})
+    review_path = ROOT / str(G1_CONFIG.get("prelabel_review_path", ""))
+    checks.append({"name": "prelabel_review_path_frozen", "status": "PASS" if str(review_path.relative_to(ROOT)) == "reports/phase_g1/g1_self_review_prelabel_v2.json" else "FAIL", "path": str(review_path.relative_to(ROOT))})
     try:
         require_duration_matching_resolution()
     except ProtocolViolation:
-        checks.append({"name": "unresolved_duration_protocol_blocks_label_access", "status": "PASS"})
+        checks.append({"name": "duration_matching_resolution", "status": "FAIL"})
     else:
-        checks.append({"name": "unresolved_duration_protocol_blocks_label_access", "status": "FAIL"})
+        checks.append({"name": "duration_matching_resolution", "status": "PASS"})
 
     runner_source = (ROOT / "scripts" / "phase_g1_run.py").read_text()
+    g1_1_contract = all(token in runner_source for token in (
+        "duration_severity_stratified_robustness",
+        "semantic_nonidentifiability_control",
+        "robustness_artifacts",
+        "g1_execution_ledger",
+    ))
+    checks.append({"name": "g11_runner_contract_bound", "status": "PASS" if g1_1_contract else "FAIL"})
     backend_contract = all(token in runner_source for token in (
         "f4.configure()",
         '"cudnn_deterministic": True',
@@ -173,8 +192,24 @@ def run() -> dict:
         _expect_failure("per_scenario_c_selection", lambda: reject_per_scenario_selection("scenario")),
         _expect_failure("extractor_label_argument", lambda: __import__("phase_g1_core").extract_backbone_rows(None, "lstm", np.zeros((64, 8)), {}, np.arange(63), labels=np.zeros(1))),
         _expect_failure("reordered_source_pair", lambda: assert_same_row_order(make_row_keys(11, 3000, "abrupt", "spike", timestamps), make_row_keys(11, 3001, "abrupt", "spike", timestamps))),
+        _expect_failure("g11_unresolved_matching_config", lambda: assert_duration_severity_protocol({"duration_severity_matching": {"status": "UNRESOLVED", "label_access_blocked": True}})),
+        _expect_failure("g11_duration_strata_drift", lambda: duration_severity_match_status({"duration": np.asarray([17, 17], dtype=object), "severity": np.asarray([1, 1], dtype=object), "label": np.asarray([1, 0], dtype=np.int8)})),
+        _expect_failure("g11_severity_strata_drift", lambda: duration_severity_match_status({"duration": np.asarray([16, 16], dtype=object), "severity": np.asarray([4, 4], dtype=object), "label": np.asarray([1, 0], dtype=np.int8)})),
+        _expect_failure("g11_nonbinary_matching_label", lambda: duration_severity_match_status({"duration": np.asarray([16], dtype=object), "severity": np.asarray([1], dtype=object), "label": np.asarray([2], dtype=np.int8)})),
+        _expect_failure("g11_missing_exclusion", lambda: assert_duration_severity_protocol(dict(G1_CONFIG, duration_severity_matching=dict(G1_CONFIG["duration_severity_matching"], exclude_mixed_windows=False)))),
+        _expect_failure("g11_semantic_control_as_support", lambda: require_supportive_analysis_kind("semantic_nonidentifiability_control")),
+        _expect_failure("g11_duration_stratum_probe_refit", lambda: reject_stratum_refit("duration=16")),
+        _expect_failure("g11_severity_stratum_scaler_refit", lambda: reject_stratum_scaler_fit("severity=2")),
+        _expect_failure("g11_unsupported_duration_merge", lambda: assert_fixed_robustness_strata("duration", (1, 16, 256))),
+        _expect_failure("g11_metadata_into_observation_api", lambda: assert_observation_only_api(lambda observations, duration: observations)),
+        _expect_failure("g11_semantic_observation_mismatch", lambda: assert_semantic_nonidentifiability(np.zeros((2, 8)), np.ones((2, 8)), np.zeros((2, 3)), np.zeros((2, 3)))),
+        _expect_failure("g11_duration_row_cohort_mismatch", lambda: assert_same_row_order(keys, keys[:-1])),
     ]
     checks.extend(negatives)
+    support = duration_severity_match_status({"duration": np.asarray([16, 16], dtype=object), "severity": np.asarray([1, 1], dtype=object), "label": np.asarray([1, 0], dtype=np.int8)})
+    checks.append({"name": "g11_fixed_matching_bin", "status": "PASS" if support["status"] == "PASS" else "FAIL"})
+    insufficient = duration_severity_match_status({"duration": np.asarray([16], dtype=object), "severity": np.asarray([1], dtype=object), "label": np.asarray([1], dtype=np.int8)})
+    checks.append({"name": "g11_insufficient_support_no_merge", "status": "PASS" if insufficient["status"] == "N/A" and insufficient["usable_bins"] == {} else "FAIL"})
     checks.append({"name": "stage_a_no_metric_execution", **_source_no_metric_execution()})
 
     # Verify sealed input files by hash only.  Reading these manifests does not
