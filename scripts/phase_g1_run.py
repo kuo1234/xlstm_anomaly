@@ -815,6 +815,712 @@ def _difference_table(
     }
 
 
+class _OrderedKeyHash:
+    """Incremental equivalent of ``row_key_hash`` for bounded summaries."""
+
+    def __init__(self) -> None:
+        self._digest = hashlib.sha256(b"[")
+        self._count = 0
+
+    def add(self, keys: Sequence[Mapping[str, Any]]) -> None:
+        for key in keys:
+            if self._count:
+                self._digest.update(b",")
+            self._digest.update(
+                json.dumps(dict(key), sort_keys=True, separators=(",", ":"), allow_nan=False).encode()
+            )
+            self._count += 1
+
+    @property
+    def count(self) -> int:
+        return self._count
+
+    def hexdigest(self) -> str:
+        digest = self._digest.copy()
+        digest.update(b"]")
+        return digest.hexdigest()
+
+
+def _new_vector_acc() -> dict[str, Any]:
+    return {"labels": [], "predictions": [], "keys": _OrderedKeyHash()}
+
+
+def _append_vector_acc(acc: dict[str, Any], rows: Mapping[str, Any], prediction: np.ndarray) -> None:
+    if len(rows["keys"]) == 0:
+        return
+    acc["labels"].append(np.asarray(rows["y"], dtype=np.int8).copy())
+    acc["predictions"].append(np.asarray(prediction, dtype=np.float64).copy())
+    acc["keys"].add(rows["keys"])
+
+
+def _new_specificity_acc() -> dict[str, Any]:
+    return {"n": 0, "false_positive": 0, "prediction_sum": 0.0, "keys": _OrderedKeyHash()}
+
+
+def _append_specificity_acc(acc: dict[str, Any], rows: Mapping[str, Any], prediction: np.ndarray) -> None:
+    if len(rows["keys"]) == 0:
+        return
+    values = np.asarray(prediction, dtype=np.float64)
+    acc["n"] += int(len(values))
+    acc["false_positive"] += int(np.sum(values >= 0.5))
+    acc["prediction_sum"] += float(values.sum())
+    acc["keys"].add(rows["keys"])
+
+
+def _predict_frozen_rows(fit: Mapping[str, Any], rows: Mapping[str, Any]) -> np.ndarray:
+    """Predict one secondary row chunk with an already-fitted frozen probe."""
+    if len(rows["keys"]) == 0:
+        return np.empty((0,), dtype=np.float64)
+    return np.asarray(
+        fit["model"].predict_proba(apply_scaler(np.asarray(rows["X"], dtype=np.float64), fit["scaler"]))[:, 1],
+        dtype=np.float64,
+    )
+
+
+def _secondary_stream_spec() -> tuple[tuple[str, tuple[int, ...]], ...]:
+    """Return the deterministic all-fold stream inventory used for replay."""
+    return (
+        ("train", TRAIN_SOURCES),
+        ("validation", VALIDATION_SOURCES),
+        ("test", TEST_SOURCES),
+    )
+
+
+def _write_secondary_chunk(
+    cache_dir: Path,
+    prefix: str,
+    rows: Mapping[str, Any],
+    prediction: np.ndarray,
+    *,
+    semantic: bool = False,
+) -> dict[str, str]:
+    """Persist one feature chunk so no secondary grid remains resident."""
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    npz_path = cache_dir / f"{prefix}.npz"
+    keys_path = cache_dir / f"{prefix}.keys.json"
+    metadata_path = cache_dir / f"{prefix}.metadata.json"
+    if semantic:
+        np.savez_compressed(
+            npz_path,
+            anomaly_X=np.asarray(rows["anomaly_X"], dtype=np.float64),
+            legitimate_X=np.asarray(rows["legitimate_X"], dtype=np.float64),
+        )
+        keys = rows["keys"]
+        metadata = {}
+    else:
+        np.savez_compressed(
+            npz_path,
+            X=np.asarray(rows["X"], dtype=np.float64),
+            y=np.asarray(rows["y"], dtype=np.int8),
+            prediction=np.asarray(prediction, dtype=np.float64),
+        )
+        keys = rows["keys"]
+        metadata = {
+            "event_types": [None if value is None else str(value) for value in rows.get("event_types", ())],
+            "duration": [None if value is None else int(value) for value in rows.get("duration", ())],
+            "severity": [None if value is None else int(value) for value in rows.get("severity", ())],
+            "stratum": [str(value) for value in rows.get("stratum", ())],
+        }
+    keys_path.write_text(json.dumps(keys, sort_keys=True, separators=(",", ":")) + "\n")
+    metadata_path.write_text(json.dumps(metadata, sort_keys=True, separators=(",", ":")) + "\n")
+    return {
+        "npz": str(npz_path),
+        "keys": str(keys_path),
+        "metadata": str(metadata_path),
+        "npz_sha256": _sha(npz_path),
+        "keys_sha256": _sha(keys_path),
+        "metadata_sha256": _sha(metadata_path),
+        "n": int(len(keys)),
+    }
+
+
+def _load_secondary_chunk(ref: Mapping[str, str], *, semantic: bool = False) -> tuple[dict[str, np.ndarray], list[dict[str, Any]], dict[str, Any]]:
+    npz_path = Path(ref["npz"])
+    keys_path = Path(ref["keys"])
+    metadata_path = Path(ref["metadata"])
+    if _sha(npz_path) != ref["npz_sha256"] or _sha(keys_path) != ref["keys_sha256"] or _sha(metadata_path) != ref["metadata_sha256"]:
+        raise ProtocolViolation("secondary feature chunk hash mismatch")
+    with np.load(npz_path, allow_pickle=False) as cached:
+        arrays = {name: np.asarray(cached[name], dtype=np.float64 if name.endswith("X") or name == "prediction" else np.int8) for name in cached.files}
+    keys = json.loads(keys_path.read_text())
+    metadata = json.loads(metadata_path.read_text())
+    if semantic:
+        if arrays["anomaly_X"].shape != arrays["legitimate_X"].shape or len(keys) != arrays["anomaly_X"].shape[0]:
+            raise ProtocolViolation("semantic secondary chunk shape mismatch")
+    else:
+        if arrays["X"].shape[0] != len(keys) or arrays["y"].shape != (len(keys),) or arrays["prediction"].shape != (len(keys),):
+            raise ProtocolViolation("secondary chunk shape mismatch")
+    return arrays, keys, metadata
+
+
+def _empty_secondary_rows() -> dict[str, Any]:
+    return {
+        "X": np.empty((0, 0), dtype=np.float64),
+        "y": np.empty((0,), dtype=np.int8),
+        "keys": [],
+        "source_seeds": np.empty((0,), dtype=np.int64),
+        "scenarios": tuple(),
+        "events": tuple(),
+        "event_types": tuple(),
+        "duration": np.empty((0,), dtype=object),
+        "severity": np.empty((0,), dtype=object),
+        "stratum": np.empty((0,), dtype=object),
+    }
+
+
+def _finalize_vector_acc(acc: Mapping[str, Any]) -> dict[str, Any]:
+    """Finalize a scalar label/prediction accumulator without feature retention."""
+    from sklearn.metrics import average_precision_score
+
+    if not acc["labels"]:
+        return {"status": "N/A", "n": 0}
+    labels = np.concatenate(acc["labels"]).astype(np.int8, copy=False)
+    prediction = np.concatenate(acc["predictions"]).astype(np.float64, copy=False)
+    ap = float(average_precision_score(labels, prediction)) if len(np.unique(labels)) == 2 else None
+    result = {
+        "status": "PASS" if ap is not None else "DESCRIPTIVE_ONLY",
+        "n": int(len(labels)),
+        "positives": int(labels.sum()),
+        "natural_prevalence": float(labels.mean()) if len(labels) else None,
+        "ap": ap,
+        "fixed_probability_threshold": 0.5,
+        "threshold_positive_rate": float(np.mean(prediction >= 0.5)) if len(prediction) else None,
+        "mean_predicted_anomaly_probability": float(np.mean(prediction)) if len(prediction) else None,
+        "prediction_sha256": array_sha(np.asarray(prediction)),
+        "row_key_sha256": acc["keys"].hexdigest(),
+        "row_key_hash_algorithm": "canonical-json-list-stream",
+    }
+    return result
+
+
+def _finalize_specificity_acc(acc: Mapping[str, Any]) -> dict[str, Any]:
+    if int(acc["n"]) == 0:
+        return {"status": "N/A", "n": 0}
+    return {
+        "status": "PASS",
+        "n": int(acc["n"]),
+        "fixed_probability_threshold": 0.5,
+        "fpr": float(acc["false_positive"] / acc["n"]),
+        "mean_predicted_anomaly_probability": float(acc["prediction_sum"] / acc["n"]),
+        "row_key_sha256": acc["keys"].hexdigest(),
+        "row_key_hash_algorithm": "canonical-json-list-stream",
+    }
+
+
+def _materialize_semantic_artifact(
+    refs: Sequence[Mapping[str, str]],
+    artifact_dir: Path,
+    stem: str,
+) -> dict[str, Any]:
+    """Merge semantic chunks one arm at a time into the sealed audit format."""
+    if not refs:
+        return {"status": "N/A"}
+    anomaly_parts: list[np.ndarray] = []
+    legitimate_parts: list[np.ndarray] = []
+    keys: list[dict[str, Any]] = []
+    for ref in refs:
+        arrays, chunk_keys, _metadata = _load_secondary_chunk(ref, semantic=True)
+        anomaly_parts.append(np.asarray(arrays["anomaly_X"], dtype=np.float64))
+        legitimate_parts.append(np.asarray(arrays["legitimate_X"], dtype=np.float64))
+        keys.extend(chunk_keys)
+    anomaly_x = np.concatenate(anomaly_parts, axis=0)
+    legitimate_x = np.concatenate(legitimate_parts, axis=0)
+    if anomaly_x.shape != legitimate_x.shape or anomaly_x.shape[0] != len(keys):
+        raise ProtocolViolation(f"semantic artifact materialization shape mismatch: {stem}")
+    feature_path = artifact_dir / f"semantic_{stem}_features.npz"
+    keys_path = artifact_dir / f"semantic_{stem}_keys.json"
+    np.savez_compressed(feature_path, anomaly_X=anomaly_x, legitimate_X=legitimate_x)
+    keys_path.write_text(json.dumps(keys, sort_keys=True, separators=(",", ":")) + "\n")
+    return {
+        "status": "PASS",
+        "features": str(feature_path.relative_to(ROOT)),
+        "features_sha256": _sha(feature_path),
+        "keys": str(keys_path.relative_to(ROOT)),
+        "keys_sha256": _sha(keys_path),
+        "row_key_sha256": row_key_hash(keys),
+        "n": int(len(keys)),
+        "chunk_count": int(len(refs)),
+        "chunks": [
+            {
+                "npz": str(ref["npz"]),
+                "keys": str(ref["keys"]),
+                "metadata": str(ref["metadata"]),
+                "npz_sha256": ref["npz_sha256"],
+                "keys_sha256": ref["keys_sha256"],
+                "metadata_sha256": ref["metadata_sha256"],
+            }
+            for ref in refs
+        ],
+    }
+
+
+def _materialize_robustness_artifact(
+    refs: Sequence[Mapping[str, str]],
+    artifact_dir: Path,
+    stem: str,
+    axis: str,
+    value: int,
+) -> dict[str, Any]:
+    """Merge one bounded robustness arm into the post-run audit format."""
+    if not refs:
+        return {"status": "INSUFFICIENT_SUPPORT", "axis": axis, "stratum": int(value)}
+    feature_parts: list[np.ndarray] = []
+    label_parts: list[np.ndarray] = []
+    prediction_parts: list[np.ndarray] = []
+    keys: list[dict[str, Any]] = []
+    metadata_parts: dict[str, list[Any]] = {"event_types": [], "duration": [], "severity": [], "stratum": []}
+    for ref in refs:
+        arrays, chunk_keys, metadata = _load_secondary_chunk(ref)
+        feature_parts.append(np.asarray(arrays["X"], dtype=np.float64))
+        label_parts.append(np.asarray(arrays["y"], dtype=np.int8))
+        prediction_parts.append(np.asarray(arrays["prediction"], dtype=np.float64))
+        keys.extend(chunk_keys)
+        for field in metadata_parts:
+            metadata_parts[field].extend(metadata.get(field, []))
+    features = np.concatenate(feature_parts, axis=0)
+    labels = np.concatenate(label_parts, axis=0)
+    prediction = np.concatenate(prediction_parts, axis=0)
+    n = len(keys)
+    if features.shape[0] != n or labels.shape != (n,) or prediction.shape != (n,) or any(len(values) != n for values in metadata_parts.values()):
+        raise ProtocolViolation(f"robustness artifact materialization shape mismatch: {stem}")
+    labels_path = artifact_dir / f"robustness_{stem}_labels.npy"
+    prediction_path = artifact_dir / f"robustness_{stem}_prediction.npy"
+    features_path = artifact_dir / f"robustness_{stem}_features.npz"
+    keys_path = artifact_dir / f"robustness_{stem}_keys.json"
+    metadata_path = artifact_dir / f"robustness_{stem}_metadata.json"
+    np.save(labels_path, labels, allow_pickle=False)
+    np.save(prediction_path, prediction, allow_pickle=False)
+    np.savez_compressed(features_path, X=features)
+    keys_path.write_text(json.dumps(keys, sort_keys=True, separators=(",", ":")) + "\n")
+    metadata_path.write_text(json.dumps(metadata_parts, sort_keys=True, separators=(",", ":")) + "\n")
+    return {
+        "status": "PASS",
+        "axis": axis,
+        "stratum": int(value),
+        "labels": str(labels_path.relative_to(ROOT)),
+        "labels_sha256": _sha(labels_path),
+        "prediction": str(prediction_path.relative_to(ROOT)),
+        "prediction_sha256": _sha(prediction_path),
+        "features": str(features_path.relative_to(ROOT)),
+        "features_sha256": _sha(features_path),
+        "keys": str(keys_path.relative_to(ROOT)),
+        "keys_sha256": _sha(keys_path),
+        "metadata": str(metadata_path.relative_to(ROOT)),
+        "metadata_sha256": _sha(metadata_path),
+        "row_key_sha256": row_key_hash(keys),
+        "n": int(n),
+        "positives": int(labels.sum()),
+        "chunk_count": int(len(refs)),
+        "chunks": [
+            {
+                "npz": str(ref["npz"]),
+                "keys": str(ref["keys"]),
+                "metadata": str(ref["metadata"]),
+                "npz_sha256": ref["npz_sha256"],
+                "keys_sha256": ref["keys_sha256"],
+                "metadata_sha256": ref["metadata_sha256"],
+            }
+            for ref in refs
+        ],
+    }
+
+
+def _robustness_report_from_ap(
+    ap_by_axis: Mapping[str, Mapping[str, Mapping[str, np.ndarray]]],
+    row_counts: Mapping[str, Mapping[str, Sequence[int]]],
+    exclusions: Mapping[str, Mapping[str, Mapping[str, int]]],
+) -> dict[str, Any]:
+    """Build the frozen duration/severity report from source-wise AP matrices."""
+    require_supportive_analysis_kind("duration_severity_stratified_robustness")
+    reject_stratum_refit("frozen_probe")
+    reject_stratum_scaler_fit("train_only")
+    assert_fixed_robustness_strata("duration", DURATION_STRATA)
+    assert_fixed_robustness_strata("severity", SEVERITY_STRATA)
+    matching_config = G1_CONFIG["duration_severity_matching"]
+    contrasts = ("h2", "h3a_a", "h3a_b", "h3a_c")
+    output: dict[str, Any] = {"analysis_name": "duration_severity_stratified_robustness", "duration": {}, "severity": {}}
+    for axis, values in (("duration", DURATION_STRATA), ("severity", SEVERITY_STRATA)):
+        per_contrast: dict[str, list[dict[str, Any]]] = {name: [] for name in contrasts}
+        for value in values:
+            key = str(value)
+            matrices = ap_by_axis[axis].get(key, {})
+            def m(name: str) -> np.ndarray:
+                return np.asarray(matrices.get(name, np.full((len(TEST_SOURCES), len(DETECTOR_SEEDS)), np.nan)), dtype=np.float64)
+            x_hist = m("history14_xlstm")
+            x_combined = m("history_plus_combined248_xlstm")
+            l_hist = m("history14_lstm")
+            l_combined = m("history_plus_combined248_lstm")
+            x_internal = m("combined234_xlstm")
+            l_internal = m("combined234_lstm")
+            x_candi = m("candi_history14_xlstm")
+            l_candi = m("candi_history14_lstm")
+            x_candi_internal = m("candi_history_plus_combined248_xlstm")
+            l_candi_internal = m("candi_history_plus_combined248_lstm")
+            effects = {
+                "h2": x_combined - x_hist,
+                "h3a_a": x_internal - l_internal,
+                "h3a_b": (x_combined - x_hist) - (l_combined - l_hist),
+                "h3a_c": (x_candi_internal - x_candi) - (l_candi_internal - l_candi),
+            }
+            for name, effect in effects.items():
+                supported = bool(effect.shape == (len(TEST_SOURCES), len(DETECTOR_SEEDS)) and np.isfinite(effect).all())
+                per_contrast[name].append({
+                    "stratum": int(value),
+                    "support": supported,
+                    "effect": effect.tolist() if supported else None,
+                    "mean": float(effect.mean()) if supported else None,
+                    "positive_detector_seeds": int((effect.mean(axis=0) > 0).sum()) if supported else None,
+                    "row_count": int(row_counts.get(axis, {}).get(key, (0,))[0]) if supported else 0,
+                })
+        comparisons: dict[str, Any] = {}
+        for name in contrasts:
+            strata = per_contrast[name]
+            if not all(item["support"] for item in strata):
+                comparisons[name] = {
+                    "status": "INSUFFICIENT_SUPPORT",
+                    "macro": None,
+                    "positive_strata": None,
+                    "required_strata": [int(value) for value in values],
+                    "strata": strata,
+                }
+                continue
+            means = np.asarray([item["mean"] for item in strata], dtype=np.float64)
+            if name == "h2":
+                threshold = float(matching_config[f"h2_{axis}_macro_min"])
+            elif name == "h3a_a":
+                threshold = float(matching_config[f"h3a_a_{axis}_macro_min"])
+            else:
+                threshold = float(matching_config[f"h3a_increment_{axis}_macro_min"])
+            positive_count = int((means > 0).sum())
+            minimum_positive = 3 if len(values) == 4 else 2
+            margin_ok = float(means.mean()) >= threshold if threshold > 0 else float(means.mean()) > threshold
+            comparisons[name] = {
+                "status": "PASS" if margin_ok and positive_count >= minimum_positive else "STOP",
+                "macro": float(means.mean()),
+                "positive_strata": positive_count,
+                "required_strata": [int(value) for value in values],
+                "strata": strata,
+                "threshold": threshold,
+                "strict_margin": bool(threshold == 0),
+            }
+        output[axis] = {
+            "strata": per_contrast,
+            "comparisons": comparisons,
+            "exclusions": {str(value): dict(exclusions.get(axis, {}).get(str(value), {})) for value in values},
+        }
+    h2_statuses = [output[axis]["comparisons"]["h2"]["status"] for axis in ("duration", "severity")]
+    output["h2_status"] = "PASS" if all(status == "PASS" for status in h2_statuses) else "INSUFFICIENT_SUPPORT" if any(status == "INSUFFICIENT_SUPPORT" for status in h2_statuses) else "STOP"
+    h3_statuses = [output[axis]["comparisons"][name]["status"] for axis in ("duration", "severity") for name in ("h3a_a", "h3a_b", "h3a_c")]
+    output["h3a_status_if_primary_h2_go"] = "PASS" if all(status == "PASS" for status in h3_statuses) else "INSUFFICIENT_SUPPORT" if any(status == "INSUFFICIENT_SUPPORT" for status in h3_statuses) else "STOP"
+    return output
+
+
+def _secondary_streaming_pass(
+    fits: Mapping[int, Mapping[str, Mapping[str, Any]]],
+    frozen_backbones: Mapping[int, Mapping[str, Any]],
+    frozen_candi: Mapping[int, tuple[Any, Mapping[str, Any]]],
+    feature_arms: Sequence[str],
+    output_dir: Path,
+    artifact_dir: Path,
+) -> dict[str, Any]:
+    """Recompute secondary views one detector seed/stream at a time.
+
+    The primary train/validation/test binary rows are needed for probe fitting
+    and are handled by the caller.  Native-prevalence, specificity,
+    semantic-control and duration/severity views are deliberately regenerated
+    after fitting and reduced to scalar predictions or incrementally persisted
+    chunks.  At no point does this function retain the full secondary feature
+    grid, while the final per-arm artifacts remain available for the
+    post-label audit.
+    """
+    from sklearn.metrics import average_precision_score
+
+    cache_dir = output_dir / "g1_secondary_cache"
+    if cache_dir.exists():
+        raise ProtocolViolation(f"refusing to reuse secondary cache directory: {cache_dir}")
+    cache_dir.mkdir(parents=True, exist_ok=False)
+
+    specificity_result: dict[str, Any] = {}
+    descriptive_result: dict[str, Any] = {}
+    natural_result: dict[str, Any] = {}
+    semantic_control_checks: list[dict[str, Any]] = []
+    semantic_report_checks: list[dict[str, Any]] = []
+    semantic_artifacts: dict[str, Any] = {}
+    robustness_artifacts: dict[str, Any] = {}
+    robustness_names = [f"{arm}_{architecture}" for arm in feature_arms for architecture in ARCHITECTURES]
+    robustness_ap: dict[str, dict[str, dict[str, np.ndarray]]] = {
+        axis: {
+            str(value): {name: np.full((len(TEST_SOURCES), len(DETECTOR_SEEDS)), np.nan) for name in robustness_names}
+            for value in (DURATION_STRATA if axis == "duration" else SEVERITY_STRATA)
+        }
+        for axis in ("duration", "severity")
+    }
+    robustness_row_counts: dict[str, dict[str, list[int]]] = {
+        axis: {str(value): [0] * len(DETECTOR_SEEDS) for value in (DURATION_STRATA if axis == "duration" else SEVERITY_STRATA)}
+        for axis in ("duration", "severity")
+    }
+    robustness_exclusions: dict[str, dict[str, dict[str, int]]] = {
+        axis: {
+            str(value): {field: 0 for field in ("multi_event", "persistent_fault", "mixed", "nonstress_other", "unsupported_streams")}
+            for value in (DURATION_STRATA if axis == "duration" else SEVERITY_STRATA)
+        }
+        for axis in ("duration", "severity")
+    }
+
+    for seed_index, detector_seed in enumerate(DETECTOR_SEEDS):
+        backbones = frozen_backbones[int(detector_seed)]
+        candi_model, candi_row = frozen_candi[int(detector_seed)]
+        seed_specificity = {
+            architecture: {
+                category: {arm: {fold: _new_specificity_acc() for fold in ("train", "validation", "test")} for arm in feature_arms}
+                for category in ("stable_new_normal", "stationary_normal")
+            }
+            for architecture in ARCHITECTURES
+        }
+        seed_descriptive = {
+            architecture: {stratum: {arm: _new_vector_acc() for arm in feature_arms} for stratum in ("mixed", "spike", "collective", "dependency")}
+            for architecture in ARCHITECTURES
+        }
+        seed_natural = {architecture: {arm: _new_vector_acc() for arm in feature_arms} for architecture in ARCHITECTURES}
+        semantic_refs: dict[str, list[dict[str, str]]] = {
+            f"{arm}_{architecture}": [] for arm in feature_arms for architecture in ARCHITECTURES
+        }
+        robustness_refs: dict[str, list[dict[str, str]]] = {
+            f"{axis}{value}_{arm}_{architecture}": []
+            for axis, values in (("duration", DURATION_STRATA), ("severity", SEVERITY_STRATA))
+            for value in values
+            for arm in feature_arms
+            for architecture in ARCHITECTURES
+        }
+        for fold, sources in _secondary_stream_spec():
+            for source in sources:
+                scenario_conditions = [(scenario, condition) for scenario in SHIFTED_SCENARIOS for condition in SHIFTED_CONDITIONS]
+                scenario_conditions.append(("stationary", "none"))
+                for scenario, condition in scenario_conditions:
+                    stream = _generate(int(source), scenario, condition)
+                    observations = np.asarray(stream.observations, dtype=np.float32).copy()
+                    timestamps = np.arange(FIRST_COMMON_TIMESTAMP, len(observations), dtype=np.int64)
+                    if len(timestamps) == 0:
+                        raise ProtocolViolation("secondary stream has no common t>=63 decisions")
+                    candi_history = extract_candi_history(candi_model, candi_row, observations, timestamps)
+                    per_architecture = {
+                        architecture: _observation_then_label(
+                            stream, detector_seed, architecture, backbones[architecture], candi_history
+                        )
+                        for architecture in ARCHITECTURES
+                    }
+
+                    # Descriptive and native-prevalence summaries consume only
+                    # scalar predictions; no feature matrix is retained.
+                    for architecture in ARCHITECTURES:
+                        for arm in feature_arms:
+                            fit = fits[int(detector_seed)][f"{arm}_{architecture}"]
+                            if fold == "test":
+                                natural_rows = _select_all_rows(per_architecture[architecture], arm)
+                                _append_vector_acc(seed_natural[architecture][arm], natural_rows, _predict_frozen_rows(fit, natural_rows))
+                                if scenario in SHIFTED_SCENARIOS:
+                                    mixed_rows = _select_category_rows(per_architecture[architecture], arm, ("mixed",))
+                                    _append_vector_acc(seed_descriptive[architecture]["mixed"][arm], mixed_rows, _predict_frozen_rows(fit, mixed_rows))
+                                    for event_type in ("spike", "collective", "dependency"):
+                                        type_rows = _select_event_type_rows(per_architecture[architecture], arm, event_type)
+                                        _append_vector_acc(seed_descriptive[architecture][event_type][arm], type_rows, _predict_frozen_rows(fit, type_rows))
+                            category = "stationary_normal" if scenario == "stationary" else "stable_new_normal" if scenario in SHIFTED_SCENARIOS else None
+                            if category is not None:
+                                category_rows = _select_category_rows(per_architecture[architecture], arm, (category,))
+                                _append_specificity_acc(
+                                    seed_specificity[architecture][category][arm][fold],
+                                    category_rows,
+                                    _predict_frozen_rows(fit, category_rows),
+                                )
+
+                    if scenario not in SHIFTED_SCENARIOS or fold != "test":
+                        continue
+
+                    # The same common finite-row mask used for primary paired
+                    # comparisons is reused for every robustness/semantic arm.
+                    common_mask = primary_binary_mask(per_architecture["xlstm"], allow_empty=True)
+                    for architecture in ARCHITECTURES:
+                        for arm in feature_arms:
+                            values = np.asarray(per_architecture[architecture]["groups"][arm], dtype=np.float64)
+                            if values.shape[0] != len(common_mask):
+                                raise ProtocolViolation("secondary feature rows differ across arms")
+                            common_mask &= np.isfinite(values).all(axis=1)
+
+                    for axis, values in (("duration", DURATION_STRATA), ("severity", SEVERITY_STRATA)):
+                        for value in values:
+                            key = str(value)
+                            selected_rows: dict[str, dict[str, Any]] = {}
+                            for architecture in ARCHITECTURES:
+                                for arm in feature_arms:
+                                    name = f"{arm}_{architecture}"
+                                    selected_rows[name] = _select_duration_or_severity_rows(
+                                        per_architecture[architecture], arm, common_mask, axis, int(value)
+                                    )
+                            nonempty = [row for row in selected_rows.values() if row["keys"]]
+                            if nonempty and len(nonempty) != len(selected_rows):
+                                raise ProtocolViolation(f"robustness arm support differs for {axis}={value}")
+                            reference = nonempty[0] if nonempty else next(iter(selected_rows.values()))
+                            for name, row in selected_rows.items():
+                                if row["keys"]:
+                                    assert_same_row_order(reference["keys"], row["keys"])
+                                    if not np.array_equal(reference["y"], row["y"]):
+                                        raise ProtocolViolation(f"robustness labels differ for {axis}={value}/{name}")
+                            for field in ("excluded_multi_event", "excluded_persistent_fault", "excluded_mixed", "excluded_nonstress_other"):
+                                robustness_exclusions[axis][key][field.removeprefix("excluded_")] += int(reference.get(field, 0))
+                            if reference["keys"]:
+                                robustness_row_counts[axis][key][seed_index] += int(len(reference["keys"]))
+                            for name, row in selected_rows.items():
+                                if not row["keys"]:
+                                    continue
+                                fit = fits[int(detector_seed)][name]
+                                prediction = _predict_frozen_rows(fit, row)
+                                prefix = f"robust_seed{detector_seed}_{source}_{scenario}_{condition}_{axis}{value}_{name}"
+                                ref = _write_secondary_chunk(cache_dir, prefix, row, prediction)
+                                robustness_refs[f"{axis}{value}_{name}"].append(ref)
+
+                    # Generate the opposite-semantic stream only after all
+                    # ordinary observation-only features for this stream are
+                    # complete.  It is a negative control, never a probe arm.
+                    legitimate_stream = _generate(int(source), scenario, condition, "legitimate")
+                    if not np.array_equal(observations, np.asarray(legitimate_stream.observations, dtype=np.float32)):
+                        raise ProtocolViolation("semantic legitimate counterpart changed observations")
+                    legitimate_truth = build_evaluator_rows(legitimate_stream, timestamps, 64)
+                    for architecture in ARCHITECTURES:
+                        legitimate_features = _observation_only_features(
+                            backbones[architecture], architecture,
+                            np.asarray(legitimate_stream.observations, dtype=np.float32), int(source), candi_history,
+                        )
+                        if not np.array_equal(legitimate_features["timestamps"], per_architecture[architecture]["timestamps"]):
+                            raise ProtocolViolation("semantic counterpart timestamps differ")
+                        if not np.array_equal(
+                            np.asarray(per_architecture[architecture]["event"], dtype=np.int32),
+                            np.asarray(legitimate_truth["event"], dtype=np.int32),
+                        ):
+                            raise ProtocolViolation("semantic counterpart event IDs differ")
+                        anomaly_event_labels = np.asarray(per_architecture[architecture]["label"], dtype=np.int8)
+                        legitimate_event_labels = np.asarray(legitimate_truth["label"], dtype=np.int8)
+                        event_rows = anomaly_event_labels == 1
+                        if not np.all(legitimate_event_labels[event_rows] == 0):
+                            raise ProtocolViolation("semantic counterpart truth is not opposite on event rows")
+                        group_diffs: dict[str, float] = {}
+                        for arm in feature_arms:
+                            left_values = np.asarray(per_architecture[architecture]["groups"][arm], dtype=np.float64)
+                            right_values = np.asarray(legitimate_features["groups"][arm], dtype=np.float64)
+                            assert_semantic_nonidentifiability(
+                                observations,
+                                np.asarray(legitimate_stream.observations, dtype=np.float32),
+                                left_values,
+                                right_values,
+                            )
+                            group_diffs[arm] = float(np.nanmax(np.abs(left_values - right_values))) if left_values.size else 0.0
+                            pair = _semantic_pair_rows(per_architecture[architecture], legitimate_features["groups"], arm, common_mask)
+                            if pair["keys"]:
+                                fit = fits[int(detector_seed)][f"{arm}_{architecture}"]
+                                anomaly_prediction = _predict_frozen_rows(fit, {"X": pair["anomaly_X"], "keys": pair["keys"]})
+                                legitimate_prediction = _predict_frozen_rows(fit, {"X": pair["legitimate_X"], "keys": pair["keys"]})
+                                if not np.allclose(anomaly_prediction, legitimate_prediction, atol=1e-5, rtol=1e-4):
+                                    raise ProtocolViolation(f"semantic counterpart prediction mismatch: {detector_seed}/{architecture}/{arm}")
+                                semantic_report_checks.append({
+                                    "detector_seed": int(detector_seed), "source_seed": int(source),
+                                    "scenario": str(scenario), "condition": str(condition),
+                                    "architecture": architecture, "feature_arm": arm, "rows": int(len(pair["keys"])),
+                                    "feature_max_abs": float(np.nanmax(np.abs(pair["anomaly_X"] - pair["legitimate_X"]))) if pair["anomaly_X"].size else 0.0,
+                                    "prediction_max_abs": float(np.max(np.abs(anomaly_prediction - legitimate_prediction))) if anomaly_prediction.size else 0.0,
+                                    "feature_invariant": True, "prediction_invariant": True,
+                                    "ap_used_as_evidence": False,
+                                    "anomaly_prediction_sha256": array_sha(anomaly_prediction),
+                                    "legitimate_prediction_sha256": array_sha(legitimate_prediction),
+                                })
+                                prefix = f"semantic_seed{detector_seed}_{source}_{scenario}_{condition}_{arm}_{architecture}"
+                                semantic_refs[f"{arm}_{architecture}"].append(
+                                    _write_secondary_chunk(cache_dir, prefix, pair, np.empty((0,), dtype=np.float64), semantic=True)
+                                )
+                        semantic_control_checks.append({
+                            "detector_seed": int(detector_seed), "source_seed": int(source),
+                            "scenario": str(scenario), "condition": str(condition),
+                            "observations_identical": True, "timestamps_identical": True,
+                            "event_ids_identical": True, "truth_opposite_on_event_rows": True,
+                            "feature_max_abs_diffs": group_diffs,
+                        })
+
+        # Finalize scalar secondary summaries for this seed and release all
+        # per-stream feature/prediction lists before advancing to seed+1.
+        seed_specificity_result: dict[str, Any] = {}
+        for architecture in ARCHITECTURES:
+            seed_specificity_result[architecture] = {}
+            for category in ("stable_new_normal", "stationary_normal"):
+                seed_specificity_result[architecture][category] = {}
+                for arm in feature_arms:
+                    seed_specificity_result[architecture][category][arm] = {
+                        "by_fold": {
+                            fold: _finalize_specificity_acc(seed_specificity[architecture][category][arm][fold])
+                            for fold in ("train", "validation", "test")
+                        }
+                    }
+        specificity_result[str(detector_seed)] = seed_specificity_result
+        descriptive_result[str(detector_seed)] = {
+            architecture: {
+                stratum: {arm: _finalize_vector_acc(seed_descriptive[architecture][stratum][arm]) for arm in feature_arms}
+                for stratum in ("mixed", "spike", "collective", "dependency")
+            }
+            for architecture in ARCHITECTURES
+        }
+        natural_result[str(detector_seed)] = {
+            architecture: {arm: _finalize_vector_acc(seed_natural[architecture][arm]) for arm in feature_arms}
+            for architecture in ARCHITECTURES
+        }
+
+        # Materialize one final audit artifact at a time.  Chunk references are
+        # retained only as immutable provenance metadata; feature arrays are
+        # not kept in the Python object graph.
+        for key, refs in semantic_refs.items():
+            stem = f"seed{detector_seed}_{key}"
+            semantic_artifacts[stem] = _materialize_semantic_artifact(refs, artifact_dir, stem)
+        for axis, values in (("duration", DURATION_STRATA), ("severity", SEVERITY_STRATA)):
+            for value in values:
+                key = str(value)
+                for name in robustness_names:
+                    stem = f"seed{detector_seed}_{axis}{key}_{name}"
+                    refs = robustness_refs[f"{axis}{value}_{name}"]
+                    robustness_artifacts[stem] = _materialize_robustness_artifact(refs, artifact_dir, stem, axis, int(value))
+                    if refs:
+                        # Re-open the already materialized artifact one arm at
+                        # a time to compute source-pooled AP. This avoids a
+                        # second in-memory copy of every robustness label and
+                        # prediction chunk while preserving the source-level
+                        # AP estimand.
+                        materialized = robustness_artifacts[stem]
+                        labels = np.load(ROOT / materialized["labels"], allow_pickle=False).astype(np.int8, copy=False)
+                        predictions = np.load(ROOT / materialized["prediction"], allow_pickle=False).astype(np.float64, copy=False)
+                        materialized_keys = json.loads((ROOT / materialized["keys"]).read_text())
+                        source_values = np.asarray([int(item["source_seed"]) for item in materialized_keys], dtype=np.int64)
+                        for source_index, source_seed in enumerate(TEST_SOURCES):
+                            mask = source_values == source_seed
+                            if mask.any() and len(np.unique(labels[mask])) == 2:
+                                robustness_ap[axis][key][name][source_index, seed_index] = average_precision_score(labels[mask], predictions[mask])
+                        del labels, predictions, materialized_keys, source_values
+
+    semantic_report = {
+        "status": "PASS",
+        "analysis_kind": "semantic_nonidentifiability_control",
+        "checks": semantic_report_checks,
+        "check_count": len(semantic_report_checks),
+    }
+    robustness_report = _robustness_report_from_ap(robustness_ap, robustness_row_counts, robustness_exclusions)
+    return {
+        "specificity": specificity_result,
+        "descriptive_test": descriptive_result,
+        "natural_prevalence": natural_result,
+        "semantic_report": semantic_report,
+        "semantic_control_checks": semantic_control_checks,
+        "semantic_artifacts": semantic_artifacts,
+        "robustness_report": robustness_report,
+        "robustness_artifacts": robustness_artifacts,
+        "secondary_cache_dir": str(cache_dir.relative_to(ROOT)),
+        "secondary_cache_file_count": sum(1 for _ in cache_dir.iterdir()),
+    }
+
+
 def run(prelabel_commit: str, output_dir: Path) -> dict[str, Any]:
     output_dir.mkdir(parents=True, exist_ok=True)
     protected = {
@@ -862,42 +1568,13 @@ def run(prelabel_commit: str, output_dir: Path) -> dict[str, Any]:
         seed: {fold: {} for fold in ("train", "validation", "test")}
         for seed in DETECTOR_SEEDS
     }
-    specificity_rows: dict[int, dict[str, dict[str, dict[str, list[dict[str, Any]]]]]] = {
-        seed: {architecture: {category: {arm: [] for arm in feature_arms} for category in ("stable_new_normal", "stationary_normal")}
-               for architecture in ARCHITECTURES}
-        for seed in DETECTOR_SEEDS
-    }
-    descriptive_test_rows: dict[int, dict[str, dict[str, dict[str, list[dict[str, Any]]]]]] = {
-        seed: {
-            architecture: {
-                stratum: {arm: [] for arm in feature_arms}
-                for stratum in ("mixed", "spike", "collective", "dependency")
-            }
-            for architecture in ARCHITECTURES
-        }
-        for seed in DETECTOR_SEEDS
-    }
-    natural_test_rows: dict[int, dict[str, dict[str, list[dict[str, Any]]]]] = {
-        seed: {architecture: {arm: [] for arm in feature_arms} for architecture in ARCHITECTURES}
-        for seed in DETECTOR_SEEDS
-    }
-    robustness_rows: dict[int, dict[str, dict[str, dict[str, dict[str, list[dict[str, Any]]]]]]] = {
-        seed: {
-            architecture: {
-                arm: {
-                    "duration": {str(value): [] for value in DURATION_STRATA},
-                    "severity": {str(value): [] for value in SEVERITY_STRATA},
-                }
-                for arm in feature_arms
-            }
-            for architecture in ARCHITECTURES
-        }
-        for seed in DETECTOR_SEEDS
-    }
-    semantic_control_pairs: dict[int, dict[str, dict[str, list[dict[str, Any]]]]] = {
-        seed: {architecture: {arm: [] for arm in feature_arms} for architecture in ARCHITECTURES}
-        for seed in DETECTOR_SEEDS
-    }
+    # Secondary reporting views are computed in a post-fit streaming pass.
+    # Keeping their feature matrices in the primary extraction loop would
+    # retain hundreds of gigabytes of boolean-indexed arrays (especially the
+    # native-prevalence and stable-normal views).  Only the primary binary
+    # rows required for pooled probe fitting remain resident here.
+    frozen_backbones: dict[int, dict[str, Any]] = {}
+    frozen_candi: dict[int, tuple[Any, dict[str, Any]]] = {}
     semantic_control_checks: list[dict[str, Any]] = []
     execution_rows: list[dict[str, Any]] = []
     descriptive_rows: list[dict[str, Any]] = []
@@ -908,6 +1585,8 @@ def run(prelabel_commit: str, output_dir: Path) -> dict[str, Any]:
             architecture: __import__("phase_g1_pipeline")._load_backbone(entries[(detector_seed, architecture)])
             for architecture in ARCHITECTURES
         }
+        frozen_backbones[int(detector_seed)] = backbones
+        frozen_candi[int(detector_seed)] = (candi_model, candi_row)
         for fold, sources in (("train", TRAIN_SOURCES), ("validation", VALIDATION_SOURCES), ("test", TEST_SOURCES)):
             for source in sources:
                 scenario_conditions = [(scenario, condition) for scenario in SHIFTED_SCENARIOS for condition in SHIFTED_CONDITIONS]
@@ -939,64 +1618,7 @@ def run(prelabel_commit: str, output_dir: Path) -> dict[str, Any]:
                             "mixed_count": int(np.sum(truth_strata == "mixed")),
                             "event_type_counts": {str(name): int(np.sum(np.asarray(per_architecture["xlstm"]["event_type"], dtype=object) == name)) for name in ("spike", "collective", "dependency", "persistent_fault")},
                         })
-                        if fold == "test":
-                            for architecture in ARCHITECTURES:
-                                for arm in feature_arms:
-                                    natural_test_rows[detector_seed][architecture][arm].append(
-                                        _select_all_rows(per_architecture[architecture], arm)
-                                    )
                         if scenario in SHIFTED_SCENARIOS:
-                            # The semantic counterpart is a separate negative
-                            # control.  It is generated only to verify that
-                            # changing evaluator semantics cannot alter an
-                            # observation-only extraction or frozen-probe
-                            # prediction; it is never a robustness stratum.
-                            legitimate_stream = _generate(source, scenario, condition, "legitimate") if fold == "test" else None
-                            legitimate_truth = None
-                            legitimate_features: dict[str, dict[str, Any]] = {}
-                            if legitimate_stream is not None:
-                                if not np.array_equal(observations, np.asarray(legitimate_stream.observations, dtype=np.float32)):
-                                    raise ProtocolViolation("semantic legitimate counterpart changed observations")
-                                legitimate_truth = build_evaluator_rows(legitimate_stream, timestamps, 64)
-                                for architecture in ARCHITECTURES:
-                                    legitimate_features[architecture] = _observation_only_features(
-                                        backbones[architecture], architecture,
-                                        np.asarray(legitimate_stream.observations, dtype=np.float32),
-                                        int(source), candi_history,
-                                    )
-                                    if not np.array_equal(legitimate_features[architecture]["timestamps"], per_architecture[architecture]["timestamps"]):
-                                        raise ProtocolViolation("semantic counterpart timestamps differ")
-                                    group_diffs: dict[str, float] = {}
-                                    for arm in feature_arms:
-                                        left_values = np.asarray(per_architecture[architecture]["groups"][arm], dtype=np.float64)
-                                        right_values = np.asarray(legitimate_features[architecture]["groups"][arm], dtype=np.float64)
-                                        try:
-                                            invariant = assert_semantic_nonidentifiability(
-                                                observations,
-                                                np.asarray(legitimate_stream.observations, dtype=np.float32),
-                                                left_values,
-                                                right_values,
-                                            )
-                                        except ProtocolViolation as exc:
-                                            raise ProtocolViolation(f"semantic counterpart feature mismatch: {architecture}/{arm}") from exc
-                                        group_diffs[arm] = float(np.nanmax(np.abs(left_values - right_values))) if left_values.size else 0.0
-                                    semantic_control_checks.append({
-                                        "detector_seed": int(detector_seed), "source_seed": int(source),
-                                        "scenario": str(scenario), "condition": str(condition),
-                                        "observations_identical": True, "timestamps_identical": True,
-                                        "event_ids_identical": True, "truth_opposite_on_event_rows": True,
-                                        "feature_max_abs_diffs": group_diffs,
-                                    })
-                                    anomaly_event_labels = np.asarray(per_architecture[architecture]["label"], dtype=np.int8)
-                                    legitimate_event_labels = np.asarray(legitimate_truth["label"], dtype=np.int8)
-                                    event_rows = anomaly_event_labels == 1
-                                    if not np.array_equal(
-                                        np.asarray(per_architecture[architecture]["event"], dtype=np.int32),
-                                        np.asarray(legitimate_truth["event"], dtype=np.int32),
-                                    ):
-                                        raise ProtocolViolation("semantic counterpart event IDs differ")
-                                    if not np.all(legitimate_event_labels[event_rows] == 0):
-                                        raise ProtocolViolation("semantic counterpart truth is not opposite on event rows")
                             # Pair rows before adding them to any pooled arm.
                             # This prevents a differential NaN/warmup mask from
                             # changing a later AP cohort.
@@ -1015,39 +1637,6 @@ def run(prelabel_commit: str, output_dir: Path) -> dict[str, Any]:
                                 assert_common_cohort({"xlstm": x_rows, "lstm": l_rows})
                                 raw_rows[detector_seed][fold].setdefault(f"{arm}_xlstm", []).append(x_rows)
                                 raw_rows[detector_seed][fold].setdefault(f"{arm}_lstm", []).append(l_rows)
-                                if legitimate_features:
-                                    for architecture in ARCHITECTURES:
-                                        semantic_control_pairs[detector_seed][architecture][arm].append(
-                                            _semantic_pair_rows(per_architecture[architecture], legitimate_features[architecture]["groups"], arm, common_mask)
-                                        )
-                                # Duration/severity robustness is evaluated on
-                                # the ordinary anomaly stream and is deliberately
-                                # independent of the semantic negative control.
-                                for architecture in ARCHITECTURES:
-                                    for axis, values in (("duration", DURATION_STRATA), ("severity", SEVERITY_STRATA)):
-                                        for value in values:
-                                            robustness_rows[detector_seed][architecture][arm][axis][str(value)].append(
-                                                _select_duration_or_severity_rows(per_architecture[architecture], arm, common_mask, axis, value)
-                                            )
-                            for architecture in ARCHITECTURES:
-                                for arm in feature_arms:
-                                    specificity_rows[detector_seed][architecture]["stable_new_normal"][arm].append(
-                                        _select_category_rows(per_architecture[architecture], arm, ("stable_new_normal",))
-                                    )
-                                    if fold == "test":
-                                        descriptive_test_rows[detector_seed][architecture]["mixed"][arm].append(
-                                            _select_category_rows(per_architecture[architecture], arm, ("mixed",))
-                                        )
-                                        for event_type in ("spike", "collective", "dependency"):
-                                            descriptive_test_rows[detector_seed][architecture][event_type][arm].append(
-                                                _select_event_type_rows(per_architecture[architecture], arm, event_type)
-                                            )
-                        else:
-                            for architecture in ARCHITECTURES:
-                                for arm in feature_arms:
-                                    specificity_rows[detector_seed][architecture]["stationary_normal"][arm].append(
-                                        _select_category_rows(per_architecture[architecture], arm, ("stationary_normal",))
-                                    )
                         execution_rows.append({"seed": detector_seed, "source": source, "fold": fold, "scenario": scenario, "condition": condition, "row_count": len(timestamps), "candi_history_sha256": array_sha(candi_history), "labels_joined_after_extraction": True})
                         _ledger_append(ledger_path, "labelled_stream_complete", detector_seed=int(detector_seed), fold=str(fold), source_seed=int(source), scenario=str(scenario), condition=str(condition), row_count=int(len(timestamps)))
         _ledger_append(ledger_path, "detector_seed_complete", detector_seed=int(detector_seed))
@@ -1092,25 +1681,24 @@ def run(prelabel_commit: str, output_dir: Path) -> dict[str, Any]:
             )
     comparison_fits = fits
     comparison_rows = pooled["test"]
-    # Confirmatory effects use pooled four-scenario AP per source.  The
-    # scenario-wise tensor is retained only for reproducibility diagnostics.
-    deltas = _difference_table(comparison_fits, comparison_rows)
-    scenario_deltas = _scenario_difference_table(comparison_fits, comparison_rows)
-    statistics = build_confirmatory_statistics(deltas)
-    _ledger_append(ledger_path, "probe_statistics_complete", confirmatory_family_size=4)
-    semantic_report = _semantic_control_report(fits, semantic_control_pairs)
-    robustness_report = _robustness_effect_table(fits, robustness_rows)
-    pooled_ap = _pooled_source_ap(fits, comparison_rows)
-    specificity = _specificity_summary(fits, specificity_rows)
-    descriptive_test = _descriptive_strata_summary(fits, descriptive_test_rows)
-    natural_prevalence = _natural_prevalence_summary(fits, natural_test_rows)
     artifact_dir = output_dir / "g1_artifacts"
     artifact_dir.mkdir(parents=True, exist_ok=False)
-    probe_manifest = {"fits": _clean(fits), "row_key_sha256": {str(seed): {arm: row_key_hash(value["keys"]) for arm, value in comparison_rows[seed].items()} for seed in DETECTOR_SEEDS}, "artifacts": {}}
+    # Write all primary numeric artifacts while the train/validation/test
+    # matrices are still available.  Secondary views are regenerated in a
+    # bounded post-fit streaming pass below and never accumulate here.
+    probe_manifest = {
+        "fits": _clean(fits),
+        "row_key_sha256": {
+            str(seed): {arm: row_key_hash(value["keys"]) for arm, value in comparison_rows[seed].items()}
+            for seed in DETECTOR_SEEDS
+        },
+        "artifacts": {},
+    }
     shared_control_artifacts: dict[str, Any] = {}
     for seed in DETECTOR_SEEDS:
         x_control = comparison_rows[seed]["candi_history14_xlstm"]
         l_control = comparison_rows[seed]["candi_history14_lstm"]
+        assert_shared_control(x_control["X"], l_control["X"], x_control["keys"], l_control["keys"])
         x_path = artifact_dir / f"seed{seed}_candi_history_x.npy"
         l_path = artifact_dir / f"seed{seed}_candi_history_l.npy"
         np.save(x_path, np.asarray(x_control["X"], dtype=np.float64), allow_pickle=False)
@@ -1122,73 +1710,6 @@ def run(prelabel_commit: str, output_dir: Path) -> dict[str, Any]:
             "shape": list(x_control["X"].shape),
         }
     probe_manifest["shared_control_artifacts"] = shared_control_artifacts
-    for name, delta in deltas.items():
-        delta_path = artifact_dir / f"delta_{name}.npy"
-        np.save(delta_path, np.asarray(delta, dtype=np.float64), allow_pickle=False)
-        probe_manifest.setdefault("delta_artifacts", {})[name] = {"path": str(delta_path.relative_to(ROOT)), "sha256": _sha(delta_path), "shape": list(delta.shape)}
-    probe_manifest["semantic_control"] = semantic_report
-    probe_manifest["semantic_control_checks"] = semantic_control_checks
-    probe_manifest["semantic_control_artifacts"] = {}
-    for seed in DETECTOR_SEEDS:
-        for architecture in ARCHITECTURES:
-            for arm in feature_arms:
-                parts = [part for part in semantic_control_pairs[seed][architecture][arm] if len(part["keys"]) > 0]
-                stem = f"seed{seed}_{arm}_{architecture}"
-                if not parts:
-                    probe_manifest["semantic_control_artifacts"][stem] = {"status": "N/A"}
-                    continue
-                anomaly_x = np.concatenate([np.asarray(part["anomaly_X"], dtype=np.float64) for part in parts], axis=0)
-                legitimate_x = np.concatenate([np.asarray(part["legitimate_X"], dtype=np.float64) for part in parts], axis=0)
-                keys = [key for part in parts for key in part["keys"]]
-                feature_path = artifact_dir / f"semantic_{stem}_features.npz"
-                keys_path = artifact_dir / f"semantic_{stem}_keys.json"
-                np.savez_compressed(feature_path, anomaly_X=anomaly_x, legitimate_X=legitimate_x)
-                keys_path.write_text(json.dumps(keys, sort_keys=True, separators=(",", ":")) + "\n")
-                probe_manifest["semantic_control_artifacts"][stem] = {
-                    "status": "PASS", "features": str(feature_path.relative_to(ROOT)), "features_sha256": _sha(feature_path),
-                    "keys": str(keys_path.relative_to(ROOT)), "keys_sha256": _sha(keys_path),
-                    "row_key_sha256": row_key_hash(keys), "n": int(len(keys)),
-                }
-    probe_manifest["robustness_artifacts"] = {}
-    for axis, values in (("duration", DURATION_STRATA), ("severity", SEVERITY_STRATA)):
-        for value in values:
-            key = str(value)
-            for seed in DETECTOR_SEEDS:
-                for architecture in ARCHITECTURES:
-                    for arm in feature_arms:
-                        parts = [part for part in robustness_rows[seed][architecture][arm][axis][key] if len(part["keys"]) > 0]
-                        stem = f"seed{seed}_{axis}{key}_{arm}_{architecture}"
-                        if not parts:
-                            probe_manifest["robustness_artifacts"][stem] = {"status": "INSUFFICIENT_SUPPORT"}
-                            continue
-                        subgroup = _concat(parts)
-                        fit = fits[seed][f"{arm}_{architecture}"]
-                        prediction = fit["model"].predict_proba(apply_scaler(subgroup["X"], fit["scaler"]))[:, 1]
-                        labels_path = artifact_dir / f"robustness_{stem}_labels.npy"
-                        prediction_path = artifact_dir / f"robustness_{stem}_prediction.npy"
-                        features_path = artifact_dir / f"robustness_{stem}_features.npz"
-                        keys_path = artifact_dir / f"robustness_{stem}_keys.json"
-                        metadata_path = artifact_dir / f"robustness_{stem}_metadata.json"
-                        np.save(labels_path, np.asarray(subgroup["y"], dtype=np.int8), allow_pickle=False)
-                        np.save(prediction_path, np.asarray(prediction, dtype=np.float64), allow_pickle=False)
-                        np.savez_compressed(features_path, X=np.asarray(subgroup["X"], dtype=np.float64))
-                        keys_path.write_text(json.dumps(subgroup["keys"], sort_keys=True, separators=(",", ":")) + "\n")
-                        metadata_path.write_text(json.dumps({
-                            "event_types": [None if value is None else str(value) for value in subgroup["event_types"]],
-                            "duration": [None if value is None else int(value) for value in subgroup["duration"]],
-                            "severity": [None if value is None else int(value) for value in subgroup["severity"]],
-                            "stratum": [str(value) for value in subgroup.get("stratum", np.asarray([], dtype=object))],
-                        }, sort_keys=True, separators=(",", ":")) + "\n")
-                        probe_manifest["robustness_artifacts"][stem] = {
-                            "status": "PASS", "axis": axis, "stratum": int(value),
-                            "labels": str(labels_path.relative_to(ROOT)), "labels_sha256": _sha(labels_path),
-                            "prediction": str(prediction_path.relative_to(ROOT)), "prediction_sha256": _sha(prediction_path),
-                            "features": str(features_path.relative_to(ROOT)), "features_sha256": _sha(features_path),
-                            "keys": str(keys_path.relative_to(ROOT)), "keys_sha256": _sha(keys_path),
-                            "metadata": str(metadata_path.relative_to(ROOT)), "metadata_sha256": _sha(metadata_path),
-                            "row_key_sha256": row_key_hash(subgroup["keys"]),
-                            "n": int(len(subgroup["y"])), "positives": int(np.sum(subgroup["y"])),
-                        }
     test_results: dict[str, Any] = {}
     for seed in DETECTOR_SEEDS:
         for arm, fit in comparison_fits[seed].items():
@@ -1240,7 +1761,68 @@ def run(prelabel_commit: str, output_dir: Path) -> dict[str, Any]:
                 "train_row_key_sha256": fit["train_row_key_sha256"], "validation_row_key_sha256": fit["validation_row_key_sha256"], "test_row_key_sha256": fit["test_row_key_sha256"],
             }
             scenario_ap = _source_scenario_ap(fit, rows)
-            test_results.setdefault(str(seed), {})[arm] = {"ap": compute_arm_ap(fit, rows), "scenario_ap": scenario_ap.tolist(), "n": int(len(rows["y"])), "positives": int(np.sum(rows["y"])), "natural_prevalence": float(np.mean(rows["y"])), "labels_sha256": _sha(labels_path), "prediction_sha256": _sha(prediction_path), "row_key_sha256": row_key_hash(rows["keys"])}
+            test_results.setdefault(str(seed), {})[arm] = {
+                "ap": compute_arm_ap(fit, rows), "scenario_ap": scenario_ap.tolist(),
+                "n": int(len(rows["y"])), "positives": int(np.sum(rows["y"])),
+                "natural_prevalence": float(np.mean(rows["y"])),
+                "labels_sha256": _sha(labels_path), "prediction_sha256": _sha(prediction_path),
+                "row_key_sha256": row_key_hash(rows["keys"]),
+            }
+
+    # Confirmatory effects use pooled four-scenario AP per source.  The
+    # scenario-wise tensor is retained only for reproducibility diagnostics.
+    pooled_ap = _pooled_source_ap(comparison_fits, comparison_rows)
+    deltas = _difference_table(comparison_fits, comparison_rows)
+    scenario_deltas = _scenario_difference_table(comparison_fits, comparison_rows)
+    statistics = build_confirmatory_statistics(deltas)
+    _ledger_append(ledger_path, "probe_statistics_complete", confirmatory_family_size=4)
+    for name, delta in deltas.items():
+        delta_path = artifact_dir / f"delta_{name}.npy"
+        np.save(delta_path, np.asarray(delta, dtype=np.float64), allow_pickle=False)
+        probe_manifest.setdefault("delta_artifacts", {})[name] = {
+            "path": str(delta_path.relative_to(ROOT)), "sha256": _sha(delta_path), "shape": list(delta.shape)
+        }
+
+    # Release the primary feature matrices before regenerating secondary views.
+    # Keep only the lightweight labels/keys/source/scenario arrays required for
+    # AP and row-cohort audit; this is the resource-bounded execution boundary.
+    light_comparison_rows: dict[int, dict[str, dict[str, Any]]] = {}
+    for seed in DETECTOR_SEEDS:
+        light_comparison_rows[seed] = {}
+        for arm, rows in comparison_rows[seed].items():
+            light_comparison_rows[seed][arm] = {
+                "y": np.asarray(rows["y"], dtype=np.int8),
+                "keys": list(rows["keys"]),
+                "source_seeds": np.asarray(rows["source_seeds"], dtype=np.int64),
+                "scenarios": tuple(rows["scenarios"]),
+                "events": tuple(rows["events"]),
+            }
+    comparison_rows = light_comparison_rows
+    del raw_rows, pooled
+
+    secondary = _secondary_streaming_pass(
+        fits,
+        frozen_backbones,
+        frozen_candi,
+        feature_arms,
+        output_dir,
+        artifact_dir,
+    )
+    specificity = secondary["specificity"]
+    descriptive_test = secondary["descriptive_test"]
+    natural_prevalence = secondary["natural_prevalence"]
+    semantic_report = secondary["semantic_report"]
+    semantic_control_checks = secondary["semantic_control_checks"]
+    robustness_report = secondary["robustness_report"]
+    probe_manifest["semantic_control"] = semantic_report
+    probe_manifest["semantic_control_checks"] = semantic_control_checks
+    probe_manifest["semantic_control_artifacts"] = secondary["semantic_artifacts"]
+    probe_manifest["robustness_artifacts"] = secondary["robustness_artifacts"]
+    probe_manifest["secondary_cache"] = {
+        "directory": secondary["secondary_cache_dir"],
+        "file_count": secondary["secondary_cache_file_count"],
+        "resource_contract": "one source/scenario/condition feature chunk at a time",
+    }
     _write_json(output_dir / "g1_execution_manifest.json", {"status": "LABELLED_EXECUTION_COMPLETE", "prelabel_seal_commit": prelabel_commit, "execution_commit": current_commit(), "code_sha256": _sha_bytes(Path(__file__).read_bytes()), "scientific_file_sha256": scientific_file_sha256(), "backend_environment": backend_environment, "rows": execution_rows, "feature_arms": feature_arms, "folds": G1_CONFIG["folds"], "shifted_scenarios": list(SHIFTED_SCENARIOS), "conditions": list(CONDITIONS), "labels_joined_after_observation_extraction": True, "optimizer_steps": False, "test_result_metrics_computed": True, "duration_severity_protocol_status": G1_CONFIG.get("duration_severity_matching", {}).get("status"), "execution_ledger": str(ledger_path.relative_to(ROOT)), "execution_ledger_sha256": _sha(ledger_path), "execution_ledger_contract": "metadata-only process/progress/exception ledger; no labels, predictions, features or metrics"})
     _write_json(output_dir / "g1_probe_manifest.json", probe_manifest)
     _write_json(output_dir / "g1_statistics.json", _clean(statistics))

@@ -237,6 +237,14 @@
       "forbidden_calls": []
     },
     {
+      "name": "bounded_secondary_streaming_fixture",
+      "status": "PASS",
+      "chunk_count": 6,
+      "materialized_artifact_count": 4,
+      "semantic_check_count": 2,
+      "metric_branch_entered": false
+    },
+    {
       "name": "sealed_g0_f4_input_hashes",
       "status": "PASS",
       "files": [

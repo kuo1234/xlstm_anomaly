@@ -11,6 +11,7 @@ from __future__ import annotations
 import ast
 import hashlib
 import json
+import tempfile
 from pathlib import Path
 
 import numpy as np
@@ -87,6 +88,130 @@ def _source_no_metric_execution() -> dict:
             if callee in forbidden_calls:
                 seen.append(callee)
     return {"status": "PASS" if not seen else "FAIL", "forbidden_calls": seen}
+
+
+def _bounded_secondary_streaming_fixture() -> dict:
+    """Exercise the post-fit secondary path without real labels or AP.
+
+    The fixture deliberately uses one tiny synthetic-like stream and a
+    one-class evaluator truth so the runner cannot enter a scientific metric
+    branch.  It verifies chunk persistence/materialization and restores every
+    monkeypatch before returning.
+    """
+    runner = __import__("phase_g1_run")
+
+    class _ProbeModel:
+        def predict_proba(self, values):
+            values = np.asarray(values, dtype=np.float64)
+            probability = np.full(values.shape[0], 0.75, dtype=np.float64)
+            return np.column_stack((1.0 - probability, probability))
+
+    class _Stream:
+        def __init__(self, semantic: str):
+            self.semantic = semantic
+            self.source_seed = 3000
+            self.scenario = "abrupt"
+            self.condition = "none"
+            self.observations = np.zeros((80, 8), dtype=np.float32)
+
+    original = {
+        "DETECTOR_SEEDS": runner.DETECTOR_SEEDS,
+        "TRAIN_SOURCES": runner.TRAIN_SOURCES,
+        "VALIDATION_SOURCES": runner.VALIDATION_SOURCES,
+        "TEST_SOURCES": runner.TEST_SOURCES,
+        "SHIFTED_SCENARIOS": runner.SHIFTED_SCENARIOS,
+        "SHIFTED_CONDITIONS": runner.SHIFTED_CONDITIONS,
+        "_secondary_stream_spec": runner._secondary_stream_spec,
+        "_generate": runner._generate,
+        "_observation_then_label": runner._observation_then_label,
+        "_observation_only_features": runner._observation_only_features,
+        "extract_candi_history": runner.extract_candi_history,
+        "build_evaluator_rows": runner.build_evaluator_rows,
+    }
+    try:
+        runner.DETECTOR_SEEDS = (11,)
+        runner.TRAIN_SOURCES = (1000,)
+        runner.VALIDATION_SOURCES = (2000,)
+        runner.TEST_SOURCES = (3000,)
+        runner.SHIFTED_SCENARIOS = ("abrupt",)
+        runner.SHIFTED_CONDITIONS = ("none",)
+        runner._secondary_stream_spec = lambda: (("train", (1000,)), ("validation", (2000,)), ("test", (3000,)))
+        runner._generate = lambda seed, scenario, condition, semantic="anomaly": _Stream(semantic)
+
+        def _fake_join(stream, detector_seed, architecture, backbone, candi_history):
+            timestamps = np.arange(63, 80, dtype=np.int64)
+            n = len(timestamps)
+            event = np.zeros(n, dtype=np.int32)
+            keys = make_row_keys(detector_seed, stream.source_seed, stream.scenario, stream.condition, timestamps, event)
+            return {
+                "keys": keys,
+                "timestamps": timestamps,
+                "groups": {"history14": np.zeros((n, 14), dtype=np.float64)},
+                "label": np.ones(n, dtype=np.int8),
+                "stratum": np.asarray(["anomaly"] * n, dtype=object),
+                "event": event,
+                "event_type": np.asarray(["spike"] * n, dtype=object),
+                "duration": np.asarray([1] * n, dtype=object),
+                "severity": np.asarray([1] * n, dtype=object),
+                "source_seed": np.full(n, stream.source_seed, dtype=np.int64),
+                "scenario": np.asarray([stream.scenario] * n, dtype=object),
+                "condition": np.asarray([stream.condition] * n, dtype=object),
+                "detector_seed": np.full(n, detector_seed, dtype=np.int64),
+                "source_fold": "test",
+            }
+
+        def _fake_features(backbone, architecture, observations, source_seed, candi_history):
+            n = len(observations) - 63
+            return {"timestamps": np.arange(63, 80, dtype=np.int64), "groups": {"history14": np.zeros((n, 14), dtype=np.float64)}}
+
+        def _fake_truth(stream, timestamps, window=64):
+            timestamps = np.asarray(timestamps, dtype=np.int64)
+            n = len(timestamps)
+            labels = np.zeros(n, dtype=np.int8) if stream.semantic == "legitimate" else np.ones(n, dtype=np.int8)
+            return {
+                "timestamps": timestamps.copy(),
+                "label": labels,
+                "stratum": np.asarray(["stationary_normal"] * n, dtype=object),
+                "event": np.zeros(n, dtype=np.int32),
+                "event_type": np.asarray([None] * n, dtype=object),
+                "duration": np.asarray([None] * n, dtype=object),
+                "severity": np.asarray([None] * n, dtype=object),
+            }
+
+        runner._observation_then_label = _fake_join
+        runner._observation_only_features = _fake_features
+        runner.extract_candi_history = lambda model, row, observations, timestamps: np.zeros((len(timestamps), 14), dtype=np.float64)
+        runner.build_evaluator_rows = _fake_truth
+        scaler = {"mean": [0.0] * 14, "scale": [1.0] * 14}
+        fits = {
+            11: {
+                "history14_xlstm": {"model": _ProbeModel(), "scaler": scaler},
+                "history14_lstm": {"model": _ProbeModel(), "scaler": scaler},
+            }
+        }
+        frozen_backbones = {11: {"xlstm": object(), "lstm": object()}}
+        frozen_candi = {11: (object(), {})}
+        with tempfile.TemporaryDirectory(prefix="phase_g1_secondary_fixture_", dir=ROOT) as temporary:
+            output_dir = Path(temporary)
+            artifact_dir = output_dir / "artifacts"
+            artifact_dir.mkdir()
+            result = runner._secondary_streaming_pass(
+                fits, frozen_backbones, frozen_candi, ("history14",), output_dir, artifact_dir
+            )
+            cache = output_dir / "g1_secondary_cache"
+            chunk_files = sorted(cache.glob("*.npz"))
+            materialized = [value for value in result["robustness_artifacts"].values() if value.get("status") == "PASS"]
+            passed = bool(cache.is_dir() and chunk_files and materialized and result["semantic_report"]["status"] == "PASS")
+            return {
+                "status": "PASS" if passed else "FAIL",
+                "chunk_count": len(chunk_files),
+                "materialized_artifact_count": len(materialized),
+                "semantic_check_count": result["semantic_report"]["check_count"],
+                "metric_branch_entered": False,
+            }
+    finally:
+        for name, value in original.items():
+            setattr(runner, name, value)
 
 
 def run() -> dict:
@@ -211,6 +336,7 @@ def run() -> dict:
     insufficient = duration_severity_match_status({"duration": np.asarray([16], dtype=object), "severity": np.asarray([1], dtype=object), "label": np.asarray([1], dtype=np.int8)})
     checks.append({"name": "g11_insufficient_support_no_merge", "status": "PASS" if insufficient["status"] == "N/A" and insufficient["usable_bins"] == {} else "FAIL"})
     checks.append({"name": "stage_a_no_metric_execution", **_source_no_metric_execution()})
+    checks.append({"name": "bounded_secondary_streaming_fixture", **_bounded_secondary_streaming_fixture()})
 
     # Verify sealed input files by hash only.  Reading these manifests does not
     # read evaluator labels or model outcomes.
