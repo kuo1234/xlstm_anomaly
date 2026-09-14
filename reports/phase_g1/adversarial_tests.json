@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "test_count": 32,
+  "test_count": 33,
   "results": [
     {
       "name": "test_all_g1_entrypoints_import_without_label_execution",
@@ -112,6 +112,10 @@
     },
     {
       "name": "test_reversed_confirmatory_subtraction_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "test_review_provenance_derives_enclosing_seal_without_self_reference",
       "status": "PASS"
     },
     {

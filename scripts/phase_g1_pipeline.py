@@ -111,8 +111,36 @@ def current_commit() -> str:
     return subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
 
 
+def _validate_review_provenance(review: Mapping[str, Any], expected_commit: str) -> str:
+    """Validate review provenance without requiring a self-referential SHA.
+
+    ``expected_commit`` is the enclosing report-only review commit supplied by
+    the Stage-C launcher.  A Git commit cannot embed its own SHA in a file it
+    contains, so the review report records the exact implementation commit and
+    the launcher derives the review-seal commit from its immutable HEAD
+    argument.  An explicit ``review_commit`` field is rejected to prevent a
+    caller from accidentally reintroducing the impossible self-reference.
+    """
+    reviewed_commit = review.get("reviewed_commit")
+    implementation_commit = review.get("implementation_commit")
+    if not isinstance(reviewed_commit, str) or not isinstance(implementation_commit, str):
+        raise ProtocolViolation("pre-label review lacks exact implementation provenance")
+    if reviewed_commit != implementation_commit:
+        raise ProtocolViolation("pre-label review reviewed_commit and implementation_commit disagree")
+    if "review_commit" in review:
+        raise ProtocolViolation("pre-label review must derive review commit from the enclosing seal, not embed review_commit")
+    if not isinstance(expected_commit, str) or not expected_commit:
+        raise ProtocolViolation("pre-label seal commit is missing")
+    return implementation_commit
+
+
 def require_prelabel_seal(expected_commit: str) -> None:
-    """Fail closed unless the labelled execution uses the signed-off sealed tree."""
+    """Fail closed unless labelled execution uses the signed-off sealed tree.
+
+    The requested ``expected_commit`` is the report-only ``G1_REVIEW_COMMIT``;
+    its review JSON must identify the reviewed implementation commit, but may
+    not contain the review commit's own SHA (which would be self-referential).
+    """
     actual = current_commit()
     if actual != expected_commit:
         raise ProtocolViolation(f"labelled execution commit {actual} != seal {expected_commit}")
@@ -123,15 +151,7 @@ def require_prelabel_seal(expected_commit: str) -> None:
     review = _json(review_path)
     if review.get("verdict") != "PASS_FOR_LABEL_ACCESS":
         raise ProtocolViolation("pre-label review is not PASS_FOR_LABEL_ACCESS")
-    reviewed_commit = review.get("reviewed_commit")
-    implementation_commit = review.get("implementation_commit") or reviewed_commit
-    review_commit = review.get("review_commit")
-    if not isinstance(implementation_commit, str) or not isinstance(review_commit, str):
-        raise ProtocolViolation("pre-label review lacks exact implementation/review commit provenance")
-    if review_commit != expected_commit:
-        raise ProtocolViolation("pre-label review commit does not equal the requested seal commit")
-    if reviewed_commit is not None and reviewed_commit != implementation_commit:
-        raise ProtocolViolation("pre-label review reviewed_commit and implementation_commit disagree")
+    implementation_commit = _validate_review_provenance(review, expected_commit)
     try:
         subprocess.run(
             ["git", "merge-base", "--is-ancestor", implementation_commit, expected_commit],

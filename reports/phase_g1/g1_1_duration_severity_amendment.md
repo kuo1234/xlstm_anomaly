@@ -46,7 +46,10 @@ scientific-file hashes. Only a report-only `G1_REVIEW_COMMIT` may contain the
 `PASS_FOR_LABEL_ACCESS` review. The labelled launcher accepts only that review
 commit, verifies that the reviewed implementation is an ancestor, and checks
 that every scientific file is byte-identical between the two commits and the
-working tree.
+working tree. The review JSON records the reviewed implementation SHA but does
+not embed `G1_REVIEW_COMMIT` itself; the latter is derived from the immutable
+seal argument supplied to the launcher, avoiding an impossible Git
+self-reference.
 
 The historical pre-label STOP evidence from `3a7b474` is preserved unchanged;
 this amendment does not overwrite or reinterpret it.

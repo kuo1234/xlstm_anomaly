@@ -170,6 +170,22 @@ def test_all_g1_entrypoints_import_without_label_execution():
         __import__(module_name)
 
 
+def test_review_provenance_derives_enclosing_seal_without_self_reference():
+    pipeline = __import__("phase_g1_pipeline")
+    implementation = "a" * 40
+    review_seal = "b" * 40
+    review = {
+        "verdict": "PASS_FOR_LABEL_ACCESS",
+        "reviewed_commit": implementation,
+        "implementation_commit": implementation,
+    }
+    assert pipeline._validate_review_provenance(review, review_seal) == implementation
+    with pytest.raises(core.ProtocolViolation):
+        pipeline._validate_review_provenance(dict(review, review_commit=review_seal), review_seal)
+    with pytest.raises(core.ProtocolViolation):
+        pipeline._validate_review_provenance({"implementation_commit": implementation}, review_seal)
+
+
 def test_primary_statistics_require_source_pooled_shape():
     with pytest.raises(core.ProtocolViolation):
         __import__("phase_g1_pipeline").build_confirmatory_statistics(
