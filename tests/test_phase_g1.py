@@ -301,6 +301,32 @@ def test_g11_robustness_retains_drift_when_requested_bin_is_absent():
     assert present["positive_rows"] == 1 and present["negative_rows"] == 2 and present["support"]
 
 
+def test_g11_postrun_replays_numeric_probe_manifest_and_rejects_prediction_tamper():
+    audit = __import__("phase_g1_postrun_audit")
+    manifest = {
+        "artifacts": {
+            "seed11_history14_xlstm": {
+                "scaler": {"mean": [0.0, 0.0], "scale": [1.0, 2.0]},
+                "coef": [[1.0, -1.0]],
+                "intercept": [0.25],
+            }
+        }
+    }
+    # JSON round-trip mirrors the actual probe_manifest on disk, unlike the
+    # metadata-only ``fits`` serialization whose arrays are hash summaries.
+    import json
+
+    reloaded = json.loads(json.dumps(manifest))
+    features = np.asarray([[1.0, 2.0], [0.0, 1.0]], dtype=np.float64)
+    expected = audit._probe_prediction(reloaded["artifacts"]["seed11_history14_xlstm"], features)
+    replayed = audit._frozen_probe_prediction(reloaded, "seed11_history14_xlstm", features, expected)
+    assert np.array_equal(replayed, expected)
+    tampered = expected.copy()
+    tampered[0] += 1e-3
+    with pytest.raises(core.ProtocolViolation):
+        audit._frozen_probe_prediction(reloaded, "seed11_history14_xlstm", features, tampered)
+
+
 def _matching_rows(duration=(16, 16), severity=(1, 1), labels=(1, 0)):
     return {
         "duration": np.asarray(duration, dtype=object),

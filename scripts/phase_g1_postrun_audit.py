@@ -161,10 +161,50 @@ def _probe_prediction(fit: Mapping[str, Any], features: np.ndarray) -> np.ndarra
     scale = np.asarray(scaler["scale"], dtype=np.float64)
     coef = np.asarray(fit["coef"], dtype=np.float64)
     intercept = np.asarray(fit["intercept"], dtype=np.float64)
-    if x.ndim != 2 or coef.ndim != 2 or coef.shape[1] != x.shape[1]:
+    if (
+        x.ndim != 2
+        or mean.shape != (x.shape[1],)
+        or scale.shape != mean.shape
+        or not np.isfinite(mean).all()
+        or not np.isfinite(scale).all()
+        or np.any(scale <= 0)
+        or coef.ndim != 2
+        or coef.shape != (1, x.shape[1])
+        or intercept.shape != (1,)
+        or not np.isfinite(coef).all()
+        or not np.isfinite(intercept).all()
+    ):
         raise ProtocolViolation("semantic/robustness feature dimension mismatch")
     logits = ((x - mean) / scale) @ coef.T + intercept
     return (1.0 / (1.0 + np.exp(-logits[:, 0]))).astype(np.float64)
+
+
+def _frozen_probe_prediction(
+    probes: Mapping[str, Any],
+    stem: str,
+    features: np.ndarray,
+    expected_prediction: np.ndarray | None = None,
+) -> np.ndarray:
+    """Recompute a prediction from the numeric probe artifact, not summaries.
+
+    ``probes['fits']`` is a metadata-only serialization whose coefficient
+    arrays are intentionally reduced to shape/dtype/hash records.  The
+    report's per-arm artifact contains the numeric scaler/coef/intercept needed
+    for an independent replay.  When a saved prediction is supplied, it is
+    checked against that replay so a hash-consistent but numerically altered
+    subgroup cannot pass the post-run audit.
+    """
+    artifact = probes.get("artifacts", {}).get(stem)
+    if not isinstance(artifact, Mapping):
+        raise ProtocolViolation(f"missing numeric probe artifact {stem}")
+    prediction = _probe_prediction(artifact, features)
+    if expected_prediction is not None:
+        expected = np.asarray(expected_prediction, dtype=np.float64)
+        if expected.shape != prediction.shape or not np.allclose(
+            prediction, expected, atol=1e-12, rtol=1e-10
+        ):
+            raise ProtocolViolation(f"saved prediction differs from frozen probe replay: {stem}")
+    return prediction
 
 
 def _audit_semantic_control(
@@ -178,10 +218,8 @@ def _audit_semantic_control(
     if report.get("status") != "PASS":
         discrepancies.append("semantic non-identifiability control did not pass")
     artifacts = probes.get("semantic_control_artifacts", {})
-    fits = probes.get("fits", {})
     checked = 0
     for seed in DETECTOR_SEEDS:
-        fit_seed = fits.get(str(seed), fits.get(seed, {}))
         for architecture in ("xlstm", "lstm"):
             for arm in ARMS:
                 stem = f"seed{seed}_{arm}_{architecture}"
@@ -212,9 +250,9 @@ def _audit_semantic_control(
                         raise ProtocolViolation("semantic artifact lengths/shapes differ")
                     if not np.allclose(anomaly_x, legitimate_x, atol=1e-5, rtol=1e-4, equal_nan=True):
                         raise ProtocolViolation("semantic counterpart features differ")
-                    fit = fit_seed[f"{arm}_{architecture}"]
-                    anomaly_pred = _probe_prediction(fit, anomaly_x)
-                    legitimate_pred = _probe_prediction(fit, legitimate_x)
+                    stem = f"seed{seed}_{arm}_{architecture}"
+                    anomaly_pred = _frozen_probe_prediction(probes, stem, anomaly_x)
+                    legitimate_pred = _frozen_probe_prediction(probes, stem, legitimate_x)
                     if not np.allclose(anomaly_pred, legitimate_pred, atol=1e-5, rtol=1e-4):
                         raise ProtocolViolation("semantic counterpart predictions differ")
                     checked += 1
@@ -240,7 +278,6 @@ def _audit_robustness(
     if robustness.get("analysis_name") != "duration_severity_stratified_robustness":
         discrepancies.append("duration/severity robustness analysis name drifted")
     artifacts = probes.get("robustness_artifacts", {})
-    fits = probes.get("fits", {})
     types = ("spike", "collective", "dependency")
     ap_by_axis: dict[str, dict[str, dict[str, np.ndarray]]] = {"duration": {}, "severity": {}}
     derived: dict[str, dict[str, list[dict[str, Any]]]] = {
@@ -253,7 +290,6 @@ def _audit_robustness(
             key = str(value)
             ap_by_axis[axis][key] = {}
             for seed_index, seed in enumerate(DETECTOR_SEEDS):
-                fit_seed = fits.get(str(seed), fits.get(seed, {}))
                 for arm in ARMS:
                     for architecture in ARCHITECTURES:
                         name = f"{arm}_{architecture}"
@@ -286,6 +322,10 @@ def _audit_robustness(
                                 raise ProtocolViolation("robustness artifact lengths differ")
                             if not np.isfinite(prediction).all() or not np.isfinite(features).all() or not np.isin(labels, [0, 1]).all():
                                 raise ProtocolViolation("robustness artifact contains non-finite/nonbinary values")
+                            # Reconstruct from the numeric frozen probe
+                            # artifact and compare to the saved subgroup
+                            # predictions before computing AP.
+                            _frozen_probe_prediction(probes, stem, features, prediction)
                             for field in ("event_types", "duration", "severity", "stratum"):
                                 if len(metadata.get(field, [])) != n:
                                     raise ProtocolViolation(f"robustness metadata length mismatch: {field}")

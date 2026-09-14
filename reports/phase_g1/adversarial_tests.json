@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "test_count": 35,
+  "test_count": 36,
   "results": [
     {
       "name": "test_all_g1_entrypoints_import_without_label_execution",
@@ -40,6 +40,10 @@
     },
     {
       "name": "test_g11_joined_feature_record_retains_timestamps_for_semantic_alignment",
+      "status": "PASS"
+    },
+    {
+      "name": "test_g11_postrun_replays_numeric_probe_manifest_and_rejects_prediction_tamper",
       "status": "PASS"
     },
     {
