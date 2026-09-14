@@ -360,6 +360,19 @@ def _run_seed(seed: int, rows_by_seed: dict, raw: np.ndarray,
         x_arm = torch.cat((candi_history_x, x_internal), dim=1)
         l_arm = torch.cat((candi_history_l, l_internal), dim=1)
 
+        history_future = candi_scores.clone()
+        history_generator = torch.Generator(device="cuda").manual_seed(8800 + seed)
+        history_future[80:] = torch.randn(
+            history_future[80:].shape, device="cuda", dtype=history_future.dtype,
+            generator=history_generator
+        )
+        history_causality = _causal_cmp(
+            candi_history[:80], _history(history_future)[:80]
+        )
+        candi_reset_a = candi_score(candi_model, candi_windows[:4])
+        candi_score(candi_model, candi_windows[4:8])
+        candi_reset_b = candi_score(candi_model, candi_windows[:4])
+
         causality = [
             _causal_candi_check(candi_model, raw, candi_mean, candi_scale,
                                 int(timestamps[idx]), candi_scores[idx:idx + 1])
@@ -432,6 +445,15 @@ def _run_seed(seed: int, rows_by_seed: dict, raw: np.ndarray,
             "candi_future_causality": {
                 "pass_": all(item["pass_"] for item in causality),
                 "checks": causality,
+            },
+            "candi_history_causality": {
+                "pass_": history_causality["pass_"],
+                "prefix_rows": 80,
+                "check": history_causality,
+            },
+            "candi_independent_window_reset": {
+                "pass_": bool(torch.equal(candi_reset_a, candi_reset_b)),
+                "score": _cmp(candi_reset_a, candi_reset_b, exact=True),
             },
             "candi_dummy_label_invariance": {
                 "pass_": bool(torch.equal(candi_scores, candi_scores_dummy)),
