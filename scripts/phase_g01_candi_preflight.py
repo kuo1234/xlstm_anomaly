@@ -257,7 +257,11 @@ def _causal_candi_check(model: torch.nn.Module, raw: np.ndarray,
         np.asarray([timestamp]), 10,
     )
     changed_score = candi_score(model, torch.from_numpy(changed_window).cuda())
-    check = _cmp(original_score.reshape(1), changed_score, exact=True)
+    # Future perturbation leaves the W10 input exactly unchanged.  Compare
+    # scores under the frozen numerical contract (atol/rtol), not bitwise:
+    # the official MLP/SANA path may accumulate a tiny batch-size rounding
+    # difference even when the causal input is identical.
+    check = _cmp(original_score.reshape(1), changed_score, exact=False)
     return {
         "timestamp": int(timestamp),
         "future_mutated_observations": int(len(future) - timestamp - 1),
