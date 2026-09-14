@@ -237,6 +237,14 @@
       "forbidden_calls": []
     },
     {
+      "name": "bounded_primary_cache_fixture",
+      "status": "PASS",
+      "chunk_count": 24,
+      "simulated_seed_workspaces": 2,
+      "max_feature_bytes": 896,
+      "cross_seed_feature_accumulation": false
+    },
+    {
       "name": "bounded_secondary_streaming_fixture",
       "status": "PASS",
       "chunk_count": 6,

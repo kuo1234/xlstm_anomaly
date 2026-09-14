@@ -214,6 +214,66 @@ def _bounded_secondary_streaming_fixture() -> dict:
             setattr(runner, name, value)
 
 
+def _bounded_primary_cache_fixture() -> dict:
+    """Exercise primary chunk/concat/fitting lifetimes with tiny fixtures."""
+    runner = __import__("phase_g1_run")
+    feature_arms = ("history14",)
+    architectures = ("xlstm", "lstm")
+    refs: dict[int, dict[str, dict[str, list[dict[str, str]]]]] = {}
+    max_feature_bytes = 0
+    with tempfile.TemporaryDirectory(prefix="phase_g1_primary_fixture_", dir=ROOT) as temporary:
+        cache_dir = Path(temporary)
+        for detector_seed in (11, 22):
+            refs[detector_seed] = {fold: {} for fold in ("train", "validation", "test")}
+            for fold, source in (("train", 1000), ("validation", 2000), ("test", 3000)):
+                for arm in ("history14_xlstm", "history14_lstm"):
+                    rows = []
+                    for chunk_index in range(2):
+                        chunk_source = source + chunk_index
+                        timestamps = np.arange(63, 67, dtype=np.int64)
+                        keys = make_row_keys(
+                            detector_seed, chunk_source, "abrupt", f"chunk{chunk_index}", timestamps,
+                            np.full(len(timestamps), -1, dtype=np.int64),
+                        )
+                        rows.append({
+                            "X": np.full((len(timestamps), 14), float(chunk_index), dtype=np.float64),
+                            "y": np.asarray([0, 1, 0, 1], dtype=np.int8),
+                            "keys": keys,
+                            "source_seeds": np.full(len(timestamps), chunk_source, dtype=np.int64),
+                            "scenarios": ("abrupt",) * len(timestamps),
+                            "events": (-1,) * len(timestamps),
+                            "event_types": (None,) * len(timestamps),
+                            "stratum": np.asarray(["drift", "anomaly", "drift", "anomaly"], dtype=object),
+                            "duration": np.asarray([None] * len(timestamps), dtype=object),
+                            "severity": np.asarray([None] * len(timestamps), dtype=object),
+                        })
+                    refs[detector_seed][fold][arm] = [
+                        runner._write_primary_chunk(cache_dir, f"seed{detector_seed}_{fold}_{arm}_{index}", row)
+                        for index, row in enumerate(rows)
+                    ]
+            # The simulated fitting workspace is explicitly seed-local:
+            # concatenate one seed's chunks, validate ProbeSplit inputs, then
+            # release the workspace before advancing to the next seed.
+            seed_workspace = {fold: {} for fold in ("train", "validation", "test")}
+            for fold in ("train", "validation", "test"):
+                for arm in ("history14_xlstm", "history14_lstm"):
+                    loaded = [runner._load_primary_chunk(ref) for ref in refs[detector_seed][fold][arm]]
+                    seed_workspace[fold][arm] = runner._concat(loaded)
+                    max_feature_bytes = max(max_feature_bytes, int(seed_workspace[fold][arm]["X"].nbytes))
+                    runner.probe_split_from_rows(seed_workspace[fold][arm])
+                    del loaded
+            del seed_workspace
+        chunk_count = len(list(cache_dir.glob("*.npz")))
+        passed = chunk_count == 24 and max_feature_bytes <= 1024
+        return {
+            "status": "PASS" if passed else "FAIL",
+            "chunk_count": chunk_count,
+            "simulated_seed_workspaces": 2,
+            "max_feature_bytes": max_feature_bytes,
+            "cross_seed_feature_accumulation": False,
+        }
+
+
 def run() -> dict:
     checks: list[dict] = []
     checks.append({"name": "source_fold_separation", "status": "PASS" if not assert_source_fold_separation() else "FAIL"})
@@ -336,6 +396,7 @@ def run() -> dict:
     insufficient = duration_severity_match_status({"duration": np.asarray([16], dtype=object), "severity": np.asarray([1], dtype=object), "label": np.asarray([1], dtype=np.int8)})
     checks.append({"name": "g11_insufficient_support_no_merge", "status": "PASS" if insufficient["status"] == "N/A" and insufficient["usable_bins"] == {} else "FAIL"})
     checks.append({"name": "stage_a_no_metric_execution", **_source_no_metric_execution()})
+    checks.append({"name": "bounded_primary_cache_fixture", **_bounded_primary_cache_fixture()})
     checks.append({"name": "bounded_secondary_streaming_fixture", **_bounded_secondary_streaming_fixture()})
 
     # Verify sealed input files by hash only.  Reading these manifests does not

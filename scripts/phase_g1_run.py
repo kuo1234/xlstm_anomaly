@@ -1007,6 +1007,86 @@ def _finalize_specificity_acc(acc: Mapping[str, Any]) -> dict[str, Any]:
     }
 
 
+def _write_primary_chunk(
+    cache_dir: Path,
+    prefix: str,
+    rows: Mapping[str, Any],
+) -> dict[str, str]:
+    """Persist one primary probe row chunk before advancing the stream.
+
+    Primary fitting is pooled over all chunks for one detector seed/fold/arm,
+    but no cross-seed feature matrix is retained in memory.  Numeric arrays
+    use pickle-free NPZ storage; evaluator metadata needed for row-key and
+    source/event auditing is kept in a separately hashed JSON sidecar.
+    """
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    npz_path = cache_dir / f"{prefix}.npz"
+    keys_path = cache_dir / f"{prefix}.keys.json"
+    metadata_path = cache_dir / f"{prefix}.metadata.json"
+    np.savez_compressed(
+        npz_path,
+        X=np.asarray(rows["X"], dtype=np.float64),
+        y=np.asarray(rows["y"], dtype=np.int8),
+        source_seeds=np.asarray(rows["source_seeds"], dtype=np.int64),
+    )
+    keys = [dict(key) for key in rows["keys"]]
+    keys_path.write_text(json.dumps(keys, sort_keys=True, separators=(",", ":")) + "\n")
+    metadata = {
+        "scenarios": [str(value) for value in rows.get("scenarios", ())],
+        "events": [int(value) for value in rows.get("events", ())],
+        "event_types": [None if value is None else str(value) for value in rows.get("event_types", ())],
+        "stratum": [str(value) for value in rows.get("stratum", ())],
+        "duration": [None if value is None else int(value) for value in rows.get("duration", ())],
+        "severity": [None if value is None else int(value) for value in rows.get("severity", ())],
+    }
+    metadata_path.write_text(json.dumps(metadata, sort_keys=True, separators=(",", ":")) + "\n")
+    return {
+        "npz": str(npz_path),
+        "keys": str(keys_path),
+        "metadata": str(metadata_path),
+        "npz_sha256": _sha(npz_path),
+        "keys_sha256": _sha(keys_path),
+        "metadata_sha256": _sha(metadata_path),
+        "n": int(len(keys)),
+    }
+
+
+def _load_primary_chunk(ref: Mapping[str, str]) -> dict[str, Any]:
+    """Load and validate one primary chunk from the immutable cache."""
+    npz_path = Path(ref["npz"])
+    keys_path = Path(ref["keys"])
+    metadata_path = Path(ref["metadata"])
+    if _sha(npz_path) != ref["npz_sha256"] or _sha(keys_path) != ref["keys_sha256"] or _sha(metadata_path) != ref["metadata_sha256"]:
+        raise ProtocolViolation("primary feature chunk hash mismatch")
+    with np.load(npz_path, allow_pickle=False) as cached:
+        X = np.asarray(cached["X"], dtype=np.float64)
+        y = np.asarray(cached["y"], dtype=np.int8)
+        source_seeds = np.asarray(cached["source_seeds"], dtype=np.int64)
+    keys = json.loads(keys_path.read_text())
+    metadata = json.loads(metadata_path.read_text())
+    n = len(keys)
+    if X.ndim != 2 or X.shape[0] != n or y.shape != (n,) or source_seeds.shape != (n,):
+        raise ProtocolViolation("primary feature chunk shape mismatch")
+    fields = ("scenarios", "events", "event_types", "stratum", "duration", "severity")
+    if any(len(metadata.get(field, [])) != n for field in fields):
+        raise ProtocolViolation("primary feature chunk metadata cardinality mismatch")
+    from phase_g1_core import assert_unique_keys
+
+    assert_unique_keys(keys)
+    return {
+        "X": X,
+        "y": y,
+        "keys": keys,
+        "source_seeds": source_seeds,
+        "scenarios": tuple(metadata["scenarios"]),
+        "events": tuple(int(value) for value in metadata["events"]),
+        "event_types": tuple(metadata["event_types"]),
+        "stratum": np.asarray(metadata["stratum"], dtype=object),
+        "duration": np.asarray(metadata["duration"], dtype=object),
+        "severity": np.asarray(metadata["severity"], dtype=object),
+    }
+
+
 def _materialize_semantic_artifact(
     refs: Sequence[Mapping[str, str]],
     artifact_dir: Path,
@@ -1521,6 +1601,96 @@ def _secondary_streaming_pass(
     }
 
 
+def _light_primary_rows(rows: Mapping[str, Any]) -> dict[str, Any]:
+    """Drop primary feature matrices after they have been persisted."""
+    return {
+        "y": np.asarray(rows["y"], dtype=np.int8),
+        "keys": list(rows["keys"]),
+        "source_seeds": np.asarray(rows["source_seeds"], dtype=np.int64),
+        "scenarios": tuple(rows["scenarios"]),
+        "events": tuple(rows["events"]),
+    }
+
+
+def _write_primary_probe_artifacts(
+    seed: int,
+    fits_for_seed: Mapping[str, Mapping[str, Any]],
+    train_rows: Mapping[str, Mapping[str, Any]],
+    validation_rows: Mapping[str, Mapping[str, Any]],
+    test_rows: Mapping[str, Mapping[str, Any]],
+    artifact_dir: Path,
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Persist one detector seed's primary probes and return compact summaries."""
+    test_results: dict[str, Any] = {}
+    artifact_entries: dict[str, Any] = {}
+    for arm, fit in fits_for_seed.items():
+        rows = test_rows[arm]
+        stem = f"seed{seed}_{arm}"
+        labels_path = artifact_dir / f"{stem}_labels.npy"
+        prediction_path = artifact_dir / f"{stem}_prediction.npy"
+        keys_path = artifact_dir / f"{stem}_keys.json"
+        np.save(labels_path, np.asarray(rows["y"], dtype=np.int8), allow_pickle=False)
+        np.save(prediction_path, np.asarray(fit["test_prediction"], dtype=np.float64), allow_pickle=False)
+        keys_path.write_text(json.dumps(rows["keys"], sort_keys=True, separators=(",", ":")) + "\n")
+        train_row = train_rows[arm]
+        val_row = validation_rows[arm]
+        train_val_path = artifact_dir / f"{stem}_train_validation.npz"
+        np.savez_compressed(
+            train_val_path,
+            train_X=np.asarray(train_row["X"], dtype=np.float64),
+            train_y=np.asarray(train_row["y"], dtype=np.int8),
+            validation_X=np.asarray(val_row["X"], dtype=np.float64),
+            validation_y=np.asarray(val_row["y"], dtype=np.int8),
+        )
+        train_keys_path = artifact_dir / f"{stem}_train_keys.json"
+        val_keys_path = artifact_dir / f"{stem}_validation_keys.json"
+        train_keys_path.write_text(json.dumps(train_row["keys"], sort_keys=True, separators=(",", ":")) + "\n")
+        val_keys_path.write_text(json.dumps(val_row["keys"], sort_keys=True, separators=(",", ":")) + "\n")
+        validation_labels_path = artifact_dir / f"{stem}_validation_labels.npy"
+        np.save(validation_labels_path, np.asarray(val_row["y"], dtype=np.int8), allow_pickle=False)
+        test_features_path = artifact_dir / f"{stem}_test_features.npz"
+        np.savez_compressed(test_features_path, test_X=np.asarray(rows["X"], dtype=np.float64))
+        validation_prediction_paths: dict[str, dict[str, Any]] = {}
+        for c_value, validation_prediction in fit.get("validation_predictions", {}).items():
+            c_path = artifact_dir / f"{stem}_validation_prediction_C{c_value.replace('.', 'p')}.npy"
+            np.save(c_path, np.asarray(validation_prediction, dtype=np.float64), allow_pickle=False)
+            validation_prediction_paths[c_value] = {
+                "path": str(c_path.relative_to(ROOT)),
+                "sha256": _sha(c_path),
+                "n": int(len(validation_prediction)),
+            }
+        artifact_entries[stem] = {
+            "labels": str(labels_path.relative_to(ROOT)), "labels_sha256": _sha(labels_path),
+            "prediction": str(prediction_path.relative_to(ROOT)), "prediction_sha256": _sha(prediction_path),
+            "keys": str(keys_path.relative_to(ROOT)), "keys_sha256": _sha(keys_path),
+            "train_validation_arrays": str(train_val_path.relative_to(ROOT)),
+            "train_validation_arrays_sha256": _sha(train_val_path),
+            "train_keys": str(train_keys_path.relative_to(ROOT)), "train_keys_sha256": _sha(train_keys_path),
+            "validation_keys": str(val_keys_path.relative_to(ROOT)), "validation_keys_sha256": _sha(val_keys_path),
+            "validation_labels": str(validation_labels_path.relative_to(ROOT)),
+            "validation_labels_sha256": _sha(validation_labels_path),
+            "test_features": str(test_features_path.relative_to(ROOT)), "test_features_sha256": _sha(test_features_path),
+            "validation_prediction_paths": validation_prediction_paths,
+            "coef": np.asarray(fit["model"].coef_, dtype=np.float64).tolist(),
+            "intercept": np.asarray(fit["model"].intercept_, dtype=np.float64).tolist(),
+            "coef_sha256": fit["coef_sha256"], "intercept_sha256": fit["intercept_sha256"],
+            "scaler": fit["scaler"], "scaler_sha256": fit["scaler_sha256"],
+            "selected_C": fit["selected_C"], "validation_candidates": fit["validation_candidates"],
+            "train_row_key_sha256": fit["train_row_key_sha256"],
+            "validation_row_key_sha256": fit["validation_row_key_sha256"],
+            "test_row_key_sha256": fit["test_row_key_sha256"],
+        }
+        scenario_ap = _source_scenario_ap(fit, rows)
+        test_results[arm] = {
+            "ap": compute_arm_ap(fit, rows), "scenario_ap": scenario_ap.tolist(),
+            "n": int(len(rows["y"])), "positives": int(np.sum(rows["y"])),
+            "natural_prevalence": float(np.mean(rows["y"])),
+            "labels_sha256": _sha(labels_path), "prediction_sha256": _sha(prediction_path),
+            "row_key_sha256": row_key_hash(rows["keys"]),
+        }
+    return test_results, artifact_entries
+
+
 def run(prelabel_commit: str, output_dir: Path) -> dict[str, Any]:
     output_dir.mkdir(parents=True, exist_ok=True)
     protected = {
@@ -1564,18 +1734,23 @@ def run(prelabel_commit: str, output_dir: Path) -> dict[str, Any]:
     # Keep source/scenario/condition loops explicit and deterministic.  Each
     # detector seed has one frozen backbone per architecture and one CANDI
     # history computed once per stream and reused by both arms.
-    raw_rows: dict[int, dict[str, dict[str, list[dict[str, Any]]]]] = {
+    # Primary rows are written per stream to an immutable, hash-sealed cache.
+    # This preserves pooled four-scenario fitting while preventing all five
+    # detector seeds (and their duplicated arm arrays) from coexisting in RAM.
+    primary_cache_dir = output_dir / "g1_primary_cache"
+    if primary_cache_dir.exists():
+        raise ProtocolViolation(f"refusing to reuse primary cache directory: {primary_cache_dir}")
+    primary_cache_dir.mkdir(parents=True, exist_ok=False)
+    primary_cache_refs: dict[int, dict[str, dict[str, list[dict[str, str]]]]] = {
         seed: {fold: {} for fold in ("train", "validation", "test")}
         for seed in DETECTOR_SEEDS
     }
     # Secondary reporting views are computed in a post-fit streaming pass.
     # Keeping their feature matrices in the primary extraction loop would
     # retain hundreds of gigabytes of boolean-indexed arrays (especially the
-    # native-prevalence and stable-normal views).  Only the primary binary
-    # rows required for pooled probe fitting remain resident here.
+    # native-prevalence and stable-normal views).
     frozen_backbones: dict[int, dict[str, Any]] = {}
     frozen_candi: dict[int, tuple[Any, dict[str, Any]]] = {}
-    semantic_control_checks: list[dict[str, Any]] = []
     execution_rows: list[dict[str, Any]] = []
     descriptive_rows: list[dict[str, Any]] = []
     for detector_seed in DETECTOR_SEEDS:
@@ -1587,6 +1762,7 @@ def run(prelabel_commit: str, output_dir: Path) -> dict[str, Any]:
         }
         frozen_backbones[int(detector_seed)] = backbones
         frozen_candi[int(detector_seed)] = (candi_model, candi_row)
+        seed_primary_refs = primary_cache_refs[int(detector_seed)]
         for fold, sources in (("train", TRAIN_SOURCES), ("validation", VALIDATION_SOURCES), ("test", TEST_SOURCES)):
             for source in sources:
                 scenario_conditions = [(scenario, condition) for scenario in SHIFTED_SCENARIOS for condition in SHIFTED_CONDITIONS]
@@ -1635,139 +1811,116 @@ def run(prelabel_commit: str, output_dir: Path) -> dict[str, Any]:
                                 if len(x_rows["keys"]) == 0 or len(l_rows["keys"]) == 0:
                                     continue
                                 assert_common_cohort({"xlstm": x_rows, "lstm": l_rows})
-                                raw_rows[detector_seed][fold].setdefault(f"{arm}_xlstm", []).append(x_rows)
-                                raw_rows[detector_seed][fold].setdefault(f"{arm}_lstm", []).append(l_rows)
+                                seed_primary_refs[fold].setdefault(f"{arm}_xlstm", []).append(
+                                    _write_primary_chunk(
+                                        primary_cache_dir,
+                                        f"seed{detector_seed}_{fold}_{source}_{scenario}_{condition}_{arm}_xlstm",
+                                        x_rows,
+                                    )
+                                )
+                                seed_primary_refs[fold].setdefault(f"{arm}_lstm", []).append(
+                                    _write_primary_chunk(
+                                        primary_cache_dir,
+                                        f"seed{detector_seed}_{fold}_{source}_{scenario}_{condition}_{arm}_lstm",
+                                        l_rows,
+                                    )
+                                )
                         execution_rows.append({"seed": detector_seed, "source": source, "fold": fold, "scenario": scenario, "condition": condition, "row_count": len(timestamps), "candi_history_sha256": array_sha(candi_history), "labels_joined_after_extraction": True})
                         _ledger_append(ledger_path, "labelled_stream_complete", detector_seed=int(detector_seed), fold=str(fold), source_seed=int(source), scenario=str(scenario), condition=str(condition), row_count=int(len(timestamps)))
         _ledger_append(ledger_path, "detector_seed_complete", detector_seed=int(detector_seed))
-    pooled: dict[str, dict[int, dict[str, Any]]] = {"train": {}, "validation": {}, "test": {}}
-    for seed in DETECTOR_SEEDS:
-        pooled["train"][seed] = {arm: _concat(parts) for arm, parts in raw_rows[seed]["train"].items()}
-        pooled["validation"][seed] = {arm: _concat(parts) for arm, parts in raw_rows[seed]["validation"].items()}
-        pooled["test"][seed] = {arm: _concat(parts) for arm, parts in raw_rows[seed]["test"].items()}
-        for architecture in ARCHITECTURES:
-            _assert_paired_arms({arm.removesuffix(f"_{architecture}"): pooled["test"][seed][arm] for arm in pooled["test"][seed] if arm.endswith(f"_{architecture}")})
-        for arm in feature_arms:
-            assert_common_cohort({"xlstm": pooled["test"][seed][f"{arm}_xlstm"], "lstm": pooled["test"][seed][f"{arm}_lstm"]})
-            if arm == "candi_history14":
-                left = pooled["test"][seed][f"{arm}_xlstm"]
-                right = pooled["test"][seed][f"{arm}_lstm"]
-                assert_shared_control(left["X"], right["X"], left["keys"], right["keys"])
-            elif arm == "candi_history_plus_combined248":
-                # Only columns 0:14 are the shared CANDI control; trailing
-                # internal summaries are intentionally backbone-specific.
-                left = pooled["test"][seed][f"{arm}_xlstm"]
-                right = pooled["test"][seed][f"{arm}_lstm"]
-                assert_shared_control(left["X"][:, :14], right["X"][:, :14], left["keys"], right["keys"])
-    fits: dict[int, dict[str, dict[str, Any]]] = {}
     expected_dims = {
         "history14": 14, "hidden52": 52, "gate130": 130,
         "memory52": 52, "combined234": 234,
         "history_plus_combined248": 248, "candi_history14": 14,
         "candi_history_plus_combined248": 248,
     }
-    for seed in DETECTOR_SEEDS:
-        fits[seed] = {}
-        for arm in pooled["train"][seed]:
-            suffix = "_xlstm" if arm.endswith("_xlstm") else "_lstm"
-            base_arm = arm.removesuffix(suffix)
-            fits[seed][arm] = fit_probe_pooled(
-                probe_split_from_rows(pooled["train"][seed][arm]),
-                probe_split_from_rows(pooled["validation"][seed][arm]),
-                probe_split_from_rows(pooled["test"][seed][arm]),
-                arm,
-                seed,
-                expected_dims[base_arm],
-            )
-    comparison_fits = fits
-    comparison_rows = pooled["test"]
     artifact_dir = output_dir / "g1_artifacts"
     artifact_dir.mkdir(parents=True, exist_ok=False)
+    fits: dict[int, dict[str, dict[str, Any]]] = {}
+    comparison_rows: dict[int, dict[str, dict[str, Any]]] = {}
+    test_results: dict[str, Any] = {}
     # Write all primary numeric artifacts while the train/validation/test
     # matrices are still available.  Secondary views are regenerated in a
     # bounded post-fit streaming pass below and never accumulate here.
     probe_manifest = {
         "fits": _clean(fits),
-        "row_key_sha256": {
-            str(seed): {arm: row_key_hash(value["keys"]) for arm, value in comparison_rows[seed].items()}
-            for seed in DETECTOR_SEEDS
-        },
+        "row_key_sha256": {},
         "artifacts": {},
+        "primary_cache": {
+            "directory": str(primary_cache_dir.relative_to(ROOT)),
+            "resource_contract": "one stream chunk persisted; one detector seed pooled at a time",
+            "chunk_count": int(sum(
+                len(refs)
+                for seed_refs in primary_cache_refs.values()
+                for fold_refs in seed_refs.values()
+                for refs in fold_refs.values()
+            )),
+        },
     }
     shared_control_artifacts: dict[str, Any] = {}
     for seed in DETECTOR_SEEDS:
-        x_control = comparison_rows[seed]["candi_history14_xlstm"]
-        l_control = comparison_rows[seed]["candi_history14_lstm"]
-        assert_shared_control(x_control["X"], l_control["X"], x_control["keys"], l_control["keys"])
-        x_path = artifact_dir / f"seed{seed}_candi_history_x.npy"
-        l_path = artifact_dir / f"seed{seed}_candi_history_l.npy"
-        np.save(x_path, np.asarray(x_control["X"], dtype=np.float64), allow_pickle=False)
-        np.save(l_path, np.asarray(l_control["X"], dtype=np.float64), allow_pickle=False)
-        shared_control_artifacts[str(seed)] = {
-            "x_path": str(x_path.relative_to(ROOT)), "x_sha256": _sha(x_path),
-            "l_path": str(l_path.relative_to(ROOT)), "l_sha256": _sha(l_path),
-            "row_key_sha256": row_key_hash(x_control["keys"]),
-            "shape": list(x_control["X"].shape),
-        }
-    probe_manifest["shared_control_artifacts"] = shared_control_artifacts
-    test_results: dict[str, Any] = {}
-    for seed in DETECTOR_SEEDS:
-        for arm, fit in comparison_fits[seed].items():
-            rows = comparison_rows[seed][arm]
-            stem = f"seed{seed}_{arm}"
-            labels_path = artifact_dir / f"{stem}_labels.npy"
-            prediction_path = artifact_dir / f"{stem}_prediction.npy"
-            keys_path = artifact_dir / f"{stem}_keys.json"
-            np.save(labels_path, np.asarray(rows["y"], dtype=np.int8), allow_pickle=False)
-            np.save(prediction_path, np.asarray(fit["test_prediction"], dtype=np.float64), allow_pickle=False)
-            keys_path.write_text(json.dumps(rows["keys"], sort_keys=True, separators=(",", ":")) + "\n")
-            train_row = pooled["train"][seed][arm]
-            val_row = pooled["validation"][seed][arm]
-            train_val_path = artifact_dir / f"{stem}_train_validation.npz"
-            np.savez_compressed(
-                train_val_path,
-                train_X=np.asarray(train_row["X"], dtype=np.float64),
-                train_y=np.asarray(train_row["y"], dtype=np.int8),
-                validation_X=np.asarray(val_row["X"], dtype=np.float64),
-                validation_y=np.asarray(val_row["y"], dtype=np.int8),
+        pooled_seed: dict[str, dict[str, Any]] = {"train": {}, "validation": {}, "test": {}}
+        for fold in ("train", "validation", "test"):
+            for arm, refs in primary_cache_refs[int(seed)][fold].items():
+                if not refs:
+                    raise ProtocolViolation(f"empty primary cache arm: {seed}/{fold}/{arm}")
+                pooled_seed[fold][arm] = _concat([_load_primary_chunk(ref) for ref in refs])
+        for architecture in ARCHITECTURES:
+            _assert_paired_arms({
+                arm.removesuffix(f"_{architecture}"): pooled_seed["test"][arm]
+                for arm in pooled_seed["test"] if arm.endswith(f"_{architecture}")
+            })
+        for arm in feature_arms:
+            assert_common_cohort({
+                "xlstm": pooled_seed["test"][f"{arm}_xlstm"],
+                "lstm": pooled_seed["test"][f"{arm}_lstm"],
+            })
+            if arm == "candi_history14":
+                left = pooled_seed["test"][f"{arm}_xlstm"]
+                right = pooled_seed["test"][f"{arm}_lstm"]
+                assert_shared_control(left["X"], right["X"], left["keys"], right["keys"])
+                x_path = artifact_dir / f"seed{seed}_candi_history_x.npy"
+                l_path = artifact_dir / f"seed{seed}_candi_history_l.npy"
+                np.save(x_path, np.asarray(left["X"], dtype=np.float64), allow_pickle=False)
+                np.save(l_path, np.asarray(right["X"], dtype=np.float64), allow_pickle=False)
+                shared_control_artifacts[str(seed)] = {
+                    "x_path": str(x_path.relative_to(ROOT)), "x_sha256": _sha(x_path),
+                    "l_path": str(l_path.relative_to(ROOT)), "l_sha256": _sha(l_path),
+                    "row_key_sha256": row_key_hash(left["keys"]), "shape": list(left["X"].shape),
+                }
+            elif arm == "candi_history_plus_combined248":
+                left = pooled_seed["test"][f"{arm}_xlstm"]
+                right = pooled_seed["test"][f"{arm}_lstm"]
+                assert_shared_control(left["X"][:, :14], right["X"][:, :14], left["keys"], right["keys"])
+        seed_fits: dict[str, dict[str, Any]] = {}
+        for arm in pooled_seed["train"]:
+            suffix = "_xlstm" if arm.endswith("_xlstm") else "_lstm"
+            base_arm = arm.removesuffix(suffix)
+            seed_fits[arm] = fit_probe_pooled(
+                probe_split_from_rows(pooled_seed["train"][arm]),
+                probe_split_from_rows(pooled_seed["validation"][arm]),
+                probe_split_from_rows(pooled_seed["test"][arm]),
+                arm,
+                seed,
+                expected_dims[base_arm],
             )
-            train_keys_path = artifact_dir / f"{stem}_train_keys.json"
-            val_keys_path = artifact_dir / f"{stem}_validation_keys.json"
-            train_keys_path.write_text(json.dumps(train_row["keys"], sort_keys=True, separators=(",", ":")) + "\n")
-            val_keys_path.write_text(json.dumps(val_row["keys"], sort_keys=True, separators=(",", ":")) + "\n")
-            validation_labels_path = artifact_dir / f"{stem}_validation_labels.npy"
-            np.save(validation_labels_path, np.asarray(val_row["y"], dtype=np.int8), allow_pickle=False)
-            test_features_path = artifact_dir / f"{stem}_test_features.npz"
-            np.savez_compressed(test_features_path, test_X=np.asarray(rows["X"], dtype=np.float64))
-            validation_prediction_paths: dict[str, dict[str, Any]] = {}
-            for c_value, validation_prediction in fit.get("validation_predictions", {}).items():
-                c_path = artifact_dir / f"{stem}_validation_prediction_C{c_value.replace('.', 'p')}.npy"
-                np.save(c_path, np.asarray(validation_prediction, dtype=np.float64), allow_pickle=False)
-                validation_prediction_paths[c_value] = {"path": str(c_path.relative_to(ROOT)), "sha256": _sha(c_path), "n": int(len(validation_prediction))}
-            probe_manifest["artifacts"][stem] = {
-                "labels": str(labels_path.relative_to(ROOT)), "labels_sha256": _sha(labels_path),
-                "prediction": str(prediction_path.relative_to(ROOT)), "prediction_sha256": _sha(prediction_path),
-                "keys": str(keys_path.relative_to(ROOT)), "keys_sha256": _sha(keys_path),
-                "train_validation_arrays": str(train_val_path.relative_to(ROOT)), "train_validation_arrays_sha256": _sha(train_val_path),
-                "train_keys": str(train_keys_path.relative_to(ROOT)), "train_keys_sha256": _sha(train_keys_path),
-                "validation_keys": str(val_keys_path.relative_to(ROOT)), "validation_keys_sha256": _sha(val_keys_path),
-                "validation_labels": str(validation_labels_path.relative_to(ROOT)), "validation_labels_sha256": _sha(validation_labels_path),
-                "test_features": str(test_features_path.relative_to(ROOT)), "test_features_sha256": _sha(test_features_path),
-                "validation_prediction_paths": validation_prediction_paths,
-                "coef": np.asarray(fit["model"].coef_, dtype=np.float64).tolist(), "intercept": np.asarray(fit["model"].intercept_, dtype=np.float64).tolist(),
-                "coef_sha256": fit["coef_sha256"], "intercept_sha256": fit["intercept_sha256"],
-                "scaler": fit["scaler"], "scaler_sha256": fit["scaler_sha256"], "selected_C": fit["selected_C"],
-                "validation_candidates": fit["validation_candidates"],
-                "train_row_key_sha256": fit["train_row_key_sha256"], "validation_row_key_sha256": fit["validation_row_key_sha256"], "test_row_key_sha256": fit["test_row_key_sha256"],
-            }
-            scenario_ap = _source_scenario_ap(fit, rows)
-            test_results.setdefault(str(seed), {})[arm] = {
-                "ap": compute_arm_ap(fit, rows), "scenario_ap": scenario_ap.tolist(),
-                "n": int(len(rows["y"])), "positives": int(np.sum(rows["y"])),
-                "natural_prevalence": float(np.mean(rows["y"])),
-                "labels_sha256": _sha(labels_path), "prediction_sha256": _sha(prediction_path),
-                "row_key_sha256": row_key_hash(rows["keys"]),
-            }
+        fits[int(seed)] = seed_fits
+        comparison_rows[int(seed)] = {
+            arm: _light_primary_rows(rows) for arm, rows in pooled_seed["test"].items()
+        }
+        probe_manifest["row_key_sha256"][str(seed)] = {
+            arm: row_key_hash(value["keys"]) for arm, value in comparison_rows[int(seed)].items()
+        }
+        seed_results, seed_artifacts = _write_primary_probe_artifacts(
+            int(seed), seed_fits, pooled_seed["train"], pooled_seed["validation"], pooled_seed["test"], artifact_dir
+        )
+        test_results[str(seed)] = seed_results
+        probe_manifest["artifacts"].update(seed_artifacts)
+        del pooled_seed, seed_fits
+    probe_manifest["shared_control_artifacts"] = shared_control_artifacts
+    probe_manifest["fits"] = _clean(fits)
+    comparison_fits = fits
+    del primary_cache_refs
 
     # Confirmatory effects use pooled four-scenario AP per source.  The
     # scenario-wise tensor is retained only for reproducibility diagnostics.
@@ -1782,23 +1935,6 @@ def run(prelabel_commit: str, output_dir: Path) -> dict[str, Any]:
         probe_manifest.setdefault("delta_artifacts", {})[name] = {
             "path": str(delta_path.relative_to(ROOT)), "sha256": _sha(delta_path), "shape": list(delta.shape)
         }
-
-    # Release the primary feature matrices before regenerating secondary views.
-    # Keep only the lightweight labels/keys/source/scenario arrays required for
-    # AP and row-cohort audit; this is the resource-bounded execution boundary.
-    light_comparison_rows: dict[int, dict[str, dict[str, Any]]] = {}
-    for seed in DETECTOR_SEEDS:
-        light_comparison_rows[seed] = {}
-        for arm, rows in comparison_rows[seed].items():
-            light_comparison_rows[seed][arm] = {
-                "y": np.asarray(rows["y"], dtype=np.int8),
-                "keys": list(rows["keys"]),
-                "source_seeds": np.asarray(rows["source_seeds"], dtype=np.int64),
-                "scenarios": tuple(rows["scenarios"]),
-                "events": tuple(rows["events"]),
-            }
-    comparison_rows = light_comparison_rows
-    del raw_rows, pooled
 
     secondary = _secondary_streaming_pass(
         fits,
