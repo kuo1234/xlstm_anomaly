@@ -446,6 +446,12 @@ def _audit_patch_binding() -> dict[str, Any]:
         and scope.get("only_approved_scientific_executable_changed") is True
         and scope.get("test_file_is_label_blind_regression_only") is True
     )
+    try:
+        _validate_sealed_scientific_snapshot(patch_audit)
+    except AuditFailure:
+        snapshot_ok = False
+    else:
+        snapshot_ok = True
     return {
         "status": "PASS" if (
             auth.get("original_prelabel_review_seal") == ORIGINAL_SEAL
@@ -453,6 +459,7 @@ def _audit_patch_binding() -> dict[str, Any]:
             and auth.get("quarantined_execution_ledger_sha256") == LEDGER_SHA256
             and patch_audit.get("status") == "PASS"
             and scope_ok
+            and snapshot_ok
             and _sha_file(LEDGER_PATH) == LEDGER_SHA256
         ) else "FAIL",
         "authorization_sha256": _sha_file(AUTH_PATH),
@@ -461,6 +468,7 @@ def _audit_patch_binding() -> dict[str, Any]:
         "patch_audit_status": patch_audit.get("status"),
         "patch_scope_changed_paths": list(changed_paths),
         "patch_scope_ok": scope_ok,
+        "sealed_scientific_snapshot_ok": snapshot_ok,
         "original_prelabel_review_seal": auth.get("original_prelabel_review_seal"),
         "reporting_patch_commit": auth.get("reporting_patch_commit"),
     }
@@ -769,6 +777,22 @@ def _validate_patch_scope(patch_audit: Mapping[str, Any]) -> None:
         raise AuditFailure("reporting patch test scope is not label-blind")
 
 
+def _validate_sealed_scientific_snapshot(patch_audit: Mapping[str, Any]) -> None:
+    """Reject any post-patch drift in the files sealed by the original review."""
+    files = patch_audit.get("audit", {}).get("sealed_scientific_files", {})
+    if not isinstance(files, Mapping) or not files:
+        raise AuditFailure("patch audit lacks a sealed scientific-file snapshot")
+    for relative, details in files.items():
+        if not isinstance(details, Mapping) or details.get("current_matches_patch") is not True:
+            raise AuditFailure(f"patch audit does not prove sealed file parity: {relative}")
+        expected = details.get("patch_sha256")
+        if not isinstance(expected, str) or len(expected) != 64:
+            raise AuditFailure(f"patch audit has no valid sealed hash: {relative}")
+        path = ROOT / str(relative)
+        if not path.is_file() or _sha_file(path) != expected:
+            raise AuditFailure(f"sealed scientific file changed after reporting patch: {relative}")
+
+
 def _validate_reporting_patch_guard_values(
     original_seal: str,
     reporting_patch: str,
@@ -785,6 +809,7 @@ def _validate_reporting_patch_guard_values(
         raise AuditFailure("continuation requires the accepted reporting patch")
     require_cache_reuse_boundary(cache_audit)
     _validate_patch_scope(patch_audit)
+    _validate_sealed_scientific_snapshot(patch_audit)
     if runner_sha256 != _sha_bytes(_git_bytes(REPORTING_PATCH, "scripts/phase_g1_run.py")):
         raise AuditFailure("current runner is not the approved reporting patch")
     if subprocess.run(
@@ -919,6 +944,13 @@ def _run_adversarial_fixtures() -> dict[str, Any]:
     expect_failure(
         "scientific_file_outside_approved_patch",
         lambda: _validate_patch_scope(bad_scope),
+    )
+    bad_snapshot = json.loads(json.dumps(patch_audit))
+    first_sealed_path = next(iter(bad_snapshot["audit"]["sealed_scientific_files"]))
+    bad_snapshot["audit"]["sealed_scientific_files"][first_sealed_path]["patch_sha256"] = "0" * 64
+    expect_failure(
+        "scientific_file_hash_mutation",
+        lambda: _validate_sealed_scientific_snapshot(bad_snapshot),
     )
     expect_failure("wrong_original_seal", lambda: require_reporting_patch_guard("bad", REPORTING_PATCH, {"status": "PASS_CACHE_REUSABLE"}))
     expect_failure("wrong_reporting_patch", lambda: require_reporting_patch_guard(ORIGINAL_SEAL, "bad", {"status": "PASS_CACHE_REUSABLE"}))
