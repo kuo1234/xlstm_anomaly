@@ -1,0 +1,432 @@
+{
+  "ap_or_auroc_computed": false,
+  "bootstrap_or_sign_flip": false,
+  "cache_arrays_decoded": false,
+  "cache_audit_status": "PASS_CACHE_REUSABLE",
+  "expected_inventory_record_count": 120000,
+  "expected_total_primary_cache_chunk_refs": 40000,
+  "holm_or_hypothesis_decision": false,
+  "inventory_path": "reports/phase_g1/g1_cache_file_inventory_v1.jsonl.gz",
+  "inventory_record_count": 120000,
+  "labels_read": false,
+  "old_buggy_cardinality_formula": {
+    "test": {
+      "correct_actual_total": 3200,
+      "old_buggy_expected_total": 160,
+      "rejected": true
+    },
+    "train": {
+      "correct_actual_total": 3200,
+      "old_buggy_expected_total": 160,
+      "rejected": true
+    },
+    "validation": {
+      "correct_actual_total": 1600,
+      "old_buggy_expected_total": 80,
+      "rejected": true
+    }
+  },
+  "old_buggy_cardinality_rejected": true,
+  "per_seed": {
+    "11": {
+      "actual_total": 8000,
+      "expected_total": 8000,
+      "folds": {
+        "test": {
+          "actual_total": 3200,
+          "expected_per_arm_architecture": 200,
+          "expected_total": 3200,
+          "pass": true,
+          "per_arm_architecture": {
+            "candi_history14_lstm": 200,
+            "candi_history14_xlstm": 200,
+            "candi_history_plus_combined248_lstm": 200,
+            "candi_history_plus_combined248_xlstm": 200,
+            "combined234_lstm": 200,
+            "combined234_xlstm": 200,
+            "gate130_lstm": 200,
+            "gate130_xlstm": 200,
+            "hidden52_lstm": 200,
+            "hidden52_xlstm": 200,
+            "history14_lstm": 200,
+            "history14_xlstm": 200,
+            "history_plus_combined248_lstm": 200,
+            "history_plus_combined248_xlstm": 200,
+            "memory52_lstm": 200,
+            "memory52_xlstm": 200
+          }
+        },
+        "train": {
+          "actual_total": 3200,
+          "expected_per_arm_architecture": 200,
+          "expected_total": 3200,
+          "pass": true,
+          "per_arm_architecture": {
+            "candi_history14_lstm": 200,
+            "candi_history14_xlstm": 200,
+            "candi_history_plus_combined248_lstm": 200,
+            "candi_history_plus_combined248_xlstm": 200,
+            "combined234_lstm": 200,
+            "combined234_xlstm": 200,
+            "gate130_lstm": 200,
+            "gate130_xlstm": 200,
+            "hidden52_lstm": 200,
+            "hidden52_xlstm": 200,
+            "history14_lstm": 200,
+            "history14_xlstm": 200,
+            "history_plus_combined248_lstm": 200,
+            "history_plus_combined248_xlstm": 200,
+            "memory52_lstm": 200,
+            "memory52_xlstm": 200
+          }
+        },
+        "validation": {
+          "actual_total": 1600,
+          "expected_per_arm_architecture": 100,
+          "expected_total": 1600,
+          "pass": true,
+          "per_arm_architecture": {
+            "candi_history14_lstm": 100,
+            "candi_history14_xlstm": 100,
+            "candi_history_plus_combined248_lstm": 100,
+            "candi_history_plus_combined248_xlstm": 100,
+            "combined234_lstm": 100,
+            "combined234_xlstm": 100,
+            "gate130_lstm": 100,
+            "gate130_xlstm": 100,
+            "hidden52_lstm": 100,
+            "hidden52_xlstm": 100,
+            "history14_lstm": 100,
+            "history14_xlstm": 100,
+            "history_plus_combined248_lstm": 100,
+            "history_plus_combined248_xlstm": 100,
+            "memory52_lstm": 100,
+            "memory52_xlstm": 100
+          }
+        }
+      },
+      "pass": true
+    },
+    "22": {
+      "actual_total": 8000,
+      "expected_total": 8000,
+      "folds": {
+        "test": {
+          "actual_total": 3200,
+          "expected_per_arm_architecture": 200,
+          "expected_total": 3200,
+          "pass": true,
+          "per_arm_architecture": {
+            "candi_history14_lstm": 200,
+            "candi_history14_xlstm": 200,
+            "candi_history_plus_combined248_lstm": 200,
+            "candi_history_plus_combined248_xlstm": 200,
+            "combined234_lstm": 200,
+            "combined234_xlstm": 200,
+            "gate130_lstm": 200,
+            "gate130_xlstm": 200,
+            "hidden52_lstm": 200,
+            "hidden52_xlstm": 200,
+            "history14_lstm": 200,
+            "history14_xlstm": 200,
+            "history_plus_combined248_lstm": 200,
+            "history_plus_combined248_xlstm": 200,
+            "memory52_lstm": 200,
+            "memory52_xlstm": 200
+          }
+        },
+        "train": {
+          "actual_total": 3200,
+          "expected_per_arm_architecture": 200,
+          "expected_total": 3200,
+          "pass": true,
+          "per_arm_architecture": {
+            "candi_history14_lstm": 200,
+            "candi_history14_xlstm": 200,
+            "candi_history_plus_combined248_lstm": 200,
+            "candi_history_plus_combined248_xlstm": 200,
+            "combined234_lstm": 200,
+            "combined234_xlstm": 200,
+            "gate130_lstm": 200,
+            "gate130_xlstm": 200,
+            "hidden52_lstm": 200,
+            "hidden52_xlstm": 200,
+            "history14_lstm": 200,
+            "history14_xlstm": 200,
+            "history_plus_combined248_lstm": 200,
+            "history_plus_combined248_xlstm": 200,
+            "memory52_lstm": 200,
+            "memory52_xlstm": 200
+          }
+        },
+        "validation": {
+          "actual_total": 1600,
+          "expected_per_arm_architecture": 100,
+          "expected_total": 1600,
+          "pass": true,
+          "per_arm_architecture": {
+            "candi_history14_lstm": 100,
+            "candi_history14_xlstm": 100,
+            "candi_history_plus_combined248_lstm": 100,
+            "candi_history_plus_combined248_xlstm": 100,
+            "combined234_lstm": 100,
+            "combined234_xlstm": 100,
+            "gate130_lstm": 100,
+            "gate130_xlstm": 100,
+            "hidden52_lstm": 100,
+            "hidden52_xlstm": 100,
+            "history14_lstm": 100,
+            "history14_xlstm": 100,
+            "history_plus_combined248_lstm": 100,
+            "history_plus_combined248_xlstm": 100,
+            "memory52_lstm": 100,
+            "memory52_xlstm": 100
+          }
+        }
+      },
+      "pass": true
+    },
+    "33": {
+      "actual_total": 8000,
+      "expected_total": 8000,
+      "folds": {
+        "test": {
+          "actual_total": 3200,
+          "expected_per_arm_architecture": 200,
+          "expected_total": 3200,
+          "pass": true,
+          "per_arm_architecture": {
+            "candi_history14_lstm": 200,
+            "candi_history14_xlstm": 200,
+            "candi_history_plus_combined248_lstm": 200,
+            "candi_history_plus_combined248_xlstm": 200,
+            "combined234_lstm": 200,
+            "combined234_xlstm": 200,
+            "gate130_lstm": 200,
+            "gate130_xlstm": 200,
+            "hidden52_lstm": 200,
+            "hidden52_xlstm": 200,
+            "history14_lstm": 200,
+            "history14_xlstm": 200,
+            "history_plus_combined248_lstm": 200,
+            "history_plus_combined248_xlstm": 200,
+            "memory52_lstm": 200,
+            "memory52_xlstm": 200
+          }
+        },
+        "train": {
+          "actual_total": 3200,
+          "expected_per_arm_architecture": 200,
+          "expected_total": 3200,
+          "pass": true,
+          "per_arm_architecture": {
+            "candi_history14_lstm": 200,
+            "candi_history14_xlstm": 200,
+            "candi_history_plus_combined248_lstm": 200,
+            "candi_history_plus_combined248_xlstm": 200,
+            "combined234_lstm": 200,
+            "combined234_xlstm": 200,
+            "gate130_lstm": 200,
+            "gate130_xlstm": 200,
+            "hidden52_lstm": 200,
+            "hidden52_xlstm": 200,
+            "history14_lstm": 200,
+            "history14_xlstm": 200,
+            "history_plus_combined248_lstm": 200,
+            "history_plus_combined248_xlstm": 200,
+            "memory52_lstm": 200,
+            "memory52_xlstm": 200
+          }
+        },
+        "validation": {
+          "actual_total": 1600,
+          "expected_per_arm_architecture": 100,
+          "expected_total": 1600,
+          "pass": true,
+          "per_arm_architecture": {
+            "candi_history14_lstm": 100,
+            "candi_history14_xlstm": 100,
+            "candi_history_plus_combined248_lstm": 100,
+            "candi_history_plus_combined248_xlstm": 100,
+            "combined234_lstm": 100,
+            "combined234_xlstm": 100,
+            "gate130_lstm": 100,
+            "gate130_xlstm": 100,
+            "hidden52_lstm": 100,
+            "hidden52_xlstm": 100,
+            "history14_lstm": 100,
+            "history14_xlstm": 100,
+            "history_plus_combined248_lstm": 100,
+            "history_plus_combined248_xlstm": 100,
+            "memory52_lstm": 100,
+            "memory52_xlstm": 100
+          }
+        }
+      },
+      "pass": true
+    },
+    "44": {
+      "actual_total": 8000,
+      "expected_total": 8000,
+      "folds": {
+        "test": {
+          "actual_total": 3200,
+          "expected_per_arm_architecture": 200,
+          "expected_total": 3200,
+          "pass": true,
+          "per_arm_architecture": {
+            "candi_history14_lstm": 200,
+            "candi_history14_xlstm": 200,
+            "candi_history_plus_combined248_lstm": 200,
+            "candi_history_plus_combined248_xlstm": 200,
+            "combined234_lstm": 200,
+            "combined234_xlstm": 200,
+            "gate130_lstm": 200,
+            "gate130_xlstm": 200,
+            "hidden52_lstm": 200,
+            "hidden52_xlstm": 200,
+            "history14_lstm": 200,
+            "history14_xlstm": 200,
+            "history_plus_combined248_lstm": 200,
+            "history_plus_combined248_xlstm": 200,
+            "memory52_lstm": 200,
+            "memory52_xlstm": 200
+          }
+        },
+        "train": {
+          "actual_total": 3200,
+          "expected_per_arm_architecture": 200,
+          "expected_total": 3200,
+          "pass": true,
+          "per_arm_architecture": {
+            "candi_history14_lstm": 200,
+            "candi_history14_xlstm": 200,
+            "candi_history_plus_combined248_lstm": 200,
+            "candi_history_plus_combined248_xlstm": 200,
+            "combined234_lstm": 200,
+            "combined234_xlstm": 200,
+            "gate130_lstm": 200,
+            "gate130_xlstm": 200,
+            "hidden52_lstm": 200,
+            "hidden52_xlstm": 200,
+            "history14_lstm": 200,
+            "history14_xlstm": 200,
+            "history_plus_combined248_lstm": 200,
+            "history_plus_combined248_xlstm": 200,
+            "memory52_lstm": 200,
+            "memory52_xlstm": 200
+          }
+        },
+        "validation": {
+          "actual_total": 1600,
+          "expected_per_arm_architecture": 100,
+          "expected_total": 1600,
+          "pass": true,
+          "per_arm_architecture": {
+            "candi_history14_lstm": 100,
+            "candi_history14_xlstm": 100,
+            "candi_history_plus_combined248_lstm": 100,
+            "candi_history_plus_combined248_xlstm": 100,
+            "combined234_lstm": 100,
+            "combined234_xlstm": 100,
+            "gate130_lstm": 100,
+            "gate130_xlstm": 100,
+            "hidden52_lstm": 100,
+            "hidden52_xlstm": 100,
+            "history14_lstm": 100,
+            "history14_xlstm": 100,
+            "history_plus_combined248_lstm": 100,
+            "history_plus_combined248_xlstm": 100,
+            "memory52_lstm": 100,
+            "memory52_xlstm": 100
+          }
+        }
+      },
+      "pass": true
+    },
+    "55": {
+      "actual_total": 8000,
+      "expected_total": 8000,
+      "folds": {
+        "test": {
+          "actual_total": 3200,
+          "expected_per_arm_architecture": 200,
+          "expected_total": 3200,
+          "pass": true,
+          "per_arm_architecture": {
+            "candi_history14_lstm": 200,
+            "candi_history14_xlstm": 200,
+            "candi_history_plus_combined248_lstm": 200,
+            "candi_history_plus_combined248_xlstm": 200,
+            "combined234_lstm": 200,
+            "combined234_xlstm": 200,
+            "gate130_lstm": 200,
+            "gate130_xlstm": 200,
+            "hidden52_lstm": 200,
+            "hidden52_xlstm": 200,
+            "history14_lstm": 200,
+            "history14_xlstm": 200,
+            "history_plus_combined248_lstm": 200,
+            "history_plus_combined248_xlstm": 200,
+            "memory52_lstm": 200,
+            "memory52_xlstm": 200
+          }
+        },
+        "train": {
+          "actual_total": 3200,
+          "expected_per_arm_architecture": 200,
+          "expected_total": 3200,
+          "pass": true,
+          "per_arm_architecture": {
+            "candi_history14_lstm": 200,
+            "candi_history14_xlstm": 200,
+            "candi_history_plus_combined248_lstm": 200,
+            "candi_history_plus_combined248_xlstm": 200,
+            "combined234_lstm": 200,
+            "combined234_xlstm": 200,
+            "gate130_lstm": 200,
+            "gate130_xlstm": 200,
+            "hidden52_lstm": 200,
+            "hidden52_xlstm": 200,
+            "history14_lstm": 200,
+            "history14_xlstm": 200,
+            "history_plus_combined248_lstm": 200,
+            "history_plus_combined248_xlstm": 200,
+            "memory52_lstm": 200,
+            "memory52_xlstm": 200
+          }
+        },
+        "validation": {
+          "actual_total": 1600,
+          "expected_per_arm_architecture": 100,
+          "expected_total": 1600,
+          "pass": true,
+          "per_arm_architecture": {
+            "candi_history14_lstm": 100,
+            "candi_history14_xlstm": 100,
+            "candi_history_plus_combined248_lstm": 100,
+            "candi_history_plus_combined248_xlstm": 100,
+            "combined234_lstm": 100,
+            "combined234_xlstm": 100,
+            "gate130_lstm": 100,
+            "gate130_xlstm": 100,
+            "hidden52_lstm": 100,
+            "hidden52_xlstm": 100,
+            "history14_lstm": 100,
+            "history14_xlstm": 100,
+            "history_plus_combined248_lstm": 100,
+            "history_plus_combined248_xlstm": 100,
+            "memory52_lstm": 100,
+            "memory52_xlstm": 100
+          }
+        }
+      },
+      "pass": true
+    }
+  },
+  "predictions_computed": false,
+  "probe_fitted": false,
+  "status": "PASS",
+  "stopped_before_scientific_metrics": true,
+  "total_primary_cache_chunk_refs": 40000
+}

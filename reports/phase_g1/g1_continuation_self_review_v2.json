@@ -1,0 +1,168 @@
+{
+  "additional_scientific_test_sha256": {
+    "scripts/phase_g1_continuation_dry_run.py": "a5e7f0ca6291c7e91b9c80744435bedc395686a282181bf9aadf9556c159a30a",
+    "tests/test_phase_g1_continuation.py": "95e6e8a2762bba676ed78832a55a3dab563b159ade33f5942aff8438173a1a64"
+  },
+  "ap_or_auroc_computed": false,
+  "cache_reextracted": false,
+  "cardinality_contract": {
+    "all_detector_seeds": 40000,
+    "architectures": 2,
+    "arms": 8,
+    "conditions": 5,
+    "per_detector_seed": 8000,
+    "shifted_scenarios": 4,
+    "test": {
+      "per_arm_architecture": 200,
+      "total": 3200
+    },
+    "train": {
+      "per_arm_architecture": 200,
+      "total": 3200
+    },
+    "validation": {
+      "per_arm_architecture": 100,
+      "total": 1600
+    }
+  },
+  "dry_run": {
+    "cache_arrays_decoded": false,
+    "inventory_record_count": 120000,
+    "labels_read": false,
+    "metrics_computed": false,
+    "old_buggy_cardinality_rejected": true,
+    "path": "reports/phase_g1/g1_continuation_dry_run_v2.json",
+    "per_arm_architecture": {
+      "test": 200,
+      "train": 200,
+      "validation": 100
+    },
+    "per_seed": {
+      "11": {
+        "test": 3200,
+        "total": 8000,
+        "train": 3200,
+        "validation": 1600
+      },
+      "22": {
+        "test": 3200,
+        "total": 8000,
+        "train": 3200,
+        "validation": 1600
+      },
+      "33": {
+        "test": 3200,
+        "total": 8000,
+        "train": 3200,
+        "validation": 1600
+      },
+      "44": {
+        "test": 3200,
+        "total": 8000,
+        "train": 3200,
+        "validation": 1600
+      },
+      "55": {
+        "test": 3200,
+        "total": 8000,
+        "train": 3200,
+        "validation": 1600
+      }
+    },
+    "predictions_computed": false,
+    "probe_fitted": false,
+    "sha256": "5b5d57f94190a66fe62b3557b7574f50d1b3a6ea5a8d821a7c48b05c0444d5df",
+    "status": "PASS",
+    "total_primary_cache_chunk_refs": 40000
+  },
+  "files_inspected": [
+    "scripts/phase_g1_continue_from_cache.py",
+    "scripts/phase_g1_cache_audit.py",
+    "scripts/phase_g1_reporting_patch_audit.py",
+    "scripts/phase_g1_run.py",
+    "scripts/phase_g1_continuation_dry_run.py",
+    "tests/test_phase_g1_continuation.py",
+    "reports/phase_g/g1_execution_ledger.jsonl",
+    "reports/phase_g1/g1_cache_audit_v1.json",
+    "reports/phase_g1/g1_cache_file_inventory_v1.jsonl.gz",
+    "reports/phase_g1/g1_self_review_prelabel_v2.json",
+    "reports/phase_g1/g1_reporting_patch_v1.json",
+    "reports/phase_g1/g1_reporting_patch_audit_v1.json",
+    "reports/phase_g1/g1_cache_replay_sample_v1.json",
+    "reports/phase_g1/g1_postlabel_failure_v1.json",
+    "reports/phase_g1/g1_continuation_self_review_v1.json",
+    "reports/phase_g1/g1_continuation_dry_run_v1.json",
+    "reports/phase_g1/g1_existing_adversarial_tests_v2.log",
+    "reports/phase_g1/g1_continuation_adversarial_tests_v2.log",
+    "reports/phase_g1/g1_cache_audit_fixtures_v3.log",
+    "reports/phase_g1/g1_continuation_dry_run_v2.json"
+  ],
+  "guard_contract_verified": [
+    "explicit --continuation-seal required",
+    "current HEAD must equal supplied review seal",
+    "review verdict and full reviewed implementation SHA validated",
+    "reviewed implementation must be strict ancestor of seal",
+    "current bytes of all four reviewed executables match review hashes",
+    "git-show bytes at reviewed implementation match review hashes",
+    "committed review report bytes match current review-seal commit",
+    "ROOT/cache output constraint checked before inventory/metric path"
+  ],
+  "h2_or_h3a_computed": false,
+  "immutable_artifact_sha256": {
+    "reports/phase_g/g1_execution_ledger.jsonl": "67e6a30d518011e8d06307e7d1b305449b4787602f3bd1701f8989a7dadeab0a",
+    "reports/phase_g1/g1_cache_audit_v1.json": "730744b626bff018c6fd7f7ab72385583d8d091b4cd8642639fa56dfcc2a0c7b",
+    "reports/phase_g1/g1_cache_file_inventory_v1.jsonl.gz": "f9cbfa1a1915ffdb73b8df348b0329dde5b6edf5a5f3c563f60b49e07f783856",
+    "reports/phase_g1/g1_cache_replay_sample_v1.json": "27888a0ab47db7610030d6b77f56c0708257fbc0f24aa574d005882ca2d535ca",
+    "reports/phase_g1/g1_continuation_dry_run_v1.json": "5b5d57f94190a66fe62b3557b7574f50d1b3a6ea5a8d821a7c48b05c0444d5df",
+    "reports/phase_g1/g1_continuation_self_review_v1.json": "e6690f2d76fd6e4944e18a4d629721ad1afa0b58151bda2a281d185b80a3d375",
+    "reports/phase_g1/g1_postlabel_failure_v1.json": "6eddd07affbe8ff869748abe0d52d64deb9ce41dc6e0beb14bc4eeae9150c42b",
+    "reports/phase_g1/g1_reporting_patch_audit_v1.json": "c604c19ce8658b03d68f742fba36b25b9c8d1aba5ebc254960f24fa017bf2dc2",
+    "reports/phase_g1/g1_reporting_patch_v1.json": "025ce284f1182f0ca2b1ceefaa7225d8ea1ec937992dced2175cee5c5f10a3e8",
+    "reports/phase_g1/g1_self_review_prelabel_v2.json": "33a64539da8f60bed282b1d5df514ed9e0abb0bca61deee27e88f8f0a1ab777a"
+  },
+  "implementation_commit_executable_sha256": {
+    "scripts/phase_g1_cache_audit.py": "77189a2e4e8d428a0e5873f52da39583c8bbfd29b1344f24923ff8215cb6de7c",
+    "scripts/phase_g1_continue_from_cache.py": "9c5fe4b6f11dfbefe7dfd71752c39d7996038ea5afbe78583f16622ebbfd84cd",
+    "scripts/phase_g1_reporting_patch_audit.py": "4be4ad515ce553d81d7f11cdb0af47d13a933dbe829829e91fbf6d44fbe2c302",
+    "scripts/phase_g1_run.py": "ff8ab9e56dc9d73bb9acbd796d431e7d502b1e981e15a249257de6e66d2e16d6"
+  },
+  "implementation_diff_from_prior_invalidated_seal": [
+    "M\tscripts/phase_g1_continue_from_cache.py"
+  ],
+  "labels_or_metrics_accessed": false,
+  "prior_defect": "live guard NameError from missing committed-byte SHA helper; no cache or scientific metrics were accessed",
+  "prior_review_seal_invalidated": "205feb5747e38be9bdbef10788808a6fdc3288af",
+  "probe_fitted": false,
+  "review_scope": "exact-commit metric-free adversarial review of corrected G1-R1 continuation implementation v2",
+  "reviewed_commit": "25a67addabf2de30c706824e47e8e280c2ab4ff3",
+  "reviewed_executable_sha256": {
+    "scripts/phase_g1_cache_audit.py": "77189a2e4e8d428a0e5873f52da39583c8bbfd29b1344f24923ff8215cb6de7c",
+    "scripts/phase_g1_continue_from_cache.py": "9c5fe4b6f11dfbefe7dfd71752c39d7996038ea5afbe78583f16622ebbfd84cd",
+    "scripts/phase_g1_reporting_patch_audit.py": "4be4ad515ce553d81d7f11cdb0af47d13a933dbe829829e91fbf6d44fbe2c302",
+    "scripts/phase_g1_run.py": "ff8ab9e56dc9d73bb9acbd796d431e7d502b1e981e15a249257de6e66d2e16d6"
+  },
+  "scientific_path_guarded_before_inventory": true,
+  "tests": {
+    "cache_audit_fixtures": {
+      "count": 10,
+      "log": "reports/phase_g1/g1_cache_audit_fixtures_v3.log",
+      "sha256": "e43d13a6a95eda9a434853ab8fb5d53d131b81ffbf91671b1adff7c705ab8471",
+      "status": "PASS"
+    },
+    "continuation_adversarial": {
+      "count": 13,
+      "log": "reports/phase_g1/g1_continuation_adversarial_tests_v2.log",
+      "sha256": "05429a5ec46fe179b990c83a61f8357da0a4cf53270c9e9a8f575ffa40fb8a4a",
+      "status": "PASS"
+    },
+    "existing_phase_g1_adversarial": {
+      "count": 37,
+      "log": "reports/phase_g1/g1_existing_adversarial_tests_v2.log",
+      "sha256": "34ecbf9cc1f593af6bd6b19d3cd4808afe218ca123ccd15bae1ecbee8ed8d76e",
+      "status": "PASS"
+    },
+    "py_compile": "PASS",
+    "real_inventory_reconstruction": "PASS"
+  },
+  "verdict": "PASS_CONTINUATION_FOR_EXTERNAL_REVIEW"
+}

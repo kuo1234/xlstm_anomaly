@@ -1,0 +1,57 @@
+{
+  "labels_or_metrics_accessed": false,
+  "results": [
+    {
+      "name": "modified_cache_byte",
+      "rejected": true,
+      "status": "PASS"
+    },
+    {
+      "name": "deleted_cache_artifact",
+      "rejected": true,
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate_row_key",
+      "rejected": true,
+      "status": "PASS"
+    },
+    {
+      "name": "changed_checkpoint_hash",
+      "rejected": true,
+      "status": "PASS"
+    },
+    {
+      "name": "scientific_file_outside_approved_patch",
+      "rejected": true,
+      "status": "PASS"
+    },
+    {
+      "name": "scientific_file_hash_mutation",
+      "rejected": true,
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_original_seal",
+      "rejected": true,
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_reporting_patch",
+      "rejected": true,
+      "status": "PASS"
+    },
+    {
+      "name": "cache_reuse_before_pass",
+      "rejected": true,
+      "status": "PASS"
+    },
+    {
+      "name": "unapproved_head",
+      "rejected": true,
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS",
+  "test_count": 10
+}
