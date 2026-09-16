@@ -96,6 +96,17 @@ def _write_json(path: Path, value: Any) -> None:
     path.write_text(json.dumps(value, indent=2, allow_nan=False) + "\n")
 
 
+def _canonical_output_dir(output_dir: Path) -> Path:
+    """Return an absolute output path for repository-relative artifact links.
+
+    Scientific execution accepts a relative output directory, but artifact
+    manifests store paths relative to ROOT.  Canonicalizing once at the
+    boundary keeps that serialization operation reporting-only and avoids
+    calling Path.relative_to() between relative and absolute paths.
+    """
+    return Path(output_dir).expanduser().resolve()
+
+
 def _ledger_append(path: Path, event: str, **fields: Any) -> None:
     """Append an execution-forensics record without exposing evaluator data.
 
@@ -1692,6 +1703,7 @@ def _write_primary_probe_artifacts(
 
 
 def run(prelabel_commit: str, output_dir: Path) -> dict[str, Any]:
+    output_dir = _canonical_output_dir(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     protected = {
         "g1_execution_manifest.json", "g1_probe_manifest.json", "g1_results.json",

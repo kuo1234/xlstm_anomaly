@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "test_count": 36,
+  "test_count": 37,
   "results": [
     {
       "name": "test_all_g1_entrypoints_import_without_label_execution",
@@ -108,6 +108,10 @@
     },
     {
       "name": "test_primary_statistics_require_source_pooled_shape",
+      "status": "PASS"
+    },
+    {
+      "name": "test_relative_output_dir_is_canonicalized_before_manifest_paths",
       "status": "PASS"
     },
     {

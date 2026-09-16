@@ -171,6 +171,14 @@ def test_all_g1_entrypoints_import_without_label_execution():
         __import__(module_name)
 
 
+def test_relative_output_dir_is_canonicalized_before_manifest_paths():
+    runner = __import__("phase_g1_run")
+    relative = Path("reports") / "phase_g1_relative_path_fixture"
+    canonical = runner._canonical_output_dir(relative)
+    assert canonical.is_absolute()
+    assert canonical == (ROOT / relative).resolve()
+
+
 def test_review_provenance_derives_enclosing_seal_without_self_reference():
     pipeline = __import__("phase_g1_pipeline")
     implementation = "a" * 40
