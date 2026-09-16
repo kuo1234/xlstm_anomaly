@@ -1,0 +1,66 @@
+usage: phase_g1_continue_from_cache.py [-h] [--audit-report AUDIT_REPORT]
+                                       [--output-dir OUTPUT_DIR]
+                                       [--allow-cache-continuation]
+                                       --continuation-seal CONTINUATION_SEAL
+phase_g1_continue_from_cache.py: error: the following arguments are required: --continuation-seal
+{
+  "ap_or_auroc_computed": false,
+  "labels_or_metrics_accessed": false,
+  "probe_fitted": false,
+  "results": [
+    {
+      "name": "test_cli_requires_explicit_continuation_seal",
+      "status": "PASS"
+    },
+    {
+      "name": "test_continuation_source_keeps_probe_path_after_guard_only",
+      "status": "PASS"
+    },
+    {
+      "name": "test_correct_cardinality_includes_scenarios_and_conditions",
+      "status": "PASS"
+    },
+    {
+      "name": "test_dry_run_source_has_no_scientific_metric_calls",
+      "status": "PASS"
+    },
+    {
+      "name": "test_exact_review_seal_values_pass",
+      "status": "PASS"
+    },
+    {
+      "name": "test_modified_cache_audit_file_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "test_modified_continuation_file_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "test_old_buggy_cardinality_formula_is_rejected_by_frozen_counts",
+      "status": "PASS"
+    },
+    {
+      "name": "test_output_outside_root_is_rejected_before_metric_path",
+      "status": "PASS"
+    },
+    {
+      "name": "test_review_hash_set_cannot_be_widened_or_shrunk",
+      "status": "PASS"
+    },
+    {
+      "name": "test_review_report_byte_mutation_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "test_unreviewed_descendant_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "test_wrong_or_missing_continuation_seal_is_rejected",
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS",
+  "test_count": 13
+}
