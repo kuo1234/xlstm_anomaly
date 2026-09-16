@@ -619,106 +619,119 @@ def _replay_cache_sample() -> dict[str, Any]:
     candi_controls = pipeline.load_candi_controls()
     expected_prefixes = _expected_primary_prefixes()
     rows: list[dict[str, Any]] = []
-    for seed, source, scenario, condition, architecture in itertools.product(
-        sample["detector_seeds"],
-        sample["source_seeds"],
-        sample["scenarios"],
-        sample["conditions"],
-        sample["architectures"],
-    ):
-        fold = "train" if source < 2000 else "validation" if source < 3000 else "test"
-        stream = runner._generate(source, scenario, condition)
-        observations = np.asarray(stream.observations, dtype=np.float32).copy()
-        timestamps = np.arange(runner.FIRST_COMMON_TIMESTAMP, len(observations), dtype=np.int64)
+    pair_keys: set[tuple[int, int, str, str, str]] = set()
+    for seed in sample["detector_seeds"]:
+        # Loading each frozen backbone once per detector seed avoids 48
+        # repeated deserializations while preserving the sealed model state.
+        backbones = {
+            architecture: pipeline._load_backbone(entries[(int(seed), architecture)])
+            for architecture in sample["architectures"]
+        }
         candi_model, candi_row = candi_controls[int(seed)]
-        candi_history = pipeline.extract_candi_history(candi_model, candi_row, observations, timestamps)
-        per_architecture: dict[str, dict[str, Any]] = {}
-        for current_architecture in sample["architectures"]:
-            model = pipeline._load_backbone(entries[(int(seed), current_architecture)])
-            per_architecture[current_architecture] = runner._observation_then_label(
-                stream, int(seed), current_architecture, model, candi_history
+        for source, scenario, condition in itertools.product(
+            sample["source_seeds"], sample["scenarios"], sample["conditions"]
+        ):
+            fold = "train" if source < 2000 else "validation" if source < 3000 else "test"
+            stream = runner._generate(source, scenario, condition)
+            observations = np.asarray(stream.observations, dtype=np.float32).copy()
+            timestamps = np.arange(runner.FIRST_COMMON_TIMESTAMP, len(observations), dtype=np.int64)
+            candi_history = pipeline.extract_candi_history(candi_model, candi_row, observations, timestamps)
+            per_architecture: dict[str, dict[str, Any]] = {
+                current_architecture: runner._observation_then_label(
+                    stream,
+                    int(seed),
+                    current_architecture,
+                    backbones[current_architecture],
+                    candi_history,
+                )
+                for current_architecture in sample["architectures"]
+            }
+            common_mask = runner.primary_binary_mask(per_architecture["xlstm"], allow_empty=True)
+            for current_architecture in sample["architectures"]:
+                for arm in runner.expected_feature_arms():
+                    values = np.asarray(per_architecture[current_architecture]["groups"][arm], dtype=np.float64)
+                    common_mask &= np.isfinite(values).all(axis=1)
+            for current_architecture in sample["architectures"]:
+                pair_keys.add((int(seed), int(source), str(scenario), str(condition), str(current_architecture)))
+                for arm in runner.expected_feature_arms():
+                    rows_for_arm = runner.select_primary_rows(
+                        per_architecture[current_architecture], arm, common_mask
+                    )
+                    prefix = f"seed{seed}_{fold}_{source}_{scenario}_{condition}_{arm}_{current_architecture}"
+                    if prefix not in expected_prefixes:
+                        raise AuditFailure(f"replay prefix is not in sealed inventory: {prefix}")
+                    npz_path = CACHE_DIR / f"{prefix}.npz"
+                    keys_path = CACHE_DIR / f"{prefix}.keys.json"
+                    with np.load(npz_path, allow_pickle=False) as cached:
+                        cached_X = np.asarray(cached["X"])
+                        cached_y = np.asarray(cached["y"])
+                        cached_sources = np.asarray(cached["source_seeds"])
+                    cached_keys = json.loads(keys_path.read_text())
+                    feature_ok, feature_exact, feature_max, feature_mean = _close_arrays(
+                        rows_for_arm["X"], cached_X
+                    )
+                    score_pass = None
+                    score_exact = None
+                    score_max = None
+                    score_mean = None
+                    internal18_pass = None
+                    internal18_exact = None
+                    internal18_max = None
+                    internal18_mean = None
+                    if arm == "history14":
+                        score_pass, score_exact, score_max, score_mean = _close_arrays(
+                            np.asarray(rows_for_arm["X"], dtype=np.float64)[:, 0],
+                            cached_X[:, 0],
+                        )
+                    if arm == "combined234":
+                        base_columns = np.arange(18, dtype=np.int64) * 13
+                        internal18_pass, internal18_exact, internal18_max, internal18_mean = _close_arrays(
+                            np.asarray(rows_for_arm["X"], dtype=np.float64)[:, base_columns],
+                            cached_X[:, base_columns],
+                        )
+                    candi_history_pass = feature_ok if arm == "candi_history14" else None
+                    labels_equal = np.array_equal(np.asarray(rows_for_arm["y"], dtype=np.int8), cached_y)
+                    keys_equal = rows_for_arm["keys"] == cached_keys
+                    sources_equal = np.array_equal(
+                        np.asarray(rows_for_arm["source_seeds"], dtype=np.int64), cached_sources
+                    )
+                    semantic_checks = [feature_ok, labels_equal, keys_equal, sources_equal]
+                    if score_pass is not None:
+                        semantic_checks.append(score_pass)
+                    if internal18_pass is not None:
+                        semantic_checks.append(internal18_pass)
+                    rows.append({
+                        "detector_seed": int(seed),
+                        "source_seed": int(source),
+                        "fold": fold,
+                        "scenario": scenario,
+                        "condition": condition,
+                        "architecture": current_architecture,
+                        "feature_arm": arm,
+                        "feature_pass": feature_ok,
+                        "feature_bitwise_equal": feature_exact,
+                        "feature_max_abs": feature_max,
+                        "feature_mean_abs": feature_mean,
+                        "reconstruction_score_pass": score_pass,
+                        "reconstruction_score_bitwise_equal": score_exact,
+                        "reconstruction_score_max_abs": score_max,
+                        "reconstruction_score_mean_abs": score_mean,
+                        "internal18_pass": internal18_pass,
+                        "internal18_bitwise_equal": internal18_exact,
+                        "internal18_max_abs": internal18_max,
+                        "internal18_mean_abs": internal18_mean,
+                        "candi_history_pass": candi_history_pass,
+                        "labels_equal": labels_equal,
+                        "keys_equal": keys_equal,
+                        "source_seed_array_equal": sources_equal,
+                        "status": "PASS" if all(semantic_checks) else "FAIL",
+                    })
+            del per_architecture, stream, observations, candi_history
+            print(
+                f"cache replay: seed={seed} source={source} scenario={scenario} condition={condition}",
+                flush=True,
             )
-            del model
-        common_mask = runner.primary_binary_mask(per_architecture["xlstm"], allow_empty=True)
-        for current_architecture in sample["architectures"]:
-            for arm in runner.expected_feature_arms():
-                values = np.asarray(per_architecture[current_architecture]["groups"][arm], dtype=np.float64)
-                common_mask &= np.isfinite(values).all(axis=1)
-        for current_architecture in sample["architectures"]:
-            for arm in runner.expected_feature_arms():
-                rows_for_arm = runner.select_primary_rows(
-                    per_architecture[current_architecture], arm, common_mask
-                )
-                prefix = f"seed{seed}_{fold}_{source}_{scenario}_{condition}_{arm}_{current_architecture}"
-                if prefix not in expected_prefixes:
-                    raise AuditFailure(f"replay prefix is not in sealed inventory: {prefix}")
-                npz_path = CACHE_DIR / f"{prefix}.npz"
-                keys_path = CACHE_DIR / f"{prefix}.keys.json"
-                with np.load(npz_path, allow_pickle=False) as cached:
-                    cached_X = np.asarray(cached["X"])
-                    cached_y = np.asarray(cached["y"])
-                    cached_sources = np.asarray(cached["source_seeds"])
-                cached_keys = json.loads(keys_path.read_text())
-                feature_ok, feature_exact, feature_max, feature_mean = _close_arrays(
-                    rows_for_arm["X"], cached_X
-                )
-                score_pass = None
-                score_exact = None
-                score_max = None
-                score_mean = None
-                internal18_pass = None
-                internal18_exact = None
-                internal18_max = None
-                internal18_mean = None
-                if arm == "history14":
-                    score_pass, score_exact, score_max, score_mean = _close_arrays(
-                        np.asarray(rows_for_arm["X"], dtype=np.float64)[:, 0],
-                        cached_X[:, 0],
-                    )
-                if arm == "combined234":
-                    base_columns = np.arange(18, dtype=np.int64) * 13
-                    internal18_pass, internal18_exact, internal18_max, internal18_mean = _close_arrays(
-                        np.asarray(rows_for_arm["X"], dtype=np.float64)[:, base_columns],
-                        cached_X[:, base_columns],
-                    )
-                candi_history_pass = feature_ok if arm == "candi_history14" else None
-                labels_equal = np.array_equal(np.asarray(rows_for_arm["y"], dtype=np.int8), cached_y)
-                keys_equal = rows_for_arm["keys"] == cached_keys
-                sources_equal = np.array_equal(
-                    np.asarray(rows_for_arm["source_seeds"], dtype=np.int64), cached_sources
-                )
-                semantic_checks = [feature_ok, labels_equal, keys_equal, sources_equal]
-                if score_pass is not None:
-                    semantic_checks.append(score_pass)
-                if internal18_pass is not None:
-                    semantic_checks.append(internal18_pass)
-                rows.append({
-                    "detector_seed": int(seed),
-                    "source_seed": int(source),
-                    "fold": fold,
-                    "scenario": scenario,
-                    "condition": condition,
-                    "architecture": current_architecture,
-                    "feature_arm": arm,
-                    "feature_pass": feature_ok,
-                    "feature_bitwise_equal": feature_exact,
-                    "feature_max_abs": feature_max,
-                    "feature_mean_abs": feature_mean,
-                    "reconstruction_score_pass": score_pass,
-                    "reconstruction_score_bitwise_equal": score_exact,
-                    "reconstruction_score_max_abs": score_max,
-                    "reconstruction_score_mean_abs": score_mean,
-                    "internal18_pass": internal18_pass,
-                    "internal18_bitwise_equal": internal18_exact,
-                    "internal18_max_abs": internal18_max,
-                    "internal18_mean_abs": internal18_mean,
-                    "candi_history_pass": candi_history_pass,
-                    "labels_equal": labels_equal,
-                    "keys_equal": keys_equal,
-                    "source_seed_array_equal": sources_equal,
-                    "status": "PASS" if all(semantic_checks) else "FAIL",
-                })
-        del per_architecture, stream, observations, candi_history
+        del backbones
         try:
             import torch
 
@@ -726,15 +739,16 @@ def _replay_cache_sample() -> dict[str, Any]:
                 torch.cuda.empty_cache()
         except Exception:
             pass
-        print(
-            f"cache replay: seed={seed} source={source} scenario={scenario} condition={condition}",
-            flush=True,
-        )
     return {
-        "status": "PASS" if len(rows) == 48 and all(row["status"] == "PASS" for row in rows) else "FAIL",
+        "status": "PASS" if (
+            len(pair_keys) == sample["expected_stream_backbone_pairs"]
+            and len(rows) == sample["expected_stream_backbone_pairs"] * len(ARMS)
+            and all(row["status"] == "PASS" for row in rows)
+        ) else "FAIL",
         "sample_sha256": _sha_file(SAMPLE_PATH),
-        "pair_count": len(rows),
-        "failed_pairs": sum(row["status"] != "PASS" for row in rows),
+        "stream_backbone_pair_count": len(pair_keys),
+        "feature_comparison_count": len(rows),
+        "failed_feature_comparisons": sum(row["status"] != "PASS" for row in rows),
         "rows": rows,
         "metric_access": False,
         "probe_fit": False,
