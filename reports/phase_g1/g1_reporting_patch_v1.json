@@ -1,0 +1,75 @@
+{
+  "authorization_type": "G1-R1_POST_LABEL_REPORTING_PATCH",
+  "status": "PENDING_CACHE_AUDIT",
+  "original_implementation_commit": "fe507084b9a1aba0c67a4536c5bb938ea89a4945",
+  "original_prelabel_review_seal": "5622376087aaa97249ff9a055f201b250efbf1c2",
+  "reporting_patch_commit": "2c79cbf62574df498f1c9fd39d1bee9aa495e41a",
+  "incident": "reports/phase_g1/g1_postlabel_failure_v1.json",
+  "quarantined_execution_ledger_sha256": "67e6a30d518011e8d06307e7d1b305449b4787602f3bd1701f8989a7dadeab0a",
+  "changed_files_from_original_prelabel_seal": [
+    {
+      "path": "README.md",
+      "status": "A",
+      "old_sha256": null,
+      "new_sha256": "5a190c296b252da8c10725d015a802385b9afdf016ea2d2f81a5a7318300f8d6",
+      "classification": "documentation"
+    },
+    {
+      "path": "reports/phase_g1/adversarial_tests.json",
+      "status": "M",
+      "old_sha256": "cad01376fd1dc68d00039cfd5814f3eb3c8c985a884650619eeef54f1690c996",
+      "new_sha256": "4ce74c0554127280d19e3eaafdd988c1909ec5d1284303b90275eeeea661d6b8",
+      "classification": "label_blind_test_report"
+    },
+    {
+      "path": "reports/phase_g1/g1_postlabel_amendment_v1.md",
+      "status": "A",
+      "old_sha256": null,
+      "new_sha256": "f5345b1e3cfd4e37549ce7bfcad82712a8d58e512e280e6458e1cfd3097ef743",
+      "classification": "reporting_amendment"
+    },
+    {
+      "path": "reports/phase_g1/g1_postlabel_failure_v1.json",
+      "status": "A",
+      "old_sha256": null,
+      "new_sha256": "6eddd07affbe8ff869748abe0d52d64deb9ce41dc6e0beb14bc4eeae9150c42b",
+      "classification": "incident_record"
+    },
+    {
+      "path": "reports/phase_g1/g1_postlabel_failure_v1.md",
+      "status": "A",
+      "old_sha256": null,
+      "new_sha256": "c4d52d2c68886576211e50d7d64498da708910293014e3846fbef8412b4b3c87",
+      "classification": "incident_record"
+    },
+    {
+      "path": "scripts/phase_g1_run.py",
+      "status": "M",
+      "old_sha256": "3cf878b499f47ba2b890822e27b1d87074000766202047214679828f86295825",
+      "new_sha256": "ff8ab9e56dc9d73bb9acbd796d431e7d502b1e981e15a249257de6e66d2e16d6",
+      "classification": "scientific_executable_reporting_path_only"
+    },
+    {
+      "path": "tests/test_phase_g1.py",
+      "status": "M",
+      "old_sha256": "f43bd8438734f6b21ceb1b716b523594940e4b35dbaca1803f0bd9df227bc26a",
+      "new_sha256": "f877070671367d8989b5aad931b5a1b0eab78bd4e46d65a03cd971c14eaa8582",
+      "classification": "label_blind_regression_test"
+    }
+  ],
+  "scientific_executable_change": {
+    "path": "scripts/phase_g1_run.py",
+    "allowed_change": "canonicalize output_dir once at run entry for repository-relative manifest paths",
+    "scientific_behavior_change": false,
+    "ast_source_diff_audit_required": true
+  },
+  "prelabel_review_file": {
+    "path": "reports/phase_g1/g1_self_review_prelabel_v2.json",
+    "original_seal_sha256": "33a64539da8f60bed282b1d5df514ed9e0abb0bca61deee27e88f8f0a1ab777a",
+    "reporting_patch_sha256": "33a64539da8f60bed282b1d5df514ed9e0abb0bca61deee27e88f8f0a1ab777a",
+    "overwritten": false
+  },
+  "cache_use_authorized": false,
+  "probe_or_metric_execution_authorized": false,
+  "external_red_check_required": true
+}

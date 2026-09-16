@@ -1,0 +1,25 @@
+{
+  "sample_name": "G1-R1 bounded deterministic cache replay v1",
+  "status": "SEALED_BEFORE_CACHE_VALUE_ACCESS",
+  "detector_seeds": [11, 55],
+  "source_seeds": [1000, 2000, 3000],
+  "scenarios": ["abrupt", "correlation"],
+  "conditions": ["none", "mixture"],
+  "architectures": ["xlstm", "lstm"],
+  "selection_order": "detector_seed, source_seed, scenario, condition, architecture",
+  "expected_stream_backbone_pairs": 48,
+  "compare": [
+    "ordered row keys",
+    "evaluator labels",
+    "reconstruction scores",
+    "internal18",
+    "history14",
+    "combined234",
+    "history_plus_combined248",
+    "CANDI history where applicable"
+  ],
+  "metric_access": false,
+  "probe_fit": false,
+  "ap_or_auroc": false,
+  "selection_rule_changed_after_seal": false
+}
