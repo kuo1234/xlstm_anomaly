@@ -1,0 +1,27 @@
+{
+  "reviewed_commit": "bf093c4ebafe8648693834bd3f86c76853f2c615",
+  "status": "PASS_METRIC_FREE_PROVENANCE",
+  "cache_audit_status": "PASS_CACHE_REUSABLE",
+  "cache_arrays_opened": false,
+  "cache_modified": false,
+  "labels_or_metrics_accessed": false,
+  "probe_fit": false,
+  "ap_or_auroc_computed": false,
+  "continuation_started": false,
+  "scientific_output_manifest_present": false,
+  "immutable_provenance_sha256": {
+    "reports/phase_g1/g1_cache_audit_v1.json": "730744b626bff018c6fd7f7ab72385583d8d091b4cd8642639fa56dfcc2a0c7b",
+    "reports/phase_g1/g1_cache_file_inventory_v1.jsonl.gz": "f9cbfa1a1915ffdb73b8df348b0329dde5b6edf5a5f3c563f60b49e07f783856",
+    "reports/phase_g1/g1_postlabel_failure_v1.json": "6eddd07affbe8ff869748abe0d52d64deb9ce41dc6e0beb14bc4eeae9150c42b",
+    "reports/phase_g1/g1_reporting_patch_v1.json": "025ce284f1182f0ca2b1ceefaa7225d8ea1ec937992dced2175cee5c5f10a3e8",
+    "reports/phase_g1/g1_reporting_patch_audit_v1.json": "c604c19ce8658b03d68f742fba36b25b9c8d1aba5ebc254960f24fa017bf2dc2",
+    "reports/phase_g/g1_execution_ledger.jsonl": "67e6a30d518011e8d06307e7d1b305449b4787602f3bd1701f8989a7dadeab0a"
+  },
+  "verification": {
+    "cache_integrity": "PASS",
+    "bounded_replay": "PASS",
+    "authorization_scope": "PASS",
+    "scientific_file_seal": "PASS",
+    "read_only_contract": "PASS"
+  }
+}

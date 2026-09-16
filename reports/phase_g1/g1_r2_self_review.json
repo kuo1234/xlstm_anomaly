@@ -1,0 +1,81 @@
+{
+  "reviewed_commit": "bf093c4ebafe8648693834bd3f86c76853f2c615",
+  "verdict": "PASS_RECOVERED_POSTRUN_AUDIT_FOR_EXTERNAL_REVIEW",
+  "scope": "exact-commit adversarial review of recovered-cache post-run auditor",
+  "labels_or_metrics_accessed": false,
+  "primary_cache_arrays_opened": false,
+  "probe_fit": false,
+  "ap_or_auroc_computed": false,
+  "bootstrap_or_sign_flip_computed": false,
+  "h2_or_h3a_computed": false,
+  "optimizer_steps": false,
+  "files_inspected": {
+    "scripts/phase_g1_postrun_audit_recovered.py": "b847d622c85279894574787d823396b26eedd5eac1ee60cd2dc568b8a87560b1",
+    "tests/test_phase_g1_postrun_audit_recovered.py": "8dfddb28126ca352a8d5b7465ea55a7843d5481bd9628fbc7ba6336445397647",
+    "scripts/phase_g1_postrun_audit.py": "d84ccbcb360b4acd0d40b2a0ce1fc4fb4bdde8cc968804f67e1e5234fc3e155e",
+    "scripts/phase_g1_continue_from_cache.py": "9c5fe4b6f11dfbefe7dfd71752c39d7996038ea5afbe78583f16622ebbfd84cd",
+    "scripts/phase_g1_cache_audit.py": "77189a2e4e8d428a0e5873f52da39583c8bbfd29b1344f24923ff8215cb6de7c",
+    "scripts/phase_g1_reporting_patch_audit.py": "4be4ad515ce553d81d7f11cdb0af47d13a933dbe829829e91fbf6d44fbe2c302",
+    "scripts/phase_g1_run.py": "ff8ab9e56dc9d73bb9acbd796d431e7d502b1e981e15a249257de6e66d2e16d6",
+    "configs/phase_g1.json": "ad1ab81ef7178608408c592e769123dbcf9c661da78caaa6a4bfd14d5e93a21b",
+    "reports/phase_g1/g1_continuation_self_review_v2.json": "08c06f74e15c315854da5e60a44306a3af6897238ade0852d4a09ffcfe876294",
+    "reports/phase_g1/g1_cache_audit_v1.json": "730744b626bff018c6fd7f7ab72385583d8d091b4cd8642639fa56dfcc2a0c7b",
+    "reports/phase_g1/g1_cache_file_inventory_v1.jsonl.gz": "f9cbfa1a1915ffdb73b8df348b0329dde5b6edf5a5f3c563f60b49e07f783856",
+    "reports/phase_g1/g1_postlabel_failure_v1.json": "6eddd07affbe8ff869748abe0d52d64deb9ce41dc6e0beb14bc4eeae9150c42b",
+    "reports/phase_g1/g1_reporting_patch_v1.json": "025ce284f1182f0ca2b1ceefaa7225d8ea1ec937992dced2175cee5c5f10a3e8",
+    "reports/phase_g1/g1_reporting_patch_audit_v1.json": "c604c19ce8658b03d68f742fba36b25b9c8d1aba5ebc254960f24fa017bf2dc2",
+    "reports/phase_g/g1_execution_ledger.jsonl": "67e6a30d518011e8d06307e7d1b305449b4787602f3bd1701f8989a7dadeab0a"
+  },
+  "continuation_review_binding": {
+    "reviewed_implementation": "25a67addabf2de30c706824e47e8e280c2ab4ff3",
+    "review_verdict": "PASS_CONTINUATION_FOR_EXTERNAL_REVIEW",
+    "implementation_is_ancestor_of_review_seal": true,
+    "reviewed_executable_hashes_match_current_and_implementation": true,
+    "reviewed_executable_hashes_match_execution_seal": true,
+    "reviewed_executable_paths": [
+      "scripts/phase_g1_continue_from_cache.py",
+      "scripts/phase_g1_cache_audit.py",
+      "scripts/phase_g1_reporting_patch_audit.py",
+      "scripts/phase_g1_run.py"
+    ]
+  },
+  "protocol_to_code": [
+    {"requirement": "two-seal recovered lineage", "verification": "_validate_recovered_lineage_values plus continuation guard", "status": "PASS"},
+    {"requirement": "execution code is continuation script; runner remains reporting-patch hash", "verification": "manifest code hash and accepted runner hash checks", "status": "PASS"},
+    {"requirement": "accepted cache provenance and read-only use", "verification": "five exact hashes, cache audit PASS_CACHE_REUSABLE, read-only authorization", "status": "PASS"},
+    {"requirement": "resolved duration/severity protocol", "verification": "configs/phase_g1.json status and protected scientific-file hash", "status": "PASS"},
+    {"requirement": "full scientific audit from primitive artifacts", "verification": "probe replay, AP, source/scenario effects, bootstrap, sign-flip, Holm, robustness, semantic control and Boolean recomputation paths", "status": "PASS"},
+    {"requirement": "old auditor top-level must not be called", "verification": "AST scan found no ordinary.audit call", "status": "PASS"},
+    {"requirement": "cache and continuation must not run during audit review", "verification": "AST/static checks and fixture-only tests; no continuation invocation", "status": "PASS"}
+  ],
+  "adversarial_tests": [
+    {"fixture": "normal Stage-C lineage", "expected": "reject", "status": "PASS"},
+    {"fixture": "wrong original pre-label seal", "expected": "reject", "status": "PASS"},
+    {"fixture": "wrong continuation seal or manifest execution commit", "expected": "reject", "status": "PASS"},
+    {"fixture": "current HEAD mismatch", "expected": "reject", "status": "PASS"},
+    {"fixture": "continuation, runner, or seal executable hash drift", "expected": "reject", "status": "PASS"},
+    {"fixture": "scientific-file/config hash drift", "expected": "reject", "status": "PASS"},
+    {"fixture": "cache audit/inventory hash drift", "expected": "reject", "status": "PASS"},
+    {"fixture": "read-only or reporting authorization scope drift", "expected": "reject", "status": "PASS"},
+    {"fixture": "tampered prediction primitive", "expected": "reject", "status": "PASS"},
+    {"fixture": "altered AP/statistic/decision summary", "expected": "reject", "status": "PASS"},
+    {"fixture": "ordinary auditor invocation", "expected": "no call", "status": "PASS"}
+  ],
+  "test_summary": {
+    "new_recovered_audit_tests": 12,
+    "continuation_tests": 13,
+    "original_phase_g1_adversarial_tests": 37,
+    "total_fixture_tests": 62,
+    "all_passed": true,
+    "py_compile": "PASS",
+    "cache_provenance_metadata_check": "PASS_CACHE_REUSABLE",
+    "scientific_file_seal_check": "PASS"
+  },
+  "unresolved_ambiguities": [],
+  "post_label_result_read": false,
+  "review_notes": [
+    "The old scripts/phase_g1_postrun_audit.py remains immutable and is used only through pure helpers.",
+    "The five accepted cache/provenance reports were rehashed as metadata; primary cache arrays were not opened.",
+    "No recovered G1 output manifest exists yet, so no scientific result was audited or interpreted."
+  ]
+}

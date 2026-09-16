@@ -1,0 +1,32 @@
+G1-R2 exact-commit metric-free test log
+reviewed_commit=bf093c4ebafe8648693834bd3f86c76853f2c615
+
+python3 -m py_compile scripts/phase_g1_postrun_audit_recovered.py tests/test_phase_g1_postrun_audit_recovered.py
+status=PASS
+
+Fixture runner:
+tests/test_phase_g1.py: 37 PASS
+tests/test_phase_g1_continuation.py: 13 PASS
+tests/test_phase_g1_postrun_audit_recovered.py: 12 PASS
+total=62 PASS
+
+scripts/phase_g1_adversarial.py
+status=PASS test_count=37
+
+Metric-free provenance checks:
+cache_audit_status=PASS_CACHE_REUSABLE
+scientific_file_seal_status=PASS
+primary_cache_arrays_opened=false
+labels_or_metrics_accessed=false
+probe_fit=false
+ap_or_auroc_computed=false
+bootstrap_or_sign_flip_computed=false
+h2_or_h3a_computed=false
+optimizer_steps=false
+
+AST checks:
+ordinary_top_level_audit_calls=0
+continuation_execution_invocations=0
+
+Expected argparse error from the negative test requiring
+--continuation-seal was observed and treated as PASS.
