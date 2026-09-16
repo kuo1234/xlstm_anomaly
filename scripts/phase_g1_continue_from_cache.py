@@ -3,10 +3,10 @@
 The original G1 process completed the observation/label extraction boundary
 for every stream but failed while serialising its primary-cache manifest.  This
 entrypoint is deliberately separate from ``phase_g1_run.py``: it can only be
-enabled with the accepted post-label reporting-patch authorization and a
-``PASS_CACHE_REUSABLE`` audit.  It reconstructs immutable cache references and
-then executes the original probe/statistics path, without re-extracting the
-2,625 streams.
+enabled with the accepted post-label reporting-patch authorization, the exact
+report-only continuation review seal and a ``PASS_CACHE_REUSABLE`` audit.  It
+reconstructs immutable cache references and then executes the original
+probe/statistics path, without re-extracting the 2,625 streams.
 
 This file is not invoked by default.  It must never write to the quarantined
 cache directory; all newly created artifacts go below an explicitly empty
@@ -19,7 +19,9 @@ import gzip
 import hashlib
 import itertools
 import json
+import re
 import sys
+import subprocess
 from pathlib import Path
 from typing import Any, Mapping
 
@@ -40,6 +42,14 @@ CACHE_AUDIT_SHA256 = "730744b626bff018c6fd7f7ab72385583d8d091b4cd8642639fa56dfcc
 INVENTORY_SHA256 = "f9cbfa1a1915ffdb73b8df348b0329dde5b6edf5a5f3c563f60b49e07f783856"
 ORIGINAL_SEAL = audit.ORIGINAL_SEAL
 REPORTING_PATCH = audit.REPORTING_PATCH
+CONTINUATION_REVIEW_PATH = REPORT_DIR / "g1_continuation_self_review_v1.json"
+CONTINUATION_REVIEW_VERDICT = "PASS_CONTINUATION_FOR_EXTERNAL_REVIEW"
+CONTINUATION_REVIEWED_EXECUTABLES = (
+    "scripts/phase_g1_continue_from_cache.py",
+    "scripts/phase_g1_cache_audit.py",
+    "scripts/phase_g1_reporting_patch_audit.py",
+    "scripts/phase_g1_run.py",
+)
 
 EXPECTED_DIMS = {
     "history14": 14,
@@ -63,6 +73,121 @@ PROTECTED_OUTPUTS = {
 
 class ContinuationFailure(RuntimeError):
     """Raised when the post-label continuation contract is not satisfied."""
+
+
+def _git_bytes(commit: str, relative: str) -> bytes:
+    """Read one committed file without consulting the working tree."""
+    try:
+        return subprocess.check_output(
+            ["git", "show", f"{commit}:{relative}"],
+            cwd=ROOT,
+            stderr=subprocess.STDOUT,
+        )
+    except (OSError, subprocess.CalledProcessError) as exc:
+        raise ContinuationFailure(f"cannot read reviewed file {commit}:{relative}") from exc
+
+
+def _git_head() -> str:
+    try:
+        return subprocess.check_output(
+            ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True
+        ).strip()
+    except (OSError, subprocess.CalledProcessError) as exc:
+        raise ContinuationFailure("cannot resolve current HEAD") from exc
+
+
+def _is_full_commit_sha(value: Any) -> bool:
+    return isinstance(value, str) and re.fullmatch(r"[0-9a-f]{40}", value) is not None
+
+
+def _validate_continuation_review_values(
+    supplied_seal: Any,
+    current_head: str,
+    review: Mapping[str, Any],
+    current_executable_sha256: Mapping[str, str],
+    implementation_executable_sha256: Mapping[str, str],
+    *,
+    implementation_is_ancestor: bool,
+    committed_review_matches: bool,
+) -> None:
+    """Pure fail-closed checks for the exact continuation review seal.
+
+    Keeping the value checks separate makes deliberate seal/hash mutations
+    testable without touching the immutable cache or invoking the scientific
+    continuation path.
+    """
+    if not _is_full_commit_sha(supplied_seal):
+        raise ContinuationFailure("continuation requires an explicit full review-seal SHA")
+    if current_head != supplied_seal:
+        raise ContinuationFailure("current HEAD does not equal --continuation-seal")
+    if not committed_review_matches:
+        raise ContinuationFailure("continuation review report is not the committed review-seal bytes")
+    if review.get("verdict") != CONTINUATION_REVIEW_VERDICT:
+        raise ContinuationFailure("continuation review verdict is not PASS_CONTINUATION_FOR_EXTERNAL_REVIEW")
+    reviewed_commit = review.get("reviewed_commit")
+    if not _is_full_commit_sha(reviewed_commit):
+        raise ContinuationFailure("continuation review lacks a full reviewed implementation SHA")
+    if reviewed_commit == supplied_seal:
+        raise ContinuationFailure("reviewed implementation and report-only seal must be distinct commits")
+    if not implementation_is_ancestor:
+        raise ContinuationFailure("reviewed continuation implementation is not an ancestor of the review seal")
+    expected_paths = set(CONTINUATION_REVIEWED_EXECUTABLES)
+    reviewed_hashes = review.get("reviewed_executable_sha256")
+    if not isinstance(reviewed_hashes, Mapping) or set(reviewed_hashes) != expected_paths:
+        raise ContinuationFailure("continuation review executable hash set is incomplete or widened")
+    if set(current_executable_sha256) != expected_paths or set(implementation_executable_sha256) != expected_paths:
+        raise ContinuationFailure("continuation executable hash snapshot has unexpected paths")
+    for relative in CONTINUATION_REVIEWED_EXECUTABLES:
+        expected = reviewed_hashes.get(relative)
+        if not isinstance(expected, str) or not re.fullmatch(r"[0-9a-f]{64}", expected):
+            raise ContinuationFailure(f"invalid reviewed executable hash: {relative}")
+        if current_executable_sha256.get(relative) != expected:
+            raise ContinuationFailure(f"current executable differs from reviewed bytes: {relative}")
+        if implementation_executable_sha256.get(relative) != expected:
+            raise ContinuationFailure(f"implementation commit differs from reviewed bytes: {relative}")
+
+
+def require_continuation_review_seal(supplied_seal: Any) -> Mapping[str, Any]:
+    """Require the exact report-only seal before reading cache references."""
+    current_head = _git_head()
+    if not _is_full_commit_sha(supplied_seal):
+        raise ContinuationFailure("continuation requires an explicit full review-seal SHA")
+    if current_head != supplied_seal:
+        raise ContinuationFailure("current HEAD does not equal --continuation-seal")
+    if not CONTINUATION_REVIEW_PATH.is_file():
+        raise ContinuationFailure(f"missing continuation self-review: {CONTINUATION_REVIEW_PATH}")
+    try:
+        review_bytes = CONTINUATION_REVIEW_PATH.read_bytes()
+        review = json.loads(review_bytes)
+    except (OSError, json.JSONDecodeError) as exc:
+        raise ContinuationFailure("continuation self-review is unreadable") from exc
+    committed_review_bytes = _git_bytes(supplied_seal, str(CONTINUATION_REVIEW_PATH.relative_to(ROOT)))
+    current_hashes = {
+        relative: _sha_file(ROOT / relative) for relative in CONTINUATION_REVIEWED_EXECUTABLES
+    }
+    reviewed_commit = review.get("reviewed_commit") if isinstance(review, Mapping) else None
+    implementation_hashes = {
+        relative: _sha_bytes(_git_bytes(str(reviewed_commit), relative))
+        for relative in CONTINUATION_REVIEWED_EXECUTABLES
+    } if _is_full_commit_sha(reviewed_commit) else {}
+    implementation_is_ancestor = False
+    if _is_full_commit_sha(reviewed_commit):
+        implementation_is_ancestor = subprocess.run(
+            ["git", "merge-base", "--is-ancestor", str(reviewed_commit), supplied_seal],
+            cwd=ROOT,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        ).returncode == 0
+    _validate_continuation_review_values(
+        supplied_seal,
+        current_head,
+        review if isinstance(review, Mapping) else {},
+        current_hashes,
+        implementation_hashes,
+        implementation_is_ancestor=implementation_is_ancestor,
+        committed_review_matches=review_bytes == committed_review_bytes,
+    )
+    return review
 
 
 def _sha_file(path: Path) -> str:
@@ -129,6 +254,68 @@ def _cache_ref(prefix: str, records: Mapping[str, Mapping[str, Any]]) -> dict[st
     return refs
 
 
+def expected_primary_ref_cardinality(fold: str) -> dict[str, int]:
+    """Return the frozen cache-ref counts for one source fold."""
+    source_count = next(
+        (len(sources) for current_fold, sources in audit.FOLDS if current_fold == fold),
+        None,
+    )
+    if source_count is None:
+        raise ContinuationFailure(f"unknown cache fold: {fold}")
+    chunks_per_arm_architecture = source_count * len(audit.SHIFTED_SCENARIOS) * len(audit.CONDITIONS)
+    total = chunks_per_arm_architecture * len(audit.ARMS) * len(audit.ARCHITECTURES)
+    return {
+        "source_count": int(source_count),
+        "scenario_count": int(len(audit.SHIFTED_SCENARIOS)),
+        "condition_count": int(len(audit.CONDITIONS)),
+        "arm_count": int(len(audit.ARMS)),
+        "architecture_count": int(len(audit.ARCHITECTURES)),
+        "per_arm_architecture": int(chunks_per_arm_architecture),
+        "total": int(total),
+    }
+
+
+def validate_primary_cache_ref_cardinality(
+    refs: Mapping[int, Mapping[str, Mapping[str, list[dict[str, Any]]]]],
+) -> dict[str, Any]:
+    """Validate every frozen seed/fold/arm/architecture cache-ref count."""
+    expected_names = {f"{arm}_{arch}" for arm in audit.ARMS for arch in audit.ARCHITECTURES}
+    summary: dict[str, Any] = {"per_seed": {}}
+    grand_total = 0
+    for seed in audit.DETECTOR_SEEDS:
+        per_fold: dict[str, Any] = {}
+        seed_total = 0
+        for fold, _sources in audit.FOLDS:
+            grouped = refs[int(seed)][str(fold)]
+            expected = expected_primary_ref_cardinality(str(fold))
+            if set(grouped) != expected_names:
+                raise ContinuationFailure(f"cache reference arms incomplete: {seed}/{fold}")
+            per_arm_counts = {name: len(grouped[name]) for name in sorted(grouped)}
+            if any(count != expected["per_arm_architecture"] for count in per_arm_counts.values()):
+                raise ContinuationFailure(f"cache reference per-arm cardinality mismatch: {seed}/{fold}")
+            actual_total = sum(per_arm_counts.values())
+            if actual_total != expected["total"]:
+                raise ContinuationFailure(
+                    f"cache reference cardinality mismatch: {seed}/{fold}; "
+                    f"expected {expected['total']}, observed {actual_total}"
+                )
+            per_fold[str(fold)] = {
+                **expected,
+                "actual_total": int(actual_total),
+                "per_arm_architecture_actual": per_arm_counts,
+            }
+            seed_total += actual_total
+        if seed_total != 8000:
+            raise ContinuationFailure(f"cache reference per-seed cardinality mismatch: {seed}")
+        per_fold["total"] = int(seed_total)
+        summary["per_seed"][str(seed)] = per_fold
+        grand_total += seed_total
+    if grand_total != 40000:
+        raise ContinuationFailure(f"cache reference global cardinality mismatch: {grand_total}")
+    summary["total_primary_cache_chunk_refs"] = int(grand_total)
+    return summary
+
+
 def reconstruct_primary_cache_refs(records: Mapping[str, Mapping[str, Any]]) -> dict[int, dict[str, dict[str, list[dict[str, Any]]]]]:
     """Rebuild the original seed/fold/arm grouping using absolute paths."""
     refs: dict[int, dict[str, dict[str, list[dict[str, Any]]]]] = {
@@ -139,16 +326,7 @@ def reconstruct_primary_cache_refs(records: Mapping[str, Mapping[str, Any]]) -> 
         seed, fold, _source, _scenario, _condition, arm, architecture = identity
         name = f"{arm}_{architecture}"
         refs[int(seed)][str(fold)].setdefault(name, []).append(_cache_ref(prefix, records))
-    expected_arms = len(audit.ARMS) * len(audit.ARCHITECTURES)
-    for seed in audit.DETECTOR_SEEDS:
-        for fold, _sources in audit.FOLDS:
-            grouped = refs[seed][fold]
-            if sum(len(value) for value in grouped.values()) != expected_arms * len(
-                tuple(source for f, sources in audit.FOLDS if f == fold for source in sources)
-            ):
-                raise ContinuationFailure(f"cache reference cardinality mismatch: {seed}/{fold}")
-            if set(grouped) != {f"{arm}_{arch}" for arm in audit.ARMS for arch in audit.ARCHITECTURES}:
-                raise ContinuationFailure(f"cache reference arms incomplete: {seed}/{fold}")
+    validate_primary_cache_ref_cardinality(refs)
     return refs
 
 
@@ -241,9 +419,7 @@ def _write_reconstructed_outputs(
     audit_report: Mapping[str, Any],
 ) -> dict[str, Any]:
     """Run the original post-extraction fitting/statistics path unchanged."""
-    output_dir = Path(output_dir).expanduser().resolve()
-    if output_dir == audit.CACHE_DIR or audit.CACHE_DIR in output_dir.parents:
-        raise ContinuationFailure("continuation output may not be inside the read-only primary cache")
+    output_dir = _canonical_continuation_output_dir(output_dir)
     output_dir.mkdir(parents=True, exist_ok=False)
     if any((output_dir / name).exists() for name in PROTECTED_OUTPUTS):
         raise ContinuationFailure("continuation output already contains protected artifacts")
@@ -493,8 +669,24 @@ def _write_reconstructed_outputs(
     return decision
 
 
-def continue_from_cache(audit_report_path: Path, output_dir: Path) -> dict[str, Any]:
+def _canonical_continuation_output_dir(output_dir: Path) -> Path:
+    """Canonicalize and constrain continuation outputs before cache access."""
+    canonical = Path(output_dir).expanduser().resolve()
+    if canonical == ROOT or ROOT not in canonical.parents:
+        raise ContinuationFailure("continuation output must be a strict descendant of repository ROOT")
+    if canonical == audit.CACHE_DIR or audit.CACHE_DIR in canonical.parents:
+        raise ContinuationFailure("continuation output may not be inside the read-only primary cache")
+    return canonical
+
+
+def continue_from_cache(
+    audit_report_path: Path,
+    output_dir: Path,
+    continuation_seal: str,
+) -> dict[str, Any]:
     """Verify the post-label exception and execute only after the cache gate."""
+    _canonical_continuation_output_dir(output_dir)
+    require_continuation_review_seal(continuation_seal)
     _assert_digest(audit_report_path, CACHE_AUDIT_SHA256, "cache audit report")
     audit_report = _json(audit_report_path)
     audit.require_reporting_patch_guard(ORIGINAL_SEAL, REPORTING_PATCH, audit_report)
@@ -516,11 +708,16 @@ def main() -> None:
         action="store_true",
         help="required explicit acknowledgement; still subject to all immutable guards",
     )
+    parser.add_argument(
+        "--continuation-seal",
+        required=True,
+        help="exact report-only continuation review-seal commit SHA",
+    )
     args = parser.parse_args()
     if not args.allow_cache_continuation:
         raise SystemExit("refusing continuation without --allow-cache-continuation")
     try:
-        decision = continue_from_cache(args.audit_report.resolve(), args.output_dir)
+        decision = continue_from_cache(args.audit_report.resolve(), args.output_dir, args.continuation_seal)
     except Exception as exc:
         raise SystemExit(f"FAIL_CLOSED: {type(exc).__name__}: {exc}") from exc
     print(json.dumps({"status": "CONTINUATION_COMPLETE", "decision": decision}, sort_keys=True))
