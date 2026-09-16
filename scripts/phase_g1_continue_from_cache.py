@@ -42,7 +42,7 @@ CACHE_AUDIT_SHA256 = "730744b626bff018c6fd7f7ab72385583d8d091b4cd8642639fa56dfcc
 INVENTORY_SHA256 = "f9cbfa1a1915ffdb73b8df348b0329dde5b6edf5a5f3c563f60b49e07f783856"
 ORIGINAL_SEAL = audit.ORIGINAL_SEAL
 REPORTING_PATCH = audit.REPORTING_PATCH
-CONTINUATION_REVIEW_PATH = REPORT_DIR / "g1_continuation_self_review_v1.json"
+CONTINUATION_REVIEW_PATH = REPORT_DIR / "g1_continuation_self_review_v2.json"
 CONTINUATION_REVIEW_VERDICT = "PASS_CONTINUATION_FOR_EXTERNAL_REVIEW"
 CONTINUATION_REVIEWED_EXECUTABLES = (
     "scripts/phase_g1_continue_from_cache.py",
@@ -196,6 +196,11 @@ def _sha_file(path: Path) -> str:
         for block in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(block)
     return digest.hexdigest()
+
+
+def _sha_bytes(value: bytes) -> str:
+    """Return the SHA256 digest used for committed-byte comparisons."""
+    return hashlib.sha256(value).hexdigest()
 
 
 def _json(path: Path) -> Any:
