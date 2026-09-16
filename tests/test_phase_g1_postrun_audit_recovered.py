@@ -72,6 +72,7 @@ def _validate(fixture, **changes):
         "review": fixture["review"],
         "current_executable_sha256": fixture["hashes"],
         "implementation_executable_sha256": fixture["implementation_hashes"],
+        "seal_executable_sha256": fixture["hashes"],
         "implementation_is_ancestor": True,
         "code_sha256": fixture["hashes"]["scripts/phase_g1_continue_from_cache.py"],
         "expected_code_sha256": fixture["hashes"]["scripts/phase_g1_continue_from_cache.py"],
@@ -100,6 +101,7 @@ def _cache_fixture():
         "ap_or_auroc": False,
         "cache_integrity": {"status": "PASS", "labels_or_outcome_summary_emitted": False},
         "replay": {"status": "PASS"},
+        "patch_binding": {"status": "PASS", "patch_audit_status": "PASS"},
     }
     authorization = {
         "authorization_type": "G1-R1_POST_LABEL_REPORTING_PATCH",
@@ -150,6 +152,9 @@ def test_continuation_code_and_runner_hash_drift_are_rejected():
         _validate(fixture, code_sha256="2" * 64)
     with pytest.raises(ProtocolViolation):
         _validate(fixture, runner_sha256="2" * 64)
+    bad_seal = dict(fixture["hashes"], **{"scripts/phase_g1_run.py": "2" * 64})
+    with pytest.raises(ProtocolViolation):
+        _validate(fixture, seal_executable_sha256=bad_seal)
 
 
 def test_scientific_file_hash_and_duration_drift_are_rejected():

@@ -35,6 +35,8 @@ from phase_g1_core import (  # noqa: E402
     DETECTOR_SEEDS,
     DURATION_STRATA,
     HOLM_FAMILY_SIZE,
+    HOLM_ALPHA,
+    SIGN_FLIP_SEED,
     SEVERITY_STRATA,
     SHIFTED_SCENARIOS,
     TEST_SOURCES,
@@ -154,6 +156,7 @@ def _validate_recovered_lineage_values(
     review: Mapping[str, Any],
     current_executable_sha256: Mapping[str, str],
     implementation_executable_sha256: Mapping[str, str],
+    seal_executable_sha256: Mapping[str, str] | None = None,
     *,
     implementation_is_ancestor: bool,
     code_sha256: str,
@@ -190,6 +193,8 @@ def _validate_recovered_lineage_values(
         raise ProtocolViolation("continuation reviewed executable hash set is incomplete")
     if set(current_executable_sha256) != expected_paths or set(implementation_executable_sha256) != expected_paths:
         raise ProtocolViolation("continuation executable hash snapshot has unexpected paths")
+    if seal_executable_sha256 is not None and set(seal_executable_sha256) != expected_paths:
+        raise ProtocolViolation("continuation execution-seal executable snapshot has unexpected paths")
     for relative in CONTINUATION_REVIEWED_EXECUTABLES:
         expected = reviewed_hashes.get(relative)
         if not _full_sha(expected, 64):
@@ -198,6 +203,8 @@ def _validate_recovered_lineage_values(
             raise ProtocolViolation(f"current continuation executable changed: {relative}")
         if implementation_executable_sha256.get(relative) != expected:
             raise ProtocolViolation(f"reviewed implementation bytes changed: {relative}")
+        if seal_executable_sha256 is not None and seal_executable_sha256.get(relative) != expected:
+            raise ProtocolViolation(f"execution-seal executable differs from reviewed bytes: {relative}")
     if code_sha256 != expected_code_sha256:
         raise ProtocolViolation("recovered manifest code hash is not phase_g1_continue_from_cache.py")
     if runner_sha256 != expected_runner_sha256:
@@ -229,6 +236,7 @@ def _verify_continuation_review_seal(continuation_seal: str) -> Mapping[str, Any
     reviewed_commit = review.get("reviewed_commit")
     current_hashes = {relative: _sha(ROOT / relative) for relative in CONTINUATION_REVIEWED_EXECUTABLES}
     implementation_hashes = {relative: _sha_bytes(_git_bytes(str(reviewed_commit), relative)) for relative in CONTINUATION_REVIEWED_EXECUTABLES}
+    seal_hashes = {relative: _sha_bytes(_git_bytes(continuation_seal, relative)) for relative in CONTINUATION_REVIEWED_EXECUTABLES}
     if subprocess.run(
         ["git", "merge-base", "--is-ancestor", str(reviewed_commit), continuation_seal],
         cwd=ROOT,
@@ -247,6 +255,7 @@ def _verify_continuation_review_seal(continuation_seal: str) -> Mapping[str, Any
         review,
         current_hashes,
         implementation_hashes,
+        seal_executable_sha256=seal_hashes,
         implementation_is_ancestor=True,
         code_sha256=current_hashes["scripts/phase_g1_continue_from_cache.py"],
         expected_code_sha256=current_hashes["scripts/phase_g1_continue_from_cache.py"],
@@ -300,12 +309,17 @@ def _validate_cache_provenance_values(
         raise ProtocolViolation("reporting authorization ledger hash mismatch")
     if patch_audit.get("status") != "PASS":
         raise ProtocolViolation("reporting-patch scope audit is not PASS")
+    if cache_audit.get("patch_binding", {}).get("status") != "PASS" or cache_audit.get("patch_binding", {}).get("patch_audit_status") != "PASS":
+        raise ProtocolViolation("cache audit patch binding is not PASS")
 
 
 def _verify_cache_provenance(execution: Mapping[str, Any]) -> dict[str, Any]:
     paths = (CACHE_AUDIT_PATH, INVENTORY_PATH, INCIDENT_PATH, AUTH_PATH, PATCH_AUDIT_PATH)
     if any(not path.is_file() for path in paths):
         raise ProtocolViolation("recovered cache provenance artifact is missing")
+    ledger_path = ROOT / "reports/phase_g/g1_execution_ledger.jsonl"
+    if not ledger_path.is_file() or _sha(ledger_path) != LEDGER_SHA256:
+        raise ProtocolViolation("quarantined execution ledger hash mismatch")
     file_sha256 = {str(path.relative_to(ROOT)): _sha(path) for path in paths}
     expected_audit_rel = str(CACHE_AUDIT_PATH.relative_to(ROOT))
     if execution.get("primary_cache_audit") != expected_audit_rel or execution.get("primary_cache_audit_sha256") != CACHE_AUDIT_SHA256:
@@ -343,6 +357,24 @@ def _verify_scientific_file_seal(expected: Mapping[str, str]) -> dict[str, str]:
         if digest != expected.get(relative):
             raise ProtocolViolation(f"sealed scientific file hash drifted: {relative}")
     return current
+
+
+def _verify_decision_markdown(path: Path, decision: Mapping[str, Any]) -> None:
+    """Ensure the human-readable decision is consistent with its JSON twin."""
+    try:
+        text = path.read_text()
+    except OSError as exc:
+        raise ProtocolViolation("recovered decision markdown is unreadable") from exc
+    expected_lines = (
+        f"H2 = {decision.get('H2')}",
+        f"H3a = {decision.get('H3a')}",
+        f"H3b = {decision.get('H3b')}",
+        f"H1_controlled_harm = {decision.get('h1_controlled_harm')}",
+        f"H1_natural_harm = {decision.get('h1_natural_harm')}",
+        f"H1_harm_overall = {decision.get('h1_harm_overall')}",
+    )
+    if any(line not in text for line in expected_lines):
+        raise ProtocolViolation("recovered decision markdown disagrees with decision JSON")
 
 
 def _expected_execution_rows() -> set[tuple[int, int, str, str, str]]:
@@ -456,6 +488,10 @@ def _validate_primary_probe_artifact(
         raise ProtocolViolation(f"primary row-key hash mismatch: {stem}")
     if any(int(key["source_seed"]) not in TEST_SOURCES or str(key["scenario"]) not in SHIFTED_SCENARIOS for key in keys):
         raise ProtocolViolation(f"primary artifact source/scenario mismatch: {stem}")
+    if {str(key["scenario"]) for key in keys} != set(SHIFTED_SCENARIOS):
+        raise ProtocolViolation(f"primary test cohort is not pooled over all shifted scenarios: {stem}")
+    if any(str(key.get("condition")) not in {"none", "spike", "collective", "dependency", "mixture"} for key in keys):
+        raise ProtocolViolation(f"primary test cohort contains an unknown condition: {stem}")
 
     # Numeric probe replay and train-only scaler/C validation.
     replay = ordinary._probe_prediction(artifact, test_x)
@@ -475,9 +511,9 @@ def _validate_primary_probe_artifact(
         train_y = np.asarray(tv["train_y"], dtype=np.int8)
         validation_x = np.asarray(tv["validation_X"], dtype=np.float64)
         validation_y = np.asarray(tv["validation_y"], dtype=np.int8)
-    if train_x.ndim != 2 or train_x.shape[1] != expected_dim or train_y.shape != (train_x.shape[0],) or not np.isin(train_y, [0, 1]).all():
+    if train_x.ndim != 2 or train_x.shape[1] != expected_dim or train_y.shape != (train_x.shape[0],) or not np.isfinite(train_x).all() or not np.isin(train_y, [0, 1]).all():
         raise ProtocolViolation(f"training probe arrays malformed: {stem}")
-    if validation_x.ndim != 2 or validation_x.shape[1] != expected_dim or validation_y.shape != (validation_x.shape[0],) or not np.isin(validation_y, [0, 1]).all():
+    if validation_x.ndim != 2 or validation_x.shape[1] != expected_dim or validation_y.shape != (validation_x.shape[0],) or not np.isfinite(validation_x).all() or not np.isin(validation_y, [0, 1]).all():
         raise ProtocolViolation(f"validation probe arrays malformed: {stem}")
     train_keys_path = ROOT / artifact["train_keys"]
     validation_keys_path = ROOT / artifact["validation_keys"]
@@ -495,6 +531,8 @@ def _validate_primary_probe_artifact(
         raise ProtocolViolation(f"training fold leakage: {stem}")
     if any(int(key["source_seed"]) not in range(2000, 2005) for key in validation_keys):
         raise ProtocolViolation(f"validation fold leakage: {stem}")
+    if {str(key.get("scenario")) for key in train_keys} != set(SHIFTED_SCENARIOS) or {str(key.get("scenario")) for key in validation_keys} != set(SHIFTED_SCENARIOS):
+        raise ProtocolViolation(f"train/validation probe is not pooled over all shifted scenarios: {stem}")
     scaler = artifact["scaler"]
     mean = train_x.mean(axis=0)
     scale = train_x.std(axis=0, ddof=0)
@@ -522,7 +560,7 @@ def _validate_primary_probe_artifact(
         if not prediction_meta:
             raise ProtocolViolation(f"missing validation prediction: {stem}/C={c_value}")
         validation_prediction = _load_hashed_array(prediction_meta["path"], prediction_meta["sha256"]).astype(np.float64)
-        if validation_prediction.shape != validation_labels.shape:
+        if validation_prediction.shape != validation_labels.shape or not np.isfinite(validation_prediction).all():
             raise ProtocolViolation(f"validation prediction shape mismatch: {stem}/C={c_value}")
         ap = ordinary._ap(validation_labels, validation_prediction)
         _assert_close_reported(f"validation AP {stem}/C={c_value}", ap, candidate["ap"])
@@ -616,8 +654,21 @@ def _scientific_audit(
         try:
             x_control = _load_hashed_array(control["x_path"], control["x_sha256"])
             l_control = _load_hashed_array(control["l_path"], control["l_sha256"])
+            x_art = artifacts[f"seed{seed}_candi_history14_xlstm"]
+            l_art = artifacts[f"seed{seed}_candi_history14_lstm"]
+            x_keys = json.loads((ROOT / x_art["keys"]).read_text())
+            l_keys = json.loads((ROOT / l_art["keys"]).read_text())
             if x_control.shape != tuple(control["shape"]) or x_control.ndim != 2 or x_control.shape[1] != 14 or not np.array_equal(x_control, l_control, equal_nan=True):
                 raise ProtocolViolation("shared CANDI history values differ")
+            if len(x_keys) != x_control.shape[0] or len(l_keys) != x_control.shape[0]:
+                raise ProtocolViolation("shared CANDI history/key cardinality differs")
+            if row_key_hash(x_keys) != control.get("row_key_sha256") or row_key_hash(l_keys) != control.get("row_key_sha256"):
+                raise ProtocolViolation("shared CANDI history row-key hash differs")
+            assert_same_row_order(x_keys, l_keys)
+            if row_key_hash(x_keys) != x_art.get("test_row_key_sha256") or row_key_hash(l_keys) != l_art.get("test_row_key_sha256"):
+                raise ProtocolViolation("shared CANDI history is not the primary paired cohort")
+            if any(int(key["timestamp"]) < 63 for key in x_keys):
+                raise ProtocolViolation("CANDI history contains a pre-common-stream timestamp")
         except (OSError, KeyError, ValueError, ProtocolViolation) as exc:
             discrepancies.append(f"shared CANDI control {seed}: {exc}")
 
@@ -667,6 +718,10 @@ def _scientific_audit(
             saved = _load_hashed_array(artifact["path"], artifact["sha256"])
             if saved.shape != expected.shape or not np.array_equal(saved, expected):
                 raise ProtocolViolation(f"saved delta differs from AP recomputation: {name}")
+            result_digest = results.get("delta_sha256", {}).get(name)
+            result_shape = results.get("delta_shape", {}).get(name)
+            if result_digest != _canonical_array_sha(expected) or result_shape != list(expected.shape):
+                raise ProtocolViolation(f"reported delta hash/shape differs: {name}")
             delta_arrays[name] = expected
             reported_scenario = np.asarray(results.get("scenario_deltas", {}).get(name, {}).get("values", []), dtype=np.float64)
             if reported_scenario.shape != reconstructed_scenario[name].shape or not np.array_equal(reported_scenario, reconstructed_scenario[name]):
@@ -680,7 +735,7 @@ def _scientific_audit(
     independent_statistics: dict[str, Any] = {}
     if len(delta_arrays) == 4:
         expected_family = ("h2", "h3a_a", "h3a_b", "h3a_c")
-        if statistics.get("family_size") != HOLM_FAMILY_SIZE or tuple(statistics.get("members", ())) != expected_family:
+        if statistics.get("family_size") != HOLM_FAMILY_SIZE or statistics.get("alpha") != HOLM_ALPHA or tuple(statistics.get("members", ())) != expected_family:
             discrepancies.append("confirmatory family metadata differs from the frozen four-member family")
         if set(statistics.get("comparisons", {})) != set(expected_family):
             discrepancies.append("confirmatory statistics comparison set is not exactly four members")
@@ -694,6 +749,8 @@ def _scientific_audit(
             independent_statistics[name]["holm_adjusted_p"] = adjusted
         for name, summary in independent_statistics.items():
             reported = statistics.get("comparisons", {}).get(name, {})
+            if reported.get("draws") != BOOTSTRAP_DRAWS or reported.get("seed") != BOOTSTRAP_SEED:
+                discrepancies.append(f"bootstrap metadata mismatch: {name}")
             for field in ("mean", "raw_p", "holm_adjusted_p"):
                 _assert_close_reported(f"statistic {name}/{field}", summary[field], reported.get(field))
             for index, bound in enumerate(summary["ci95"]):
@@ -716,8 +773,12 @@ def _scientific_audit(
             _assert_decision_matches("H2 Boolean decision", h2_expected, decision.get("H2"))
         except ProtocolViolation as exc:
             discrepancies.append(str(exc))
+        if decision.get("h2_positive_detector_seeds") != counts["h2"]["positive_detector_seeds"] or decision.get("h2_positive_scenarios") != counts["h2"]["positive_scenarios"]:
+            discrepancies.append("H2 positivity counts differ from independent recomputation")
         if h2_expected == "GO":
             h3_repro = all(counts[name]["positive_detector_seeds"] >= 4 and counts[name]["positive_scenarios"] >= 3 for name in ("h3a_a", "h3a_b", "h3a_c"))
+            if decision.get("h3a_reproducibility") != counts or decision.get("h3a_reproducibility_pass") is not h3_repro:
+                discrepancies.append("H3a reproducibility counts differ from independent recomputation")
             h3_args = [
                 {"mean": independent_statistics[name]["mean"], "ci_lower": independent_statistics[name]["ci95"][0], "p": independent_statistics[name]["holm_adjusted_p"]}
                 for name in ("h3a_a", "h3a_b", "h3a_c")
@@ -725,6 +786,8 @@ def _scientific_audit(
             h3_expected = "GO" if ordinary._independent_h3(True, h3_args[0], h3_args[1], h3_args[2], h3_repro, h3_robustness) else "STOP"
         else:
             h3_expected = "NOT_ELIGIBLE"
+            if decision.get("h3a_reproducibility") not in ({}, None) or decision.get("h3a_reproducibility_pass") not in (False, None):
+                discrepancies.append("ineligible H3a decision carries an unexpected reproducibility claim")
         try:
             _assert_decision_matches("H3a Boolean decision", h3_expected, decision.get("H3a"))
             _assert_decision_matches("H3b consequence", "UNLOCKED" if h3_expected == "GO" else "LOCKED", decision.get("H3b"))
@@ -745,7 +808,7 @@ def _scientific_audit(
         "duration_severity_robustness_audit": robustness_audit,
         "bootstrap_seed": BOOTSTRAP_SEED,
         "bootstrap_draws": BOOTSTRAP_DRAWS,
-        "sign_flip_seed": 902,
+        "sign_flip_seed": SIGN_FLIP_SEED,
         "holm_family_size": HOLM_FAMILY_SIZE,
         "outcome_exposure": "recovered scientific labels/results are audited after continuation",
     }
@@ -766,11 +829,13 @@ def audit_recovered(output_dir: Path, continuation_seal: str) -> dict[str, Any]:
     results = _json(output_dir / "g1_results.json")
     statistics = _json(output_dir / "g1_statistics.json")
     decision = _json(output_dir / "g1_decision.json")
+    _verify_decision_markdown(output_dir / "g1_decision.md", decision)
 
     review = _verify_continuation_review_seal(continuation_seal)
     current_hashes = {relative: _sha(ROOT / relative) for relative in CONTINUATION_REVIEWED_EXECUTABLES}
     reviewed_commit = review["reviewed_commit"]
     implementation_hashes = {relative: _sha_bytes(_git_bytes(reviewed_commit, relative)) for relative in CONTINUATION_REVIEWED_EXECUTABLES}
+    seal_hashes = {relative: _sha_bytes(_git_bytes(continuation_seal, relative)) for relative in CONTINUATION_REVIEWED_EXECUTABLES}
     patch_audit = _json(PATCH_AUDIT_PATH)
     expected_scientific = {
         relative: str(details["patch_sha256"])
@@ -792,6 +857,7 @@ def audit_recovered(output_dir: Path, continuation_seal: str) -> dict[str, Any]:
         review,
         current_hashes,
         implementation_hashes,
+        seal_executable_sha256=seal_hashes,
         implementation_is_ancestor=True,
         code_sha256=str(execution.get("code_sha256")),
         expected_code_sha256=current_hashes["scripts/phase_g1_continue_from_cache.py"],
