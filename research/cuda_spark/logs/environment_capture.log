@@ -1,0 +1,26 @@
+python 3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]
+platform Linux-6.17.0-1026-nvidia-aarch64-with-glibc2.39 aarch64
+torch 2.13.0+cu130 torch_cuda 13.0 cudnn 92000
+cuda_available True
+device NVIDIA GB10 capability (12, 1)
+deterministic False benchmark False det_alg False
+matmul_precision highest matmul_tf32 False cudnn_tf32 True
+xlstm 2.0.5
+lightning 2.6.1
+ninja 1.13.2
+triton 3.7.1
+gcc /usr/bin/gcc; gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+g++ /usr/bin/g++; g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+nvcc /usr/local/cuda/bin/nvcc; CUDA compilation tools, release 13.0, V13.0.88
+nvidia-smi /usr/bin/nvidia-smi; NVIDIA-SMI version 580.173.02
+env TORCH_CUDA_ARCH_LIST None
+env CUDA_HOME None
+env CUDA_PATH None
+env CUDA_VISIBLE_DEVICES None
+env MAX_JOBS None
+env CXX None
+env CC None
+env CUDAFLAGS None
+env XLSTM_EXTRA_INCLUDE_PATHS None
+nvcc_arch compute_75 compute_80 compute_86 compute_87 compute_88 compute_89 compute_90 compute_100 compute_110 compute_103 compute_120 compute_121
+nvcc_code sm_75 sm_80 sm_86 sm_87 sm_88 sm_89 sm_90 sm_100 sm_110 sm_103 sm_120 sm_121

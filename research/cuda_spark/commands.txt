@@ -1,0 +1,65 @@
+# All commands were run from the isolated research/cuda-spark worktree.
+# The project venv and Python headers are outside the worktree and read-only.
+
+# Historical/default reproduction (explicit compute_80; default CUDA 13 stub).
+TORCH_EXTENSIONS_DIR=/tmp/xlstm_cuda_diag_compute80_default MAX_JOBS=1 \
+XLSTM_PY_HEADERS_ROOT=/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include \
+XLSTM_EXTRA_INCLUDE_PATHS=/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include/python3.12:/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include \
+/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/bin/python -u research/cuda_spark/slstm_cuda_fixture.py \
+  --arch 80 --code compute_80 --extension-dir /tmp/xlstm_cuda_diag_compute80_default
+
+# Same historical target with only the controlled stub flag changed.
+TORCH_EXTENSIONS_DIR=/tmp/xlstm_cuda_diag_compute80_false MAX_JOBS=1 \
+XLSTM_PY_HEADERS_ROOT=/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include \
+XLSTM_EXTRA_INCLUDE_PATHS=/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include/python3.12:/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include \
+/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/bin/python -u research/cuda_spark/slstm_cuda_fixture.py \
+  --arch 80 --code compute_80 --static-stub false --extension-dir /tmp/xlstm_cuda_diag_compute80_false
+
+# Native GB10 target with the controlled compatibility flag.
+TORCH_EXTENSIONS_DIR=/tmp/xlstm_cuda_diag_native121_false MAX_JOBS=1 \
+XLSTM_PY_HEADERS_ROOT=/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include \
+XLSTM_EXTRA_INCLUDE_PATHS=/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include/python3.12:/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include \
+/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/bin/python -u research/cuda_spark/slstm_cuda_fixture.py \
+  --arch 121 --code sm_121 --static-stub false --extension-dir /tmp/xlstm_cuda_diag_native121_false
+
+# Native target with CUDA 13's default stub (expected linker failure).
+TORCH_EXTENSIONS_DIR=/tmp/xlstm_cuda_diag_native121_default MAX_JOBS=1 \
+XLSTM_PY_HEADERS_ROOT=/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include \
+XLSTM_EXTRA_INCLUDE_PATHS=/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include/python3.12:/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include \
+/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/bin/python -u research/cuda_spark/slstm_cuda_fixture.py \
+  --arch 121 --code sm_121 --extension-dir /tmp/xlstm_cuda_diag_native121_default
+
+# Native target with RDC-only experiment (compiles, import fails without dlink).
+TORCH_EXTENSIONS_DIR=/tmp/xlstm_cuda_diag_native121_rdc MAX_JOBS=1 \
+XLSTM_PY_HEADERS_ROOT=/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include \
+XLSTM_EXTRA_INCLUDE_PATHS=/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include/python3.12:/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include \
+/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/bin/python -u research/cuda_spark/slstm_cuda_fixture.py \
+  --arch 121 --code sm_121 --rdc --extension-dir /tmp/xlstm_cuda_diag_native121_rdc
+
+# Full random-model comparison and short benchmarks (the same environment
+# variables as above are required; paths are shown explicitly here).
+XLSTM_PROJECT_ROOT=/home/p76141495/home/xlstm_anomaly TORCH_EXTENSIONS_DIR=/tmp/xlstm_cuda_full121_false MAX_JOBS=1 \
+XLSTM_PY_HEADERS_ROOT=/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include \
+XLSTM_EXTRA_INCLUDE_PATHS=/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include/python3.12:/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include \
+/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/bin/python -u research/cuda_spark/xlstmad_cuda_bench.py \
+  --mode compare --extension-dir /tmp/xlstm_cuda_full121_false
+XLSTM_PROJECT_ROOT=/home/p76141495/home/xlstm_anomaly TORCH_EXTENSIONS_DIR=/tmp/xlstm_cuda_full121_false MAX_JOBS=1 \
+XLSTM_PY_HEADERS_ROOT=/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include \
+XLSTM_EXTRA_INCLUDE_PATHS=/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include/python3.12:/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include \
+/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/bin/python -u research/cuda_spark/xlstmad_cuda_bench.py \
+  --mode benchmark --extension-dir /tmp/xlstm_cuda_full121_false --steps 20 --warmup 5 --batches 128,256,512,1024
+XLSTM_PROJECT_ROOT=/home/p76141495/home/xlstm_anomaly TORCH_EXTENSIONS_DIR=/tmp/xlstm_cuda_full121_false MAX_JOBS=1 \
+XLSTM_PY_HEADERS_ROOT=/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include \
+XLSTM_EXTRA_INCLUDE_PATHS=/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include/python3.12:/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include \
+/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/bin/python -u research/cuda_spark/xlstmad_cuda_bench.py \
+  --mode benchmark --extension-dir /tmp/xlstm_cuda_full121_false --steps 100 --warmup 5 --batches 128
+XLSTM_PROJECT_ROOT=/home/p76141495/home/xlstm_anomaly TORCH_EXTENSIONS_DIR=/tmp/xlstm_cuda_full121_false MAX_JOBS=1 \
+XLSTM_PY_HEADERS_ROOT=/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include \
+XLSTM_EXTRA_INCLUDE_PATHS=/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include/python3.12:/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include \
+/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/bin/python -u research/cuda_spark/xlstmad_cuda_bench.py \
+  --mode inference --extension-dir /tmp/xlstm_cuda_full121_false --steps 20 --warmup 5 --batches 128
+XLSTM_PROJECT_ROOT=/home/p76141495/home/xlstm_anomaly TORCH_EXTENSIONS_DIR=/tmp/xlstm_cuda_full121_false MAX_JOBS=1 \
+XLSTM_PY_HEADERS_ROOT=/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include \
+XLSTM_EXTRA_INCLUDE_PATHS=/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include/python3.12:/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include \
+/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/bin/python -u research/cuda_spark/xlstmad_cuda_bench.py \
+  --mode inference --observer --extension-dir /tmp/xlstm_cuda_full121_false --steps 20 --warmup 5 --batches 128

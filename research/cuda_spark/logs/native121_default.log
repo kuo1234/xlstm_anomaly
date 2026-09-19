@@ -1,0 +1,115 @@
+fixture {'torch': '2.13.0+cu130', 'cuda': '13.0', 'device': 'NVIDIA GB10', 'capability': (12, 1)}
+loader_variant {'arch': '121', 'code': 'sm_121', 'static_global_template_stub': None, 'extension_dir': '/tmp/xlstm_cuda_diag_native121_default', 'sources': ['/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm.cc', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_forward.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_backward.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_backward_cut.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_pointwise.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/util/blas.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/util/cuda_error.cu']}
+[1/8] c++ -MMD -MF slstm.o.d -DTORCH_EXTENSION_NAME=slstm -DTORCH_API_INCLUDE_EXTENSION_H -isystem /home/p76141495/.local/lib/python3.12/site-packages/torch/include -isystem /home/p76141495/.local/lib/python3.12/site-packages/torch/include/torch/csrc/api/include -isystem /usr/local/cuda/include -isystem /usr/include/python3.12 -fPIC -std=c++20 -DSLSTM_HIDDEN_SIZE=40 -DSLSTM_BATCH_SIZE=2 -DSLSTM_NUM_HEADS=4 -DSLSTM_NUM_STATES=4 -DSLSTM_DTYPE_B=float -DSLSTM_DTYPE_R=float -DSLSTM_DTYPE_W=float -DSLSTM_DTYPE_G=float -DSLSTM_DTYPE_S=float -DSLSTM_DTYPE_A=float -DSLSTM_NUM_GATES=4 -DSLSTM_SIMPLE_AGG=true -DSLSTM_GRADIENT_RECURRENT_CLIPVAL_VALID=false -DSLSTM_GRADIENT_RECURRENT_CLIPVAL=0.0 -DSLSTM_FORWARD_CLIPVAL_VALID=false -DSLSTM_FORWARD_CLIPVAL=0.0 -isystem /home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include/python3.12 -isystem /home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include -c /home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm.cc -o slstm.o 
+[2/8] /usr/local/cuda/bin/nvcc -MD -MF slstm_forward.cuda.o.d -DTORCH_EXTENSION_NAME=slstm -DTORCH_API_INCLUDE_EXTENSION_H -isystem /home/p76141495/.local/lib/python3.12/site-packages/torch/include -isystem /home/p76141495/.local/lib/python3.12/site-packages/torch/include/torch/csrc/api/include -isystem /usr/local/cuda/include -isystem /usr/include/python3.12 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options '-fPIC' -Xptxas="-v" -gencode arch=compute_121,code=sm_121 -res-usage --use_fast_math -O3 -Xptxas -O3 --extra-device-vectorization -isystem /home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include/python3.12 -isystem /home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include -std=c++20 -c /home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_forward.cu -o slstm_forward.cuda.o 
+/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_pointwise.cuh(11): warning #20280-D: when "-static-global-template-stub=true" in whole program compilation mode ("-rdc=false"), a __global__ function template instantiation or specialization ("slstm::SLSTMPointwiseForward<(bool)1> ") must have a definition in the current translation unit. To resolve this issue, either use separate compilation mode ("-rdc=true"), or explicitly set "-static-global-template-stub=false" (but see nvcc documentation about downsides of turning it off)
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_pointwise.cuh(11): warning #20280-D: when "-static-global-template-stub=true" in whole program compilation mode ("-rdc=false"), a __global__ function template instantiation or specialization ("slstm::SLSTMPointwiseForward<(bool)0> ") must have a definition in the current translation unit. To resolve this issue, either use separate compilation mode ("-rdc=true"), or explicitly set "-static-global-template-stub=false" (but see nvcc documentation about downsides of turning it off)
+
+ptxas info    : 0 bytes gmem
+[3/8] /usr/local/cuda/bin/nvcc -MD -MF slstm_backward.cuda.o.d -DTORCH_EXTENSION_NAME=slstm -DTORCH_API_INCLUDE_EXTENSION_H -isystem /home/p76141495/.local/lib/python3.12/site-packages/torch/include -isystem /home/p76141495/.local/lib/python3.12/site-packages/torch/include/torch/csrc/api/include -isystem /usr/local/cuda/include -isystem /usr/include/python3.12 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options '-fPIC' -Xptxas="-v" -gencode arch=compute_121,code=sm_121 -res-usage --use_fast_math -O3 -Xptxas -O3 --extra-device-vectorization -isystem /home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include/python3.12 -isystem /home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include -std=c++20 -c /home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_backward.cu -o slstm_backward.cuda.o 
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_ZN50_GLOBAL__N__142d027c_17_slstm_backward_cu_3639fa5e29gradientBiasAggregationKernelEjjjjjjPKfS1_Pf' for 'sm_121'
+ptxas info    : Function properties for _ZN50_GLOBAL__N__142d027c_17_slstm_backward_cu_3639fa5e29gradientBiasAggregationKernelEjjjjjjPKfS1_Pf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 40 registers, used 0 barriers
+ptxas info    : Compile time = 6.702 ms
+[4/8] /usr/local/cuda/bin/nvcc -MD -MF slstm_backward_cut.cuda.o.d -DTORCH_EXTENSION_NAME=slstm -DTORCH_API_INCLUDE_EXTENSION_H -isystem /home/p76141495/.local/lib/python3.12/site-packages/torch/include -isystem /home/p76141495/.local/lib/python3.12/site-packages/torch/include/torch/csrc/api/include -isystem /usr/local/cuda/include -isystem /usr/include/python3.12 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options '-fPIC' -Xptxas="-v" -gencode arch=compute_121,code=sm_121 -res-usage --use_fast_math -O3 -Xptxas -O3 --extra-device-vectorization -isystem /home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include/python3.12 -isystem /home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include -std=c++20 -c /home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_backward_cut.cu -o slstm_backward_cut.cuda.o 
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_ZN54_GLOBAL__N__cbf7a0ad_21_slstm_backward_cut_cu_1c2c4d0129gradientBiasAggregationKernelEjjjjjjPKfS1_Pf' for 'sm_121'
+ptxas info    : Function properties for _ZN54_GLOBAL__N__cbf7a0ad_21_slstm_backward_cut_cu_1c2c4d0129gradientBiasAggregationKernelEjjjjjjPKfS1_Pf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 40 registers, used 0 barriers
+ptxas info    : Compile time = 6.116 ms
+[5/8] /usr/local/cuda/bin/nvcc -MD -MF slstm_pointwise.cuda.o.d -DTORCH_EXTENSION_NAME=slstm -DTORCH_API_INCLUDE_EXTENSION_H -isystem /home/p76141495/.local/lib/python3.12/site-packages/torch/include -isystem /home/p76141495/.local/lib/python3.12/site-packages/torch/include/torch/csrc/api/include -isystem /usr/local/cuda/include -isystem /usr/include/python3.12 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options '-fPIC' -Xptxas="-v" -gencode arch=compute_121,code=sm_121 -res-usage --use_fast_math -O3 -Xptxas -O3 --extra-device-vectorization -isystem /home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include/python3.12 -isystem /home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include -std=c++20 -c /home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_pointwise.cu -o slstm_pointwise.cuda.o 
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_ZN5slstm21SLSTMPointwiseForwardILb0EEEviiiPKfS2_S2_S2_jPfjS3_S3_' for 'sm_121'
+ptxas info    : Function properties for _ZN5slstm21SLSTMPointwiseForwardILb0EEEviiiPKfS2_S2_S2_jPfjS3_S3_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 40 registers, used 0 barriers
+ptxas info    : Compile time = 3.947 ms
+ptxas info    : Compiling entry function '_ZN5slstm21SLSTMPointwiseForwardILb1EEEviiiPKfS2_S2_S2_jPfjS3_S3_' for 'sm_121'
+ptxas info    : Function properties for _ZN5slstm21SLSTMPointwiseForwardILb1EEEviiiPKfS2_S2_S2_jPfjS3_S3_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 40 registers, used 0 barriers
+ptxas info    : Compile time = 3.443 ms
+ptxas info    : Compiling entry function '_ZN5slstm22SLSTMPointwiseBackwardEiiiPKfjS1_S1_S1_S1_jS1_jPfjS2_S2_S2_' for 'sm_121'
+ptxas info    : Function properties for _ZN5slstm22SLSTMPointwiseBackwardEiiiPKfjS1_S1_S1_S1_jS1_jPfjS2_S2_S2_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 40 registers, used 0 barriers
+ptxas info    : Compile time = 2.816 ms
+[6/8] /usr/local/cuda/bin/nvcc -MD -MF blas.cuda.o.d -DTORCH_EXTENSION_NAME=slstm -DTORCH_API_INCLUDE_EXTENSION_H -isystem /home/p76141495/.local/lib/python3.12/site-packages/torch/include -isystem /home/p76141495/.local/lib/python3.12/site-packages/torch/include/torch/csrc/api/include -isystem /usr/local/cuda/include -isystem /usr/include/python3.12 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options '-fPIC' -Xptxas="-v" -gencode arch=compute_121,code=sm_121 -res-usage --use_fast_math -O3 -Xptxas -O3 --extra-device-vectorization -isystem /home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include/python3.12 -isystem /home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include -std=c++20 -c /home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/util/blas.cu -o blas.cuda.o 
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_Z10initKernelI13__nv_bfloat16EvPT_iS1_' for 'sm_121'
+ptxas info    : Function properties for _Z10initKernelI13__nv_bfloat16EvPT_iS1_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 10 registers, used 0 barriers
+ptxas info    : Compile time = 1.732 ms
+ptxas info    : Compiling entry function '_Z10initKernelI6__halfEvPT_iS1_' for 'sm_121'
+ptxas info    : Function properties for _Z10initKernelI6__halfEvPT_iS1_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 10 registers, used 0 barriers
+ptxas info    : Compile time = 0.976 ms
+ptxas info    : Compiling entry function '_Z10initKernelIfEvPT_iS0_' for 'sm_121'
+ptxas info    : Function properties for _Z10initKernelIfEvPT_iS0_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 10 registers, used 0 barriers
+ptxas info    : Compile time = 0.750 ms
+ptxas info    : Compiling entry function '_Z10initKernelIdEvPT_iS0_' for 'sm_121'
+ptxas info    : Function properties for _Z10initKernelIdEvPT_iS0_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 10 registers, used 0 barriers
+ptxas info    : Compile time = 0.737 ms
+[7/8] /usr/local/cuda/bin/nvcc -MD -MF cuda_error.cuda.o.d -DTORCH_EXTENSION_NAME=slstm -DTORCH_API_INCLUDE_EXTENSION_H -isystem /home/p76141495/.local/lib/python3.12/site-packages/torch/include -isystem /home/p76141495/.local/lib/python3.12/site-packages/torch/include/torch/csrc/api/include -isystem /usr/local/cuda/include -isystem /usr/include/python3.12 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options '-fPIC' -Xptxas="-v" -gencode arch=compute_121,code=sm_121 -res-usage --use_fast_math -O3 -Xptxas -O3 --extra-device-vectorization -isystem /home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include/python3.12 -isystem /home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include -std=c++20 -c /home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/util/cuda_error.cu -o cuda_error.cuda.o 
+ptxas info    : 0 bytes gmem
+[8/8] c++ slstm.o slstm_forward.cuda.o slstm_backward.cuda.o slstm_backward_cut.cuda.o slstm_pointwise.cuda.o blas.cuda.o cuda_error.cuda.o -shared -L/usr/local/cuda/lib -lcublas -L/home/p76141495/.local/lib/python3.12/site-packages/torch/lib -lc10 -lc10_cuda -ltorch_cpu -ltorch_cuda -ltorch -ltorch_python -L/usr/local/cuda/lib64 -lcudart -o slstm.so
+FAILED: [code=1] slstm.so 
+c++ slstm.o slstm_forward.cuda.o slstm_backward.cuda.o slstm_backward_cut.cuda.o slstm_pointwise.cuda.o blas.cuda.o cuda_error.cuda.o -shared -L/usr/local/cuda/lib -lcublas -L/home/p76141495/.local/lib/python3.12/site-packages/torch/lib -lc10 -lc10_cuda -ltorch_cpu -ltorch_cuda -ltorch -ltorch_python -L/usr/local/cuda/lib64 -lcudart -o slstm.so
+/usr/bin/ld: slstm_forward.cuda.o: in function `slstm::ForwardPass::IterateInternal(float const*, float const*, float const*, float const*, unsigned int, float*, unsigned int, float*, float*, float*)':
+tmpxft_00338b4a_00000000-6_slstm_forward.cudafe1.cpp:(.text+0x390): undefined reference to `void slstm::SLSTMPointwiseForward<false>(int, int, int, float const*, float const*, float const*, float const*, unsigned int, float*, unsigned int, float*, float*)'
+/usr/bin/ld: tmpxft_00338b4a_00000000-6_slstm_forward.cudafe1.cpp:(.text+0x450): undefined reference to `void slstm::SLSTMPointwiseForward<true>(int, int, int, float const*, float const*, float const*, float const*, unsigned int, float*, unsigned int, float*, float*)'
+/usr/bin/ld: slstm.so: hidden symbol `_ZN5slstm21SLSTMPointwiseForwardILb1EEEviiiPKfS2_S2_S2_jPfjS3_S3_' isn't defined
+/usr/bin/ld: final link failed: bad value
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+fixture_fail RuntimeError Error building extension 'slstm'
+Traceback (most recent call last):
+  File "/home/p76141495/.local/lib/python3.12/site-packages/torch/utils/cpp_extension.py", line 2893, in _run_ninja_build
+    subprocess.run(
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['ninja', '-v', '-j', '1']' returned non-zero exit status 1.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/p76141495/home/xlstm_anomaly/.worktrees/cuda-spark/research/cuda_spark/slstm_cuda_fixture.py", line 129, in main
+    cell = sLSTMCell(config).cuda().train()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/cell.py", line 780, in __new__
+    return sLSTMCell_cuda(config, skip_backend_init=skip_backend_init)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/cell.py", line 690, in __init__
+    self.func = sLSTMCellFuncGenerator(self.training, config)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/cell.py", line 536, in sLSTMCellFuncGenerator
+    slstm_cuda = sLSTMCellCUDA.instance(config=config)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/cell.py", line 515, in instance
+    cls.mod[repr(config)] = load(
+                            ^^^^^
+  File "/home/p76141495/home/xlstm_anomaly/.worktrees/cuda-spark/research/cuda_spark/slstm_cuda_fixture.py", line 74, in load_variant
+    return cpp_load(
+           ^^^^^^^^^
+  File "/home/p76141495/.local/lib/python3.12/site-packages/torch/utils/cpp_extension.py", line 1927, in load
+    return _jit_compile(
+           ^^^^^^^^^^^^^
+  File "/home/p76141495/.local/lib/python3.12/site-packages/torch/utils/cpp_extension.py", line 2382, in _jit_compile
+    _write_ninja_file_and_build_library(
+  File "/home/p76141495/.local/lib/python3.12/site-packages/torch/utils/cpp_extension.py", line 2543, in _write_ninja_file_and_build_library
+    _run_ninja_build(
+  File "/home/p76141495/.local/lib/python3.12/site-packages/torch/utils/cpp_extension.py", line 2910, in _run_ninja_build
+    raise RuntimeError(message) from e
+RuntimeError: Error building extension 'slstm'

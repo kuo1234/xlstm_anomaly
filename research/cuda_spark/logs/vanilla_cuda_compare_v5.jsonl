@@ -1,0 +1,560 @@
+{"backend": "vanilla or CUDA sm_121 static-global-template-stub=false", "capability": [12, 1], "cuda": "13.0", "device": "NVIDIA GB10", "torch": "2.13.0+cu130"}
+loader_variant {'arch': '121', 'code': 'sm_121', 'static_global_template_stub': 'false', 'extension_dir': '/tmp/xlstm_cuda_full121_false', 'sources': ['/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm.cc', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_forward.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_backward.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_backward_cut.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_pointwise.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/util/blas.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/util/cuda_error.cu']}
+ninja: no work to do.
+/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/cell.py:543: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @conditional_decorator(
+/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/cell.py:568: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @conditional_decorator(
+loader_variant {'arch': '121', 'code': 'sm_121', 'static_global_template_stub': 'false', 'extension_dir': '/tmp/xlstm_cuda_full121_false', 'sources': ['/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm.cc', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_forward.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_backward.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_backward_cut.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_pointwise.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/util/blas.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/util/cuda_error.cu']}
+/home/p76141495/home/xlstm_anomaly/.worktrees/cuda-spark/research/cuda_spark/xlstmad_cuda_bench.py:147: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:822.)
+  "loss": {"vanilla": float(lv.detach()), "cuda": float(lc.detach()), "abs_diff": abs(float(lv - lc))},
+{
+  "batch": 8,
+  "cuda_repeat": {
+    "different_elements": 0,
+    "max_abs": 0.0,
+    "mean_abs": 0.0
+  },
+  "finite": {
+    "cuda_grad": true,
+    "cuda_output": true,
+    "vanilla_grad": true,
+    "vanilla_output": true
+  },
+  "input_gradient": {
+    "different_elements": 3573,
+    "max_abs": 2.6775524020195007e-09,
+    "mean_abs": 1.3556489264487936e-10
+  },
+  "loss": {
+    "abs_diff": 0.0,
+    "cuda": 1.1567840576171875,
+    "vanilla": 1.1567840576171875
+  },
+  "output": {
+    "different_elements": 3736,
+    "max_abs": 5.364418029785156e-07,
+    "mean_abs": 9.396319455845514e-08
+  },
+  "parameter_gradient_max_abs": 5.21540641784668e-08,
+  "parameter_gradient_rows": [
+    {
+      "grad_max_abs": 3.725290298461914e-09,
+      "grad_mean_abs": 1.3242242857813835e-09,
+      "grad_nonzero_diff": 35,
+      "name": "encoder.blocks.0.xlstm_norm.weight"
+    },
+    {
+      "grad_max_abs": 1.709850039333105e-10,
+      "grad_mean_abs": 4.497309122331039e-11,
+      "grad_nonzero_diff": 154,
+      "name": "encoder.blocks.0.xlstm.conv1d.conv.weight"
+    },
+    {
+      "grad_max_abs": 6.548361852765083e-11,
+      "grad_mean_abs": 2.951878672052821e-11,
+      "grad_nonzero_diff": 38,
+      "name": "encoder.blocks.0.xlstm.conv1d.conv.bias"
+    },
+    {
+      "grad_max_abs": 9.313225746154785e-10,
+      "grad_mean_abs": 6.046489697819624e-11,
+      "grad_nonzero_diff": 394,
+      "name": "encoder.blocks.0.xlstm.fgate.weight"
+    },
+    {
+      "grad_max_abs": 3.2014213502407074e-10,
+      "grad_mean_abs": 1.664308621474042e-11,
+      "grad_nonzero_diff": 379,
+      "name": "encoder.blocks.0.xlstm.igate.weight"
+    },
+    {
+      "grad_max_abs": 5.21540641784668e-08,
+      "grad_mean_abs": 6.5958807304866696e-09,
+      "grad_nonzero_diff": 374,
+      "name": "encoder.blocks.0.xlstm.zgate.weight"
+    },
+    {
+      "grad_max_abs": 3.725290298461914e-09,
+      "grad_mean_abs": 6.940818475520416e-10,
+      "grad_nonzero_diff": 364,
+      "name": "encoder.blocks.0.xlstm.ogate.weight"
+    },
+    {
+      "grad_max_abs": 8.381903171539307e-09,
+      "grad_mean_abs": 2.0176567361307463e-10,
+      "grad_nonzero_diff": 1541,
+      "name": "encoder.blocks.0.xlstm.slstm_cell._recurrent_kernel_"
+    },
+    {
+      "grad_max_abs": 3.725290298461914e-08,
+      "grad_mean_abs": 3.037464058053274e-09,
+      "grad_nonzero_diff": 155,
+      "name": "encoder.blocks.0.xlstm.slstm_cell._bias_"
+    },
+    {
+      "grad_max_abs": 3.725290298461914e-09,
+      "grad_mean_abs": 1.1656083875877243e-09,
+      "grad_nonzero_diff": 31,
+      "name": "encoder.blocks.0.xlstm.group_norm.weight"
+    },
+    {
+      "grad_max_abs": 1.1641532182693481e-09,
+      "grad_mean_abs": 4.2164174929304465e-10,
+      "grad_nonzero_diff": 38,
+      "name": "encoder.blocks.0.ffn_norm.weight"
+    },
+    {
+      "grad_max_abs": 2.7939677238464355e-09,
+      "grad_mean_abs": 2.8902144566522736e-10,
+      "grad_nonzero_diff": 4628,
+      "name": "encoder.blocks.0.ffn.proj_up.weight"
+    },
+    {
+      "grad_max_abs": 3.259629011154175e-09,
+      "grad_mean_abs": 2.8258587136953395e-10,
+      "grad_nonzero_diff": 2353,
+      "name": "encoder.blocks.0.ffn.proj_down.weight"
+    },
+    {
+      "grad_max_abs": 2.3283064365386963e-09,
+      "grad_mean_abs": 9.68430002856735e-10,
+      "grad_nonzero_diff": 36,
+      "name": "encoder.blocks.1.xlstm_norm.weight"
+    },
+    {
+      "grad_max_abs": 4.656612873077393e-10,
+      "grad_mean_abs": 6.125588924987824e-11,
+      "grad_nonzero_diff": 150,
+      "name": "encoder.blocks.1.xlstm.conv1d.conv.weight"
+    },
+    {
+      "grad_max_abs": 1.4551915228366852e-10,
+      "grad_mean_abs": 5.4433259982777926e-11,
+      "grad_nonzero_diff": 38,
+      "name": "encoder.blocks.1.xlstm.conv1d.conv.bias"
+    },
+    {
+      "grad_max_abs": 2.3283064365386963e-09,
+      "grad_mean_abs": 1.1620723827654444e-10,
+      "grad_nonzero_diff": 387,
+      "name": "encoder.blocks.1.xlstm.fgate.weight"
+    },
+    {
+      "grad_max_abs": 1.0477378964424133e-09,
+      "grad_mean_abs": 4.348644014329217e-11,
+      "grad_nonzero_diff": 390,
+      "name": "encoder.blocks.1.xlstm.igate.weight"
+    },
+    {
+      "grad_max_abs": 3.725290298461914e-08,
+      "grad_mean_abs": 4.813464293818015e-09,
+      "grad_nonzero_diff": 376,
+      "name": "encoder.blocks.1.xlstm.zgate.weight"
+    },
+    {
+      "grad_max_abs": 4.190951585769653e-09,
+      "grad_mean_abs": 4.478249437944726e-10,
+      "grad_nonzero_diff": 359,
+      "name": "encoder.blocks.1.xlstm.ogate.weight"
+    },
+    {
+      "grad_max_abs": 4.6566128730773926e-09,
+      "grad_mean_abs": 1.3935684550769878e-10,
+      "grad_nonzero_diff": 1537,
+      "name": "encoder.blocks.1.xlstm.slstm_cell._recurrent_kernel_"
+    },
+    {
+      "grad_max_abs": 4.470348358154297e-08,
+      "grad_mean_abs": 3.029846595836716e-09,
+      "grad_nonzero_diff": 158,
+      "name": "encoder.blocks.1.xlstm.slstm_cell._bias_"
+    },
+    {
+      "grad_max_abs": 3.725290298461914e-09,
+      "grad_mean_abs": 7.610651553413561e-10,
+      "grad_nonzero_diff": 31,
+      "name": "encoder.blocks.1.xlstm.group_norm.weight"
+    },
+    {
+      "grad_max_abs": 1.3969838619232178e-09,
+      "grad_mean_abs": 2.615706817810093e-10,
+      "grad_nonzero_diff": 35,
+      "name": "encoder.blocks.1.ffn_norm.weight"
+    },
+    {
+      "grad_max_abs": 1.8044374883174896e-09,
+      "grad_mean_abs": 2.0073918916008182e-10,
+      "grad_nonzero_diff": 4635,
+      "name": "encoder.blocks.1.ffn.proj_up.weight"
+    },
+    {
+      "grad_max_abs": 1.5133991837501526e-09,
+      "grad_mean_abs": 2.042224167553286e-10,
+      "grad_nonzero_diff": 2350,
+      "name": "encoder.blocks.1.ffn.proj_down.weight"
+    },
+    {
+      "grad_max_abs": 8.149072527885437e-10,
+      "grad_mean_abs": 2.2209860339739151e-10,
+      "grad_nonzero_diff": 38,
+      "name": "encoder.blocks.2.xlstm_norm.weight"
+    },
+    {
+      "grad_max_abs": 2.0372681319713593e-10,
+      "grad_mean_abs": 3.363425163382949e-11,
+      "grad_nonzero_diff": 78,
+      "name": "encoder.blocks.2.xlstm.learnable_skip"
+    },
+    {
+      "grad_max_abs": 1.6298145055770874e-09,
+      "grad_mean_abs": 1.6452744722172952e-10,
+      "grad_nonzero_diff": 6013,
+      "name": "encoder.blocks.2.xlstm.proj_up.weight"
+    },
+    {
+      "grad_max_abs": 4.6566128730773926e-09,
+      "grad_mean_abs": 4.2876294181759533e-10,
+      "grad_nonzero_diff": 384,
+      "name": "encoder.blocks.2.xlstm.q_proj.weight"
+    },
+    {
+      "grad_max_abs": 3.026798367500305e-09,
+      "grad_mean_abs": 4.309373413668993e-10,
+      "grad_nonzero_diff": 384,
+      "name": "encoder.blocks.2.xlstm.k_proj.weight"
+    },
+    {
+      "grad_max_abs": 3.725290298461914e-09,
+      "grad_mean_abs": 3.879648546867287e-10,
+      "grad_nonzero_diff": 369,
+      "name": "encoder.blocks.2.xlstm.v_proj.weight"
+    },
+    {
+      "grad_max_abs": 9.313225746154785e-10,
+      "grad_mean_abs": 1.695354967523599e-10,
+      "grad_nonzero_diff": 606,
+      "name": "encoder.blocks.2.xlstm.conv1d.conv.weight"
+    },
+    {
+      "grad_max_abs": 1.5133991837501526e-09,
+      "grad_mean_abs": 3.469267650935137e-10,
+      "grad_nonzero_diff": 73,
+      "name": "encoder.blocks.2.xlstm.conv1d.conv.bias"
+    },
+    {
+      "grad_max_abs": 2.3283064365386963e-10,
+      "grad_mean_abs": 2.3238537830150285e-11,
+      "grad_nonzero_diff": 898,
+      "name": "encoder.blocks.2.xlstm.mlstm_cell.igate.weight"
+    },
+    {
+      "grad_max_abs": 2.3283064365386963e-10,
+      "grad_mean_abs": 1.255102688446641e-10,
+      "grad_nonzero_diff": 4,
+      "name": "encoder.blocks.2.xlstm.mlstm_cell.igate.bias"
+    },
+    {
+      "grad_max_abs": 1.8189894035458565e-11,
+      "grad_mean_abs": 1.1246099537731702e-12,
+      "grad_nonzero_diff": 888,
+      "name": "encoder.blocks.2.xlstm.mlstm_cell.fgate.weight"
+    },
+    {
+      "grad_max_abs": 6.366462912410498e-11,
+      "grad_mean_abs": 1.6655121726216748e-11,
+      "grad_nonzero_diff": 3,
+      "name": "encoder.blocks.2.xlstm.mlstm_cell.fgate.bias"
+    },
+    {
+      "grad_max_abs": 2.9103830456733704e-10,
+      "grad_mean_abs": 7.331096146812044e-11,
+      "grad_nonzero_diff": 77,
+      "name": "encoder.blocks.2.xlstm.mlstm_cell.outnorm.weight"
+    },
+    {
+      "grad_max_abs": 1.6298145055770874e-09,
+      "grad_mean_abs": 1.1939309263464537e-10,
+      "grad_nonzero_diff": 3001,
+      "name": "encoder.blocks.2.xlstm.proj_down.weight"
+    },
+    {
+      "grad_max_abs": 3.725290298461914e-09,
+      "grad_mean_abs": 1.2652890957198792e-09,
+      "grad_nonzero_diff": 34,
+      "name": "encoder.post_blocks_norm.weight"
+    },
+    {
+      "grad_max_abs": 3.725290298461914e-09,
+      "grad_mean_abs": 9.720679816638267e-10,
+      "grad_nonzero_diff": 32,
+      "name": "decoder.blocks.0.xlstm_norm.weight"
+    },
+    {
+      "grad_max_abs": 1.4551915228366852e-10,
+      "grad_mean_abs": 2.745181859609147e-11,
+      "grad_nonzero_diff": 147,
+      "name": "decoder.blocks.0.xlstm.conv1d.conv.weight"
+    },
+    {
+      "grad_max_abs": 1.0186340659856796e-10,
+      "grad_mean_abs": 1.8917490837710993e-11,
+      "grad_nonzero_diff": 35,
+      "name": "decoder.blocks.0.xlstm.conv1d.conv.bias"
+    },
+    {
+      "grad_max_abs": 1.862645149230957e-09,
+      "grad_mean_abs": 5.257435112260289e-11,
+      "grad_nonzero_diff": 391,
+      "name": "decoder.blocks.0.xlstm.fgate.weight"
+    },
+    {
+      "grad_max_abs": 2.0372681319713593e-10,
+      "grad_mean_abs": 1.152599283377187e-11,
+      "grad_nonzero_diff": 372,
+      "name": "decoder.blocks.0.xlstm.igate.weight"
+    },
+    {
+      "grad_max_abs": 2.2351741790771484e-08,
+      "grad_mean_abs": 4.30155733255333e-09,
+      "grad_nonzero_diff": 379,
+      "name": "decoder.blocks.0.xlstm.zgate.weight"
+    },
+    {
+      "grad_max_abs": 4.6566128730773926e-09,
+      "grad_mean_abs": 5.091828625403139e-10,
+      "grad_nonzero_diff": 363,
+      "name": "decoder.blocks.0.xlstm.ogate.weight"
+    },
+    {
+      "grad_max_abs": 7.450580596923828e-09,
+      "grad_mean_abs": 1.4551000682150317e-10,
+      "grad_nonzero_diff": 1535,
+      "name": "decoder.blocks.0.xlstm.slstm_cell._recurrent_kernel_"
+    },
+    {
+      "grad_max_abs": 5.21540641784668e-08,
+      "grad_mean_abs": 1.961970141906022e-09,
+      "grad_nonzero_diff": 153,
+      "name": "decoder.blocks.0.xlstm.slstm_cell._bias_"
+    },
+    {
+      "grad_max_abs": 1.862645149230957e-09,
+      "grad_mean_abs": 6.970367616432327e-10,
+      "grad_nonzero_diff": 28,
+      "name": "decoder.blocks.0.xlstm.group_norm.weight"
+    },
+    {
+      "grad_max_abs": 1.3969838619232178e-09,
+      "grad_mean_abs": 2.176420849098193e-10,
+      "grad_nonzero_diff": 35,
+      "name": "decoder.blocks.0.ffn_norm.weight"
+    },
+    {
+      "grad_max_abs": 2.7939677238464355e-09,
+      "grad_mean_abs": 1.659614667914866e-10,
+      "grad_nonzero_diff": 4603,
+      "name": "decoder.blocks.0.ffn.proj_up.weight"
+    },
+    {
+      "grad_max_abs": 2.3283064365386963e-09,
+      "grad_mean_abs": 1.772544749867322e-10,
+      "grad_nonzero_diff": 2343,
+      "name": "decoder.blocks.0.ffn.proj_down.weight"
+    },
+    {
+      "grad_max_abs": 3.725290298461914e-09,
+      "grad_mean_abs": 6.846676003924301e-10,
+      "grad_nonzero_diff": 36,
+      "name": "decoder.blocks.1.xlstm_norm.weight"
+    },
+    {
+      "grad_max_abs": 2.3283064365386963e-10,
+      "grad_mean_abs": 3.774118864652287e-11,
+      "grad_nonzero_diff": 146,
+      "name": "decoder.blocks.1.xlstm.conv1d.conv.weight"
+    },
+    {
+      "grad_max_abs": 1.6007106751203537e-10,
+      "grad_mean_abs": 2.4192559414104586e-11,
+      "grad_nonzero_diff": 36,
+      "name": "decoder.blocks.1.xlstm.conv1d.conv.bias"
+    },
+    {
+      "grad_max_abs": 8.221832104027271e-10,
+      "grad_mean_abs": 6.21840842707222e-11,
+      "grad_nonzero_diff": 393,
+      "name": "decoder.blocks.1.xlstm.fgate.weight"
+    },
+    {
+      "grad_max_abs": 4.656612873077393e-10,
+      "grad_mean_abs": 2.731972287284279e-11,
+      "grad_nonzero_diff": 378,
+      "name": "decoder.blocks.1.xlstm.igate.weight"
+    },
+    {
+      "grad_max_abs": 2.60770320892334e-08,
+      "grad_mean_abs": 2.8525117823363644e-09,
+      "grad_nonzero_diff": 370,
+      "name": "decoder.blocks.1.xlstm.zgate.weight"
+    },
+    {
+      "grad_max_abs": 5.587935447692871e-09,
+      "grad_mean_abs": 4.771391060032215e-10,
+      "grad_nonzero_diff": 362,
+      "name": "decoder.blocks.1.xlstm.ogate.weight"
+    },
+    {
+      "grad_max_abs": 3.259629011154175e-09,
+      "grad_mean_abs": 1.2262278692443118e-10,
+      "grad_nonzero_diff": 1526,
+      "name": "decoder.blocks.1.xlstm.slstm_cell._recurrent_kernel_"
+    },
+    {
+      "grad_max_abs": 1.4901161193847656e-08,
+      "grad_mean_abs": 1.7455594747417535e-09,
+      "grad_nonzero_diff": 159,
+      "name": "decoder.blocks.1.xlstm.slstm_cell._bias_"
+    },
+    {
+      "grad_max_abs": 3.259629011154175e-09,
+      "grad_mean_abs": 6.075424607843161e-10,
+      "grad_nonzero_diff": 29,
+      "name": "decoder.blocks.1.xlstm.group_norm.weight"
+    },
+    {
+      "grad_max_abs": 5.529727786779404e-10,
+      "grad_mean_abs": 1.4406396908750452e-10,
+      "grad_nonzero_diff": 35,
+      "name": "decoder.blocks.1.ffn_norm.weight"
+    },
+    {
+      "grad_max_abs": 2.0954757928848267e-09,
+      "grad_mean_abs": 1.479838890316998e-10,
+      "grad_nonzero_diff": 4557,
+      "name": "decoder.blocks.1.ffn.proj_up.weight"
+    },
+    {
+      "grad_max_abs": 2.3283064365386963e-09,
+      "grad_mean_abs": 1.345349387449346e-10,
+      "grad_nonzero_diff": 2292,
+      "name": "decoder.blocks.1.ffn.proj_down.weight"
+    },
+    {
+      "grad_max_abs": 1.7462298274040222e-09,
+      "grad_mean_abs": 2.3246685132427558e-10,
+      "grad_nonzero_diff": 34,
+      "name": "decoder.blocks.2.xlstm_norm.weight"
+    },
+    {
+      "grad_max_abs": 1.382431946694851e-10,
+      "grad_mean_abs": 2.2930634821505258e-11,
+      "grad_nonzero_diff": 68,
+      "name": "decoder.blocks.2.xlstm.learnable_skip"
+    },
+    {
+      "grad_max_abs": 2.7939677238464355e-09,
+      "grad_mean_abs": 1.488967282803344e-10,
+      "grad_nonzero_diff": 5906,
+      "name": "decoder.blocks.2.xlstm.proj_up.weight"
+    },
+    {
+      "grad_max_abs": 3.725290298461914e-09,
+      "grad_mean_abs": 3.3566718848909716e-10,
+      "grad_nonzero_diff": 371,
+      "name": "decoder.blocks.2.xlstm.q_proj.weight"
+    },
+    {
+      "grad_max_abs": 3.725290298461914e-09,
+      "grad_mean_abs": 3.310628715613717e-10,
+      "grad_nonzero_diff": 373,
+      "name": "decoder.blocks.2.xlstm.k_proj.weight"
+    },
+    {
+      "grad_max_abs": 3.841705620288849e-09,
+      "grad_mean_abs": 3.9702013898690325e-10,
+      "grad_nonzero_diff": 375,
+      "name": "decoder.blocks.2.xlstm.v_proj.weight"
+    },
+    {
+      "grad_max_abs": 1.3969838619232178e-09,
+      "grad_mean_abs": 1.332850357860238e-10,
+      "grad_nonzero_diff": 587,
+      "name": "decoder.blocks.2.xlstm.conv1d.conv.weight"
+    },
+    {
+      "grad_max_abs": 1.0477378964424133e-09,
+      "grad_mean_abs": 1.957232570459766e-10,
+      "grad_nonzero_diff": 64,
+      "name": "decoder.blocks.2.xlstm.conv1d.conv.bias"
+    },
+    {
+      "grad_max_abs": 3.2014213502407074e-10,
+      "grad_mean_abs": 1.5079434229070543e-11,
+      "grad_nonzero_diff": 897,
+      "name": "decoder.blocks.2.xlstm.mlstm_cell.igate.weight"
+    },
+    {
+      "grad_max_abs": 5.238689482212067e-10,
+      "grad_mean_abs": 2.6921043172478676e-10,
+      "grad_nonzero_diff": 4,
+      "name": "decoder.blocks.2.xlstm.mlstm_cell.igate.bias"
+    },
+    {
+      "grad_max_abs": 5.093170329928398e-11,
+      "grad_mean_abs": 2.758978375622112e-12,
+      "grad_nonzero_diff": 889,
+      "name": "decoder.blocks.2.xlstm.mlstm_cell.fgate.weight"
+    },
+    {
+      "grad_max_abs": 2.473825588822365e-10,
+      "grad_mean_abs": 7.460698725481052e-11,
+      "grad_nonzero_diff": 3,
+      "name": "decoder.blocks.2.xlstm.mlstm_cell.fgate.bias"
+    },
+    {
+      "grad_max_abs": 1.0477378964424133e-09,
+      "grad_mean_abs": 7.122480383259244e-11,
+      "grad_nonzero_diff": 72,
+      "name": "decoder.blocks.2.xlstm.mlstm_cell.outnorm.weight"
+    },
+    {
+      "grad_max_abs": 2.561137080192566e-09,
+      "grad_mean_abs": 1.2154487138982262e-10,
+      "grad_nonzero_diff": 2946,
+      "name": "decoder.blocks.2.xlstm.proj_down.weight"
+    },
+    {
+      "grad_max_abs": 3.725290298461914e-09,
+      "grad_mean_abs": 1.044827557805661e-09,
+      "grad_nonzero_diff": 31,
+      "name": "decoder.post_blocks_norm.weight"
+    },
+    {
+      "grad_max_abs": 1.4901161193847656e-08,
+      "grad_mean_abs": 3.1374156606034376e-09,
+      "grad_nonzero_diff": 287,
+      "name": "input_projection.weight"
+    },
+    {
+      "grad_max_abs": 1.4901161193847656e-08,
+      "grad_mean_abs": 4.090543459511764e-09,
+      "grad_nonzero_diff": 37,
+      "name": "input_projection.bias"
+    },
+    {
+      "grad_max_abs": 2.9802322387695312e-08,
+      "grad_mean_abs": 5.226104438094126e-09,
+      "grad_nonzero_diff": 277,
+      "name": "output_projection.weight"
+    },
+    {
+      "grad_max_abs": 7.450580596923828e-09,
+      "grad_mean_abs": 3.3760443329811096e-09,
+      "grad_nonzero_diff": 6,
+      "name": "output_projection.bias"
+    }
+  ],
+  "window": 64
+}

@@ -1,0 +1,136 @@
+{"backend": "vanilla or CUDA sm_121 static-global-template-stub=false", "capability": [12, 1], "cuda": "13.0", "device": "NVIDIA GB10", "torch": "2.13.0+cu130"}
+loader_variant {'arch': '121', 'code': 'sm_121', 'static_global_template_stub': 'false', 'extension_dir': '/tmp/xlstm_cuda_full121_false', 'sources': ['/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm.cc', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_forward.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_backward.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_backward_cut.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_pointwise.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/util/blas.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/util/cuda_error.cu']}
+ninja: no work to do.
+/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/cell.py:543: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @conditional_decorator(
+/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/cell.py:568: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @conditional_decorator(
+loader_variant {'arch': '121', 'code': 'sm_121', 'static_global_template_stub': 'false', 'extension_dir': '/tmp/xlstm_cuda_full121_false', 'sources': ['/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm.cc', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_forward.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_backward.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_backward_cut.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_pointwise.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/util/blas.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/util/cuda_error.cu']}
+loader_variant {'arch': '121', 'code': 'sm_121', 'static_global_template_stub': 'false', 'extension_dir': '/tmp/xlstm_cuda_full121_false', 'sources': ['/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm.cc', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_forward.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_backward.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_backward_cut.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_pointwise.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/util/blas.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/util/cuda_error.cu']}
+loader_variant {'arch': '121', 'code': 'sm_121', 'static_global_template_stub': 'false', 'extension_dir': '/tmp/xlstm_cuda_full121_false', 'sources': ['/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm.cc', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_forward.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_backward.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_backward_cut.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_pointwise.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/util/blas.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/util/cuda_error.cu']}
+loader_variant {'arch': '121', 'code': 'sm_121', 'static_global_template_stub': 'false', 'extension_dir': '/tmp/xlstm_cuda_full121_false', 'sources': ['/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm.cc', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_forward.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_backward.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_backward_cut.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_pointwise.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/util/blas.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/util/cuda_error.cu']}
+loader_variant {'arch': '121', 'code': 'sm_121', 'static_global_template_stub': 'false', 'extension_dir': '/tmp/xlstm_cuda_full121_false', 'sources': ['/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm.cc', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_forward.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_backward.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_backward_cut.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_pointwise.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/util/blas.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/util/cuda_error.cu']}
+loader_variant {'arch': '121', 'code': 'sm_121', 'static_global_template_stub': 'false', 'extension_dir': '/tmp/xlstm_cuda_full121_false', 'sources': ['/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm.cc', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_forward.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_backward.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_backward_cut.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_pointwise.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/util/blas.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/util/cuda_error.cu']}
+loader_variant {'arch': '121', 'code': 'sm_121', 'static_global_template_stub': 'false', 'extension_dir': '/tmp/xlstm_cuda_full121_false', 'sources': ['/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm.cc', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_forward.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_backward.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_backward_cut.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda/slstm_pointwise.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/util/blas.cu', '/home/p76141495/home/xlstm_anomaly/data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/util/cuda_error.cu']}
+[
+  {
+    "backend": "vanilla",
+    "batch": 128,
+    "elapsed_s": 3.32638232421875,
+    "loss_decreased": true,
+    "loss_first": 0.8785524964332581,
+    "loss_last": 0.3866000175476074,
+    "peak_memory_bytes": 668458496,
+    "samples_per_s": 769.6048591171052,
+    "status": "PASS",
+    "step_s": 0.16631911621093748,
+    "steps": 20,
+    "warmup": 5,
+    "windows_per_s": 769.6048591171052
+  },
+  {
+    "backend": "vanilla",
+    "batch": 256,
+    "elapsed_s": 3.54373974609375,
+    "loss_decreased": true,
+    "loss_first": 0.7744801044464111,
+    "loss_last": 0.3521975874900818,
+    "peak_memory_bytes": 1283425792,
+    "samples_per_s": 1444.8013586899986,
+    "status": "PASS",
+    "step_s": 0.1771869873046875,
+    "steps": 20,
+    "warmup": 5,
+    "windows_per_s": 1444.8013586899986
+  },
+  {
+    "backend": "vanilla",
+    "batch": 512,
+    "elapsed_s": 5.096458984375,
+    "loss_decreased": true,
+    "loss_first": 0.8790128231048584,
+    "loss_last": 0.4024098217487335,
+    "peak_memory_bytes": 2468941312,
+    "samples_per_s": 2009.2381850603224,
+    "status": "PASS",
+    "step_s": 0.25482294921875004,
+    "steps": 20,
+    "warmup": 5,
+    "windows_per_s": 2009.2381850603224
+  },
+  {
+    "backend": "vanilla",
+    "batch": 1024,
+    "elapsed_s": 8.397337890625,
+    "loss_decreased": true,
+    "loss_first": 0.915141761302948,
+    "loss_last": 0.422593891620636,
+    "peak_memory_bytes": 4827473408,
+    "samples_per_s": 2438.868158784511,
+    "status": "PASS",
+    "step_s": 0.41986689453125,
+    "steps": 20,
+    "warmup": 5,
+    "windows_per_s": 2438.868158784511
+  },
+  {
+    "backend": "cuda",
+    "batch": 128,
+    "elapsed_s": 0.5227179565429687,
+    "loss_decreased": true,
+    "loss_first": 0.8785524964332581,
+    "loss_last": 0.3866000175476074,
+    "peak_memory_bytes": 403779072,
+    "samples_per_s": 4897.478588512124,
+    "status": "PASS",
+    "step_s": 0.026135897827148435,
+    "steps": 20,
+    "warmup": 5,
+    "windows_per_s": 4897.478588512124
+  },
+  {
+    "backend": "cuda",
+    "batch": 256,
+    "elapsed_s": 0.9313123168945312,
+    "loss_decreased": true,
+    "loss_first": 0.7744801044464111,
+    "loss_last": 0.3521975874900818,
+    "peak_memory_bytes": 733730304,
+    "samples_per_s": 5497.618690443914,
+    "status": "PASS",
+    "step_s": 0.04656561584472656,
+    "steps": 20,
+    "warmup": 5,
+    "windows_per_s": 5497.618690443914
+  },
+  {
+    "backend": "cuda",
+    "batch": 512,
+    "elapsed_s": 1.9194442138671874,
+    "loss_decreased": true,
+    "loss_first": 0.8790128231048584,
+    "loss_last": 0.4024098217487335,
+    "peak_memory_bytes": 1377514496,
+    "samples_per_s": 5334.877630733028,
+    "status": "PASS",
+    "step_s": 0.09597221069335937,
+    "steps": 20,
+    "warmup": 5,
+    "windows_per_s": 5334.877630733028
+  },
+  {
+    "backend": "cuda",
+    "batch": 1024,
+    "elapsed_s": 3.985827880859375,
+    "loss_decreased": true,
+    "loss_first": 0.9151418209075928,
+    "loss_last": 0.422593891620636,
+    "peak_memory_bytes": 2676905472,
+    "samples_per_s": 5138.204812693607,
+    "status": "PASS",
+    "step_s": 0.19929139404296875,
+    "steps": 20,
+    "warmup": 5,
+    "windows_per_s": 5138.204812693607
+  }
+]
