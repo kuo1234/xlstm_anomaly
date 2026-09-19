@@ -1,0 +1,22 @@
+{
+  "status": "QUARANTINED",
+  "phase": "G1-R3",
+  "original_main_quarantine_commit": "f6bcb064256ab71e9438c026e66b698280fb45cc",
+  "continuation_execution_seal": "069cdd227e26c1c4e3633bc6088b31fd71a3ae92",
+  "original_prelabel_seal": "5622376087aaa97249ff9a055f201b250efbf1c2",
+  "output_dir": "reports/phase_g1_recovered_execution_v1",
+  "manifest_sha256_before_repair": "d97291f96e82133a0b1850605000486a32d1cc527e931e5daeb6fde43dc56821",
+  "manifest_sha256_after_one_field_repair": "a645a6a9660deff8cd7bf596ee948615eb4b33b8d785aaeaad0d950d79fbd33b",
+  "manifest_ledger_sha256_before_repair": "0615c55cd9ab0287bb60698f98a4e8efd47c0f3a80d26eac4102c2808dbd91a4",
+  "ledger_prefix_sha256_recomputed": "0615c55cd9ab0287bb60698f98a4e8efd47c0f3a80d26eac4102c2808dbd91a4",
+  "ledger_final_sha256": "a7958c23b4eecf3874b726ca307367e1a6cb58a2cfc34222ce33d9279328cb43",
+  "prefix_matches_manifest_before_repair": true,
+  "continuation_complete_count": 1,
+  "scientific_artifacts_byte_identical_after_repair": true,
+  "postrun_audit_verdict": "STOP_RESULT_INVALID",
+  "blocking_discrepancy": "H3a reproducibility counts differ from independent recomputation",
+  "scientific_results_authoritative": false,
+  "rerun_authorized": false,
+  "probe_refit_authorized": false,
+  "h2_h3a_interpretation": "WITHHELD"
+}
