@@ -1,0 +1,14 @@
+{
+  "status": "QUARANTINED",
+  "execution_output_dir": "reports/phase_g1_recovered_execution_v1",
+  "continuation_seal": "069cdd227e26c1c4e3633bc6088b31fd71a3ae92",
+  "continuation_completed": true,
+  "postrun_audit_verdict": "STOP_RESULT_UNRESOLVED",
+  "audit_report": "reports/phase_g1/g1_self_review_postrun_recovered.json",
+  "blocking_discrepancy": "recovered continuation ledger hash mismatch",
+  "manifest_ledger_sha256": "0615c55cd9ab0287bb60698f98a4e8efd47c0f3a80d26eac4102c2808dbd91a4",
+  "current_ledger_sha256": "a7958c23b4eecf3874b726ca307367e1a6cb58a2cfc34222ce33d9279328cb43",
+  "scientific_results_authoritative": false,
+  "rerun_or_repair_authorized": false,
+  "cache_modified": false
+}

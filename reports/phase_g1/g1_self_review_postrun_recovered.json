@@ -1,0 +1,8 @@
+{
+  "G1_PRELABEL_SEAL_COMMIT": "5622376087aaa97249ff9a055f201b250efbf1c2",
+  "discrepancies": [
+    "ProtocolViolation('recovered continuation ledger hash mismatch')"
+  ],
+  "execution_commit": "069cdd227e26c1c4e3633bc6088b31fd71a3ae92",
+  "verdict": "STOP_RESULT_UNRESOLVED"
+}
