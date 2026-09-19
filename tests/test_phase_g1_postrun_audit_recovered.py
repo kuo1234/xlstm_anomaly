@@ -206,6 +206,26 @@ def test_altered_decision_summary_is_detected():
     recovered._assert_decision_matches("H2", "GO", "GO")
 
 
+def test_h3a_reproducibility_ignores_h2_count_entry():
+    counts = {
+        "h2": {"positive_detector_seeds": 5, "positive_scenarios": 4},
+        "h3a_a": {"positive_detector_seeds": 4, "positive_scenarios": 3},
+        "h3a_b": {"positive_detector_seeds": 4, "positive_scenarios": 3},
+        "h3a_c": {"positive_detector_seeds": 5, "positive_scenarios": 4},
+    }
+    decision = {
+        "h3a_reproducibility": {
+            name: counts[name] for name in ("h3a_a", "h3a_b", "h3a_c")
+        },
+        "h3a_reproducibility_pass": True,
+    }
+    assert recovered._h3a_reproducibility_matches(decision, counts, True)
+    assert decision["h3a_reproducibility"] != counts
+    assert not recovered._h3a_reproducibility_matches(
+        {**decision, "h3a_reproducibility": counts}, counts, True
+    )
+
+
 def test_old_auditor_top_level_is_not_called_and_cache_is_not_mutated():
     source = (ROOT / "scripts" / "phase_g1_postrun_audit_recovered.py").read_text()
     tree = ast.parse(source)

@@ -586,6 +586,18 @@ def _validate_primary_probe_artifact(
         raise ProtocolViolation(f"reported test row-key summary mismatch: {stem}")
 
 
+def _h3a_reproducibility_matches(decision: dict[str, Any], counts: dict[str, Any], expected_pass: bool) -> bool:
+    """Compare the H3a-only decision field against H3a delta counts."""
+    expected_h3a_counts = {
+        name: counts[name]
+        for name in ("h3a_a", "h3a_b", "h3a_c")
+    }
+    return (
+        decision.get("h3a_reproducibility") == expected_h3a_counts
+        and decision.get("h3a_reproducibility_pass") is expected_pass
+    )
+
+
 def _scientific_audit(
     execution: Mapping[str, Any],
     probes: Mapping[str, Any],
@@ -777,7 +789,7 @@ def _scientific_audit(
             discrepancies.append("H2 positivity counts differ from independent recomputation")
         if h2_expected == "GO":
             h3_repro = all(counts[name]["positive_detector_seeds"] >= 4 and counts[name]["positive_scenarios"] >= 3 for name in ("h3a_a", "h3a_b", "h3a_c"))
-            if decision.get("h3a_reproducibility") != counts or decision.get("h3a_reproducibility_pass") is not h3_repro:
+            if not _h3a_reproducibility_matches(decision, counts, h3_repro):
                 discrepancies.append("H3a reproducibility counts differ from independent recomputation")
             h3_args = [
                 {"mean": independent_statistics[name]["mean"], "ci_lower": independent_statistics[name]["ci95"][0], "p": independent_statistics[name]["holm_adjusted_p"]}
