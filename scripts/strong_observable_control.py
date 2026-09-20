@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 WINDOW = 64
-BATCH_SIZE = 128
+BATCH_SIZE = 256
 SCENARIOS = ("abrupt", "gradual", "recurring", "correlation")
 CONDITIONS = ("none", "spike", "collective", "dependency", "mixture")
 FOLDS = {

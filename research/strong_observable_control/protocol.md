@@ -14,6 +14,8 @@ post-G1 exploratory stress test; it does not alter G1, H2, H3a, or H3b.
 - Conditions: none, spike, collective, dependency, mixture.
 - Window 64, stride 1, right-edge timestamp; mixed windows are excluded from
   the primary anomaly-vs-drift cohort.
+- Extraction batches use 256 after a bounded B128/B256 inference canary; this
+  changes launch batching only, not windows, rows, or feature semantics.
 - Extraction receives observations only.  Evaluator labels are joined after a
   stream has been cached.
 - Residual is `R = X_scaled - Xhat_scaled` in the exact normalized model input
