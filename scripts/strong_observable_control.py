@@ -408,11 +408,17 @@ def analyze(cache_dir: Path, seed: int, architecture: str, output: Path) -> dict
     arms = ("H", "H+I", "H+O1", "H+O1+I", "H+O2", "H+O2+I")
     result = {"status": "exploratory_strong_observable_control", "architecture": architecture, "detector_seed": seed, "arms": {}, "increments": {}, "scenario_effects": {}}
     source_aps: dict[str, dict[str, float | None]] = {}
+    # These are invariant cache metadata.  Capture them before releasing each
+    # arm's high-dimensional matrices below; keeping ``stacked`` alive until
+    # result serialization would unnecessarily retain the O2 working set.
+    rows = {fold: int(len(records[fold]["y"])) for fold in FOLDS}
+    feature_dimensions: dict[str, int] = {}
     for arm in arms:
         # Build and release one arm at a time.  O2 is intentionally high
         # dimensional; retaining six duplicated matrices can exhaust host RAM.
         stacked = {fold: _arm_matrix(records[fold], arm) for fold in FOLDS}
         info, prediction = _fit_arm(stacked["train"], stacked["validation"], stacked["test"], arm, seed)
+        feature_dimensions[arm] = int(info["dimension"])
         info["scenario_AP"] = _scenario_ap(stacked["test"], prediction)
         result["arms"][arm] = info
         result["scenario_effects"][arm] = dict(info["scenario_AP"])
@@ -431,8 +437,8 @@ def analyze(cache_dir: Path, seed: int, architecture: str, output: Path) -> dict
         "O1_given_H": ap["H+O1"] - ap["H"],
         "O2_given_H": ap["H+O2"] - ap["H"],
     }
-    result["rows"] = {fold: int(len(stacked[fold]["H"]["y"])) for fold in FOLDS}
-    result["feature_dimensions"] = {arm: int(stacked["train"][arm]["X"].shape[1]) for arm in arms}
+    result["rows"] = rows
+    result["feature_dimensions"] = feature_dimensions
     result["source_AP"] = source_aps
     result["source_effects"] = {}
     for name, left, right in (
