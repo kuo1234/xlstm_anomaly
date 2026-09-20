@@ -1,0 +1,183 @@
+{
+  "classification": "LSTM_INTERNAL_SIGNAL_RECONSTRUCTED",
+  "post_hoc_exploratory": true,
+  "authoritative_input": {
+    "path": "reports/phase_g1/g1_self_review_postrun_recovered_v2_pass.json",
+    "sha256": "acf37369aaea085d5159f34b179807949782e592635ab949bd00236340fb7e40",
+    "verdict": "PASS_SCIENTIFIC_AUDIT",
+    "detector_seeds": [
+      11,
+      22,
+      33,
+      44,
+      55
+    ],
+    "test_sources": [
+      3000,
+      3001,
+      3002,
+      3003,
+      3004,
+      3005,
+      3006,
+      3007,
+      3008,
+      3009
+    ]
+  },
+  "definitions": {
+    "delta_x": "AP(xLSTM history + xLSTM internal) - AP(xLSTM history)",
+    "h3a_b": "delta_x - delta_l_own",
+    "delta_l_own": "AP(LSTM history + LSTM internal) - AP(LSTM history)",
+    "source_axis": "TEST_SOURCES ascending (3000..3009)",
+    "detector_seed_axis": "DETECTOR_SEEDS (11,22,33,44,55)"
+  },
+  "identity": {
+    "max_abs_error": 0.0,
+    "exact_array_identity": true,
+    "aggregate_delta_x": 0.14251889179304736,
+    "aggregate_h3a_b": -0.00044740239840040496,
+    "aggregate_delta_l_own": 0.14296629419144774
+  },
+  "delta_l_own": {
+    "matrix": [
+      [
+        0.12506303697680454,
+        0.13889249016289051,
+        0.13340941287922148,
+        0.14039657444622977,
+        0.14440355644103975
+      ],
+      [
+        0.1528245665339094,
+        0.16369357411677432,
+        0.142326372174164,
+        0.14234610387543722,
+        0.15096798406785117
+      ],
+      [
+        0.13987804930472336,
+        0.14455069022423894,
+        0.13618328604259955,
+        0.13888937824804093,
+        0.15080954685617598
+      ],
+      [
+        0.14868973460952128,
+        0.1591872465173395,
+        0.14696863879327504,
+        0.14366501388128883,
+        0.15444234630677078
+      ],
+      [
+        0.1418087840453519,
+        0.13699552417877192,
+        0.13950560945703083,
+        0.13540807881401318,
+        0.14967078594749006
+      ],
+      [
+        0.13177856495901952,
+        0.143313385146153,
+        0.1346284732113857,
+        0.13036372643108118,
+        0.14476516348782587
+      ],
+      [
+        0.13781912605997637,
+        0.14419122207769264,
+        0.15867867752762654,
+        0.15028600799877534,
+        0.1566353703659007
+      ],
+      [
+        0.15121842449727918,
+        0.1535926215804192,
+        0.1444674052903554,
+        0.1459230665651342,
+        0.16518666527010928
+      ],
+      [
+        0.1271704679838087,
+        0.12720803721632534,
+        0.12343624704555345,
+        0.12814822234044154,
+        0.13476301140705949
+      ],
+      [
+        0.14682862990760037,
+        0.1375909102815942,
+        0.1349879370627265,
+        0.15042446123528108,
+        0.1439324997223087
+      ]
+    ],
+    "mean": 0.14296629419144774,
+    "median": 0.1434891995137209,
+    "min": 0.12343624704555345,
+    "max": 0.16518666527010928,
+    "positive_unit_count": 50,
+    "unit_count": 50,
+    "practical_margin": 0.02,
+    "unit_at_or_above_practical_margin": 50,
+    "positive_detector_seed_count": 5,
+    "detector_seed_means": {
+      "11": 0.1403079384877995,
+      "22": 0.14492157015021995,
+      "33": 0.13945920594839384,
+      "44": 0.14058506338357235,
+      "55": 0.14955769298725316
+    },
+    "detector_seed_at_or_above_margin": 5,
+    "positive_source_count": 10,
+    "source_means": {
+      "3000": 0.1364330141812372,
+      "3001": 0.1504317201536272,
+      "3002": 0.14206219013515575,
+      "3003": 0.1505905960216391,
+      "3004": 0.1406777564885316,
+      "3005": 0.13696986264709304,
+      "3006": 0.14952208080599433,
+      "3007": 0.15207763664065946,
+      "3008": 0.1281451971986377,
+      "3009": 0.14275288764190217
+    },
+    "source_at_or_above_margin": 10
+  },
+  "exploratory_uncertainty": {
+    "label": "POST-HOC / EXPLORATORY",
+    "hierarchical_bootstrap": {
+      "draws": 10000,
+      "seed": 901,
+      "mean": 0.14296629419144774,
+      "ci95": [
+        0.13790408806665289,
+        0.14770155534820967
+      ]
+    },
+    "source_cluster_sign_flip": {
+      "seed": 902,
+      "raw_p": 0.001953125,
+      "permutations": "exact enumeration (10 sources)"
+    },
+    "holm_family_membership": false
+  },
+  "secondary_recovery": {
+    "scenario_effects": "NOT_RECOVERABLE_FROM_CONSOLIDATED_ARTIFACTS",
+    "scenario_reason": "committed audit preserves scenario effect shapes but not standalone LSTM per-arm AP arrays",
+    "duration_effects": "NOT_RECOVERABLE_FROM_CONSOLIDATED_ARTIFACTS",
+    "severity_effects": "NOT_RECOVERABLE_FROM_CONSOLIDATED_ARTIFACTS",
+    "shared_candi_delta_l": "NOT_RECOVERABLE_FROM_CONSOLIDATED_ARTIFACTS",
+    "shared_candi_reason": "committed audit preserves H3a-C contrast only, not both standalone shared-CANDI arm APs"
+  },
+  "interpretation": {
+    "supported": "Under the same frozen G1 feature/probe protocol, the matched conventional LSTM also shows a large incremental internal-state signal beyond its own score/history control.",
+    "does_not_establish": [
+      "a new H2 or confirmatory hypothesis",
+      "LSTM-xLSTM equivalence or global superiority",
+      "safe adaptation or contamination robustness",
+      "that all recurrent models contain this information",
+      "matrix-memory specificity or persistent-state benefit"
+    ]
+  }
+}

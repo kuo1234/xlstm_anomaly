@@ -40,9 +40,11 @@ evidence does not isolate matrix-memory `C` as its main source.
 
 These results do not establish online safe adaptation, contamination
 robustness, a global xLSTM-over-LSTM advantage, long-context superiority, or
-persistent cross-window memory. Immediate unresolved questions are a standalone
-LSTM H2 comparison, a stronger observable/residual baseline, and multi-seed
-dense mLSTM replication.
+persistent cross-window memory. Post-hoc LSTM diagnostic: `Delta_L_own ≈
++0.142966` (50/50 positive), not evidence of xLSTM-specificity; scenario and
+shared-CANDI components are unavailable from compact artifacts. Immediate
+unresolved questions are a stronger observable/residual baseline and
+multi-seed dense mLSTM replication.
 
 `research/framing-2026-09` is a pre-G1 Claude Science framing snapshot and
 intentionally remains on a separate branch for later reconciliation.
