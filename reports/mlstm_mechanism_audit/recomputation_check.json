@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "method": "average_precision_score recomputed from saved test labels and prediction arrays",
+  "seeds": [11, 22, 33],
+  "all_arm_AP_and_increment_values_match_saved_results": true,
+  "p_values": null,
+  "confirmatory_claim": false
+}

@@ -1,0 +1,306 @@
+{
+  "status": "BLOCKED",
+  "decision_scope": "engineering_canary_only; no scientific conclusion",
+  "environment": {
+    "torch": "2.13.0+cu130",
+    "torch_cuda": "13.0",
+    "device": "NVIDIA GB10",
+    "capability": [
+      12,
+      1
+    ],
+    "device_count": 1,
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "cudnn_allow_tf32": false,
+    "cuda_matmul_allow_tf32": false,
+    "matmul_precision": "highest",
+    "deterministic_algorithms": false,
+    "torch_threads": 20,
+    "cuda_extension_dir": "/tmp/xlstm_cuda_full121_false",
+    "cuda_architecture": "sm_121; static-global-template-stub=false"
+  },
+  "checkpoint": {
+    "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/integration-canary/data/phase_f_v4/runs/xlstm_11/best.pt",
+    "sha256": "4729a3ba385b285078aa987fce176e61fd382715c5357fc92f2635a929a0ae41"
+  },
+  "data_loading_seconds": 0.32917256001383066,
+  "data": {
+    "train_shape": [
+      40330,
+      64,
+      8
+    ],
+    "validation_shape": [
+      20165,
+      64,
+      8
+    ],
+    "dtype": "torch.float32",
+    "device": "cuda:0",
+    "test_sources_used": false,
+    "labels_used": false
+  },
+  "orders": {
+    "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/integration-canary/data/phase_f/orders_11.npy",
+    "sha256": "83620f8707e9f8c9f563eb017b1b93063eafa566d5d010bff7f334dcef8d54a6",
+    "shape": [
+      50,
+      40330
+    ],
+    "epoch_hashes": [
+      "e13867a888dfb15cb528f8d9c00034c04f29566bdf3c498ac29c58cc6108fce5",
+      "c5c217132e3c4f49cc02cfd01d0619b2484321497938885ef75a2cb5fc7c573e",
+      "30b6ddd2a305503d393240b3b1defc1850349a20894cea58af8a2b8068b74333"
+    ],
+    "train_windows": 40330,
+    "batch_size": 128,
+    "batch_count": 316,
+    "batch_sizes_head": [
+      128,
+      128,
+      128
+    ],
+    "batch_sizes_tail": [
+      128,
+      128,
+      10
+    ]
+  },
+  "initial_pair": {
+    "vanilla": {
+      "loss": 1.1532068252563477,
+      "output_finite": true,
+      "loss_finite": true
+    },
+    "cuda": {
+      "loss": 1.1532068252563477,
+      "output_finite": true,
+      "loss_finite": true
+    },
+    "loss_relative_difference": 0.0,
+    "same_math_initial_state": true,
+    "adapter": "_load_vanilla_weights_into_cuda recurrent int2ext/ext2int"
+  },
+  "criterion": {
+    "validation_relative_tolerance": 0.01,
+    "first_step_relative_tolerance": 0.02,
+    "epoch1_validation_relative_difference": 0.001906339204900565,
+    "validation_relative_difference_by_epoch": [
+      0.001906339204900565,
+      0.010877338389289287,
+      0.036485253337164854
+    ],
+    "epoch1_first_three_step_max_relative_difference": 0.0,
+    "epoch1_validation_pass": true,
+    "all_executed_epochs_validation_pass": false,
+    "first_steps_finite": true,
+    "all_finite": true,
+    "losses_decrease": true,
+    "same_counts_and_orders": true,
+    "parameter_layout_adapter": true,
+    "pass": false
+  },
+  "epochs_run": 3,
+  "runs": {
+    "vanilla": {
+      "model_info": {
+        "parameter_count": 73504,
+        "finite": true
+      },
+      "initial": {
+        "loss": 1.1532068252563477,
+        "output_finite": true,
+        "loss_finite": true
+      },
+      "epochs": [
+        {
+          "epoch": 1,
+          "train_mse": 0.09230428548957419,
+          "validation_mse": 0.004114525856049775,
+          "forward_seconds": 15.319626520387828,
+          "backward_seconds": 31.436134255491197,
+          "optimizer_seconds": 1.0177738377824426,
+          "validation_seconds": 6.192348273470998,
+          "checkpoint_report_seconds": 0.0034176046028733253,
+          "epoch_wall_seconds": 54.152882817201316,
+          "optimizer_steps": 316,
+          "windows_consumed": 40330,
+          "first_three_step_losses": [
+            1.1793168783187866,
+            1.101959466934204,
+            1.0020204782485962
+          ],
+          "finite_gradients_checked": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "finite_parameters": true,
+          "finite_train_loss": true,
+          "finite_validation_loss": true,
+          "peak_memory_bytes": 772440064
+        },
+        {
+          "epoch": 2,
+          "train_mse": 0.0023811314237506555,
+          "validation_mse": 0.0013673186664276255,
+          "forward_seconds": 15.949098833836615,
+          "backward_seconds": 31.007064444944263,
+          "optimizer_seconds": 1.020582478493452,
+          "validation_seconds": 6.357570112682879,
+          "checkpoint_report_seconds": 0.00266276765614748,
+          "epoch_wall_seconds": 54.53020870126784,
+          "optimizer_steps": 316,
+          "windows_consumed": 40330,
+          "first_three_step_losses": [
+            0.004352128133177757,
+            0.0035399198532104492,
+            0.004407119005918503
+          ],
+          "finite_gradients_checked": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "finite_parameters": true,
+          "finite_train_loss": true,
+          "finite_validation_loss": true,
+          "peak_memory_bytes": 773401600
+        },
+        {
+          "epoch": 3,
+          "train_mse": 0.0011396539012931274,
+          "validation_mse": 0.0007714765641219201,
+          "forward_seconds": 16.26178238261491,
+          "backward_seconds": 31.34382104780525,
+          "optimizer_seconds": 1.0462297769263387,
+          "validation_seconds": 6.43569643329829,
+          "checkpoint_report_seconds": 0.002682526595890522,
+          "epoch_wall_seconds": 55.30925559811294,
+          "optimizer_steps": 316,
+          "windows_consumed": 40330,
+          "first_three_step_losses": [
+            0.0014101109700277448,
+            0.0013442672789096832,
+            0.0014755609445273876
+          ],
+          "finite_gradients_checked": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "finite_parameters": true,
+          "finite_train_loss": true,
+          "finite_validation_loss": true,
+          "peak_memory_bytes": 773401600
+        }
+      ]
+    },
+    "cuda": {
+      "model_info": {
+        "parameter_count": 73504,
+        "finite": true
+      },
+      "initial": {
+        "loss": 1.1532068252563477,
+        "output_finite": true,
+        "loss_finite": true
+      },
+      "epochs": [
+        {
+          "epoch": 1,
+          "train_mse": 0.0923043346805177,
+          "validation_mse": 0.0041066821741008105,
+          "forward_seconds": 2.3768364526331425,
+          "backward_seconds": 5.915690200403333,
+          "optimizer_seconds": 0.9548560390248895,
+          "validation_seconds": 1.0727746402844787,
+          "checkpoint_report_seconds": 0.002554846927523613,
+          "epoch_wall_seconds": 10.4308579582721,
+          "optimizer_steps": 316,
+          "windows_consumed": 40330,
+          "first_three_step_losses": [
+            1.1793168783187866,
+            1.101959466934204,
+            1.0020204782485962
+          ],
+          "finite_gradients_checked": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "finite_parameters": true,
+          "finite_train_loss": true,
+          "finite_validation_loss": true,
+          "peak_memory_bytes": 529421312
+        },
+        {
+          "epoch": 2,
+          "train_mse": 0.002387742306444791,
+          "validation_mse": 0.0013823550096416267,
+          "forward_seconds": 2.343581830151379,
+          "backward_seconds": 5.78293146379292,
+          "optimizer_seconds": 0.9220078699290752,
+          "validation_seconds": 1.0778483804315329,
+          "checkpoint_report_seconds": 0.002686525695025921,
+          "epoch_wall_seconds": 10.22743920236826,
+          "optimizer_steps": 316,
+          "windows_consumed": 40330,
+          "first_three_step_losses": [
+            0.004344061017036438,
+            0.0035308613441884518,
+            0.004403175786137581
+          ],
+          "finite_gradients_checked": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "finite_parameters": true,
+          "finite_train_loss": true,
+          "finite_validation_loss": true,
+          "peak_memory_bytes": 529421312
+        },
+        {
+          "epoch": 3,
+          "train_mse": 0.00109865366580658,
+          "validation_mse": 0.0007433290462362463,
+          "forward_seconds": 2.358644684776664,
+          "backward_seconds": 5.800646283663809,
+          "optimizer_seconds": 0.927382392808795,
+          "validation_seconds": 1.0768459551036358,
+          "checkpoint_report_seconds": 0.0026803500950336456,
+          "epoch_wall_seconds": 10.266163055785,
+          "optimizer_steps": 316,
+          "windows_consumed": 40330,
+          "first_three_step_losses": [
+            0.0014317805180326104,
+            0.0013610277092084289,
+            0.001469853799790144
+          ],
+          "finite_gradients_checked": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "finite_parameters": true,
+          "finite_train_loss": true,
+          "finite_validation_loss": true,
+          "peak_memory_bytes": 529421312
+        }
+      ]
+    }
+  },
+  "temporary_checkpoints_written": true,
+  "labels_used": false,
+  "test_sources_used": false,
+  "observers_used": false
+}

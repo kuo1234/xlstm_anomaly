@@ -1,0 +1,41 @@
+{
+  "batch": 128,
+  "window": 64,
+  "rows": {
+    "score_only": {
+      "steps": 10,
+      "elapsed_s": 0.06930147856473923,
+      "decisions_per_sec": 18470.02439932454,
+      "batches_per_sec": 144.29706561972296,
+      "peak_memory_bytes": 153243648
+    },
+    "sLSTM_fast_observer": {
+      "steps": 10,
+      "elapsed_s": 0.09139069356024265,
+      "decisions_per_sec": 14005.802452481152,
+      "batches_per_sec": 109.420331660009,
+      "peak_memory_bytes": 188203008
+    },
+    "mLSTM_observer": {
+      "steps": 10,
+      "elapsed_s": 0.32608624268323183,
+      "decisions_per_sec": 3925.341926318012,
+      "batches_per_sec": 30.66673379935947,
+      "peak_memory_bytes": 283511808
+    },
+    "sLSTM_plus_mLSTM": {
+      "steps": 10,
+      "elapsed_s": 0.3475913451984525,
+      "decisions_per_sec": 3682.4852450488997,
+      "batches_per_sec": 28.76941597694453,
+      "peak_memory_bytes": 308776960
+    }
+  },
+  "additional_batch_256": {
+    "score_only_decisions_per_sec": 36455.62028169131,
+    "sLSTM_plus_mLSTM_decisions_per_sec": 7454.181409559557,
+    "steps": 5,
+    "warmup": 2,
+    "note": "bounded supplemental timing; same trained seed-11 checkpoint and CUDA fixture"
+  }
+}

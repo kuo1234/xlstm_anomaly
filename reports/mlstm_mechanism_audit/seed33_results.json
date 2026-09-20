@@ -1,0 +1,278 @@
+{
+  "status": "exploratory_seed_screen",
+  "detector_seed": 33,
+  "checkpoint": "/home/p76141495/home/xlstm_anomaly/.worktrees/mlstm-mechanism-audit/data/phase_f_v4/runs/xlstm_33/best.pt",
+  "timestamp_stride": 32,
+  "window": 64,
+  "source_folds": {
+    "train": [
+      1000,
+      1001,
+      1002,
+      1003,
+      1004,
+      1005,
+      1006,
+      1007,
+      1008,
+      1009
+    ],
+    "validation": [
+      2000,
+      2001,
+      2002,
+      2003,
+      2004
+    ],
+    "test": [
+      3000,
+      3001,
+      3002,
+      3003,
+      3004,
+      3005,
+      3006,
+      3007,
+      3008,
+      3009
+    ]
+  },
+  "scenarios": [
+    "abrupt",
+    "gradual",
+    "recurring",
+    "correlation"
+  ],
+  "conditions": [
+    "none",
+    "spike",
+    "collective",
+    "dependency",
+    "mixture"
+  ],
+  "labels_joined_after_observation_extraction": true,
+  "rows_extracted": 51325,
+  "rows_by_fold": {
+    "train": 20530,
+    "validation": 10265,
+    "test": 20530
+  },
+  "arms": {
+    "H": {
+      "arm": "H",
+      "detector_seed": 33,
+      "dimension": 14,
+      "selected_C": 0.01,
+      "validation_candidates": [
+        {
+          "ap": 0.815035189792402,
+          "C": 0.01
+        },
+        {
+          "ap": 0.8141827063441331,
+          "C": 0.1
+        },
+        {
+          "ap": 0.8129911695177399,
+          "C": 1.0
+        },
+        {
+          "ap": 0.8124325147458282,
+          "C": 10.0
+        }
+      ],
+      "scaler_sha256": "8470ab06e2e286cf0e2fc014e5fe77745dbf2846391a9456cf47b04c4db01a4b",
+      "coef_sha256": "b1a85e533c4d29f5dc8b367a716d6b1e8a352e450b730367472c49b7cde61c70",
+      "intercept_sha256": "62c1c116dac9e3bb75ed7b1ebeeb228b8dcb816a5c270dd92b3dd57066969f5a",
+      "train_count": 20530,
+      "validation_count": 10265,
+      "test_count": 20530,
+      "test_class_counts": [
+        7670,
+        12860
+      ],
+      "strata": {
+        "abrupt": 0.9929225788127332,
+        "gradual": 0.929518977666289,
+        "recurring": 0.7004907301125562,
+        "correlation": 0.9611665108369418,
+        "duration": {
+          "1": 0.34293667395513733,
+          "16": 0.08066626605507189,
+          "64": 0.5626416416180346,
+          "256": 0.6783286867176508
+        },
+        "severity": {
+          "1": 0.5034108715939523,
+          "2": 0.7617376139246481,
+          "3": 0.6030313764232726
+        }
+      }
+    },
+    "H+S": {
+      "arm": "H+S",
+      "detector_seed": 33,
+      "dimension": 248,
+      "selected_C": 0.01,
+      "validation_candidates": [
+        {
+          "ap": 0.9680187134002589,
+          "C": 0.01
+        },
+        {
+          "ap": 0.9657087331752964,
+          "C": 0.1
+        },
+        {
+          "ap": 0.9632995813478848,
+          "C": 1.0
+        },
+        {
+          "ap": 0.9624304678678849,
+          "C": 10.0
+        }
+      ],
+      "scaler_sha256": "4fbe403a0973c5e893bd022ed6617ad5b115f0915c732b612a91ad289e09631a",
+      "coef_sha256": "e5d35c491b7bf137c34fbd8498d5e196f06e390799f4fb5c00df9fe4f1c127ca",
+      "intercept_sha256": "05952d9f03ab69226949da166ade233ab29981c4bab4babe6c6d385bf1796628",
+      "train_count": 20530,
+      "validation_count": 10265,
+      "test_count": 20530,
+      "test_class_counts": [
+        7670,
+        12860
+      ],
+      "strata": {
+        "abrupt": 0.9947628523198893,
+        "gradual": 0.9097402109740458,
+        "recurring": 0.9508165060533458,
+        "correlation": 0.9924470873637787,
+        "duration": {
+          "1": 0.57607693456699,
+          "16": 0.2457266752473453,
+          "64": 0.8016506435983959,
+          "256": 0.8648000525322111
+        },
+        "severity": {
+          "1": 0.7275404911544912,
+          "2": 0.9514718358226167,
+          "3": 0.8552564268689565
+        }
+      }
+    },
+    "H+M": {
+      "arm": "H+M",
+      "detector_seed": 33,
+      "dimension": 248,
+      "selected_C": 0.1,
+      "validation_candidates": [
+        {
+          "ap": 0.9749704056417539,
+          "C": 0.01
+        },
+        {
+          "ap": 0.9768798143267924,
+          "C": 0.1
+        },
+        {
+          "ap": 0.9768326900675064,
+          "C": 1.0
+        },
+        {
+          "ap": 0.9763255480047774,
+          "C": 10.0
+        }
+      ],
+      "scaler_sha256": "7a6173c585290bf573e6279846c1e126dc8bc352ab75a14355a1841fd63879fe",
+      "coef_sha256": "6280d20d86c27a85da1ebb5f525b0c1517fe685c0b1e730b96df97953db083f6",
+      "intercept_sha256": "031ac582d652e80083d64353a6b28754f3ac358fa8f03aaacd7e54db1f30e3f4",
+      "train_count": 20530,
+      "validation_count": 10265,
+      "test_count": 20530,
+      "test_class_counts": [
+        7670,
+        12860
+      ],
+      "strata": {
+        "abrupt": 0.9985987680459817,
+        "gradual": 0.9524705531308028,
+        "recurring": 0.9850529116797733,
+        "correlation": 0.9780441768946626,
+        "duration": {
+          "1": 0.6079695078404816,
+          "16": 0.25012562042311254,
+          "64": 0.8149621598123192,
+          "256": 0.9036798951131162
+        },
+        "severity": {
+          "1": 0.7523113767353853,
+          "2": 0.9767355304565966,
+          "3": 0.8549965461957322
+        }
+      }
+    },
+    "H+S+M": {
+      "arm": "H+S+M",
+      "detector_seed": 33,
+      "dimension": 482,
+      "selected_C": 0.01,
+      "validation_candidates": [
+        {
+          "ap": 0.9700875113609155,
+          "C": 0.01
+        },
+        {
+          "ap": 0.9674444922705551,
+          "C": 0.1
+        },
+        {
+          "ap": 0.9676997822895352,
+          "C": 1.0
+        },
+        {
+          "ap": 0.9684603474408502,
+          "C": 10.0
+        }
+      ],
+      "scaler_sha256": "2fc8dcb681d335585a46958d863e75ecebc45ffe31723c3bfba0a1f78556c2fa",
+      "coef_sha256": "6ebc22f6ed991b42e342003f7fd893e9585ce0fa452e2439cdee0a68110449e3",
+      "intercept_sha256": "2e47d30e1248d2235087e6c435489e79c88d1583ccd87a0ac56c7f4c601b5c77",
+      "train_count": 20530,
+      "validation_count": 10265,
+      "test_count": 20530,
+      "test_class_counts": [
+        7670,
+        12860
+      ],
+      "strata": {
+        "abrupt": 0.9977866127125221,
+        "gradual": 0.9249926490490397,
+        "recurring": 0.9869088831598185,
+        "correlation": 0.9770692434376194,
+        "duration": {
+          "1": 0.5243206037818389,
+          "16": 0.19813002824280102,
+          "64": 0.7327401836046958,
+          "256": 0.8591159598998175
+        },
+        "severity": {
+          "1": 0.6819369891064463,
+          "2": 0.9645472901960226,
+          "3": 0.8177347313931299
+        }
+      }
+    }
+  },
+  "test_AP": {
+    "H": 0.8149983254195439,
+    "H+S": 0.9546659591360747,
+    "H+M": 0.9711509127153173,
+    "H+S+M": 0.9597421171505971
+  },
+  "increments": {
+    "M_given_history": 0.15615258729577342,
+    "M_given_sLSTM": 0.005076158014522436,
+    "sLSTM_given_history": 0.1396676337165308,
+    "H+M_vs_H+S_descriptive": 0.016484953579242623
+  }
+}

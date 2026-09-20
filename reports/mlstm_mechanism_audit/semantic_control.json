@@ -1,0 +1,34 @@
+{
+  "observations_identical": true,
+  "labels_differ": true,
+  "timestamps": {
+    "max_abs": 0.0,
+    "allclose": true,
+    "shape": [
+      671
+    ]
+  },
+  "scores": {
+    "max_abs": 0.0,
+    "allclose": true,
+    "shape": [
+      671
+    ]
+  },
+  "s_base": {
+    "max_abs": 0.0,
+    "allclose": true,
+    "shape": [
+      671,
+      18
+    ]
+  },
+  "m_base": {
+    "max_abs": 0.0,
+    "allclose": true,
+    "shape": [
+      671,
+      18
+    ]
+  }
+}

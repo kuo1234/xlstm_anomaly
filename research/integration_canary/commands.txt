@@ -1,0 +1,25 @@
+Common environment (prepend `env` as shown):
+
+    XLSTM_PROJECT_ROOT=/home/p76141495/home/xlstm_anomaly
+    XLSTM_PY_HEADERS_ROOT=/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include
+    XLSTM_EXTRA_INCLUDE_PATHS=/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include/python3.12:/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include
+    TORCH_EXTENSIONS_DIR=/tmp/xlstm_cuda_full121_false
+    MAX_JOBS=1
+
+# Canary A
+env XLSTM_PROJECT_ROOT=/home/p76141495/home/xlstm_anomaly \
+  XLSTM_PY_HEADERS_ROOT=/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include \
+  XLSTM_EXTRA_INCLUDE_PATHS=/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include/python3.12:/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include \
+  TORCH_EXTENSIONS_DIR=/tmp/xlstm_cuda_full121_false MAX_JOBS=1 \
+  /home/p76141495/home/xlstm_anomaly/data/phase_e/venv/bin/python \
+  research/integration_canary/checkpoint_observer_canary.py \
+  --output research/integration_canary/observer_checkpoint_canary.json
+
+# Canary B (seed 11, at most three paired epochs)
+env XLSTM_PROJECT_ROOT=/home/p76141495/home/xlstm_anomaly \
+  XLSTM_PY_HEADERS_ROOT=/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include \
+  XLSTM_EXTRA_INCLUDE_PATHS=/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include/python3.12:/home/p76141495/home/xlstm_anomaly/data/phase_e/python_headers/usr/include \
+  TORCH_EXTENSIONS_DIR=/tmp/xlstm_cuda_full121_false MAX_JOBS=1 \
+  /home/p76141495/home/xlstm_anomaly/data/phase_e/venv/bin/python \
+  research/integration_canary/cuda_training_canary.py \
+  --output research/integration_canary/cuda_training_canary.json

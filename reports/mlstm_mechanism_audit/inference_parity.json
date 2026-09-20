@@ -1,0 +1,677 @@
+{
+  "checkpoint": "/home/p76141495/home/xlstm_anomaly/.worktrees/mlstm-mechanism-audit/data/phase_f_v4/runs/xlstm_11/best.pt",
+  "checkpoint_payload_epoch": 50,
+  "atol": 1e-05,
+  "rtol": 0.0001,
+  "batches": {
+    "1": {
+      "output": {
+        "shape_a": [
+          1,
+          64,
+          8
+        ],
+        "shape_b": [
+          1,
+          64,
+          8
+        ],
+        "max_abs": 7.152557373046875e-07,
+        "mean_abs": 1.7922138795256615e-07,
+        "failed_elements": 0,
+        "finite_a": true,
+        "finite_b": true,
+        "allclose": true
+      },
+      "score": {
+        "shape_a": [
+          1
+        ],
+        "shape_b": [
+          1
+        ],
+        "max_abs": 1.482476363889873e-10,
+        "mean_abs": 1.482476363889873e-10,
+        "failed_elements": 0,
+        "finite_a": true,
+        "finite_b": true,
+        "allclose": true
+      },
+      "sLSTM_score": {
+        "shape_a": [
+          1
+        ],
+        "shape_b": [
+          1
+        ],
+        "max_abs": 1.482476363889873e-10,
+        "mean_abs": 1.482476363889873e-10,
+        "failed_elements": 0,
+        "finite_a": true,
+        "finite_b": true,
+        "allclose": true
+      },
+      "sLSTM_common18": {
+        "shape_a": [
+          1,
+          18
+        ],
+        "shape_b": [
+          1,
+          18
+        ],
+        "max_abs": 5.960464477539063e-08,
+        "mean_abs": 6.370505012398553e-09,
+        "failed_elements": 0,
+        "finite_a": true,
+        "finite_b": true,
+        "allclose": true
+      },
+      "mLSTM_score": {
+        "shape_a": [
+          1
+        ],
+        "shape_b": [
+          1
+        ],
+        "max_abs": 1.482476363889873e-10,
+        "mean_abs": 1.482476363889873e-10,
+        "failed_elements": 0,
+        "finite_a": true,
+        "finite_b": true,
+        "allclose": true
+      },
+      "mLSTM_base18": {
+        "shape_a": [
+          1,
+          18
+        ],
+        "shape_b": [
+          1,
+          18
+        ],
+        "max_abs": 1.341104507446289e-07,
+        "mean_abs": 2.557256628676896e-08,
+        "failed_elements": 0,
+        "finite_a": true,
+        "finite_b": true,
+        "allclose": true
+      },
+      "mLSTM_native_replay": {
+        "vanilla": {
+          "encoder.blocks.2.xlstm.mlstm_cell": {
+            "shape_a": [
+              1,
+              64,
+              80
+            ],
+            "shape_b": [
+              1,
+              64,
+              80
+            ],
+            "max_abs": 7.152557373046875e-07,
+            "mean_abs": 6.856779322106377e-08,
+            "failed_elements": 0,
+            "finite_a": true,
+            "finite_b": true,
+            "allclose": true
+          },
+          "decoder.blocks.2.xlstm.mlstm_cell": {
+            "shape_a": [
+              1,
+              64,
+              80
+            ],
+            "shape_b": [
+              1,
+              64,
+              80
+            ],
+            "max_abs": 9.5367431640625e-07,
+            "mean_abs": 6.482517989070402e-08,
+            "failed_elements": 0,
+            "finite_a": true,
+            "finite_b": true,
+            "allclose": true
+          }
+        },
+        "cuda": {
+          "encoder.blocks.2.xlstm.mlstm_cell": {
+            "shape_a": [
+              1,
+              64,
+              80
+            ],
+            "shape_b": [
+              1,
+              64,
+              80
+            ],
+            "max_abs": 7.152557373046875e-07,
+            "mean_abs": 6.555618625725401e-08,
+            "failed_elements": 0,
+            "finite_a": true,
+            "finite_b": true,
+            "allclose": true
+          },
+          "decoder.blocks.2.xlstm.mlstm_cell": {
+            "shape_a": [
+              1,
+              64,
+              80
+            ],
+            "shape_b": [
+              1,
+              64,
+              80
+            ],
+            "max_abs": 9.5367431640625e-07,
+            "mean_abs": 6.61933796664016e-08,
+            "failed_elements": 0,
+            "finite_a": true,
+            "finite_b": true,
+            "allclose": true
+          }
+        }
+      }
+    },
+    "8": {
+      "output": {
+        "shape_a": [
+          8,
+          64,
+          8
+        ],
+        "shape_b": [
+          8,
+          64,
+          8
+        ],
+        "max_abs": 1.0728836059570312e-06,
+        "mean_abs": 1.8028686099569313e-07,
+        "failed_elements": 0,
+        "finite_a": true,
+        "finite_b": true,
+        "allclose": true
+      },
+      "score": {
+        "shape_a": [
+          8
+        ],
+        "shape_b": [
+          8
+        ],
+        "max_abs": 2.53749021794647e-10,
+        "mean_abs": 1.1459633242338896e-10,
+        "failed_elements": 0,
+        "finite_a": true,
+        "finite_b": true,
+        "allclose": true
+      },
+      "sLSTM_score": {
+        "shape_a": [
+          8
+        ],
+        "shape_b": [
+          8
+        ],
+        "max_abs": 2.53749021794647e-10,
+        "mean_abs": 1.1459633242338896e-10,
+        "failed_elements": 0,
+        "finite_a": true,
+        "finite_b": true,
+        "allclose": true
+      },
+      "sLSTM_common18": {
+        "shape_a": [
+          8,
+          18
+        ],
+        "shape_b": [
+          8,
+          18
+        ],
+        "max_abs": 5.960464477539063e-08,
+        "mean_abs": 7.176519378759849e-09,
+        "failed_elements": 0,
+        "finite_a": true,
+        "finite_b": true,
+        "allclose": true
+      },
+      "mLSTM_score": {
+        "shape_a": [
+          8
+        ],
+        "shape_b": [
+          8
+        ],
+        "max_abs": 2.53749021794647e-10,
+        "mean_abs": 1.1459633242338896e-10,
+        "failed_elements": 0,
+        "finite_a": true,
+        "finite_b": true,
+        "allclose": true
+      },
+      "mLSTM_base18": {
+        "shape_a": [
+          8,
+          18
+        ],
+        "shape_b": [
+          8,
+          18
+        ],
+        "max_abs": 2.384185791015625e-07,
+        "mean_abs": 3.263186343360758e-08,
+        "failed_elements": 0,
+        "finite_a": true,
+        "finite_b": true,
+        "allclose": true
+      },
+      "mLSTM_native_replay": {
+        "vanilla": {
+          "encoder.blocks.2.xlstm.mlstm_cell": {
+            "shape_a": [
+              8,
+              64,
+              80
+            ],
+            "shape_b": [
+              8,
+              64,
+              80
+            ],
+            "max_abs": 9.5367431640625e-07,
+            "mean_abs": 6.756400949825547e-08,
+            "failed_elements": 0,
+            "finite_a": true,
+            "finite_b": true,
+            "allclose": true
+          },
+          "decoder.blocks.2.xlstm.mlstm_cell": {
+            "shape_a": [
+              8,
+              64,
+              80
+            ],
+            "shape_b": [
+              8,
+              64,
+              80
+            ],
+            "max_abs": 9.5367431640625e-07,
+            "mean_abs": 6.54687752899008e-08,
+            "failed_elements": 0,
+            "finite_a": true,
+            "finite_b": true,
+            "allclose": true
+          }
+        },
+        "cuda": {
+          "encoder.blocks.2.xlstm.mlstm_cell": {
+            "shape_a": [
+              8,
+              64,
+              80
+            ],
+            "shape_b": [
+              8,
+              64,
+              80
+            ],
+            "max_abs": 9.5367431640625e-07,
+            "mean_abs": 6.556650333777725e-08,
+            "failed_elements": 0,
+            "finite_a": true,
+            "finite_b": true,
+            "allclose": true
+          },
+          "decoder.blocks.2.xlstm.mlstm_cell": {
+            "shape_a": [
+              8,
+              64,
+              80
+            ],
+            "shape_b": [
+              8,
+              64,
+              80
+            ],
+            "max_abs": 1.430511474609375e-06,
+            "mean_abs": 6.509363004170154e-08,
+            "failed_elements": 0,
+            "finite_a": true,
+            "finite_b": true,
+            "allclose": true
+          }
+        }
+      }
+    },
+    "128": {
+      "output": {
+        "shape_a": [
+          128,
+          64,
+          8
+        ],
+        "shape_b": [
+          128,
+          64,
+          8
+        ],
+        "max_abs": 1.9073486328125e-06,
+        "mean_abs": 2.2215934336600185e-07,
+        "failed_elements": 0,
+        "finite_a": true,
+        "finite_b": true,
+        "allclose": true
+      },
+      "score": {
+        "shape_a": [
+          128
+        ],
+        "shape_b": [
+          128
+        ],
+        "max_abs": 2.9802322387695312e-08,
+        "mean_abs": 1.7559358411745052e-09,
+        "failed_elements": 0,
+        "finite_a": true,
+        "finite_b": true,
+        "allclose": true
+      },
+      "sLSTM_score": {
+        "shape_a": [
+          128
+        ],
+        "shape_b": [
+          128
+        ],
+        "max_abs": 2.9802322387695312e-08,
+        "mean_abs": 1.7559358411745052e-09,
+        "failed_elements": 0,
+        "finite_a": true,
+        "finite_b": true,
+        "allclose": true
+      },
+      "sLSTM_common18": {
+        "shape_a": [
+          128,
+          18
+        ],
+        "shape_b": [
+          128,
+          18
+        ],
+        "max_abs": 1.1920928955078125e-07,
+        "mean_abs": 7.240013477627372e-09,
+        "failed_elements": 0,
+        "finite_a": true,
+        "finite_b": true,
+        "allclose": true
+      },
+      "mLSTM_score": {
+        "shape_a": [
+          128
+        ],
+        "shape_b": [
+          128
+        ],
+        "max_abs": 2.9802322387695312e-08,
+        "mean_abs": 1.7559358411745052e-09,
+        "failed_elements": 0,
+        "finite_a": true,
+        "finite_b": true,
+        "allclose": true
+      },
+      "mLSTM_base18": {
+        "shape_a": [
+          128,
+          18
+        ],
+        "shape_b": [
+          128,
+          18
+        ],
+        "max_abs": 7.152557373046875e-07,
+        "mean_abs": 3.5939137887908146e-08,
+        "failed_elements": 0,
+        "finite_a": true,
+        "finite_b": true,
+        "allclose": true
+      },
+      "mLSTM_native_replay": {
+        "vanilla": {
+          "encoder.blocks.2.xlstm.mlstm_cell": {
+            "shape_a": [
+              128,
+              64,
+              80
+            ],
+            "shape_b": [
+              128,
+              64,
+              80
+            ],
+            "max_abs": 1.1920928955078125e-06,
+            "mean_abs": 6.925490936282586e-08,
+            "failed_elements": 0,
+            "finite_a": true,
+            "finite_b": true,
+            "allclose": true
+          },
+          "decoder.blocks.2.xlstm.mlstm_cell": {
+            "shape_a": [
+              128,
+              64,
+              80
+            ],
+            "shape_b": [
+              128,
+              64,
+              80
+            ],
+            "max_abs": 1.430511474609375e-06,
+            "mean_abs": 6.705184318889224e-08,
+            "failed_elements": 0,
+            "finite_a": true,
+            "finite_b": true,
+            "allclose": true
+          }
+        },
+        "cuda": {
+          "encoder.blocks.2.xlstm.mlstm_cell": {
+            "shape_a": [
+              128,
+              64,
+              80
+            ],
+            "shape_b": [
+              128,
+              64,
+              80
+            ],
+            "max_abs": 1.1920928955078125e-06,
+            "mean_abs": 6.962243759289777e-08,
+            "failed_elements": 0,
+            "finite_a": true,
+            "finite_b": true,
+            "allclose": true
+          },
+          "decoder.blocks.2.xlstm.mlstm_cell": {
+            "shape_a": [
+              128,
+              64,
+              80
+            ],
+            "shape_b": [
+              128,
+              64,
+              80
+            ],
+            "max_abs": 1.430511474609375e-06,
+            "mean_abs": 6.712470934644443e-08,
+            "failed_elements": 0,
+            "finite_a": true,
+            "finite_b": true,
+            "allclose": true
+          }
+        }
+      }
+    }
+  },
+  "invariance": {
+    "observer_output_invariance": {
+      "shape_a": [
+        128,
+        64,
+        8
+      ],
+      "shape_b": [
+        128,
+        64,
+        8
+      ],
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "failed_elements": 0,
+      "finite_a": true,
+      "finite_b": true,
+      "allclose": true
+    },
+    "observer_score_invariance": {
+      "shape_a": [
+        128
+      ],
+      "shape_b": [
+        128
+      ],
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "failed_elements": 0,
+      "finite_a": true,
+      "finite_b": true,
+      "allclose": true
+    },
+    "reset_duplicate_output": {
+      "shape_a": [
+        1,
+        64,
+        8
+      ],
+      "shape_b": [
+        1,
+        64,
+        8
+      ],
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "failed_elements": 0,
+      "finite_a": true,
+      "finite_b": true,
+      "allclose": true
+    },
+    "reset_duplicate_s": {
+      "shape_a": [
+        1,
+        18
+      ],
+      "shape_b": [
+        1,
+        18
+      ],
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "failed_elements": 0,
+      "finite_a": true,
+      "finite_b": true,
+      "allclose": true
+    },
+    "reset_duplicate_m": {
+      "shape_a": [
+        1,
+        18
+      ],
+      "shape_b": [
+        1,
+        18
+      ],
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "failed_elements": 0,
+      "finite_a": true,
+      "finite_b": true,
+      "allclose": true
+    },
+    "batch_permutation_output": {
+      "shape_a": [
+        128,
+        64,
+        8
+      ],
+      "shape_b": [
+        128,
+        64,
+        8
+      ],
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "failed_elements": 0,
+      "finite_a": true,
+      "finite_b": true,
+      "allclose": true
+    },
+    "batch_permutation_s": {
+      "shape_a": [
+        128,
+        18
+      ],
+      "shape_b": [
+        128,
+        18
+      ],
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "failed_elements": 0,
+      "finite_a": true,
+      "finite_b": true,
+      "allclose": true
+    },
+    "batch_permutation_m": {
+      "shape_a": [
+        128,
+        18
+      ],
+      "shape_b": [
+        128,
+        18
+      ],
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "failed_elements": 0,
+      "finite_a": true,
+      "finite_b": true,
+      "allclose": true
+    },
+    "prefix_output_0_32": {
+      "shape_a": [
+        128,
+        32,
+        8
+      ],
+      "shape_b": [
+        128,
+        32,
+        8
+      ],
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "failed_elements": 0,
+      "finite_a": true,
+      "finite_b": true,
+      "allclose": true
+    }
+  },
+  "status": "PASS"
+}

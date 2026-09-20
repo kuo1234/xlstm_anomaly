@@ -1,0 +1,33 @@
+{
+  "classification": "DENSE_MLSTM_SIGNAL_NOT_MATRIX_SPECIFIC",
+  "stride32_pipeline_gate": "PASS",
+  "stride32_reproduction": {
+    "H": 0.8305561200419191,
+    "H_plus_S": 0.9477627290086734,
+    "H_plus_M_full": 0.981068732634369,
+    "H_plus_S_plus_M_full": 0.9738988349875103,
+    "M_full_given_H": 0.15051261259244986,
+    "M_full_given_H_plus_S": 0.026136105978836865
+  },
+  "stride1": {
+    "H": 0.7897813506074827,
+    "H_plus_S": 0.9334083177041976,
+    "H_plus_M_full": 0.9354426179003309,
+    "H_plus_S_plus_M_full": 0.9500654628618238,
+    "M_full_given_H": 0.14566126729284823,
+    "M_full_given_H_plus_S": 0.016657145157626174,
+    "S_given_H": 0.14362696709671496
+  },
+  "matrix_attribution": {
+    "H_plus_M_noC": 0.9360347196515377,
+    "H_plus_S_plus_M_noC": 0.9434556048033517,
+    "C_history": -0.0005921017512068305,
+    "C_given_sLSTM": 0.00660985805847214
+  },
+  "temporal_span_diagnostic": "NOT_RUN",
+  "detector_seeds": [11],
+  "confirmatory_p_values": false,
+  "G1_modified": false,
+  "H3b_reopened": false,
+  "next_step": "propose_three_seed_dense_replication"
+}

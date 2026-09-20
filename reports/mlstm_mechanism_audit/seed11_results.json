@@ -1,0 +1,277 @@
+{
+  "status": "exploratory_seed_screen",
+  "detector_seed": 11,
+  "timestamp_stride": 32,
+  "window": 64,
+  "source_folds": {
+    "train": [
+      1000,
+      1001,
+      1002,
+      1003,
+      1004,
+      1005,
+      1006,
+      1007,
+      1008,
+      1009
+    ],
+    "validation": [
+      2000,
+      2001,
+      2002,
+      2003,
+      2004
+    ],
+    "test": [
+      3000,
+      3001,
+      3002,
+      3003,
+      3004,
+      3005,
+      3006,
+      3007,
+      3008,
+      3009
+    ]
+  },
+  "scenarios": [
+    "abrupt",
+    "gradual",
+    "recurring",
+    "correlation"
+  ],
+  "conditions": [
+    "none",
+    "spike",
+    "collective",
+    "dependency",
+    "mixture"
+  ],
+  "labels_joined_after_observation_extraction": true,
+  "rows_extracted": 51325,
+  "rows_by_fold": {
+    "train": 20530,
+    "validation": 10265,
+    "test": 20530
+  },
+  "arms": {
+    "H": {
+      "arm": "H",
+      "detector_seed": 11,
+      "dimension": 14,
+      "selected_C": 1.0,
+      "validation_candidates": [
+        {
+          "ap": 0.8192697803398443,
+          "C": 0.01
+        },
+        {
+          "ap": 0.8209965289473753,
+          "C": 0.1
+        },
+        {
+          "ap": 0.822250673817885,
+          "C": 1.0
+        },
+        {
+          "ap": 0.8220577796823342,
+          "C": 10.0
+        }
+      ],
+      "scaler_sha256": "7b11d7bc09073de4e98c8d86c2f16e5e37f143f33499425f086b1e20a947092c",
+      "coef_sha256": "32edb2867713e65425f1b6aa2f3d7ddf0a330378b43a72b5a54c8f278cc9826c",
+      "intercept_sha256": "5d76ab47084d272bf6c2cd0b58c17e915bd4fd36d74690fa1b904054671d6132",
+      "train_count": 20530,
+      "validation_count": 10265,
+      "test_count": 20530,
+      "test_class_counts": [
+        7670,
+        12860
+      ],
+      "strata": {
+        "abrupt": 0.9960896345476302,
+        "gradual": 0.9249672181085796,
+        "recurring": 0.7781519418498495,
+        "correlation": 0.9251470627879437,
+        "duration": {
+          "1": 0.3734917151583796,
+          "16": 0.10021128699246573,
+          "64": 0.5747435397528915,
+          "256": 0.6930535587040296
+        },
+        "severity": {
+          "1": 0.5399239059145149,
+          "2": 0.7775974027599095,
+          "3": 0.603874434888194
+        }
+      }
+    },
+    "H+S": {
+      "arm": "H+S",
+      "detector_seed": 11,
+      "dimension": 248,
+      "selected_C": 0.1,
+      "validation_candidates": [
+        {
+          "ap": 0.9598011423181345,
+          "C": 0.01
+        },
+        {
+          "ap": 0.9607842568759396,
+          "C": 0.1
+        },
+        {
+          "ap": 0.955386230463963,
+          "C": 1.0
+        },
+        {
+          "ap": 0.9493596075336912,
+          "C": 10.0
+        }
+      ],
+      "scaler_sha256": "b587006131f19d5582becdb24e3f9e455bbffe3d8d4a5fe9ee7299907dea09e7",
+      "coef_sha256": "f51b1c9fc6a132b1ca028338f4e0986974e7714a75d17dbc8863c1b2e6c15e9c",
+      "intercept_sha256": "c96791e6b69598b2e96e387acd9204f53803eac05dff6ea0fd205afe7a255a00",
+      "train_count": 20530,
+      "validation_count": 10265,
+      "test_count": 20530,
+      "test_class_counts": [
+        7670,
+        12860
+      ],
+      "strata": {
+        "abrupt": 0.9888214735326792,
+        "gradual": 0.9299068216963706,
+        "recurring": 0.8824416549389446,
+        "correlation": 0.9845450169009802,
+        "duration": {
+          "1": 0.5364393859976225,
+          "16": 0.2997842051520035,
+          "64": 0.7555160352587064,
+          "256": 0.8411257384421139
+        },
+        "severity": {
+          "1": 0.663330095469079,
+          "2": 0.9448553922732865,
+          "3": 0.8245970731260048
+        }
+      }
+    },
+    "H+M": {
+      "arm": "H+M",
+      "detector_seed": 11,
+      "dimension": 248,
+      "selected_C": 1.0,
+      "validation_candidates": [
+        {
+          "ap": 0.9762829929317944,
+          "C": 0.01
+        },
+        {
+          "ap": 0.9796322776080368,
+          "C": 0.1
+        },
+        {
+          "ap": 0.9803664083482982,
+          "C": 1.0
+        },
+        {
+          "ap": 0.9803116664407259,
+          "C": 10.0
+        }
+      ],
+      "scaler_sha256": "7e66b6c28e49478ea61eacd36ba94a7f5269869c80a81dc2cb7a85ac7232c64d",
+      "coef_sha256": "fce808eb9a0952514ecc7c1798736f7b2538c0314bf69e05c1a4d4414da2fba5",
+      "intercept_sha256": "60c898398829bafa3b81d79dd75edbadc13f23c74d34176d813fbbacc85b45ba",
+      "train_count": 20530,
+      "validation_count": 10265,
+      "test_count": 20530,
+      "test_class_counts": [
+        7670,
+        12860
+      ],
+      "strata": {
+        "abrupt": 0.9991921837837004,
+        "gradual": 0.9682140186677178,
+        "recurring": 0.944218945988394,
+        "correlation": 0.993501378176408,
+        "duration": {
+          "1": 0.6990914783681285,
+          "16": 0.3499937435808441,
+          "64": 0.832548003597101,
+          "256": 0.9558115673525447
+        },
+        "severity": {
+          "1": 0.8425739742778624,
+          "2": 0.9802282885553899,
+          "3": 0.9210469847184364
+        }
+      }
+    },
+    "H+S+M": {
+      "arm": "H+S+M",
+      "detector_seed": 11,
+      "dimension": 482,
+      "selected_C": 0.01,
+      "validation_candidates": [
+        {
+          "ap": 0.9719099092968491,
+          "C": 0.01
+        },
+        {
+          "ap": 0.9668431233655732,
+          "C": 0.1
+        },
+        {
+          "ap": 0.9621588318868086,
+          "C": 1.0
+        },
+        {
+          "ap": 0.9598443298133058,
+          "C": 10.0
+        }
+      ],
+      "scaler_sha256": "75d0d553ecb0abf5a2853f1dcd6b51ae0f0897508d0d9c8c91c72cbd0f24c603",
+      "coef_sha256": "1c5e9e11c4f7beb41140ff7bbaf3def66550ac9b54d80a418239d59122f5bed2",
+      "intercept_sha256": "025faf655d2c6650d4a49432de5d4f24dd251de98e4d72ad55211aa33efcd9a7",
+      "train_count": 20530,
+      "validation_count": 10265,
+      "test_count": 20530,
+      "test_class_counts": [
+        7670,
+        12860
+      ],
+      "strata": {
+        "abrupt": 0.9993951675153552,
+        "gradual": 0.9570857515778779,
+        "recurring": 0.9782651885601457,
+        "correlation": 0.9889541241107165,
+        "duration": {
+          "1": 0.6408880127497697,
+          "16": 0.2916461528015347,
+          "64": 0.7909944784179549,
+          "256": 0.9383822491593095
+        },
+        "severity": {
+          "1": 0.8135860105050073,
+          "2": 0.9704569443520336,
+          "3": 0.901432021035966
+        }
+      }
+    }
+  },
+  "test_AP": {
+    "H": 0.8305561239510972,
+    "H+S": 0.9477552064547543,
+    "H+M": 0.9810103093804906,
+    "H+S+M": 0.9739029703734872
+  },
+  "increments": {
+    "M_given_history": 0.15045418542939337,
+    "M_given_sLSTM": 0.026147763918732858,
+    "sLSTM_given_history": 0.11719908250365707,
+    "H+M_vs_H+S_descriptive": 0.0332551029257363
+  }
+}

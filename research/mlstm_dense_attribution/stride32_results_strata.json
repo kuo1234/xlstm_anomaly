@@ -1,0 +1,126 @@
+{
+  "file": "stride32_results.predictions.npz",
+  "rows": 20530,
+  "scenario": {
+    "abrupt": {
+      "prediction_H": 0.9960896345476302,
+      "prediction_H_S": 0.9888259264339405,
+      "prediction_H_M_full": 0.9991940990408772,
+      "prediction_H_S_M_full": 0.9993955099243289,
+      "M_full_given_H": 0.0031044644932469723,
+      "M_full_given_H_plus_S": 0.01056958349038839
+    },
+    "gradual": {
+      "prediction_H": 0.9249672181085796,
+      "prediction_H_S": 0.9298906113471983,
+      "prediction_H_M_full": 0.968191431994173,
+      "prediction_H_S_M_full": 0.957077832759519,
+      "M_full_given_H": 0.04322421388559339,
+      "M_full_given_H_plus_S": 0.02718722141232066
+    },
+    "recurring": {
+      "prediction_H": 0.7781512550774206,
+      "prediction_H_S": 0.882588596815846,
+      "prediction_H_M_full": 0.9447759212242888,
+      "prediction_H_S_M_full": 0.9782606687966771,
+      "M_full_given_H": 0.16662466614686822,
+      "M_full_given_H_plus_S": 0.09567207198083105
+    },
+    "correlation": {
+      "prediction_H": 0.9251470627879437,
+      "prediction_H_S": 0.9845263823156294,
+      "prediction_H_M_full": 0.9935327680121541,
+      "prediction_H_S_M_full": 0.9889550453552693,
+      "M_full_given_H": 0.06838570522421039,
+      "M_full_given_H_plus_S": 0.004428663039639957
+    }
+  },
+  "duration": {
+    "1": {
+      "positive_rows": 1300,
+      "negative_rows": 7670,
+      "AP": {
+        "prediction_H": 0.3734917151583796,
+        "prediction_H_S": 0.5366108385379028,
+        "prediction_H_M_full": 0.6998384084938692,
+        "prediction_H_S_M_full": 0.6409377107593994
+      },
+      "M_full_given_H": 0.32634669333548966,
+      "M_full_given_H_plus_S": 0.10432687222149661
+    },
+    "16": {
+      "positive_rows": 760,
+      "negative_rows": 7670,
+      "AP": {
+        "prediction_H": 0.10021128699246573,
+        "prediction_H_S": 0.2998414363541212,
+        "prediction_H_M_full": 0.3522070455669043,
+        "prediction_H_S_M_full": 0.2916402491835494
+      },
+      "M_full_given_H": 0.25199575857443857,
+      "M_full_given_H_plus_S": -0.008201187170571778
+    },
+    "64": {
+      "positive_rows": 1200,
+      "negative_rows": 7670,
+      "AP": {
+        "prediction_H": 0.5747397552991658,
+        "prediction_H_S": 0.7554331339676804,
+        "prediction_H_M_full": 0.8333637066283252,
+        "prediction_H_S_M_full": 0.7910338732871982
+      },
+      "M_full_given_H": 0.2586239513291594,
+      "M_full_given_H_plus_S": 0.03560073931951779
+    },
+    "256": {
+      "positive_rows": 4320,
+      "negative_rows": 7670,
+      "AP": {
+        "prediction_H": 0.6930536516019871,
+        "prediction_H_S": 0.8411121734477018,
+        "prediction_H_M_full": 0.9558862328438364,
+        "prediction_H_S_M_full": 0.9383581796253555
+      },
+      "M_full_given_H": 0.2628325812418494,
+      "M_full_given_H_plus_S": 0.09724600617765367
+    }
+  },
+  "severity": {
+    "1": {
+      "positive_rows": 2560,
+      "negative_rows": 7670,
+      "AP": {
+        "prediction_H": 0.5399239259316662,
+        "prediction_H_S": 0.6632803251965466,
+        "prediction_H_M_full": 0.842963525462764,
+        "prediction_H_S_M_full": 0.8135696616510404
+      },
+      "M_full_given_H": 0.3030395995310978,
+      "M_full_given_H_plus_S": 0.15028933645449383
+    },
+    "2": {
+      "positive_rows": 7840,
+      "negative_rows": 7670,
+      "AP": {
+        "prediction_H": 0.7775974440410405,
+        "prediction_H_S": 0.944874487771191,
+        "prediction_H_M_full": 0.980298263052287,
+        "prediction_H_S_M_full": 0.9704530828663143
+      },
+      "M_full_given_H": 0.20270081901124648,
+      "M_full_given_H_plus_S": 0.02557859509512328
+    },
+    "3": {
+      "positive_rows": 2460,
+      "negative_rows": 7670,
+      "AP": {
+        "prediction_H": 0.6038736226534352,
+        "prediction_H_S": 0.8246141294705448,
+        "prediction_H_M_full": 0.9214108851253366,
+        "prediction_H_S_M_full": 0.9014267991721197
+      },
+      "M_full_given_H": 0.3175372624719014,
+      "M_full_given_H_plus_S": 0.07681266970157485
+    }
+  }
+}

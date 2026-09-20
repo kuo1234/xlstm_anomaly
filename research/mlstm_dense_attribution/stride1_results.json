@@ -1,0 +1,448 @@
+{
+  "status": "exploratory_dense_attribution",
+  "detector_seed": 11,
+  "decision_stride": 1,
+  "rolling_widths": [
+    4,
+    8,
+    16,
+    32
+  ],
+  "window": 64,
+  "arms": {
+    "H": {
+      "arm": "H",
+      "detector_seed": 11,
+      "dimension": 14,
+      "selected_C": 0.01,
+      "validation_candidates": [
+        {
+          "ap": 0.7938073558761286,
+          "C": 0.01
+        },
+        {
+          "ap": 0.7938073325814605,
+          "C": 0.1
+        },
+        {
+          "ap": 0.7938073197584081,
+          "C": 1.0
+        },
+        {
+          "ap": 0.7938073196584816,
+          "C": 10.0
+        }
+      ],
+      "scaler_sha256": "b178ff4de63808e95160c45e5d370a44696a30784f8985fac8c47663e787b783",
+      "coef_sha256": "334a13228f487db38f18fa25ef93db1039f35ac9de1676a55a65523f6c529192",
+      "intercept_sha256": "251c6df8cbe25af6aff923c92c0c818889a116dd268d3dba7ce034aae41ff819",
+      "train_count": 697430,
+      "validation_count": 348715,
+      "test_count": 697430,
+      "test_class_counts": [
+        248590,
+        448840
+      ],
+      "test_AP": 0.7897813506074827,
+      "scenario_AP": {
+        "abrupt": 0.9586179526938755,
+        "gradual": 0.8563495749392543,
+        "recurring": 0.7462056018849902,
+        "correlation": 0.9597253433442674
+      }
+    },
+    "H+S": {
+      "arm": "H+S",
+      "detector_seed": 11,
+      "dimension": 248,
+      "selected_C": 10.0,
+      "validation_candidates": [
+        {
+          "ap": 0.9313320134031874,
+          "C": 0.01
+        },
+        {
+          "ap": 0.9321301267097526,
+          "C": 0.1
+        },
+        {
+          "ap": 0.9321700185254901,
+          "C": 1.0
+        },
+        {
+          "ap": 0.9322360117019866,
+          "C": 10.0
+        }
+      ],
+      "scaler_sha256": "1cdeae3c1f983234fb5e95a7b7d4f4f33b3d0f67fd6328cd08b2a518c6216fbd",
+      "coef_sha256": "4d55176789784e1e583a2bff5d653e93f6dae8f0e358b7698118e8c294d1c667",
+      "intercept_sha256": "a97be111805d71ad2e7eb81b6aa7d458b64274b6ee21d17fe4e1945d4f3db201",
+      "train_count": 697430,
+      "validation_count": 348715,
+      "test_count": 697430,
+      "test_class_counts": [
+        248590,
+        448840
+      ],
+      "test_AP": 0.9334083177041976,
+      "scenario_AP": {
+        "abrupt": 0.9748700753610133,
+        "gradual": 0.8942007024341291,
+        "recurring": 0.9343429146612618,
+        "correlation": 0.9572677529976955
+      }
+    },
+    "H+M_full": {
+      "arm": "H+M_full",
+      "detector_seed": 11,
+      "dimension": 248,
+      "selected_C": 0.1,
+      "validation_candidates": [
+        {
+          "ap": 0.9310511096317988,
+          "C": 0.01
+        },
+        {
+          "ap": 0.9328653262217763,
+          "C": 0.1
+        },
+        {
+          "ap": 0.9320911503456861,
+          "C": 1.0
+        },
+        {
+          "ap": 0.9328429269449525,
+          "C": 10.0
+        }
+      ],
+      "scaler_sha256": "03ba83313966d8245e7cd642ece7b9b710a9b5cfe3bc817e95f9af32d682fc31",
+      "coef_sha256": "a4631aedc5b80b4ab0d1a567a5f18d8434c68d8ac5efcc12885973438ba69361",
+      "intercept_sha256": "40223f79ab4f3e8e3394626122ec33365fa9d5550d8d459cf3826adc7b39c102",
+      "train_count": 697430,
+      "validation_count": 348715,
+      "test_count": 697430,
+      "test_class_counts": [
+        248590,
+        448840
+      ],
+      "test_AP": 0.9354426179003309,
+      "scenario_AP": {
+        "abrupt": 0.9729456309400601,
+        "gradual": 0.8944825454184611,
+        "recurring": 0.9324959888926023,
+        "correlation": 0.9575586823058436
+      }
+    },
+    "H+S+M_full": {
+      "arm": "H+S+M_full",
+      "detector_seed": 11,
+      "dimension": 482,
+      "selected_C": 0.1,
+      "validation_candidates": [
+        {
+          "ap": 0.9439584523894617,
+          "C": 0.01
+        },
+        {
+          "ap": 0.9443509035167605,
+          "C": 0.1
+        },
+        {
+          "ap": 0.9442978794728288,
+          "C": 1.0
+        },
+        {
+          "ap": 0.9443112086517599,
+          "C": 10.0
+        }
+      ],
+      "scaler_sha256": "9e2848ceb80a6da2e2c261086b8140e2555d5bbab348d4fd096e30aab0431903",
+      "coef_sha256": "c522bf7c64c058e4a75d8eaf97e30d93458a1e0f79c3f4cb3ef86cdf5d620d61",
+      "intercept_sha256": "2076e3785c57199539858e6cf08f42c7fcd644c4967fc6b5b0889df71fa92c9e",
+      "train_count": 697430,
+      "validation_count": 348715,
+      "test_count": 697430,
+      "test_class_counts": [
+        248590,
+        448840
+      ],
+      "test_AP": 0.9500654628618238,
+      "scenario_AP": {
+        "abrupt": 0.9793513364312474,
+        "gradual": 0.9201675508900954,
+        "recurring": 0.9532087462367385,
+        "correlation": 0.9648215566352604
+      }
+    },
+    "H+Mh": {
+      "arm": "H+Mh",
+      "detector_seed": 11,
+      "dimension": 66,
+      "selected_C": 10.0,
+      "validation_candidates": [
+        {
+          "ap": 0.8641977553064857,
+          "C": 0.01
+        },
+        {
+          "ap": 0.8669886286863684,
+          "C": 0.1
+        },
+        {
+          "ap": 0.8695777813781982,
+          "C": 1.0
+        },
+        {
+          "ap": 0.8696168935428821,
+          "C": 10.0
+        }
+      ],
+      "scaler_sha256": "fa2f5998bc3c6d8bb4320f444f5323b227ef4f560dabfbd36a9c6833fed9fcdf",
+      "coef_sha256": "06398aed60f9a9a872e02d1e176e5c47c3f68be180a20e08c47af12f7b08abee",
+      "intercept_sha256": "7d5dff59b928c3d05a5ca891776b2e0473b42706d887de65b9b878e9b0d1713e",
+      "train_count": 697430,
+      "validation_count": 348715,
+      "test_count": 697430,
+      "test_class_counts": [
+        248590,
+        448840
+      ],
+      "test_AP": 0.8789841301250211,
+      "scenario_AP": {
+        "abrupt": 0.968732515154655,
+        "gradual": 0.8261654111457186,
+        "recurring": 0.8489135027463801,
+        "correlation": 0.9105443547406245
+      }
+    },
+    "H+MC": {
+      "arm": "H+MC",
+      "detector_seed": 11,
+      "dimension": 92,
+      "selected_C": 10.0,
+      "validation_candidates": [
+        {
+          "ap": 0.9147690312828515,
+          "C": 0.01
+        },
+        {
+          "ap": 0.9160047518933632,
+          "C": 0.1
+        },
+        {
+          "ap": 0.9160629321910132,
+          "C": 1.0
+        },
+        {
+          "ap": 0.9161207969982655,
+          "C": 10.0
+        }
+      ],
+      "scaler_sha256": "78c6faed7b4f9261b66c68a1b9ef10f9a54da39d8b797151006bbbf91a9af266",
+      "coef_sha256": "128d8e89a491c4b84a2ace90141ea56f1065e1ec3b39626b646f0cb93fc08805",
+      "intercept_sha256": "7030b7ad15f260b5eaacea78f161fd5e8da441cb29ca72e7531261ac5b42b95b",
+      "train_count": 697430,
+      "validation_count": 348715,
+      "test_count": 697430,
+      "test_class_counts": [
+        248590,
+        448840
+      ],
+      "test_AP": 0.9054769269728457,
+      "scenario_AP": {
+        "abrupt": 0.9685675488877467,
+        "gradual": 0.8535998046114162,
+        "recurring": 0.8765348937760417,
+        "correlation": 0.937500511340784
+      }
+    },
+    "H+Mn+Mm": {
+      "arm": "H+Mn+Mm",
+      "detector_seed": 11,
+      "dimension": 118,
+      "selected_C": 1.0,
+      "validation_candidates": [
+        {
+          "ap": 0.88541025412577,
+          "C": 0.01
+        },
+        {
+          "ap": 0.9135053877039842,
+          "C": 0.1
+        },
+        {
+          "ap": 0.9208166977700672,
+          "C": 1.0
+        },
+        {
+          "ap": 0.9204723392064053,
+          "C": 10.0
+        }
+      ],
+      "scaler_sha256": "3565d4d7e3bf790d65c727b879b2a20edb25b7a03501daa01f75ebe300d7bf2c",
+      "coef_sha256": "d9bd2a332e5de497781aab5d4e7e31bc36d8a032d2fd12707f74002b6d035ac5",
+      "intercept_sha256": "44fe2fc8170ee9a0b6649c7d2ddc0e4c407545a3e0b0dbf6e8d9ac5a992fbb4e",
+      "train_count": 697430,
+      "validation_count": 348715,
+      "test_count": 697430,
+      "test_class_counts": [
+        248590,
+        448840
+      ],
+      "test_AP": 0.9259629744993673,
+      "scenario_AP": {
+        "abrupt": 0.9789121400368682,
+        "gradual": 0.8956331388697791,
+        "recurring": 0.9227769527404738,
+        "correlation": 0.9421957363488715
+      }
+    },
+    "H+M_noC": {
+      "arm": "H+M_noC",
+      "detector_seed": 11,
+      "dimension": 170,
+      "selected_C": 10.0,
+      "validation_candidates": [
+        {
+          "ap": 0.8925416420678474,
+          "C": 0.01
+        },
+        {
+          "ap": 0.918357938924016,
+          "C": 0.1
+        },
+        {
+          "ap": 0.9269937770093886,
+          "C": 1.0
+        },
+        {
+          "ap": 0.9279201756211924,
+          "C": 10.0
+        }
+      ],
+      "scaler_sha256": "b3e0ea25448526086af94001a95a3f4d7bf0c8d0c52ca9fd2bb2cdcb156969bc",
+      "coef_sha256": "3d9f2adb1a30a906f4e5fa135058d0ddc484c17b3663a7f24d15d2041d4733d0",
+      "intercept_sha256": "27b05e90f7b26cd140a067a3ff88dfb5b0643ef8d14c591347f9615797f6fafb",
+      "train_count": 697430,
+      "validation_count": 348715,
+      "test_count": 697430,
+      "test_class_counts": [
+        248590,
+        448840
+      ],
+      "test_AP": 0.9360347196515377,
+      "scenario_AP": {
+        "abrupt": 0.9781998254010694,
+        "gradual": 0.9096996831607427,
+        "recurring": 0.9322654977098735,
+        "correlation": 0.9470549910763808
+      }
+    },
+    "H+S+M_noC": {
+      "arm": "H+S+M_noC",
+      "detector_seed": 11,
+      "dimension": 404,
+      "selected_C": 1.0,
+      "validation_candidates": [
+        {
+          "ap": 0.9398886483865685,
+          "C": 0.01
+        },
+        {
+          "ap": 0.9404717110153329,
+          "C": 0.1
+        },
+        {
+          "ap": 0.9405073647825959,
+          "C": 1.0
+        },
+        {
+          "ap": 0.9404526695455429,
+          "C": 10.0
+        }
+      ],
+      "scaler_sha256": "89fa6d24a540b1e193b8d3e3b64298aa1778781e9039960c9e078291adfcfbea",
+      "coef_sha256": "c5a4b36d107c1430e7978c753febd01ec38285c739f97785214140a676c2e6ff",
+      "intercept_sha256": "1a856e8106c0fbd0ce2c75280e3bad1eb616f7a4421f6a19db0e0fc06cac8162",
+      "train_count": 697430,
+      "validation_count": 348715,
+      "test_count": 697430,
+      "test_class_counts": [
+        248590,
+        448840
+      ],
+      "test_AP": 0.9434556048033517,
+      "scenario_AP": {
+        "abrupt": 0.9780628312941896,
+        "gradual": 0.9150484143610346,
+        "recurring": 0.9432698048629526,
+        "correlation": 0.9598930623136005
+      }
+    }
+  },
+  "test_AP": {
+    "H": 0.7897813506074827,
+    "H+S": 0.9334083177041976,
+    "H+M_full": 0.9354426179003309,
+    "H+S+M_full": 0.9500654628618238,
+    "H+Mh": 0.8789841301250211,
+    "H+MC": 0.9054769269728457,
+    "H+Mn+Mm": 0.9259629744993673,
+    "H+M_noC": 0.9360347196515377,
+    "H+S+M_noC": 0.9434556048033517
+  },
+  "increments": {
+    "M_full_given_H": 0.14566126729284823,
+    "M_full_given_H_plus_S": 0.016657145157626174,
+    "S_given_H": 0.14362696709671496,
+    "C_history": -0.0005921017512068305,
+    "C_given_sLSTM": 0.00660985805847214
+  },
+  "rows_by_fold": {
+    "train": {
+      "H": 697430,
+      "H+S": 697430,
+      "H+M_full": 697430,
+      "H+S+M_full": 697430,
+      "H+Mh": 697430,
+      "H+MC": 697430,
+      "H+Mn+Mm": 697430,
+      "H+M_noC": 697430,
+      "H+S+M_noC": 697430
+    },
+    "validation": {
+      "H": 348715,
+      "H+S": 348715,
+      "H+M_full": 348715,
+      "H+S+M_full": 348715,
+      "H+Mh": 348715,
+      "H+MC": 348715,
+      "H+Mn+Mm": 348715,
+      "H+M_noC": 348715,
+      "H+S+M_noC": 348715
+    },
+    "test": {
+      "H": 697430,
+      "H+S": 697430,
+      "H+M_full": 697430,
+      "H+S+M_full": 697430,
+      "H+Mh": 697430,
+      "H+MC": 697430,
+      "H+Mn+Mm": 697430,
+      "H+M_noC": 697430,
+      "H+S+M_noC": 697430
+    }
+  },
+  "feature_dimensions": {
+    "H": 14,
+    "H+S": 248,
+    "H+M_full": 248,
+    "H+S+M_full": 482,
+    "H+Mh": 66,
+    "H+MC": 92,
+    "H+Mn+Mm": 118,
+    "H+M_noC": 170,
+    "H+S+M_noC": 404
+  },
+  "labels_joined_after_observation_cache": true
+}

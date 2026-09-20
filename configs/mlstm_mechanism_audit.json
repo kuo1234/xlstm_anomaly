@@ -1,0 +1,82 @@
+{
+  "status": "frozen_prelabel",
+  "purpose": "exploratory frozen-checkpoint mLSTM mechanism audit; not H3b",
+  "checkpoint": "data/phase_f_v4/runs/xlstm_11/best.pt",
+  "checkpoint_sha256": "4729a3ba385b285078aa987fce176e61fd382715c5357fc92f2635a929a0ae41",
+  "upstream_xlstm_commit": "e8b56ba27352733bb83729e85b1d6196dca70c99",
+  "xlstm_package": "2.0.5",
+  "architecture": {
+    "D": 8,
+    "W": 64,
+    "embedding": 40,
+    "stack_blocks": 3,
+    "slstm_blocks": [0, 1],
+    "mlstm_blocks": [2],
+    "mlstm_inner_embedding": 80,
+    "mlstm_heads": 4,
+    "mlstm_head_dim": 20,
+    "qkv_projection_heads": 16,
+    "locations": [
+      "encoder.blocks.2.xlstm.mlstm_cell",
+      "decoder.blocks.2.xlstm.mlstm_cell"
+    ]
+  },
+  "parity": {
+    "atol": 1e-5,
+    "rtol": 1e-4,
+    "batches": [1, 8, 128],
+    "representative_scenarios": ["stationary", "abrupt", "gradual", "recurring", "correlation"],
+    "cuda_training": false,
+    "inference_only": true
+  },
+  "mLSTM_schema": {
+    "base_dimension": 18,
+    "expanded_dimension": 234,
+    "rolling_widths": [4, 8, 16, 32],
+    "pooling": "equal mean across heads within each cell, then equal mean across encoder/decoder mLSTM cells",
+    "columns": [
+      "hidden_mean", "hidden_std", "hidden_rms", "hidden_delta_rms",
+      "memory_c_mean", "memory_c_std", "memory_c_frobenius", "memory_c_relative_delta", "memory_c_top_singular_ratio", "memory_c_spectral_entropy",
+      "normalizer_n_mean", "normalizer_n_std", "normalizer_n_rms", "normalizer_n_delta_rms",
+      "stabilizer_m_mean", "stabilizer_m_std", "stabilizer_m_rms", "stabilizer_m_delta_mean"
+    ],
+    "state_semantics": {
+      "c": "matrix memory [B,heads,DH,DH]",
+      "n": "key normalizer accumulator [B,heads,DH,1]",
+      "m": "log-scale stabilization state [B,heads,1,1]",
+      "hidden": "recurrent h before mLSTM outnorm, summarized at final timestamp",
+      "memory_c_scale": "scale-sensitive; Frobenius and relative delta retain magnitude",
+      "spectral_features": "singular values of C per head; no inverse/condition number",
+      "delta": "final state minus immediately preceding within-window state",
+      "reset": "zero c/n/m independently for each W64 window"
+    }
+  },
+  "probe": {
+    "train_sources": [1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009],
+    "validation_sources": [2000, 2001, 2002, 2003, 2004],
+    "test_sources": [3000, 3001, 3002, 3003, 3004, 3005, 3006, 3007, 3008, 3009],
+    "shifted_scenarios": ["abrupt", "gradual", "recurring", "correlation"],
+    "detector_seeds_stage_a": [11],
+    "detector_seeds_stage_b_if_authorized": [11, 22, 33],
+    "classifier": "L2 logistic regression",
+    "scaler": "StandardScaler fit on train only",
+    "C_grid": [0.01, 0.1, 1.0, 10.0],
+    "selection": "pooled validation AP; exact tie chooses smaller C",
+    "arms": ["history14", "history_plus_s_internal234", "history_plus_m_internal234", "history_plus_s_plus_m_internal482"],
+    "dimensions": {
+      "history14": 14,
+      "s_internal234": 234,
+      "m_internal234": 234,
+      "history_plus_s_internal": 248,
+      "history_plus_m_internal": 248,
+      "history_plus_s_plus_m_internal": 482
+    }
+  },
+  "labels": {
+    "feature_extraction_receives_labels": false,
+    "primary_positive": "anomaly windows",
+    "primary_negative": "anomaly-free drift/transition windows",
+    "mixed_excluded": true,
+    "semantic_control_separate": true
+  }
+}
