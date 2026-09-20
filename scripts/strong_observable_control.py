@@ -411,7 +411,10 @@ def analyze(cache_dir: Path, seed: int, architecture: str, output: Path) -> dict
     # These are invariant cache metadata.  Capture them before releasing each
     # arm's high-dimensional matrices below; keeping ``stacked`` alive until
     # result serialization would unnecessarily retain the O2 working set.
-    rows = {fold: int(len(records[fold]["y"])) for fold in FOLDS}
+    rows = {
+        fold: int(sum(len(record["y"]) for record in records[fold]))
+        for fold in FOLDS
+    }
     feature_dimensions: dict[str, int] = {}
     for arm in arms:
         # Build and release one arm at a time.  O2 is intentionally high
@@ -452,7 +455,9 @@ def analyze(cache_dir: Path, seed: int, architecture: str, output: Path) -> dict
             source: None if source_aps[left][source] is None or source_aps[right][source] is None else source_aps[left][source] - source_aps[right][source]
             for source in source_aps[left]
         }
-    result.pop("_predictions")
+    # Predictions are intentionally not retained in the compact result file;
+    # this runner never inserts a ``_predictions`` field.
+    result.pop("_predictions", None)
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(result, indent=2, allow_nan=False) + "\n")
     return result
