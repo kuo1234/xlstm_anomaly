@@ -421,8 +421,9 @@ def analyze(cache_dir: Path, seed: int, architecture: str, output: Path) -> dict
     }
     result["rows"] = {fold: int(len(stacked[fold]["H"]["y"])) for fold in FOLDS}
     result["feature_dimensions"] = {arm: int(stacked["train"][arm]["X"].shape[1]) for arm in arms}
-    # Keep predictions outside the committed JSON summary but write a compact
-    # source/scenario table for exploratory consistency.
+    # Keep predictions outside the committed JSON summary but write compact
+    # source/scenario tables for exploratory consistency.
+    source_aps: dict[str, dict[str, float | None]] = {}
     for arm in arms:
         pred = result["_predictions"][arm]
         test = stacked["test"][arm]
@@ -430,6 +431,23 @@ def analyze(cache_dir: Path, seed: int, architecture: str, output: Path) -> dict
         for scenario in SCENARIOS:
             mask = test["scenario"] == scenario
             info[scenario] = {"AP": float(average_precision_score(test["y"][mask], pred[mask])) if np.unique(test["y"][mask]).size == 2 else None, "rows": int(mask.sum())}
+        source_aps[arm] = {}
+        for source in FOLDS["test"]:
+            mask = test["source"] == source
+            source_aps[arm][str(source)] = float(average_precision_score(test["y"][mask], pred[mask])) if np.unique(test["y"][mask]).size == 2 else None
+    result["source_AP"] = source_aps
+    result["source_effects"] = {}
+    for name, left, right in (
+        ("I_given_H", "H+I", "H"),
+        ("I_given_H+O1", "H+O1+I", "H+O1"),
+        ("I_given_H+O2", "H+O2+I", "H+O2"),
+        ("O1_given_H", "H+O1", "H"),
+        ("O2_given_H", "H+O2", "H"),
+    ):
+        result["source_effects"][name] = {
+            source: None if source_aps[left][source] is None or source_aps[right][source] is None else source_aps[left][source] - source_aps[right][source]
+            for source in source_aps[left]
+        }
     result.pop("_predictions")
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(result, indent=2, allow_nan=False) + "\n")
