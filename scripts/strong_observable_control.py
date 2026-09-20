@@ -406,14 +406,23 @@ def analyze(cache_dir: Path, seed: int, architecture: str, output: Path) -> dict
 
     records = {fold: _collect(cache_dir, fold) for fold in FOLDS}
     arms = ("H", "H+I", "H+O1", "H+O1+I", "H+O2", "H+O2+I")
-    stacked = {fold: {arm: _arm_matrix(records[fold], arm) for arm in arms} for fold in FOLDS}
     result = {"status": "exploratory_strong_observable_control", "architecture": architecture, "detector_seed": seed, "arms": {}, "increments": {}, "scenario_effects": {}}
+    source_aps: dict[str, dict[str, float | None]] = {}
     for arm in arms:
-        info, prediction = _fit_arm(stacked["train"][arm], stacked["validation"][arm], stacked["test"][arm], arm, seed)
-        info["scenario_AP"] = _scenario_ap(stacked["test"][arm], prediction)
+        # Build and release one arm at a time.  O2 is intentionally high
+        # dimensional; retaining six duplicated matrices can exhaust host RAM.
+        stacked = {fold: _arm_matrix(records[fold], arm) for fold in FOLDS}
+        info, prediction = _fit_arm(stacked["train"], stacked["validation"], stacked["test"], arm, seed)
+        info["scenario_AP"] = _scenario_ap(stacked["test"], prediction)
         result["arms"][arm] = info
-        result.setdefault("_predictions", {})[arm] = prediction
+        result["scenario_effects"][arm] = dict(info["scenario_AP"])
+        source_aps[arm] = {}
+        for source in FOLDS["test"]:
+            mask = stacked["test"]["source"] == source
+            source_aps[arm][str(source)] = float(average_precision_score(stacked["test"]["y"][mask], prediction[mask])) if np.unique(stacked["test"]["y"][mask]).size == 2 else None
         print(f"fit {architecture} seed={seed} arm={arm} dim={info['dimension']} C={info['selected_C']} AP={info['test_AP']:.6f}", flush=True)
+        del stacked, prediction
+        gc.collect()
     ap = {arm: result["arms"][arm]["test_AP"] for arm in arms}
     result["increments"] = {
         "I_given_H": ap["H+I"] - ap["H"],
@@ -424,20 +433,6 @@ def analyze(cache_dir: Path, seed: int, architecture: str, output: Path) -> dict
     }
     result["rows"] = {fold: int(len(stacked[fold]["H"]["y"])) for fold in FOLDS}
     result["feature_dimensions"] = {arm: int(stacked["train"][arm]["X"].shape[1]) for arm in arms}
-    # Keep predictions outside the committed JSON summary but write compact
-    # source/scenario tables for exploratory consistency.
-    source_aps: dict[str, dict[str, float | None]] = {}
-    for arm in arms:
-        pred = result["_predictions"][arm]
-        test = stacked["test"][arm]
-        result["scenario_effects"][arm] = info = {}
-        for scenario in SCENARIOS:
-            mask = test["scenario"] == scenario
-            info[scenario] = {"AP": float(average_precision_score(test["y"][mask], pred[mask])) if np.unique(test["y"][mask]).size == 2 else None, "rows": int(mask.sum())}
-        source_aps[arm] = {}
-        for source in FOLDS["test"]:
-            mask = test["source"] == source
-            source_aps[arm][str(source)] = float(average_precision_score(test["y"][mask], pred[mask])) if np.unique(test["y"][mask]).size == 2 else None
     result["source_AP"] = source_aps
     result["source_effects"] = {}
     for name, left, right in (
