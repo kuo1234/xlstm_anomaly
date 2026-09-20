@@ -46,5 +46,10 @@ shared-CANDI components are unavailable from compact artifacts. Immediate
 unresolved questions are a stronger observable/residual baseline and
 multi-seed dense mLSTM replication.
 
+Strong-observable-control stress test (seeds 11/22/33) retained positive
+linear-probe internal increments after the full normalized residual trajectory:
+`+0.0712 AP` for xLSTM and `+0.0530 AP` for matched LSTM (exploratory; not an
+information-theoretic or confirmatory result).
+
 `research/framing-2026-09` is a pre-G1 Claude Science framing snapshot and
 intentionally remains on a separate branch for later reconciliation.

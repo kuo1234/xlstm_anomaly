@@ -2,7 +2,7 @@ import inspect
 
 import numpy as np
 
-from scripts.strong_observable_control import _rolling, dense_windows, extract_stream, residual_o1, residual_o2
+from scripts.strong_observable_control import _arm_matrix, _fit_arm, _rolling, array_sha, dense_windows, extract_stream, residual_o1, residual_o2
 
 
 def test_o1_o2_dimensions_and_finite_zero_variance_rule():
@@ -50,3 +50,38 @@ def test_vectorized_rolling_matches_direct_window_formula():
 def test_extractor_signature_is_observation_only():
     names = set(inspect.signature(extract_stream).parameters)
     assert not names.intersection({"labels", "truth", "metadata", "event", "scenario", "condition"})
+
+
+def test_arm_row_keys_are_identical_across_observable_arms():
+    records = [
+        {
+            "H": np.zeros((2, 14)), "I": np.zeros((2, 234)),
+            "O1": np.zeros((2, 128)), "O2": np.zeros((2, 1024)),
+            "y": np.array([0, 1]), "source": np.array([3000, 3000]),
+            "scenario": np.array(["abrupt", "abrupt"]), "condition": np.array(["none", "spike"]),
+            "timestamp": np.array([63, 64]),
+        },
+        {
+            "H": np.ones((1, 14)), "I": np.ones((1, 234)),
+            "O1": np.ones((1, 128)), "O2": np.ones((1, 1024)),
+            "y": np.array([1]), "source": np.array([3001]),
+            "scenario": np.array(["gradual"]), "condition": np.array(["collective"]),
+            "timestamp": np.array([63]),
+        },
+    ]
+    h = _arm_matrix(records, "H")
+    o2 = _arm_matrix(records, "H+O2")
+    for key in ("y", "source", "scenario", "condition", "timestamp"):
+        assert np.array_equal(h[key], o2[key])
+
+
+def test_scaler_hash_is_fit_from_training_rows_only():
+    train = {"X": np.array([[0.0, 1.0], [1.0, 2.0], [0.0, 2.0], [1.0, 1.0]]), "y": np.array([0, 1, 0, 1])}
+    validation = {"X": np.array([[10.0, 10.0], [11.0, 11.0]]), "y": np.array([0, 1])}
+    test = {"X": np.array([[12.0, 12.0], [13.0, 13.0]]), "y": np.array([0, 1])}
+    info, _ = _fit_arm(train, validation, test, "H", 11)
+    from sklearn.preprocessing import StandardScaler
+
+    expected = StandardScaler().fit(train["X"])
+    assert info["scaler_mean_sha256"] == array_sha(expected.mean_.astype(np.float64))
+    assert info["scaler_scale_sha256"] == array_sha(expected.scale_.astype(np.float64))
