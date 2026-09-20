@@ -281,11 +281,14 @@ def _rolling(values: np.ndarray, width: int) -> np.ndarray:
     result = np.full((len(values), values.shape[1] * 3), np.nan, dtype=np.float64)
     if len(values) < width:
         return result
+    windows = np.lib.stride_tricks.sliding_window_view(values, width, axis=0)
+    windows = np.moveaxis(windows, -1, 1)
     t = np.arange(width, dtype=np.float64) - (width - 1) / 2
     den = np.square(t).sum()
-    for end in range(width - 1, len(values)):
-        window = values[end - width + 1 : end + 1]
-        result[end] = np.concatenate((window.mean(0), window.std(0), (window * t[:, None]).sum(0) / den))
+    mean = windows.mean(axis=1)
+    std = windows.std(axis=1)
+    slope = np.einsum("nwd,w->nd", windows, t) / den
+    result[width - 1 :] = np.concatenate((mean, std, slope), axis=1)
     return result
 
 
