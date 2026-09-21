@@ -340,7 +340,20 @@ def summarize_stage(output_dir: Path, stage: str, output: Path) -> dict[str, Any
         f"{architecture}_{seed}": json.loads((output_dir / f"{stage}_{architecture}_{seed}.json").read_text())
         for architecture in ARCHITECTURES for seed in SEEDS
     }
-    summary = json.loads((output_dir / f"{stage}_summary.json").read_text())
+    summary_path = output_dir / f"{stage}_summary.json"
+    if summary_path.exists():
+        summary = json.loads(summary_path.read_text())
+    else:
+        all_converged = all(
+            result["primary"]["all_fits_converged"] for result in stage_results.values()
+        )
+        summary = {
+            "status": "CONVERGENCE_PASS" if all_converged else "CONVERGENCE_UNRESOLVED",
+            "stage": stage,
+            "max_iter": MAX_ITER,
+            "C_grid": list(S1_GRID if stage == "s1" else S2_GRID),
+            "all_fits_converged": bool(all_converged),
+        }
     result = {
         "status": summary["status"],
         "stage": stage,
