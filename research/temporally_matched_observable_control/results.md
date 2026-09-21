@@ -70,4 +70,3 @@ O1/O2 fits.  The run retained all rows and the fixed four-C `lbfgs` budget;
 some high-dimensional fits emitted the existing sklearn convergence warning at
 the frozen 1,000-iteration cap.  No solver, tolerance, row count, or C grid was
 changed in response to an observed result.
-

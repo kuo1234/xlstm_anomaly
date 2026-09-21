@@ -70,4 +70,3 @@ descriptive reference while matched LSTM does not.  The next scientifically
 justified stress test is a predeclared nonlinear observable-only control on
 the same matched O1r arms, subject to a separate protocol review; do not start
 it from this branch automatically.
-

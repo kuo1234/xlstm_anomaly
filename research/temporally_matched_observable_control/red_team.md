@@ -47,4 +47,3 @@
 The implementation and row/temporal/probe checks support treating the A+ output
 as a valid exploratory temporally matched-control analysis.  It does not
 support an information-theoretic or causal conclusion.
-
