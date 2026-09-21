@@ -364,6 +364,12 @@ def main() -> int:
     p.add_argument("--cache-root", type=Path, required=True)
     p.add_argument("--output-dir", type=Path, required=True)
     p.add_argument("--stage", choices=("s1", "s2"), required=True)
+    p = sub.add_parser("fit-one")
+    p.add_argument("--cache-root", type=Path, required=True)
+    p.add_argument("--output-dir", type=Path, required=True)
+    p.add_argument("--stage", choices=("s1", "s2"), required=True)
+    p.add_argument("--architecture", choices=ARCHITECTURES, required=True)
+    p.add_argument("--seed", type=int, choices=SEEDS, required=True)
     p = sub.add_parser("summarize")
     p.add_argument("--output-dir", type=Path, required=True)
     p.add_argument("--stage", choices=("s1", "s2"), required=True)
@@ -373,6 +379,15 @@ def main() -> int:
         run_s0(args.output)
     elif args.command == "fit":
         run_stage(args.cache_root.resolve(), args.output_dir, args.stage)
+    elif args.command == "fit-one":
+        args.output_dir.mkdir(parents=True, exist_ok=True)
+        _fit_stage_run(
+            args.cache_root.resolve(),
+            args.architecture,
+            args.seed,
+            args.stage,
+            args.output_dir / f"{args.stage}_{args.architecture}_{args.seed}.json",
+        )
     else:
         summarize_stage(args.output_dir, args.stage, args.output)
     return 0
