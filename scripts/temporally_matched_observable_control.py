@@ -90,13 +90,14 @@ def expand_o1r(base_o1: np.ndarray) -> np.ndarray:
         raise ValueError(f"expected [N,{O1_BASE_DIM}] O1 rows, got {base.shape}")
     if not np.isfinite(base).all():
         raise ValueError("O1 rows must be finite before temporal expansion")
-    columns = []
-    for index in range(base.shape[1]):
-        scalar = base[:, index : index + 1]
-        columns.append(np.concatenate(
-            (scalar, *(_rolling(scalar, width) for width in ROLLING_WIDTHS)), axis=1
-        ))
-    expanded = np.concatenate(columns, axis=1)
+    # Compute each width once for all 128 columns, then transpose the grouped
+    # rolling layout into the feature-major layout required by internal234.
+    # This is mathematically identical to applying ``expand_internal`` to one
+    # scalar column at a time, but avoids 512 Python/Numpy kernel dispatches
+    # per stream.
+    grouped = np.concatenate((base, *(_rolling(base, width) for width in ROLLING_WIDTHS)), axis=1)
+    expanded = grouped.reshape(len(base), 1 + 3 * len(ROLLING_WIDTHS), O1_BASE_DIM)
+    expanded = np.transpose(expanded, (0, 2, 1)).reshape(len(base), O1R_DIM)
     if expanded.shape != (len(base), O1R_DIM):
         raise RuntimeError(f"O1r schema drift: {expanded.shape}")
     return expanded
