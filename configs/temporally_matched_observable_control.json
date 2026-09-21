@@ -1,0 +1,45 @@
+{
+  "status": "exploratory_post_g1_A_plus",
+  "window": 64,
+  "decision_stride": 1,
+  "decision_timestamps": "63..N-1, right edge",
+  "internal_receptive_field": "raw [t-94,t] inclusive after 32-decision causal expansion",
+  "observable_control": "O1r = feature-major current + causal mean/std/slope at decision widths 4,8,16,32",
+  "o1_base_dimensions": 128,
+  "o1r_dimensions": 1664,
+  "internal_dimensions": 234,
+  "train_sources": [1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009],
+  "validation_sources": [2000, 2001, 2002, 2003, 2004],
+  "test_sources": [3000, 3001, 3002, 3003, 3004, 3005, 3006, 3007, 3008, 3009],
+  "scenarios": ["abrupt", "gradual", "recurring", "correlation"],
+  "conditions": ["none", "spike", "collective", "dependency", "mixture"],
+  "detector_seeds": [11, 22, 33],
+  "architectures": ["xlstm", "lstm"],
+  "primary_arms": ["H+O1r", "H+O1r+I"],
+  "reference_arms": ["H", "H+I", "H+O1", "H+O1+I", "H+O2", "H+O2+I"],
+  "probe": {
+    "classifier": "L2 logistic regression",
+    "solver": "lbfgs",
+    "max_iter": 1000,
+    "C_grid": [0.01, 0.1, 1.0, 10.0],
+    "selection": "pooled validation AP; exact ties choose smaller C",
+    "scaler": "StandardScaler fit on train rows only"
+  },
+  "primary_metric": "Average Precision",
+  "primary_contrast": "AP(H+O1r+I) - AP(H+O1r)",
+  "cohort": "anomaly versus legitimate drift; mixed/stable/stationary excluded from primary",
+  "uncertainty": {
+    "method": "exploratory hierarchical bootstrap, source first then detector seeds",
+    "draws": 10000,
+    "seed": 901,
+    "p_values": false,
+    "holm_family": false
+  },
+  "decision_rule": {
+    "reference_margin": 0.02,
+    "survival_support": "mean primary contrast >= 0.02 and pooled-seed contrast >= 0.02 in at least 2 of 3 seeds",
+    "status": "descriptive exploratory classification only; no GO/STOP rule"
+  },
+  "labels_joined_after_observation_cache": true,
+  "historical_g1_artifacts_read_only": true
+}
