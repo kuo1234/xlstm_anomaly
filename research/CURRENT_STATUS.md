@@ -84,10 +84,23 @@ scenario strata are consistent with this: the residual-controlled increment is
 small in abrupt and correlation (where one window suffices) and largest in
 gradual and recurring (where it does not).
 
-Until `A+` runs, current O1/O2 results must be described as a **rich
-within-window residual control** or a **residual-controlled linear-probe
-result**, never as a *matched observable control* and never as
-*observable residuals are insufficient*.
+## A+ temporally matched observable control (exploratory)
+
+The fixed W64/stride-1 A+ analysis applies the same causal `[t-94,t]`
+decision-span expansion to all 128 O1 residual columns. The primary
+`H+O1r+internal234 − H+O1r` increment is `+0.026710` for xLSTM (exploratory
+95% bootstrap interval `[+0.022959,+0.030312]`, 2/3 seed means at the old
+`+0.02` reference) and `+0.010220` for the matched LSTM (interval
+`[+0.007861,+0.012566]`, 0/3 seed means at the reference). All source-seed
+directions are positive, but the backbones are heterogeneous. This provides
+exploratory support that the xLSTM increment is not fully explained by this
+temporally matched residual control; it is not a causal or information-
+theoretic result and does not alter G1/H3a/H3b.
+
+The historical O1/O2 results remain a **rich within-window residual control**
+or a **residual-controlled linear-probe result**, not a matched control. A+
+tests the narrower temporally matched O1r question; neither result licenses the
+claim that *observable residuals are insufficient*.
 
 ## Current claim ladder
 
@@ -95,7 +108,7 @@ result**, never as a *matched observable control* and never as
 |---|---|---|
 | **L1a** | internal state adds over score/history | **SUPPORTED** (G1 H2 GO; reproduced in both backbones) |
 | **L1b** | the increment survives rich within-window residual controls | **PARTIALLY SUPPORTED** — exploratory |
-| **L1c** | the increment survives a temporally matched observable control | **NOT TESTED** |
+| **L1c** | the increment survives a temporally matched observable control | **PARTIALLY SUPPORTED** (A+, exploratory and backbone-heterogeneous) |
 | **L2** | usable online decision rule without evaluator labels | **NOT TESTED** |
 | **L3** | xLSTM specificity | **UNSUPPORTED** (H3a STOP) |
 | **L3'** | mLSTM complementary mechanism | **PARTIALLY SUPPORTED** — exploratory only, one seed |
@@ -117,23 +130,11 @@ secondary exploratory mechanism analysis. Rationale and prior-art boundary:
 
 ## Next experiment
 
-```
-DO_NEXT: A+ — temporally matched observable control
-```
-
-Primary planned comparison `H+O1r` versus `H+O1r+I`, where `O1r` applies to
-every `O1` feature exactly the causal temporal expansion used by `internal234`
-(current, rolling mean/std/slope at widths 4/8/16/32). Secondary planned
-control `P1r`: the same observable statistic family and temporal expansion
-computed from the scaled input windows. Specification:
-`framing-refresh-2026-09/next_experiment_decision.md`. **Not implemented in
-this repository yet.**
-
-Dependency order — `A+`, then (if it survives) a bounded nonlinear observable
-control, then (if that survives) the mLSTM replication and later decisions. Do
-not start the nonlinear probe, mLSTM seeds 22/33, online adaptation, a
-safe-adaptation gate, W128/W256, or persistent recurrent state before `A+`
-resolves.
+`A+` is complete as an exploratory temporally matched residual-control study.
+The next candidate is a separately reviewed bounded nonlinear observable-only
+control on the same O1r arms, followed only if justified by a new protocol. Do
+not start that probe, mLSTM seeds 22/33, online adaptation, a safe-adaptation
+gate, W128/W256, or persistent recurrent state automatically from this result.
 
 ## Branches
 
