@@ -202,7 +202,7 @@ statistics*. It is confounded by (2), it is three seeds, and it was not pre-regi
 hypothesis to test in the matched-control experiment, not a result.
 
 **Verdict.** Decision **B** — xLSTM as one recurrent case study. The matched pair stays as the
-control that licenses the generic claim. See `executive_assessment.md` §3.
+control that licenses the not-xLSTM-specific claim. See `executive_assessment.md` §3.
 
 ---
 

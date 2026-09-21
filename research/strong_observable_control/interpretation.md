@@ -1,5 +1,10 @@
 # Interpretation
 
+> **Read `post_review_addendum.md` first.** A post-review addendum (2026-09) qualifies two
+> statements below without changing any result: `O1`, not `O2`, is the empirically stronger
+> observable-only control under this probe, and the internal and observable arms are **not
+> temporally matched**, so part of the increment may be cross-window temporal context.
+
 ## Classification
 
 - xLSTM: **STRONG_OBSERVABLE_SURVIVAL**.  The strong residual-control
@@ -22,9 +27,11 @@ It does **not** show that residuals fundamentally lack the information.  A
 nonlinear observable-only probe could recover additional structure and remains
 an important follow-up.
 
-The comparable survival in xLSTM and matched LSTM supports a generic recurrent-
-representation interpretation for the common scalar internal schema.  It does
-not establish equivalence, superiority, or a global xLSTM-over-LSTM claim.
+The effect is replicated in both xLSTM and a capacity-matched LSTM: the
+common-state effect is not xLSTM-specific within the two tested recurrent
+backbones.  Two backbones do not license a claim about recurrent architectures
+in general, and this does not establish equivalence, superiority, or a global
+xLSTM-over-LSTM claim.
 Post-G1 mLSTM-specific evidence remains a separate exploratory line and is not
 included here.
 

@@ -56,8 +56,10 @@ is cheap to write, because the protocol is already frozen.
 
 *"Common recurrent evidence is generic, but mLSTM adds additional complementary state information."*
 
-**First half: supported and worth saying.** "Generic, not xLSTM-specific" is a clean, replicated,
-slightly counter-intuitive result (H3a STOP plus the matched-LSTM reconstruction at `+0.142966`,
+**First half: supported in a narrower form, and worth saying.** The supportable version is
+"replicated in both xLSTM and a capacity-matched LSTM — not xLSTM-specific within the two tested
+recurrent backbones"; *generic across recurrent architectures* is not supportable on two backbones.
+In that narrower form it is a clean, replicated, slightly counter-intuitive result (H3a STOP plus the matched-LSTM reconstruction at `+0.142966`,
 50/50 units) that most of this literature never bothers to test.
 
 **Second half: not supportable today.** `M_full|H+S = +0.016657` on one seed, against a 234-column
@@ -124,8 +126,8 @@ established harm.
 **One-sentence novelty statement**
 
 > We measure, rather than assume, how much drift-versus-anomaly evidence a frozen recurrent
-> detector's internal state carries beyond its own residual, and find the effect large, replicated,
-> generic across recurrent architectures, and substantially reducible by stronger observable
+> detector's internal state carries beyond its own residual, and find the effect large, replicated
+> in both xLSTM and a capacity-matched LSTM, and substantially reducible by stronger observable
 > controls.
 
 **Top 3 reviewer attacks**
