@@ -1,4 +1,5 @@
 import json
+import inspect
 import subprocess
 from pathlib import Path
 
@@ -10,10 +11,13 @@ from scripts.nonlinear_observable_control import (
     FOLDS,
     MAX_ITER_GRID,
     SEEDS,
+    _key_sha,
+    arm_matrix,
     crossed_bootstrap,
     estimator_parameters,
     source_only_bootstrap,
 )
+from scripts.temporally_matched_observable_control import collect
 
 
 def test_frozen_estimator_and_iteration_grid():
@@ -68,3 +72,35 @@ def test_protocol_does_not_enable_internal_early_stopping():
     text = Path("research/nonlinear_observable_control/protocol.md").read_text()
     assert "early_stopping=False" in text
     assert "validation_fraction" not in text
+
+
+def test_both_arms_preserve_identical_synthetic_row_keys_and_dimensions():
+    records = [{
+        "H": np.zeros((3, 14), dtype=np.float32),
+        "O1r": np.zeros((3, 1664), dtype=np.float32),
+        "I": np.zeros((3, 234), dtype=np.float32),
+        "y": np.array([0, 1, 0], dtype=np.int8),
+        "source": np.array([3000, 3000, 3000], dtype=np.int32),
+        "scenario": np.array(["abrupt"] * 3, dtype=object),
+        "condition": np.array(["none"] * 3, dtype=object),
+        "timestamp": np.array([63, 64, 65], dtype=np.int64),
+    }]
+    observable = arm_matrix(records, "H+O1r")
+    internal = arm_matrix(records, "H+O1r+I")
+    observable_key = _key_sha(observable["source"], observable["scenario"], observable["condition"], observable["timestamp"])
+    internal_key = _key_sha(internal["source"], internal["scenario"], internal["condition"], internal["timestamp"])
+    assert observable_key == internal_key
+    assert observable["X"].shape == (3, 1678)
+    assert internal["X"].shape == (3, 1912)
+    assert np.array_equal(observable["y"], internal["y"])
+
+
+def test_feature_collector_has_no_label_or_evaluator_argument():
+    assert tuple(inspect.signature(collect).parameters) == ("cache_dir", "fold")
+
+
+def test_selection_path_is_validation_only_and_test_is_post_selection():
+    text = Path("scripts/nonlinear_observable_control.py").read_text()
+    assert "_fit_candidate(train, validation, max_iter)" in text
+    assert "_fit_selected(test, train, selected_max_iter)" in text
+    assert "StandardScaler" not in text

@@ -88,9 +88,10 @@ gradual and recurring (where it does not).
 
 The fixed W64/stride-1 A+ analysis applies the same causal `[t-94,t]`
 decision-span expansion to all 128 O1 residual columns. The primary
-`H+O1r+internal234 − H+O1r` increment is `+0.026710` for xLSTM (exploratory
-95% bootstrap interval `[+0.022959,+0.030312]`, 2/3 seed means at the old
-`+0.02` reference) and `+0.010220` for the matched LSTM (interval
+`H+O1r+internal234 − H+O1r` increment is `+0.026710` for xLSTM (historical
+nested-bootstrap interval `[+0.022959,+0.030312]`; corrected crossed
+source×seed reassessment `[+0.019509,+0.032582]`, 2/3 seed means at the old
+`+0.02` reference) and `+0.010220` for the matched LSTM (historical interval
 `[+0.007861,+0.012566]`, 0/3 seed means at the reference). All source-seed
 directions are positive, but the backbones are heterogeneous. This provides
 exploratory support that the xLSTM increment is not fully explained by this
@@ -112,6 +113,18 @@ positive but below it. The corrected crossed source×seed uncertainty is
 reported separately from the historical nested bootstrap. The xLSTM
 nested-superset regression persists after converged refitting. A+S is
 exploratory and does not alter G1/H2/H3a/H3b.
+
+### Bounded nonlinear observable-control stress test
+
+The fixed `HistGradientBoostingClassifier` audit on the same A+ rows and
+temporally matched O1r retained positive internal increments for all 30
+source×seed cells: xLSTM source-level mean `+0.015165` (crossed exploratory
+interval `[+0.012488,+0.018226]`) and matched LSTM `+0.011252` (interval
+`[+0.008952,+0.013475]`). Relative to the A+S S2 linear references, the
+xLSTM increment attenuated while the matched-LSTM increment stayed similar.
+This is bounded nonlinear-decoder evidence only; it is not information-
+theoretic, causal, or xLSTM-specific evidence, and it does not alter G1 or
+reopen H3a/H3b.
 
 ## Current claim ladder
 
@@ -141,14 +154,15 @@ secondary exploratory mechanism analysis. Rationale and prior-art boundary:
 
 ## Next experiment
 
-`A+` is complete as an exploratory temporally matched residual-control study.
+`A+`, A+S, and the bounded nonlinear-control audit are complete as exploratory
+temporally matched residual-control studies.
 The unresolved conditional secondary control `P1r` remains in the forward plan:
 the same observable statistic family and temporal expansion computed from the
-scaled input windows. `P1r` was not run in A+S. A nonlinear observable-only
-probe is a separate future question and is not automatically justified or
-started by A+S. Do not start `P1r`, that nonlinear probe, mLSTM seeds 22/33,
+scaled input windows. `P1r` was not run in A+S or this nonlinear audit. The
+bounded nonlinear observable-only probe is now complete; it did not justify
 online adaptation, a safe-adaptation gate, W128/W256, or persistent recurrent
-state automatically from this result.
+state. P1r or real-data external validation would require a separately
+reviewed protocol.
 
 ## Branches
 
