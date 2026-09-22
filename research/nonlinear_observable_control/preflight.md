@@ -15,4 +15,4 @@ existing read-only A+ cache manifests and frozen row/dimension metadata.
 - approximate memory: recorded in `preflight.json`
 
 No labels were joined and no nonlinear estimator was fitted. The pre-result
-implementation seal is recorded after the protocol commit.
+implementation seal is `61e57ef7894c8db7faaeb5efc2fd63fb5f58956e`.
