@@ -54,3 +54,27 @@ def test_convergence_metadata_serialization_contract(tmp_path):
     assert loaded["convergence_warning"] is False
     assert loaded["hit_max_iter"] is False
     assert loaded["coef_sha256"] == "abc"
+
+
+def test_completed_s1_s2_artifacts_are_converged_and_retain_reference_rows():
+    root = __import__("pathlib").Path("research/aplus_solver_convergence_audit")
+    for stage in ("s1", "s2"):
+        for architecture in ("xlstm", "lstm"):
+            for seed in (11, 22, 33):
+                payload = json.loads((root / stage / f"{stage}_{architecture}_{seed}.json").read_text())
+                assert payload["cache_read_only"] is True
+                assert payload["primary"]["all_fits_converged"] is True
+                assert payload["row_key_sha256"] == payload["arms"]["H+O1r"]["row_key_sha256"]
+                assert payload["row_key_sha256"] == payload["arms"]["H+O1r+I"]["row_key_sha256"]
+                for arm in payload["arms"].values():
+                    assert arm["all_fits_converged"] is True
+                    assert all(candidate["converged"] for candidate in arm["validation_candidates"])
+                    assert arm["selected_final"]["converged"] is True
+
+
+def test_a_plus_s_does_not_change_historical_g1_tree():
+    completed = subprocess.run(
+        ["git", "diff", "--quiet", "04e0abbd7a9a6a8c8d00052cd1b20c51e0a71d28", "--", "reports/phase_g1"],
+        check=False,
+    )
+    assert completed.returncode == 0

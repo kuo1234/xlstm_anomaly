@@ -102,13 +102,24 @@ or a **residual-controlled linear-probe result**, not a matched control. A+
 tests the narrower temporally matched O1r question; neither result licenses the
 claim that *observable residuals are insufficient*.
 
+### A+S solver/convergence audit
+
+The post-hoc A+S audit found no unresolved `lbfgs` convergence failure at
+`max_iter=10000`. The fixed expanded C grid changes some selected C values but
+preserves the qualitative result: pooled xLSTM ΔAP remains positive and above
+the historical +0.02 descriptive reference, while matched-LSTM ΔAP remains
+positive but below it. The corrected crossed source×seed uncertainty is
+reported separately from the historical nested bootstrap. The xLSTM
+nested-superset regression persists after converged refitting. A+S is
+exploratory and does not alter G1/H2/H3a/H3b.
+
 ## Current claim ladder
 
 | level | claim | status |
 |---|---|---|
 | **L1a** | internal state adds over score/history | **SUPPORTED** (G1 H2 GO; reproduced in both backbones) |
 | **L1b** | the increment survives rich within-window residual controls | **PARTIALLY SUPPORTED** — exploratory |
-| **L1c** | the increment survives a temporally matched observable control | **PARTIALLY SUPPORTED** (A+, exploratory and backbone-heterogeneous) |
+| **L1c** | the increment survives a temporally matched residual-derived observable control (O1r) | **PARTIALLY SUPPORTED** (A+/A+S, exploratory and backbone-heterogeneous) |
 | **L2** | usable online decision rule without evaluator labels | **NOT TESTED** |
 | **L3** | xLSTM specificity | **UNSUPPORTED** (H3a STOP) |
 | **L3'** | mLSTM complementary mechanism | **PARTIALLY SUPPORTED** — exploratory only, one seed |
@@ -131,10 +142,13 @@ secondary exploratory mechanism analysis. Rationale and prior-art boundary:
 ## Next experiment
 
 `A+` is complete as an exploratory temporally matched residual-control study.
-The next candidate is a separately reviewed bounded nonlinear observable-only
-control on the same O1r arms, followed only if justified by a new protocol. Do
-not start that probe, mLSTM seeds 22/33, online adaptation, a safe-adaptation
-gate, W128/W256, or persistent recurrent state automatically from this result.
+The unresolved conditional secondary control `P1r` remains in the forward plan:
+the same observable statistic family and temporal expansion computed from the
+scaled input windows. `P1r` was not run in A+S. A nonlinear observable-only
+probe is a separate future question and is not automatically justified or
+started by A+S. Do not start `P1r`, that nonlinear probe, mLSTM seeds 22/33,
+online adaptation, a safe-adaptation gate, W128/W256, or persistent recurrent
+state automatically from this result.
 
 ## Branches
 
