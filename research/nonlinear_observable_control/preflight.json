@@ -1,6 +1,6 @@
 {
   "status": "label_blind_nonlinear_preflight",
-  "protocol_seal": "pending-pre-result-seal",
+  "protocol_seal": "61e57ef7894c8db7faaeb5efc2fd63fb5f58956e",
   "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
   "platform": "Linux-6.17.0-1026-nvidia-aarch64-with-glibc2.39",
   "sklearn_version": "1.9.0",
