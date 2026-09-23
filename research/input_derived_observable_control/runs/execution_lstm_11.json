@@ -1,0 +1,23 @@
+{
+  "architecture": "lstm",
+  "detector_seed": 11,
+  "protocol_seal": "90b2470b45b1f8e52aa95ee8677b855b2e3c4e4d",
+  "execution_host": "spark-3994",
+  "platform": "Linux-6.17.0-1026-nvidia-aarch64-with-glibc2.39",
+  "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+  "numpy": "1.26.4",
+  "scipy": "1.17.1",
+  "sklearn": "1.9.0",
+  "worktree": "/home/p76141495/home/xlstm_anomaly/.worktrees/input-derived-observable-control",
+  "git_head_before_run": "a683ab4be0e364e4598d808c5eb729fe6491842c",
+  "cache_root": "/home/p76141495/home/xlstm_anomaly/.worktrees/strong-observable-control/data/strong_observable_control_cache_v1",
+  "started_utc": "2026-09-23T14:50:37Z",
+  "finished_utc": "2026-09-23T15:11:59Z",
+  "wall_seconds": 1282,
+  "result_file": "research/input_derived_observable_control/runs/results_lstm_11.json",
+  "result_sha256": "e58d95d4b9bb1aa8575269c3dcc3f2324f3b11bab7f93a350b71ab5cca6a83e7",
+  "cache_snapshot_before_job": "files=3012 listing_sha256=0cd1a78c4e4bdc9a08edfb02ab92df7809bad9d578c93f74d6635b633179ca49 manifests_sha256=1d9e95ff4554c31d5fa55f7a1f59caf725492da0f386064449ffdb38d1da9e2b",
+  "cache_snapshot_after_run": "files=3012 listing_sha256=0cd1a78c4e4bdc9a08edfb02ab92df7809bad9d578c93f74d6635b633179ca49 manifests_sha256=1d9e95ff4554c31d5fa55f7a1f59caf725492da0f386064449ffdb38d1da9e2b",
+  "cache_unchanged": true,
+  "command": "scripts/input_derived_observable_control.py fit-one --cache-root <cache_root> --architecture lstm --seed 11 --output research/input_derived_observable_control/runs/results_lstm_11.json --protocol-seal 90b2470b45b1f8e52aa95ee8677b855b2e3c4e4d"
+}
