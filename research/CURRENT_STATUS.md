@@ -126,13 +126,27 @@ This is bounded nonlinear-decoder evidence only; it is not information-
 theoretic, causal, or xLSTM-specific evidence, and it does not alter G1 or
 reopen H3a/H3b.
 
+Estimand note (consolidation review, 2026-09-23): the S2 references are means
+of pooled per-seed deltas. The like-for-like pooled change is `−0.010904`
+(−42.0 %) for xLSTM and `+0.000603` for matched LSTM. Against the A+
+source-level matrix, the paired change is `−0.011545` (crossed
+`[−0.018090,−0.004396]`) for xLSTM and `+0.001032`
+(`[−0.002232,+0.003821]`) for LSTM. The xLSTM attenuation occurs because
+HGB raises the observable-only `H+O1r` arm by `+0.029182`, more than the whole
+linear increment. The xLSTM − LSTM increment gap shrinks from `+0.016490`
+(linear) to `+0.003913` and tracks the lower xLSTM observable-only baseline.
+See `nonlinear_observable_control/post_review_addendum.md`.
+
 ## Current claim ladder
 
 | level | claim | status |
 |---|---|---|
 | **L1a** | internal state adds over score/history | **SUPPORTED** (G1 H2 GO; reproduced in both backbones) |
 | **L1b** | the increment survives rich within-window residual controls | **PARTIALLY SUPPORTED** — exploratory |
-| **L1c** | the increment survives a temporally matched residual-derived observable control (O1r) | **PARTIALLY SUPPORTED** (A+/A+S, exploratory and backbone-heterogeneous) |
+| **L1c** | the increment survives a temporally matched **residual-derived** observable control (O1r) under the fixed L2 logistic probe | **PARTIALLY SUPPORTED** (A+/A+S, exploratory; converged, grid-stable; the backbone asymmetry here is largely a linear-probe effect, see L1c-NL) |
+| **L1c-NL** | the same O1r increment survives a fixed bounded nonlinear decoder (HGB) | **PARTIALLY SUPPORTED** (exploratory; `+0.015165` / `+0.011252`, 30/30 cells each, both below the `+0.02` reference; xLSTM attenuated about 42 %, LSTM unchanged) |
+| **L1c-P** | the increment survives a temporally matched **input-derived** control (P1r) | **NOT TESTED** |
+| — | observables are information-insufficient | **OUT OF SCOPE IN PRINCIPLE** — internal state is a deterministic function of the input window, so no rung may claim this |
 | **L2** | usable online decision rule without evaluator labels | **NOT TESTED** |
 | **L3** | xLSTM specificity | **UNSUPPORTED** (H3a STOP) |
 | **L3'** | mLSTM complementary mechanism | **PARTIALLY SUPPORTED** — exploratory only, one seed |
@@ -164,9 +178,24 @@ online adaptation, a safe-adaptation gate, W128/W256, or persistent recurrent
 state. P1r or real-data external validation would require a separately
 reviewed protocol.
 
+**Decision (consolidation review, 2026-09-23): the single next action is P1r**.
+It should be one sealed, bounded experiment: `H+P1r` versus
+`H+P1r+internal234` under the frozen HGB decoder, on the same rows and with
+a label-blind regeneration preflight. It is declared in advance as the last
+observable control before writing. Real-data validation does not come first
+because no acquired public multivariate dataset carries the drift-versus-anomaly
+estimand, and the real-data protocol should inherit the final control ladder.
+See `consolidation_review_2026-09/consolidation_review.md` §4–§5.
+
 ## Branches
 
 `research/framing-2026-09` (`8b9ed1a`) is the pre-G1 Claude Science framing
 snapshot and intentionally remains on a separate branch. The completed
 strong-observable-control study and the post-G1 framing refresh are
 consolidated into `main`.
+
+The post-G1 observable-control line (A+ `04e0abb`, A+S `ccb9a3d`, nonlinear
+`0b00d6f`) and the independent A+ review `f1967b6` are to be consolidated
+together. `f1967b6` is not an ancestor of `0b00d6f` and must be merged
+explicitly before its branch is retired. `research/real-data-feasibility-audit`
+(`8f6ee87`) is a data-provenance record kept on its own branch.
