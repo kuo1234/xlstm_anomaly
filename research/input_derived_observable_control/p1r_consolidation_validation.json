@@ -1,0 +1,157 @@
+{
+  "checks": {
+    "ancestry": {
+      "aggregate": true,
+      "pre_p1r_main": true,
+      "preflight": true,
+      "run_lstm_11": true,
+      "run_lstm_22": true,
+      "run_lstm_33": true,
+      "run_xlstm_11": true,
+      "run_xlstm_22": true,
+      "run_xlstm_33": true,
+      "seal": true
+    },
+    "chronology": {
+      "expected_prefix_in_order": true,
+      "p1r_tip": "e7ab753bc61b0e4a43ece7c2fee92d4f0155e036",
+      "preflight_is_second": true,
+      "seal_is_first": true,
+      "subjects": [
+        "Seal input-derived observable control (P1r) protocol",
+        "Record label-blind P1r preflight (stage 1 and stage 2 PASS on cache host)",
+        "Record P1r xLSTM seed-11 run",
+        "Record P1r xLSTM seed-22 run",
+        "Record P1r xLSTM seed-33 run",
+        "Record P1r LSTM seed-11 run",
+        "Record P1r LSTM seed-22 run",
+        "Record P1r LSTM seed-33 run",
+        "Aggregate P1r input-derived observable control",
+        "Add P1r results, statistical and scientific assessment",
+        "Add P1r red-team review and execution record",
+        "Update current status after P1r: L1c-P outcome and R0 as next stage",
+        "Add read-only P1r consolidation validation script"
+      ]
+    },
+    "commits": {
+      "aggregate": "af6cc474cabe03640dfad6402f06329309d85942",
+      "runs": {
+        "lstm_11": "e383dcb93a8b488ab36a310f55ecb7628b625ad0",
+        "lstm_22": "b5533cb2ab57e66a327e6f0b5396e7030bda50c2",
+        "lstm_33": "32ee5979e36cacbcb70e0e102ace769cc1a7b445",
+        "xlstm_11": "4745f3234d257b870a68782e55f9db962b6c56fb",
+        "xlstm_22": "08f34f9959c692296ef3bc1d2cabde39bbfafb1c",
+        "xlstm_33": "a683ab4be0e364e4598d808c5eb729fe6491842c"
+      }
+    },
+    "dimensions": {
+      "lstm_11": true,
+      "lstm_22": true,
+      "lstm_33": true,
+      "xlstm_11": true,
+      "xlstm_22": true,
+      "xlstm_33": true
+    },
+    "historical_artifacts_identical_to_pre_p1r_main": {
+      "configs": true,
+      "data": true,
+      "m0": true,
+      "reports": true,
+      "research/aplus_solver_convergence_audit": true,
+      "research/consolidation_review_2026-09": true,
+      "research/framing-refresh-2026-09": true,
+      "research/nonlinear_observable_control": true,
+      "research/strong_observable_control": true,
+      "research/temporally_matched_observable_control": true
+    },
+    "preflight_records_unchanged": {
+      "research/input_derived_observable_control/host_preflight.json": true,
+      "research/input_derived_observable_control/preflight.json": true,
+      "research/input_derived_observable_control/preflight.md": true,
+      "research/input_derived_observable_control/preflight_local_host_nonadmissible.json": true
+    },
+    "reaggregation_equals_results_json": true,
+    "results_json_unchanged_since_aggregate": true,
+    "row_keys": {
+      "lstm_11": true,
+      "lstm_22": true,
+      "lstm_33": true,
+      "xlstm_11": true,
+      "xlstm_22": true,
+      "xlstm_33": true
+    },
+    "run_files_unchanged_since_run_commit": {
+      "lstm_11": true,
+      "lstm_22": true,
+      "lstm_33": true,
+      "xlstm_11": true,
+      "xlstm_22": true,
+      "xlstm_33": true
+    },
+    "run_seals": {
+      "lstm_11": true,
+      "lstm_22": true,
+      "lstm_33": true,
+      "xlstm_11": true,
+      "xlstm_22": true,
+      "xlstm_33": true
+    },
+    "sealed_files_unchanged_since_seal": {
+      "research/input_derived_observable_control/protocol.md": true,
+      "scripts": true,
+      "tests": true
+    },
+    "sidecars": {
+      "lstm_11": {
+        "cache_unchanged": true,
+        "host": "spark-3994",
+        "result_sha256_matches": true
+      },
+      "lstm_22": {
+        "cache_unchanged": true,
+        "host": "spark-3994",
+        "result_sha256_matches": true
+      },
+      "lstm_33": {
+        "cache_unchanged": true,
+        "host": "spark-3994",
+        "result_sha256_matches": true
+      },
+      "xlstm_11": {
+        "cache_unchanged": true,
+        "host": "spark-3994",
+        "result_sha256_matches": true
+      },
+      "xlstm_22": {
+        "cache_unchanged": true,
+        "host": "spark-3994",
+        "result_sha256_matches": true
+      },
+      "xlstm_33": {
+        "cache_unchanged": true,
+        "host": "spark-3994",
+        "result_sha256_matches": true
+      }
+    },
+    "wording": {
+      "research/CURRENT_STATUS.md": {
+        "exists": true,
+        "hits": []
+      },
+      "research/input_derived_observable_control/results.md": {
+        "exists": true,
+        "hits": []
+      },
+      "research/input_derived_observable_control/scientific_assessment.md": {
+        "exists": true,
+        "hits": []
+      },
+      "research/input_derived_observable_control/statistical_assessment.md": {
+        "exists": true,
+        "hits": []
+      }
+    }
+  },
+  "head": "e7ab753bc61b0e4a43ece7c2fee92d4f0155e036",
+  "status": "PASS"
+}

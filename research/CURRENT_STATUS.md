@@ -137,6 +137,26 @@ linear increment. The xLSTM − LSTM increment gap shrinks from `+0.016490`
 (linear) to `+0.003913` and tracks the lower xLSTM observable-only baseline.
 See `nonlinear_observable_control/post_review_addendum.md`.
 
+### P1r input-derived observable control (sealed; last synthetic observable control)
+
+P1r is the scaled `[64,8]` input window summarised by the frozen 128-column O1
+statistic family, followed by the identical causal 4/8/16/32 expansion (1,664
+columns, support `[t−94, t]`). It is a bounded input-derived observable summary,
+not the complete observation. The six sealed runs used the frozen HGB decoder on
+the A+ rows and were executed on the GB10 cache host under seal `90b2470`. The
+estimand is the source-level mean of `AP(H+P1r+internal234) − AP(H+P1r)` over
+10 sources × 3 seeds:
+
+| backbone | mean ΔAP | crossed interval (exploratory) | positive cells | outcome |
+|---|---:|---:|---:|---|
+| xLSTM | −0.000233 | [−0.000761, +0.000291] | 14/30 | `NO_RESOLVED_ADDITIONAL_UTILITY` |
+| matched LSTM | +0.000289 | [−0.000415, +0.000959] | 17/30 | `NO_RESOLVED_ADDITIONAL_UTILITY` |
+
+Under the frozen HGB decoder, no additional predictive/decodable utility of
+`internal234` beyond P1r is resolved for either backbone. P1r closes the
+predeclared synthetic input-derived-control stage, not every possible
+observable representation. See `input_derived_observable_control/`.
+
 ## Current claim ladder
 
 | level | claim | status |
@@ -145,7 +165,7 @@ See `nonlinear_observable_control/post_review_addendum.md`.
 | **L1b** | the increment survives rich within-window residual controls | **PARTIALLY SUPPORTED** — exploratory |
 | **L1c** | the increment survives a temporally matched **residual-derived** observable control (O1r) under the fixed L2 logistic probe | **PARTIALLY SUPPORTED** (A+/A+S, exploratory; converged, grid-stable; the backbone asymmetry here is largely a linear-probe effect, see L1c-NL) |
 | **L1c-NL** | the same O1r increment survives a fixed bounded nonlinear decoder (HGB) | **PARTIALLY SUPPORTED** (exploratory; `+0.015165` / `+0.011252`, 30/30 cells each, both below the `+0.02` reference; xLSTM attenuated about 42 %, LSTM unchanged) |
-| **L1c-P** | `internal234` retains additional predictive/decodable utility under the fixed decoder beyond the temporally matched **input-derived observable summary** P1r (the last bounded input-derived control) | **NOT TESTED** |
+| **L1c-P** | `internal234` retains additional predictive/decodable utility under the fixed decoder beyond the temporally matched **input-derived observable summary** P1r (the last bounded input-derived control) | **NOT SUPPORTED at this resolution** — `NO_RESOLVED_ADDITIONAL_UTILITY` for both backbones (xLSTM −0.000233 [−0.000761, +0.000291]; LSTM +0.000289 [−0.000415, +0.000959]); closes the predeclared synthetic input-derived-control stage, not every possible observable representation |
 | — | information-theoretic superiority of `internal234` over the full causal observation | **OUT OF SCOPE IN PRINCIPLE** — `internal234` is a deterministic function of the causal input window |
 | **L2** | usable online decision rule without evaluator labels | **NOT TESTED** |
 | **L3** | xLSTM specificity | **UNSUPPORTED** (H3a STOP) |
@@ -166,31 +186,32 @@ comparison**, not the source of the headline novelty. The mLSTM line remains a
 secondary exploratory mechanism analysis. Rationale and prior-art boundary:
 `framing-refresh-2026-09/`.
 
+The synthetic ladder is now complete. The measurement claim holds relative
+to score/history (L1a) and, in exploratory studies, relative to residual-derived
+summaries (L1b, L1c, L1c-NL). Relative to the bounded input-derived summary P1r
+(L1c-P), no additional predictive/decodable utility is resolved.
+
 ## Next experiment
 
-`A+`, A+S, and the bounded nonlinear-control audit are complete as exploratory
-temporally matched residual-control studies.
-The unresolved conditional secondary control `P1r` remains in the forward plan:
-the same observable statistic family and temporal expansion computed from the
-scaled input windows. `P1r` was not run in A+S or this nonlinear audit. The
-bounded nonlinear observable-only probe is now complete; it did not justify
-online adaptation, a safe-adaptation gate, W128/W256, or persistent recurrent
-state. P1r or real-data external validation would require a separately
-reviewed protocol.
+The synthetic observable-control ladder is complete: A+, A+S, the bounded
+nonlinear audit and P1r, the last bounded input-derived control. As
+predeclared, P1r authorises no further observable summary, decoder, HGB budget,
+MLP/CNN, W128/W256, persistent-state experiment or post-hoc rescue control.
 
-**Decision (consolidation review, 2026-09-23): the single next action is P1r,
-the last bounded input-derived control**. P1r is the scaled `[64,8]` input
-window summarised by the frozen 128-column O1 statistic family, followed by the
-identical causal 4/8/16/32 expansion. It is an input-derived observable summary,
-not the complete observation. It should be one sealed, bounded experiment,
-`H+P1r` versus `H+P1r+internal234`, under the frozen HGB decoder on the same
-rows, with a label-blind regeneration preflight. Its only admissible conclusion
-is the presence or absence of additional predictive/decodable utility under the
-fixed decoder. Real-data validation does not come first because no acquired
-public multivariate dataset carries the drift-versus-anomaly estimand, and the
-real-data protocol should inherit the final control ladder. See
-`consolidation_review_2026-09/consolidation_review.md` §4, §5 and §8 (wording
-rule).
+**The next scientific stage is R0: real-data recurrent-state measurement
+validation.** It is not started. It requires its own prospective protocol based
+on this post-P1r `main`. Known prerequisites:
+
+- **SMD `machine-1-8`.** Raw bytes must be reacquired and verified against the
+  existing Phase A hash seal (`reports/phase_a/smd_seal.json`) before use.
+- **SMD `machine-1-4` and `machine-2-1`.** Raw bytes and provenance were
+  acquired and recorded under `research/real-data-feasibility-audit@8f6ee87`.
+  `machine-2-1` matches the Phase A seal. The bytes are git-ignored and live in
+  that branch's separate worktree.
+- **No worktree pruning yet.** Do not prune any worktree that may still hold
+  git-ignored real-data bytes until those bytes are verified reproducible or
+  copied to the intended GB10 data location.
+- **No SMD training** until the R0 protocol is sealed.
 
 ## Branches
 
@@ -205,5 +226,8 @@ The post-G1 observable-control line (A+ `04e0abb`, A+S `ccb9a3d`, nonlinear
 `consolidation/observable-control-line`. `f1967b6` was merged explicitly
 because it is not an ancestor of `0b00d6f`. Validation is in
 `consolidation_review_2026-09/final_consolidation_report.md`.
+The P1r line (seal `90b2470`, preflight `4c22e52`, six run commits,
+aggregate `af6cc47`, assessments and red-team) is consolidated into `main` from
+`experiment/input-derived-observable-control`.
 `research/real-data-feasibility-audit` (`8f6ee87`) is a data-provenance record
 kept on its own branch.
