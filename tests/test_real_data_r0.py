@@ -247,6 +247,18 @@ class EstimandAndWording(unittest.TestCase):
         self.assertEqual(set(summary["machine_means"]), set(self.machines))
 
 
+class MetricTrap(unittest.TestCase):
+    @unittest.skipUnless(HAS_SKLEARN, "sklearn unavailable")
+    def test_metric_trap_blocks_metric_calls_in_a_fresh_process(self):
+        import subprocess
+
+        code = ("import sys; sys.path.insert(0, 'scripts'); import real_data_r0_preflight as pf; pf.install_metric_trap(); "
+                "from sklearn.metrics import average_precision_score as ap\n"
+                "try:\n    ap([0, 1], [0.1, 0.9])\nexcept Exception as e:\n    print(type(e).__name__, pf._METRIC_CALLS)\n")
+        out = subprocess.run([sys.executable, "-c", code], cwd=ROOT, capture_output=True, text=True, check=True).stdout
+        self.assertIn("ProtocolViolation ['average_precision_score']", out)
+
+
 def _random_lstm_traces(torch, generator, batch=6, steps=5, width=38):
     from phase_f_lstm_observer import LAYERS
 

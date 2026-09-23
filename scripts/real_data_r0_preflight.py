@@ -43,6 +43,29 @@ def _no_metric_guard() -> dict[str, bool]:
     return {"sklearn_imported": "sklearn" in sys.modules}
 
 
+METRIC_NAMES = ("average_precision_score", "roc_auc_score", "precision_recall_curve", "roc_curve", "auc",
+                "f1_score", "precision_score", "recall_score", "accuracy_score", "confusion_matrix")
+_METRIC_CALLS: list[str] = []
+
+
+def install_metric_trap() -> None:
+    """Replace sklearn metric functions before any model code is imported.
+
+    The official xLSTMAD/lightning import chain imports sklearn transitively, so
+    the model stage cannot assert that sklearn is absent; instead every metric
+    entry point (including names later bound by ``from sklearn.metrics import``)
+    raises and is recorded.
+    """
+    import sklearn.metrics as metrics
+
+    for name in METRIC_NAMES:
+        def trap(*args, _name=name, **kwargs):
+            _METRIC_CALLS.append(_name)
+            raise r0data.ProtocolViolation(f"metric {_name} called during preflight")
+
+        setattr(metrics, name, trap)
+
+
 # =========================================================================== data
 
 
@@ -238,6 +261,7 @@ def _trace_reduction_audit(traces: dict, summarize, unit_axis_heads: bool, gener
 
 
 def model_preflight() -> dict[str, Any]:
+    install_metric_trap()
     import torch
 
     import real_data_r0_models as models
@@ -392,8 +416,9 @@ def model_preflight() -> dict[str, Any]:
     }
     report["checks"] = checks
     report["label_access_log"] = r0data.label_access_log()
-    report["metric_guard"] = _no_metric_guard()
-    report["pass"] = all(checks.values()) and not report["label_access_log"] and not report["metric_guard"]["sklearn_imported"]
+    report["metric_guard"] = {"sklearn_imported_transitively_by_official_stack": "sklearn" in sys.modules,
+                              "metric_trap_installed_before_model_imports": True, "metric_calls": list(_METRIC_CALLS)}
+    report["pass"] = all(checks.values()) and not report["label_access_log"] and not _METRIC_CALLS
     return report
 
 
@@ -453,7 +478,7 @@ def assemble(data_path: Path, model_path: Path, acquisition_path: Path | None, t
     acquisition = json.loads(acquisition_path.read_text()) if acquisition_path else None
     tests = json.loads(tests_path.read_text()) if tests_path else None
     code = {str(p.relative_to(ROOT)): _sha(p) for p in sorted((ROOT / "scripts").glob("real_data_r0_*.py"))}
-    code["configs/real_data_r0.json"] = _sha(ROOT / "configs" / "real_data_r0.json")
+    code["research/real_data_r0/config.json"] = _sha(r0data.CONFIG_PATH)
     code["tests/test_real_data_r0.py"] = _sha(ROOT / "tests" / "test_real_data_r0.py")
     design = {
         "selected": CONFIG["probe"]["design"],
@@ -467,7 +492,7 @@ def assemble(data_path: Path, model_path: Path, acquisition_path: Path | None, t
     checks["acquisition.all_verified"] = bool(acquisition and acquisition["status"] == "ACQUIRED_AND_VERIFIED")
     checks["design.embargo_covers_receptive_field"] = design["embargo_covers_receptive_field"]
     checks["tests.all_passed"] = bool(tests and tests.get("failures") == 0 and tests.get("errors") == 0)
-    checks["no_metric_computed"] = not data["metric_guard"]["sklearn_imported"] and not model["metric_guard"]["sklearn_imported"]
+    checks["no_metric_computed"] = not data["metric_guard"]["sklearn_imported"] and not model["metric_guard"]["metric_calls"]
     checks["model_stage_read_no_labels"] = not model["label_access_log"]
     return {
         "stage": "R0 preflight", "protocol_version": CONFIG["protocol_version"], "base_main": CONFIG["base_main"],

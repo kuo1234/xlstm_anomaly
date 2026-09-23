@@ -1,6 +1,6 @@
 """R0 SMD data layer: pinned acquisition, verification, parsing and index contracts.
 
-Torch-free and sklearn-free.  Every constant comes from ``configs/real_data_r0.json``.
+Torch-free and sklearn-free.  Every constant comes from ``research/real_data_r0/config.json``.
 
 Access boundary
 ---------------
@@ -37,7 +37,7 @@ from typing import Any
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
-CONFIG_PATH = ROOT / "configs" / "real_data_r0.json"
+CONFIG_PATH = ROOT / "research" / "real_data_r0" / "config.json"
 CONFIG: dict[str, Any] = json.loads(CONFIG_PATH.read_text())
 DATASET = CONFIG["dataset"]
 MACHINES: tuple[str, ...] = tuple(DATASET["machines"])
