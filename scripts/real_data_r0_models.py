@@ -160,8 +160,13 @@ def build_xlstm_cuda():
     sys.path.insert(0, str(ROOT / "research" / "cuda_spark"))
     from slstm_cuda_fixture import install_loader
 
+    import slstm_cuda_fixture
+
+    if Path(slstm_cuda_fixture.__file__).resolve() != (ROOT / "research" / "cuda_spark" / "slstm_cuda_fixture.py").resolve():
+        raise r0data.ProtocolViolation("unexpected sLSTM CUDA fixture module")
     native = _native()
-    install_loader(arch="121", code="sm_121", static_stub="false", rdc=False, extension_dir=canary.EXTENSION_DIR)
+    # Dedicated R0 build directory: never rewrites another line's shared JIT cache.
+    install_loader(arch="121", code="sm_121", static_stub="false", rdc=False, extension_dir=slstm_extension_dir())
     import xlstm.blocks.slstm.cell as cell_mod
 
     cell_mod.sLSTMCellCUDA.mod.clear()
@@ -174,6 +179,12 @@ def build_xlstm_cuda():
     if trainable_parameters(model) != DETECTOR["xlstm"]["trainable_parameters"]:
         raise r0data.ProtocolViolation("xLSTM CUDA overlay parameter count drift")
     return model.float().cuda()
+
+
+def slstm_extension_dir() -> Path:
+    import os
+
+    return Path(os.environ.get("R0_SLSTM_EXTENSION_DIR", CONFIG["compute"]["slstm_extension_dir"]))
 
 
 def cuda_overlay_from_vanilla(vanilla):

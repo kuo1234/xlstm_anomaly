@@ -148,5 +148,8 @@
     "weak_detector_flag": "test AUROC <= 0.55 -> flag DETECTOR_WEAK; cell retained",
     "status": "diagnostic context only; never used to select seeds, backbones, machines or cells"
   },
-  "compute": {"target": "ssh:kuo (GB10)", "python": "/usr/bin/python3 3.12", "torch": "2.13.0+cu130"}
+  "compute": {"target": "ssh:kuo (GB10)", "python": "/usr/bin/python3 3.12", "torch": "2.13.0+cu130",
+              "slstm_extension_dir": "/tmp/xlstm_cuda_r0_sm121_false",
+              "slstm_cuda_fixture": "research/cuda_spark/slstm_cuda_fixture.py (tracked; arch 121, code sm_121, static_stub false, rdc false)",
+              "worktree_data_links": ["data/phase_e2 -> primary data/phase_e2 (pinned official xLSTMAD)", "data/phase_e -> primary data/phase_e (Python headers for the sLSTM JIT build)", "data/external_real -> primary data/external_real (R0 raw bytes)"]}
 }
