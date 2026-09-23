@@ -54,9 +54,8 @@ observation is descriptive and does not justify further decoders.
 
 ## 5. Historical wording in `scientific_assessment.md`
 
-`scientific_assessment.md` is retained verbatim. Its sentence that the experiment "does not
-show that residual observables lack the information" is a negated disclaimer and remains
-correct as such. The governing current wording is the consolidation wording rule
+`scientific_assessment.md` is retained verbatim. Its closing disclaimer about residual
+observables in the Interpretation section is negated and remains correct as such. The governing current wording is the consolidation wording rule
 (`research/consolidation_review_2026-09/consolidation_review.md` §8). Results are stated as
 additional predictive/decodable utility under the fixed decoder beyond a specified observable
 summary. `internal234` is a deterministic function of the causal input window, so
