@@ -206,9 +206,16 @@ comparability audit found 4/18 base statistics polarity-dependent across
 independently trained detectors), 18 planned detector fits (xLSTM 75,934 /
 matched LSTM w=38 74,100 parameters at D=38). Raw bytes are verified (9/9) and
 preserved git-ignored under `data/external_real/r0_smd/` in the GB10 primary
-checkout; the result-blind preflight passed. Status:
-**R0_READY_FOR_EXECUTION** — not executed; no R0 model has been trained. See
-`research/real_data_r0/execution_handoff.md`.
+checkout; the result-blind preflight passed.
+
+**Execution status: R0_EXECUTION_BLOCKED** (branch
+`experiment/real-data-r0-execution`). Six of 18 detectors were trained
+(xLSTM, machine-1-8 and machine-2-1); the checkpoint parity gate of
+machine-2-1 / xLSTM / seed 22 failed (1 of 311,296 canary reconstruction
+outputs beyond the frozen vanilla-vs-CUDA tolerance; score and common18 agree
+to ≤ 3.6e-7), so R0 stopped fail-closed. No label was read, no probe was fitted
+and no R0 result exists (not a null result). Continuing needs an owner-approved,
+result-blind amendment; see `research/real_data_r0/execution.md`.
 
 - **No SMD training** outside the sealed R0 execution contract.
 - **Feasibility worktree.** Its SMD bytes are now copied to the stable GB10

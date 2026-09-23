@@ -1,0 +1,29 @@
+{
+    "unit": "machine-2-1_xlstm_22",
+    "purpose": "result-blind diagnostic of the failed checkpoint parity gate; canary and fit windows only; no labels, no test observations",
+    "canary_N01": {
+        "elements": 311296,
+        "violating_elements": 1,
+        "violating_windows": 1,
+        "max_abs": 2.6345252990722656e-05,
+        "max_abs_over_tolerance": 2.0711910724639893,
+        "ref_abs_at_worst": 0.8787725567817688,
+        "output_abs_max": 34.26325988769531,
+        "score_max_abs": 3.5762786865234375e-07,
+        "score_max_rel": 3.0625110980508907e-07,
+        "common18_max_abs": 1.1920928955078125e-07
+    },
+    "fit_windows_machine-2-1": {
+        "elements": 311296,
+        "violating_elements": 0,
+        "violating_windows": 0,
+        "max_abs": 1.71661376953125e-05,
+        "max_abs_over_tolerance": 0.793219804763794,
+        "ref_abs_at_worst": 31.372955322265625,
+        "output_abs_max": 41.648372650146484,
+        "score_max_abs": 1.0943040251731873e-08,
+        "score_max_rel": 4.51737560069887e-06,
+        "common18_max_abs": 1.1920928955078125e-07
+    },
+    "labels_read": []
+}
