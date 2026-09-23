@@ -111,12 +111,24 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def json_equal(a, b, ignore: tuple[str, ...] = ()) -> bool:
+FLOAT_RTOL = 1e-12  # admits last-ulp reduction differences across NumPy builds only
+
+
+def json_equal(a, b, ignore: tuple[str, ...] = (), stats: dict | None = None) -> bool:
+    """Structural equality; floats may differ by at most FLOAT_RTOL (relative)."""
+    stats = stats if stats is not None else {}
     if isinstance(a, dict) and isinstance(b, dict):
         keys = (set(a) | set(b)) - set(ignore)
-        return all(k in a and k in b and json_equal(a[k], b[k], ignore) for k in keys)
+        return all(k in a and k in b and json_equal(a[k], b[k], ignore, stats) for k in keys)
     if isinstance(a, list) and isinstance(b, list):
-        return len(a) == len(b) and all(json_equal(x, y, ignore) for x, y in zip(a, b))
+        return len(a) == len(b) and all(json_equal(x, y, ignore, stats) for x, y in zip(a, b))
+    if isinstance(a, float) and isinstance(b, float) and not isinstance(a, bool):
+        if a == b:
+            return True
+        rel = abs(a - b) / max(abs(a), abs(b))
+        stats["max_rel_float_diff"] = max(stats.get("max_rel_float_diff", 0.0), rel)
+        stats["inexact_floats"] = stats.get("inexact_floats", 0) + 1
+        return rel <= FLOAT_RTOL
     return a == b
 
 
@@ -152,20 +164,28 @@ def main() -> int:
     checks["changed_files_vs_0b00d6f"] = {"files": changed, "only_allowed": set(changed) <= ALLOWED_DOC_CHANGES}
 
     # 5. reports/*/SHA256SUMS (M0/G1 and phase seals).
+    tracked = set(git("ls-files").splitlines())
     sums = {}
     for sums_file in sorted((ROOT / "reports").glob("*/SHA256SUMS")):
-        bad = []
-        entries = 0
+        bad, untracked_absent, verified = [], [], 0
         for line in sums_file.read_text().splitlines():
             if not line.strip():
                 continue
             digest, name = line.split(maxsplit=1)
             name = name.lstrip("*")
-            target = (sums_file.parent / name) if not (ROOT / name).exists() else ROOT / name
-            entries += 1
-            if not target.exists() or sha256(target) != digest:
-                bad.append(name)
-        sums[str(sums_file.relative_to(ROOT))] = {"entries": entries, "mismatches": bad}
+            rel = name if (ROOT / name).exists() or name in tracked else str((sums_file.parent / name).relative_to(ROOT))
+            target = ROOT / rel
+            if not target.exists():
+                # git-ignored artifacts (e.g. model checkpoints) that live only on the
+                # training host; they are not part of the repository and cannot drift here.
+                (untracked_absent if rel not in tracked else bad).append(rel)
+                continue
+            verified += 1
+            if sha256(target) != digest:
+                bad.append(rel)
+        sums[str(sums_file.relative_to(ROOT))] = {
+            "verified": verified, "mismatches": bad, "untracked_absent": len(untracked_absent),
+        }
     checks["sha256sums"] = sums
 
     # 6. Re-aggregation of committed results (no fitting, no cache).
@@ -174,22 +194,24 @@ def main() -> int:
     import temporally_matched_observable_control as ap
 
     reagg = {}
+    float_stats: dict = {}
     with tempfile.TemporaryDirectory() as tmp:
         tmp = Path(tmp)
         committed = json.loads((ROOT / "research/temporally_matched_observable_control/results.json").read_text())
         fresh = ap.aggregate(ROOT / "research/temporally_matched_observable_control/results", tmp / "aplus.json")
-        reagg["A+_results.json"] = json_equal(json.loads(json.dumps(fresh)), committed)
+        reagg["A+_results.json"] = json_equal(json.loads(json.dumps(fresh)), committed, stats=float_stats)
         committed = json.loads((ROOT / "research/aplus_solver_convergence_audit/s0_results.json").read_text())
         fresh = aps.run_s0(tmp / "s0.json")
-        reagg["A+S_s0_results.json"] = json_equal(json.loads(json.dumps(fresh)), committed)
+        reagg["A+S_s0_results.json"] = json_equal(json.loads(json.dumps(fresh)), committed, stats=float_stats)
         for stage in ("s1", "s2"):
             committed = json.loads((ROOT / f"research/aplus_solver_convergence_audit/{stage}_summary.json").read_text())
             fresh = aps.summarize_stage(ROOT / f"research/aplus_solver_convergence_audit/{stage}", stage, tmp / f"{stage}.json")
-            reagg[f"A+S_{stage}_summary.json"] = json_equal(json.loads(json.dumps(fresh)), committed)
+            reagg[f"A+S_{stage}_summary.json"] = json_equal(json.loads(json.dumps(fresh)), committed, stats=float_stats)
         committed = json.loads((ROOT / "research/nonlinear_observable_control/results.json").read_text())
         fresh = nl.aggregate(ROOT / "research/nonlinear_observable_control/runs", tmp / "nl.json", ANCESTORS["nonlinear_seal"])
-        reagg["nonlinear_results.json"] = json_equal(json.loads(json.dumps(fresh)), committed, ignore=("sklearn_version",))
+        reagg["nonlinear_results.json"] = json_equal(json.loads(json.dumps(fresh)), committed, ignore=("sklearn_version",), stats=float_stats)
         reagg["nonlinear_sklearn_version_committed_vs_local"] = [committed.get("sklearn_version"), fresh.get("sklearn_version")]
+    reagg["float_comparison"] = {"rtol": FLOAT_RTOL, **float_stats}
     checks["reaggregation_matches_committed"] = reagg
 
     # 7. Headline numbers read from the committed aggregates.
@@ -249,7 +271,7 @@ def main() -> int:
         and all(v["identical"] for v in frozen.values())
         and checks["changed_files_vs_0b00d6f"]["only_allowed"]
         and all(not v["mismatches"] for v in sums.values())
-        and all(v is True for k, v in reagg.items() if not k.endswith("_vs_local"))
+        and all(v is True for k, v in reagg.items() if k.endswith(".json"))
         and all(all(v.values()) for v in rows.values())
         and checks["seals"]["nonlinear_runs_protocol_seal"] == [ANCESTORS["nonlinear_seal"]]
         and checks["seals"]["nonlinear_preflight_seal"] == ANCESTORS["nonlinear_seal"]
