@@ -1,0 +1,57 @@
+quantity,architecture,value,note
+nl_source_level_mean,xlstm,0.01516504,
+nl_crossed_lo,xlstm,0.01248823,reproduces committed results.json exactly
+nl_crossed_hi,xlstm,0.01822553,reproduces committed results.json exactly
+nl_seed_main_effect_sd,xlstm,0.00054398,
+aplus_linear_seed_main_effect_sd,xlstm,0.00637722,
+s2_linear_mean_pooled_delta,xlstm,0.02596099,the +0.02596099 / +0.01076562 reference is this estimand
+nl_mean_pooled_delta,xlstm,0.01505744,
+pooled_like_for_like_change,xlstm,-0.01090355,
+pooled_like_for_like_relative_change,xlstm,-0.41999746,
+mixed_estimand_change_as_documented,xlstm,-0.01079596,source-level NL minus pooled S2
+s2_linear_mean_AP_H+O1r,xlstm,0.90779605,
+s2_linear_mean_AP_H+O1r+I,xlstm,0.93375704,
+nl_mean_AP_H+O1r,xlstm,0.93697843,
+nl_mean_AP_H+O1r+I,xlstm,0.95203587,
+decoder_gain_observable_arm,xlstm,0.02918238,"HGB minus S2 linear, H+O1r"
+decoder_gain_full_arm,xlstm,0.01827883,"HGB minus S2 linear, H+O1r+I"
+nl_headroom_normalised_increment,xlstm,0.23905991,delta / (1 - AP(H+O1r))
+s2_headroom_normalised_increment,xlstm,0.27725179,
+nl_validation_delta_fixed_max_iter_100,xlstm,0.01743310,"validation fold, descriptive"
+nl_validation_delta_fixed_max_iter_300,xlstm,0.01610632,"validation fold, descriptive"
+source_level_change_vs_aplus_linear,xlstm,-0.01154542,"HGB minus A+ (C grid 4, max_iter 1000)"
+source_level_change_crossed_lo,xlstm,-0.01808989,
+source_level_change_crossed_hi,xlstm,-0.00439573,
+cells_attenuated_vs_aplus_linear,xlstm,27.00000000,of 30
+nl_cells_at_or_above_0p02,xlstm,4.00000000,of 30; descriptive reference only
+nl_source_level_mean,lstm,0.01125203,
+nl_crossed_lo,lstm,0.00895238,reproduces committed results.json exactly
+nl_crossed_hi,lstm,0.01347492,reproduces committed results.json exactly
+nl_seed_main_effect_sd,lstm,0.00041608,
+aplus_linear_seed_main_effect_sd,lstm,0.00102026,
+s2_linear_mean_pooled_delta,lstm,0.01076562,the +0.02596099 / +0.01076562 reference is this estimand
+nl_mean_pooled_delta,lstm,0.01136827,
+pooled_like_for_like_change,lstm,0.00060264,
+pooled_like_for_like_relative_change,lstm,0.05597828,
+mixed_estimand_change_as_documented,lstm,0.00048641,source-level NL minus pooled S2
+s2_linear_mean_AP_H+O1r,lstm,0.93584318,
+s2_linear_mean_AP_H+O1r+I,lstm,0.94660880,
+nl_mean_AP_H+O1r,lstm,0.94582957,
+nl_mean_AP_H+O1r+I,lstm,0.95719784,
+decoder_gain_observable_arm,lstm,0.00998640,"HGB minus S2 linear, H+O1r"
+decoder_gain_full_arm,lstm,0.01058904,"HGB minus S2 linear, H+O1r+I"
+nl_headroom_normalised_increment,lstm,0.20999253,delta / (1 - AP(H+O1r))
+s2_headroom_normalised_increment,lstm,0.16729160,
+nl_validation_delta_fixed_max_iter_100,lstm,0.00951683,"validation fold, descriptive"
+nl_validation_delta_fixed_max_iter_300,lstm,0.00937298,"validation fold, descriptive"
+source_level_change_vs_aplus_linear,lstm,0.00103188,"HGB minus A+ (C grid 4, max_iter 1000)"
+source_level_change_crossed_lo,lstm,-0.00223226,
+source_level_change_crossed_hi,lstm,0.00382090,
+cells_attenuated_vs_aplus_linear,lstm,11.00000000,of 30
+nl_cells_at_or_above_0p02,lstm,0.00000000,of 30; descriptive reference only
+nl_xlstm_minus_lstm_increment,both,0.00391301,
+nl_xlstm_minus_lstm_crossed_lo,both,0.00036699,
+nl_xlstm_minus_lstm_crossed_hi,both,0.00743939,
+aplus_linear_xlstm_minus_lstm_increment,both,0.01649030,
+aplus_linear_xlstm_minus_lstm_crossed_lo,both,0.00878795,
+aplus_linear_xlstm_minus_lstm_crossed_hi,both,0.02330226,

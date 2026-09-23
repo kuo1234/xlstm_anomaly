@@ -1,0 +1,195 @@
+{
+  "status": "S0_COMPLETE_NO_FITTING",
+  "input": "research/temporally_matched_observable_control/results.json",
+  "input_sha256": "582cf444acf892a3048bde45927ec2728118a3895daccd3eb301d7510dddb9a2",
+  "primary_estimand": "mean of the 10 source-level means, with detector seeds retained as a crossed factor",
+  "pooled_test_AP_difference": "descriptive historical value only",
+  "seed_levels": [
+    11,
+    22,
+    33
+  ],
+  "seed_level_caveat": "Only three detector-seed levels are available; neither interval is precisely calibrated as a 95% population interval.",
+  "architectures": {
+    "xlstm": {
+      "source_seed_matrix": [
+        [
+          0.02714159094211821,
+          0.0023216913726202826,
+          0.03281194148800726
+        ],
+        [
+          0.03508500187799235,
+          0.014451696258816149,
+          0.01653966219768377
+        ],
+        [
+          0.023809238638489938,
+          0.024305874213639167,
+          0.030395762216980704
+        ],
+        [
+          0.033209925088380166,
+          0.012989518621868368,
+          0.03662827702758187
+        ],
+        [
+          0.03424766673560331,
+          0.01963640206904349,
+          0.031742398939101246
+        ],
+        [
+          0.029978152305663808,
+          0.03529378451139653,
+          0.039630648148641257
+        ],
+        [
+          0.01898691196350455,
+          0.019014693091777057,
+          0.02785278009123271
+        ],
+        [
+          0.025156074134721318,
+          0.023629625214523164,
+          0.03136909953475442
+        ],
+        [
+          0.03608720053628456,
+          0.015829364550727143,
+          0.03206131505757659
+        ],
+        [
+          0.02596355287003216,
+          0.027646016354531122,
+          0.03749768443517998
+        ]
+      ],
+      "source_level_mean": 0.02671045168294909,
+      "pooled_test_descriptive_mean": 0.026782800644191695,
+      "crossed_bootstrap": {
+        "method": "two_way_crossed_source_rows_seed_columns",
+        "draws": 10000,
+        "seed": 901,
+        "estimand": "source_level_mean_AP_difference",
+        "mean": 0.02671045168294909,
+        "ci95": [
+          0.019509491972725442,
+          0.03258160849185062
+        ],
+        "replicate_sd": 0.003437421956586725
+      },
+      "source_only_bootstrap": {
+        "method": "source_only_condition_on_observed_seeds",
+        "draws": 10000,
+        "seed": 901,
+        "estimand": "source_level_mean_AP_difference",
+        "mean": 0.02671045168294909,
+        "ci95": [
+          0.02425693235548414,
+          0.029361102274022954
+        ],
+        "replicate_sd": 0.0013011044064294628
+      }
+    },
+    "lstm": {
+      "source_seed_matrix": [
+        [
+          0.011317073689353419,
+          0.009088737285637083,
+          0.008226023862038745
+        ],
+        [
+          0.007718388318208036,
+          0.018385394752863937,
+          0.013235250025776302
+        ],
+        [
+          0.013367698811455497,
+          0.00865415826157312,
+          0.009340299361387694
+        ],
+        [
+          0.017417493073354273,
+          0.009835571416039746,
+          0.0025724915522997716
+        ],
+        [
+          0.016795415905831224,
+          0.006899790139588857,
+          0.009990682033724996
+        ],
+        [
+          0.0020843206211452747,
+          0.004133771706489431,
+          0.016238262904098244
+        ],
+        [
+          0.009858756285813008,
+          0.009338695908207795,
+          0.012613520039553627
+        ],
+        [
+          0.008535779966793222,
+          0.01254632309152559,
+          0.009145999525910109
+        ],
+        [
+          0.0010407081623833303,
+          0.01207618342490191,
+          0.0008251628394683186
+        ],
+        [
+          0.0242830702926915,
+          0.011213746901695298,
+          0.00982586010550468
+        ]
+      ],
+      "source_level_mean": 0.010220154342177134,
+      "pooled_test_descriptive_mean": 0.010346162806766293,
+      "crossed_bootstrap": {
+        "method": "two_way_crossed_source_rows_seed_columns",
+        "draws": 10000,
+        "seed": 901,
+        "estimand": "source_level_mean_AP_difference",
+        "mean": 0.010220154342177134,
+        "ci95": [
+          0.0078052184351696885,
+          0.012817194038529394
+        ],
+        "replicate_sd": 0.0012545748299580982
+      },
+      "source_only_bootstrap": {
+        "method": "source_only_condition_on_observed_seeds",
+        "draws": 10000,
+        "seed": 901,
+        "estimand": "source_level_mean_AP_difference",
+        "mean": 0.010220154342177134,
+        "ci95": [
+          0.008480179984531254,
+          0.011864305465471063
+        ],
+        "replicate_sd": 0.0008635230476012299
+      }
+    }
+  },
+  "historical_nested_bootstrap": {
+    "xlstm": {
+      "draws": 10000,
+      "seed": 901,
+      "ci95": [
+        0.02295938063535364,
+        0.030312022197378243
+      ],
+      "label": "historical published nested source-then-independent-seed resampling"
+    },
+    "lstm": {
+      "draws": 10000,
+      "seed": 901,
+      "ci95": [
+        0.007860576923322166,
+        0.01256639626021906
+      ],
+      "label": "historical published nested source-then-independent-seed resampling"
+    }
+  }
+}

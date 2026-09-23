@@ -1,0 +1,522 @@
+{
+  "checks": {
+    "ancestry": {
+      "A+": true,
+      "A+S": true,
+      "A+_review": true,
+      "A+_seal": true,
+      "consolidation_review": true,
+      "main_base": true,
+      "nonlinear": true,
+      "nonlinear_seal": true
+    },
+    "changed_files_vs_0b00d6f": {
+      "files": [
+        "research/CURRENT_STATUS.md",
+        "research/consolidation_review_2026-09/consolidation_review.md",
+        "research/consolidation_review_2026-09/consolidation_validation.py",
+        "research/consolidation_review_2026-09/reviewer_numbers.csv",
+        "research/consolidation_review_2026-09/reviewer_recompute.py",
+        "research/nonlinear_observable_control/post_review_addendum.md",
+        "research/temporally_matched_observable_control/independent_review.md",
+        "research/temporally_matched_observable_control/independent_review_numbers.csv",
+        "research/temporally_matched_observable_control/independent_review_recompute.py",
+        "research/temporally_matched_observable_control/post_review_addendum.md"
+      ],
+      "only_allowed": true
+    },
+    "frozen_artifacts": {
+      "configs": {
+        "identical": true,
+        "object": "4673061fe04fe8b9d5c03004eb0c8b10c703279f",
+        "source_commit": "0b00d6f"
+      },
+      "data": {
+        "identical": true,
+        "object": "721392fa686e2abda910b0cd6788950659d29710",
+        "source_commit": "2810c34"
+      },
+      "m0": {
+        "identical": true,
+        "object": "a76226c37ef7639ba1dbad454c1cf8a9edb5c2ff",
+        "source_commit": "2810c34"
+      },
+      "reports": {
+        "identical": true,
+        "object": "69c1c68050067bfa54973b2f20021d74f0d86a11",
+        "source_commit": "2810c34"
+      },
+      "research/aplus_solver_convergence_audit": {
+        "identical": true,
+        "object": "344594be0edf62d4424ff1109846f4feb8006cb3",
+        "source_commit": "ccb9a3d"
+      },
+      "research/framing-refresh-2026-09": {
+        "identical": true,
+        "object": "dc8fba82ee0415622460be2d16de278042d579cf",
+        "source_commit": "2810c34"
+      },
+      "research/nonlinear_observable_control/preflight.json": {
+        "identical": true,
+        "object": "0bcf99ff6bb6db35774440360c9d3225aa2aebee",
+        "source_commit": "0b00d6f"
+      },
+      "research/nonlinear_observable_control/preflight.md": {
+        "identical": true,
+        "object": "bfa85c2e54376eefc27a3f6127ee28ac17fde38a",
+        "source_commit": "0b00d6f"
+      },
+      "research/nonlinear_observable_control/protocol.md": {
+        "identical": true,
+        "object": "519114af4170ef36c6d9ec54984e8052c8ca009e",
+        "source_commit": "0b00d6f"
+      },
+      "research/nonlinear_observable_control/red_team.md": {
+        "identical": true,
+        "object": "25baa448a45642a16387f9f81138bc0bd0b6a8fd",
+        "source_commit": "0b00d6f"
+      },
+      "research/nonlinear_observable_control/results.json": {
+        "identical": true,
+        "object": "be23ef1aaea11f75a4d619ed07bf1d82790e8551",
+        "source_commit": "0b00d6f"
+      },
+      "research/nonlinear_observable_control/results.md": {
+        "identical": true,
+        "object": "96c8b7feca0b89d43f05114c05598b7779d8b468",
+        "source_commit": "0b00d6f"
+      },
+      "research/nonlinear_observable_control/runs": {
+        "identical": true,
+        "object": "ab1a3469d538e746e2585c53b6b302397e0fb3cd",
+        "source_commit": "0b00d6f"
+      },
+      "research/nonlinear_observable_control/scientific_assessment.md": {
+        "identical": true,
+        "object": "c8d14c3f099b8248dbfc19fe8f734ff97ee5de82",
+        "source_commit": "0b00d6f"
+      },
+      "research/nonlinear_observable_control/source_seed_effects.csv": {
+        "identical": true,
+        "object": "246cf76a26d2c91e23065710fa0583ebe848b544",
+        "source_commit": "0b00d6f"
+      },
+      "research/nonlinear_observable_control/statistical_assessment.md": {
+        "identical": true,
+        "object": "5ae44141cd569e70ab1679f740a63319b38eacb0",
+        "source_commit": "0b00d6f"
+      },
+      "research/strong_observable_control": {
+        "identical": true,
+        "object": "641761e3ea0f31854acc72eba1662b310bd75fa6",
+        "source_commit": "2810c34"
+      },
+      "research/temporally_matched_observable_control/execution.md": {
+        "identical": true,
+        "object": "4b820dd1202b1a97aca9d4884cfc041d185c5193",
+        "source_commit": "04e0abb"
+      },
+      "research/temporally_matched_observable_control/protocol.md": {
+        "identical": true,
+        "object": "df4e025cd6489d862d926aa168d1fab1dbe7c761",
+        "source_commit": "04e0abb"
+      },
+      "research/temporally_matched_observable_control/red_team.md": {
+        "identical": true,
+        "object": "6ed2b31c17c03351cb66f1975f61f776f326bb80",
+        "source_commit": "04e0abb"
+      },
+      "research/temporally_matched_observable_control/results": {
+        "identical": true,
+        "object": "7dcd6744e5ddc05096ad52990620ccf35f047eb3",
+        "source_commit": "04e0abb"
+      },
+      "research/temporally_matched_observable_control/results.json": {
+        "identical": true,
+        "object": "05a3b1f799645c676fc8d5f51e6c2e85f78d8c76",
+        "source_commit": "04e0abb"
+      },
+      "research/temporally_matched_observable_control/results.md": {
+        "identical": true,
+        "object": "28dfb99cbb9f5963732de3d6f03e0e96bcf1cf2a",
+        "source_commit": "04e0abb"
+      },
+      "research/temporally_matched_observable_control/scientific_assessment.md": {
+        "identical": true,
+        "object": "45261f5cf34a13b437a4448996d3b7ea1e9120aa",
+        "source_commit": "04e0abb"
+      },
+      "scripts": {
+        "identical": true,
+        "object": "98e392de3a0662130e1ae9f44b53827c39effd30",
+        "source_commit": "0b00d6f"
+      },
+      "tests": {
+        "identical": true,
+        "object": "c47534b85986d8b4f5152c38479df266991d790c",
+        "source_commit": "0b00d6f"
+      }
+    },
+    "independent_review_files": {
+      "research/temporally_matched_observable_control/independent_review.md": true,
+      "research/temporally_matched_observable_control/independent_review_numbers.csv": true,
+      "research/temporally_matched_observable_control/independent_review_recompute.py": true
+    },
+    "prohibited_wording_hits": {
+      "research/CURRENT_STATUS.md": [],
+      "research/consolidation_review_2026-09/consolidation_review.md": [],
+      "research/nonlinear_observable_control/post_review_addendum.md": [],
+      "research/temporally_matched_observable_control/post_review_addendum.md": []
+    },
+    "reaggregation_matches_committed": {
+      "A+S_s0_results.json": true,
+      "A+S_s1_summary.json": true,
+      "A+S_s2_summary.json": true,
+      "A+_results.json": true,
+      "float_comparison": {
+        "rtol": 1e-12
+      },
+      "nonlinear_results.json": true,
+      "nonlinear_sklearn_version_committed_vs_local": [
+        "1.9.0",
+        "1.9.0"
+      ]
+    },
+    "row_key_contract": {
+      "reference_row_meta": {
+        "test": {
+          "key_sha256": "fb90782494e416d25563f666a4b79a2a24a1968f90821bb36c57287228b4ac6d",
+          "rows": 697430,
+          "timestamp_max": 21054,
+          "timestamp_min": 5632
+        },
+        "train": {
+          "key_sha256": "71191e06ef47a9843ae1cc1e141d01fbbb541238514bce7b9d5e0a0683415fdd",
+          "rows": 697430,
+          "timestamp_max": 21054,
+          "timestamp_min": 5632
+        },
+        "validation": {
+          "key_sha256": "77ab6914c34b16262fe9afc80780a8fec079325ca88083b0bbd52751027f697c",
+          "rows": 348715,
+          "timestamp_max": 21054,
+          "timestamp_min": 5632
+        }
+      },
+      "runs": {
+        "lstm_11": {
+          "equal_to_first_run": true,
+          "nonlinear_row_meta_equals_A+": true,
+          "s1_keys_equal_A+": true,
+          "s2_keys_equal_A+": true
+        },
+        "lstm_22": {
+          "equal_to_first_run": true,
+          "nonlinear_row_meta_equals_A+": true,
+          "s1_keys_equal_A+": true,
+          "s2_keys_equal_A+": true
+        },
+        "lstm_33": {
+          "equal_to_first_run": true,
+          "nonlinear_row_meta_equals_A+": true,
+          "s1_keys_equal_A+": true,
+          "s2_keys_equal_A+": true
+        },
+        "xlstm_11": {
+          "equal_to_first_run": true,
+          "nonlinear_row_meta_equals_A+": true,
+          "s1_keys_equal_A+": true,
+          "s2_keys_equal_A+": true
+        },
+        "xlstm_22": {
+          "equal_to_first_run": true,
+          "nonlinear_row_meta_equals_A+": true,
+          "s1_keys_equal_A+": true,
+          "s2_keys_equal_A+": true
+        },
+        "xlstm_33": {
+          "equal_to_first_run": true,
+          "nonlinear_row_meta_equals_A+": true,
+          "s1_keys_equal_A+": true,
+          "s2_keys_equal_A+": true
+        }
+      }
+    },
+    "seals": {
+      "nonlinear_preflight_seal": "61e57ef7894c8db7faaeb5efc2fd63fb5f58956e",
+      "nonlinear_runs_protocol_seal": [
+        "61e57ef7894c8db7faaeb5efc2fd63fb5f58956e"
+      ]
+    },
+    "sha256sums": {
+      "reports/generator_validation_v4/SHA256SUMS": {
+        "mismatches": [],
+        "untracked_absent": 0,
+        "verified": 5
+      },
+      "reports/phase_a/SHA256SUMS": {
+        "mismatches": [],
+        "untracked_absent": 0,
+        "verified": 15
+      },
+      "reports/phase_a_v3/SHA256SUMS": {
+        "mismatches": [],
+        "untracked_absent": 0,
+        "verified": 8
+      },
+      "reports/phase_a_v4/SHA256SUMS": {
+        "mismatches": [],
+        "untracked_absent": 0,
+        "verified": 4
+      },
+      "reports/phase_b/SHA256SUMS": {
+        "mismatches": [],
+        "untracked_absent": 0,
+        "verified": 3
+      },
+      "reports/phase_c/SHA256SUMS": {
+        "mismatches": [],
+        "untracked_absent": 0,
+        "verified": 34
+      },
+      "reports/phase_c3/SHA256SUMS": {
+        "mismatches": [],
+        "untracked_absent": 0,
+        "verified": 139
+      },
+      "reports/phase_c_v2/SHA256SUMS": {
+        "mismatches": [],
+        "untracked_absent": 0,
+        "verified": 43
+      },
+      "reports/phase_d/SHA256SUMS": {
+        "mismatches": [],
+        "untracked_absent": 0,
+        "verified": 146
+      },
+      "reports/phase_d_v2/SHA256SUMS": {
+        "mismatches": [],
+        "untracked_absent": 0,
+        "verified": 895
+      },
+      "reports/phase_e/SHA256SUMS": {
+        "mismatches": [],
+        "untracked_absent": 0,
+        "verified": 45
+      },
+      "reports/phase_e2/SHA256SUMS": {
+        "mismatches": [],
+        "untracked_absent": 0,
+        "verified": 36
+      },
+      "reports/phase_f/SHA256SUMS": {
+        "mismatches": [],
+        "untracked_absent": 0,
+        "verified": 19
+      },
+      "reports/phase_f_v2/SHA256SUMS": {
+        "mismatches": [],
+        "untracked_absent": 0,
+        "verified": 16
+      },
+      "reports/phase_f_v3/SHA256SUMS": {
+        "mismatches": [],
+        "untracked_absent": 10,
+        "verified": 21
+      },
+      "reports/phase_f_v4/SHA256SUMS": {
+        "mismatches": [],
+        "untracked_absent": 0,
+        "verified": 66
+      }
+    }
+  },
+  "head": "2d7740bd906715e76edf21571e8d87a826313f88",
+  "headline_numbers": {
+    "lstm": {
+      "A+S_S0": {
+        "crossed_bootstrap": {
+          "ci95": [
+            0.0078052184351696885,
+            0.012817194038529394
+          ],
+          "draws": 10000,
+          "estimand": "source_level_mean_AP_difference",
+          "mean": 0.010220154342177134,
+          "method": "two_way_crossed_source_rows_seed_columns",
+          "replicate_sd": 0.0012545748299580982,
+          "seed": 901
+        },
+        "pooled_test_descriptive_mean": 0.010346162806766293,
+        "source_level_mean": 0.010220154342177134,
+        "source_only_bootstrap": {
+          "ci95": [
+            0.008480179984531254,
+            0.011864305465471063
+          ],
+          "draws": 10000,
+          "estimand": "source_level_mean_AP_difference",
+          "mean": 0.010220154342177134,
+          "method": "source_only_condition_on_observed_seeds",
+          "replicate_sd": 0.0008635230476012299,
+          "seed": 901
+        },
+        "source_seed_matrix": [
+          [
+            0.011317073689353419,
+            0.009088737285637083,
+            0.008226023862038745
+          ],
+          [
+            0.007718388318208036,
+            0.018385394752863937,
+            0.013235250025776302
+          ],
+          [
+            0.013367698811455497,
+            0.00865415826157312,
+            0.009340299361387694
+          ],
+          [
+            0.017417493073354273,
+            0.009835571416039746,
+            0.0025724915522997716
+          ],
+          [
+            0.016795415905831224,
+            0.006899790139588857,
+            0.009990682033724996
+          ],
+          [
+            0.0020843206211452747,
+            0.004133771706489431,
+            0.016238262904098244
+          ],
+          [
+            0.009858756285813008,
+            0.009338695908207795,
+            0.012613520039553627
+          ],
+          [
+            0.008535779966793222,
+            0.01254632309152559,
+            0.009145999525910109
+          ],
+          [
+            0.0010407081623833303,
+            0.01207618342490191,
+            0.0008251628394683186
+          ],
+          [
+            0.0242830702926915,
+            0.011213746901695298,
+            0.00982586010550468
+          ]
+        ]
+      },
+      "A+_source_level_mean": 0.010220154342177134,
+      "nonlinear_crossed_ci95": [
+        0.008952383937363357,
+        0.013474916804812706
+      ],
+      "nonlinear_source_level_mean": 0.011252030384030194,
+      "nonlinear_source_only_ci95": [
+        0.00932227757270661,
+        0.013197697936307425
+      ]
+    },
+    "xlstm": {
+      "A+S_S0": {
+        "crossed_bootstrap": {
+          "ci95": [
+            0.019509491972725442,
+            0.03258160849185062
+          ],
+          "draws": 10000,
+          "estimand": "source_level_mean_AP_difference",
+          "mean": 0.02671045168294909,
+          "method": "two_way_crossed_source_rows_seed_columns",
+          "replicate_sd": 0.003437421956586725,
+          "seed": 901
+        },
+        "pooled_test_descriptive_mean": 0.026782800644191695,
+        "source_level_mean": 0.02671045168294909,
+        "source_only_bootstrap": {
+          "ci95": [
+            0.02425693235548414,
+            0.029361102274022954
+          ],
+          "draws": 10000,
+          "estimand": "source_level_mean_AP_difference",
+          "mean": 0.02671045168294909,
+          "method": "source_only_condition_on_observed_seeds",
+          "replicate_sd": 0.0013011044064294628,
+          "seed": 901
+        },
+        "source_seed_matrix": [
+          [
+            0.02714159094211821,
+            0.0023216913726202826,
+            0.03281194148800726
+          ],
+          [
+            0.03508500187799235,
+            0.014451696258816149,
+            0.01653966219768377
+          ],
+          [
+            0.023809238638489938,
+            0.024305874213639167,
+            0.030395762216980704
+          ],
+          [
+            0.033209925088380166,
+            0.012989518621868368,
+            0.03662827702758187
+          ],
+          [
+            0.03424766673560331,
+            0.01963640206904349,
+            0.031742398939101246
+          ],
+          [
+            0.029978152305663808,
+            0.03529378451139653,
+            0.039630648148641257
+          ],
+          [
+            0.01898691196350455,
+            0.019014693091777057,
+            0.02785278009123271
+          ],
+          [
+            0.025156074134721318,
+            0.023629625214523164,
+            0.03136909953475442
+          ],
+          [
+            0.03608720053628456,
+            0.015829364550727143,
+            0.03206131505757659
+          ],
+          [
+            0.02596355287003216,
+            0.027646016354531122,
+            0.03749768443517998
+          ]
+        ]
+      },
+      "A+_source_level_mean": 0.02671045168294909,
+      "nonlinear_crossed_ci95": [
+        0.012488228086974263,
+        0.018225529047709618
+      ],
+      "nonlinear_source_level_mean": 0.015165035852375674,
+      "nonlinear_source_only_ci95": [
+        0.012924391745531323,
+        0.017795326713925048
+      ]
+    }
+  },
+  "status": "PASS"
+}

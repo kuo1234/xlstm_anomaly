@@ -1,0 +1,160 @@
+{
+  "status": "label_blind_nonlinear_preflight",
+  "protocol_seal": "61e57ef7894c8db7faaeb5efc2fd63fb5f58956e",
+  "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+  "platform": "Linux-6.17.0-1026-nvidia-aarch64-with-glibc2.39",
+  "sklearn_version": "1.9.0",
+  "estimator_parameters": {
+    "100": {
+      "loss": "log_loss",
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 31,
+      "max_depth": 6,
+      "min_samples_leaf": 100,
+      "l2_regularization": 1.0,
+      "max_bins": 255,
+      "categorical_features": null,
+      "early_stopping": false,
+      "random_state": 901,
+      "class_weight": null,
+      "max_iter": 100
+    },
+    "300": {
+      "loss": "log_loss",
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 31,
+      "max_depth": 6,
+      "min_samples_leaf": 100,
+      "l2_regularization": 1.0,
+      "max_bins": 255,
+      "categorical_features": null,
+      "early_stopping": false,
+      "random_state": 901,
+      "class_weight": null,
+      "max_iter": 300
+    }
+  },
+  "folds": {
+    "train": [
+      1000,
+      1001,
+      1002,
+      1003,
+      1004,
+      1005,
+      1006,
+      1007,
+      1008,
+      1009
+    ],
+    "validation": [
+      2000,
+      2001,
+      2002,
+      2003,
+      2004
+    ],
+    "test": [
+      3000,
+      3001,
+      3002,
+      3003,
+      3004,
+      3005,
+      3006,
+      3007,
+      3008,
+      3009
+    ]
+  },
+  "scenarios": [
+    "abrupt",
+    "gradual",
+    "recurring",
+    "correlation"
+  ],
+  "conditions": [
+    "none",
+    "spike",
+    "collective",
+    "dependency",
+    "mixture"
+  ],
+  "architectures": [
+    "xlstm",
+    "lstm"
+  ],
+  "detector_seeds": [
+    11,
+    22,
+    33
+  ],
+  "rows": {
+    "train": 697430,
+    "validation": 348715,
+    "test": 697430
+  },
+  "feature_dimensions": {
+    "H+O1r": 1678,
+    "H+O1r+I": 1912
+  },
+  "approximate_feature_matrix_bytes": {
+    "H+O1r": {
+      "train": 4681150160,
+      "validation": 2340575080,
+      "test": 4681150160
+    },
+    "H+O1r+I": {
+      "train": 5333944640,
+      "validation": 2666972320,
+      "test": 5333944640
+    }
+  },
+  "cache_manifests": {
+    "xlstm_11": {
+      "cache_dir": "/home/p76141495/home/xlstm_anomaly/.worktrees/strong-observable-control/data/strong_observable_control_cache_v1/xlstm_11",
+      "manifest": "/home/p76141495/home/xlstm_anomaly/.worktrees/strong-observable-control/data/strong_observable_control_cache_v1/xlstm_11/manifest_xlstm_11.json",
+      "manifest_sha256": "4675480812f3184aa4400182af286dcfa2b3b9f23c164d3cbb4eddc513047f82",
+      "status": "complete",
+      "stream_count": 500
+    },
+    "xlstm_22": {
+      "cache_dir": "/home/p76141495/home/xlstm_anomaly/.worktrees/strong-observable-control/data/strong_observable_control_cache_v1/xlstm_22",
+      "manifest": "/home/p76141495/home/xlstm_anomaly/.worktrees/strong-observable-control/data/strong_observable_control_cache_v1/xlstm_22/manifest_xlstm_22.json",
+      "manifest_sha256": "a0374c5ababec389f736bf8cea7068273ae118b0248e3d54fa628e4c4e386557",
+      "status": "complete",
+      "stream_count": 500
+    },
+    "xlstm_33": {
+      "cache_dir": "/home/p76141495/home/xlstm_anomaly/.worktrees/strong-observable-control/data/strong_observable_control_cache_v1/xlstm_33",
+      "manifest": "/home/p76141495/home/xlstm_anomaly/.worktrees/strong-observable-control/data/strong_observable_control_cache_v1/xlstm_33/manifest_xlstm_33.json",
+      "manifest_sha256": "1f4a71bd5a2bb58183c9cd564c3a39acffa261130343f3ee41c35e632979fe36",
+      "status": "complete",
+      "stream_count": 500
+    },
+    "lstm_11": {
+      "cache_dir": "/home/p76141495/home/xlstm_anomaly/.worktrees/strong-observable-control/data/strong_observable_control_cache_v1/lstm_11",
+      "manifest": "/home/p76141495/home/xlstm_anomaly/.worktrees/strong-observable-control/data/strong_observable_control_cache_v1/lstm_11/manifest_lstm_11.json",
+      "manifest_sha256": "f5fbcc5d3fadc884664c950be270b0133152feca8be9e3b2d0a25a023bda86f2",
+      "status": "complete",
+      "stream_count": 500
+    },
+    "lstm_22": {
+      "cache_dir": "/home/p76141495/home/xlstm_anomaly/.worktrees/strong-observable-control/data/strong_observable_control_cache_v1/lstm_22",
+      "manifest": "/home/p76141495/home/xlstm_anomaly/.worktrees/strong-observable-control/data/strong_observable_control_cache_v1/lstm_22/manifest_lstm_22.json",
+      "manifest_sha256": "be3ed4da7fa1d4e9144291853cf8bdc04f5dc2dd7ca66157c2ffc5a1f3b980b8",
+      "status": "complete",
+      "stream_count": 500
+    },
+    "lstm_33": {
+      "cache_dir": "/home/p76141495/home/xlstm_anomaly/.worktrees/strong-observable-control/data/strong_observable_control_cache_v1/lstm_33",
+      "manifest": "/home/p76141495/home/xlstm_anomaly/.worktrees/strong-observable-control/data/strong_observable_control_cache_v1/lstm_33/manifest_lstm_33.json",
+      "manifest_sha256": "bd85b936f9245f59b84d3b6b7a04a822e749b6da4793289f2dbaf33ea519e2d0",
+      "status": "complete",
+      "stream_count": 500
+    }
+  },
+  "early_stopping": false,
+  "label_blind": true,
+  "no_nonlinear_fit": true
+}

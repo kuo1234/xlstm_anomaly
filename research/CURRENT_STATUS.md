@@ -84,10 +84,58 @@ scenario strata are consistent with this: the residual-controlled increment is
 small in abrupt and correlation (where one window suffices) and largest in
 gradual and recurring (where it does not).
 
-Until `A+` runs, current O1/O2 results must be described as a **rich
-within-window residual control** or a **residual-controlled linear-probe
-result**, never as a *matched observable control* and never as
-*observable residuals are insufficient*.
+## A+ temporally matched observable control (exploratory)
+
+The fixed W64/stride-1 A+ analysis applies the same causal `[t-94,t]`
+decision-span expansion to all 128 O1 residual columns. The primary
+`H+O1r+internal234 − H+O1r` increment is `+0.026710` for xLSTM (historical
+nested-bootstrap interval `[+0.022959,+0.030312]`; corrected crossed
+source×seed reassessment `[+0.019509,+0.032582]`, 2/3 seed means at the old
+`+0.02` reference) and `+0.010220` for the matched LSTM (historical interval
+`[+0.007861,+0.012566]`, 0/3 seed means at the reference). All source-seed
+directions are positive, but the backbones are heterogeneous. This provides
+exploratory support that the xLSTM increment is not fully explained by this
+temporally matched residual control; it is not a causal or information-
+theoretic result and does not alter G1/H3a/H3b.
+
+The historical O1/O2 results remain a **rich within-window residual control**
+or a **residual-controlled linear-probe result**, not a matched control. A+
+tests the narrower temporally matched O1r question; neither result licenses an
+information-theoretic claim about residual observables.
+
+### A+S solver/convergence audit
+
+The post-hoc A+S audit found no unresolved `lbfgs` convergence failure at
+`max_iter=10000`. The fixed expanded C grid changes some selected C values but
+preserves the qualitative result: pooled xLSTM ΔAP remains positive and above
+the historical +0.02 descriptive reference, while matched-LSTM ΔAP remains
+positive but below it. The corrected crossed source×seed uncertainty is
+reported separately from the historical nested bootstrap. The xLSTM
+nested-superset regression persists after converged refitting. A+S is
+exploratory and does not alter G1/H2/H3a/H3b.
+
+### Bounded nonlinear observable-control stress test
+
+The fixed `HistGradientBoostingClassifier` audit on the same A+ rows and
+temporally matched O1r retained positive internal increments for all 30
+source×seed cells: xLSTM source-level mean `+0.015165` (crossed exploratory
+interval `[+0.012488,+0.018226]`) and matched LSTM `+0.011252` (interval
+`[+0.008952,+0.013475]`). Relative to the A+S S2 linear references, the
+xLSTM increment attenuated while the matched-LSTM increment stayed similar.
+This is bounded nonlinear-decoder evidence only; it is not information-
+theoretic, causal, or xLSTM-specific evidence, and it does not alter G1 or
+reopen H3a/H3b.
+
+Estimand note (consolidation review, 2026-09-23): the S2 references are means
+of pooled per-seed deltas. The like-for-like pooled change is `−0.010904`
+(−42.0 %) for xLSTM and `+0.000603` for matched LSTM. Against the A+
+source-level matrix, the paired change is `−0.011545` (crossed
+`[−0.018090,−0.004396]`) for xLSTM and `+0.001032`
+(`[−0.002232,+0.003821]`) for LSTM. The xLSTM attenuation occurs because
+HGB raises the observable-only `H+O1r` arm by `+0.029182`, more than the whole
+linear increment. The xLSTM − LSTM increment gap shrinks from `+0.016490`
+(linear) to `+0.003913` and tracks the lower xLSTM observable-only baseline.
+See `nonlinear_observable_control/post_review_addendum.md`.
 
 ## Current claim ladder
 
@@ -95,7 +143,10 @@ result**, never as a *matched observable control* and never as
 |---|---|---|
 | **L1a** | internal state adds over score/history | **SUPPORTED** (G1 H2 GO; reproduced in both backbones) |
 | **L1b** | the increment survives rich within-window residual controls | **PARTIALLY SUPPORTED** — exploratory |
-| **L1c** | the increment survives a temporally matched observable control | **NOT TESTED** |
+| **L1c** | the increment survives a temporally matched **residual-derived** observable control (O1r) under the fixed L2 logistic probe | **PARTIALLY SUPPORTED** (A+/A+S, exploratory; converged, grid-stable; the backbone asymmetry here is largely a linear-probe effect, see L1c-NL) |
+| **L1c-NL** | the same O1r increment survives a fixed bounded nonlinear decoder (HGB) | **PARTIALLY SUPPORTED** (exploratory; `+0.015165` / `+0.011252`, 30/30 cells each, both below the `+0.02` reference; xLSTM attenuated about 42 %, LSTM unchanged) |
+| **L1c-P** | `internal234` retains additional predictive/decodable utility under the fixed decoder beyond the temporally matched **input-derived observable summary** P1r (the last bounded input-derived control) | **NOT TESTED** |
+| — | information-theoretic superiority of `internal234` over the full causal observation | **OUT OF SCOPE IN PRINCIPLE** — `internal234` is a deterministic function of the causal input window |
 | **L2** | usable online decision rule without evaluator labels | **NOT TESTED** |
 | **L3** | xLSTM specificity | **UNSUPPORTED** (H3a STOP) |
 | **L3'** | mLSTM complementary mechanism | **PARTIALLY SUPPORTED** — exploratory only, one seed |
@@ -117,23 +168,29 @@ secondary exploratory mechanism analysis. Rationale and prior-art boundary:
 
 ## Next experiment
 
-```
-DO_NEXT: A+ — temporally matched observable control
-```
+`A+`, A+S, and the bounded nonlinear-control audit are complete as exploratory
+temporally matched residual-control studies.
+The unresolved conditional secondary control `P1r` remains in the forward plan:
+the same observable statistic family and temporal expansion computed from the
+scaled input windows. `P1r` was not run in A+S or this nonlinear audit. The
+bounded nonlinear observable-only probe is now complete; it did not justify
+online adaptation, a safe-adaptation gate, W128/W256, or persistent recurrent
+state. P1r or real-data external validation would require a separately
+reviewed protocol.
 
-Primary planned comparison `H+O1r` versus `H+O1r+I`, where `O1r` applies to
-every `O1` feature exactly the causal temporal expansion used by `internal234`
-(current, rolling mean/std/slope at widths 4/8/16/32). Secondary planned
-control `P1r`: the same observable statistic family and temporal expansion
-computed from the scaled input windows. Specification:
-`framing-refresh-2026-09/next_experiment_decision.md`. **Not implemented in
-this repository yet.**
-
-Dependency order — `A+`, then (if it survives) a bounded nonlinear observable
-control, then (if that survives) the mLSTM replication and later decisions. Do
-not start the nonlinear probe, mLSTM seeds 22/33, online adaptation, a
-safe-adaptation gate, W128/W256, or persistent recurrent state before `A+`
-resolves.
+**Decision (consolidation review, 2026-09-23): the single next action is P1r,
+the last bounded input-derived control**. P1r is the scaled `[64,8]` input
+window summarised by the frozen 128-column O1 statistic family, followed by the
+identical causal 4/8/16/32 expansion. It is an input-derived observable summary,
+not the complete observation. It should be one sealed, bounded experiment,
+`H+P1r` versus `H+P1r+internal234`, under the frozen HGB decoder on the same
+rows, with a label-blind regeneration preflight. Its only admissible conclusion
+is the presence or absence of additional predictive/decodable utility under the
+fixed decoder. Real-data validation does not come first because no acquired
+public multivariate dataset carries the drift-versus-anomaly estimand, and the
+real-data protocol should inherit the final control ladder. See
+`consolidation_review_2026-09/consolidation_review.md` §4, §5 and §8 (wording
+rule).
 
 ## Branches
 
@@ -141,3 +198,12 @@ resolves.
 snapshot and intentionally remains on a separate branch. The completed
 strong-observable-control study and the post-G1 framing refresh are
 consolidated into `main`.
+
+The post-G1 observable-control line (A+ `04e0abb`, A+S `ccb9a3d`, nonlinear
+`0b00d6f`), the consolidation review `aa0860c` and the independent A+ review
+`f1967b6` are consolidated into `main` through
+`consolidation/observable-control-line`. `f1967b6` was merged explicitly
+because it is not an ancestor of `0b00d6f`. Validation is in
+`consolidation_review_2026-09/final_consolidation_report.md`.
+`research/real-data-feasibility-audit` (`8f6ee87`) is a data-provenance record
+kept on its own branch.
