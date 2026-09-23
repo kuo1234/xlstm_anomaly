@@ -199,19 +199,23 @@ predeclared, P1r authorises no further observable summary, decoder, HGB budget,
 MLP/CNN, W128/W256, persistent-state experiment or post-hoc rescue control.
 
 **The next scientific stage is R0: real-data recurrent-state measurement
-validation.** It is not started. It requires its own prospective protocol based
-on this post-P1r `main`. Known prerequisites:
+validation.** Its protocol is sealed on `research/real-data-r0-protocol`
+(`research/real_data_r0/`): three SMD machines (machine-1-8, machine-2-1,
+machine-1-4), H vs H+internal234, Design B (within-machine blocked probe; the
+comparability audit found 4/18 base statistics polarity-dependent across
+independently trained detectors), 18 planned detector fits (xLSTM 75,934 /
+matched LSTM w=38 74,100 parameters at D=38). Raw bytes are verified (9/9) and
+preserved git-ignored under `data/external_real/r0_smd/` in the GB10 primary
+checkout; the result-blind preflight passed. Status:
+**R0_READY_FOR_EXECUTION** — not executed; no R0 model has been trained. See
+`research/real_data_r0/execution_handoff.md`.
 
-- **SMD `machine-1-8`.** Raw bytes must be reacquired and verified against the
-  existing Phase A hash seal (`reports/phase_a/smd_seal.json`) before use.
-- **SMD `machine-1-4` and `machine-2-1`.** Raw bytes and provenance were
-  acquired and recorded under `research/real-data-feasibility-audit@8f6ee87`.
-  `machine-2-1` matches the Phase A seal. The bytes are git-ignored and live in
-  that branch's separate worktree.
-- **No worktree pruning yet.** Do not prune any worktree that may still hold
-  git-ignored real-data bytes until those bytes are verified reproducible or
-  copied to the intended GB10 data location.
-- **No SMD training** until the R0 protocol is sealed.
+- **No SMD training** outside the sealed R0 execution contract.
+- **Feasibility worktree.** Its SMD bytes are now copied to the stable GB10
+  location and are reproducible from the pinned public URL; it still holds
+  non-SMD feasibility files, so pruning it remains the owner's decision.
+- **R1** (HAI 22.04) is recorded prospectively and is gated only on acquisition,
+  provenance and compatibility, never on the R0 outcome.
 
 ## Branches
 
