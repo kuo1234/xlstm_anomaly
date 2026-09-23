@@ -157,7 +157,9 @@ the LSTM, the decoder raises both arms by about the same amount.
    at one budget. On validation, the xLSTM increment falls from budget 100 to budget 300 in
    3/3 seeds. This is descriptive and gives no basis for further decoders, but it means the
    attenuation is not shown to have saturated.
-3. **Observable insufficiency** in any information-theoretic sense (§3).
+3. **Any information-theoretic statement.** `internal234` is a deterministic function of the
+   causal input window, so information-theoretic superiority over the full observation is out
+   of scope in principle (§3).
 4. **A practically large effect by the project's own reference.** 0/3 seed means reach the
    historical +0.02 descriptive reference for either backbone under HGB. The cell counts are
    4/30 (xLSTM) and 0/30 (LSTM).
@@ -166,13 +168,13 @@ the LSTM, the decoder raises both arms by about the same amount.
 
 ## 3. Claim-ladder audit
 
-**Structural boundary.** `internal234` at decision `t` is a deterministic function of the raw
-window `x[t−94, t]` and frozen weights. O1r is a function of the same window and of that
-detector's predictions. Hence `I(Y; internal234 | x[t−94,t]) = 0` exactly, by the
-data-processing inequality. No experiment on this benchmark can show that internal state holds
-information the observations lack. Every rung below is a statement that a frozen learned
-representation is **more decodable** than a specified observable summary under a specified
-bounded decoder. That is representation utility, not observability.
+**Structural boundary.** `internal234` is a deterministic function of the causal input window
+`x[t−94, t]` (and frozen weights). Information-theoretic superiority over the full observation
+is therefore out of scope in principle: `I(Y; internal234 | x[t−94,t]) = 0` by the
+data-processing inequality. O1r is a function of the same window and of that detector's
+predictions. Every rung below is a statement about **additional predictive/decodable utility
+under a fixed decoder** relative to a specified bounded observable summary. That is
+representation utility, not observability.
 
 | rung | claim (recommended wording) | status |
 |---|---|---|
@@ -180,8 +182,8 @@ bounded decoder. That is representation utility, not observability.
 | L1b | the increment survives rich *within-window* residual controls (O1, O2; not temporally matched) | **PARTIALLY SUPPORTED**, exploratory; min over controls +0.03958 / +0.01527; span-confounded, superseded interpretively by L1c |
 | L1c | the increment survives a temporally matched **residual-derived** control (O1r) under a fixed L2 logistic probe | **PARTIALLY SUPPORTED**, exploratory (A+/A+S): +0.026710 / +0.010220 source-level, 30/30 cells each; converged; grid-stable. The backbone asymmetry here is largely a linear-probe effect (see L1c-NL) |
 | L1c-NL | the same O1r increment survives a fixed bounded nonlinear decoder (HGB) | **PARTIALLY SUPPORTED**, exploratory: +0.015165 / +0.011252, 30/30 cells each, both below the +0.02 reference; xLSTM attenuated about 42 %, LSTM unchanged |
-| L1c-P | the increment survives a temporally matched **input-derived** control (P1r) | **NOT TESTED** |
-| — | observables are information-insufficient | **OUT OF SCOPE IN PRINCIPLE** — never to be claimed |
+| L1c-P | `internal234` retains additional predictive/decodable utility under the fixed decoder beyond the temporally matched **input-derived observable summary** P1r (the last bounded input-derived control) | **NOT TESTED** |
+| — | information-theoretic superiority of `internal234` over the full causal observation | **OUT OF SCOPE IN PRINCIPLE** — `internal234` is a deterministic function of the causal input window |
 | L1d / L5 | the measurement describes real systems | **NOT TESTED** |
 
 The current `CURRENT_STATUS.md` L1c wording is defensible for A+/A+S but incomplete. It lacks
@@ -194,10 +196,15 @@ does not show that P1r was not run in the rung itself. This branch corrects all 
 
 - It is not needed for the narrowest claim ("beyond score/history and temporally matched
   *residual-derived* summaries").
-- It is required for any wording that says "observable" without qualification. It is also the
-  most predictable reviewer objection. The task is drift versus anomaly, and drift is defined
-  as a change in the input distribution, yet no arm of the ladder contains the input
-  trajectory.
+- It is needed before the paper states additional predictive/decodable utility beyond an
+  **input-derived observable summary**. Until then, every "observable" in the paper must be
+  qualified as residual-derived. It is also the most predictable reviewer objection: drift is
+  defined as a change in the input distribution, and no arm so far uses a summary of the
+  scaled input window.
+
+P1r is itself a bounded input-derived summary, not the complete observation: the frozen
+128-column O1 statistic family on the scaled `[64,8]` input window, followed by the identical
+causal 4/8/16/32 expansion. Its outcome speaks only to that summary under the fixed decoder.
 
 P1r is also the only control that is **identical across backbones**. Every comparison so far has
 been confounded by backbone-specific residual baselines, and P1r is the first common baseline.
@@ -214,8 +221,8 @@ careful and useful, but it establishes the following:
   HAI needs Git LFS, and SWaT/WADI/Yahoo need manual grants.
 - Any real-data stage needs new detector training under a new sealed M0-compliant protocol. That
   is a larger and riskier investment than P1r.
-- That protocol should carry the final control ladder, and it cannot be specified until P1r
-  settles whether an input-derived control is part of that ladder.
+- That protocol should carry the final control ladder, and it cannot be specified until P1r,
+  the last bounded input-derived control of the synthetic ladder, has been run.
 
 The branch is ready as a data-provenance record, not as an experiment. Its acquired bytes are
 git-ignored and local to a separate worktree. It touches only its own paths and merges cleanly
@@ -223,13 +230,16 @@ with `0b00d6f`. Keep it separate.
 
 ## 5. Single next scientific action
 
-**P1r — one sealed, bounded experiment, then stop and write.**
+**P1r, the last bounded input-derived control: one sealed, bounded experiment, then stop and
+write.**
 
 Constraints for its protocol (to be reviewed and sealed before any fit):
 
-- **Arms:** `H+P1r` versus `H+P1r+internal234`. P1r applies the O1 statistic family and the
-  identical causal `[t−94, t]` rolling expansion to the detector's scaled input windows.
-  Use the same rows, folds, seeds, backbones and row-key contract as A+.
+- **Arms:** `H+P1r` versus `H+P1r+internal234`. P1r applies the frozen 128-column O1
+  statistic family to the scaled `[64,8]` input window, then the identical causal
+  current + mean/std/slope expansion at decision widths 4/8/16/32 (raw union `[t−94, t]`).
+  The result is a temporally matched, bounded input-derived observable summary. Use the same
+  rows, folds, seeds, backbones and row-key contract as A+.
 - **Decoder:** the frozen HGB family from the NL audit, unchanged, as primary. This is the
   stronger decoder, and the linear probe is now known to overstate increments against lossy
   observable summaries. No new decoder.
@@ -237,9 +247,11 @@ Constraints for its protocol (to be reviewed and sealed before any fit):
   reproduce the cached row keys and timestamps. Fail closed otherwise.
 - **Estimand:** the source-level 10×3 mean with crossed and source-only bootstrap, as in NL.
   Pooled deltas are descriptive.
-- **Pre-declared outcome → wording map**, and an explicit commitment that P1r is the **last**
-  observable control before writing, whatever it shows. No further decoders, budgets or
-  controls. This stops the ladder from regressing indefinitely.
+- **Pre-declared outcome → wording map**, and an explicit commitment that P1r is the **last
+  bounded input-derived control** before writing, whatever it shows. No further decoders,
+  budgets or controls. This stops the ladder from regressing indefinitely. Allowed
+  conclusions are limited to the presence or absence of additional predictive/decodable
+  utility beyond the frozen input-derived P1r summary under the fixed decoder.
 
 Not recommended now: real-data validation (§4), W128+, mLSTM replication, adaptation, or any
 further decoder sweep.
@@ -315,3 +327,41 @@ housekeeping, all optional:
 
 Remaining fix, which cannot be made on a docs branch based on `0b00d6f`: merge `f1967b6` during
 consolidation (§6).
+
+**Resolved at consolidation (2026-09-23).** `consolidation/observable-control-line` merges
+`f1967b6` into `aa0860c` (merge commit `a9e6137`) before anything reaches `main`. It adds the
+wording rule in §8 and the validation report `final_consolidation_report.md`. The §6
+sequence was executed in that form: a single consolidation branch merged into `main`, instead of
+two separate merges into `main`.
+
+## 8. Wording rule for P1r and observable controls (added at consolidation)
+
+P1r is the scaled raw input window `[64,8]` summarised by the frozen 128-column O1 statistic
+family, followed by the identical causal 4/8/16/32 rolling expansion. It is a bounded
+input-derived summary, not the complete observation information.
+
+Required wording:
+
+- "the last bounded input-derived control"
+- "input-derived observable summary"
+- "additional predictive/decodable utility under the fixed decoder"
+
+Not to be used in any current-facing document, paper draft or result interpretation:
+
+- that internal state contains information the observations lack;
+- any insufficiency claim about observables;
+- that P1r rules out every observable alternative;
+- "beyond observables" without the qualifier *residual-derived* or *input-derived summary*.
+
+Retained structural statement: `internal234` is a deterministic function of the causal input
+window, so information-theoretic superiority over the full observation is out of scope in
+principle.
+
+Historical documents are left verbatim. Where they contain phrases such as "residuals lack the
+information" or "observable residuals are insufficient", they do so only as negated
+disclaimers or as lists of forbidden wording. This applies to
+`strong_observable_control/interpretation.md`, `strong_observable_control/post_review_addendum.md`,
+`framing-refresh-2026-09/*`, `temporally_matched_observable_control/red_team.md`,
+`temporally_matched_observable_control/independent_review.md` and
+`nonlinear_observable_control/scientific_assessment.md`. The rule above governs every
+current-facing statement.

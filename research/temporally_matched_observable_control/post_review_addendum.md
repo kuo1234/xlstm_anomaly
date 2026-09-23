@@ -21,4 +21,7 @@ them together with the later evidence below.
   (`research/nonlinear_observable_control/`), the xLSTM increment falls to +0.015165 and the
   LSTM increment stays at +0.011252. The gap shrinks from +0.01649 to +0.00391 and tracks the
   lower xLSTM observable-only baseline. See `research/nonlinear_observable_control/post_review_addendum.md`.
-- **Scope:** O1r is residual-derived. The input-derived control `P1r` has not been run.
+- **Scope:** O1r is residual-derived. The bounded input-derived control `P1r` has not been
+  run. When it is, its only admissible reading is additional predictive/decodable utility
+  under the fixed decoder beyond that input-derived observable summary (see
+  `research/consolidation_review_2026-09/consolidation_review.md` §8).

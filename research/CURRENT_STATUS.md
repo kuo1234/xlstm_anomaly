@@ -100,8 +100,8 @@ theoretic result and does not alter G1/H3a/H3b.
 
 The historical O1/O2 results remain a **rich within-window residual control**
 or a **residual-controlled linear-probe result**, not a matched control. A+
-tests the narrower temporally matched O1r question; neither result licenses the
-claim that *observable residuals are insufficient*.
+tests the narrower temporally matched O1r question; neither result licenses an
+information-theoretic claim about residual observables.
 
 ### A+S solver/convergence audit
 
@@ -145,8 +145,8 @@ See `nonlinear_observable_control/post_review_addendum.md`.
 | **L1b** | the increment survives rich within-window residual controls | **PARTIALLY SUPPORTED** — exploratory |
 | **L1c** | the increment survives a temporally matched **residual-derived** observable control (O1r) under the fixed L2 logistic probe | **PARTIALLY SUPPORTED** (A+/A+S, exploratory; converged, grid-stable; the backbone asymmetry here is largely a linear-probe effect, see L1c-NL) |
 | **L1c-NL** | the same O1r increment survives a fixed bounded nonlinear decoder (HGB) | **PARTIALLY SUPPORTED** (exploratory; `+0.015165` / `+0.011252`, 30/30 cells each, both below the `+0.02` reference; xLSTM attenuated about 42 %, LSTM unchanged) |
-| **L1c-P** | the increment survives a temporally matched **input-derived** control (P1r) | **NOT TESTED** |
-| — | observables are information-insufficient | **OUT OF SCOPE IN PRINCIPLE** — internal state is a deterministic function of the input window, so no rung may claim this |
+| **L1c-P** | `internal234` retains additional predictive/decodable utility under the fixed decoder beyond the temporally matched **input-derived observable summary** P1r (the last bounded input-derived control) | **NOT TESTED** |
+| — | information-theoretic superiority of `internal234` over the full causal observation | **OUT OF SCOPE IN PRINCIPLE** — `internal234` is a deterministic function of the causal input window |
 | **L2** | usable online decision rule without evaluator labels | **NOT TESTED** |
 | **L3** | xLSTM specificity | **UNSUPPORTED** (H3a STOP) |
 | **L3'** | mLSTM complementary mechanism | **PARTIALLY SUPPORTED** — exploratory only, one seed |
@@ -178,14 +178,19 @@ online adaptation, a safe-adaptation gate, W128/W256, or persistent recurrent
 state. P1r or real-data external validation would require a separately
 reviewed protocol.
 
-**Decision (consolidation review, 2026-09-23): the single next action is P1r**.
-It should be one sealed, bounded experiment: `H+P1r` versus
-`H+P1r+internal234` under the frozen HGB decoder, on the same rows and with
-a label-blind regeneration preflight. It is declared in advance as the last
-observable control before writing. Real-data validation does not come first
-because no acquired public multivariate dataset carries the drift-versus-anomaly
-estimand, and the real-data protocol should inherit the final control ladder.
-See `consolidation_review_2026-09/consolidation_review.md` §4–§5.
+**Decision (consolidation review, 2026-09-23): the single next action is P1r,
+the last bounded input-derived control**. P1r is the scaled `[64,8]` input
+window summarised by the frozen 128-column O1 statistic family, followed by the
+identical causal 4/8/16/32 expansion. It is an input-derived observable summary,
+not the complete observation. It should be one sealed, bounded experiment,
+`H+P1r` versus `H+P1r+internal234`, under the frozen HGB decoder on the same
+rows, with a label-blind regeneration preflight. Its only admissible conclusion
+is the presence or absence of additional predictive/decodable utility under the
+fixed decoder. Real-data validation does not come first because no acquired
+public multivariate dataset carries the drift-versus-anomaly estimand, and the
+real-data protocol should inherit the final control ladder. See
+`consolidation_review_2026-09/consolidation_review.md` §4, §5 and §8 (wording
+rule).
 
 ## Branches
 
@@ -195,7 +200,10 @@ strong-observable-control study and the post-G1 framing refresh are
 consolidated into `main`.
 
 The post-G1 observable-control line (A+ `04e0abb`, A+S `ccb9a3d`, nonlinear
-`0b00d6f`) and the independent A+ review `f1967b6` are to be consolidated
-together. `f1967b6` is not an ancestor of `0b00d6f` and must be merged
-explicitly before its branch is retired. `research/real-data-feasibility-audit`
-(`8f6ee87`) is a data-provenance record kept on its own branch.
+`0b00d6f`), the consolidation review `aa0860c` and the independent A+ review
+`f1967b6` are consolidated into `main` through
+`consolidation/observable-control-line`. `f1967b6` was merged explicitly
+because it is not an ancestor of `0b00d6f`. Validation is in
+`consolidation_review_2026-09/final_consolidation_report.md`.
+`research/real-data-feasibility-audit` (`8f6ee87`) is a data-provenance record
+kept on its own branch.
