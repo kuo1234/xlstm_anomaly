@@ -1,0 +1,74 @@
+{
+  "stage": "probe",
+  "protocol_version": "r0-v1.2",
+  "run": "machine-1-8_lstm_33",
+  "machine": "machine-1-8",
+  "backbone": "lstm",
+  "seed": 33,
+  "design": "B",
+  "blocks": {
+    "train": [
+      94,
+      7962
+    ],
+    "validation": [
+      8058,
+      15830
+    ],
+    "test": [
+      15926,
+      23699
+    ]
+  },
+  "embargo": 96,
+  "rows": {
+    "train": 7868,
+    "validation": 7772,
+    "test": 7773
+  },
+  "positives": {
+    "train": 968,
+    "validation": 523
+  },
+  "arms": {
+    "H": {
+      "validation_ap": {
+        "100": 0.14107274128550498,
+        "300": 0.1023520409216892
+      },
+      "selected_max_iter": 100,
+      "tie": false,
+      "test_ap": 0.30374225261240034,
+      "test_rows": 7773,
+      "test_positives": 516
+    },
+    "H+I": {
+      "validation_ap": {
+        "100": 0.12613037505215793,
+        "300": 0.16766737074092392
+      },
+      "selected_max_iter": 300,
+      "tie": false,
+      "test_ap": 0.12284624680380815,
+      "test_rows": 7773,
+      "test_positives": 516
+    }
+  },
+  "delta_ap": -0.1808960058085922,
+  "feature_cache_sha256": "1aeb17c4c66c5ff0f10176c03c3afa152ad93e9e57e6939c31daed2c094507d7",
+  "hgb_parameters": {
+    "loss": "log_loss",
+    "learning_rate": 0.1,
+    "max_leaf_nodes": 31,
+    "max_depth": 6,
+    "min_samples_leaf": 100,
+    "l2_regularization": 1.0,
+    "max_bins": 255,
+    "categorical_features": null,
+    "early_stopping": false,
+    "random_state": 901,
+    "class_weight": null
+  },
+  "execution_commit": "284219812d4d8d721ea5bd4c5346c98584e46b46",
+  "finished_utc": "2026-09-24T09:31:54Z"
+}

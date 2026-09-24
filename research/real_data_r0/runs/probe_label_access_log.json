@@ -1,0 +1,278 @@
+{
+  "stage": "probe_summary",
+  "cells": 18,
+  "hgb_fits": 72,
+  "label_access_log": [
+    {
+      "machine": "machine-1-8",
+      "purpose": "probe_fit_selection",
+      "utc": "2026-09-24T09:31:37Z"
+    },
+    {
+      "machine": "machine-1-8",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:38Z"
+    },
+    {
+      "machine": "machine-1-8",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:39Z"
+    },
+    {
+      "machine": "machine-1-8",
+      "purpose": "probe_fit_selection",
+      "utc": "2026-09-24T09:31:39Z"
+    },
+    {
+      "machine": "machine-1-8",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:40Z"
+    },
+    {
+      "machine": "machine-1-8",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:41Z"
+    },
+    {
+      "machine": "machine-1-8",
+      "purpose": "probe_fit_selection",
+      "utc": "2026-09-24T09:31:41Z"
+    },
+    {
+      "machine": "machine-1-8",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:41Z"
+    },
+    {
+      "machine": "machine-1-8",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:43Z"
+    },
+    {
+      "machine": "machine-2-1",
+      "purpose": "probe_fit_selection",
+      "utc": "2026-09-24T09:31:43Z"
+    },
+    {
+      "machine": "machine-2-1",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:43Z"
+    },
+    {
+      "machine": "machine-2-1",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:44Z"
+    },
+    {
+      "machine": "machine-2-1",
+      "purpose": "probe_fit_selection",
+      "utc": "2026-09-24T09:31:44Z"
+    },
+    {
+      "machine": "machine-2-1",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:44Z"
+    },
+    {
+      "machine": "machine-2-1",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:46Z"
+    },
+    {
+      "machine": "machine-2-1",
+      "purpose": "probe_fit_selection",
+      "utc": "2026-09-24T09:31:46Z"
+    },
+    {
+      "machine": "machine-2-1",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:46Z"
+    },
+    {
+      "machine": "machine-2-1",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:47Z"
+    },
+    {
+      "machine": "machine-1-4",
+      "purpose": "probe_fit_selection",
+      "utc": "2026-09-24T09:31:47Z"
+    },
+    {
+      "machine": "machine-1-4",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:47Z"
+    },
+    {
+      "machine": "machine-1-4",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:48Z"
+    },
+    {
+      "machine": "machine-1-4",
+      "purpose": "probe_fit_selection",
+      "utc": "2026-09-24T09:31:48Z"
+    },
+    {
+      "machine": "machine-1-4",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:48Z"
+    },
+    {
+      "machine": "machine-1-4",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:49Z"
+    },
+    {
+      "machine": "machine-1-4",
+      "purpose": "probe_fit_selection",
+      "utc": "2026-09-24T09:31:49Z"
+    },
+    {
+      "machine": "machine-1-4",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:49Z"
+    },
+    {
+      "machine": "machine-1-4",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:50Z"
+    },
+    {
+      "machine": "machine-1-8",
+      "purpose": "probe_fit_selection",
+      "utc": "2026-09-24T09:31:50Z"
+    },
+    {
+      "machine": "machine-1-8",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:50Z"
+    },
+    {
+      "machine": "machine-1-8",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:51Z"
+    },
+    {
+      "machine": "machine-1-8",
+      "purpose": "probe_fit_selection",
+      "utc": "2026-09-24T09:31:51Z"
+    },
+    {
+      "machine": "machine-1-8",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:52Z"
+    },
+    {
+      "machine": "machine-1-8",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:52Z"
+    },
+    {
+      "machine": "machine-1-8",
+      "purpose": "probe_fit_selection",
+      "utc": "2026-09-24T09:31:53Z"
+    },
+    {
+      "machine": "machine-1-8",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:53Z"
+    },
+    {
+      "machine": "machine-1-8",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:54Z"
+    },
+    {
+      "machine": "machine-2-1",
+      "purpose": "probe_fit_selection",
+      "utc": "2026-09-24T09:31:54Z"
+    },
+    {
+      "machine": "machine-2-1",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:54Z"
+    },
+    {
+      "machine": "machine-2-1",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:55Z"
+    },
+    {
+      "machine": "machine-2-1",
+      "purpose": "probe_fit_selection",
+      "utc": "2026-09-24T09:31:55Z"
+    },
+    {
+      "machine": "machine-2-1",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:55Z"
+    },
+    {
+      "machine": "machine-2-1",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:56Z"
+    },
+    {
+      "machine": "machine-2-1",
+      "purpose": "probe_fit_selection",
+      "utc": "2026-09-24T09:31:56Z"
+    },
+    {
+      "machine": "machine-2-1",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:56Z"
+    },
+    {
+      "machine": "machine-2-1",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:57Z"
+    },
+    {
+      "machine": "machine-1-4",
+      "purpose": "probe_fit_selection",
+      "utc": "2026-09-24T09:31:57Z"
+    },
+    {
+      "machine": "machine-1-4",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:57Z"
+    },
+    {
+      "machine": "machine-1-4",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:57Z"
+    },
+    {
+      "machine": "machine-1-4",
+      "purpose": "probe_fit_selection",
+      "utc": "2026-09-24T09:31:57Z"
+    },
+    {
+      "machine": "machine-1-4",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:58Z"
+    },
+    {
+      "machine": "machine-1-4",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:58Z"
+    },
+    {
+      "machine": "machine-1-4",
+      "purpose": "probe_fit_selection",
+      "utc": "2026-09-24T09:31:58Z"
+    },
+    {
+      "machine": "machine-1-4",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:59Z"
+    },
+    {
+      "machine": "machine-1-4",
+      "purpose": "probe_final_evaluation",
+      "utc": "2026-09-24T09:31:59Z"
+    }
+  ],
+  "finished_utc": "2026-09-24T09:31:59Z"
+}
