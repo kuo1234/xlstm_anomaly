@@ -1,0 +1,137 @@
+{
+  "stage": "extract",
+  "protocol_version": "r0-v1.2",
+  "status": "PASS",
+  "run": "machine-1-8_lstm_11",
+  "machine": "machine-1-8",
+  "backbone": "lstm",
+  "seed": 11,
+  "execution_commit": "cc3e69a6c4459bcfc7da1be0df66c44c4caee4ac",
+  "protocol_head": "d7708586fe3264fcd6e5567504cccd97104c2a2e",
+  "environment": {
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "deterministic_algorithms": false,
+    "matmul_precision": "highest",
+    "matmul_allow_tf32": false,
+    "cudnn_allow_tf32": false,
+    "torch_threads": 4,
+    "torch": "2.13.0+cu130",
+    "cuda": "13.0",
+    "device": "NVIDIA GB10",
+    "official_xlstmad": "e8b56ba27352733bb83729e85b1d6196dca70c99",
+    "xlstm": "2.0.5",
+    "lightning": "2.6.1",
+    "python": "3.12.3"
+  },
+  "extraction_backend": "auditable_manual_v1_2",
+  "observer_arch": "lstm_auditable_v1_2",
+  "extraction_path": "capacity-matched auditable LSTM implementation (R0-v1.2): one recurrence, captured traces",
+  "best_checkpoint_sha256": "5a3c04ebfd9de38ac70a784cbad2d3999c82b49acedadb118f4ff9919e397e3e",
+  "best_model_hash": "6edb67e06114cc3abbe8d9f833d827273ca756ab1bdf151054afffa13636874b",
+  "checkpoint_reuse_authorised_by_v1_1": false,
+  "gate": {
+    "name": "v1_2_auditable",
+    "eval_mode": true,
+    "parameters": 74100,
+    "canary_N01": {
+      "capture_on_off": {
+        "pass": true,
+        "bitwise": true,
+        "max_abs": 0.0
+      },
+      "repeat_inference": {
+        "pass": true,
+        "bitwise": true,
+        "max_abs": 0.0
+      },
+      "extract_equals_forward": {
+        "pass": true,
+        "bitwise": true,
+        "max_abs": 0.0
+      },
+      "output_finite": true,
+      "score_finite": true,
+      "traces_finite": true,
+      "gates_in_unit_interval": true,
+      "common18_finite": true,
+      "common18_shape": [
+        128,
+        18
+      ],
+      "trace_layers": [
+        "decoder.0",
+        "decoder.1",
+        "decoder.2",
+        "encoder.0",
+        "encoder.1",
+        "encoder.2"
+      ]
+    },
+    "fit_windows_machine-1-8": {
+      "capture_on_off": {
+        "pass": true,
+        "bitwise": true,
+        "max_abs": 0.0
+      },
+      "repeat_inference": {
+        "pass": true,
+        "bitwise": true,
+        "max_abs": 0.0
+      },
+      "extract_equals_forward": {
+        "pass": true,
+        "bitwise": true,
+        "max_abs": 0.0
+      },
+      "output_finite": true,
+      "score_finite": true,
+      "traces_finite": true,
+      "gates_in_unit_interval": true,
+      "common18_finite": true,
+      "common18_shape": [
+        128,
+        18
+      ],
+      "trace_layers": [
+        "decoder.0",
+        "decoder.1",
+        "decoder.2",
+        "encoder.0",
+        "encoder.1",
+        "encoder.2"
+      ]
+    },
+    "pass": true
+  },
+  "threshold": 0.15789064466953276,
+  "validation_windows": 4677,
+  "test_rows": 23636,
+  "test_edge_range": [
+    63,
+    23698
+  ],
+  "first_finite_edge": 94,
+  "warmup_rows": 31,
+  "dimensions": {
+    "H": 14,
+    "internal234": 234
+  },
+  "feature_cache": {
+    "file": "data/r0_runs/machine-1-8/lstm_v1_2_11/features_v1_2.npz",
+    "sha256": "6c91356e60b092032718293aad539cce04783a674261f3522135fb09c14a9e59",
+    "arrays": {
+      "edges": "f9d682b53d97c3d672d08c4e199465caa687f77e8a338d19745a115c68ad0475",
+      "score": "bcee3e952663f47e26b76e782746f48158b628c39589244a4a505f535f413960",
+      "internal_base18": "f90a20ae7336e7bfa31b655a5a2659b8275eb0577a8edd5cebe4b191c3d73b0f",
+      "H": "ca446edcff25676b031c3cbf84b06aa6dbf4d3debdefcd1c5d1bb5172846aaf0",
+      "internal234": "b15d3203be5551ae8abc679cdbc9f1147e9a8bf524c30ba25fede13537060690",
+      "validation_edges": "170213ad5c90f4cceed3e7089a382a251a16f3259327c3b600d3cd8670b25b6e",
+      "validation_score": "7154b5dc3d6718bd5258a8c7d5466c1193fba0673e7f36481547cde230fd5ecb"
+    }
+  },
+  "labels_read": false,
+  "label_read_count": 0,
+  "seconds": 35.92253075260669,
+  "finished_utc": "2026-09-24T06:59:00Z"
+}
