@@ -166,3 +166,13 @@ an explicit result-blind amendment before any label is read:
    declined this route for the xLSTM.
 
 The nine xLSTM caches and the ten trained checkpoints remain valid under any of these routes.
+
+---
+
+## r0-v1.2 execution (prospective plan, recorded before any v1.2 run)
+
+Owner decision: final implementation amendment r0-v1.2 ([`protocol_amendment_v1_2.md`](protocol_amendment_v1_2.md)).
+Planned stages, each committed and pushed: `invalidate-native-lstm` (history record only) → non-gating engineering
+comparison → `preflight-v1-2` (must be `R0_V1_2_READY_TO_RESUME`) → `schedule --workers 2` (nine auditable
+matched-LSTM fits + extractions; the nine xLSTM units are carried forward and skipped) → `seal-features`
+(`feature_cache_manifest_v1_2.json`) → `probe` → `aggregate` → commit → `sanity` → `report`.

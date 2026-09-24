@@ -36,11 +36,11 @@ def _called_names(source: str) -> set[str]:
 
 
 def _v1_1_record(backbone: str = "xlstm") -> dict:
-    plan = runner.extraction_plan(backbone)
-    return {"protocol_version": "r0-v1.1", "status": "PASS", "extraction_backend": plan["backend"],
+    plan = runner.extraction_plan(backbone)  # r0-v1.2 supersedes the LSTM plan; the xLSTM plan is the v1.1 one
+    return {"protocol_version": plan["record_version"], "status": "PASS", "extraction_backend": plan["backend"],
             "gate": {"name": plan["gate"], "pass": True}, "label_read_count": 0,
             "dimensions": {"H": 14, "internal234": 234},
-            "feature_cache": {"file": f"data/r0_runs/m/{backbone}_11/{runner.CACHE_FILE}"}}
+            "feature_cache": {"file": f"data/r0_runs/m/{backbone}_11/{plan['cache_file']}"}}
 
 
 class AmendmentV11(unittest.TestCase):
@@ -67,7 +67,7 @@ class AmendmentV11(unittest.TestCase):
 
     # 2. v1.1 caches identify the backend as vanilla_reference
     def test_v1_1_records_identify_backend(self):
-        self.assertEqual(runner.PROTOCOL_VERSION, "r0-v1.1")
+        self.assertEqual(runner.EXTRACTION_PLAN["xlstm"]["record_version"], "r0-v1.1")
         self.assertEqual(runner.extraction_plan("xlstm")["backend"], "vanilla_reference")
         runner.validate_extract_record(_v1_1_record("xlstm"), "xlstm")
         runner.validate_extract_record(_v1_1_record("lstm"), "lstm")
@@ -112,7 +112,7 @@ class AmendmentV11(unittest.TestCase):
 
     # 5. no labels during train/extract
     def test_no_label_access_in_train_extract_or_preflight(self):
-        for function in (runner.train, runner.extract, runner._xlstm_gate_v1_1, runner._lstm_gate_v1,
+        for function in (runner.train, runner.extract, runner._xlstm_gate_v1_1, runner._lstm_gate_v1_2,
                          runner.invalidate_v1_caches, runner.preflight_v1_1, runner.seal_features, runner._run_unit):
             self.assertNotIn("load_test_labels", inspect.getsource(function), function.__name__)
 
@@ -139,16 +139,16 @@ class AmendmentV11(unittest.TestCase):
         self.assertNotIn('record["parity"]', main_source)
         self.assertIn('record["gate"]["pass"]', main_source)
 
-    # 7. LSTM execution unchanged
-    def test_lstm_path_unchanged(self):
-        plan = runner.extraction_plan("lstm")
-        self.assertEqual(plan, {"arch": "lstm", "backend": "lstm_manual_replay", "gate": "v1_lstm_observer"})
-        gate = inspect.getsource(runner._lstm_gate_v1)
-        self.assertIn('models.extract_batch(model, "lstm", x)', gate)
-        self.assertIn("exact=True", gate)
+    # 7. (r0-v1.1) LSTM path unchanged — superseded for the matched LSTM by r0-v1.2; v1.1 LSTM evidence preserved
+    def test_lstm_v1_1_evidence_preserved_and_superseded(self):
+        stop = json.loads((RESULTS / "runs" / "stop_v1_1_machine-1-8_lstm_11.json").read_text())
+        self.assertEqual(stop["status"], "STOP_OBSERVER_PARITY")
+        self.assertEqual(stop["extraction_backend"], "lstm_manual_replay")
+        self.assertTrue((RESULTS / "runs" / "diagnostic_v1_1_lstm_machine-1-8_11.json").exists())
+        self.assertEqual(runner.extraction_plan("lstm")["backend"], "auditable_manual_v1_2")
         train_source = inspect.getsource(runner.train)
-        self.assertIn("models.build_lstm(seed)", train_source)
         self.assertIn("SeedSequence([seed, epoch, 1701])", train_source)
+        self.assertIn("models.build_xlstm_vanilla(seed)", train_source)
 
 
 def _main() -> int:

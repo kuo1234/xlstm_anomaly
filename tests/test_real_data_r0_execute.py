@@ -92,8 +92,9 @@ class RunnerTests(unittest.TestCase):
 
     def test_training_and_extraction_never_touch_labels(self):
         for function in (self.runner.train, self.runner.extract, self.runner._run_unit, self.runner.schedule,
-                         self.runner.seal_features, self.runner._lstm_gate_v1, self.runner._xlstm_gate_v1_1,
-                         self.runner.invalidate_v1_caches, self.runner.preflight_v1_1):
+                         self.runner.seal_features, self.runner._lstm_gate_v1_2, self.runner._xlstm_gate_v1_1,
+                         self.runner.invalidate_v1_caches, self.runner.preflight_v1_1, self.runner.preflight_v1_2,
+                         self.runner.invalidate_native_lstm):
             self.assertNotIn("load_test_labels", inspect.getsource(function), function.__name__)
 
     def test_no_deferred_methods_in_runner(self):
@@ -132,7 +133,8 @@ class RunnerTests(unittest.TestCase):
         cache_dir.mkdir(parents=True)
         np.savez(cache_dir / runner.CACHE_FILE, edges=edges, H=history, internal234=internal, score=history[:, 0])
         manifest = {"entries": [{"run": runner.run_name(machine, backbone, seed), "machine": machine, "backbone": backbone,
-                                 "seed": seed, "feature_cache_sha256": runner.sha_file(cache_dir / runner.CACHE_FILE)}]}
+                                 "seed": seed, "feature_cache_relpath": runner._cache_relpath(machine, backbone, seed),
+                                 "feature_cache_sha256": runner.sha_file(cache_dir / runner.CACHE_FILE)}]}
         runner.write_immutable(runner.FEATURE_MANIFEST, manifest)
 
         def fake_labels(m, *, purpose):
