@@ -1,5 +1,8 @@
 # R0 execution record
 
+> **r0-v1.2 update (current): `SMD_R0_V1_2_COMPLETE`.** See the "r0-v1.2 execution (record)" section at the end of
+> this file. The r0-v1 and r0-v1.1 records are preserved unchanged as the audit trail of the two earlier stops.
+>
 > **r0-v1.1 update.** The r0-v1 record below is preserved unchanged as the permanent audit trail of the v1 stop.
 > The owner authorised Option 2; see [`protocol_amendment_v1_1.md`](protocol_amendment_v1_1.md) and the
 > "r0-v1.1 execution" section at the end of this file for the current status.
@@ -176,3 +179,75 @@ Planned stages, each committed and pushed: `invalidate-native-lstm` (history rec
 comparison → `preflight-v1-2` (must be `R0_V1_2_READY_TO_RESUME`) → `schedule --workers 2` (nine auditable
 matched-LSTM fits + extractions; the nine xLSTM units are carried forward and skipped) → `seal-features`
 (`feature_cache_manifest_v1_2.json`) → `probe` → `aggregate` → commit → `sanity` → `report`.
+
+
+---
+
+## r0-v1.2 execution (record)
+
+**Status: `SMD_R0_V1_2_COMPLETE`.** All stages ran in the planned order under
+[`protocol_amendment_v1_2.md`](protocol_amendment_v1_2.md) with no gate failure, no retry, no substitution and no
+tolerance change.
+
+| stage | commit | outcome |
+|---|---|---|
+| amendment, implementation, tests | `2c1677c5c739deac7e31c91099a658779a8a532c` | pushed before any v1.2 run |
+| native LSTM invalidation record | `776a1cf` | `INVALIDATED_BY_R0_V1_2_SINGLE_IMPLEMENTATION_LSTM_AMENDMENT` (hash-checked; nothing moved) |
+| non-gating engineering comparison | `1f6f4ab` | initial parameters identical; output max abs difference 1.49e-8 (not an acceptance criterion) |
+| v1.2 preflight | `5ba3218` (+ report `cc3e69a`) | `R0_V1_2_READY_TO_RESUME`, 13 / 13 checks |
+| nine auditable matched-LSTM fits + extractions | `7d5e458` … `fe1afd0` (one commit per unit) | 9 / 9 PASS, ≤ 2 concurrent |
+| feature-cache seal | `284219812d4d8d721ea5bd4c5346c98584e46b46` | 18 caches, 0 execution-stage label reads before the seal; pushed before the probe started |
+| probe (72 HGB fits) | `b55eacc` | 18 cells; first label read 2026-09-24T09:31:37Z, 39 s after the seal |
+| aggregate (`results.json`) | `4bb2b5b` | both backbones `R0_NO_RESOLVED_INCREMENT` |
+| detector sanity | `6a1b5aa` | computed after `results.json` was committed; no `DETECTOR_WEAK` flag |
+| report (`results.md`) | `1c75c51` | generated from the two sealed JSON files |
+
+GB10 test suites before the preflight: 26 / 26, 7 / 7, 8 / 8, 11 / 11; `data verify` PASS.
+
+### Matched LSTM (auditable, retrained from scratch; backend `auditable_manual_v1_2`)
+
+Validation MSE is the train-split selection diagnostic (lowest, earliest tie); machine-1-4 values are dominated by
+the disclosed near-constant fit channel 17 (sealed scaler, no variance floor), exactly as for xLSTM.
+
+| machine | seed | selected epoch | best validation MSE | best.pt SHA256 | parameters | wall min | v1.2 gate | feature cache SHA256 | label reads |
+|---|---:|---:|---:|---|---:|---:|---|---|---:|
+| machine-1-8 | 11 | 50 | 0.0449 | `5a3c04ebfd9d` | 74,100 | 18.7 | PASS | `6c91356e60b0` | 0 |
+| machine-1-8 | 22 | 50 | 0.0392 | `04b747ebda8d` | 74,100 | 18.8 | PASS | `366696c45b48` | 0 |
+| machine-1-8 | 33 | 50 | 0.0434 | `cdf64ae66d83` | 74,100 | 18.7 | PASS | `1aeb17c4c66c` | 0 |
+| machine-2-1 | 11 | 50 | 0.1441 | `0dc397f50c2e` | 74,100 | 18.8 | PASS | `c2857d7ba195` | 0 |
+| machine-2-1 | 22 | 48 | 0.1109 | `42415d3777cd` | 74,100 | 18.7 | PASS | `10278976358c` | 0 |
+| machine-2-1 | 33 | 50 | 0.1667 | `fa26cbcdd5a0` | 74,100 | 18.6 | PASS | `6bcdcba99b1e` | 0 |
+| machine-1-4 | 11 | 50 | 266.7581 | `f3c67ce9cb03` | 74,100 | 18.8 | PASS | `8e7bb337e900` | 0 |
+| machine-1-4 | 22 | 49 | 268.0122 | `104397471d4e` | 74,100 | 18.9 | PASS | `7375b35557a0` | 0 |
+| machine-1-4 | 33 | 50 | 268.7172 | `c2f78b4f2174` | 74,100 | 11.8 | PASS | `b8be8cad6ad2` | 0 |
+
+Every v1.2 gate: capture on/off, repeat inference and extract-equals-forward all bitwise (max abs 0.0) on the
+N(0,1) canary and the fit windows; finite reconstruction, score and traces; gates in [0,1]; common18 [128, 18];
+H 14 / internal234 234; 31 warm-up rows; first finite edge 94. No `nn.LSTM`, `nn.LSTMCell`, replay or observer call
+occurred (runtime guard installed in every process).
+
+### xLSTM (carried forward from r0-v1.1; best.pt SHA256 / feature-cache SHA256 prefixes)
+
+| machine | seed 11 | seed 22 | seed 33 |
+|---|---|---|---|
+| machine-1-8 | `1d67ba41` / `bbcc6e44` | `98ff3e01` / `3b8287b7` | `a0bd294e` / `bbe5dd13` |
+| machine-2-1 | `04e50d40` / `c09db6ed` | `ed3e7012` / `70f84f70` | `5450c9dc` / `fa76a436` |
+| machine-1-4 | `e76a4b83` / `062fb8d6` | `97160a05` / `a1a6e10b` | `c7817cd9` / `9b248cc8` |
+
+All nine identities were re-verified against `amendment_v1_2.json` by the v1.2 preflight and again at sealing; no
+xLSTM was retrained or re-extracted.
+
+### Feature seal and result
+
+`feature_cache_manifest_v1_2.json` (SHA256 `8e70ebebbe0f5042947e8e77863dd695c86ba53df1ddcb9478929f71d0f979d4`):
+9 × xLSTM `vanilla_reference` (record version r0-v1.1) + 9 × LSTM `auditable_manual_v1_2` (r0-v1.2). The probe
+read labels 54 times (18 `probe_fit_selection`, 36 `probe_final_evaluation` — one per arm per cell); detector
+sanity read each machine's labels once after `results.json` was committed. Results: [`results.md`](results.md),
+[`results.json`](results.json), [`detector_sanity.json`](detector_sanity.json); interpretation:
+[`scientific_assessment.md`](scientific_assessment.md); execution red-team:
+[`red_team_execution_v1_2.md`](red_team_execution_v1_2.md).
+
+Operational notes (no effect on evidence): the git-ignored training log `data/r0_runs/logs/train_machine-1-8_lstm_11.log`
+is opened in append mode, so it now holds the v1.1 native lines followed by the v1.2 auditable lines (the committed
+JSON records are separate files); the v1.2 preflight printed a PyTorch `requires_grad` scalar-conversion warning in
+the float64 equation check (value unaffected); one read-only SSH progress probe timed out transiently.

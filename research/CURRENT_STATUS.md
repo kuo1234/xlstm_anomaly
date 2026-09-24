@@ -166,6 +166,7 @@ observable representation. See `input_derived_observable_control/`.
 | **L1c** | the increment survives a temporally matched **residual-derived** observable control (O1r) under the fixed L2 logistic probe | **PARTIALLY SUPPORTED** (A+/A+S, exploratory; converged, grid-stable; the backbone asymmetry here is largely a linear-probe effect, see L1c-NL) |
 | **L1c-NL** | the same O1r increment survives a fixed bounded nonlinear decoder (HGB) | **PARTIALLY SUPPORTED** (exploratory; `+0.015165` / `+0.011252`, 30/30 cells each, both below the `+0.02` reference; xLSTM attenuated about 42 %, LSTM unchanged) |
 | **L1c-P** | `internal234` retains additional predictive/decodable utility under the fixed decoder beyond the temporally matched **input-derived observable summary** P1r (the last bounded input-derived control) | **NOT SUPPORTED at this resolution** — `NO_RESOLVED_ADDITIONAL_UTILITY` for both backbones (xLSTM −0.000233 [−0.000761, +0.000291]; LSTM +0.000289 [−0.000415, +0.000959]); closes the predeclared synthetic input-derived-control stage, not every possible observable representation |
+| **L1d** | real SMD (source-native, 3 machines, Design B within-machine): internal state adds utility over causal score/history | **NOT SUPPORTED at R0 resolution** — `R0_NO_RESOLVED_INCREMENT` for both backbones (xLSTM mean ΔAP +0.0416, 5/9 positive, two-way [−0.1035, +0.2010]; auditable matched LSTM +0.0258, 5/9, [−0.2093, +0.2361]); exploratory intervals; machine-1-4 positive in all cells, not resolved across machines |
 | — | information-theoretic superiority of `internal234` over the full causal observation | **OUT OF SCOPE IN PRINCIPLE** — `internal234` is a deterministic function of the causal input window |
 | **L2** | usable online decision rule without evaluator labels | **NOT TESTED** |
 | **L3** | xLSTM specificity | **UNSUPPORTED** (H3a STOP) |
@@ -185,6 +186,9 @@ xLSTM is currently **one recurrent case study in a matched xLSTM/LSTM
 comparison**, not the source of the headline novelty. The mLSTM line remains a
 secondary exploratory mechanism analysis. Rationale and prior-art boundary:
 `framing-refresh-2026-09/`.
+
+R0 (source-native SMD, L1d) did not resolve an increment over score/history for
+either backbone (`R0_NO_RESOLVED_INCREMENT`).
 
 The synthetic ladder is now complete. The measurement claim holds relative
 to score/history (L1a) and, in exploratory studies, relative to residual-derived
@@ -225,6 +229,20 @@ check on one of 185 test batches of machine-1-8 / LSTM / seed 11 (max |Δ|
 3.08e-5 in `decoder.2` hidden sequence), so R0 stopped again: 10/18 detector
 fits, 9/18 feature caches, nothing sealed, no label read, no result. Owner
 decision required (`execution.md`, r0-v1.1 section).
+
+**r0-v1.2 (owner-authorised final implementation amendment: single-implementation
+auditable matched LSTM): `SMD_R0_V1_2_COMPLETE`.** The nine xLSTM v1.1 caches were
+carried forward by hash; the native LSTM checkpoint was invalidated; nine
+auditable matched LSTMs were retrained and extracted (all gates bitwise PASS);
+the 18-cache manifest was sealed and pushed before any label read; the unchanged
+probe/aggregate/sanity/report stages ran once. Both backbones are
+`R0_NO_RESOLVED_INCREMENT`: "R0 does not resolve additional real-data predictive
+utility of internal state beyond score/history under the frozen diagnostic."
+machine-1-4 is positive in all six cells (its scores are dominated by a
+near-constant channel), machine-2-1 and machine-1-8 are mostly negative or mixed.
+See `research/real_data_r0/results.md` and `scientific_assessment.md`. Next: owner
+review. Zero-shot, test-time adaptation and HAI R1 remain deferred until that
+review (ZERO_SHOT_NOT_STARTED).
 
 - **No SMD training** outside the sealed R0 execution contract.
 - **Feasibility worktree.** Its SMD bytes are now copied to the stable GB10
