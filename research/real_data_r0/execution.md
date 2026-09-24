@@ -110,3 +110,59 @@ Planned stages, each committed and pushed:
    remaining 12 units (machine-1-4 xLSTM ×3, matched LSTM ×9), each committed and pushed on completion.
 4. `seal-features` — `feature_cache_manifest_v1_1.json`, committed and pushed.
 5. `probe` → `aggregate` → commit → `sanity` → `report`.
+
+### r0-v1.1 execution record
+
+**Status: `R0_V1_1_EXECUTION_BLOCKED` — fail-closed at the sealed matched-LSTM observer parity check during test-stream
+extraction of `machine-1-8 / LSTM / seed 11`.** No feature manifest was sealed, no label was read and no probe was
+fitted. No R0 result exists.
+
+| stage | commit | outcome |
+|---|---|---|
+| amendment r0-v1.1 + runner/tests | `ed9f7a2` | pushed before any v1.1 run |
+| v1 CUDA caches invalidated | `2e80ea9` | 5 caches hash-checked and retired (`INVALIDATED_BY_R0_V1_1_EXTRACTION_AMENDMENT`); machine-2-1 s22 had none |
+| v1.1 preflight | `00f1d58`, summary `2071dc8` | `R0_V1_1_READY_TO_RESUME` (6/6 reused checkpoints; tests 26 + 7 + 7) |
+| first resume attempt | `6236cb1`, `9d18a5a` | re-extraction of machine-1-8 s11/s22 **succeeded and was recorded PASS**; the CLI status line then read the retired v1 key `parity` and exited 1, which stopped the scheduler. Engineering fix `12b14e6` (status line only; regression test added); no scientific code, record or cache changed |
+| resumed schedule | `e8fb068` … `c70e542` | remaining four re-extractions PASS; machine-1-4 xLSTM s11/s22/s33 trained + extracted PASS; machine-1-8 LSTM s11 trained PASS, extraction **stopped** |
+| stop record + diagnostic | `b1575e2` | `runs/stop_v1_1_machine-1-8_lstm_11.json`, `runs/diagnostic_v1_1_lstm_machine-1-8_11.json` |
+
+**xLSTM (9/9 complete).** All nine checkpoints (six reused without retraining, three new for machine-1-4) have
+passing r0-v1.1 extraction records with backend `vanilla_reference`, gate `v1_1_vanilla_reference` (observer on/off
+and repeated inference bitwise on canary and fit windows), dimensions 14/234, 31 warm-up rows, first finite edge 94,
+`label_read_count = 0`. New training records: machine-1-4 s11 (epoch 34, validation MSE 261.34), s22 (epoch 25,
+261.92), s33 (epoch 50, 258.17) — the large values reflect the disclosed near-constant channel 17 of machine-1-4
+under the sealed scaler (validation max |scaled| ≈ 3.3e3); no repair was applied.
+
+**Matched LSTM (1/9 trained, 0/9 extracted).** machine-1-8 s11 trained PASS (74,100 parameters, epoch 50, validation
+MSE 0.0409, 427 s). Its checkpoint gate and validation-window extraction passed; during the test-stream extraction
+the sealed `phase_f_lstm_observer` raised "LSTM manual recurrence parity failed".
+
+Label-free diagnostic (non-gating; same checkpoint; observations only): validation stream 0 / 37 batches fail; test
+stream **1 / 185 batches** fail, a single check — `sequence_h` of layer `decoder.2` — with max |Δ| = 3.08e-5 between
+the native `nn.LSTM` (cuDNN off) hidden sequence and the manual replay, against `atol 1e-5 + rtol 1e-4·|h|`. That batch
+(right edges 21183–21310) has max |input| 7.8 and max |cell state| 11.6, i.e. no extreme input. No non-finite value
+and no gate-range violation occurred. This check is part of the unchanged r0-v1 LSTM path (it is not affected by the
+xLSTM amendment), and the protocol makes any observer parity failure a stop, so execution stopped. Nothing was
+retried, relaxed or substituted.
+
+**Not executed:** matched LSTM machine-1-8 s22/s33, machine-2-1 s11/s22/s33, machine-1-4 s11/s22/s33 (8 fits);
+extraction of machine-1-8 LSTM s11; `seal-features`, `probe` (0/72 HGB fits), `aggregate`, `sanity`, `report`.
+Completed detector fits: **10 / 18** (9 xLSTM, 1 LSTM). Valid v1.1 feature caches: **9 / 18** (all xLSTM,
+`vanilla_reference`), none sealed.
+
+#### Owner decision required (not taken)
+
+The blocker is the second numerical implementation inside the matched-LSTM observer: `nn.LSTM` does not expose its
+gates, so the sealed observer replays the equations in PyTorch and requires the replayed hidden sequence to match the
+native kernel. The failure is one hidden-sequence element in one of 185 test batches. Possible routes, each requiring
+an explicit result-blind amendment before any label is read:
+
+1. Keep R0 stopped.
+2. An LSTM single-implementation amendment, analogous in purpose to v1.1: define one implementation that produces
+   the LSTM's output, score and common18 (for example, the manual replay as the scientific forward, with the native
+   kernel as training implementation only). This trades the parity check for a training-vs-extraction
+   implementation difference, which the owner should weigh.
+3. A change to how the LSTM replay parity is judged (e.g. precision of the replay or the tolerance). v1.1 explicitly
+   declined this route for the xLSTM.
+
+The nine xLSTM caches and the ten trained checkpoints remain valid under any of these routes.

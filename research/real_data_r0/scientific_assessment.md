@@ -1,5 +1,16 @@
 # R0 scientific assessment
 
+## r0-v1.1 (current)
+
+**R0 still has no scientific outcome.** Under the owner-authorised amendment r0-v1.1 all nine xLSTM detectors were
+trained or reused and extracted on the single vanilla/reference path, but execution stopped fail-closed at the
+sealed matched-LSTM observer parity check (machine-1-8 / LSTM / seed 11) before any feature cache was sealed, any
+probe was fitted or any test label was read. L1d remains **untested**; this is not `R0_NO_RESOLVED_INCREMENT`, and
+no ΔAP, interval or classification may be inferred from the partial runs. Validation MSEs in the run records are
+train-split training diagnostics only. P1r remains terminal and unchanged. ZERO_SHOT_NOT_STARTED.
+
+## r0-v1 (historical record, unchanged)
+
 **R0 has no scientific outcome.** Execution stopped fail-closed at the checkpoint parity gate of machine-2-1 /
 xLSTM / seed 22 before any feature cache was sealed, any probe was fitted or any test label was read.
 

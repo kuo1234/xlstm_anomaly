@@ -217,6 +217,15 @@ to ≤ 3.6e-7), so R0 stopped fail-closed. No label was read, no probe was fitte
 and no R0 result exists (not a null result). Continuing needs an owner-approved,
 result-blind amendment; see `research/real_data_r0/execution.md`.
 
+**r0-v1.1 (owner Option 2: vanilla/reference xLSTM extraction): R0_V1_1_EXECUTION_BLOCKED.**
+All nine xLSTM detectors are trained/reused and extracted on the single vanilla
+path (six v1 checkpoints reused without retraining; five v1 CUDA caches
+invalidated). The sealed matched-LSTM observer then failed its replay-parity
+check on one of 185 test batches of machine-1-8 / LSTM / seed 11 (max |Δ|
+3.08e-5 in `decoder.2` hidden sequence), so R0 stopped again: 10/18 detector
+fits, 9/18 feature caches, nothing sealed, no label read, no result. Owner
+decision required (`execution.md`, r0-v1.1 section).
+
 - **No SMD training** outside the sealed R0 execution contract.
 - **Feasibility worktree.** Its SMD bytes are now copied to the stable GB10
   location and are reproducible from the pinned public URL; it still holds
