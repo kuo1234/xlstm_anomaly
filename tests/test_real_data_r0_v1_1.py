@@ -134,6 +134,11 @@ class AmendmentV11(unittest.TestCase):
         self.assertIn('purpose="probe_final_evaluation"', probe_source)
         self.assertIn("is_pushed()", probe_source)
 
+    def test_cli_uses_v1_1_record_keys(self):
+        main_source = inspect.getsource(runner.main)
+        self.assertNotIn('record["parity"]', main_source)
+        self.assertIn('record["gate"]["pass"]', main_source)
+
     # 7. LSTM execution unchanged
     def test_lstm_path_unchanged(self):
         plan = runner.extraction_plan("lstm")

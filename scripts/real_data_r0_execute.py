@@ -938,7 +938,8 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps({"run": record["run"], "status": record["status"], "selected_epoch": record["selected_epoch"]}))
     elif args.command == "extract":
         record = extract(args.machine, args.backbone, args.seed)
-        print(json.dumps({"run": record["run"], "status": record["status"], "parity": record["parity"]["pass"]}))
+        print(json.dumps({"run": record["run"], "status": record["status"], "gate": record["gate"]["pass"],
+                          "backend": record["extraction_backend"]}))
     elif args.command == "schedule":
         return schedule(args.workers)
     elif args.command == "invalidate-v1-caches":
