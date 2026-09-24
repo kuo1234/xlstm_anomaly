@@ -1,0 +1,20 @@
+{
+  "stage": "native_lstm_invalidation",
+  "protocol_version": "r0-v1.2",
+  "units": {
+    "machine-1-8_lstm_11": {
+      "status": "INVALIDATED_BY_R0_V1_2_SINGLE_IMPLEMENTATION_LSTM_AMENDMENT",
+      "reason": "implementation changed (native nn.LSTM replaced by the auditable recurrence); not because of any result or its validation MSE",
+      "identity_checks": {
+        "checkpoint": true,
+        "train_record": true,
+        "stop_record": true
+      },
+      "checkpoint_preserved_at": "data/r0_runs/machine-1-8/lstm_11/best.pt",
+      "feature_cache": null
+    }
+  },
+  "labels_read": false,
+  "execution_commit": "2c1677c5c739deac7e31c91099a658779a8a532c",
+  "finished_utc": "2026-09-24T06:38:05Z"
+}
