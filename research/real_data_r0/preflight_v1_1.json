@@ -1,0 +1,419 @@
+{
+  "stage": "preflight_v1_1",
+  "protocol_version": "r0-v1.1",
+  "status": "R0_V1_1_READY_TO_RESUME",
+  "checks": {
+    "six_reused_checkpoints_pass": true,
+    "sealed_library_and_config_unchanged": true,
+    "cuda_overlay_never_called": true,
+    "no_label_access": true,
+    "no_metric_calls": true,
+    "amendment_protocol_version": true,
+    "v1_caches_invalidated": true
+  },
+  "units": {
+    "machine-1-8_xlstm_11": {
+      "checkpoint_sha256": "1d67ba41b9adc3d0706982a8174b2177a943b5238aedff537bbffb1a1697b8a3",
+      "checkpoint_matches_train_record": true,
+      "model_hash_matches": true,
+      "parameters": 75934,
+      "gate": {
+        "name": "v1_1_vanilla_reference",
+        "eval_mode": true,
+        "trainable_parameters": 75934,
+        "canary_N01": {
+          "observer_on_off": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "repeat_inference": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "reference_observer_parity": true,
+          "output_finite": true,
+          "score_finite": true,
+          "common18_finite": true,
+          "common18_shape": [
+            128,
+            18
+          ]
+        },
+        "fit_windows_machine-1-8": {
+          "observer_on_off": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "repeat_inference": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "reference_observer_parity": true,
+          "output_finite": true,
+          "score_finite": true,
+          "common18_finite": true,
+          "common18_shape": [
+            128,
+            18
+          ]
+        },
+        "pass": true
+      },
+      "causality": {
+        "past_rows_bitwise_equal": true,
+        "future_rows_changed": true,
+        "H_dim": 14,
+        "internal234_dim": 234,
+        "first_finite_edge": 94,
+        "warmup_rows": 31
+      },
+      "pass": true
+    },
+    "machine-1-8_xlstm_22": {
+      "checkpoint_sha256": "98ff3e0125cc4578f3c4929eafe1cc3b55a68cf5b4e566236b9c7581db0f286d",
+      "checkpoint_matches_train_record": true,
+      "model_hash_matches": true,
+      "parameters": 75934,
+      "gate": {
+        "name": "v1_1_vanilla_reference",
+        "eval_mode": true,
+        "trainable_parameters": 75934,
+        "canary_N01": {
+          "observer_on_off": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "repeat_inference": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "reference_observer_parity": true,
+          "output_finite": true,
+          "score_finite": true,
+          "common18_finite": true,
+          "common18_shape": [
+            128,
+            18
+          ]
+        },
+        "fit_windows_machine-1-8": {
+          "observer_on_off": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "repeat_inference": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "reference_observer_parity": true,
+          "output_finite": true,
+          "score_finite": true,
+          "common18_finite": true,
+          "common18_shape": [
+            128,
+            18
+          ]
+        },
+        "pass": true
+      },
+      "causality": {
+        "past_rows_bitwise_equal": true,
+        "future_rows_changed": true,
+        "H_dim": 14,
+        "internal234_dim": 234,
+        "first_finite_edge": 94,
+        "warmup_rows": 31
+      },
+      "pass": true
+    },
+    "machine-1-8_xlstm_33": {
+      "checkpoint_sha256": "a0bd294e34b9cc27061c7d801ea500e85f2715a3146ffe3670704eb73a5d6e1c",
+      "checkpoint_matches_train_record": true,
+      "model_hash_matches": true,
+      "parameters": 75934,
+      "gate": {
+        "name": "v1_1_vanilla_reference",
+        "eval_mode": true,
+        "trainable_parameters": 75934,
+        "canary_N01": {
+          "observer_on_off": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "repeat_inference": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "reference_observer_parity": true,
+          "output_finite": true,
+          "score_finite": true,
+          "common18_finite": true,
+          "common18_shape": [
+            128,
+            18
+          ]
+        },
+        "fit_windows_machine-1-8": {
+          "observer_on_off": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "repeat_inference": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "reference_observer_parity": true,
+          "output_finite": true,
+          "score_finite": true,
+          "common18_finite": true,
+          "common18_shape": [
+            128,
+            18
+          ]
+        },
+        "pass": true
+      },
+      "causality": {
+        "past_rows_bitwise_equal": true,
+        "future_rows_changed": true,
+        "H_dim": 14,
+        "internal234_dim": 234,
+        "first_finite_edge": 94,
+        "warmup_rows": 31
+      },
+      "pass": true
+    },
+    "machine-2-1_xlstm_11": {
+      "checkpoint_sha256": "04e50d401c41efcf8be8023453f7b169ff5c01497de7e269b4ab7bb4667355a7",
+      "checkpoint_matches_train_record": true,
+      "model_hash_matches": true,
+      "parameters": 75934,
+      "gate": {
+        "name": "v1_1_vanilla_reference",
+        "eval_mode": true,
+        "trainable_parameters": 75934,
+        "canary_N01": {
+          "observer_on_off": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "repeat_inference": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "reference_observer_parity": true,
+          "output_finite": true,
+          "score_finite": true,
+          "common18_finite": true,
+          "common18_shape": [
+            128,
+            18
+          ]
+        },
+        "fit_windows_machine-2-1": {
+          "observer_on_off": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "repeat_inference": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "reference_observer_parity": true,
+          "output_finite": true,
+          "score_finite": true,
+          "common18_finite": true,
+          "common18_shape": [
+            128,
+            18
+          ]
+        },
+        "pass": true
+      },
+      "causality": {
+        "past_rows_bitwise_equal": true,
+        "future_rows_changed": true,
+        "H_dim": 14,
+        "internal234_dim": 234,
+        "first_finite_edge": 94,
+        "warmup_rows": 31
+      },
+      "pass": true
+    },
+    "machine-2-1_xlstm_22": {
+      "checkpoint_sha256": "ed3e7012b171e5042773f7bbcde89875772216d6415b103c02f2f848b2ce36c2",
+      "checkpoint_matches_train_record": true,
+      "model_hash_matches": true,
+      "parameters": 75934,
+      "gate": {
+        "name": "v1_1_vanilla_reference",
+        "eval_mode": true,
+        "trainable_parameters": 75934,
+        "canary_N01": {
+          "observer_on_off": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "repeat_inference": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "reference_observer_parity": true,
+          "output_finite": true,
+          "score_finite": true,
+          "common18_finite": true,
+          "common18_shape": [
+            128,
+            18
+          ]
+        },
+        "fit_windows_machine-2-1": {
+          "observer_on_off": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "repeat_inference": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "reference_observer_parity": true,
+          "output_finite": true,
+          "score_finite": true,
+          "common18_finite": true,
+          "common18_shape": [
+            128,
+            18
+          ]
+        },
+        "pass": true
+      },
+      "causality": {
+        "past_rows_bitwise_equal": true,
+        "future_rows_changed": true,
+        "H_dim": 14,
+        "internal234_dim": 234,
+        "first_finite_edge": 94,
+        "warmup_rows": 31
+      },
+      "pass": true
+    },
+    "machine-2-1_xlstm_33": {
+      "checkpoint_sha256": "5450c9dc67005264db8244a0c0c353ccc9768bd1f493a68d9575783b01982c1d",
+      "checkpoint_matches_train_record": true,
+      "model_hash_matches": true,
+      "parameters": 75934,
+      "gate": {
+        "name": "v1_1_vanilla_reference",
+        "eval_mode": true,
+        "trainable_parameters": 75934,
+        "canary_N01": {
+          "observer_on_off": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "repeat_inference": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "reference_observer_parity": true,
+          "output_finite": true,
+          "score_finite": true,
+          "common18_finite": true,
+          "common18_shape": [
+            128,
+            18
+          ]
+        },
+        "fit_windows_machine-2-1": {
+          "observer_on_off": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "repeat_inference": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "reference_observer_parity": true,
+          "output_finite": true,
+          "score_finite": true,
+          "common18_finite": true,
+          "common18_shape": [
+            128,
+            18
+          ]
+        },
+        "pass": true
+      },
+      "causality": {
+        "past_rows_bitwise_equal": true,
+        "future_rows_changed": true,
+        "H_dim": 14,
+        "internal234_dim": 234,
+        "first_finite_edge": 94,
+        "warmup_rows": 31
+      },
+      "pass": true
+    }
+  },
+  "environment": {
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "deterministic_algorithms": false,
+    "matmul_precision": "highest",
+    "matmul_allow_tf32": false,
+    "cudnn_allow_tf32": false,
+    "torch_threads": 4,
+    "torch": "2.13.0+cu130",
+    "cuda": "13.0",
+    "device": "NVIDIA GB10",
+    "official_xlstmad": "e8b56ba27352733bb83729e85b1d6196dca70c99",
+    "xlstm": "2.0.5",
+    "lightning": "2.6.1",
+    "python": "3.12.3"
+  },
+  "sealed_code_sha256": {
+    "scripts/real_data_r0_data.py": "98608ef1ff914d3ba36340e99bbfc11d635b4471431d1759066fc9b7930e2987",
+    "scripts/real_data_r0_models.py": "96cc7efbc9ecd9f43da4b1087afcb200d8a17553774dfa744f0ee2e01a5984fa",
+    "scripts/real_data_r0_preflight.py": "1de2d44d51192d25a11d7a9cfb938e394de9f72bce96249a93d99d8a7cd8bcbb",
+    "scripts/real_data_r0_probe.py": "1de67b39d857b56d924ee783bc6d6473567338ffc01fe4136f7962937efb6718",
+    "research/real_data_r0/config.json": "0f62d995155b5b385e7610e397c565ce829ab5739adefa40157d506c530c283e",
+    "tests/test_real_data_r0.py": "8c8c8cbe36472bef326e99e1ed5a89a9c179e5e2f2c455fe7e48a7a6f66729e1"
+  },
+  "current_code_sha256": {
+    "scripts/real_data_r0_data.py": "98608ef1ff914d3ba36340e99bbfc11d635b4471431d1759066fc9b7930e2987",
+    "scripts/real_data_r0_models.py": "96cc7efbc9ecd9f43da4b1087afcb200d8a17553774dfa744f0ee2e01a5984fa",
+    "scripts/real_data_r0_preflight.py": "1de2d44d51192d25a11d7a9cfb938e394de9f72bce96249a93d99d8a7cd8bcbb",
+    "scripts/real_data_r0_probe.py": "1de67b39d857b56d924ee783bc6d6473567338ffc01fe4136f7962937efb6718",
+    "research/real_data_r0/config.json": "0f62d995155b5b385e7610e397c565ce829ab5739adefa40157d506c530c283e",
+    "tests/test_real_data_r0.py": "8c8c8cbe36472bef326e99e1ed5a89a9c179e5e2f2c455fe7e48a7a6f66729e1"
+  },
+  "label_access_log": [],
+  "metric_calls": [],
+  "cuda_overlay_calls": 0,
+  "execution_commit": "2e80ea96fc8148bc00e32de755509e46dd3b0480",
+  "finished_utc": "2026-09-24T04:08:39Z"
+}
