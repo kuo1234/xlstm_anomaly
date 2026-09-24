@@ -92,7 +92,8 @@ class RunnerTests(unittest.TestCase):
 
     def test_training_and_extraction_never_touch_labels(self):
         for function in (self.runner.train, self.runner.extract, self.runner._run_unit, self.runner.schedule,
-                         self.runner.seal_features, self.runner._parity_gate):
+                         self.runner.seal_features, self.runner._lstm_gate_v1, self.runner._xlstm_gate_v1_1,
+                         self.runner.invalidate_v1_caches, self.runner.preflight_v1_1):
             self.assertNotIn("load_test_labels", inspect.getsource(function), function.__name__)
 
     def test_no_deferred_methods_in_runner(self):
@@ -129,9 +130,9 @@ class RunnerTests(unittest.TestCase):
         internal[:31] = np.nan
         cache_dir = runner._run_dir(machine, backbone, seed)
         cache_dir.mkdir(parents=True)
-        np.savez(cache_dir / "features.npz", edges=edges, H=history, internal234=internal, score=history[:, 0])
+        np.savez(cache_dir / runner.CACHE_FILE, edges=edges, H=history, internal234=internal, score=history[:, 0])
         manifest = {"entries": [{"run": runner.run_name(machine, backbone, seed), "machine": machine, "backbone": backbone,
-                                 "seed": seed, "feature_cache_sha256": runner.sha_file(cache_dir / "features.npz")}]}
+                                 "seed": seed, "feature_cache_sha256": runner.sha_file(cache_dir / runner.CACHE_FILE)}]}
         runner.write_immutable(runner.FEATURE_MANIFEST, manifest)
 
         def fake_labels(m, *, purpose):
@@ -162,6 +163,7 @@ class RunnerTests(unittest.TestCase):
             arms = {"H": {"test_ap": ap_h, "selected_max_iter": 100, "validation_ap": {"100": 0.5, "300": 0.4}},
                     "H+I": {"test_ap": ap_hi, "selected_max_iter": 300, "validation_ap": {"100": 0.4, "300": 0.5}}}
             runner.write_immutable(runner._probe_record_path(name), {"run": name, "arms": arms, "delta_ap": ap_hi - ap_h})
+        runner.write_immutable(runner.FEATURE_MANIFEST, {"entries": []})
         result = runner.aggregate()
         for backbone in ("xlstm", "lstm"):
             matrix = runner._matrix({runner.run_name(*u): json.loads(runner._probe_record_path(runner.run_name(*u)).read_text())

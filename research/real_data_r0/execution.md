@@ -1,5 +1,9 @@
 # R0 execution record
 
+> **r0-v1.1 update.** The r0-v1 record below is preserved unchanged as the permanent audit trail of the v1 stop.
+> The owner authorised Option 2; see [`protocol_amendment_v1_1.md`](protocol_amendment_v1_1.md) and the
+> "r0-v1.1 execution" section at the end of this file for the current status.
+
 **Status: `R0_EXECUTION_BLOCKED` — fail-closed at the checkpoint parity gate of `machine-2-1 / xLSTM / seed 22`.**
 R0 was stopped exactly as the sealed protocol requires (protocol §10 step 3; `execution_handoff.md` §2 extract step 2:
 "Any failure stops R0"). No checkpoint was substituted, no tolerance was changed and no step was repeated. No test
@@ -89,3 +93,20 @@ backend difference entirely and is the cleaner choice; option 3 keeps the valida
 `runs/diagnostic_parity_machine-2-1_xlstm_22.json`, `red_team_execution.md`, `scientific_assessment.md`.
 Not produced (stage not reached): `feature_cache_manifest.json`, `runs/probe_*.json`, `results.json`, `results.md`,
 `detector_sanity.json`.
+
+---
+
+## r0-v1.1 execution (prospective plan, recorded before any v1.1 run)
+
+Chronology: r0-v1 protocol → v1 training (6 units) → v1 parity stop → result-blind diagnostic → owner decision
+(Option 2) → **r0-v1.1 amendment** → v1.1 preflight → resumed execution → feature sealing → probe → aggregate →
+assessment.
+
+Planned stages, each committed and pushed:
+
+1. `invalidate-v1-caches` — retire the five v1 CUDA caches (hash-checked rename; `runs/v1_cuda_cache_invalidation.json`).
+2. `preflight-v1-1` — six reused checkpoints on the vanilla/reference path; must return `R0_V1_1_READY_TO_RESUME`.
+3. `schedule --workers 2` — re-extract the six reused xLSTM checkpoints (no retraining), then train + extract the
+   remaining 12 units (machine-1-4 xLSTM ×3, matched LSTM ×9), each committed and pushed on completion.
+4. `seal-features` — `feature_cache_manifest_v1_1.json`, committed and pushed.
+5. `probe` → `aggregate` → commit → `sanity` → `report`.

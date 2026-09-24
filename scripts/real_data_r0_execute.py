@@ -11,11 +11,13 @@ Phase F-v3 loop with the frozen R0 constants.
 
 Stages (fail-closed, chronological)::
 
+    invalidate-v1-caches                                    r0-v1.1: retire the five v1 CUDA-path caches (hash-checked)
+    preflight-v1-1                                          r0-v1.1: result-blind gate on the six reused xLSTM checkpoints
     train    --machine M --backbone {xlstm,lstm} --seed S   train split only, no label file opened
-    extract  --machine M --backbone B --seed S              checkpoint parity gate, validation + test features
+    extract  --machine M --backbone B --seed S              checkpoint gate, validation + test features (r0-v1.1 paths)
     schedule --workers 2                                    18 x (train, extract), <= 2 concurrent, commit+push per run
-    seal-features                                           feature_cache_manifest.json over all 18 caches
-    probe                                                   requires the committed manifest; first label access
+    seal-features                                           feature_cache_manifest_v1_1.json over all 18 caches
+    probe                                                   requires the committed + pushed manifest; first label access
     aggregate                                               3x3 delta-AP matrices, bootstraps, classification
     sanity                                                  detector-sanity table (after results.json is committed)
     report                                                  results.md from results.json + detector_sanity.json
@@ -54,7 +56,20 @@ SEEDS = tuple(int(s) for s in DETECTOR["seeds"])
 RESULTS = Path(os.environ.get("R0_RESULTS_DIR", ROOT / "research" / "real_data_r0"))
 RUN_RECORDS = RESULTS / "runs"
 RUNS_DATA = Path(os.environ.get("R0_RUNS_DATA", ROOT / "data" / "r0_runs"))
-FEATURE_MANIFEST = RESULTS / "feature_cache_manifest.json"
+AMENDMENT_PATH = ROOT / "research" / "real_data_r0" / "amendment_v1_1.json"
+AMENDMENT: dict[str, Any] = json.loads(AMENDMENT_PATH.read_text())
+PROTOCOL_VERSION = AMENDMENT["protocol_version"]  # "r0-v1.1"
+FEATURE_MANIFEST = RESULTS / "feature_cache_manifest_v1_1.json"
+CACHE_FILE = "features_v1_1.npz"
+INVALIDATED_V1_CACHE_FILE = "features_v1_cuda_invalidated.npz"
+INVALIDATION_RECORD = RESULTS / "runs" / "v1_cuda_cache_invalidation.json"
+PREFLIGHT_V1_1 = RESULTS / "preflight_v1_1.json"
+# r0-v1.1 (amendment_v1_1.json): xLSTM scientific extraction uses the vanilla training backend and the
+# scalar reference observer only; the matched LSTM keeps its r0-v1 path and gate unchanged.
+EXTRACTION_PLAN = {
+    "xlstm": {"arch": "xlstm_reference", "backend": "vanilla_reference", "gate": "v1_1_vanilla_reference"},
+    "lstm": {"arch": "lstm", "backend": "lstm_manual_replay", "gate": "v1_lstm_observer"},
+}
 RESULTS_JSON = RESULTS / "results.json"
 SANITY_JSON = RESULTS / "detector_sanity.json"
 BRANCH = "experiment/real-data-r0-execution"
@@ -120,6 +135,14 @@ def is_committed_clean(path: Path) -> bool:
     return tracked and clean
 
 
+def is_pushed() -> bool:
+    """HEAD is contained in the remote execution branch (fetched now)."""
+    fetch = subprocess.run(["git", "-C", str(ROOT), "fetch", "-q", "origin", BRANCH], capture_output=True)
+    if fetch.returncode != 0:
+        return False
+    return subprocess.run(["git", "-C", str(ROOT), "merge-base", "--is-ancestor", "HEAD", "FETCH_HEAD"]).returncode == 0
+
+
 def _assert_no_labels(stage: str) -> None:
     if r0data.label_access_log():
         raise r0data.ProtocolViolation(f"label access during {stage}")
@@ -136,7 +159,38 @@ def _train_record_path(name: str) -> Path:
 
 
 def _extract_record_path(name: str) -> Path:
+    """r0-v1.1 extraction record (v1 records ``extract_<unit>.json`` are history only)."""
+    return RUN_RECORDS / f"extract_v1_1_{name}.json"
+
+
+def _v1_extract_record_path(name: str) -> Path:
     return RUN_RECORDS / f"extract_{name}.json"
+
+
+def extraction_plan(backbone: str) -> dict[str, str]:
+    if backbone not in EXTRACTION_PLAN:
+        raise r0data.ProtocolViolation("unregistered backbone")
+    return dict(EXTRACTION_PLAN[backbone])
+
+
+def validate_extract_record(record: dict[str, Any], backbone: str) -> None:
+    """Accept only a passing r0-v1.1 extraction of the registered backend (rejects every v1 CUDA cache)."""
+    plan = extraction_plan(backbone)
+    problems = []
+    if record.get("protocol_version") != PROTOCOL_VERSION:
+        problems.append("protocol_version")
+    if record.get("status") != "PASS" or not record.get("gate", {}).get("pass"):
+        problems.append("status/gate")
+    if record.get("extraction_backend") != plan["backend"] or record.get("gate", {}).get("name") != plan["gate"]:
+        problems.append("extraction_backend")
+    if Path(record.get("feature_cache", {}).get("file", "")).name != CACHE_FILE:
+        problems.append("cache_file")
+    if record.get("label_read_count") != 0:
+        problems.append("label_read_count")
+    if record.get("dimensions") != {"H": 14, "internal234": 234}:
+        problems.append("dimensions")
+    if problems:
+        raise r0data.ProtocolViolation(f"extraction record rejected for r0-v1.1: {problems}")
 
 
 def _probe_record_path(name: str) -> Path:
@@ -296,34 +350,54 @@ def _parity_inputs(machine: str, scaled_fit: np.ndarray, fit_edges: np.ndarray):
     return {"canary_N01": canary, f"fit_windows_{machine}": fit_batch}
 
 
-def _parity_gate(models, backbone: str, reference, model, inputs) -> dict[str, Any]:
+def _forbid_cuda_overlay(models) -> None:
+    """r0-v1.1: the native CUDA sLSTM overlay may not produce any scientific value in this process."""
+    def forbidden(*args, **kwargs):
+        raise r0data.ProtocolViolation("CUDA overlay forbidden in r0-v1.1 scientific extraction")
+
+    models.cuda_overlay_from_vanilla = forbidden
+    models.build_xlstm_cuda = forbidden
+
+
+def _lstm_gate_v1(models, model, inputs) -> dict[str, Any]:
+    """Matched-LSTM checkpoint gate, unchanged from r0-v1: observer on/off bitwise + manual replay parity."""
     import torch
 
     import real_data_r0_preflight as pf
 
-    result: dict[str, Any] = {}
+    result: dict[str, Any] = {"name": EXTRACTION_PLAN["lstm"]["gate"]}
     for label, x in inputs.items():
-        row: dict[str, Any] = {}
-        if backbone == "xlstm":
-            with torch.no_grad():
-                plain_reference, plain_fast = reference(x), model(x)
-            out_r, score_r, base_r = models.extract_batch(reference, "xlstm_reference", x)
-            out_f, score_f, base_f = models.extract_batch(model, "xlstm", x)
-            row["reference_observer_on_off"] = pf._cmp(plain_reference, out_r, exact=True)
-            row["fast_observer_on_off"] = pf._cmp(plain_fast, out_f, exact=True)
-            row["vanilla_vs_cuda_output"] = pf._cmp(out_r, out_f)
-            row["reference_vs_fast_score"] = pf._cmp(score_r, score_f)
-            row["reference_vs_fast_common18"] = pf._cmp(base_r, base_f)
-        else:
-            with torch.no_grad():
-                plain = model(x)
-            out, _score, base = models.extract_batch(model, "lstm", x)  # manual replay parity enforced inside
-            row["observer_on_off"] = pf._cmp(plain, out, exact=True)
-            row["replay_parity"] = {"pass": True, "bitwise": None, "max_abs": None}
+        with torch.no_grad():
+            plain = model(x)
+        out, _score, base = models.extract_batch(model, "lstm", x)  # manual replay parity enforced inside
+        result[label] = {"observer_on_off": pf._cmp(plain, out, exact=True),
+                         "replay_parity": {"pass": True, "bitwise": None, "max_abs": None}}
+    result["pass"] = bool(all(r["observer_on_off"]["bitwise"] for k, r in result.items() if isinstance(r, dict)))
+    return result
+
+
+def _xlstm_gate_v1_1(models, model, inputs) -> dict[str, Any]:
+    """r0-v1.1 xLSTM gate on the vanilla backend + scalar reference observer (no second implementation)."""
+    import torch
+
+    import real_data_r0_preflight as pf
+
+    result: dict[str, Any] = {"name": EXTRACTION_PLAN["xlstm"]["gate"], "eval_mode": not model.training,
+                              "trainable_parameters": models.trainable_parameters(model) if any(p.requires_grad for p in model.parameters())
+                              else int(sum(p.numel() for p in model.parameters()))}
+    ok = result["eval_mode"] and result["trainable_parameters"] == DETECTOR["xlstm"]["trainable_parameters"]
+    for label, x in inputs.items():
+        with torch.no_grad():
+            first, second = model(x), model(x)
+        out, score, base = models.extract_batch(model, EXTRACTION_PLAN["xlstm"]["arch"], x)  # reference parity enforced inside
+        row = {"observer_on_off": pf._cmp(first, out, exact=True), "repeat_inference": pf._cmp(first, second, exact=True),
+               "reference_observer_parity": True, "output_finite": bool(torch.isfinite(out).all()),
+               "score_finite": bool(torch.isfinite(score).all()), "common18_finite": bool(torch.isfinite(base).all()),
+               "common18_shape": list(base.shape)}
+        ok = ok and row["observer_on_off"]["bitwise"] and row["repeat_inference"]["bitwise"] and row["output_finite"] \
+            and row["score_finite"] and row["common18_finite"] and row["common18_shape"] == [x.shape[0], 18]
         result[label] = row
-    on_off = [v["bitwise"] for r in result.values() for k, v in r.items() if k.endswith("on_off")]
-    close = [v["pass"] for r in result.values() for k, v in r.items() if not k.endswith("on_off")]
-    result["pass"] = bool(all(on_off) and all(close))
+    result["pass"] = bool(ok)
     return result
 
 
@@ -333,6 +407,7 @@ def extract(machine: str, backbone: str, seed: int) -> dict[str, Any]:
     import real_data_r0_models as models
     from phase_g1_core import expand_internal234, history14
 
+    _forbid_cuda_overlay(models)
     name = run_name(machine, backbone, seed)
     train_record = read_json(_train_record_path(name))
     if train_record["status"] != "PASS":
@@ -354,10 +429,8 @@ def extract(machine: str, backbone: str, seed: int) -> dict[str, Any]:
         parameter.requires_grad_(False)
     if models.model_hash(reference) != train_record["best_model_hash"]:
         raise r0data.ProtocolViolation("best model hash mismatch")
-    if backbone == "xlstm":
-        model, arch = models.cuda_overlay_from_vanilla(reference), "xlstm"
-    else:
-        model, arch = reference, "lstm"
+    plan = extraction_plan(backbone)
+    model, arch = reference, plan["arch"]  # r0-v1.1: one implementation for training and extraction
     train_obs = r0data.load_observations(machine, "train")
     scaler = r0data.fit_scaler(train_obs)
     if _scaler_record(scaler)["scale_sha256"] != train_record["scaler"]["scale_sha256"] or \
@@ -366,14 +439,16 @@ def extract(machine: str, backbone: str, seed: int) -> dict[str, Any]:
     scaled_train = r0data.apply_scaler(train_obs, scaler)
     end = r0data.fit_end(len(train_obs))
     fit_edges = r0data.fit_window_edges(len(train_obs))
+    gate_fn = _xlstm_gate_v1_1 if backbone == "xlstm" else _lstm_gate_v1
     try:
-        parity = _parity_gate(models, backbone, reference, model, _parity_inputs(machine, scaled_train[:end], fit_edges))
+        gate = gate_fn(models, model, _parity_inputs(machine, scaled_train[:end], fit_edges))
     except r0data.ProtocolViolation as error:  # sealed observer raised on a parity failure
-        parity = {"pass": False, "error": str(error)}
-    if not parity["pass"]:
-        write_immutable(record_path, {"stage": "extract", "status": "STOP_CHECKPOINT_PARITY", "run": name, "parity": parity,
+        gate = {"name": plan["gate"], "pass": False, "error": str(error)}
+    if not gate["pass"]:
+        write_immutable(record_path, {"stage": "extract", "protocol_version": PROTOCOL_VERSION, "status": "STOP_CHECKPOINT_GATE",
+                                      "run": name, "extraction_backend": plan["backend"], "gate": gate,
                                       "execution_commit": git_head(), "finished_utc": utc()})
-        raise SystemExit(f"{name}: checkpoint parity failed — R0 stops")
+        raise SystemExit(f"{name}: checkpoint gate failed — R0 stops")
     val_edges = r0data.validation_window_edges(len(train_obs))
     validation = models.extract_windows(model, arch, r0data.window_matrix(scaled_train, val_edges))
     threshold = r0probe.calibration_threshold(validation["score"])
@@ -389,24 +464,31 @@ def extract(machine: str, backbone: str, seed: int) -> dict[str, Any]:
         raise r0data.ProtocolViolation("feature dimension drift")
     if not finite[~warm].all() or finite[warm].any():
         raise r0data.ProtocolViolation("feature warm-up/finiteness contract violated")
-    cache = data_dir / "features.npz"
+    cache = data_dir / CACHE_FILE
+    if cache.exists():
+        raise r0data.ProtocolViolation("v1.1 feature cache already exists")
     arrays = {"edges": edges, "score": test["score"], "internal_base18": test["internal_base18"], "H": history,
               "internal234": internal, "validation_edges": val_edges, "validation_score": validation["score"]}
     np.savez(cache, **arrays)
     _assert_no_labels("extraction")
     record = {
-        "stage": "extract", "status": "PASS", "run": name, "machine": machine, "backbone": backbone, "seed": seed,
-        "execution_commit": git_head(), "protocol_head": PROTOCOL_HEAD, "environment": environment,
-        "extraction_path": "CUDA overlay + FastStateObserver" if arch == "xlstm" else "matched LSTM + manual replay observer",
+        "stage": "extract", "protocol_version": PROTOCOL_VERSION, "status": "PASS", "run": name, "machine": machine,
+        "backbone": backbone, "seed": seed, "execution_commit": git_head(), "protocol_head": PROTOCOL_HEAD,
+        "environment": environment, "extraction_backend": plan["backend"], "observer_arch": arch,
+        "extraction_path": ("vanilla xLSTM backend + phase_e2_observer scalar reference observer" if backbone == "xlstm"
+                            else "matched LSTM + manual replay observer (unchanged from r0-v1)"),
         "best_checkpoint_sha256": train_record["checkpoints"]["best.pt"], "best_model_hash": train_record["best_model_hash"],
-        "parity": parity, "threshold": threshold, "validation_windows": int(len(val_edges)),
+        "checkpoint_reuse_authorised_by_v1_1": name in AMENDMENT["reused_checkpoints"]["units"],
+        "gate": gate, "threshold": threshold, "validation_windows": int(len(val_edges)),
         "test_rows": int(len(edges)), "test_edge_range": [int(edges[0]), int(edges[-1])],
         "first_finite_edge": int(edges[np.flatnonzero(finite)[0]]), "warmup_rows": int(warm.sum()),
         "dimensions": {"H": int(history.shape[1]), "internal234": int(internal.shape[1])},
         "feature_cache": {"file": str(cache.relative_to(ROOT)) if cache.is_relative_to(ROOT) else cache.name,
                           "sha256": sha_file(cache), "arrays": {k: array_sha(v) for k, v in arrays.items()}},
-        "labels_read": False, "seconds": time.perf_counter() - start, "finished_utc": utc(),
+        "labels_read": False, "label_read_count": len(r0data.label_access_log()), "seconds": time.perf_counter() - start,
+        "finished_utc": utc(),
     }
+    validate_extract_record(record, backbone)
     write_immutable(record_path, record)
     return record
 
@@ -416,8 +498,14 @@ def extract(machine: str, backbone: str, seed: int) -> dict[str, Any]:
 
 def _unit_done(machine: str, backbone: str, seed: int) -> bool:
     name = run_name(machine, backbone, seed)
-    paths = (_train_record_path(name), _extract_record_path(name))
-    return all(p.exists() and read_json(p)["status"] == "PASS" for p in paths)
+    train_path, extract_path = _train_record_path(name), _extract_record_path(name)
+    if not (train_path.exists() and read_json(train_path)["status"] == "PASS" and extract_path.exists()):
+        return False
+    try:
+        validate_extract_record(read_json(extract_path), backbone)
+    except r0data.ProtocolViolation:
+        return False
+    return True
 
 
 def _run_unit(machine: str, backbone: str, seed: int) -> tuple[str, int, str]:
@@ -454,6 +542,8 @@ def schedule(workers: int) -> int:
     limit = MAX_CONCURRENT_DETECTOR_PROCESSES
     if workers < 1 or workers > limit:
         raise r0data.ProtocolViolation(f"at most {limit} concurrent detector processes")
+    if not PREFLIGHT_V1_1.exists() or read_json(PREFLIGHT_V1_1)["status"] != "R0_V1_1_READY_TO_RESUME":
+        raise r0data.ProtocolViolation("r0-v1.1 preflight has not passed")
     pending = [u for u in planned_runs() if not _unit_done(*u)]
     print(json.dumps({"schedule": [run_name(*u) for u in pending], "workers": workers, "utc": utc()}), flush=True)
     failed = None
@@ -484,6 +574,124 @@ def schedule(workers: int) -> int:
     return 0
 
 
+# --------------------------------------------------------------------------- r0-v1.1: invalidate v1 caches, preflight
+
+
+def invalidate_v1_caches() -> dict[str, Any]:
+    """Retire every v1 CUDA-path cache before any v1.1 extraction (hash-checked rename; record kept)."""
+    rows = {}
+    for name, entry in AMENDMENT["invalidated_v1_caches"].items():
+        machine, backbone, seed = name.rsplit("_", 2)
+        v1_record = read_json(_v1_extract_record_path(name))
+        run_dir = _run_dir(machine, backbone, int(seed))
+        original, retired = run_dir / "features.npz", run_dir / INVALIDATED_V1_CACHE_FILE
+        row = {"v1_record_status": v1_record["status"], "v1_cache_sha256": entry.get("v1_cache_sha256")}
+        if entry.get("v1_cache_sha256") is None:
+            row.update({"status": entry["status"], "file_present": original.exists()})
+            if original.exists():
+                raise r0data.ProtocolViolation(f"{name}: unexpected v1 cache for a stopped unit")
+        else:
+            if original.exists():
+                if sha_file(original) != entry["v1_cache_sha256"]:
+                    raise r0data.ProtocolViolation(f"{name}: v1 cache hash differs from the v1 record")
+                os.replace(original, retired)
+            if sha_file(retired) != entry["v1_cache_sha256"]:
+                raise r0data.ProtocolViolation(f"{name}: retired v1 cache hash mismatch")
+            row.update({"status": "INVALIDATED_BY_R0_V1_1_EXTRACTION_AMENDMENT", "retired_file": INVALIDATED_V1_CACHE_FILE})
+        rows[name] = row
+    record = {"stage": "v1_cuda_cache_invalidation", "protocol_version": PROTOCOL_VERSION, "caches": rows,
+              "labels_read": False, "execution_commit": git_head(), "finished_utc": utc()}
+    write_immutable(INVALIDATION_RECORD, record)
+    return record
+
+
+def preflight_v1_1() -> dict[str, Any]:
+    """Result-blind v1.1 preflight on the six reused xLSTM checkpoints (vanilla/reference path only)."""
+    import real_data_r0_preflight as pf
+
+    pf.install_metric_trap()  # before any model import
+    from unittest.mock import patch
+
+    import torch
+
+    import real_data_r0_models as models
+    from phase_g1_core import expand_internal234, history14
+
+    sealed = read_json(ROOT / "research" / "real_data_r0" / "preflight.json")["code_sha256"]
+    current = {k: sha_file(ROOT / k) for k in sealed}
+    cuda_calls: list[str] = []
+
+    def forbidden(*args, **kwargs):
+        cuda_calls.append("cuda_overlay")
+        raise r0data.ProtocolViolation("CUDA overlay forbidden in r0-v1.1 scientific extraction")
+
+    environment = models.configure()
+    units = {}
+    with patch.object(models, "cuda_overlay_from_vanilla", forbidden), patch.object(models, "build_xlstm_cuda", forbidden):
+        for name, reused in AMENDMENT["reused_checkpoints"]["units"].items():
+            machine, backbone, seed = name.rsplit("_", 2)
+            seed = int(seed)
+            train_record = read_json(_train_record_path(name))
+            best = _run_dir(machine, backbone, seed) / "best.pt"
+            row: dict[str, Any] = {"checkpoint_sha256": sha_file(best)}
+            row["checkpoint_matches_train_record"] = row["checkpoint_sha256"] == train_record["checkpoints"]["best.pt"] == reused["best_checkpoint_sha256"]
+            model = models.build_xlstm_vanilla(seed)
+            model.load_state_dict(torch.load(best, map_location="cpu", weights_only=True)["model"], strict=True)
+            model.eval()
+            for parameter in model.parameters():
+                parameter.requires_grad_(False)
+            row["model_hash_matches"] = models.model_hash(model) == train_record["best_model_hash"] == reused["best_model_hash"]
+            row["parameters"] = int(sum(p.numel() for p in model.parameters()))
+            train_obs = r0data.load_observations(machine, "train")
+            scaler = r0data.fit_scaler(train_obs)
+            scaled = r0data.apply_scaler(train_obs, scaler)
+            end = r0data.fit_end(len(train_obs))
+            fit_edges = r0data.fit_window_edges(len(train_obs))
+            row["gate"] = _xlstm_gate_v1_1(models, model, _parity_inputs(machine, scaled[:end], fit_edges))
+            stream = scaled[:400].copy()
+            perturbed = stream.copy()
+            perturbed[250:] += np.random.default_rng(1).normal(size=perturbed[250:].shape).astype(np.float32) * 5.0
+            edges = np.arange(63, 400, dtype=np.int64)
+            a = models.extract_windows(model, EXTRACTION_PLAN["xlstm"]["arch"], r0data.window_matrix(stream, edges))
+            b = models.extract_windows(model, EXTRACTION_PLAN["xlstm"]["arch"], r0data.window_matrix(perturbed, edges))
+            ha, hb = history14(a["score"]), history14(b["score"])
+            ia, ib = expand_internal234(a["internal_base18"]), expand_internal234(b["internal_base18"])
+            before = edges < 250
+            finite = np.isfinite(ha).all(1) & np.isfinite(ia).all(1)
+            row["causality"] = {
+                "past_rows_bitwise_equal": bool(np.array_equal(a["score"][before], b["score"][before])
+                                                and np.array_equal(a["internal_base18"][before], b["internal_base18"][before])
+                                                and np.array_equal(ha[before], hb[before], equal_nan=True)
+                                                and np.array_equal(ia[before], ib[before], equal_nan=True)),
+                "future_rows_changed": bool(not np.array_equal(a["score"][~before], b["score"][~before])),
+                "H_dim": int(ha.shape[1]), "internal234_dim": int(ia.shape[1]),
+                "first_finite_edge": int(edges[np.flatnonzero(finite)[0]]), "warmup_rows": int((~finite).sum()),
+            }
+            c = row["causality"]
+            row["pass"] = bool(row["checkpoint_matches_train_record"] and row["model_hash_matches"]
+                               and row["parameters"] == DETECTOR["xlstm"]["trainable_parameters"] and row["gate"]["pass"]
+                               and c["past_rows_bitwise_equal"] and c["future_rows_changed"] and c["H_dim"] == 14
+                               and c["internal234_dim"] == 234 and c["first_finite_edge"] == 94 and c["warmup_rows"] == 31)
+            units[name] = row
+    checks = {
+        "six_reused_checkpoints_pass": len(units) == 6 and all(u["pass"] for u in units.values()),
+        "sealed_library_and_config_unchanged": current == sealed,
+        "cuda_overlay_never_called": not cuda_calls,
+        "no_label_access": not r0data.label_access_log(),
+        "no_metric_calls": not pf._METRIC_CALLS,
+        "amendment_protocol_version": PROTOCOL_VERSION == "r0-v1.1",
+        "v1_caches_invalidated": INVALIDATION_RECORD.exists() and all(
+            v["status"].startswith(("INVALIDATED", "NO_V1_CACHE")) for v in read_json(INVALIDATION_RECORD)["caches"].values()),
+    }
+    status = "R0_V1_1_READY_TO_RESUME" if all(checks.values()) else "R0_V1_1_BLOCKED"
+    record = {"stage": "preflight_v1_1", "protocol_version": PROTOCOL_VERSION, "status": status, "checks": checks,
+              "units": units, "environment": environment, "sealed_code_sha256": sealed, "current_code_sha256": current,
+              "label_access_log": r0data.label_access_log(), "metric_calls": list(pf._METRIC_CALLS),
+              "cuda_overlay_calls": len(cuda_calls), "execution_commit": git_head(), "finished_utc": utc()}
+    write_immutable(PREFLIGHT_V1_1, record)
+    return record
+
+
 # --------------------------------------------------------------------------- seal features
 
 
@@ -495,13 +703,22 @@ def seal_features() -> dict[str, Any]:
         name = run_name(machine, backbone, seed)
         extract_record = read_json(_extract_record_path(name))
         train_record = read_json(_train_record_path(name))
-        if extract_record["status"] != "PASS" or train_record["status"] != "PASS" or not extract_record["parity"]["pass"]:
+        if train_record["status"] != "PASS":
             raise r0data.ProtocolViolation(f"{name} is not a passing unit")
-        cache = _run_dir(machine, backbone, seed) / "features.npz"
+        validate_extract_record(extract_record, backbone)
+        if extract_record["best_checkpoint_sha256"] != train_record["checkpoints"]["best.pt"]:
+            raise r0data.ProtocolViolation(f"{name} checkpoint identity changed")
+        reused = AMENDMENT["reused_checkpoints"]["units"].get(name)
+        if reused and (reused["best_checkpoint_sha256"] != train_record["checkpoints"]["best.pt"]
+                       or reused["best_model_hash"] != train_record["best_model_hash"]):
+            raise r0data.ProtocolViolation(f"{name} reused checkpoint differs from the amendment record")
+        cache = _run_dir(machine, backbone, seed) / CACHE_FILE
         digest = sha_file(cache)
         if digest != extract_record["feature_cache"]["sha256"]:
             raise r0data.ProtocolViolation(f"{name} feature cache hash drift")
         entries.append({"run": name, "machine": machine, "backbone": backbone, "seed": seed,
+                        "extraction_backend": extract_record["extraction_backend"],
+                        "feature_cache_file": f"data/r0_runs/{machine}/{backbone}_{seed}/{CACHE_FILE}",
                         "feature_cache_sha256": digest, "arrays": extract_record["feature_cache"]["arrays"],
                         "threshold": extract_record["threshold"], "test_rows": extract_record["test_rows"],
                         "best_checkpoint_sha256": extract_record["best_checkpoint_sha256"],
@@ -509,7 +726,11 @@ def seal_features() -> dict[str, Any]:
                         "extract_record_sha256": sha_file(_extract_record_path(name))})
     if len(entries) != 18:
         raise r0data.ProtocolViolation("expected 18 feature caches")
-    manifest = {"stage": "feature_cache_seal", "n_caches": len(entries), "entries": entries,
+    backends = {b: sorted({e["extraction_backend"] for e in entries if e["backbone"] == b}) for b in BACKBONES}
+    if backends != {"xlstm": ["vanilla_reference"], "lstm": ["lstm_manual_replay"]}:
+        raise r0data.ProtocolViolation(f"mixed or unexpected extraction backends: {backends}")
+    manifest = {"stage": "feature_cache_seal", "protocol_version": PROTOCOL_VERSION, "backends": backends,
+                "n_caches": len(entries), "entries": entries,
                 "labels_read_before_seal": False, "execution_commit": git_head(), "sealed_utc": utc()}
     _assert_no_labels("feature sealing")
     write_immutable(FEATURE_MANIFEST, manifest)
@@ -528,8 +749,8 @@ def _block_indices(edges: np.ndarray, test_n: int) -> dict[str, np.ndarray]:
 def probe(require_committed_manifest: bool = True) -> dict[str, Any]:
     if not FEATURE_MANIFEST.exists():
         raise r0data.ProtocolViolation("feature caches are not sealed")
-    if require_committed_manifest and not is_committed_clean(FEATURE_MANIFEST):
-        raise r0data.ProtocolViolation("feature manifest must be committed before any label is read")
+    if require_committed_manifest and not (is_committed_clean(FEATURE_MANIFEST) and is_pushed()):
+        raise r0data.ProtocolViolation("feature manifest must be committed and pushed before any label is read")
     if r0data.label_access_log():
         raise r0data.ProtocolViolation("labels were read before the probe stage")
     manifest = read_json(FEATURE_MANIFEST)
@@ -539,7 +760,7 @@ def probe(require_committed_manifest: bool = True) -> dict[str, Any]:
         record_path = _probe_record_path(name)
         if record_path.exists():
             raise r0data.ProtocolViolation(f"{name} already probed")
-        cache = _run_dir(machine, entry["backbone"], entry["seed"]) / "features.npz"
+        cache = _run_dir(machine, entry["backbone"], entry["seed"]) / CACHE_FILE
         if sha_file(cache) != entry["feature_cache_sha256"]:
             raise r0data.ProtocolViolation(f"{name} feature cache changed after sealing")
         with np.load(cache) as loaded:
@@ -559,7 +780,7 @@ def probe(require_committed_manifest: bool = True) -> dict[str, Any]:
             x = {block: r0probe.arm_matrix(history[r], internal[r], arm) for block, r in rows.items()}
             arms[arm] = r0probe.select_and_evaluate(x["train"], y_train, x["validation"], y_validation,
                                                     x["test"], load_probe_test_labels)
-        record = {"stage": "probe", "run": name, "machine": machine, "backbone": entry["backbone"], "seed": entry["seed"],
+        record = {"stage": "probe", "protocol_version": PROTOCOL_VERSION, "run": name, "machine": machine, "backbone": entry["backbone"], "seed": entry["seed"],
                   "design": CONFIG["probe"]["design"], "blocks": {k: list(v) for k, v in r0data.design_b_blocks(test_n).items()},
                   "embargo": r0data.EMBARGO, "rows": {k: int(len(v)) for k, v in rows.items()},
                   "positives": {"train": int(y_train.sum()), "validation": int(y_validation.sum())},
@@ -604,7 +825,8 @@ def aggregate() -> dict[str, Any]:
                 "validation_ap": {a: records[run_name(m, backbone, s)]["arms"][a]["validation_ap"] for a in r0probe.ARMS},
                 "delta_ap": records[run_name(m, backbone, s)]["delta_ap"]} for m in MACHINES for s in SEEDS},
         }
-    result = {"stage": "R0 results", "protocol_head": PROTOCOL_HEAD, "design": CONFIG["probe"]["design"],
+    result = {"stage": "R0 results", "protocol_version": PROTOCOL_VERSION, "protocol_head": PROTOCOL_HEAD,
+              "feature_manifest_sha256": sha_file(FEATURE_MANIFEST), "design": CONFIG["probe"]["design"],
               "estimand": "delta_AP = AP_test(H+internal234) - AP_test(H)", "backbones": backbones,
               "uncertainty_label": estimand["uncertainty_label"], "never_claim": list(r0probe.NEVER_CLAIM),
               "probe_record_sha256": {k: sha_file(_probe_record_path(k)) for k in records},
@@ -623,7 +845,7 @@ def sanity(require_committed_results: bool = True) -> dict[str, Any]:
     labels_cache: dict[str, np.ndarray] = {}
     for entry in manifest["entries"]:
         machine = entry["machine"]
-        cache = _run_dir(machine, entry["backbone"], entry["seed"]) / "features.npz"
+        cache = _run_dir(machine, entry["backbone"], entry["seed"]) / CACHE_FILE
         if sha_file(cache) != entry["feature_cache_sha256"]:
             raise r0data.ProtocolViolation("feature cache changed after sealing")
         with np.load(cache) as loaded:
@@ -654,8 +876,9 @@ def _fmt(value: float, digits: int = 4) -> str:
 
 def report() -> str:
     results, sanity_rows = read_json(RESULTS_JSON), read_json(SANITY_JSON)
-    lines = ["# R0 results — source-native SMD recurrent-state measurement (Design B)", "",
-             f"Protocol `{PROTOCOL_HEAD}`. Estimand per cell: `ΔAP = AP_test(H+internal234) − AP_test(H)` on the frozen "
+    lines = ["# R0 results — source-native SMD recurrent-state measurement (Design B, r0-v1.1)", "",
+             f"Protocol `{PROTOCOL_HEAD}` with amendment r0-v1.1 (xLSTM features from the vanilla backend + scalar "
+             "reference observer). Estimand per cell: `ΔAP = AP_test(H+internal234) − AP_test(H)` on the frozen "
              "probe-test block of one machine and one detector. Design B is an offline within-machine diagnostic, not "
              "unseen-machine transfer. Intervals are exploratory resampling intervals (3 machines × 3 seeds), not "
              "calibrated population 95% CIs.", ""]
@@ -707,7 +930,7 @@ def main(argv: list[str] | None = None) -> int:
         p.add_argument("--seed", required=True, type=int, choices=SEEDS)
     sch = sub.add_parser("schedule")
     sch.add_argument("--workers", type=int, default=2)
-    for stage in ("seal-features", "probe", "aggregate", "sanity", "report", "status"):
+    for stage in ("invalidate-v1-caches", "preflight-v1-1", "seal-features", "probe", "aggregate", "sanity", "report", "status"):
         sub.add_parser(stage)
     args = parser.parse_args(argv)
     if args.command == "train":
@@ -718,6 +941,12 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps({"run": record["run"], "status": record["status"], "parity": record["parity"]["pass"]}))
     elif args.command == "schedule":
         return schedule(args.workers)
+    elif args.command == "invalidate-v1-caches":
+        print(json.dumps({k: v["status"] for k, v in invalidate_v1_caches()["caches"].items()}))
+    elif args.command == "preflight-v1-1":
+        record = preflight_v1_1()
+        print(json.dumps({"status": record["status"], "failed": [k for k, v in record["checks"].items() if not v]}))
+        return 0 if record["status"] == "R0_V1_1_READY_TO_RESUME" else 2
     elif args.command == "seal-features":
         print(json.dumps({"sealed": seal_features()["n_caches"]}))
     elif args.command == "probe":
