@@ -1,0 +1,46 @@
+{
+  "stage": "diagnostic",
+  "non_gating": true,
+  "unit": "machine-1-8_lstm_11",
+  "protocol_version": "r0-v1.1",
+  "purpose": "label-free characterisation of the matched-LSTM manual-replay parity failure during r0-v1.1 test-stream extraction; no labels, no metrics; not an R0 decision input",
+  "validation": {
+    "windows": 4677,
+    "batches": 37,
+    "failing_batches": 0,
+    "failed_check_types": [],
+    "failed_layers": [],
+    "max_abs_discrepancy": null,
+    "max_abs_input_stream": 81.01667022705078,
+    "failing": []
+  },
+  "test": {
+    "windows": 23636,
+    "batches": 185,
+    "failing_batches": 1,
+    "failed_check_types": [
+      "sequence_h"
+    ],
+    "failed_layers": [
+      "decoder.2"
+    ],
+    "max_abs_discrepancy": 3.078579902648926e-05,
+    "max_abs_input_stream": 195.99598693847656,
+    "failing": [
+      {
+        "batch_first_edge": 21183,
+        "batch_last_edge": 21310,
+        "failed": [
+          {
+            "layer": "decoder.2",
+            "check": "sequence_h",
+            "max_abs": 3.078579902648926e-05
+          }
+        ],
+        "max_abs_input": 7.805013179779053,
+        "max_abs_cell_state": 11.649213790893555
+      }
+    ]
+  },
+  "labels_read": []
+}

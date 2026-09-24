@@ -1,0 +1,862 @@
+{
+  "stage": "preflight_v1_2",
+  "protocol_version": "r0-v1.2",
+  "status": "R0_V1_2_READY_TO_RESUME",
+  "checks": {
+    "raw_hashes_9_of_9": true,
+    "carried_xlstm_identities_9_of_9": true,
+    "auditable_lstm_parameters_74100": true,
+    "seed_determinism": true,
+    "equation_tests": true,
+    "trace_on_off_bitwise_and_gate": true,
+    "common18_H_internal_schema_and_causality": true,
+    "no_label_access": true,
+    "no_metric_calls": true,
+    "no_native_lstm_scientific_call": true,
+    "sealed_design_probe_statistics_unchanged": true,
+    "native_lstm_invalidated": true,
+    "amendment_protocol_version": true
+  },
+  "xlstm_carried": {
+    "machine-1-8_xlstm_11": {
+      "checkpoint": true,
+      "model_hash": true,
+      "feature_cache": true,
+      "extraction_record": true,
+      "train_record": true,
+      "pass": true
+    },
+    "machine-1-8_xlstm_22": {
+      "checkpoint": true,
+      "model_hash": true,
+      "feature_cache": true,
+      "extraction_record": true,
+      "train_record": true,
+      "pass": true
+    },
+    "machine-1-8_xlstm_33": {
+      "checkpoint": true,
+      "model_hash": true,
+      "feature_cache": true,
+      "extraction_record": true,
+      "train_record": true,
+      "pass": true
+    },
+    "machine-2-1_xlstm_11": {
+      "checkpoint": true,
+      "model_hash": true,
+      "feature_cache": true,
+      "extraction_record": true,
+      "train_record": true,
+      "pass": true
+    },
+    "machine-2-1_xlstm_22": {
+      "checkpoint": true,
+      "model_hash": true,
+      "feature_cache": true,
+      "extraction_record": true,
+      "train_record": true,
+      "pass": true
+    },
+    "machine-2-1_xlstm_33": {
+      "checkpoint": true,
+      "model_hash": true,
+      "feature_cache": true,
+      "extraction_record": true,
+      "train_record": true,
+      "pass": true
+    },
+    "machine-1-4_xlstm_11": {
+      "checkpoint": true,
+      "model_hash": true,
+      "feature_cache": true,
+      "extraction_record": true,
+      "train_record": true,
+      "pass": true
+    },
+    "machine-1-4_xlstm_22": {
+      "checkpoint": true,
+      "model_hash": true,
+      "feature_cache": true,
+      "extraction_record": true,
+      "train_record": true,
+      "pass": true
+    },
+    "machine-1-4_xlstm_33": {
+      "checkpoint": true,
+      "model_hash": true,
+      "feature_cache": true,
+      "extraction_record": true,
+      "train_record": true,
+      "pass": true
+    }
+  },
+  "auditable_lstm": {
+    "parameters": {
+      "11": 74100,
+      "22": 74100,
+      "33": 74100
+    },
+    "determinism": {
+      "11": true,
+      "22": true,
+      "33": true
+    },
+    "gate": {
+      "11/machine-1-8": {
+        "name": "v1_2_auditable",
+        "eval_mode": true,
+        "parameters": 74100,
+        "canary_N01": {
+          "capture_on_off": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "repeat_inference": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "extract_equals_forward": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "output_finite": true,
+          "score_finite": true,
+          "traces_finite": true,
+          "gates_in_unit_interval": true,
+          "common18_finite": true,
+          "common18_shape": [
+            128,
+            18
+          ],
+          "trace_layers": [
+            "decoder.0",
+            "decoder.1",
+            "decoder.2",
+            "encoder.0",
+            "encoder.1",
+            "encoder.2"
+          ]
+        },
+        "fit_windows_machine-1-8": {
+          "capture_on_off": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "repeat_inference": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "extract_equals_forward": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "output_finite": true,
+          "score_finite": true,
+          "traces_finite": true,
+          "gates_in_unit_interval": true,
+          "common18_finite": true,
+          "common18_shape": [
+            128,
+            18
+          ],
+          "trace_layers": [
+            "decoder.0",
+            "decoder.1",
+            "decoder.2",
+            "encoder.0",
+            "encoder.1",
+            "encoder.2"
+          ]
+        },
+        "pass": true
+      },
+      "11/machine-2-1": {
+        "name": "v1_2_auditable",
+        "eval_mode": true,
+        "parameters": 74100,
+        "canary_N01": {
+          "capture_on_off": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "repeat_inference": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "extract_equals_forward": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "output_finite": true,
+          "score_finite": true,
+          "traces_finite": true,
+          "gates_in_unit_interval": true,
+          "common18_finite": true,
+          "common18_shape": [
+            128,
+            18
+          ],
+          "trace_layers": [
+            "decoder.0",
+            "decoder.1",
+            "decoder.2",
+            "encoder.0",
+            "encoder.1",
+            "encoder.2"
+          ]
+        },
+        "fit_windows_machine-2-1": {
+          "capture_on_off": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "repeat_inference": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "extract_equals_forward": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "output_finite": true,
+          "score_finite": true,
+          "traces_finite": true,
+          "gates_in_unit_interval": true,
+          "common18_finite": true,
+          "common18_shape": [
+            128,
+            18
+          ],
+          "trace_layers": [
+            "decoder.0",
+            "decoder.1",
+            "decoder.2",
+            "encoder.0",
+            "encoder.1",
+            "encoder.2"
+          ]
+        },
+        "pass": true
+      },
+      "11/machine-1-4": {
+        "name": "v1_2_auditable",
+        "eval_mode": true,
+        "parameters": 74100,
+        "canary_N01": {
+          "capture_on_off": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "repeat_inference": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "extract_equals_forward": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "output_finite": true,
+          "score_finite": true,
+          "traces_finite": true,
+          "gates_in_unit_interval": true,
+          "common18_finite": true,
+          "common18_shape": [
+            128,
+            18
+          ],
+          "trace_layers": [
+            "decoder.0",
+            "decoder.1",
+            "decoder.2",
+            "encoder.0",
+            "encoder.1",
+            "encoder.2"
+          ]
+        },
+        "fit_windows_machine-1-4": {
+          "capture_on_off": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "repeat_inference": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "extract_equals_forward": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "output_finite": true,
+          "score_finite": true,
+          "traces_finite": true,
+          "gates_in_unit_interval": true,
+          "common18_finite": true,
+          "common18_shape": [
+            128,
+            18
+          ],
+          "trace_layers": [
+            "decoder.0",
+            "decoder.1",
+            "decoder.2",
+            "encoder.0",
+            "encoder.1",
+            "encoder.2"
+          ]
+        },
+        "pass": true
+      },
+      "22/machine-1-8": {
+        "name": "v1_2_auditable",
+        "eval_mode": true,
+        "parameters": 74100,
+        "canary_N01": {
+          "capture_on_off": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "repeat_inference": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "extract_equals_forward": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "output_finite": true,
+          "score_finite": true,
+          "traces_finite": true,
+          "gates_in_unit_interval": true,
+          "common18_finite": true,
+          "common18_shape": [
+            128,
+            18
+          ],
+          "trace_layers": [
+            "decoder.0",
+            "decoder.1",
+            "decoder.2",
+            "encoder.0",
+            "encoder.1",
+            "encoder.2"
+          ]
+        },
+        "fit_windows_machine-1-8": {
+          "capture_on_off": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "repeat_inference": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "extract_equals_forward": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "output_finite": true,
+          "score_finite": true,
+          "traces_finite": true,
+          "gates_in_unit_interval": true,
+          "common18_finite": true,
+          "common18_shape": [
+            128,
+            18
+          ],
+          "trace_layers": [
+            "decoder.0",
+            "decoder.1",
+            "decoder.2",
+            "encoder.0",
+            "encoder.1",
+            "encoder.2"
+          ]
+        },
+        "pass": true
+      },
+      "22/machine-2-1": {
+        "name": "v1_2_auditable",
+        "eval_mode": true,
+        "parameters": 74100,
+        "canary_N01": {
+          "capture_on_off": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "repeat_inference": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "extract_equals_forward": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "output_finite": true,
+          "score_finite": true,
+          "traces_finite": true,
+          "gates_in_unit_interval": true,
+          "common18_finite": true,
+          "common18_shape": [
+            128,
+            18
+          ],
+          "trace_layers": [
+            "decoder.0",
+            "decoder.1",
+            "decoder.2",
+            "encoder.0",
+            "encoder.1",
+            "encoder.2"
+          ]
+        },
+        "fit_windows_machine-2-1": {
+          "capture_on_off": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "repeat_inference": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "extract_equals_forward": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "output_finite": true,
+          "score_finite": true,
+          "traces_finite": true,
+          "gates_in_unit_interval": true,
+          "common18_finite": true,
+          "common18_shape": [
+            128,
+            18
+          ],
+          "trace_layers": [
+            "decoder.0",
+            "decoder.1",
+            "decoder.2",
+            "encoder.0",
+            "encoder.1",
+            "encoder.2"
+          ]
+        },
+        "pass": true
+      },
+      "22/machine-1-4": {
+        "name": "v1_2_auditable",
+        "eval_mode": true,
+        "parameters": 74100,
+        "canary_N01": {
+          "capture_on_off": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "repeat_inference": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "extract_equals_forward": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "output_finite": true,
+          "score_finite": true,
+          "traces_finite": true,
+          "gates_in_unit_interval": true,
+          "common18_finite": true,
+          "common18_shape": [
+            128,
+            18
+          ],
+          "trace_layers": [
+            "decoder.0",
+            "decoder.1",
+            "decoder.2",
+            "encoder.0",
+            "encoder.1",
+            "encoder.2"
+          ]
+        },
+        "fit_windows_machine-1-4": {
+          "capture_on_off": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "repeat_inference": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "extract_equals_forward": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "output_finite": true,
+          "score_finite": true,
+          "traces_finite": true,
+          "gates_in_unit_interval": true,
+          "common18_finite": true,
+          "common18_shape": [
+            128,
+            18
+          ],
+          "trace_layers": [
+            "decoder.0",
+            "decoder.1",
+            "decoder.2",
+            "encoder.0",
+            "encoder.1",
+            "encoder.2"
+          ]
+        },
+        "pass": true
+      },
+      "33/machine-1-8": {
+        "name": "v1_2_auditable",
+        "eval_mode": true,
+        "parameters": 74100,
+        "canary_N01": {
+          "capture_on_off": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "repeat_inference": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "extract_equals_forward": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "output_finite": true,
+          "score_finite": true,
+          "traces_finite": true,
+          "gates_in_unit_interval": true,
+          "common18_finite": true,
+          "common18_shape": [
+            128,
+            18
+          ],
+          "trace_layers": [
+            "decoder.0",
+            "decoder.1",
+            "decoder.2",
+            "encoder.0",
+            "encoder.1",
+            "encoder.2"
+          ]
+        },
+        "fit_windows_machine-1-8": {
+          "capture_on_off": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "repeat_inference": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "extract_equals_forward": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "output_finite": true,
+          "score_finite": true,
+          "traces_finite": true,
+          "gates_in_unit_interval": true,
+          "common18_finite": true,
+          "common18_shape": [
+            128,
+            18
+          ],
+          "trace_layers": [
+            "decoder.0",
+            "decoder.1",
+            "decoder.2",
+            "encoder.0",
+            "encoder.1",
+            "encoder.2"
+          ]
+        },
+        "pass": true
+      },
+      "33/machine-2-1": {
+        "name": "v1_2_auditable",
+        "eval_mode": true,
+        "parameters": 74100,
+        "canary_N01": {
+          "capture_on_off": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "repeat_inference": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "extract_equals_forward": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "output_finite": true,
+          "score_finite": true,
+          "traces_finite": true,
+          "gates_in_unit_interval": true,
+          "common18_finite": true,
+          "common18_shape": [
+            128,
+            18
+          ],
+          "trace_layers": [
+            "decoder.0",
+            "decoder.1",
+            "decoder.2",
+            "encoder.0",
+            "encoder.1",
+            "encoder.2"
+          ]
+        },
+        "fit_windows_machine-2-1": {
+          "capture_on_off": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "repeat_inference": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "extract_equals_forward": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "output_finite": true,
+          "score_finite": true,
+          "traces_finite": true,
+          "gates_in_unit_interval": true,
+          "common18_finite": true,
+          "common18_shape": [
+            128,
+            18
+          ],
+          "trace_layers": [
+            "decoder.0",
+            "decoder.1",
+            "decoder.2",
+            "encoder.0",
+            "encoder.1",
+            "encoder.2"
+          ]
+        },
+        "pass": true
+      },
+      "33/machine-1-4": {
+        "name": "v1_2_auditable",
+        "eval_mode": true,
+        "parameters": 74100,
+        "canary_N01": {
+          "capture_on_off": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "repeat_inference": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "extract_equals_forward": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "output_finite": true,
+          "score_finite": true,
+          "traces_finite": true,
+          "gates_in_unit_interval": true,
+          "common18_finite": true,
+          "common18_shape": [
+            128,
+            18
+          ],
+          "trace_layers": [
+            "decoder.0",
+            "decoder.1",
+            "decoder.2",
+            "encoder.0",
+            "encoder.1",
+            "encoder.2"
+          ]
+        },
+        "fit_windows_machine-1-4": {
+          "capture_on_off": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "repeat_inference": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "extract_equals_forward": {
+            "pass": true,
+            "bitwise": true,
+            "max_abs": 0.0
+          },
+          "output_finite": true,
+          "score_finite": true,
+          "traces_finite": true,
+          "gates_in_unit_interval": true,
+          "common18_finite": true,
+          "common18_shape": [
+            128,
+            18
+          ],
+          "trace_layers": [
+            "decoder.0",
+            "decoder.1",
+            "decoder.2",
+            "encoder.0",
+            "encoder.1",
+            "encoder.2"
+          ]
+        },
+        "pass": true
+      }
+    },
+    "causality": {
+      "11": {
+        "past_rows_bitwise_equal": true,
+        "future_rows_changed": true,
+        "common18_shape": [
+          337,
+          18
+        ],
+        "H_dim": 14,
+        "internal234_dim": 234,
+        "first_finite_edge": 94,
+        "warmup_rows": 31
+      },
+      "22": {
+        "past_rows_bitwise_equal": true,
+        "future_rows_changed": true,
+        "common18_shape": [
+          337,
+          18
+        ],
+        "H_dim": 14,
+        "internal234_dim": 234,
+        "first_finite_edge": 94,
+        "warmup_rows": 31
+      },
+      "33": {
+        "past_rows_bitwise_equal": true,
+        "future_rows_changed": true,
+        "common18_shape": [
+          337,
+          18
+        ],
+        "H_dim": 14,
+        "internal234_dim": 234,
+        "first_finite_edge": 94,
+        "warmup_rows": 31
+      }
+    },
+    "seeds_differ": true,
+    "equations": {
+      "one_step_max_abs": {
+        "i": 0.0,
+        "f": 0.0,
+        "g": 1.1102230246251565e-16,
+        "o": 0.0,
+        "c": 5.551115123125783e-17,
+        "h": 2.7755575615628914e-17
+      },
+      "multi_step_bitwise": true,
+      "capture_on_off_bitwise": true,
+      "pass": true
+    }
+  },
+  "environment": {
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "deterministic_algorithms": false,
+    "matmul_precision": "highest",
+    "matmul_allow_tf32": false,
+    "cudnn_allow_tf32": false,
+    "torch_threads": 4,
+    "torch": "2.13.0+cu130",
+    "cuda": "13.0",
+    "device": "NVIDIA GB10",
+    "official_xlstmad": "e8b56ba27352733bb83729e85b1d6196dca70c99",
+    "xlstm": "2.0.5",
+    "lightning": "2.6.1",
+    "python": "3.12.3"
+  },
+  "sealed_code_sha256": {
+    "scripts/real_data_r0_data.py": "98608ef1ff914d3ba36340e99bbfc11d635b4471431d1759066fc9b7930e2987",
+    "scripts/real_data_r0_models.py": "96cc7efbc9ecd9f43da4b1087afcb200d8a17553774dfa744f0ee2e01a5984fa",
+    "scripts/real_data_r0_preflight.py": "1de2d44d51192d25a11d7a9cfb938e394de9f72bce96249a93d99d8a7cd8bcbb",
+    "scripts/real_data_r0_probe.py": "1de67b39d857b56d924ee783bc6d6473567338ffc01fe4136f7962937efb6718",
+    "research/real_data_r0/config.json": "0f62d995155b5b385e7610e397c565ce829ab5739adefa40157d506c530c283e",
+    "tests/test_real_data_r0.py": "8c8c8cbe36472bef326e99e1ed5a89a9c179e5e2f2c455fe7e48a7a6f66729e1"
+  },
+  "current_code_sha256": {
+    "scripts/real_data_r0_data.py": "98608ef1ff914d3ba36340e99bbfc11d635b4471431d1759066fc9b7930e2987",
+    "scripts/real_data_r0_models.py": "96cc7efbc9ecd9f43da4b1087afcb200d8a17553774dfa744f0ee2e01a5984fa",
+    "scripts/real_data_r0_preflight.py": "1de2d44d51192d25a11d7a9cfb938e394de9f72bce96249a93d99d8a7cd8bcbb",
+    "scripts/real_data_r0_probe.py": "1de67b39d857b56d924ee783bc6d6473567338ffc01fe4136f7962937efb6718",
+    "research/real_data_r0/config.json": "0f62d995155b5b385e7610e397c565ce829ab5739adefa40157d506c530c283e",
+    "tests/test_real_data_r0.py": "8c8c8cbe36472bef326e99e1ed5a89a9c179e5e2f2c455fe7e48a7a6f66729e1"
+  },
+  "label_access_log": [],
+  "metric_calls": [],
+  "execution_commit": "1f6f4abe36465b1e66843c38d47bd62d8bd56671",
+  "finished_utc": "2026-09-24T06:38:19Z"
+}

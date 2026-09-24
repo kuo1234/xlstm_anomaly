@@ -1,0 +1,155 @@
+{
+  "stage": "R0",
+  "protocol_version": "r0-v1",
+  "title": "Source-native real-data recurrent-state measurement validation (SMD)",
+  "base_main": "b7ae44fafc4e9ea6671647c5cb73156ddaf26e5e",
+  "claim_rung": "L1d",
+  "dataset": {
+    "name": "SMD",
+    "upstream_repository": "NetManAIOps/OmniAnomaly",
+    "upstream_commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+    "url_template": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/{commit}/ServerMachineDataset/{split}/{machine}.txt",
+    "provenance_url": "https://github.com/NetManAIOps/OmniAnomaly/blob/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/README.md",
+    "machines": ["machine-1-8", "machine-2-1", "machine-1-4"],
+    "D": 38,
+    "raw_dir_env": "R0_DATA_ROOT",
+    "raw_dir_repo_relative": "data/external_real/r0_smd",
+    "file_name_template": "{machine}_{split}.txt",
+    "splits": ["train", "test", "test_label"],
+    "expected": {
+      "machine-1-8": {
+        "train": {"sha256": "3b46e9754ec06bebd0bf3fe68dbe28b2a4b67298e795c9501d97f42083e337fc", "bytes": 8104716},
+        "test": {"sha256": "b8784c3b4169f8a0a2ed9f47b00070d72ed214dae0307553b8cfdb80c712d779", "bytes": 8105058},
+        "test_label": {"sha256": "8019476032c4c5b4b80127cfb9e74ee7d57fbbd558aa15097518713e16463a47", "bytes": 47398},
+        "train_N": 23698,
+        "test_N": 23699,
+        "hash_authority": "reports/phase_a/smd_seal.json (main)"
+      },
+      "machine-2-1": {
+        "train": {"sha256": "d6eb13ff74a537cf33686319fffdd4cdcb394862570a3acd519b4c37af97cd2e", "bytes": 8103006},
+        "test": {"sha256": "2d103661799271be958227907950a1c76803356442d60a4070671cc0abbefb20", "bytes": 8103348},
+        "test_label": {"sha256": "416dd20a447f38b8d9394382293ed44f509c1c3f99c4aa2fbff179498626dbdc", "bytes": 47388},
+        "train_N": 23693,
+        "test_N": 23694,
+        "hash_authority": "reports/phase_a/smd_seal.json (main); independently re-recorded in research/real-data-feasibility-audit@8f6ee870 datasets.json"
+      },
+      "machine-1-4": {
+        "train": {"sha256": "2ec56c43f91684aa4751a6b72d359669266712dd69bdc7efda3dc60c0ade1156", "bytes": 8107452},
+        "test": {"sha256": "98ade00e57eac63e8f81a506a8e848803b58590835ab2b3cf53d1f0459900bd3", "bytes": 8107794},
+        "test_label": {"sha256": "a470a3f7b66ec3d080fc5ee3d9565e0f3bfcfa16a1650259f771736327fa9a8b", "bytes": 47414},
+        "train_N": 23706,
+        "test_N": 23707,
+        "hash_authority": "research/real-data-feasibility-audit@8f6ee870 datasets.json (sha256); byte counts from that audit's git-ignored local_manifest.json"
+      }
+    },
+    "forbidden_inputs": ["CANDI preprocessed pickles (kimanki/CANDI@28c9679e)", "any transformed/normalised copy of SMD"],
+    "train_normality": "Documented normal training split; upstream publishes no train-label file. Not independently label-verified."
+  },
+  "windowing": {
+    "W": 64,
+    "stride": 1,
+    "decision_timestamp": "right_edge",
+    "streams": "original train and test are separate streams; no window straddles the original train/test boundary or the fit/validation boundary",
+    "first_decision_index": 63,
+    "rolling_widths": [4, 8, 16, 32],
+    "first_finite_feature_index": 94,
+    "primary_label": "window_any_anomaly: y(t) = max(label[t-63 : t+1]) on the original test split",
+    "secondary_endpoint_label": "not analysed in R0"
+  },
+  "split": {
+    "fit_fraction": 0.8,
+    "fit_end_rule": "fit_end = floor(0.8 * train_N)",
+    "fit_interval": "[0, fit_end)",
+    "validation_interval": "[fit_end, train_N)  (detector validation = calibration)",
+    "fit_windows": "right edges t in [63, fit_end)",
+    "validation_windows": "right edges t in [fit_end + 63, train_N)",
+    "expected_fit_end": {"machine-1-8": 18958, "machine-2-1": 18954, "machine-1-4": 18964}
+  },
+  "scaler": {
+    "fit_on": "fit interval only",
+    "statistics": "float64 per-channel mean and population std (ddof=0)",
+    "zero_std": "exact zero population std becomes 1.0",
+    "transform": "(x - mean) / scale in float64, then cast to float32",
+    "applies_to": "fit, validation and test observations of the same machine"
+  },
+  "detector": {
+    "backbones": ["xlstm", "lstm"],
+    "seeds": [11, 22, 33],
+    "fits_planned": 18,
+    "batch_size": 128,
+    "epochs": 50,
+    "optimizer": {"name": "Adam", "lr": 0.001, "betas": [0.9, 0.999], "eps": 1e-08, "weight_decay": 0, "amsgrad": false, "maximize": false, "foreach": false, "fused": false},
+    "loss": "mean squared reconstruction error over aligned B,W,D",
+    "shuffle": "numpy default_rng(SeedSequence([detector_seed, zero_based_epoch, 1701])).permutation(n_fit_windows); all windows each epoch including the final partial batch",
+    "selection": "lowest whole-validation-window reconstruction MSE; earliest epoch on exact tie; no early stopping, scheduler, clipping, autocast or accumulation",
+    "seeding": "random.seed, np.random.seed, torch.manual_seed, torch.cuda.manual_seed_all with the detector seed immediately before model construction",
+    "backend_state": {"cudnn_deterministic": true, "cudnn_benchmark": false, "deterministic_algorithms": false, "matmul_precision": "highest", "matmul_allow_tf32": false, "cudnn_allow_tf32": false, "torch_threads": 4},
+    "xlstm": {
+      "implementation": "official xLSTMAD (data/phase_e2/official_xlstmad @ e8b56ba27352733bb83729e85b1d6196dca70c99), xlstm 2.0.5, lightning 2.6.1",
+      "constructor": "xLSTMAD(embedding_dim=40, features_no=38, window_size=64, lr=0.001, slstm_backend='vanilla') with sLSTM dtypes forced to float32",
+      "training_backend": "vanilla",
+      "extraction_backend": "native CUDA sLSTM overlay (mlstm_inference_canary.install path) with weights mapped by map_vanilla_weights; common18 by phase_e2_fast_observer.FastStateObserver",
+      "trainable_parameters": 75934,
+      "D_dependent_tensors": ["input_projection.weight (40,38)", "output_projection.weight (38,40)", "output_projection.bias (38)"]
+    },
+    "lstm": {
+      "architecture": "Linear(38,w) -> 3 encoder nn.LSTM(w,w) -> 3 decoder nn.LSTM(w,w) -> GELU -> Linear(w,38); cuDNN disabled only inside the LSTM stack",
+      "capacity_rule": "width w with trainable parameters nearest to the xLSTM count, required within +/-10%; exact tie -> smaller width",
+      "parameter_formula": "48*w^2 + (2*D + 49)*w + D",
+      "width": 38,
+      "trainable_parameters": 74100,
+      "relative_difference_vs_xlstm": -0.02415,
+      "neighbour_widths": {"37": 70375, "39": 77921},
+      "observer": "phase_f_lstm_observer.Observer (manual gate replay, parity-checked against native outputs)"
+    },
+    "threshold": {"source": "validation (calibration) window scores", "rule": "numpy.quantile(scores, 0.95), default linear interpolation", "use": "detector-sanity recall/FPR only; never enters the probe"}
+  },
+  "features": {
+    "H": {"name": "history14", "implementation": "phase_g1_core.history14", "dimension": 14},
+    "internal_base": {"name": "common18", "implementation_xlstm": "phase_e2_fast_observer.summarize_fast (reference: phase_e2_schema.summarize)", "implementation_lstm": "phase_f_lstm_observer.summarize", "dimension": 18},
+    "internal234": {"name": "internal234", "implementation": "phase_g1_core.expand_internal234", "dimension": 234},
+    "stream": "per detector, the original test split as one chronological stream of W64 right-edge windows t in [63, test_N); each window is scored from fresh zero recurrent state",
+    "feature_dtype": "extracted float32, cast to float64 before history/expansion"
+  },
+  "probe": {
+    "design": "B",
+    "design_name": "within-machine blocked diagnostic (offline, supervised, same detector; not unseen-machine transfer)",
+    "eligible_rows": "test right edges t in [94, test_N)",
+    "blocks": "L = test_N - 94; c1 = 94 + floor(L/3); c2 = 94 + floor(2L/3); train = [94, c1); validation = [c1 + 96, c2); test = [c2 + 96, test_N)",
+    "embargo": 96,
+    "embargo_rationale": "complete feature receptive field is 95 observations (W64 window plus 31 extra history rows); 96 = repository PURGE constant >= 95",
+    "arms": {"H": "history14", "H+I": "history14 + internal234 (248 columns)"},
+    "feature_scaler": "none (HGB is invariant to per-feature monotone transforms within one detector; no statistic from any block is used to transform features)",
+    "decoder": "sklearn HistGradientBoostingClassifier",
+    "hgb_parameters": {"loss": "log_loss", "learning_rate": 0.1, "max_leaf_nodes": 31, "max_depth": 6, "min_samples_leaf": 100, "l2_regularization": 1.0, "max_bins": 255, "categorical_features": null, "early_stopping": false, "random_state": 901, "class_weight": null},
+    "max_iter_grid": [100, 300],
+    "selection": "fit each candidate on the probe-train block only; select by average_precision_score on the probe-validation block only; exact tie -> 100; evaluate the selected candidate once on the probe-test block; no refit",
+    "metric": "sklearn.metrics.average_precision_score (no point adjustment)",
+    "hgb_fits_planned": 72
+  },
+  "estimand": {
+    "cell": "delta_AP = AP_test(H+I) - AP_test(H) for one (machine, detector seed, backbone)",
+    "matrix": "per backbone 3 machines x 3 seeds",
+    "summaries": ["all 9 cells", "mean over 9 cells", "machine means", "seed means", "positive-cell count"],
+    "two_way_bootstrap": {"draws": 10000, "seed": 901, "rule": "per replicate independently resample 3 machine rows and 3 seed columns with replacement; statistic = mean of the resampled 3x3 cell matrix; interval = 2.5/97.5 percentiles (numpy.quantile, linear)"},
+    "machine_only_bootstrap": {"draws": 10000, "seed": 901, "rule": "fresh generator; resample 3 machine rows with replacement, all observed seeds kept; statistic = mean of resampled rows; interval = 2.5/97.5 percentiles"},
+    "uncertainty_label": "exploratory resampling interval; never a calibrated population 95% CI",
+    "backbone_comparison": "not an estimand; xLSTM and LSTM are reported side by side only"
+  },
+  "wording": {
+    "R0_POSITIVE_INCREMENT": "two-way lower > 0 AND machine-only lower > 0 AND positive cells >= 7 of 9",
+    "R0_NEGATIVE_INCREMENT": "two-way upper < 0 AND machine-only upper < 0 AND positive cells <= 2 of 9",
+    "R0_NO_RESOLVED_INCREMENT": "every other outcome"
+  },
+  "detector_sanity": {
+    "rows": "all test right edges t in [63, test_N)",
+    "label": "window_any_anomaly",
+    "metrics": ["average_precision_score(score)", "roc_auc_score(score)", "recall at score > threshold", "FPR at score > threshold", "window-any prevalence"],
+    "weak_detector_flag": "test AUROC <= 0.55 -> flag DETECTOR_WEAK; cell retained",
+    "status": "diagnostic context only; never used to select seeds, backbones, machines or cells"
+  },
+  "compute": {"target": "ssh:kuo (GB10)", "python": "/usr/bin/python3 3.12", "torch": "2.13.0+cu130",
+              "slstm_extension_dir": "/tmp/xlstm_cuda_r0_sm121_false",
+              "slstm_cuda_fixture": "research/cuda_spark/slstm_cuda_fixture.py (tracked; arch 121, code sm_121, static_stub false, rdc false)",
+              "worktree_data_links": ["data/phase_e2 -> primary data/phase_e2 (pinned official xLSTMAD)", "data/phase_e -> primary data/phase_e (Python headers for the sLSTM JIT build)", "data/external_real -> primary data/external_real (R0 raw bytes)"]}
+}

@@ -1,0 +1,285 @@
+{
+  "stage": "R0",
+  "protocol_version": "r0-v1",
+  "base_main": "b7ae44fafc4e9ea6671647c5cb73156ddaf26e5e",
+  "dataset": "SMD",
+  "machines": [
+    {
+      "machine": "machine-1-8",
+      "source_group": "SMD/machine-1-8",
+      "upstream": {
+        "repository": "NetManAIOps/OmniAnomaly",
+        "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+        "urls": {
+          "train": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/train/machine-1-8.txt",
+          "test": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-1-8.txt",
+          "test_label": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test_label/machine-1-8.txt"
+        }
+      },
+      "sha256": {
+        "train": "3b46e9754ec06bebd0bf3fe68dbe28b2a4b67298e795c9501d97f42083e337fc",
+        "test": "b8784c3b4169f8a0a2ed9f47b00070d72ed214dae0307553b8cfdb80c712d779",
+        "test_label": "8019476032c4c5b4b80127cfb9e74ee7d57fbbd558aa15097518713e16463a47"
+      },
+      "bytes": {
+        "train": 8104716,
+        "test": 8105058,
+        "test_label": 47398
+      },
+      "hash_authority": "reports/phase_a/smd_seal.json (main)",
+      "D": 38,
+      "train_N": 23698,
+      "test_N": 23699,
+      "label_N": 23699,
+      "anomaly_prevalence": {
+        "point": 0.03219545128486434,
+        "point_positives": 763,
+        "window_any_t63plus": 0.08491284481299713,
+        "window_any_positives_t63plus": 2007
+      },
+      "original_train_test_boundary": {
+        "train": [
+          0,
+          23698
+        ],
+        "test": [
+          0,
+          23699
+        ],
+        "concatenated_coordinates": [
+          23698,
+          47397
+        ]
+      },
+      "detector_fit_interval": [
+        0,
+        18958
+      ],
+      "detector_validation_interval": [
+        18958,
+        23698
+      ],
+      "zero_std_fit_channels": [
+        4,
+        7,
+        16,
+        17,
+        26,
+        28,
+        36,
+        37
+      ],
+      "train_normality": "Documented normal training split; upstream publishes no train-label file. Not independently label-verified.",
+      "provenance_evidence": {
+        "phase_a_seal": "reports/phase_a/smd_seal.json",
+        "feasibility_audit": null,
+        "r0_acquisition": {
+          "train": {
+            "install_route": "public_pinned_reacquisition",
+            "status": "installed_verified",
+            "public_pinned_download_match": true,
+            "feasibility_worktree_copy_match": null
+          },
+          "test": {
+            "install_route": "public_pinned_reacquisition",
+            "status": "installed_verified",
+            "public_pinned_download_match": true,
+            "feasibility_worktree_copy_match": null
+          },
+          "test_label": {
+            "install_route": "public_pinned_reacquisition",
+            "status": "installed_verified",
+            "public_pinned_download_match": true,
+            "feasibility_worktree_copy_match": null
+          }
+        }
+      },
+      "selection_rationale": "historical strict Phase-A anchor"
+    },
+    {
+      "machine": "machine-2-1",
+      "source_group": "SMD/machine-2-1",
+      "upstream": {
+        "repository": "NetManAIOps/OmniAnomaly",
+        "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+        "urls": {
+          "train": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/train/machine-2-1.txt",
+          "test": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-2-1.txt",
+          "test_label": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test_label/machine-2-1.txt"
+        }
+      },
+      "sha256": {
+        "train": "d6eb13ff74a537cf33686319fffdd4cdcb394862570a3acd519b4c37af97cd2e",
+        "test": "2d103661799271be958227907950a1c76803356442d60a4070671cc0abbefb20",
+        "test_label": "416dd20a447f38b8d9394382293ed44f509c1c3f99c4aa2fbff179498626dbdc"
+      },
+      "bytes": {
+        "train": 8103006,
+        "test": 8103348,
+        "test_label": 47388
+      },
+      "hash_authority": "reports/phase_a/smd_seal.json (main); independently re-recorded in research/real-data-feasibility-audit@8f6ee870 datasets.json",
+      "D": 38,
+      "train_N": 23693,
+      "test_N": 23694,
+      "label_N": 23694,
+      "anomaly_prevalence": {
+        "point": 0.049379589769561916,
+        "point_positives": 1170,
+        "window_any_t63plus": 0.08416909991113368,
+        "window_any_positives_t63plus": 1989
+      },
+      "original_train_test_boundary": {
+        "train": [
+          0,
+          23693
+        ],
+        "test": [
+          0,
+          23694
+        ],
+        "concatenated_coordinates": [
+          23693,
+          47387
+        ]
+      },
+      "detector_fit_interval": [
+        0,
+        18954
+      ],
+      "detector_validation_interval": [
+        18954,
+        23693
+      ],
+      "zero_std_fit_channels": [
+        7,
+        26,
+        28,
+        36,
+        37
+      ],
+      "train_normality": "Documented normal training split; upstream publishes no train-label file. Not independently label-verified.",
+      "provenance_evidence": {
+        "phase_a_seal": "reports/phase_a/smd_seal.json",
+        "feasibility_audit": "research/real-data-feasibility-audit@8f6ee870e1c8d0809d4d1352e8fde0fd450b56d5 datasets.json",
+        "r0_acquisition": {
+          "train": {
+            "install_route": "feasibility_worktree_copy",
+            "status": "installed_verified",
+            "public_pinned_download_match": true,
+            "feasibility_worktree_copy_match": true
+          },
+          "test": {
+            "install_route": "feasibility_worktree_copy",
+            "status": "installed_verified",
+            "public_pinned_download_match": true,
+            "feasibility_worktree_copy_match": true
+          },
+          "test_label": {
+            "install_route": "feasibility_worktree_copy",
+            "status": "installed_verified",
+            "public_pinned_download_match": true,
+            "feasibility_worktree_copy_match": true
+          }
+        }
+      },
+      "selection_rationale": "historical strict anchor; provenance independently rechecked"
+    },
+    {
+      "machine": "machine-1-4",
+      "source_group": "SMD/machine-1-4",
+      "upstream": {
+        "repository": "NetManAIOps/OmniAnomaly",
+        "commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+        "urls": {
+          "train": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/train/machine-1-4.txt",
+          "test": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-1-4.txt",
+          "test_label": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test_label/machine-1-4.txt"
+        }
+      },
+      "sha256": {
+        "train": "2ec56c43f91684aa4751a6b72d359669266712dd69bdc7efda3dc60c0ade1156",
+        "test": "98ade00e57eac63e8f81a506a8e848803b58590835ab2b3cf53d1f0459900bd3",
+        "test_label": "a470a3f7b66ec3d080fc5ee3d9565e0f3bfcfa16a1650259f771736327fa9a8b"
+      },
+      "bytes": {
+        "train": 8107452,
+        "test": 8107794,
+        "test_label": 47414
+      },
+      "hash_authority": "research/real-data-feasibility-audit@8f6ee870 datasets.json (sha256); byte counts from that audit's git-ignored local_manifest.json",
+      "D": 38,
+      "train_N": 23706,
+      "test_N": 23707,
+      "label_N": 23707,
+      "anomaly_prevalence": {
+        "point": 0.030370776563884084,
+        "point_positives": 720,
+        "window_any_t63plus": 0.062425985450854336,
+        "window_any_positives_t63plus": 1476
+      },
+      "original_train_test_boundary": {
+        "train": [
+          0,
+          23706
+        ],
+        "test": [
+          0,
+          23707
+        ],
+        "concatenated_coordinates": [
+          23706,
+          47413
+        ]
+      },
+      "detector_fit_interval": [
+        0,
+        18964
+      ],
+      "detector_validation_interval": [
+        18964,
+        23706
+      ],
+      "zero_std_fit_channels": [
+        7,
+        16,
+        26,
+        28,
+        36,
+        37
+      ],
+      "train_normality": "Documented normal training split; upstream publishes no train-label file. Not independently label-verified.",
+      "provenance_evidence": {
+        "phase_a_seal": null,
+        "feasibility_audit": "research/real-data-feasibility-audit@8f6ee870e1c8d0809d4d1352e8fde0fd450b56d5 datasets.json",
+        "r0_acquisition": {
+          "train": {
+            "install_route": "feasibility_worktree_copy",
+            "status": "installed_verified",
+            "public_pinned_download_match": true,
+            "feasibility_worktree_copy_match": true
+          },
+          "test": {
+            "install_route": "feasibility_worktree_copy",
+            "status": "installed_verified",
+            "public_pinned_download_match": true,
+            "feasibility_worktree_copy_match": true
+          },
+          "test_label": {
+            "install_route": "feasibility_worktree_copy",
+            "status": "installed_verified",
+            "public_pinned_download_match": true,
+            "feasibility_worktree_copy_match": true
+          }
+        }
+      },
+      "selection_rationale": "included in the real-data feasibility work and the prelisted M2N2-overlap analysis"
+    }
+  ],
+  "forbidden_inputs": [
+    "CANDI preprocessed pickles (kimanki/CANDI@28c9679e)",
+    "any transformed/normalised copy of SMD"
+  ],
+  "labels_support": "anomaly-versus-nonanomaly evaluation only; no drift/new-normal/transition labels are derived",
+  "raw_bytes_location": "git-ignored data/external_real/r0_smd/ under the GB10 primary checkout (see data_acquisition.md)"
+}

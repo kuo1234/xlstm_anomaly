@@ -1,0 +1,17 @@
+{
+  "stage": "extract",
+  "protocol_version": "r0-v1.1",
+  "status": "STOP_OBSERVER_PARITY",
+  "run": "machine-1-8_lstm_11",
+  "machine": "machine-1-8",
+  "backbone": "lstm",
+  "seed": 11,
+  "extraction_backend": "lstm_manual_replay",
+  "failure": "real_data_r0_models.extract_batch raised ProtocolViolation('LSTM manual recurrence parity failed') inside extract_windows on the original test stream, after the checkpoint gate and the validation-window extraction had passed; no feature cache written",
+  "log": "data/r0_runs/logs/extract_machine-1-8_lstm_11.log (git-ignored)",
+  "labels_read": false,
+  "label_read_count": 0,
+  "diagnostic": "runs/diagnostic_v1_1_lstm_machine-1-8_11.json",
+  "execution_commit": "c70e542912bb08a28afe43d36c293f45b28be0fc",
+  "finished_utc": "2026-09-24T05:20:43Z"
+}

@@ -1,0 +1,64 @@
+{
+  "stage": "extract",
+  "status": "STOP_CHECKPOINT_PARITY",
+  "run": "machine-2-1_xlstm_22",
+  "parity": {
+    "canary_N01": {
+      "reference_observer_on_off": {
+        "pass": true,
+        "bitwise": true,
+        "max_abs": 0.0
+      },
+      "fast_observer_on_off": {
+        "pass": true,
+        "bitwise": true,
+        "max_abs": 0.0
+      },
+      "vanilla_vs_cuda_output": {
+        "pass": false,
+        "bitwise": false,
+        "max_abs": 2.6345252990722656e-05
+      },
+      "reference_vs_fast_score": {
+        "pass": true,
+        "bitwise": false,
+        "max_abs": 3.5762786865234375e-07
+      },
+      "reference_vs_fast_common18": {
+        "pass": true,
+        "bitwise": false,
+        "max_abs": 1.1920928955078125e-07
+      }
+    },
+    "fit_windows_machine-2-1": {
+      "reference_observer_on_off": {
+        "pass": true,
+        "bitwise": true,
+        "max_abs": 0.0
+      },
+      "fast_observer_on_off": {
+        "pass": true,
+        "bitwise": true,
+        "max_abs": 0.0
+      },
+      "vanilla_vs_cuda_output": {
+        "pass": true,
+        "bitwise": false,
+        "max_abs": 1.71661376953125e-05
+      },
+      "reference_vs_fast_score": {
+        "pass": true,
+        "bitwise": false,
+        "max_abs": 1.0943040251731873e-08
+      },
+      "reference_vs_fast_common18": {
+        "pass": true,
+        "bitwise": false,
+        "max_abs": 1.1920928955078125e-07
+      }
+    },
+    "pass": false
+  },
+  "execution_commit": "218cab95409cff37c26f05a5bf155a25c0a367e5",
+  "finished_utc": "2026-09-23T20:26:56Z"
+}

@@ -1,0 +1,250 @@
+{
+  "amendment": "r0-v1.2",
+  "protocol_version": "r0-v1.2",
+  "final_implementation_amendment": true,
+  "title": "Single-implementation auditable matched LSTM",
+  "base_protocol": {
+    "branch": "research/real-data-r0-protocol",
+    "head": "d7708586fe3264fcd6e5567504cccd97104c2a2e",
+    "config_sha256": "0f62d995155b5b385e7610e397c565ce829ab5739adefa40157d506c530c283e"
+  },
+  "prior_amendment": {
+    "version": "r0-v1.1",
+    "commit": "ed9f7a2d27eae33bd7165e08cfc70911f294abf5"
+  },
+  "blocked_v1_1_execution_head": "57eb5d8055f2ecebe448190f1ded07d2b3948e8e",
+  "base_main": "b7ae44fafc4e9ea6671647c5cb73156ddaf26e5e",
+  "authorised_by": "owner decision (R0-v1.2 brief): replace the matched-LSTM scientific implementation with one explicit auditable recurrence",
+  "state_at_amendment": {
+    "execution_stage_label_reads": 0,
+    "probe_fits": 0,
+    "feature_manifest_sealed": false,
+    "r0_metrics_observed": [],
+    "available_quantities": "train-split training/validation reconstruction MSE; parity records and label-free diagnostics"
+  },
+  "matched_lstm": {
+    "implementation": "scripts/real_data_r0_lstm_v1_2.py::AuditableMatchedLSTM (AuditableLSTMLayer x 6)",
+    "backend_label": "auditable_manual_v1_2",
+    "equations": "raw = linear(x_t, W_ih, b_ih) + linear(h_{t-1}, W_hh, b_hh); i,f,g,o = raw.chunk(4) (PyTorch order input, forget, candidate, output); i,f,o = sigmoid, g = tanh; c_t = f*c_{t-1} + i*g; h_t = o*tanh(c_t); h_0 = c_0 = 0 per window",
+    "used_for": [
+      "training",
+      "validation reconstruction",
+      "test reconstruction",
+      "anomaly score",
+      "hidden",
+      "memory (cell)",
+      "input gate",
+      "retention (forget) gate",
+      "common18",
+      "internal234"
+    ],
+    "forbidden_in_scientific_path": [
+      "torch.nn.LSTM",
+      "torch.nn.LSTMCell",
+      "phase_f_lstm_observer.replay",
+      "phase_f_lstm_observer.Observer"
+    ],
+    "graph": "Linear(38,38) -> 3 encoder + 3 decoder auditable LSTM layers (width 38) -> GELU -> Linear(38,38)",
+    "trainable_parameters": 74100,
+    "initialisation": {
+      "weight_ih": "U(-1/sqrt(38), 1/sqrt(38))",
+      "weight_hh": "U(-1/sqrt(38), 1/sqrt(38))",
+      "bias_ih": "U(-1/sqrt(38), 1/sqrt(38))",
+      "bias_hh": "U(-1/sqrt(38), 1/sqrt(38))",
+      "order": "per layer weight_ih, weight_hh, bias_ih, bias_hh (nn.LSTM.reset_parameters rule and order)",
+      "input_projection": "torch.nn.Linear default: weight kaiming_uniform(a=sqrt(5)), bias U(-1/sqrt(38), 1/sqrt(38))",
+      "output_projection": "torch.nn.Linear default: weight kaiming_uniform(a=sqrt(5)), bias U(-1/sqrt(38), 1/sqrt(38))",
+      "construction": "CPU, immediately after seed_all(detector seed), module order input_projection, encoder 0-2, decoder 0-2, output_projection; then float32 and moved to GPU",
+      "from_native_checkpoint": false
+    },
+    "trace_capture": "capture=True keeps the tensors the single recurrence already computed (h, i, f, c); it never recomputes; capture on/off reconstruction must be bitwise identical",
+    "common18": "phase_f_lstm_observer.summarize (the sealed reduction; unchanged names, order, quantiles), six layers encoder.0-2, decoder.0-2",
+    "extraction_gate_v1_2": [
+      "checkpoint SHA256 and model hash equal the v1.2 training record",
+      "74,100 parameters",
+      "eval mode",
+      "trace capture OFF vs ON reconstruction bitwise on the N(0,1) canary and the fit-window canary",
+      "repeated forward bitwise",
+      "finite reconstruction, score and all traces",
+      "input/forget gates in [0,1]",
+      "common18 [N,18]",
+      "H 14 and internal234 234 on the test stream",
+      "31 warm-up rows, first finite edge 94",
+      "zero label reads"
+    ],
+    "native_comparison": "optional NON_GATING_ENGINEERING_DIAGNOSTIC only (random init); never an acceptance criterion"
+  },
+  "invalidated_native_lstm": {
+    "machine-1-8_lstm_11": {
+      "status": "INVALIDATED_BY_R0_V1_2_SINGLE_IMPLEMENTATION_LSTM_AMENDMENT",
+      "reason": "implementation changed (native nn.LSTM replaced by the auditable recurrence); not because of any result or its validation MSE",
+      "checkpoint_sha256": "86faff36e53d0f3354ab30e3db2b3ec7301e098b0c7e90b6de7a241189402d9a",
+      "train_record": "runs/train_machine-1-8_lstm_11.json",
+      "train_record_sha256": "df3bb2fb36af49b013d627385336dff4bbb049d69ce5ef314b1be8b1147b745b",
+      "stop_record": "runs/stop_v1_1_machine-1-8_lstm_11.json",
+      "stop_record_sha256": "4b511669c355547386ec563ade1961fa5599024963f7dc62e80a7f34454d2146",
+      "checkpoint_directory": "data/r0_runs/machine-1-8/lstm_11 (preserved, never read by v1.2)",
+      "feature_cache": null
+    }
+  },
+  "carried_forward_xlstm": {
+    "authorised": true,
+    "retraining": false,
+    "re_extraction": false,
+    "units": {
+      "machine-1-8_xlstm_11": {
+        "best_checkpoint_sha256": "1d67ba41b9adc3d0706982a8174b2177a943b5238aedff537bbffb1a1697b8a3",
+        "best_model_hash": "5e24daaa177b118fec1911d71f4c8f628ae63387e034fb0aa2416230f706a761",
+        "feature_cache_file": "machine-1-8/xlstm_11/features_v1_1.npz",
+        "feature_cache_sha256": "bbcc6e44a7fb7dec6daa3b456ec9f7684db593d3071263fe5b9ca1214eecc37f",
+        "extraction_record": "runs/extract_v1_1_machine-1-8_xlstm_11.json",
+        "extraction_record_sha256": "ea10a4e77163a4fb8664d8f7b85ec81b0ce4d1c537e21cf50f3fbe2a6d9502d0",
+        "train_record": "runs/train_machine-1-8_xlstm_11.json",
+        "train_record_sha256": "9b34c09a6a6ab277a2cb5e19233cf7e4a8beaa841092bee7e5564920de158cd2",
+        "extraction_backend": "vanilla_reference",
+        "record_protocol_version": "r0-v1.1",
+        "selected_epoch": 47
+      },
+      "machine-1-8_xlstm_22": {
+        "best_checkpoint_sha256": "98ff3e0125cc4578f3c4929eafe1cc3b55a68cf5b4e566236b9c7581db0f286d",
+        "best_model_hash": "69c333547ca8e979c924f89b29fbaeb9f6ee5a4d7891bb719349df510183ac73",
+        "feature_cache_file": "machine-1-8/xlstm_22/features_v1_1.npz",
+        "feature_cache_sha256": "3b8287b74e2bd68d45a325760c544c12de5993a9db26b618af56a9f0ae4d6855",
+        "extraction_record": "runs/extract_v1_1_machine-1-8_xlstm_22.json",
+        "extraction_record_sha256": "20be035332b3a56eea789bcbde372906474aea4d9420f776493b09de47c75c9d",
+        "train_record": "runs/train_machine-1-8_xlstm_22.json",
+        "train_record_sha256": "5a3de238c709727f8cac8d05197ef676f0dd5e8b5bf8dfb38cd6a2f371b39b4c",
+        "extraction_backend": "vanilla_reference",
+        "record_protocol_version": "r0-v1.1",
+        "selected_epoch": 50
+      },
+      "machine-1-8_xlstm_33": {
+        "best_checkpoint_sha256": "a0bd294e34b9cc27061c7d801ea500e85f2715a3146ffe3670704eb73a5d6e1c",
+        "best_model_hash": "db182bdb4adb28bfeae9677df851d983ab6451ed472e85cd7a5c0a5d044511f5",
+        "feature_cache_file": "machine-1-8/xlstm_33/features_v1_1.npz",
+        "feature_cache_sha256": "bbe5dd136a6193d7ba73dd81e83fbc905067ea10fe75e5fcbb6ff35bc1268e38",
+        "extraction_record": "runs/extract_v1_1_machine-1-8_xlstm_33.json",
+        "extraction_record_sha256": "4dfc11db651d348240b0e75c62fb7afd87cb77aa7deddffb83a163f3d13a3e03",
+        "train_record": "runs/train_machine-1-8_xlstm_33.json",
+        "train_record_sha256": "f86c73bd913b40a810e0bdee86fe6a510e2bfba633ee32550b2d31b0d2f4a550",
+        "extraction_backend": "vanilla_reference",
+        "record_protocol_version": "r0-v1.1",
+        "selected_epoch": 49
+      },
+      "machine-2-1_xlstm_11": {
+        "best_checkpoint_sha256": "04e50d401c41efcf8be8023453f7b169ff5c01497de7e269b4ab7bb4667355a7",
+        "best_model_hash": "29f6a16b278a2a4222c04c2f582021e55b8393005fa52f7d86c5537551dbf8aa",
+        "feature_cache_file": "machine-2-1/xlstm_11/features_v1_1.npz",
+        "feature_cache_sha256": "c09db6ed37536adb64b73147cf3f7d28c6a4c10fae6f8c203acfdd59d6364dba",
+        "extraction_record": "runs/extract_v1_1_machine-2-1_xlstm_11.json",
+        "extraction_record_sha256": "0a3c40a77e0c09da05663d5f097d8dbfd714571b3f8b599d3c21568801ed34b9",
+        "train_record": "runs/train_machine-2-1_xlstm_11.json",
+        "train_record_sha256": "14f538fe1fa4875e4ab2a4800e2c6bcd6192ef7e4b401f3f8e4c2ead007360a9",
+        "extraction_backend": "vanilla_reference",
+        "record_protocol_version": "r0-v1.1",
+        "selected_epoch": 50
+      },
+      "machine-2-1_xlstm_22": {
+        "best_checkpoint_sha256": "ed3e7012b171e5042773f7bbcde89875772216d6415b103c02f2f848b2ce36c2",
+        "best_model_hash": "d67bebfa8622cdc4e4b709ed41f85370c05c3ba19a308e6db0cc19de71ffa107",
+        "feature_cache_file": "machine-2-1/xlstm_22/features_v1_1.npz",
+        "feature_cache_sha256": "70f84f701339a8b8a60011ff732661f5313846c03d90c86ad65be91ac3c1c679",
+        "extraction_record": "runs/extract_v1_1_machine-2-1_xlstm_22.json",
+        "extraction_record_sha256": "646c65e235044d825920d7da4b8fd0c5b9f24ad3c5a795188443729e545eab31",
+        "train_record": "runs/train_machine-2-1_xlstm_22.json",
+        "train_record_sha256": "705a2baa92a84d16176ca19234ef13cafed84932bc8d3fb237739866d9c483f8",
+        "extraction_backend": "vanilla_reference",
+        "record_protocol_version": "r0-v1.1",
+        "selected_epoch": 50
+      },
+      "machine-2-1_xlstm_33": {
+        "best_checkpoint_sha256": "5450c9dc67005264db8244a0c0c353ccc9768bd1f493a68d9575783b01982c1d",
+        "best_model_hash": "2937bbb04603909d4ed600336ed2fe9439bc6a745f977cb92fc6cad566c9c47c",
+        "feature_cache_file": "machine-2-1/xlstm_33/features_v1_1.npz",
+        "feature_cache_sha256": "fa76a4360380c50044e54415246971fa61bd99a9c2b14fca32c5ec4dff29b647",
+        "extraction_record": "runs/extract_v1_1_machine-2-1_xlstm_33.json",
+        "extraction_record_sha256": "079d31f93b81732e2bbc07f06892565abb480df821083d4e1d317baeb5be460d",
+        "train_record": "runs/train_machine-2-1_xlstm_33.json",
+        "train_record_sha256": "aad0797e8d88952d5173aaa7ee420830ad703277653bb50b47113d06f396c1cb",
+        "extraction_backend": "vanilla_reference",
+        "record_protocol_version": "r0-v1.1",
+        "selected_epoch": 50
+      },
+      "machine-1-4_xlstm_11": {
+        "best_checkpoint_sha256": "e76a4b83fbb0c3adcb4defa76f49575ab9d0a1b5c0071bbaaef1135688e4097f",
+        "best_model_hash": "f1def190d6f8cf8e199948aefdbed7300646706f7c61423a5b40fc8ea3c45e27",
+        "feature_cache_file": "machine-1-4/xlstm_11/features_v1_1.npz",
+        "feature_cache_sha256": "062fb8d60236a719b179770f27a298c5fb9f1d8f7bfc6ae8990dfa9cab092747",
+        "extraction_record": "runs/extract_v1_1_machine-1-4_xlstm_11.json",
+        "extraction_record_sha256": "053ebeed029c30a7de9a2fe8cc61d010ab13c578bdf3bacb7467a5336e93f808",
+        "train_record": "runs/train_machine-1-4_xlstm_11.json",
+        "train_record_sha256": "5d9c1bb4cd972ab1aee81847e3308e5a38b44a4d5b315cd73742ec2eb33227ff",
+        "extraction_backend": "vanilla_reference",
+        "record_protocol_version": "r0-v1.1",
+        "selected_epoch": 34
+      },
+      "machine-1-4_xlstm_22": {
+        "best_checkpoint_sha256": "97160a05bad1afd5754702296efa47aabc2f00ecb7489c8e06ead3f6070424f3",
+        "best_model_hash": "74863b0f0e324a82df82359f492fbe034df449c87a467a67404d1e379b254b36",
+        "feature_cache_file": "machine-1-4/xlstm_22/features_v1_1.npz",
+        "feature_cache_sha256": "a1a6e10bc7a66de83801bdc524dc9a097a9b255e9fe0ae99f3a96a6099e2198e",
+        "extraction_record": "runs/extract_v1_1_machine-1-4_xlstm_22.json",
+        "extraction_record_sha256": "302eb286c44dc891f841b817b85f488c6ffbb49bff12c6dce727d7f23678ded4",
+        "train_record": "runs/train_machine-1-4_xlstm_22.json",
+        "train_record_sha256": "229d31fb80784e4e5e80352654789fca61397ee80fc6fdb0fc38f91c3f474712",
+        "extraction_backend": "vanilla_reference",
+        "record_protocol_version": "r0-v1.1",
+        "selected_epoch": 25
+      },
+      "machine-1-4_xlstm_33": {
+        "best_checkpoint_sha256": "c7817cd9e1b4d7af8d500eda05c588a1122667dc2104909ad0ee19ba1081a80d",
+        "best_model_hash": "77eda2c013badf98fcdcb113be0c69cc237bcfa6dbc1b5bcb317808003715aa6",
+        "feature_cache_file": "machine-1-4/xlstm_33/features_v1_1.npz",
+        "feature_cache_sha256": "9b248cc86d795d1f2d2ad4a09e8524b539bef3e26e2a90425475bfea4e510e03",
+        "extraction_record": "runs/extract_v1_1_machine-1-4_xlstm_33.json",
+        "extraction_record_sha256": "59d044845a5775eb74b4343b149ee898b8f490c39a6cee8d513f9d1e26d266c3",
+        "train_record": "runs/train_machine-1-4_xlstm_33.json",
+        "train_record_sha256": "bb7fac338e6bd6d8d183931406a375a74169793b776c71c771df9726ed61f837",
+        "extraction_backend": "vanilla_reference",
+        "record_protocol_version": "r0-v1.1",
+        "selected_epoch": 50
+      }
+    }
+  },
+  "record_files": {
+    "lstm_training": "runs/train_v1_2_<machine>_lstm_<seed>.json",
+    "lstm_extraction": "runs/extract_v1_2_<machine>_lstm_<seed>.json",
+    "lstm_cache": "data/r0_runs/<machine>/lstm_v1_2_<seed>/features_v1_2.npz",
+    "manifest": "feature_cache_manifest_v1_2.json"
+  },
+  "unchanged": [
+    "datasets, machines, raw hashes, D=38",
+    "xLSTM architecture/checkpoints/caches (carried from r0-v1.1)",
+    "matched-LSTM graph, width 38, 74,100 parameters",
+    "seeds 11/22/33",
+    "fit/validation split, W64, stride 1, right edge",
+    "epochs 50, batch 128, Adam settings, SeedSequence shuffle, lowest-validation-MSE checkpoint with earliest tie",
+    "scaler (no variance floor)",
+    "common18 reduction, history14, internal234",
+    "Design B blocks, embargo 96, label semantics",
+    "HGB family and {100,300}, validation-only selection, single probe-test evaluation",
+    "estimand, two-way and machine-only bootstraps (10,000, seed 901), classification thresholds, wording, claim boundary",
+    "detector-sanity metrics and DETECTOR_WEAK rule"
+  ],
+  "remaining_training": {
+    "lstm": [
+      "machine-1-8 seeds 11/22/33",
+      "machine-2-1 seeds 11/22/33",
+      "machine-1-4 seeds 11/22/33"
+    ],
+    "count": 9,
+    "final_total": 18,
+    "max_concurrent": 2
+  },
+  "final_manifest": {
+    "xlstm": "9 x vanilla_reference caches carried from r0-v1.1",
+    "lstm": "9 x auditable_manual_v1_2 caches"
+  },
+  "no_further_implementation_amendments": "a failure of the auditable LSTM itself (determinism, finiteness, causality, schema, checkpoint integrity) ends R0 as R0_V1_2_EXECUTION_BLOCKED; no v1.3",
+  "methods_label": "capacity-matched auditable LSTM implementation (R0-v1.2)"
+}

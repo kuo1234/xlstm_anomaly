@@ -1,0 +1,109 @@
+{
+  "stage": "extract",
+  "protocol_version": "r0-v1.1",
+  "status": "PASS",
+  "run": "machine-2-1_xlstm_11",
+  "machine": "machine-2-1",
+  "backbone": "xlstm",
+  "seed": 11,
+  "execution_commit": "12b14e6ffef347dca556ddc43eb056c73ceb1f3a",
+  "protocol_head": "d7708586fe3264fcd6e5567504cccd97104c2a2e",
+  "environment": {
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "deterministic_algorithms": false,
+    "matmul_precision": "highest",
+    "matmul_allow_tf32": false,
+    "cudnn_allow_tf32": false,
+    "torch_threads": 4,
+    "torch": "2.13.0+cu130",
+    "cuda": "13.0",
+    "device": "NVIDIA GB10",
+    "official_xlstmad": "e8b56ba27352733bb83729e85b1d6196dca70c99",
+    "xlstm": "2.0.5",
+    "lightning": "2.6.1",
+    "python": "3.12.3"
+  },
+  "extraction_backend": "vanilla_reference",
+  "observer_arch": "xlstm_reference",
+  "extraction_path": "vanilla xLSTM backend + phase_e2_observer scalar reference observer",
+  "best_checkpoint_sha256": "04e50d401c41efcf8be8023453f7b169ff5c01497de7e269b4ab7bb4667355a7",
+  "best_model_hash": "29f6a16b278a2a4222c04c2f582021e55b8393005fa52f7d86c5537551dbf8aa",
+  "checkpoint_reuse_authorised_by_v1_1": true,
+  "gate": {
+    "name": "v1_1_vanilla_reference",
+    "eval_mode": true,
+    "trainable_parameters": 75934,
+    "canary_N01": {
+      "observer_on_off": {
+        "pass": true,
+        "bitwise": true,
+        "max_abs": 0.0
+      },
+      "repeat_inference": {
+        "pass": true,
+        "bitwise": true,
+        "max_abs": 0.0
+      },
+      "reference_observer_parity": true,
+      "output_finite": true,
+      "score_finite": true,
+      "common18_finite": true,
+      "common18_shape": [
+        128,
+        18
+      ]
+    },
+    "fit_windows_machine-2-1": {
+      "observer_on_off": {
+        "pass": true,
+        "bitwise": true,
+        "max_abs": 0.0
+      },
+      "repeat_inference": {
+        "pass": true,
+        "bitwise": true,
+        "max_abs": 0.0
+      },
+      "reference_observer_parity": true,
+      "output_finite": true,
+      "score_finite": true,
+      "common18_finite": true,
+      "common18_shape": [
+        128,
+        18
+      ]
+    },
+    "pass": true
+  },
+  "threshold": 0.04164789151400328,
+  "validation_windows": 4676,
+  "test_rows": 23631,
+  "test_edge_range": [
+    63,
+    23693
+  ],
+  "first_finite_edge": 94,
+  "warmup_rows": 31,
+  "dimensions": {
+    "H": 14,
+    "internal234": 234
+  },
+  "feature_cache": {
+    "file": "data/r0_runs/machine-2-1/xlstm_11/features_v1_1.npz",
+    "sha256": "c09db6ed37536adb64b73147cf3f7d28c6a4c10fae6f8c203acfdd59d6364dba",
+    "arrays": {
+      "edges": "74dff19fcb033b2ec256a8f79cc91855ccfd4ec2d858ac43cf57a8da03e52fc8",
+      "score": "2a47b2c7d53165aa2669d44705f81e1d86e3e68f274bacd54d1ebc69c5fb46d9",
+      "internal_base18": "0779ca38bfc09cc13bc5496107a4cf42cc610d8d433c130971c919cc80f763a2",
+      "H": "6dead75a1c6c6f956334a7ef0f30a6d59ec9628b97b88dcf2c9e1b239fe1a820",
+      "internal234": "6964ddc67d5ad57d69b409b6f6323669b6adf047168ef24fb83857ebbfcf48ab",
+      "validation_edges": "c0ac1f23014bfde27697aeba0a36ceedc974c06ffc66539687d03f85283408d7",
+      "validation_score": "5e73687cc354431f98907d1b69d907ae67d4d28738dd53592f702e0df5173547"
+    }
+  },
+  "labels_read": false,
+  "label_read_count": 0,
+  "seconds": 66.77072591613978,
+  "finished_utc": "2026-09-24T04:13:02Z"
+}

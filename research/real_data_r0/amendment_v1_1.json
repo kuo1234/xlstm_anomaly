@@ -1,0 +1,189 @@
+{
+  "amendment": "r0-v1.1",
+  "protocol_version": "r0-v1.1",
+  "title": "Single-backend xLSTM scientific extraction (vanilla backend + scalar reference observer)",
+  "base_protocol": {
+    "branch": "research/real-data-r0-protocol",
+    "head": "d7708586fe3264fcd6e5567504cccd97104c2a2e",
+    "config": "research/real_data_r0/config.json",
+    "config_sha256": "0f62d995155b5b385e7610e397c565ce829ab5739adefa40157d506c530c283e"
+  },
+  "blocked_v1_execution_head": "4e743610e1a27b5c9ac5a894c77a629aa3f7a75f",
+  "base_main": "b7ae44fafc4e9ea6671647c5cb73156ddaf26e5e",
+  "authorised_by": "owner decision selecting Option 2 of research/real_data_r0/execution.md (v1 stop record)",
+  "state_at_amendment": {
+    "test_labels_read": 0,
+    "probe_fits": 0,
+    "feature_manifest_sealed": false,
+    "r0_metrics_observed": [],
+    "available_quantities": "training/validation reconstruction MSE on the original train split only; v1 parity records; result-blind parity diagnostic"
+  },
+  "change": {
+    "xlstm_scientific_extraction": {
+      "v1": "native CUDA sLSTM overlay (map_vanilla_weights) + phase_e2_fast_observer.FastStateObserver",
+      "v1_1": "vanilla backend (the training backend) + phase_e2_observer scalar reference observer via real_data_r0_models.extract_batch(model, 'xlstm_reference', x) / extract_windows(model, 'xlstm_reference', ...)",
+      "backend_label": "vanilla_reference",
+      "applies_to": [
+        "reconstruction output",
+        "reconstruction score",
+        "common18",
+        "history14",
+        "internal234",
+        "validation scores / calibration threshold",
+        "detector-sanity inputs"
+      ]
+    },
+    "cuda_overlay": "must not contribute any value to v1.1 caches, probe inputs or detector-sanity metrics; the v1 vanilla-vs-CUDA comparison is historical only; any new CUDA comparison would be NON_GATING_ENGINEERING_DIAGNOSTIC"
+  },
+  "xlstm_extraction_gate_v1_1": {
+    "inputs": [
+      "N(0,1) canary [128,64,38], torch CPU generator seed 710",
+      "first and last 64 fit-interval windows of the unit's machine"
+    ],
+    "requirements": [
+      "best.pt SHA256 equals the training record",
+      "model hash equals the training record best_model_hash",
+      "trainable parameters = 75,934",
+      "model.training is False",
+      "observer-off vs observer-on reconstruction output bitwise identical",
+      "repeated vanilla inference on the same input bitwise identical",
+      "scalar reference observer internal parity (hidden/state) passes",
+      "reconstruction output finite",
+      "score finite",
+      "common18 finite with shape [N,18]",
+      "H dimension 14 and internal234 dimension 234 on the test stream",
+      "warm-up = 31 rows, first finite edge 94, all later rows finite",
+      "no label access; no metric call"
+    ],
+    "causality": "verified per checkpoint in preflight_v1_1 (perturb a 400-row fit stream at index >= 250; earlier rows bitwise identical)",
+    "removed_from_gating_path": "vanilla-vs-CUDA reconstruction/score/common18 comparison (v1 results preserved)",
+    "failure": "fail-closed; no checkpoint substitution"
+  },
+  "lstm": "unchanged: matched LSTM trained and extracted exactly as in r0-v1 (manual replay observer, v1 parity gate: observer on/off bitwise + replay parity)",
+  "reused_checkpoints": {
+    "authorised": true,
+    "retraining": false,
+    "units": {
+      "machine-1-8_xlstm_11": {
+        "best_checkpoint_sha256": "1d67ba41b9adc3d0706982a8174b2177a943b5238aedff537bbffb1a1697b8a3",
+        "best_model_hash": "5e24daaa177b118fec1911d71f4c8f628ae63387e034fb0aa2416230f706a761",
+        "selected_epoch": 47,
+        "train_record": "runs/train_machine-1-8_xlstm_11.json"
+      },
+      "machine-1-8_xlstm_22": {
+        "best_checkpoint_sha256": "98ff3e0125cc4578f3c4929eafe1cc3b55a68cf5b4e566236b9c7581db0f286d",
+        "best_model_hash": "69c333547ca8e979c924f89b29fbaeb9f6ee5a4d7891bb719349df510183ac73",
+        "selected_epoch": 50,
+        "train_record": "runs/train_machine-1-8_xlstm_22.json"
+      },
+      "machine-1-8_xlstm_33": {
+        "best_checkpoint_sha256": "a0bd294e34b9cc27061c7d801ea500e85f2715a3146ffe3670704eb73a5d6e1c",
+        "best_model_hash": "db182bdb4adb28bfeae9677df851d983ab6451ed472e85cd7a5c0a5d044511f5",
+        "selected_epoch": 49,
+        "train_record": "runs/train_machine-1-8_xlstm_33.json"
+      },
+      "machine-2-1_xlstm_11": {
+        "best_checkpoint_sha256": "04e50d401c41efcf8be8023453f7b169ff5c01497de7e269b4ab7bb4667355a7",
+        "best_model_hash": "29f6a16b278a2a4222c04c2f582021e55b8393005fa52f7d86c5537551dbf8aa",
+        "selected_epoch": 50,
+        "train_record": "runs/train_machine-2-1_xlstm_11.json"
+      },
+      "machine-2-1_xlstm_22": {
+        "best_checkpoint_sha256": "ed3e7012b171e5042773f7bbcde89875772216d6415b103c02f2f848b2ce36c2",
+        "best_model_hash": "d67bebfa8622cdc4e4b709ed41f85370c05c3ba19a308e6db0cc19de71ffa107",
+        "selected_epoch": 50,
+        "train_record": "runs/train_machine-2-1_xlstm_22.json"
+      },
+      "machine-2-1_xlstm_33": {
+        "best_checkpoint_sha256": "5450c9dc67005264db8244a0c0c353ccc9768bd1f493a68d9575783b01982c1d",
+        "best_model_hash": "2937bbb04603909d4ed600336ed2fe9439bc6a745f977cb92fc6cad566c9c47c",
+        "selected_epoch": 50,
+        "train_record": "runs/train_machine-2-1_xlstm_33.json"
+      }
+    }
+  },
+  "invalidated_v1_caches": {
+    "machine-1-8_xlstm_11": {
+      "v1_cache_sha256": "e321c469a3e4787cd443b950fbf94c2cf5cbae5da9bce626c290ce1fcd641737",
+      "v1_extract_record": "runs/extract_machine-1-8_xlstm_11.json",
+      "v1_extraction_path": "CUDA overlay + FastStateObserver",
+      "status": "INVALIDATED_BY_R0_V1_1_EXTRACTION_AMENDMENT",
+      "v1_cache_file_after_amendment": "data/r0_runs/<machine>/xlstm_<seed>/features_v1_cuda_invalidated.npz"
+    },
+    "machine-1-8_xlstm_22": {
+      "v1_cache_sha256": "d3ee6d3c72cfa42d44c80845ad6505d3cb3d07dd2d18b8c96fe88126425e7320",
+      "v1_extract_record": "runs/extract_machine-1-8_xlstm_22.json",
+      "v1_extraction_path": "CUDA overlay + FastStateObserver",
+      "status": "INVALIDATED_BY_R0_V1_1_EXTRACTION_AMENDMENT",
+      "v1_cache_file_after_amendment": "data/r0_runs/<machine>/xlstm_<seed>/features_v1_cuda_invalidated.npz"
+    },
+    "machine-1-8_xlstm_33": {
+      "v1_cache_sha256": "bb7ed79191ad6f4dfa872aed0ffd42f007ea60f47d398d28e1a6f977538b7947",
+      "v1_extract_record": "runs/extract_machine-1-8_xlstm_33.json",
+      "v1_extraction_path": "CUDA overlay + FastStateObserver",
+      "status": "INVALIDATED_BY_R0_V1_1_EXTRACTION_AMENDMENT",
+      "v1_cache_file_after_amendment": "data/r0_runs/<machine>/xlstm_<seed>/features_v1_cuda_invalidated.npz"
+    },
+    "machine-2-1_xlstm_11": {
+      "v1_cache_sha256": "d14b2ef7a16116597346fc4a850ffe096545047ebcfa015b55019ca12da80fc0",
+      "v1_extract_record": "runs/extract_machine-2-1_xlstm_11.json",
+      "v1_extraction_path": "CUDA overlay + FastStateObserver",
+      "status": "INVALIDATED_BY_R0_V1_1_EXTRACTION_AMENDMENT",
+      "v1_cache_file_after_amendment": "data/r0_runs/<machine>/xlstm_<seed>/features_v1_cuda_invalidated.npz"
+    },
+    "machine-2-1_xlstm_22": {
+      "v1_cache_sha256": null,
+      "v1_extract_record": "runs/extract_machine-2-1_xlstm_22.json",
+      "v1_status": "STOP_CHECKPOINT_PARITY",
+      "status": "NO_V1_CACHE (v1 STOP_CHECKPOINT_PARITY)",
+      "v1_cache_file_after_amendment": null
+    },
+    "machine-2-1_xlstm_33": {
+      "v1_cache_sha256": "9b3169949119db563f81ca7840f55a669bdd504af4d89b289cd986377db267d2",
+      "v1_extract_record": "runs/extract_machine-2-1_xlstm_33.json",
+      "v1_extraction_path": "CUDA overlay + FastStateObserver",
+      "status": "INVALIDATED_BY_R0_V1_1_EXTRACTION_AMENDMENT",
+      "v1_cache_file_after_amendment": "data/r0_runs/<machine>/xlstm_<seed>/features_v1_cuda_invalidated.npz"
+    }
+  },
+  "record_files": {
+    "extraction": "research/real_data_r0/runs/extract_v1_1_<machine>_<backbone>_<seed>.json",
+    "cache": "data/r0_runs/<machine>/<backbone>_<seed>/features_v1_1.npz",
+    "manifest": "research/real_data_r0/feature_cache_manifest_v1_1.json",
+    "v1_records": "runs/extract_<unit>.json kept unchanged as v1 history; never read by v1.1 sealing/probe"
+  },
+  "unchanged": [
+    "datasets and machines",
+    "raw hashes",
+    "D=38",
+    "architectures and parameter counts (75,934 / 74,100)",
+    "seeds 11/22/33",
+    "fit/validation split",
+    "W64 / stride 1 / right edge",
+    "epochs, optimizer, shuffling, checkpoint selection",
+    "scaler",
+    "Design B blocks and 96-row embargo",
+    "H and internal234 definitions",
+    "HGB family and {100,300} budget",
+    "validation-only selection, tie -> 100, single probe-test evaluation",
+    "probe label rules",
+    "two-way and machine-only bootstraps (10,000 draws, seed 901)",
+    "classification thresholds and wording",
+    "claim boundary",
+    "detector-sanity metrics and DETECTOR_WEAK rule"
+  ],
+  "remaining_training": {
+    "xlstm": [
+      "machine-1-4 seeds 11/22/33"
+    ],
+    "lstm": [
+      "machine-1-8 seeds 11/22/33",
+      "machine-2-1 seeds 11/22/33",
+      "machine-1-4 seeds 11/22/33"
+    ],
+    "count": 12,
+    "final_total": 18,
+    "max_concurrent": 2
+  },
+  "sealing_requirement": "18 PASS training records, 18 PASS v1.1 extraction records, 9 xLSTM caches with backend vanilla_reference and 9 LSTM caches with the v1 LSTM path; manifest committed and pushed before any label read"
+}

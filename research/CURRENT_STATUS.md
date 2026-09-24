@@ -166,6 +166,7 @@ observable representation. See `input_derived_observable_control/`.
 | **L1c** | the increment survives a temporally matched **residual-derived** observable control (O1r) under the fixed L2 logistic probe | **PARTIALLY SUPPORTED** (A+/A+S, exploratory; converged, grid-stable; the backbone asymmetry here is largely a linear-probe effect, see L1c-NL) |
 | **L1c-NL** | the same O1r increment survives a fixed bounded nonlinear decoder (HGB) | **PARTIALLY SUPPORTED** (exploratory; `+0.015165` / `+0.011252`, 30/30 cells each, both below the `+0.02` reference; xLSTM attenuated about 42 %, LSTM unchanged) |
 | **L1c-P** | `internal234` retains additional predictive/decodable utility under the fixed decoder beyond the temporally matched **input-derived observable summary** P1r (the last bounded input-derived control) | **NOT SUPPORTED at this resolution** — `NO_RESOLVED_ADDITIONAL_UTILITY` for both backbones (xLSTM −0.000233 [−0.000761, +0.000291]; LSTM +0.000289 [−0.000415, +0.000959]); closes the predeclared synthetic input-derived-control stage, not every possible observable representation |
+| **L1d** | real SMD (source-native, 3 machines, Design B within-machine): internal state adds utility over causal score/history | **NOT SUPPORTED at R0 resolution** — `R0_NO_RESOLVED_INCREMENT` for both backbones (xLSTM mean ΔAP +0.0416, 5/9 positive, two-way [−0.1035, +0.2010]; auditable matched LSTM +0.0258, 5/9, [−0.2093, +0.2361]); exploratory intervals; machine-1-4 positive in all cells, not resolved across machines |
 | — | information-theoretic superiority of `internal234` over the full causal observation | **OUT OF SCOPE IN PRINCIPLE** — `internal234` is a deterministic function of the causal input window |
 | **L2** | usable online decision rule without evaluator labels | **NOT TESTED** |
 | **L3** | xLSTM specificity | **UNSUPPORTED** (H3a STOP) |
@@ -186,6 +187,9 @@ comparison**, not the source of the headline novelty. The mLSTM line remains a
 secondary exploratory mechanism analysis. Rationale and prior-art boundary:
 `framing-refresh-2026-09/`.
 
+R0 (source-native SMD, L1d) did not resolve an increment over score/history for
+either backbone (`R0_NO_RESOLVED_INCREMENT`).
+
 The synthetic ladder is now complete. The measurement claim holds relative
 to score/history (L1a) and, in exploratory studies, relative to residual-derived
 summaries (L1b, L1c, L1c-NL). Relative to the bounded input-derived summary P1r
@@ -199,19 +203,53 @@ predeclared, P1r authorises no further observable summary, decoder, HGB budget,
 MLP/CNN, W128/W256, persistent-state experiment or post-hoc rescue control.
 
 **The next scientific stage is R0: real-data recurrent-state measurement
-validation.** It is not started. It requires its own prospective protocol based
-on this post-P1r `main`. Known prerequisites:
+validation.** Its protocol is sealed on `research/real-data-r0-protocol`
+(`research/real_data_r0/`): three SMD machines (machine-1-8, machine-2-1,
+machine-1-4), H vs H+internal234, Design B (within-machine blocked probe; the
+comparability audit found 4/18 base statistics polarity-dependent across
+independently trained detectors), 18 planned detector fits (xLSTM 75,934 /
+matched LSTM w=38 74,100 parameters at D=38). Raw bytes are verified (9/9) and
+preserved git-ignored under `data/external_real/r0_smd/` in the GB10 primary
+checkout; the result-blind preflight passed.
 
-- **SMD `machine-1-8`.** Raw bytes must be reacquired and verified against the
-  existing Phase A hash seal (`reports/phase_a/smd_seal.json`) before use.
-- **SMD `machine-1-4` and `machine-2-1`.** Raw bytes and provenance were
-  acquired and recorded under `research/real-data-feasibility-audit@8f6ee87`.
-  `machine-2-1` matches the Phase A seal. The bytes are git-ignored and live in
-  that branch's separate worktree.
-- **No worktree pruning yet.** Do not prune any worktree that may still hold
-  git-ignored real-data bytes until those bytes are verified reproducible or
-  copied to the intended GB10 data location.
-- **No SMD training** until the R0 protocol is sealed.
+**Execution status: R0_EXECUTION_BLOCKED** (branch
+`experiment/real-data-r0-execution`). Six of 18 detectors were trained
+(xLSTM, machine-1-8 and machine-2-1); the checkpoint parity gate of
+machine-2-1 / xLSTM / seed 22 failed (1 of 311,296 canary reconstruction
+outputs beyond the frozen vanilla-vs-CUDA tolerance; score and common18 agree
+to ≤ 3.6e-7), so R0 stopped fail-closed. No label was read, no probe was fitted
+and no R0 result exists (not a null result). Continuing needs an owner-approved,
+result-blind amendment; see `research/real_data_r0/execution.md`.
+
+**r0-v1.1 (owner Option 2: vanilla/reference xLSTM extraction): R0_V1_1_EXECUTION_BLOCKED.**
+All nine xLSTM detectors are trained/reused and extracted on the single vanilla
+path (six v1 checkpoints reused without retraining; five v1 CUDA caches
+invalidated). The sealed matched-LSTM observer then failed its replay-parity
+check on one of 185 test batches of machine-1-8 / LSTM / seed 11 (max |Δ|
+3.08e-5 in `decoder.2` hidden sequence), so R0 stopped again: 10/18 detector
+fits, 9/18 feature caches, nothing sealed, no label read, no result. Owner
+decision required (`execution.md`, r0-v1.1 section).
+
+**r0-v1.2 (owner-authorised final implementation amendment: single-implementation
+auditable matched LSTM): `SMD_R0_V1_2_COMPLETE`.** The nine xLSTM v1.1 caches were
+carried forward by hash; the native LSTM checkpoint was invalidated; nine
+auditable matched LSTMs were retrained and extracted (all gates bitwise PASS);
+the 18-cache manifest was sealed and pushed before any label read; the unchanged
+probe/aggregate/sanity/report stages ran once. Both backbones are
+`R0_NO_RESOLVED_INCREMENT`: "R0 does not resolve additional real-data predictive
+utility of internal state beyond score/history under the frozen diagnostic."
+machine-1-4 is positive in all six cells (its scores are dominated by a
+near-constant channel), machine-2-1 and machine-1-8 are mostly negative or mixed.
+See `research/real_data_r0/results.md` and `scientific_assessment.md`. Next: owner
+review. Zero-shot, test-time adaptation and HAI R1 remain deferred until that
+review (ZERO_SHOT_NOT_STARTED).
+
+- **No SMD training** outside the sealed R0 execution contract.
+- **Feasibility worktree.** Its SMD bytes are now copied to the stable GB10
+  location and are reproducible from the pinned public URL; it still holds
+  non-SMD feasibility files, so pruning it remains the owner's decision.
+- **R1** (HAI 22.04) is recorded prospectively and is gated only on acquisition,
+  provenance and compatibility, never on the R0 outcome.
 
 ## Branches
 

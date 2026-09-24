@@ -1,0 +1,264 @@
+{
+  "stage": "detector_sanity",
+  "rows_definition": "all test right edges t in [63, test_N)",
+  "label": "window_any_anomaly",
+  "detectors": {
+    "machine-1-8_xlstm_11": {
+      "machine": "machine-1-8",
+      "backbone": "xlstm",
+      "seed": 11,
+      "ap": 0.2949997415549338,
+      "auroc": 0.6560575481768316,
+      "recall_at_threshold": 0.7603388141504733,
+      "fpr_at_threshold": 0.7204216561098525,
+      "window_prevalence": 0.08491284481299713,
+      "threshold": 0.0040151167660951595,
+      "detector_weak_flag": false
+    },
+    "machine-1-8_xlstm_22": {
+      "machine": "machine-1-8",
+      "backbone": "xlstm",
+      "seed": 22,
+      "ap": 0.3074637917450998,
+      "auroc": 0.672368657085655,
+      "recall_at_threshold": 0.752366716492277,
+      "fpr_at_threshold": 0.6425632252993666,
+      "window_prevalence": 0.08491284481299713,
+      "threshold": 0.003993426635861396,
+      "detector_weak_flag": false
+    },
+    "machine-1-8_xlstm_33": {
+      "machine": "machine-1-8",
+      "backbone": "xlstm",
+      "seed": 33,
+      "ap": 0.30908773681085544,
+      "auroc": 0.6872663510253758,
+      "recall_at_threshold": 0.8824115595416044,
+      "fpr_at_threshold": 0.6948541310277868,
+      "window_prevalence": 0.08491284481299713,
+      "threshold": 0.002704952331259845,
+      "detector_weak_flag": false
+    },
+    "machine-2-1_xlstm_11": {
+      "machine": "machine-2-1",
+      "backbone": "xlstm",
+      "seed": 11,
+      "ap": 0.6393112073161048,
+      "auroc": 0.8491105478988518,
+      "recall_at_threshold": 0.6711915535444947,
+      "fpr_at_threshold": 0.05461602439700582,
+      "window_prevalence": 0.08416909991113368,
+      "threshold": 0.04164789151400328,
+      "detector_weak_flag": false
+    },
+    "machine-2-1_xlstm_22": {
+      "machine": "machine-2-1",
+      "backbone": "xlstm",
+      "seed": 22,
+      "ap": 0.6711385646607816,
+      "auroc": 0.8594941757338403,
+      "recall_at_threshold": 0.6405228758169934,
+      "fpr_at_threshold": 0.040384437667498385,
+      "window_prevalence": 0.08416909991113368,
+      "threshold": 0.05400071386247873,
+      "detector_weak_flag": false
+    },
+    "machine-2-1_xlstm_33": {
+      "machine": "machine-2-1",
+      "backbone": "xlstm",
+      "seed": 33,
+      "ap": 0.6340838832965869,
+      "auroc": 0.8507681026720803,
+      "recall_at_threshold": 0.6747109100050277,
+      "fpr_at_threshold": 0.07901303021901858,
+      "window_prevalence": 0.08416909991113368,
+      "threshold": 0.04230171162635088,
+      "detector_weak_flag": false
+    },
+    "machine-1-4_xlstm_11": {
+      "machine": "machine-1-4",
+      "backbone": "xlstm",
+      "seed": 11,
+      "ap": 0.2071243072371638,
+      "auroc": 0.6790600620391805,
+      "recall_at_threshold": 0.11449864498644986,
+      "fpr_at_threshold": 0.025351858534824974,
+      "window_prevalence": 0.062425985450854336,
+      "threshold": 260.5995361327614,
+      "detector_weak_flag": false
+    },
+    "machine-1-4_xlstm_22": {
+      "machine": "machine-1-4",
+      "backbone": "xlstm",
+      "seed": 22,
+      "ap": 0.18745539136815703,
+      "auroc": 0.602482985313433,
+      "recall_at_threshold": 0.11449864498644986,
+      "fpr_at_threshold": 0.025351858534824974,
+      "window_prevalence": 0.062425985450854336,
+      "threshold": 266.45220031733237,
+      "detector_weak_flag": false
+    },
+    "machine-1-4_xlstm_33": {
+      "machine": "machine-1-4",
+      "backbone": "xlstm",
+      "seed": 33,
+      "ap": 0.19181221148367697,
+      "auroc": 0.609168428893329,
+      "recall_at_threshold": 0.11449864498644986,
+      "fpr_at_threshold": 0.025351858534824974,
+      "window_prevalence": 0.062425985450854336,
+      "threshold": 255.30564270014278,
+      "detector_weak_flag": false
+    },
+    "machine-1-8_lstm_11": {
+      "machine": "machine-1-8",
+      "backbone": "lstm",
+      "seed": 11,
+      "ap": 0.30525170464258056,
+      "auroc": 0.7205172229620389,
+      "recall_at_threshold": 0.9088191330343797,
+      "fpr_at_threshold": 0.7006334088492302,
+      "window_prevalence": 0.08491284481299713,
+      "threshold": 0.15789064466953276,
+      "detector_weak_flag": false
+    },
+    "machine-1-8_lstm_22": {
+      "machine": "machine-1-8",
+      "backbone": "lstm",
+      "seed": 22,
+      "ap": 0.31582502778596944,
+      "auroc": 0.7433751046979384,
+      "recall_at_threshold": 0.9546586945690084,
+      "fpr_at_threshold": 0.6223126358130288,
+      "window_prevalence": 0.08491284481299713,
+      "threshold": 0.13794023394584654,
+      "detector_weak_flag": false
+    },
+    "machine-1-8_lstm_33": {
+      "machine": "machine-1-8",
+      "backbone": "lstm",
+      "seed": 33,
+      "ap": 0.34119375652261275,
+      "auroc": 0.7798735564273942,
+      "recall_at_threshold": 0.931738913801694,
+      "fpr_at_threshold": 0.6076101530352767,
+      "window_prevalence": 0.08491284481299713,
+      "threshold": 0.1767114609479904,
+      "detector_weak_flag": false
+    },
+    "machine-2-1_lstm_11": {
+      "machine": "machine-2-1",
+      "backbone": "lstm",
+      "seed": 11,
+      "ap": 0.5230651958314295,
+      "auroc": 0.8012063182361132,
+      "recall_at_threshold": 0.5947712418300654,
+      "fpr_at_threshold": 0.11459199704278718,
+      "window_prevalence": 0.08416909991113368,
+      "threshold": 0.32001400738954544,
+      "detector_weak_flag": false
+    },
+    "machine-2-1_lstm_22": {
+      "machine": "machine-2-1",
+      "backbone": "lstm",
+      "seed": 22,
+      "ap": 0.5250170732138308,
+      "auroc": 0.7890255289593179,
+      "recall_at_threshold": 0.6148818501759679,
+      "fpr_at_threshold": 0.13506145457905924,
+      "window_prevalence": 0.08416909991113368,
+      "threshold": 0.22252461314201355,
+      "detector_weak_flag": false
+    },
+    "machine-2-1_lstm_33": {
+      "machine": "machine-2-1",
+      "backbone": "lstm",
+      "seed": 33,
+      "ap": 0.5554187577060898,
+      "auroc": 0.8202850870621057,
+      "recall_at_threshold": 0.7018602312719959,
+      "fpr_at_threshold": 0.13737177710008316,
+      "window_prevalence": 0.08416909991113368,
+      "threshold": 0.32792600244283676,
+      "detector_weak_flag": false
+    },
+    "machine-1-4_lstm_11": {
+      "machine": "machine-1-4",
+      "backbone": "lstm",
+      "seed": 11,
+      "ap": 0.21445063339688725,
+      "auroc": 0.6759726201443718,
+      "recall_at_threshold": 0.11449864498644986,
+      "fpr_at_threshold": 0.025351858534824974,
+      "window_prevalence": 0.062425985450854336,
+      "threshold": 284.465844726505,
+      "detector_weak_flag": false
+    },
+    "machine-1-4_lstm_22": {
+      "machine": "machine-1-4",
+      "backbone": "lstm",
+      "seed": 22,
+      "ap": 0.20078805383608872,
+      "auroc": 0.6375626039732069,
+      "recall_at_threshold": 0.11449864498644986,
+      "fpr_at_threshold": 0.025351858534824974,
+      "window_prevalence": 0.062425985450854336,
+      "threshold": 284.91866455072216,
+      "detector_weak_flag": false
+    },
+    "machine-1-4_lstm_33": {
+      "machine": "machine-1-4",
+      "backbone": "lstm",
+      "seed": 33,
+      "ap": 0.1800157308593433,
+      "auroc": 0.5611449100439219,
+      "recall_at_threshold": 0.11449864498644986,
+      "fpr_at_threshold": 0.025351858534824974,
+      "window_prevalence": 0.062425985450854336,
+      "threshold": 290.38082580560416,
+      "detector_weak_flag": false
+    }
+  },
+  "near_constant_channel_note": {
+    "machine-1-8": {
+      "zero_std_channels": [
+        4,
+        7,
+        16,
+        17,
+        26,
+        28,
+        36,
+        37
+      ],
+      "smallest_std_channel": 22,
+      "smallest_std": 0.005075974905984042
+    },
+    "machine-2-1": {
+      "zero_std_channels": [
+        7,
+        26,
+        28,
+        36,
+        37
+      ],
+      "smallest_std_channel": 17,
+      "smallest_std": 0.0015243456123126844
+    },
+    "machine-1-4": {
+      "zero_std_channels": [
+        7,
+        16,
+        26,
+        28,
+        36,
+        37
+      ],
+      "smallest_std_channel": 17,
+      "smallest_std": 1.6854016596710963e-05
+    }
+  },
+  "status": "diagnostic context only; never used to select seeds, backbones, machines or cells",
+  "finished_utc": "2026-09-24T09:32:04Z"
+}

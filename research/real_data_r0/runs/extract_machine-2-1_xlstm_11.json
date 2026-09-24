@@ -1,0 +1,115 @@
+{
+  "stage": "extract",
+  "status": "PASS",
+  "run": "machine-2-1_xlstm_11",
+  "machine": "machine-2-1",
+  "backbone": "xlstm",
+  "seed": 11,
+  "execution_commit": "35aa35965563ef5e1b72595e86c05e6a1fc45cd5",
+  "protocol_head": "d7708586fe3264fcd6e5567504cccd97104c2a2e",
+  "environment": {
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "deterministic_algorithms": false,
+    "matmul_precision": "highest",
+    "matmul_allow_tf32": false,
+    "cudnn_allow_tf32": false,
+    "torch_threads": 4,
+    "torch": "2.13.0+cu130",
+    "cuda": "13.0",
+    "device": "NVIDIA GB10",
+    "official_xlstmad": "e8b56ba27352733bb83729e85b1d6196dca70c99",
+    "xlstm": "2.0.5",
+    "lightning": "2.6.1",
+    "python": "3.12.3"
+  },
+  "extraction_path": "CUDA overlay + FastStateObserver",
+  "best_checkpoint_sha256": "04e50d401c41efcf8be8023453f7b169ff5c01497de7e269b4ab7bb4667355a7",
+  "best_model_hash": "29f6a16b278a2a4222c04c2f582021e55b8393005fa52f7d86c5537551dbf8aa",
+  "parity": {
+    "canary_N01": {
+      "reference_observer_on_off": {
+        "pass": true,
+        "bitwise": true,
+        "max_abs": 0.0
+      },
+      "fast_observer_on_off": {
+        "pass": true,
+        "bitwise": true,
+        "max_abs": 0.0
+      },
+      "vanilla_vs_cuda_output": {
+        "pass": true,
+        "bitwise": false,
+        "max_abs": 1.52587890625e-05
+      },
+      "reference_vs_fast_score": {
+        "pass": true,
+        "bitwise": false,
+        "max_abs": 3.5762786865234375e-07
+      },
+      "reference_vs_fast_common18": {
+        "pass": true,
+        "bitwise": false,
+        "max_abs": 2.384185791015625e-07
+      }
+    },
+    "fit_windows_machine-2-1": {
+      "reference_observer_on_off": {
+        "pass": true,
+        "bitwise": true,
+        "max_abs": 0.0
+      },
+      "fast_observer_on_off": {
+        "pass": true,
+        "bitwise": true,
+        "max_abs": 0.0
+      },
+      "vanilla_vs_cuda_output": {
+        "pass": true,
+        "bitwise": false,
+        "max_abs": 1.52587890625e-05
+      },
+      "reference_vs_fast_score": {
+        "pass": true,
+        "bitwise": false,
+        "max_abs": 8.149072527885437e-09
+      },
+      "reference_vs_fast_common18": {
+        "pass": true,
+        "bitwise": false,
+        "max_abs": 2.384185791015625e-07
+      }
+    },
+    "pass": true
+  },
+  "threshold": 0.04164783004671335,
+  "validation_windows": 4676,
+  "test_rows": 23631,
+  "test_edge_range": [
+    63,
+    23693
+  ],
+  "first_finite_edge": 94,
+  "warmup_rows": 31,
+  "dimensions": {
+    "H": 14,
+    "internal234": 234
+  },
+  "feature_cache": {
+    "file": "data/r0_runs/machine-2-1/xlstm_11/features.npz",
+    "sha256": "d14b2ef7a16116597346fc4a850ffe096545047ebcfa015b55019ca12da80fc0",
+    "arrays": {
+      "edges": "74dff19fcb033b2ec256a8f79cc91855ccfd4ec2d858ac43cf57a8da03e52fc8",
+      "score": "f6cb93c35b962b867890b9d66a143534849caa9301b6b9734d68926c61d2ad4e",
+      "internal_base18": "e9b12bac967e2bd9eae54d1e6b55f82a02e6b799a49f74247f8d33124d4b05da",
+      "H": "e422774e691160ba882a5c593a65b33a90728bed3a20e8d9a132dfe47b7a4999",
+      "internal234": "ec047c286e06a71c9e873542b5cd18d070a2894e8a1cdf3a42c82fefcc5487b0",
+      "validation_edges": "c0ac1f23014bfde27697aeba0a36ceedc974c06ffc66539687d03f85283408d7",
+      "validation_score": "2c3f5624f91a5ce47aeee85a89164f34adbe16540396d0e91fb7bea50bac6773"
+    }
+  },
+  "labels_read": false,
+  "seconds": 27.90521898213774,
+  "finished_utc": "2026-09-23T19:49:16Z"
+}
