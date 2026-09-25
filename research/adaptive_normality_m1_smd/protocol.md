@@ -2,7 +2,7 @@
 
 ## Status and scope
 
-This is a preregistration and implementation audit. No scientific detector result has been observed. The result-blind implementation amendment in [implementation_amendment.md](implementation_amendment.md) corrects readiness language before any M1 model execution. The current status is **M1_SMD_PROTOCOL_READY — IMPLEMENTATION_PENDING**. The status `M1_SMD_READY_FOR_EXECUTION` is reserved until the implementation preflight passes. The branch is based on research commit a04bccfe5ecb94e50de99c061011cb26acca755d, with current-main history merged normally.
+This is a preregistration and implementation audit. No scientific detector result has been observed. The result-blind implementation amendment in [implementation_amendment.md](implementation_amendment.md) recorded `M1_SMD_PROTOCOL_READY — IMPLEMENTATION_PENDING` before any M1 model forward. The machine-readable preflight now passes and the current implementation status is `M1_SMD_READY_FOR_STAGE1_EXECUTION`; this is code readiness, not a detector result and not evidence that Stage 1 has started. The branch preserves scientific commit `44b5c050cce2a0500c0edc1369ac313a66c6f2e2` and has the latest main history merged normally.
 
 The primary question is:
 
@@ -82,4 +82,4 @@ Stage 2 confirms stability only if the same gain margin and machine-win conditio
 
 ## Execution boundary
 
-The protocol is frozen, while implementation is pending until the machine-readable preflight passes. A later `M1_SMD_READY_FOR_EXECUTION` status will not itself launch Stage 1. No transfer or zero-shot stage is scheduled here. ZERO_SHOT_NOT_STARTED.
+The protocol is frozen and the implementation preflight has passed. `M1_SMD_READY_FOR_STAGE1_EXECUTION` does not itself launch Stage 1. No transfer or zero-shot stage is scheduled here. ZERO_SHOT_NOT_STARTED.

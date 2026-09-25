@@ -1,0 +1,746 @@
+{
+  "anomaly_metrics_computed": false,
+  "canary_hyperparameters": {
+    "D": 38,
+    "W": 256,
+    "batch_size": 128,
+    "bounded_batches_per_case": 4,
+    "learning_rate": 0.001,
+    "max_epochs": 50,
+    "seed": 11,
+    "validation_batches": 4
+  },
+  "canary_training_started": true,
+  "complete_epoch_decision": {
+    "complete_epoch_authorized_by_canary_rule": true,
+    "projected_total_seconds": 548.5134816659029,
+    "rule": "run one complete epoch for all nine arm/machine cases only if each projected epoch is <=600 s and their sum is <=1800 s",
+    "threshold_seconds_per_case": 600.0,
+    "threshold_total_seconds": 1800.0
+  },
+  "environment": {
+    "cuda_available": true,
+    "device_index": 0,
+    "gpu_free_memory_after_canary_bytes": 7207804928,
+    "gpu_free_memory_before_canary_bytes": 2695532544,
+    "gpu_name": "NVIDIA GB10",
+    "gpu_total_memory_bytes": 130663231488,
+    "packages": {
+      "lightning": "2.6.1",
+      "numpy": "1.26.4",
+      "torch": "2.13.0+cu130",
+      "torch_metadata": "2.13.0",
+      "xlstm": "2.0.5"
+    },
+    "platform": "Linux-6.17.0-1026-nvidia-aarch64-with-glibc2.39",
+    "python": "3.12.3",
+    "torch_cuda": "13.0",
+    "torch_threads": 20
+  },
+  "full_stage1_training_started": false,
+  "machines": [
+    {
+      "arms": [
+        {
+          "arm": "xLSTMAD-R",
+          "arm_key": "xlstmad_r",
+          "bounded_batches": 4,
+          "bounded_peak_allocated_bytes": 3775744512,
+          "bounded_peak_reserved_bytes": 3854565376,
+          "bounded_train": {
+            "complete_epoch": false,
+            "loss": 1.879800260066986,
+            "optimizer_steps": 4,
+            "order_sha256": "2611afe5f47bbb4f7a510fde4ae9b9d395eef2eafed022c0a96bcdc91d43fc02",
+            "seconds": 4.9657256826758385,
+            "steps_per_second": 0.8055217415563225,
+            "windows": 512,
+            "windows_per_second": 103.10678291920928
+          },
+          "bounded_validation": {
+            "batches": 4,
+            "loss": 3.9322667717933655,
+            "seconds": 0.7381576523184776,
+            "windows": 512,
+            "windows_per_second": 693.6187661156941
+          },
+          "checkpoint_bytes": 331385,
+          "checkpoint_io_seconds": [
+            0.019805343821644783
+          ],
+          "complete_epoch": true,
+          "complete_epoch_measurement": {
+            "checkpoint_bytes": 331385,
+            "checkpoint_io_seconds": [
+              0.01680043153464794
+            ],
+            "epoch_duration_seconds": 112.26116056460887,
+            "fit_windows_per_second": 152.48696361963349,
+            "optimizer_steps_per_second": 1.195609883204477,
+            "peak_allocated_bytes": 3776498176,
+            "peak_reserved_bytes": 3854565376,
+            "train": {
+              "complete_epoch": true,
+              "loss": 1.1900217276364338,
+              "optimizer_steps": 128,
+              "order_sha256": "eafce418f702c308a1f8a9e1380a92850151731ea42ab697a405d51a2995f5d9",
+              "seconds": 107.05833215173334,
+              "steps_per_second": 1.195609883204477,
+              "windows": 16325,
+              "windows_per_second": 152.48696361963349
+            },
+            "validation": {
+              "batches": 28,
+              "loss": 0.7942327478134629,
+              "seconds": 5.202828412875533,
+              "windows": 3553,
+              "windows_per_second": 682.8977852137747
+            }
+          },
+          "fit_windows_per_epoch": 16325,
+          "forward_inference": {
+            "batches": 4,
+            "seconds": 0.7339703375473619,
+            "windows": 512,
+            "windows_per_second": 697.5758744023651
+          },
+          "parameter_count": 75934,
+          "projected_one_epoch_seconds_from_bounded_throughput": 163.42435230271258
+        },
+        {
+          "arm": "xLSTMAD-F",
+          "arm_key": "xlstmad_f",
+          "bounded_batches": 4,
+          "bounded_peak_allocated_bytes": 2593713664,
+          "bounded_peak_reserved_bytes": 3854565376,
+          "bounded_train": {
+            "complete_epoch": false,
+            "loss": 1.387563705444336,
+            "optimizer_steps": 4,
+            "order_sha256": "618a5b858219837dc0da5f75d031918173b3c1fccdd72c0c72d21483d897c1e8",
+            "seconds": 1.3600331293419003,
+            "steps_per_second": 2.9411048258328383,
+            "windows": 512,
+            "windows_per_second": 376.4614177066033
+          },
+          "bounded_validation": {
+            "batches": 4,
+            "loss": 3.4681652784347534,
+            "seconds": 0.406944883055985,
+            "windows": 512,
+            "windows_per_second": 1258.1556405258011
+          },
+          "checkpoint_bytes": 350919,
+          "checkpoint_io_seconds": [
+            0.010901641100645065
+          ],
+          "complete_epoch": true,
+          "complete_epoch_measurement": {
+            "checkpoint_bytes": 350919,
+            "checkpoint_io_seconds": [
+              0.008457977324724197
+            ],
+            "epoch_duration_seconds": 39.895857154391706,
+            "fit_windows_per_second": 431.31864192853146,
+            "optimizer_steps_per_second": 3.3820623723874066,
+            "peak_allocated_bytes": 2594373120,
+            "peak_reserved_bytes": 3854565376,
+            "train": {
+              "complete_epoch": true,
+              "loss": 1.3944892420017436,
+              "optimizer_steps": 128,
+              "order_sha256": "86d7db8cbaf7110fc7e61aff851ddcc261bcb58707a6fbc88c8e6e1081314700",
+              "seconds": 37.84672957099974,
+              "steps_per_second": 3.3820623723874066,
+              "windows": 16324,
+              "windows_per_second": 431.31864192853146
+            },
+            "validation": {
+              "batches": 28,
+              "loss": 0.9450362278664914,
+              "seconds": 2.0491275833919644,
+              "windows": 3553,
+              "windows_per_second": 1733.9086296025764
+            }
+          },
+          "fit_windows_per_epoch": 16324,
+          "forward_inference": {
+            "batches": 4,
+            "seconds": 0.29507994279265404,
+            "windows": 512,
+            "windows_per_second": 1735.1230149850298
+          },
+          "parameter_count": 80510,
+          "projected_one_epoch_seconds_from_bounded_throughput": 45.40937468773336
+        },
+        {
+          "arm": "LSTM-F",
+          "arm_key": "lstm_f",
+          "bounded_batches": 4,
+          "bounded_peak_allocated_bytes": 314312704,
+          "bounded_peak_reserved_bytes": 3854565376,
+          "bounded_train": {
+            "complete_epoch": false,
+            "loss": 1.3201787620782852,
+            "optimizer_steps": 4,
+            "order_sha256": "618a5b858219837dc0da5f75d031918173b3c1fccdd72c0c72d21483d897c1e8",
+            "seconds": 0.16296279057860374,
+            "steps_per_second": 24.545480509985705,
+            "windows": 512,
+            "windows_per_second": 3141.82150527817
+          },
+          "bounded_validation": {
+            "batches": 4,
+            "loss": 3.433961756527424,
+            "seconds": 0.008926854468882084,
+            "windows": 512,
+            "windows_per_second": 57355.029342616595
+          },
+          "checkpoint_bytes": 336611,
+          "checkpoint_io_seconds": [
+            0.01755569502711296
+          ],
+          "complete_epoch": true,
+          "complete_epoch_measurement": {
+            "checkpoint_bytes": 336611,
+            "checkpoint_io_seconds": [
+              0.016905473545193672
+            ],
+            "epoch_duration_seconds": 1.159160346724093,
+            "fit_windows_per_second": 14883.163618841763,
+            "optimizer_steps_per_second": 116.70209159591678,
+            "peak_allocated_bytes": 314972160,
+            "peak_reserved_bytes": 3854565376,
+            "train": {
+              "complete_epoch": true,
+              "loss": 1.6666314818934465,
+              "optimizer_steps": 128,
+              "order_sha256": "86d7db8cbaf7110fc7e61aff851ddcc261bcb58707a6fbc88c8e6e1081314700",
+              "seconds": 1.0968098193407059,
+              "steps_per_second": 116.70209159591678,
+              "windows": 16324,
+              "windows_per_second": 14883.163618841763
+            },
+            "validation": {
+              "batches": 28,
+              "loss": 1.184436969570197,
+              "seconds": 0.06235052738338709,
+              "windows": 3553,
+              "windows_per_second": 56984.28143442897
+            }
+          },
+          "fit_windows_per_epoch": 16324,
+          "forward_inference": {
+            "batches": 4,
+            "seconds": 0.008350295014679432,
+            "windows": 512,
+            "windows_per_second": 61315.198936076835
+          },
+          "parameter_count": 81838,
+          "projected_one_epoch_seconds_from_bounded_throughput": 5.253658577328679
+        }
+      ],
+      "calibration_bounds_not_used": [
+        20133,
+        23687
+      ],
+      "fit_bounds": [
+        0,
+        16580
+      ],
+      "fit_transform_sha256": {
+        "center": "ee47fac84ab2d66ec24159c87f18fdc17880f7efa1c67953d57c2e890ce56f0c",
+        "scale": "9102df636b4f96b2d8e0aa390cfefa2c788773560f2aa86c6f289c818cd65c06"
+      },
+      "machine": "machine-3-4",
+      "role": "shortest",
+      "sorted_rank_zero_based": 0,
+      "test_labels_read": false,
+      "test_observations_read": false,
+      "train_rows": 23687,
+      "validation_bounds": [
+        16580,
+        20133
+      ]
+    },
+    {
+      "arms": [
+        {
+          "arm": "xLSTMAD-R",
+          "arm_key": "xlstmad_r",
+          "bounded_batches": 4,
+          "bounded_peak_allocated_bytes": 3776498176,
+          "bounded_peak_reserved_bytes": 3854565376,
+          "bounded_train": {
+            "complete_epoch": false,
+            "loss": 1.079182431101799,
+            "optimizer_steps": 4,
+            "order_sha256": "cf8908aa6a90219077bcee776d1808559a60469997d76ecb751cbc0333b7add1",
+            "seconds": 3.2363672330975533,
+            "steps_per_second": 1.2359536826021957,
+            "windows": 512,
+            "windows_per_second": 158.20207137308105
+          },
+          "bounded_validation": {
+            "batches": 4,
+            "loss": 0.737592801451683,
+            "seconds": 0.7455510245636106,
+            "windows": 512,
+            "windows_per_second": 686.7403881574521
+          },
+          "checkpoint_bytes": 331385,
+          "checkpoint_io_seconds": [
+            0.018105152063071728
+          ],
+          "complete_epoch": true,
+          "complete_epoch_measurement": {
+            "checkpoint_bytes": 331385,
+            "checkpoint_io_seconds": [
+              0.01819795649498701
+            ],
+            "epoch_duration_seconds": 113.12368456460536,
+            "fit_windows_per_second": 151.45217694186456,
+            "optimizer_steps_per_second": 1.186696783090026,
+            "peak_allocated_bytes": 3777157632,
+            "peak_reserved_bytes": 3854565376,
+            "train": {
+              "complete_epoch": true,
+              "loss": 0.5522406323065837,
+              "optimizer_steps": 128,
+              "order_sha256": "e1fe29a32e1d6d6437a7e668ddac436eaafeb9cef9353bff83fc94c4c7757376",
+              "seconds": 107.8624310977757,
+              "steps_per_second": 1.186696783090026,
+              "windows": 16336,
+              "windows_per_second": 151.45217694186456
+            },
+            "validation": {
+              "batches": 28,
+              "loss": 0.23889503639123275,
+              "seconds": 5.2612534668296576,
+              "windows": 3555,
+              "windows_per_second": 675.6944941757735
+            }
+          },
+          "fit_windows_per_epoch": 16336,
+          "forward_inference": {
+            "batches": 4,
+            "seconds": 0.7494549015536904,
+            "windows": 512,
+            "windows_per_second": 683.1631882566595
+          },
+          "parameter_count": 75934,
+          "projected_one_epoch_seconds_from_bounded_throughput": 108.46407674786133
+        },
+        {
+          "arm": "xLSTMAD-F",
+          "arm_key": "xlstmad_f",
+          "bounded_batches": 4,
+          "bounded_peak_allocated_bytes": 2593807872,
+          "bounded_peak_reserved_bytes": 3854565376,
+          "bounded_train": {
+            "complete_epoch": false,
+            "loss": 0.7645227462053299,
+            "optimizer_steps": 4,
+            "order_sha256": "3277aad723c70d3c5a8267a317c4c74d3d99366ac998dd59f4d8cc3c612d9dd2",
+            "seconds": 1.1706537352874875,
+            "steps_per_second": 3.4168942356107426,
+            "windows": 512,
+            "windows_per_second": 437.36246215817505
+          },
+          "bounded_validation": {
+            "batches": 4,
+            "loss": 1.1566604226827621,
+            "seconds": 0.29472248908132315,
+            "windows": 512,
+            "windows_per_second": 1737.2274562282323
+          },
+          "checkpoint_bytes": 350919,
+          "checkpoint_io_seconds": [
+            0.018609230406582355
+          ],
+          "complete_epoch": true,
+          "complete_epoch_measurement": {
+            "checkpoint_bytes": 350919,
+            "checkpoint_io_seconds": [
+              0.019026581197977066
+            ],
+            "epoch_duration_seconds": 40.12346168141812,
+            "fit_windows_per_second": 429.22877457582587,
+            "optimizer_steps_per_second": 3.363408824346845,
+            "peak_allocated_bytes": 2594373120,
+            "peak_reserved_bytes": 3854565376,
+            "train": {
+              "complete_epoch": true,
+              "loss": 0.6679869347166716,
+              "optimizer_steps": 128,
+              "order_sha256": "c26733030e4c2274c6c7108b56918bb0946219fb9065d4dfa0c52334f12bb4a8",
+              "seconds": 38.05662846378982,
+              "steps_per_second": 3.363408824346845,
+              "windows": 16335,
+              "windows_per_second": 429.22877457582587
+            },
+            "validation": {
+              "batches": 28,
+              "loss": 0.4519215614483829,
+              "seconds": 2.0668332176283,
+              "windows": 3555,
+              "windows_per_second": 1720.0226751142395
+            }
+          },
+          "fit_windows_per_epoch": 16335,
+          "forward_inference": {
+            "batches": 4,
+            "seconds": 0.29615200962871313,
+            "windows": 512,
+            "windows_per_second": 1728.8418898183277
+          },
+          "parameter_count": 80510,
+          "projected_one_epoch_seconds_from_bounded_throughput": 39.40517414092028
+        },
+        {
+          "arm": "LSTM-F",
+          "arm_key": "lstm_f",
+          "bounded_batches": 4,
+          "bounded_peak_allocated_bytes": 314406912,
+          "bounded_peak_reserved_bytes": 3854565376,
+          "bounded_train": {
+            "complete_epoch": false,
+            "loss": 0.6975880712270737,
+            "optimizer_steps": 4,
+            "order_sha256": "3277aad723c70d3c5a8267a317c4c74d3d99366ac998dd59f4d8cc3c612d9dd2",
+            "seconds": 0.035277741961181164,
+            "steps_per_second": 113.3859418894075,
+            "windows": 512,
+            "windows_per_second": 14513.40056184416
+          },
+          "bounded_validation": {
+            "batches": 4,
+            "loss": 1.1808097586035728,
+            "seconds": 0.0095780398696661,
+            "windows": 512,
+            "windows_per_second": 53455.61377558234
+          },
+          "checkpoint_bytes": 336611,
+          "checkpoint_io_seconds": [
+            0.015827054157853127
+          ],
+          "complete_epoch": true,
+          "complete_epoch_measurement": {
+            "checkpoint_bytes": 336611,
+            "checkpoint_io_seconds": [
+              0.017215187661349773
+            ],
+            "epoch_duration_seconds": 1.175395866855979,
+            "fit_windows_per_second": 14693.660075192944,
+            "optimizer_steps_per_second": 115.13856685795511,
+            "peak_allocated_bytes": 314972160,
+            "peak_reserved_bytes": 3854565376,
+            "train": {
+              "complete_epoch": true,
+              "loss": 0.8776493131694788,
+              "optimizer_steps": 128,
+              "order_sha256": "c26733030e4c2274c6c7108b56918bb0946219fb9065d4dfa0c52334f12bb4a8",
+              "seconds": 1.111703953705728,
+              "steps_per_second": 115.13856685795511,
+              "windows": 16335,
+              "windows_per_second": 14693.660075192944
+            },
+            "validation": {
+              "batches": 28,
+              "loss": 0.7221734600563425,
+              "seconds": 0.06369191315025091,
+              "windows": 3555,
+              "windows_per_second": 55815.56314085998
+            }
+          },
+          "fit_windows_per_epoch": 16335,
+          "forward_inference": {
+            "batches": 4,
+            "seconds": 0.008805926889181137,
+            "windows": 512,
+            "windows_per_second": 58142.6585120798
+          },
+          "parameter_count": 81838,
+          "projected_one_epoch_seconds_from_bounded_throughput": 1.186654267630729
+        }
+      ],
+      "calibration_bounds_not_used": [
+        20146,
+        23702
+      ],
+      "fit_bounds": [
+        0,
+        16591
+      ],
+      "fit_transform_sha256": {
+        "center": "30c3b98b6cc552d82c0f8ee0c370e0d163ff8ecda36f43fda9297cb8047c518c",
+        "scale": "f4bbdf4dc6e4b1b6de10b6c78fcb5f1d9d5b367ba17fdf955c8f0cb6c087d3dc"
+      },
+      "machine": "machine-1-3",
+      "role": "median_lower_rank",
+      "sorted_rank_zero_based": 13,
+      "test_labels_read": false,
+      "test_observations_read": false,
+      "train_rows": 23702,
+      "validation_bounds": [
+        16591,
+        20146
+      ]
+    },
+    {
+      "arms": [
+        {
+          "arm": "xLSTMAD-R",
+          "arm_key": "xlstmad_r",
+          "bounded_batches": 4,
+          "bounded_peak_allocated_bytes": 3776403968,
+          "bounded_peak_reserved_bytes": 3854565376,
+          "bounded_train": {
+            "complete_epoch": false,
+            "loss": 2.4350966215133667,
+            "optimizer_steps": 4,
+            "order_sha256": "367f0cc12b9fd8e6d16ef6d7ce80e8bcfffb19ac4252888053aa0461bead551c",
+            "seconds": 3.3464597845450044,
+            "steps_per_second": 1.1952930133728927,
+            "windows": 512,
+            "windows_per_second": 152.99750571173027
+          },
+          "bounded_validation": {
+            "batches": 4,
+            "loss": 4.438764989376068,
+            "seconds": 0.7477513365447521,
+            "windows": 512,
+            "windows_per_second": 684.719605271287
+          },
+          "checkpoint_bytes": 331385,
+          "checkpoint_io_seconds": [
+            0.018559632822871208
+          ],
+          "complete_epoch": true,
+          "complete_epoch_measurement": {
+            "checkpoint_bytes": 331385,
+            "checkpoint_io_seconds": [
+              0.01660013198852539
+            ],
+            "epoch_duration_seconds": 138.75834603235126,
+            "fit_windows_per_second": 150.00147740856534,
+            "optimizer_steps_per_second": 1.1779627725011927,
+            "peak_allocated_bytes": 3777157632,
+            "peak_reserved_bytes": 3854565376,
+            "train": {
+              "complete_epoch": true,
+              "loss": 1.3672158497093367,
+              "optimizer_steps": 156,
+              "order_sha256": "376fda128bd8189fc29db04057581f1328eeeebf16ec839a6925040ebb37d7fa",
+              "seconds": 132.43202895857394,
+              "steps_per_second": 1.1779627725011927,
+              "windows": 19865,
+              "windows_per_second": 150.00147740856534
+            },
+            "validation": {
+              "batches": 34,
+              "loss": 1.0247103074132167,
+              "seconds": 6.326317073777318,
+              "windows": 4311,
+              "windows_per_second": 681.4391295480845
+            }
+          },
+          "fit_windows_per_epoch": 19865,
+          "forward_inference": {
+            "batches": 4,
+            "seconds": 0.7452684724703431,
+            "windows": 512,
+            "windows_per_second": 687.0007506192667
+          },
+          "parameter_count": 75934,
+          "projected_one_epoch_seconds_from_bounded_throughput": 136.11382032188703
+        },
+        {
+          "arm": "xLSTMAD-F",
+          "arm_key": "xlstmad_f",
+          "bounded_batches": 4,
+          "bounded_peak_allocated_bytes": 2593713664,
+          "bounded_peak_reserved_bytes": 3854565376,
+          "bounded_train": {
+            "complete_epoch": false,
+            "loss": 1.757009208202362,
+            "optimizer_steps": 4,
+            "order_sha256": "1d65fe9d40e8996b3d024e511367929a3fe51e42df0878b4f2bb1ee7dc1c7ca5",
+            "seconds": 1.168702288530767,
+            "steps_per_second": 3.422599612625553,
+            "windows": 512,
+            "windows_per_second": 438.09275041607077
+          },
+          "bounded_validation": {
+            "batches": 4,
+            "loss": 4.723062455654144,
+            "seconds": 0.2942639132961631,
+            "windows": 512,
+            "windows_per_second": 1739.9347214032853
+          },
+          "checkpoint_bytes": 350919,
+          "checkpoint_io_seconds": [
+            0.017893631011247635
+          ],
+          "complete_epoch": true,
+          "complete_epoch_measurement": {
+            "checkpoint_bytes": 350919,
+            "checkpoint_io_seconds": [
+              0.014433490112423897
+            ],
+            "epoch_duration_seconds": 48.77622100897133,
+            "fit_windows_per_second": 429.20465918285754,
+            "optimizer_steps_per_second": 3.370717218713541,
+            "peak_allocated_bytes": 2594373120,
+            "peak_reserved_bytes": 3854565376,
+            "train": {
+              "complete_epoch": true,
+              "loss": 1.4802119467366956,
+              "optimizer_steps": 156,
+              "order_sha256": "be39007fe1a1e3017a84006f67d526e0c866cff175f8ae82998af4f517a8cba4",
+              "seconds": 46.28095146454871,
+              "steps_per_second": 3.370717218713541,
+              "windows": 19864,
+              "windows_per_second": 429.20465918285754
+            },
+            "validation": {
+              "batches": 34,
+              "loss": 1.258784664497108,
+              "seconds": 2.4952695444226265,
+              "windows": 4311,
+              "windows_per_second": 1727.6690647051962
+            }
+          },
+          "fit_windows_per_epoch": 19864,
+          "forward_inference": {
+            "batches": 4,
+            "seconds": 0.2934304904192686,
+            "windows": 512,
+            "windows_per_second": 1744.8766120672328
+          },
+          "parameter_count": 80510,
+          "projected_one_epoch_seconds_from_bounded_throughput": 47.81265840541528
+        },
+        {
+          "arm": "LSTM-F",
+          "arm_key": "lstm_f",
+          "bounded_batches": 4,
+          "bounded_peak_allocated_bytes": 314312704,
+          "bounded_peak_reserved_bytes": 3854565376,
+          "bounded_train": {
+            "complete_epoch": false,
+            "loss": 1.6537927091121674,
+            "optimizer_steps": 4,
+            "order_sha256": "1d65fe9d40e8996b3d024e511367929a3fe51e42df0878b4f2bb1ee7dc1c7ca5",
+            "seconds": 0.035315309651196,
+            "steps_per_second": 113.26532428874043,
+            "windows": 512,
+            "windows_per_second": 14497.961508958775
+          },
+          "bounded_validation": {
+            "batches": 4,
+            "loss": 4.859379485249519,
+            "seconds": 0.009451559744775295,
+            "windows": 512,
+            "windows_per_second": 54170.95313638865
+          },
+          "checkpoint_bytes": 336611,
+          "checkpoint_io_seconds": [
+            0.018369903787970543
+          ],
+          "complete_epoch": true,
+          "complete_epoch_measurement": {
+            "checkpoint_bytes": 336611,
+            "checkpoint_io_seconds": [
+              0.018225559033453465
+            ],
+            "epoch_duration_seconds": 1.3361712843179703,
+            "fit_windows_per_second": 15766.055095339852,
+            "optimizer_steps_per_second": 123.81718661261664,
+            "peak_allocated_bytes": 314972160,
+            "peak_reserved_bytes": 3854565376,
+            "train": {
+              "complete_epoch": true,
+              "loss": 1.7881276030431004,
+              "optimizer_steps": 156,
+              "order_sha256": "be39007fe1a1e3017a84006f67d526e0c866cff175f8ae82998af4f517a8cba4",
+              "seconds": 1.2599220210686326,
+              "steps_per_second": 123.81718661261664,
+              "windows": 19864,
+              "windows_per_second": 15766.055095339852
+            },
+            "validation": {
+              "batches": 34,
+              "loss": 1.5211935763194815,
+              "seconds": 0.07624926324933767,
+              "windows": 4311,
+              "windows_per_second": 56538.25120779048
+            }
+          },
+          "fit_windows_per_epoch": 19864,
+          "forward_inference": {
+            "batches": 4,
+            "seconds": 0.008739815093576908,
+            "windows": 512,
+            "windows_per_second": 58582.47508877855
+          },
+          "parameter_count": 81838,
+          "projected_one_epoch_seconds_from_bounded_throughput": 1.4437122144136083
+        }
+      ],
+      "calibration_bounds_not_used": [
+        24431,
+        28743
+      ],
+      "fit_bounds": [
+        0,
+        20120
+      ],
+      "fit_transform_sha256": {
+        "center": "ffd12243314c7ee8936e13f817d93843133e4e44857a779b35cf15265de876f9",
+        "scale": "abbc98f22bae762f1bf06f2f955ffa54e95918373bb84919f9fbdaae37680174"
+      },
+      "machine": "machine-2-6",
+      "role": "longest",
+      "sorted_rank_zero_based": 27,
+      "test_labels_read": false,
+      "test_observations_read": false,
+      "train_rows": 28743,
+      "validation_bounds": [
+        20120,
+        24431
+      ]
+    }
+  ],
+  "purpose": "engineering feasibility only; no anomaly result",
+  "schema": "adaptive-normality-m1-engineering-canary-v1",
+  "selection": {
+    "selected": [
+      {
+        "machine": "machine-3-4",
+        "role": "shortest",
+        "sorted_rank_zero_based": 0,
+        "train_rows": 23687
+      },
+      {
+        "machine": "machine-1-3",
+        "role": "median_lower_rank",
+        "sorted_rank_zero_based": 13,
+        "train_rows": 23702
+      },
+      {
+        "machine": "machine-2-6",
+        "role": "longest",
+        "sorted_rank_zero_based": 27,
+        "train_rows": 28743
+      }
+    ],
+    "selection_rule": "sort by (train_rows, machine_name); choose rank 0, lower median rank floor((28-1)/2)=13, and rank 27",
+    "train_rows_only": true
+  },
+  "test_label_open_attempts": 0,
+  "test_labels_read": false,
+  "test_observations_read": false,
+  "timing_completed_utc": "2026-09-25T09:53:48Z",
+  "timing_utc_unavailable_until_writer": true
+}

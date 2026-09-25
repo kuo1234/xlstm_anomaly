@@ -1,42 +1,58 @@
 # M1-A execution handoff
 
-## Decision and scope
+## Status and scope
 
-The current status is `M1_SMD_PROTOCOL_READY — IMPLEMENTATION_PENDING`. The result-blind wording amendment was recorded before any M1 detector result or model execution. This handoff is not an experiment result.
+The protocol amendment first recorded the result-blind status
+`M1_SMD_PROTOCOL_READY — IMPLEMENTATION_PENDING` before any M1 model forward.
+The final machine-readable preflight now reports
+`M1_SMD_READY_FOR_STAGE1_EXECUTION`, and the independent review reports
+`M1_IMPLEMENTATION_RESULT_BLIND_PASS`. This handoff does not launch the
+28-machine experiment. No Stage-1 detector result, test-label read, or anomaly
+metric was produced during this implementation/preflight task.
+ZERO_SHOT_NOT_STARTED.
 
-Stage 1 must not begin until the implementation preflight passes and a later status record declares `M1_SMD_READY_FOR_EXECUTION`. This handoff does not launch training or Stage 2. ZERO_SHOT_NOT_STARTED.
+## Data and provenance already checked
 
-## Before any training
+- The pinned manifest has 84 valid expected SHA-256/byte-count entries for 28
+  train, test-observation, and test-label paths. The implementation preflight
+  checks their manifest syntax and coverage without opening test-label files.
+- The 56 train/test observation files are content-hash verified, finite, and
+  match the manifest shapes and D=38 schema across all 28 machines.
+- Raw test-label files are outside every M1 preprocessing, fit, validation,
+  calibration, and scoring path. Their expected hashes are retained as
+  manifest metadata and are not byte-verified until a separately authorized
+  label-evaluation phase.
 
-1. Create a separate M1 implementation for data loading, the frozen robust transform, xLSTMAD-F, matched LSTM-F, scoring, metrics, and run records. Leave all R0 modules and history unchanged.
-2. Reacquire or stage the 84 exact SMD files from pinned OmniAnomaly commit 7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4; verify every digest in dataset_manifest.md.
-3. Complete the implementation checks in preflight.md, including sample-index assertions, parameter-count assertions, finite-value checks, same-timestamp alignment, no cross-window state, and sealed score files before label access.
-4. Confirm the pinned runtime versions and an available GB10 allocation. The planning estimate for Stage 1 is about 190 GB10-hours; do not alter the frozen 28-machine cohort or configuration to fit a smaller allocation.
-5. Produce an execution commit and protocol-head record, then review all changes against the M1 frozen spec.
+## Engineering budget
 
-## Stage-1 order and label boundary
+The measured GB10 canary covers the shortest, lower-median-rank, and longest
+train machines, selected by train-row counts only. It measured one epoch for
+each learned arm on fit/validation rows. The updated estimate for the frozen
+Stage-1 configuration is 64.62 serial GB10-hours, or 80.78 hours with the 25%
+engineering allowance. Two simultaneous fits are not budgeted under the
+measured free-memory/headroom rule. Estimated staging disk is 0.672 GiB. See
+[`compute_budget.md`](compute_budget.md) and
+[`compute_estimate.json`](../../reports/adaptive_normality_m1_smd/compute_estimate.json).
 
-- Fit preprocessing, three learned arms, VAR(1), and all normal validation/calibration quantities using train only.
-- Do not open test labels during train, checkpoint selection, threshold calibration, or score generation.
-- Generate all 28 test score arrays for every arm using the common eligible timestamp list t>=256; materialize the prediction before accessing the target for forecast arms.
-- Seal the model and score output hashes and write the label-access audit record.
-- Only then open labels through a metric-only path and compute the frozen point/event metrics and Stage-1 gate.
+## Before a future Stage-1 run
 
-A failure of provenance, parameter count, index contract, numerical validity, or label separation stops execution for investigation; do not replace a failed arm or machine post hoc.
+1. Confirm the committed machine-readable implementation preflight reports
+   `M1_SMD_READY_FOR_STAGE1_EXECUTION` and the committed independent review
+   says `M1_IMPLEMENTATION_RESULT_BLIND_PASS`.
+2. Use the pinned runtime and all 28 machines, W=256, seed 11, batch size 128,
+   at most 50 epochs, frozen models, and unchanged scientific gates.
+3. Fit the transform, learned arms, VAR coefficients, and calibration values
+   using the frozen train blocks only. Persist scaler values, checkpoints,
+   source commit, environment, epoch history, calibration vectors/thresholds,
+   and run records.
+4. Generate all nine score arrays on each machine's exact timestamps
+   `t=256,...,test_rows−1`, then seal the complete 28-machine inventory.
+5. Commit the score artifacts and inventory manifest. Only the future
+   metric-only entry point may load test labels, and only after it verifies all
+   committed artifacts and the complete seal. That later metric phase is
+   outside this implementation task.
 
-## Stage-1 decision
-
-Apply the full mechanical gate from protocol.md once to the sealed Stage-1 result set. If it fails, publish FORECASTING_NOT_JUSTIFIED and do not run Stage 2. If it passes every component, Stage 2 becomes eligible for a new execution decision; it does not start automatically.
-
-## Reuse and non-reuse
-
-Reuse the established R0 file-hash/provenance pattern, run metadata fields, seed/order recording approach, package/hardware recording, capacity-match methodology, and GB10 timing records. Reuse the current xLSTMAD-R source unmodified as the reconstruction comparison.
-
-Do not widen the R0 three-machine data loader or manifest, copy the zero-std-only scaler, use internal234, freeze W=64 by precedent, use R0 reconstruction/window-any score logic, use its q95 threshold, or modify R0 code/history. M1's held-out scores use point labels without adjustment and its own second-half calibration-block 99th-percentile operating threshold.
-
-## Decision language
-
-- Successful xLSTM forecast gate: source-native forecasting is viable enough to justify a separately designed next study; it proves nothing about adaptation or new normals.
-- Only LSTM forecast passes: consider an architecture-agnostic forecasting reframe; no xLSTM-specific conclusion.
-- Neither forecast route passes: FORECASTING_NOT_JUSTIFIED; adaptive-normality research must not rely on forecast residual as its core signal under this evidence.
-- xLSTM and matched LSTM comparable: no xLSTM-specific advantage.
+Any provenance mismatch, parameter-count mismatch, index violation,
+non-finite score, or label-guard failure stops execution. Readiness does not
+start Stage 1 automatically. No transfer, Stage 2, zero-shot, persistent
+memory, quarantine, or adaptation is included here. ZERO_SHOT_NOT_STARTED.

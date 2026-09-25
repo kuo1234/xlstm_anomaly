@@ -2,19 +2,28 @@
 
 Date: 2026-09-25
 
-## Status correction
+## Result-blind status correction
 
 This wording correction is recorded before any M1 detector result exists and
 before any M1 model forward, training, score extraction, or anomaly metric has
 been run. No scientific detector result has been observed.
 
-The precise current status is:
+The status recorded at amendment time was:
 
 `M1_SMD_PROTOCOL_READY — IMPLEMENTATION_PENDING`
 
 `M1_SMD_READY_FOR_EXECUTION` is reserved for a later status record after the
 implementation preflight in `preflight.md` passes. Protocol readiness alone
 does not imply executable code or authorize Stage 1.
+
+## Post-preflight readiness update
+
+On 2026-09-25, the final machine-readable implementation preflight passed all
+checks and the independent result-blind review returned
+`M1_IMPLEMENTATION_RESULT_BLIND_PASS`. The current implementation status is
+`M1_SMD_READY_FOR_STAGE1_EXECUTION`. This records executable implementation
+readiness only; the 28-machine Stage-1 detector experiment has not started,
+and no anomaly result or metric exists.
 
 ## Frozen reconstruction scores
 

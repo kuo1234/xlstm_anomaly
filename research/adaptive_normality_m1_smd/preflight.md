@@ -1,63 +1,87 @@
-# M1-A preflight
+# M1-A implementation preflight
 
-## Status
+## Result-blind status
 
-Current status: **M1_SMD_PROTOCOL_READY — IMPLEMENTATION_PENDING**. This wording correction was made prospectively before any M1 detector result or model execution. Protocol/data documentation is frozen; the new implementation preflight must pass before status may become `M1_SMD_READY_FOR_EXECUTION`. No detector metric has been observed.
+Before the first M1 model forward, the result-blind wording amendment recorded
+the precise status `M1_SMD_PROTOCOL_READY — IMPLEMENTATION_PENDING`. It recorded
+that no scientific detector result existed and reserved execution readiness
+until the implementation preflight passed. The bounded engineering canary
+described in `compute_budget.md` is a timing measurement only; it is not a
+Stage-1 detector run or anomaly result.
 
-Protocol readiness is not implementation readiness. Before any Stage-1 detector training, the separately reviewed M1-only implementation must satisfy the checks below.
+The machine-readable acceptance record is
+[`implementation_preflight.json`](../../reports/adaptive_normality_m1_smd/implementation_preflight.json).
+The final record reports 14/14 checks passed, including the test record and
+independent red-team verdict. A failed item blocks Stage 1.
 
-## Data and provenance
+## Data and label boundary
 
-- Pinned source is OmniAnomaly commit 7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4.
-- All 84 files for 28 machines (train, test, test_label) downloaded and parsed; every file has a recorded SHA-256 in dataset_manifest.md.
-- All 28 machines pass finite numeric, D=38, row/label alignment, and binary-label schema checks.
-- The existing local 28 test files byte-match the pinned source.
-- No machine is removed and no R0-dependent machine selection is used.
-- Before execution, reacquire the complete pinned source set or use a content-addressed retained copy, then verify all 84 hashes. The temporary download path is not an execution dependency.
+- The pinned manifest contains 84 structurally valid expected digest/byte-count
+  entries for 28 machines × `{train,test,test_label}`. This preflight validates
+  all 84 manifest entries without opening raw test-label files.
+- It reads and verifies the content hashes of the 56 permitted train/test
+  observation files, then checks finite numeric `[N,38]` matrices and the
+  manifest row count for all 28 machine pairs.
+- Test-label file reads and opens are forbidden throughout preprocessing,
+  fitting, validation, normal-score calibration, and test-score generation.
+  The future metric entry point permits a label loader only after the exact
+  committed 28-machine score inventory and its seal have passed verification.
+- No test anomaly labels or label-derived metric were used to select the
+  canary machines, timing policy, implementation, or compute estimate.
 
-## Frozen protocol choices
+## Frozen execution contract
 
-- Cohort: all 28 machines, fitted independently.
-- Train blocks: first 70% fit; next 15% validation; final 15% normal-score calibration.
-- Transform: fit-only per-machine/channel median center, hybrid robust scale, 5% machine-relative floor, clip ±50, float32; frozen for validation/calibration/test.
-- Context: W=256, selected by fit-train ACF rule; no test labels used.
-- Forecast: direct one-step p=1 from preceding W samples; target not passed to detector before prediction.
-- Recurrent state: fresh for every context; no persistence.
-- Scoring timestamps: test t>=256, common across arms; no padding, point adjustment, or segment filling.
-- Stage 1: seed 11, 28 machines, three learned arms and all cheap arms.
-- Stage 2: only if exact mechanical gate passes; seeds 22 and 33, unchanged design.
+- Cohort: all 28 machines; train-relative fit/validation/calibration bounds are
+  `[0,floor(.70N))`, `[floor(.70N),floor(.85N))`, and `[floor(.85N),N)`.
+- The transform is fit on fit rows only: median center; maximum of
+  `1.4826×MAD` and `(Q95−Q05)/3.2897072539`; floor at 5% of the machine median
+  positive robust scale; clip to ±50; cast to float32; fail closed if no
+  positive scale exists.
+- Forecast input for target `t` is exactly `[t−256,t)` and the target is `t`.
+  Fit targets remain within fit rows. Validation and calibration first targets
+  use the preceding 256 observations already available at `t`, including rows
+  from earlier train blocks; neither target is used to fit model parameters.
+- Reconstruction uses the trailing input `[t−255,t+1)` and scores its right
+  edge. `R-native-window` averages squared residual over `W×D`; `R-endpoint`
+  averages only the final D residuals. Both are frozen scores from the same
+  unchanged official xLSTMAD-R output.
+- Test score timestamps start exactly at `t=256`; all nine Stage-1 arrays share
+  the same timestamps and no warm-up score is padded.
+- xLSTMAD-R and the historical official xLSTMAD-F port keep their frozen
+  architectures/objectives; LSTM-F is capacity matched. Counts are 75,934,
+  80,510, and 81,838 trainable parameters, respectively.
+- Normal tail references use the first half of the train calibration block;
+  the second half supplies the higher empirical 99th-percentile threshold for
+  each of the nine raw/fused score arrays. Test data and labels do not enter
+  calibration.
+- The per-machine maximum test AP among non-forecast controls is the
+  test-label-dependent **oracle control envelope**, used only as a conservative
+  scientific gate. The fixed label-free control tail-rank fusion remains the
+  operational complement diagnostic.
 
-## Code and model checks required before Stage 1
+## Required checks
 
-The model implementation is not part of this documentation-only branch. Before any training:
-1. Add a separate M1 data/model/runner implementation; do not change R0 modules.
-2. Verify source raw hashes and train/test shapes against dataset_manifest.md.
-3. Verify the scaler using stored hand-computed cases: median/MAD/quantile behavior, all-zero robust-scale fail-closed, near-constant floor, clipping endpoints, float32 conversion, and transform repeatability.
-4. Verify each forecast sample uses exactly rows [t-W,t) as input and row t only as target; assert prediction is formed before target access in the scoring code.
-5. Verify independent windows reset model hidden/cell state and no hidden state crosses timestamps.
-6. Verify reconstruction windows end at t and are causal; keep reconstruction score endpoint aligned with the common timestamp list.
-7. Verify parameter counts: xLSTMAD-R 75,934; xLSTMAD-F 80,510; capacity-matched LSTM-F 81,838. A mismatch blocks training.
-8. Verify all scores and predictions are finite; calibration ranks and quantiles use only specified normal blocks.
-9. Verify label access is absent from preprocessing, fitting, checkpoint selection, and score generation. Seal prediction/score file hashes before opening test labels.
-10. Record package, hardware, seeds, model hashes, epoch curves, selected epochs, fit/validation/calibration row bounds, all configuration values, and wall times.
+The machine-readable preflight covers manifest and observation provenance,
+scaler exactness and the machine-1-4 near-constant-channel regression, sample
+indices and target causality, reconstruction alignment/corruption cases,
+parameter counts and synthetic forwards, deterministic seed behavior, fresh
+state, timestamp equality, calibration separation, label isolation, score-seal
+enforcement, pinned environment versions, timing-canary completion, R0
+regression tests, and result-blind red-team review. Its completion record also
+asserts zero test-label opens/reads, no M1 anomaly metric, and no full Stage-1
+training.
 
-These are pre-execution acceptance conditions, not claims that they have passed. The future code review may add a stop if a check fails; it may not change a frozen choice using detector outcomes.
+The detailed M1-specific implementations live in the isolated `scripts/`
+modules and `tests/test_adaptive_normality_m1_*.py`; no R0 source or R0 output
+is changed. Historical xLSTMAD-F source parity and the measured engineering
+canary are documented in
+[`forecasting_implementation_audit.md`](forecasting_implementation_audit.md)
+and [`compute_budget.md`](compute_budget.md).
 
-## Existing repository work: reuse map
+## Readiness rule
 
-| Existing component | Decision | Reason |
-|---|---|---|
-| R0 acquisition, SHA-256, finite/shape validation pattern | Reuse unchanged as a pattern | Provenance procedure is sound; build a separate 28-machine manifest/loader and verify new pinned source. |
-| Official xLSTMAD R code / environment pins | Reuse unchanged for reconstruction | Current reconstruction path and pinned library are the required R arm. |
-| Auditable matched-LSTM implementation methodology | Reuse as a pattern, not the R0 model class | Capacity matching and explicit parameter counts are useful; M1 needs a one-step forecaster with a new target contract. |
-| R0 execution/preflight/run-record infrastructure | Reuse unchanged as operational pattern | Hash sealing, deterministic order, environment record, model hashes, and stop conditions support auditability. Do not copy R0’s task-specific split/feature extraction. |
-| Current xLSTMAD-R reconstruction model | Reuse unchanged as baseline | It represents the existing reconstruction detector; keep its native architecture and objective. |
-| R0 zero-std-only scaler | Do not reuse | It amplified machine-1-4 channel 17 because a tiny nonzero SD was treated as a safe denominator. |
-| R0 internal234 probe | Do not reuse | M1 is a detector comparison, not a hidden-state utility probe; R0 did not resolve incremental internal-state utility. |
-| R0 W=64 | Do not reuse as a default | M1 train-only timescale rule independently freezes W=256. |
-| R0 reconstruction score / window-any label alignment | Do not reuse blindly | M1 uses point labels, a shared warm-up, and trailing-window score at the endpoint; no point adjustment. |
-| R0 threshold calibration | Do not reuse | M1 uses the second half of its own normal calibration block, higher empirical 99th percentile; no R0 q95 or test-best threshold. |
-
-## Readiness decision
-
-No unresolved *scientific* choice blocks a prospective M1-A protocol: data source, cohort, train-only scaling, context, detector set, score alignment, metrics, and gate are frozen. The isolated xLSTMAD-F port and runner remain implementation prerequisites, clearly specified in forecasting_implementation_audit.md. The protocol can be handed to an implementation/execution phase, but model training must not begin until that code preflight is reviewed and a separate execution authorization is in place.
+The machine-readable record reports
+`M1_SMD_READY_FOR_STAGE1_EXECUTION`; the independent review reports
+`M1_IMPLEMENTATION_RESULT_BLIND_PASS`. Readiness does not itself start the
+28-machine Stage-1 experiment. No Stage 2, transfer, zero-shot, persistent
+memory, quarantine, or adaptation is included here. ZERO_SHOT_NOT_STARTED.

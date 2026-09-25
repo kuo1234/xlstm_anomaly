@@ -2,7 +2,14 @@
 
 ## Audit scope
 
-This is a static architecture and source inspection. No model forward pass, training step, optimizer step, detector score, or GPU experiment was run. The inspected local official xLSTMAD checkout used by R0 is the improved reconstruction implementation at commit e8b56ba27352733bb83729e85b1d6196dca70c99, with xlstm 2.0.5. The original forecasting implementation is preserved in the official repository history at commit 3a1b0b5aab747bf6381fa4e5a90d895f06ed2fc6.
+The historical/source description below is a static architecture audit. The
+implementation preflight later added a synthetic CPU forward parity check and
+an engineering-only GB10 canary; no 28-machine Stage-1 detector result, test
+label read, anomaly metric, or scientific detector result exists. The local
+official xLSTMAD checkout used by R0 is the improved reconstruction
+implementation at commit e8b56ba27352733bb83729e85b1d6196dca70c99, with
+xlstm 2.0.5. The original forecasting implementation is preserved in the
+official repository history at commit 3a1b0b5aab747bf6381fa4e5a90d895f06ed2fc6.
 
 References:
 - xLSTMAD paper: https://arxiv.org/abs/2506.22837
@@ -44,19 +51,50 @@ A static CPU constructor/count audit used the official xLSTM package version and
 
 The M1-only capacity-matched LSTM has 81,838 parameters (1.65% above xLSTMAD-F), within the frozen ±10% criterion. The current xLSTMAD-R reconstruction arm has 75,934 parameters at D=38 and embedding width 40. Counts and the frozen model definitions are recorded in baseline_spec.md.
 
-Faithfulness is conditional on reproducing the documented historical forecast path while applying the M1 transform and p=1 protocol. The historical training code's per-window normalization must be disabled, score padding removed, and output timestamp aligned to the future endpoint. The exact target and alignment above are mandatory parity conditions for a future implementation.
+The M1-only implementation in `scripts/adaptive_normality_m1_models.py` ports
+the historical xLSTMModel p=1 path. It retains the 3-block encoder and decoder,
+E=40, the final encoder latent as a one-token decoder input, GELU, and the
+D-channel output projection. The port uses the required vanilla sLSTM backend
+and float32 configuration, disables per-window normalization, resets state for
+independent windows, and omits historical score padding. A CPU parity test
+loads the historical class from the pinned official Git object, loads the same
+state dict into both implementations, and confirms exact synthetic forward
+parity. Synthetic index tests confirm `[t-256,t)` -> `t`, target access after
+prediction, and common unpadded test endpoints beginning at 256.
 
-## M1-only code that must be added for execution
+The measured GB10 canary ran one training epoch per arm on three machines
+selected by train lengths only. Those fit/validation-only engineering runs
+measured throughput; they did not load test observations or labels or create
+anomaly scores. The canary is not a detector result.
 
-A separate M1 module/runner must be added after this protocol review and before an authorized training execution. It should contain:
-- a forecaster builder ported from the historical xLSTMAD-F path;
-- a capacity-matched LSTM with the same input/output contract;
-- a dataset/window builder with explicit input and target indices;
-- the frozen robust scaler implementation in a separate M1 data utility;
-- score extraction that predicts before target exposure, applies common warm-up and endpoint alignment, and saves output hashes before labels are opened.
+## M1-only implementation inventory
 
-Do not edit real_data_r0_models.py, real_data_r0_data.py, or any R0 history. Do not represent the new code as already implemented. A future implementation review must compare module names, parameter counts, shapes, target indices, and normalization behavior to this audit before Stage 1 is allowed to start.
+The isolated implementation and tests have been added in M1-only source files:
+
+- `scripts/adaptive_normality_m1_data.py`: pinned observation loader, block
+  boundaries, robust transform, and lazy forecasting/reconstruction datasets;
+- `scripts/adaptive_normality_m1_models.py`: official xLSTMAD-R adapter,
+  historical xLSTMAD-F p=1 port, and capacity-matched LSTM-F;
+- `scripts/adaptive_normality_m1_execute.py`: fit/validation, causal score
+  materialization, calibration, persistent run records, and future runner;
+- `scripts/adaptive_normality_m1_scores.py`: native/endpoint reconstruction,
+  controls, fixed fusion, immutable score inventory and seals;
+- `scripts/adaptive_normality_m1_metrics.py`: metric-only entry point that
+  verifies committed/sealed Stage-1 inventory before its label-loader window.
+
+The machine-readable implementation preflight and test suite verify these
+contracts before any full Stage-1 run.
+
+The M1 implementation is isolated from `real_data_r0_models.py`,
+`real_data_r0_data.py`, and all R0 scientific-result modules. A final
+result-blind review must confirm the source parity, parameter counts, shapes,
+target indices, and normalization behavior before Stage 1 can start.
 
 ## Audit conclusion
 
-Existing local code can faithfully run the xLSTMAD-R reconstruction baseline. It cannot implement xLSTMAD-F by a loss-only change. A faithful one-step forecaster is specified by the official historical formulation and requires an isolated M1-only port. This is a known implementation task, not an unresolved scientific configuration choice.
+The historical xLSTMAD-F port passed exact synthetic forward parity for p=1,
+under the frozen M1 backend/precision overlay. A loss shift to the current
+reconstruction model would not satisfy that audit and was not used. The
+machine-readable preflight passed and the independent review returned
+`M1_IMPLEMENTATION_RESULT_BLIND_PASS`; the canary is engineering evidence
+only, and the full Stage-1 detector experiment has not started.
