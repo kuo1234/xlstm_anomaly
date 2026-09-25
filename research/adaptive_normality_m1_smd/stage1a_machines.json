@@ -1,0 +1,244 @@
+{
+  "schema": "adaptive-normality-m1-stage1a-machine-selection-v1",
+  "selection_basis": "train_rows then machine name; no labels or detector results",
+  "groups": {
+    "machine-1": [
+      [
+        0,
+        "machine-1-6",
+        23688
+      ],
+      [
+        1,
+        "machine-1-2",
+        23694
+      ],
+      [
+        2,
+        "machine-1-7",
+        23697
+      ],
+      [
+        3,
+        "machine-1-8",
+        23698
+      ],
+      [
+        4,
+        "machine-1-3",
+        23702
+      ],
+      [
+        5,
+        "machine-1-5",
+        23705
+      ],
+      [
+        6,
+        "machine-1-4",
+        23706
+      ],
+      [
+        7,
+        "machine-1-1",
+        28479
+      ]
+    ],
+    "machine-2": [
+      [
+        0,
+        "machine-2-3",
+        23688
+      ],
+      [
+        1,
+        "machine-2-5",
+        23688
+      ],
+      [
+        2,
+        "machine-2-4",
+        23689
+      ],
+      [
+        3,
+        "machine-2-1",
+        23693
+      ],
+      [
+        4,
+        "machine-2-7",
+        23696
+      ],
+      [
+        5,
+        "machine-2-2",
+        23699
+      ],
+      [
+        6,
+        "machine-2-8",
+        23702
+      ],
+      [
+        7,
+        "machine-2-9",
+        28722
+      ],
+      [
+        8,
+        "machine-2-6",
+        28743
+      ]
+    ],
+    "machine-3": [
+      [
+        0,
+        "machine-3-4",
+        23687
+      ],
+      [
+        1,
+        "machine-3-5",
+        23690
+      ],
+      [
+        2,
+        "machine-3-10",
+        23692
+      ],
+      [
+        3,
+        "machine-3-2",
+        23702
+      ],
+      [
+        4,
+        "machine-3-3",
+        23703
+      ],
+      [
+        5,
+        "machine-3-11",
+        28695
+      ],
+      [
+        6,
+        "machine-3-1",
+        28700
+      ],
+      [
+        7,
+        "machine-3-8",
+        28703
+      ],
+      [
+        8,
+        "machine-3-7",
+        28705
+      ],
+      [
+        9,
+        "machine-3-9",
+        28713
+      ],
+      [
+        10,
+        "machine-3-6",
+        28726
+      ]
+    ]
+  },
+  "quantiles": [
+    0.25,
+    0.5,
+    0.75
+  ],
+  "duplicate_rank_correction": "nearest unused rank; prefer higher rank on equal distance",
+  "machines": [
+    "machine-1-7",
+    "machine-1-3",
+    "machine-1-5",
+    "machine-2-4",
+    "machine-2-7",
+    "machine-2-8",
+    "machine-3-2",
+    "machine-3-11",
+    "machine-3-7"
+  ],
+  "selection": [
+    {
+      "group": "machine-1",
+      "quantile": 0.25,
+      "group_size": 8,
+      "rank_zero_based": 2,
+      "machine": "machine-1-7",
+      "train_rows": 23697
+    },
+    {
+      "group": "machine-1",
+      "quantile": 0.5,
+      "group_size": 8,
+      "rank_zero_based": 4,
+      "machine": "machine-1-3",
+      "train_rows": 23702
+    },
+    {
+      "group": "machine-1",
+      "quantile": 0.75,
+      "group_size": 8,
+      "rank_zero_based": 5,
+      "machine": "machine-1-5",
+      "train_rows": 23705
+    },
+    {
+      "group": "machine-2",
+      "quantile": 0.25,
+      "group_size": 9,
+      "rank_zero_based": 2,
+      "machine": "machine-2-4",
+      "train_rows": 23689
+    },
+    {
+      "group": "machine-2",
+      "quantile": 0.5,
+      "group_size": 9,
+      "rank_zero_based": 4,
+      "machine": "machine-2-7",
+      "train_rows": 23696
+    },
+    {
+      "group": "machine-2",
+      "quantile": 0.75,
+      "group_size": 9,
+      "rank_zero_based": 6,
+      "machine": "machine-2-8",
+      "train_rows": 23702
+    },
+    {
+      "group": "machine-3",
+      "quantile": 0.25,
+      "group_size": 11,
+      "rank_zero_based": 3,
+      "machine": "machine-3-2",
+      "train_rows": 23702
+    },
+    {
+      "group": "machine-3",
+      "quantile": 0.5,
+      "group_size": 11,
+      "rank_zero_based": 5,
+      "machine": "machine-3-11",
+      "train_rows": 28695
+    },
+    {
+      "group": "machine-3",
+      "quantile": 0.75,
+      "group_size": 11,
+      "rank_zero_based": 8,
+      "machine": "machine-3-7",
+      "train_rows": 28705
+    }
+  ],
+  "duplicate_rank_corrections": []
+}
