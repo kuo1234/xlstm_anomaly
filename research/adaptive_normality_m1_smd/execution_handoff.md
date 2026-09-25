@@ -2,9 +2,9 @@
 
 ## Decision and scope
 
-The research protocol, source manifest, train-only preprocessing/context audit, model audit, metrics, compute estimate, and Stage-1 gate are frozen in this directory. This is not an experiment result. No detector has been trained or evaluated.
+The current status is `M1_SMD_PROTOCOL_READY — IMPLEMENTATION_PENDING`. The result-blind wording amendment was recorded before any M1 detector result or model execution. This handoff is not an experiment result.
 
-Execution must begin only after the M1-specific code prerequisites below are reviewed and the user separately authorizes the Stage-1 run. This handoff does not authorize training or Stage 2. ZERO_SHOT_NOT_STARTED.
+Stage 1 must not begin until the implementation preflight passes and a later status record declares `M1_SMD_READY_FOR_EXECUTION`. This handoff does not launch training or Stage 2. ZERO_SHOT_NOT_STARTED.
 
 ## Before any training
 

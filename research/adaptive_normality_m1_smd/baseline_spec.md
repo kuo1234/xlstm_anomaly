@@ -22,13 +22,18 @@ The baseline intentionally updates its past window unconditionally. That exposes
 
 Fit a separate per-machine ridge VAR(1) on the fit block only: current z_t is predicted from an intercept and z_(t-1), with ridge penalty lambda=1 on slope coefficients and no penalty on the intercept. No order search or test-label selection. The score is mean squared residual across 38 channels. It has 1,482 fitted scalar coefficients (38×38 slopes plus 38 intercepts) and negligible inference cost.
 
-## Reconstruction control
+## Reconstruction control: native and endpoint scores
 
 ### 4. xLSTMAD-R
 
 Use the current improved official xLSTMAD source pinned at e8b56ba27352733bb83729e85b1d6196dca70c99, with D=38, embedding 40, W=256, float32, and vanilla sLSTM backend. Train the aligned window reconstruction objective on fit windows only; select by normal validation reconstruction loss.
 
-At test time, the decoder reconstructs the trailing W-sample window ending at t. Its score is the native mean squared reconstruction error across W×D, attached only to the window’s right edge t. The window contains no future sample. This preserves xLSTMAD-R’s window score while evaluating against the point label y_t, not a window-any label. The resulting duration dilution and post-event tail are reported as detector behavior, not point-adjustment.
+At time t, the decoder reconstructs exactly the trailing window `z[t-W+1:t+1]`. Freeze two deterministic scores from that same output:
+
+* `R-native-window = mean_{W,D}((z_window - zhat_window)^2)`. This is the faithful published/native reconstruction behavior. Attach it only to the window’s right edge t; preserve its duration dilution and post-event tail as detector behavior.
+* `R-endpoint = mean_D((z_t - zhat_t)^2)`. This is the endpoint-aligned diagnostic reconstruction score, using only the final reconstructed position for original timestamp t. It gives a same-timestamp point-residual comparison to the forecast arms.
+
+Both scores use no future sample, refer to the same t as each forecast score, and are evaluated against point label y_t (not a window-any label). The second score does not change the model, objective, or training.
 
 Trainable parameters: 75,934, matching the audited R0 xLSTM reconstruction model at D=38; context length changes do not add parameters.
 
@@ -56,6 +61,8 @@ For forecasting at t, create the complete prediction from z_(t-W:t) before passi
 
 For xLSTMAD-R at t, provide z_(t-W+1:t+1), compute all W reconstructions, and score their mean squared residual. This is causal but uses the observed target. The score may remain high after an event leaves the window; metrics.md defines the recovery measure.
 
-## Comparison intent
+## Stage-1 control set and comparison intent
+
+The non-forecast score set for comparison and the fixed control-only fusion is last-value, moving median, VAR(1), `R-native-window`, and `R-endpoint`. The forecast-plus-control fusion adds xLSTMAD-F. The standalone comparator is the per-machine **oracle control envelope**: the maximum AP among those five controls. It is explicitly test-label-dependent and is not a deployable detector or one operational baseline.
 
 Last-value / first difference tests whether the neural forecaster does more than local persistence. Moving median tests whether adaptive local location explains gains. VAR(1) tests linear cross-channel forecasting. xLSTMAD-R tests whether future prediction adds value beyond reconstruction. The matched LSTM separates a forecasting effect from an xLSTM-specific effect.

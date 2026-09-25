@@ -2,7 +2,7 @@
 
 ## Status and scope
 
-This is a preregistration and implementation audit. No detector was trained, no GPU experiment or D0 was launched, and no test score was computed. The branch is based exactly on research commit a04bccfe5ecb94e50de99c061011cb26acca755d.
+This is a preregistration and implementation audit. No scientific detector result has been observed. The result-blind implementation amendment in [implementation_amendment.md](implementation_amendment.md) corrects readiness language before any M1 model execution. The current status is **M1_SMD_PROTOCOL_READY — IMPLEMENTATION_PENDING**. The status `M1_SMD_READY_FOR_EXECUTION` is reserved until the implementation preflight passes. The branch is based on research commit a04bccfe5ecb94e50de99c061011cb26acca755d, with current-main history merged normally.
 
 The primary question is:
 
@@ -46,7 +46,7 @@ All six required comparisons are frozen in baseline_spec.md:
 1. last-value predictor;
 2. robust moving-median predictor, plus explicit reporting that squared first difference is exactly the last-value squared-error score;
 3. train-fit ridge VAR(1);
-4. current official xLSTMAD reconstruction architecture, trained and scored as a causal trailing-window reconstruction baseline;
+4. current official xLSTMAD reconstruction architecture, trained with its unchanged native window reconstruction objective and yielding both `R-native-window` and `R-endpoint` scores from the same causal trailing-window output;
 5. capacity-matched LSTM one-step forecaster;
 6. xLSTMAD-F-formulation xLSTM one-step forecaster.
 
@@ -64,9 +64,9 @@ The machine is the primary unit. AP is calculated per machine, then macro-averag
 
 The xLSTM forecaster passes the discrimination part by either route:
 
-**Standalone route:** mean machine-level AP gain of at least 0.02 over the strongest non-forecast component on each machine, where that comparator is the maximum AP among last-value, moving median, VAR(1), and xLSTMAD-R. The paired machine-bootstrap 95% lower bound must exceed zero, and the xLSTM forecaster must win on at least 20 of 28 machines.
+**Standalone route:** mean machine-level AP gain of at least 0.02 over the **oracle control envelope** on each machine, where that comparator is the maximum test AP among last-value, moving median, VAR(1), `R-native-window`, and `R-endpoint`. This is a predeclared test-label-dependent scientific gate, not a deployable detector or one operational baseline. The paired machine-bootstrap 95% lower bound must exceed zero, and the xLSTM forecaster must win on at least 20 of 28 machines.
 
-**Complement route:** a fixed, label-free tail-rank max fusion of xLSTM forecast evidence with the four non-forecast control scores improves macro machine AP by at least 0.02 over the control-only fusion, with paired 95% lower bound above zero and a positive difference on at least 20 of 28 machines. Tail-rank calibration uses only the first half of the normal calibration block; the second half is reserved for operating thresholds. This is a fixed diagnostic fusion, not a trained model or a test-selected weight.
+**Complement route:** a fixed, label-free tail-rank max fusion of xLSTM forecast evidence with the five non-forecast control scores improves macro machine AP by at least 0.02 over the control-only fusion, with paired 95% lower bound above zero and a positive difference on at least 20 of 28 machines. Tail-rank calibration uses only the first half of the normal calibration block; the second half is reserved for operating thresholds. This is a fixed diagnostic fusion, not a trained model or a test-selected weight.
 
 The successful candidate (xLSTM forecast alone or its fixed fusion) must also:
 - exceed that machine’s test-label prevalence on at least 20/28 machines, with median AP/prevalence at least 1.5;
@@ -82,4 +82,4 @@ Stage 2 confirms stability only if the same gain margin and machine-win conditio
 
 ## Execution boundary
 
-This protocol is ready for a separately authorized execution. It does not authorize starting Stage 1 automatically. No transfer or zero-shot stage is scheduled here. ZERO_SHOT_NOT_STARTED.
+The protocol is frozen, while implementation is pending until the machine-readable preflight passes. A later `M1_SMD_READY_FOR_EXECUTION` status will not itself launch Stage 1. No transfer or zero-shot stage is scheduled here. ZERO_SHOT_NOT_STARTED.

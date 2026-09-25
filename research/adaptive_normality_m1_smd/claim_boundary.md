@@ -14,7 +14,7 @@ Only a replicated, predeclared xLSTM-F versus capacity-matched LSTM-F gain can s
 
 ### Complementarity claim
 
-Only the frozen tail-rank max-fusion route may support that forecast scores add useful discrimination beyond non-forecast controls. It is a fixed score combination, not evidence for a learned ensemble.
+Only the frozen tail-rank max-fusion route may support that forecast scores add useful discrimination beyond the five non-forecast scores (last-value, moving median, VAR(1), `R-native-window`, and `R-endpoint`). It is a fixed score combination, not evidence for a learned ensemble. The standalone route uses a test-label-dependent oracle control envelope as a conservative scientific gate; that envelope is not a deployable detector or one operational baseline.
 
 ## Claims this study cannot support
 

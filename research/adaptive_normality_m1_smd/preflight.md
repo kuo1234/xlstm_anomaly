@@ -2,9 +2,9 @@
 
 ## Status
 
-Protocol and data preflight: **PASS**. Model implementation preflight: **PENDING**. No tests, detector forwards, training, score extraction, or GPU work were run in this research-only task.
+Current status: **M1_SMD_PROTOCOL_READY — IMPLEMENTATION_PENDING**. This wording correction was made prospectively before any M1 detector result or model execution. Protocol/data documentation is frozen; the new implementation preflight must pass before status may become `M1_SMD_READY_FOR_EXECUTION`. No detector metric has been observed.
 
-The correct current decision is readiness of the frozen protocol, not evidence that any detector works. Before the first training run, a separately reviewed M1-only implementation must satisfy the checks below. This distinction prevents a protocol-ready status from being mistaken for completed experiment code.
+Protocol readiness is not implementation readiness. Before any Stage-1 detector training, the separately reviewed M1-only implementation must satisfy the checks below.
 
 ## Data and provenance
 
