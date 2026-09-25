@@ -1,0 +1,33 @@
+{
+  "complement": {
+    "components": {
+      "mean_delta_le_zero": true,
+      "positive_machines_le_3": false
+    },
+    "futile": false,
+    "machine_count": 9,
+    "mean_delta": -0.019177952726060245,
+    "positive_machines": 4
+  },
+  "decision": "CONTINUE_TO_STAGE1B",
+  "lstm_diagnostic": {
+    "affects_decision": false,
+    "mean_ap_over_prevalence": 40.91239796573267,
+    "mean_delta_ap": 0.030744625779035955,
+    "mean_event_detection_rate": 0.901410934744268,
+    "mean_normal_point_FPR": 0.1293958320059478,
+    "positive_machines": 4
+  },
+  "stage1a_is_not_confirmatory": true,
+  "stage1b_started": false,
+  "standalone": {
+    "components": {
+      "mean_delta_le_zero": false,
+      "positive_machines_le_3": true
+    },
+    "futile": false,
+    "machine_count": 9,
+    "mean_delta": 0.029307174096515645,
+    "positive_machines": 3
+  }
+}
