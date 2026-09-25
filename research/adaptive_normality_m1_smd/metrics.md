@@ -21,7 +21,12 @@ For each detector and machine report:
 - onset delay: first threshold alarm index within a run minus its first labeled point, in samples; report misses as censored at event length and include the miss fraction;
 - normal-point false-positive rate: false-alarm points divided by labeled-normal scored points;
 - false-positive burden: false-alarm points per 10,000 scored normal points and contiguous false-alarm runs per 10,000 normal points;
-- score recovery after an anomaly run: samples from the run’s exclusive end to the first 10 consecutive scores below the frozen threshold; right-censor at the test end and report censoring.
+- false-alarm runs are maximal contiguous runs of threshold-alarmed points restricted to label==0; a labeled-anomaly point breaks a normal false-alarm run;
+- score recovery after an anomaly run: samples from the run’s exclusive end to the first 10 consecutive scores below the frozen threshold. The search stops before the beginning of the next anomaly event. If ten normal below-threshold scores have not occurred by that boundary, recovery is right-censored at the next event start. For the last event, censor at the test end. Report recovery delay and a separate censoring indicator/reason.
+
+## Prospective result-blind edge amendment
+
+Before any M1 test label is opened, freeze these event-boundary details. For onset, use the first threshold alarm inside the event; if none occurs, mark the event missed and report its descriptive onset delay censored at the event length. Always report miss fraction separately. For recovery, begin at the exclusive event end, require ten consecutive below-threshold points, and do not search through a subsequent anomaly event. Censor at the next event start, or at test end when there is no later event. This amendment is made before any M1 detector result exists and does not change a detector, threshold, or scientific gate.
 
 The fixed operating threshold for each raw score or fixed fusion is its higher empirical 99th percentile on the second half of the normal calibration block. No test-best threshold, anomaly-label threshold search, segment filling, hysteresis tuning, or threshold change after viewing test behavior. The 99th percentile is a nominal 1% training-normal alarm point; test FPR is measured, not assumed.
 

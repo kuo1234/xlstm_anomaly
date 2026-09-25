@@ -16,6 +16,7 @@ import random
 import subprocess
 import tempfile
 import time
+import copy
 from pathlib import Path
 from typing import Any, Callable, Iterable, Mapping
 
@@ -35,6 +36,9 @@ SEED = 11
 BATCH_SIZE = 128
 MAX_EPOCHS = 50
 LEARNING_RATE = 1e-3
+STAGE1_EXECUTION_DIR = Path("reports/adaptive_normality_m1_smd/stage1_execution")
+STAGE1_EXECUTION_MANIFEST_PATH = Path("reports/adaptive_normality_m1_smd/stage1_execution_manifest.json")
+STAGE1_EXECUTION_SCHEMA = "adaptive-normality-m1-stage1-execution-calibration-v1"
 ARMS = ("xlstmad_r", "xlstmad_f", "lstm_f")
 ARM_NAMES = {
     "xlstmad_r": "xLSTMAD-R",
@@ -567,6 +571,177 @@ def immutable_json_write(path: str | Path, record: Mapping[str, Any]) -> Path:
     return target
 
 
+def _immutable_copy(source: str | Path, target: str | Path) -> dict[str, Any]:
+    """Copy a frozen numeric artifact into the canonical repo inventory once."""
+    source_path, target_path = Path(source), Path(target)
+    if not source_path.is_file():
+        raise M1ExecutionError(f"required execution artifact is missing: {source_path}")
+    target_path.parent.mkdir(parents=True, exist_ok=True)
+    if target_path.exists():
+        raise FileExistsError(f"immutable execution artifact already exists: {target_path}")
+    fd, temporary_name = tempfile.mkstemp(
+        dir=target_path.parent, prefix=f".{target_path.name}.", suffix=".partial")
+    temporary = Path(temporary_name)
+    try:
+        with source_path.open("rb") as source_handle, os.fdopen(fd, "wb") as target_handle:
+            while True:
+                block = source_handle.read(1 << 20)
+                if not block:
+                    break
+                target_handle.write(block)
+            target_handle.flush()
+            os.fsync(target_handle.fileno())
+        os.link(temporary, target_path)
+    finally:
+        temporary.unlink(missing_ok=True)
+    digest = _sha256_file(target_path)
+    if digest != _sha256_file(source_path):
+        target_path.unlink(missing_ok=True)
+        raise M1ExecutionError(f"copied execution artifact changed bytes: {source_path}")
+    return {"path": target_path.as_posix(), "sha256": digest,
+            "bytes": target_path.stat().st_size}
+
+
+def write_execution_calibration_seal(
+        *, repo: str | Path, run_root: str | Path,
+        machine_records: Mapping[str, Mapping[str, Any]],
+        score_inventory: Mapping[str, Any]) -> Path:
+    """Publish the immutable execution/calibration provenance for future metrics.
+
+    This writer runs only after all frozen machine scores have been produced.
+    Its output must be committed before the metric-only evaluator is allowed
+    to open any test labels.
+    """
+    root, runs = Path(repo).resolve(), Path(run_root).resolve()
+    if list(machine_records) != list(scores.STAGE1_MACHINES):
+        raise M1ExecutionError("execution seal requires the exact ordered 28-machine set")
+    if score_inventory.get("score_names") != list(scores.STAGE1_SCORE_NAMES):
+        raise M1ExecutionError("execution seal requires the exact frozen nine-score inventory")
+    inventory_entries = score_inventory.get("machines")
+    if not isinstance(inventory_entries, list) or [item.get("machine") for item in inventory_entries] != list(scores.STAGE1_MACHINES):
+        raise M1ExecutionError("execution seal score inventory has a noncanonical machine set")
+    score_by_machine = {item["machine"]: item for item in inventory_entries}
+    manifest_path = root / STAGE1_EXECUTION_MANIFEST_PATH
+    execution_root = root / STAGE1_EXECUTION_DIR
+    if manifest_path.exists() or execution_root.exists():
+        raise FileExistsError("execution/calibration seal is immutable")
+
+    entries = []
+    for machine in scores.STAGE1_MACHINES:
+        original = copy.deepcopy(dict(machine_records[machine]))
+        if original.get("machine") != machine or original.get("schema") != "adaptive-normality-m1-machine-run-v1":
+            raise M1ExecutionError(f"{machine}: malformed machine run record")
+        run_source = runs / machine / "machine_run.json"
+        if not run_source.is_file():
+            raise M1ExecutionError(f"{machine}: generating machine run record is missing")
+        stored_run = json.loads(run_source.read_text(encoding="utf-8"))
+        if stored_run != original:
+            raise M1ExecutionError(f"{machine}: in-memory machine record differs from persisted run record")
+
+        canonical_machine_dir = execution_root / machine
+        scaler = _immutable_copy(original["scaler"]["artifact"]["path"],
+                                 canonical_machine_dir / "scaler.npz")
+        calibration = _immutable_copy(original["calibration"]["artifact"]["path"],
+                                      canonical_machine_dir / "calibration_scores.npz")
+        scaler["path"] = (STAGE1_EXECUTION_DIR / machine / "scaler.npz").as_posix()
+        calibration["path"] = (STAGE1_EXECUTION_DIR / machine / "calibration_scores.npz").as_posix()
+
+        original["scaler"]["artifact"] = scaler
+        for arm in ARMS:
+            if arm not in original["arms"]:
+                raise M1ExecutionError(f"{machine}: missing frozen learned arm {arm}")
+            original["arms"][arm]["transform"]["artifact"] = scaler
+        original["calibration"]["artifact"] = calibration
+        run_record_rel = (STAGE1_EXECUTION_DIR / machine / "run_record.json").as_posix()
+        run_record_path = root / run_record_rel
+        immutable_json_write(run_record_path, original)
+
+        with np.load(root / calibration["path"], allow_pickle=False) as saved:
+            reference_names = sorted(name.removeprefix("tail_reference__")
+                                     for name in saved.files if name.startswith("tail_reference__"))
+            tail_reference_hashes = {}
+            tail_reference_counts = {}
+            for reference_name in reference_names:
+                values = np.ascontiguousarray(saved[f"tail_reference__{reference_name}"])
+                tail_reference_hashes[reference_name] = hashlib.sha256(values.tobytes()).hexdigest()
+                tail_reference_counts[reference_name] = int(values.size)
+            expected_references = {"last_value", "moving_median", "var1", "r_native_window",
+                                   "r_endpoint", "xlstmad_f"}
+            if set(reference_names) != expected_references or any(v <= 0 for v in tail_reference_counts.values()):
+                raise M1ExecutionError(f"{machine}: calibration tail-reference inventory is incomplete")
+            recorded_counts = original["calibration"].get("tail_reference_counts")
+            if recorded_counts != tail_reference_counts:
+                raise M1ExecutionError(f"{machine}: run-record tail-reference counts differ from calibration bytes")
+            for name in scores.STAGE1_SCORE_NAMES:
+                key = f"threshold_scores__{name}"
+                if key not in saved.files:
+                    raise M1ExecutionError(f"{machine}: missing threshold samples for {name}")
+                expected_threshold = scores.higher_empirical_quantile(saved[key], 0.99)
+                if float(original["calibration"]["thresholds"].get(name, float("nan"))) != expected_threshold:
+                    raise M1ExecutionError(f"{machine}: {name} threshold differs from its q=.99 higher samples")
+
+        fit_records = {arm: original["arms"][arm]["fit"] for arm in ARMS}
+        model_state_hashes = {arm: fit_records[arm]["best_model_sha256"] for arm in ARMS}
+        model_checkpoints = {}
+        for arm in ARMS:
+            checkpoint = fit_records[arm].get("best_checkpoint")
+            if not isinstance(checkpoint, Mapping) or not checkpoint.get("path"):
+                raise M1ExecutionError(f"{machine}/{arm}: exact best checkpoint provenance is missing")
+            checkpoint_path = Path(checkpoint["path"])
+            if (not checkpoint_path.is_file()
+                    or _sha256_file(checkpoint_path) != checkpoint.get("sha256")
+                    or checkpoint_path.stat().st_size != checkpoint.get("bytes")):
+                raise M1ExecutionError(f"{machine}/{arm}: best checkpoint differs from its recorded hash/size")
+            model_checkpoints[arm] = {"path": str(checkpoint_path.resolve()),
+                                      "sha256": checkpoint["sha256"],
+                                      "bytes": int(checkpoint["bytes"])}
+
+        score_entry = score_by_machine[machine]
+        score_artifact = root / score_entry["artifact"]
+        if not score_artifact.is_file() or _sha256_file(score_artifact) != score_entry.get("sha256"):
+            raise M1ExecutionError(f"{machine}: score bytes differ from the score inventory")
+        calibration_summary = original["calibration"]
+        thresholds = calibration_summary.get("thresholds")
+        if not isinstance(thresholds, Mapping) or list(thresholds) != list(scores.STAGE1_SCORE_NAMES):
+            # Serialize in canonical order irrespective of the mapping's input order.
+            if not isinstance(thresholds, Mapping) or set(thresholds) != set(scores.STAGE1_SCORE_NAMES):
+                raise M1ExecutionError(f"{machine}: calibration thresholds differ from the frozen nine-score set")
+            thresholds = {name: thresholds[name] for name in scores.STAGE1_SCORE_NAMES}
+            calibration_summary["thresholds"] = thresholds
+        threshold_quantile = calibration_summary.get("threshold_quantile")
+        if threshold_quantile != {"q": 0.99, "method": "higher"}:
+            raise M1ExecutionError(f"{machine}: calibration threshold rule changed")
+        if list(calibration_summary.get("threshold_score_names", [])) != list(scores.STAGE1_SCORE_NAMES):
+            raise M1ExecutionError(f"{machine}: calibration record does not enumerate the frozen scores")
+
+        run_record_digest = _sha256_file(run_record_path)
+        entries.append({
+            "machine": machine,
+            "source_commit": original["source_commit"],
+            "scaler_artifact": scaler["path"],
+            "scaler_sha256": scaler["sha256"],
+            "model_state_sha256": model_state_hashes,
+            "model_checkpoints": model_checkpoints,
+            "calibration_artifact": calibration["path"],
+            "calibration_artifact_sha256": calibration["sha256"],
+            "thresholds": {name: thresholds[name] for name in scores.STAGE1_SCORE_NAMES},
+            "threshold_quantile": {"q": 0.99, "method": "higher"},
+            "tail_reference_hashes": tail_reference_hashes,
+            "tail_reference_counts": tail_reference_counts,
+            "score_artifact": score_entry["artifact"],
+            "score_artifact_sha256": score_entry["sha256"],
+            "timestamp_sha256": score_entry["timestamp_sha256"],
+            "run_record": run_record_rel,
+            "run_record_sha256": run_record_digest,
+        })
+
+    seal = {"schema": STAGE1_EXECUTION_SCHEMA,
+            "score_manifest": scores.STAGE1_MANIFEST_PATH.as_posix(),
+            "machines": entries}
+    immutable_json_write(manifest_path, seal)
+    return manifest_path
+
+
 def _json_default(value):
     if isinstance(value, np.ndarray):
         return value.tolist()
@@ -607,7 +782,8 @@ def make_run_record(*, machine: str, arm: str, fit_record: Mapping[str, Any],
 
 def run_stage1_machine(machine: str, *, device: str = "cuda:0",
                        train_root: Path | None = None, test_root: Path | None = None,
-                       run_root: Path | None = None) -> tuple[dict[str, Any], dict[str, Any]]:
+                       run_root: Path | None = None,
+                       source_commit: str | None = None) -> tuple[dict[str, Any], dict[str, Any]]:
     """Future full Stage-1 machine unit. Not called in implementation preflight."""
     if run_root is None:
         raise M1ExecutionError("future Stage-1 fits require a persistent run_root")
@@ -626,7 +802,7 @@ def run_stage1_machine(machine: str, *, device: str = "cuda:0",
         scale_floor=np.asarray(transform.scale_floor, dtype=np.float64),
         fit_rows=np.asarray(transform.fit_rows, dtype=np.int64),
     )
-    source_commit = _git_head()
+    source_commit = source_commit or _git_head()
     environment = environment_record()
     trained = {}
     records = {}
@@ -686,24 +862,38 @@ def run_stage1_all(*, repo: Path | None = None, data_root: Path | None = None,
     run_root = Path(run_root).resolve()
     if not run_root.is_dir():
         run_root.mkdir(parents=True, exist_ok=False)
-    if (root / scores.STAGE1_MANIFEST_PATH).exists() or (root / scores.STAGE1_SCORE_DIR).exists():
-        raise M1ExecutionError("canonical score destination already exists; refusing to overwrite")
+    if ((root / scores.STAGE1_MANIFEST_PATH).exists()
+            or (root / scores.STAGE1_SCORE_DIR).exists()
+            or (root / STAGE1_EXECUTION_MANIFEST_PATH).exists()
+            or (root / STAGE1_EXECUTION_DIR).exists()):
+        raise M1ExecutionError("canonical Stage-1 score/provenance destination already exists; refusing to overwrite")
+    source_commit = _git_head(root)
     inventory: dict[str, dict[str, Any]] = {}
+    records_by_machine: dict[str, dict[str, Any]] = {}
     machine_records = []
     for machine in scores.STAGE1_MACHINES:
         machine_scores, record = run_stage1_machine(
             machine, device=device, train_root=data_root, test_root=data_root,
-            run_root=run_root,
+            run_root=run_root, source_commit=source_commit,
         )
         inventory[machine] = machine_scores
+        records_by_machine[machine] = record
         machine_records.append({"machine": machine, "run_record": str(run_root / machine / "machine_run.json"),
                                 "run_record_sha256": _sha256_file(run_root / machine / "machine_run.json"),
                                 "source_commit": record["source_commit"],
                                 "test_labels_read": False, "anomaly_metrics_computed": False})
     manifest = scores.seal_stage1_machine_scores(root, inventory)
+    score_inventory = json.loads(manifest.read_text(encoding="utf-8"))
+    if _git_head(root) != source_commit:
+        raise M1ExecutionError("source Git HEAD changed during Stage-1 execution")
+    execution_manifest = write_execution_calibration_seal(
+        repo=root, run_root=run_root, machine_records=records_by_machine,
+        score_inventory=score_inventory)
     result = {"schema": "adaptive-normality-m1-stage1-run-inventory-v1",
-              "source_commit": _git_head(root), "score_manifest": str(manifest),
+              "source_commit": source_commit, "score_manifest": str(manifest),
               "score_manifest_sha256": _sha256_file(manifest), "machines": machine_records,
+              "execution_manifest": str(execution_manifest),
+              "execution_manifest_sha256": _sha256_file(execution_manifest),
               "test_labels_read": False, "anomaly_metrics_computed": False}
     immutable_json_write(run_root / "stage1_run_inventory.json", result)
     return result

@@ -40,7 +40,7 @@ def test_metric_entrypoint_rejects_missing_seal_without_label_access(tmp_path):
     assert touched == []
 
 
-def test_metric_entrypoint_allows_label_callback_only_after_committed_inventory(tmp_path):
+def test_metric_entrypoint_requires_committed_execution_calibration_seal(tmp_path):
     repo = tmp_path / "repo"; repo.mkdir(); _git(repo, "init", "-q")
     _git(repo, "config", "user.email", "m1-test@example.invalid")
     _git(repo, "config", "user.name", "M1 synthetic test")
@@ -49,13 +49,13 @@ def test_metric_entrypoint_allows_label_callback_only_after_committed_inventory(
     _git(repo, "commit", "-qm", "synthetic sealed inventory")
     paths = [repo / STAGE1_SCORE_DIR / f"{machine}.npz" for machine in STAGE1_MACHINES]
     calls = []
-    result = run_metric_entrypoint(
-        score_artifacts=paths, repo=repo,
-        label_loader=lambda: calls.append("authorized_loader") or {"synthetic": True},
-        metric_runner=lambda manifests, labels: (len(manifests[0]["machines"]), labels),
-    )
-    assert calls == ["authorized_loader"]
-    assert result == (28, {"synthetic": True})
+    with pytest.raises(RuntimeError, match="execution/calibration manifest is missing"):
+        run_metric_entrypoint(
+            score_artifacts=paths, repo=repo,
+            label_loader=lambda: calls.append("must_not_run"),
+            metric_runner=lambda *_: None,
+        )
+    assert calls == []
 
 
 def test_gate_accepts_only_committed_exact_artifact_and_seal(tmp_path):

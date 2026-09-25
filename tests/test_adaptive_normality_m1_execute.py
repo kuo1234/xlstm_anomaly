@@ -241,3 +241,83 @@ def test_calibration_fits_tail_reference_and_higher_thresholds_on_disjoint_halve
             np.quantile(result["threshold_calibration_scores"][name], 0.99, method="higher"),
             rtol=0, atol=0,
         )
+
+
+def test_execution_calibration_seal_binds_all_machine_artifacts_without_training(tmp_path):
+    repo = tmp_path / "repo"
+    run_root = tmp_path / "external_runs"
+    repo.mkdir(); run_root.mkdir()
+    rng = np.random.default_rng(19)
+    synthetic_scores = {
+        machine: {"timestamps": np.array([256, 257, 258], dtype=np.int64),
+                  **{name: rng.normal(size=3) for name in execute.scores.STAGE1_SCORE_NAMES}}
+        for machine in execute.scores.STAGE1_MACHINES
+    }
+    score_manifest = execute.scores.seal_stage1_machine_scores(repo, synthetic_scores)
+    score_inventory = json.loads(score_manifest.read_text())
+    records = {}
+    reference_names = ("last_value", "moving_median", "var1", "r_native_window",
+                       "r_endpoint", "xlstmad_f")
+    for machine in execute.scores.STAGE1_MACHINES:
+        machine_dir = run_root / machine
+        machine_dir.mkdir()
+        scaler_source = machine_dir / "scaler.npz"
+        np.savez_compressed(scaler_source, center=np.zeros(2), scale=np.ones(2))
+        calibration_source = machine_dir / "calibration_scores.npz"
+        calibration_arrays = {
+            f"tail_reference__{name}": np.arange(20, dtype=np.float64) + offset
+            for offset, name in enumerate(reference_names)
+        }
+        threshold_samples = {
+            name: np.arange(20, dtype=np.float64) + offset
+            for offset, name in enumerate(execute.scores.STAGE1_SCORE_NAMES)
+        }
+        calibration_arrays.update({f"threshold_scores__{name}": value
+                                   for name, value in threshold_samples.items()})
+        np.savez_compressed(calibration_source, timestamps=np.arange(20, dtype=np.int64),
+                            **calibration_arrays)
+        thresholds = {name: float(np.quantile(values, .99, method="higher"))
+                      for name, values in threshold_samples.items()}
+        tail_reference_counts = {name.removeprefix("tail_reference__"): int(len(values))
+                                 for name, values in calibration_arrays.items()
+                                 if name.startswith("tail_reference__")}
+        scaler_info = {"path": str(scaler_source), "sha256": execute._sha256_file(scaler_source),
+                       "bytes": scaler_source.stat().st_size}
+        calibration_info = {"path": str(calibration_source),
+                            "sha256": execute._sha256_file(calibration_source),
+                            "bytes": calibration_source.stat().st_size}
+        arm_records = {}
+        for arm in execute.ARMS:
+            checkpoint = machine_dir / f"{arm}.best.pt"
+            checkpoint.write_bytes(f"{machine}:{arm}:checkpoint".encode())
+            arm_records[arm] = {
+                "fit": {"best_model_sha256": f"{arm}-{machine}-state",
+                        "best_checkpoint": {"path": str(checkpoint),
+                                            "sha256": execute._sha256_file(checkpoint),
+                                            "bytes": checkpoint.stat().st_size}},
+                "transform": {"artifact": scaler_info},
+            }
+        record = {
+            "schema": "adaptive-normality-m1-machine-run-v1", "machine": machine,
+            "source_commit": "c" * 40, "arms": arm_records,
+            "scaler": {"artifact": scaler_info},
+            "calibration": {"artifact": calibration_info, "thresholds": thresholds,
+                            "threshold_quantile": {"q": .99, "method": "higher"},
+                            "tail_reference_counts": tail_reference_counts,
+                            "threshold_score_names": list(execute.scores.STAGE1_SCORE_NAMES)},
+        }
+        execute.immutable_json_write(machine_dir / "machine_run.json", record)
+        records[machine] = record
+
+    manifest = execute.write_execution_calibration_seal(
+        repo=repo, run_root=run_root, machine_records=records,
+        score_inventory=score_inventory)
+    seal = json.loads(manifest.read_text())
+    assert seal["schema"] == execute.STAGE1_EXECUTION_SCHEMA
+    assert [entry["machine"] for entry in seal["machines"]] == list(execute.scores.STAGE1_MACHINES)
+    assert all(entry["threshold_quantile"] == {"q": .99, "method": "higher"}
+               for entry in seal["machines"])
+    assert all(set(entry["thresholds"]) == set(execute.scores.STAGE1_SCORE_NAMES)
+               for entry in seal["machines"])
+    assert all(len(entry["model_state_sha256"]) == 3 for entry in seal["machines"])
+    assert all((repo / entry["run_record"]).is_file() for entry in seal["machines"])
