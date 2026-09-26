@@ -13,7 +13,7 @@ The source literature plan is the documentation-only branch `research/adaptive-n
 | 3 | P6 — meta-RL recommissioning controller | [#10](https://github.com/kuo1234/xlstm_anomaly/issues/10) | Complete: Astra review 2 PASS for research/design assessment; execution remains gated on a completed P5 baseline and separate authorization |
 | 4 | P2 — exposure budget and rollback versus waiting | [#6](https://github.com/kuo1234/xlstm_anomaly/issues/6) | Complete: Astra review 2 PASS for research/design assessment; execution remains gated on P1's evaluation contract and separate authorization |
 | 5 | P4 — peer-corroborated fleet normality | [#8](https://github.com/kuo1234/xlstm_anomaly/issues/8) | Complete: Astra review 2 PASS for research/design assessment; execution remains gated on P1's evaluation contract and separate authorization |
-| 6 | P1 — identifiability-stratified adaptive-TSAD evaluation | [#5](https://github.com/kuo1234/xlstm_anomaly/issues/5) | Not started |
+| 6 | P1 — identifiability-stratified adaptive-TSAD evaluation | [#5](https://github.com/kuo1234/xlstm_anomaly/issues/5) | Complete: Astra review 2 PASS for research/design assessment; TSADmetrics/e-Energy full-text and reuse audits remain required before any study |
 
 Each direction will receive its own feasibility assessment, literature comparison, proposed experiment, stop criteria, and independent Astra review before being marked complete.
 
