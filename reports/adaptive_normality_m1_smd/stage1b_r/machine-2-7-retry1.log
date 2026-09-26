@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "<stdin>", line 10, in <module>
+  File "/home/p76141495/home/xlstm_anomaly/.worktrees/adaptive-normality-m1-smd/scripts/adaptive_normality_m1_stage1b_r.py", line 345, in _run_machine
+    existing = _load_existing(machine, repo, source_commit)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/p76141495/home/xlstm_anomaly/.worktrees/adaptive-normality-m1-smd/scripts/adaptive_normality_m1_stage1b_r.py", line 307, in _load_existing
+    raise Stage1BError(f"{machine}: incomplete Stage-1B-R output exists; refusing overwrite")
+scripts.adaptive_normality_m1_stage1b_r.Stage1BError: machine-2-7: incomplete Stage-1B-R output exists; refusing overwrite

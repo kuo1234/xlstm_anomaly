@@ -1,0 +1,18 @@
+{
+  "anomaly_metrics_computed": false,
+  "artifacts": [
+    {
+      "bytes": 332369,
+      "mtime_local": "2026-09-26 18:45:10 +0800",
+      "path": "reports/adaptive_normality_m1_smd/stage1b_r/incomplete_attempts/machine-2-7-attempt-1/xlstmad_r.best.pt",
+      "sha256": "999dd7e137a520e4f09ce39a1bb09007955e63096ebe399d8864896b4c5934a7"
+    }
+  ],
+  "checkpoint_used_for_retry": false,
+  "machine": "machine-2-7",
+  "reason": "training process ended before the completed machine run record was written; process exit cause unavailable",
+  "schema": "adaptive-normality-m1-stage1b-r-incomplete-attempt-v1",
+  "source_commit": "2eda60d024d2a9149d62de5161ca76916a085942",
+  "status": "incomplete_not_reused",
+  "test_labels_read": false
+}

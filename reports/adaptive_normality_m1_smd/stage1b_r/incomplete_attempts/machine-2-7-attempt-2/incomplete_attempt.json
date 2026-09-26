@@ -1,0 +1,12 @@
+{
+  "anomaly_metrics_computed": false,
+  "artifacts": [],
+  "checkpoint_used_for_retry": false,
+  "directory_mtime_local": "2026-09-26 20:18:22 +0800",
+  "machine": "machine-2-7",
+  "reason": "detached child was cleaned up when its command session ended; no fit record or checkpoint was written",
+  "schema": "adaptive-normality-m1-stage1b-r-incomplete-attempt-v1",
+  "source_commit": "2eda60d024d2a9149d62de5161ca76916a085942",
+  "status": "incomplete_not_reused",
+  "test_labels_read": false
+}

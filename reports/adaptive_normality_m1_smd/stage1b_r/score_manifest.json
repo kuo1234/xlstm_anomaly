@@ -1,0 +1,117 @@
+{
+  "machines": [
+    {
+      "artifact": "reports/adaptive_normality_m1_smd/stage1b_r/scores/machine-1-7.npz",
+      "bytes": 385456,
+      "count": 23441,
+      "machine": "machine-1-7",
+      "score_names": [
+        "r_native_window",
+        "r_endpoint"
+      ],
+      "sha256": "16c33f7ecbf718f76ac4a733ee95d91fa43ee0e2498e708e365a81247011161b",
+      "timestamp_sha256": "c043129110d15711f41b1f977f16c1c1016ab4ba3dd0d4ac202b7162dab104dd"
+    },
+    {
+      "artifact": "reports/adaptive_normality_m1_smd/stage1b_r/scores/machine-1-3.npz",
+      "bytes": 381264,
+      "count": 23447,
+      "machine": "machine-1-3",
+      "score_names": [
+        "r_native_window",
+        "r_endpoint"
+      ],
+      "sha256": "244f7abe39c8d4393552d716014521c6d036a705d893db645f72beafc4c4b439",
+      "timestamp_sha256": "8a1550decd35a30872c806b15e4c8ecb61b3377c9197d89eba58488382390753"
+    },
+    {
+      "artifact": "reports/adaptive_normality_m1_smd/stage1b_r/scores/machine-1-5.npz",
+      "bytes": 383766,
+      "count": 23450,
+      "machine": "machine-1-5",
+      "score_names": [
+        "r_native_window",
+        "r_endpoint"
+      ],
+      "sha256": "9e2d1977b69c6f9397716cf8f90f7e6a30540f27adb54a0e94e63d21e9cc3d68",
+      "timestamp_sha256": "ff5cd9c6037b89f2a36c7382b29a05498b33f4ab0f5ae8a71470317c8cd18b2c"
+    },
+    {
+      "artifact": "reports/adaptive_normality_m1_smd/stage1b_r/scores/machine-2-4.npz",
+      "bytes": 384556,
+      "count": 23433,
+      "machine": "machine-2-4",
+      "score_names": [
+        "r_native_window",
+        "r_endpoint"
+      ],
+      "sha256": "c36d1b5b57026e29ad4cfd9cd970bb2cd29895f3ee55e71890345b238a8a3645",
+      "timestamp_sha256": "295779a832325a9ae9a4e66094e70a45ae95fc882cc18dc0505bab3ccd72e380"
+    },
+    {
+      "artifact": "reports/adaptive_normality_m1_smd/stage1b_r/scores/machine-2-7.npz",
+      "bytes": 386526,
+      "count": 23440,
+      "machine": "machine-2-7",
+      "score_names": [
+        "r_native_window",
+        "r_endpoint"
+      ],
+      "sha256": "76250961f45a25bffcbfa7f3ef93d117f4897e98d634c8c48aa646daf6a1af87",
+      "timestamp_sha256": "1eff04e917ba652258e88a61b4a09544bfd5a671e5a0ab402e87d8222d7504eb"
+    },
+    {
+      "artifact": "reports/adaptive_normality_m1_smd/stage1b_r/scores/machine-2-8.npz",
+      "bytes": 380232,
+      "count": 23447,
+      "machine": "machine-2-8",
+      "score_names": [
+        "r_native_window",
+        "r_endpoint"
+      ],
+      "sha256": "277772b4496296fe2a5f63229db351f7376c404df5373b259eac815ee447ccbb",
+      "timestamp_sha256": "8a1550decd35a30872c806b15e4c8ecb61b3377c9197d89eba58488382390753"
+    },
+    {
+      "artifact": "reports/adaptive_normality_m1_smd/stage1b_r/scores/machine-3-2.npz",
+      "bytes": 385255,
+      "count": 23447,
+      "machine": "machine-3-2",
+      "score_names": [
+        "r_native_window",
+        "r_endpoint"
+      ],
+      "sha256": "603c3868d520fd2f4c9f68cbb6692fff7376414974ad6fa5734932085a4d66b5",
+      "timestamp_sha256": "8a1550decd35a30872c806b15e4c8ecb61b3377c9197d89eba58488382390753"
+    },
+    {
+      "artifact": "reports/adaptive_normality_m1_smd/stage1b_r/scores/machine-3-11.npz",
+      "bytes": 455587,
+      "count": 28440,
+      "machine": "machine-3-11",
+      "score_names": [
+        "r_native_window",
+        "r_endpoint"
+      ],
+      "sha256": "d6c482a13e6b2db2d9a3fcdbbb28067a96b9ff0114e352bb188555b01329c3b3",
+      "timestamp_sha256": "23e12f8695ff4b901982909aa08b2b891e3d8949c58654d2ab837f5c480714e9"
+    },
+    {
+      "artifact": "reports/adaptive_normality_m1_smd/stage1b_r/scores/machine-3-7.npz",
+      "bytes": 463587,
+      "count": 28449,
+      "machine": "machine-3-7",
+      "score_names": [
+        "r_native_window",
+        "r_endpoint"
+      ],
+      "sha256": "3f8a7f3430e897798b326f5ae98e8c85e320db5a8f63a76a8952ceb37b97f8e5",
+      "timestamp_sha256": "2578492514438ae3991e3d5ddf7e7b6c8268819ed84b5e71314c139644856424"
+    }
+  ],
+  "schema": "adaptive-normality-m1-stage1b-r-score-inventory-v1",
+  "score_names": [
+    "r_native_window",
+    "r_endpoint"
+  ]
+}
