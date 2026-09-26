@@ -12,13 +12,13 @@ The source literature plan is the documentation-only branch `research/adaptive-n
 | 2 | P3 — authorization-scoped promotion | [#7](https://github.com/kuo1234/xlstm_anomaly/issues/7) | Complete: Astra review 2 PASS for research/design assessment |
 | 3 | P6 — meta-RL recommissioning controller | [#10](https://github.com/kuo1234/xlstm_anomaly/issues/10) | Complete: Astra review 2 PASS for research/design assessment; execution remains gated on a completed P5 baseline and separate authorization |
 | 4 | P2 — exposure budget and rollback versus waiting | [#6](https://github.com/kuo1234/xlstm_anomaly/issues/6) | Complete: Astra review 2 PASS for research/design assessment; execution remains gated on P1's evaluation contract and separate authorization |
-| 5 | P4 — peer-corroborated fleet normality | [#8](https://github.com/kuo1234/xlstm_anomaly/issues/8) | Not started |
+| 5 | P4 — peer-corroborated fleet normality | [#8](https://github.com/kuo1234/xlstm_anomaly/issues/8) | Complete: Astra review 2 PASS for research/design assessment; execution remains gated on P1's evaluation contract and separate authorization |
 | 6 | P1 — identifiability-stratified adaptive-TSAD evaluation | [#5](https://github.com/kuo1234/xlstm_anomaly/issues/5) | Not started |
 
 Each direction will receive its own feasibility assessment, literature comparison, proposed experiment, stop criteria, and independent Astra review before being marked complete.
 
 ## Review routing and research gates
 
-P5, P3, and P6 record the `gpt-6-astra` reviewer fallback used while the Astra orchestrator skill was unavailable. The skill became available during P2 and was used for its delegated research and independent Astra review; the review disposition is recorded with the direction. Each direction still receives a separate Astra review before completion.
+P5, P3, and P6 record the `gpt-6-astra` reviewer fallback used while the Astra orchestrator skill was unavailable. The skill became available during P2 and has been used since then for delegated research and independent Astra review; the review disposition is recorded with each direction. Each direction still receives a separate Astra review before completion.
 
 All proposed studies remain plans. `reports/m0_protocol.md` is unchanged; it does not authorize these new experiments. Any execution would need its own sealed protocol, frozen data manifest, and applicable GO/STOP review. Existing protected M1 worktrees and labels remain out of scope.
