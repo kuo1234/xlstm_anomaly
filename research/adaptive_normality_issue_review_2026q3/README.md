@@ -10,7 +10,7 @@ The source literature plan is the documentation-only branch `research/adaptive-n
 |---:|---|---:|---|
 | 1 | P5 — detector commissioning and READY stopping | [#9](https://github.com/kuo1234/xlstm_anomaly/issues/9) | Complete: Astra review 2 PASS for research/design assessment |
 | 2 | P3 — authorization-scoped promotion | [#7](https://github.com/kuo1234/xlstm_anomaly/issues/7) | Complete: Astra review 2 PASS for research/design assessment |
-| 3 | P6 — meta-RL recommissioning controller | [#10](https://github.com/kuo1234/xlstm_anomaly/issues/10) | Not started |
+| 3 | P6 — meta-RL recommissioning controller | [#10](https://github.com/kuo1234/xlstm_anomaly/issues/10) | Complete: Astra review 2 PASS for research/design assessment; execution remains gated on a completed P5 baseline and separate authorization |
 | 4 | P2 — exposure budget and rollback versus waiting | [#6](https://github.com/kuo1234/xlstm_anomaly/issues/6) | Not started |
 | 5 | P4 — peer-corroborated fleet normality | [#8](https://github.com/kuo1234/xlstm_anomaly/issues/8) | Not started |
 | 6 | P1 — identifiability-stratified adaptive-TSAD evaluation | [#5](https://github.com/kuo1234/xlstm_anomaly/issues/5) | Not started |
