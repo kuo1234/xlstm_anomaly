@@ -19,6 +19,8 @@ except ImportError:  # pragma: no cover - exercised by production script launche
 
 PRIMARY_ABSOLUTE_FPR_CAP = 0.03
 PRIMARY_ABSOLUTE_FAULT_REPORT_RECALL_FLOOR = 0.50
+MIN_FINITE_NORMAL_SUFFIX_OBSERVATIONS = 100
+MIN_NORMAL_SCORE_COVERAGE = 0.95
 
 
 class SourceNotEvaluable(ValueError):
@@ -36,6 +38,29 @@ class SuffixMetrics:
     normal_score_count: int
     eligible_fault_report_count: int
     hit_fault_report_count: int
+    normal_raw_count: int = -1
+    normal_finite_count: int = -1
+    normal_score_coverage: float = math.nan
+
+    def __post_init__(self) -> None:
+        # Preserve compatibility with synthetic/manual metrics constructed
+        # before raw and finite support were reported separately.
+        if self.normal_raw_count < 0:
+            object.__setattr__(self, "normal_raw_count", self.normal_score_count)
+        if self.normal_finite_count < 0:
+            object.__setattr__(self, "normal_finite_count", self.normal_score_count)
+        if math.isnan(self.normal_score_coverage):
+            coverage = (self.normal_finite_count / self.normal_raw_count
+                        if self.normal_raw_count else math.nan)
+            object.__setattr__(self, "normal_score_coverage", coverage)
+
+    @property
+    def normal_scores_evaluable(self) -> bool:
+        """Whether normal suffix support meets the frozen count/coverage gate."""
+        return (self.normal_raw_count >= MIN_FINITE_NORMAL_SUFFIX_OBSERVATIONS and
+                self.normal_finite_count >= MIN_FINITE_NORMAL_SUFFIX_OBSERVATIONS and
+                math.isfinite(self.normal_score_coverage) and
+                self.normal_score_coverage >= MIN_NORMAL_SCORE_COVERAGE)
 
 
 @dataclass(frozen=True)
@@ -133,9 +158,11 @@ def evaluate_suffix(
         raise ValueError("suffix score and normal mask lengths differ")
     finite = np.isfinite(values)
     normal_rows = normal & finite
-    normal_n = int(np.count_nonzero(normal_rows))
-    fpr = (float(np.count_nonzero((values[normal_rows] > frozen_threshold))) / normal_n
-           if normal_n else math.nan)
+    normal_raw_n = int(np.count_nonzero(normal))
+    normal_finite_n = int(np.count_nonzero(normal_rows))
+    coverage = normal_finite_n / normal_raw_n if normal_raw_n else math.nan
+    fpr = (float(np.count_nonzero((values[normal_rows] > frozen_threshold))) / normal_finite_n
+           if normal_finite_n else math.nan)
     hits = 0
     reports_n = 0
     for raw_mask in eligible_fault_report_masks:
@@ -148,7 +175,8 @@ def evaluate_suffix(
         reports_n += 1
         hits += int(np.any(mask & finite & (values > frozen_threshold)))
     recall = hits / reports_n if reports_n else math.nan
-    return SuffixMetrics(fpr, recall, normal_n, reports_n, hits)
+    return SuffixMetrics(fpr, recall, normal_finite_n, reports_n, hits,
+                         normal_raw_n, normal_finite_n, coverage)
 
 
 def acquisition_cost(raw_count: int, elapsed_days: float) -> float:
@@ -186,7 +214,8 @@ def summarize_candidate(
                 raise ValueError("READY task lacks evaluable suffix metrics")
             recalls.append(recall)
             fprs.append(fpr)
-            if fpr <= PRIMARY_ABSOLUTE_FPR_CAP and recall >= recall_floor:
+            if (task.metrics.normal_scores_evaluable and
+                    fpr <= PRIMARY_ABSOLUTE_FPR_CAP and recall >= recall_floor):
                 successes += 1
         else:
             costs.append(1.0)

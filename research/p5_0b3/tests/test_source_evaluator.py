@@ -6,6 +6,7 @@ import numpy as np
 
 from research.p5_0b3.scripts.readiness import Candidate, enumerate_candidates
 from research.p5_0b3.scripts.source_evaluator import (
+    MIN_FINITE_NORMAL_SUFFIX_OBSERVATIONS, MIN_NORMAL_SCORE_COVERAGE,
     SourceNotEvaluable, SuffixMetrics, TaskOutcome,
     effective_recall_floor, evaluate_suffix, fixed_n_threshold,
     inclusive_interval_mask, select_candidate,
@@ -38,6 +39,52 @@ class SourceEvaluatorTests(unittest.TestCase):
         # The report overlaps a suffix raw observation, so it remains in the
         # denominator and is a miss when that observation has no score.
         self.assertEqual(result.eligible_fault_report_recall, 0.0)
+
+    def test_normal_suffix_support_count_and_coverage_boundaries(self):
+        def metrics(raw, finite):
+            scores = np.ones(raw)
+            scores[finite:] = np.nan
+            return evaluate_suffix(scores, np.ones(raw, dtype=bool), [], 2.0)
+
+        self.assertEqual(MIN_FINITE_NORMAL_SUFFIX_OBSERVATIONS, 100)
+        self.assertEqual(MIN_NORMAL_SCORE_COVERAGE, 0.95)
+        self.assertTrue(metrics(100, 100).normal_scores_evaluable)
+        one = metrics(104, 100)
+        self.assertEqual(one.normal_raw_count, 104)
+        self.assertEqual(one.normal_finite_count, 100)
+        self.assertAlmostEqual(one.normal_score_coverage, 100 / 104)
+        self.assertTrue(one.normal_scores_evaluable)
+        self.assertFalse(metrics(106, 100).normal_scores_evaluable)
+        self.assertFalse(metrics(99, 99).normal_scores_evaluable)
+
+    def test_invalid_normal_scores_are_excluded_from_fpr_and_coverage(self):
+        scores = [0.0] * 100 + [10.0] * 4 + [np.nan] * 6
+        normal = [True] * len(scores)
+        result = evaluate_suffix(scores, normal, [], 5.0)
+        self.assertAlmostEqual(result.normal_pointwise_fpr, 4 / 104)
+        self.assertEqual(result.normal_score_count, 104)
+        self.assertEqual(result.normal_raw_count, 110)
+        self.assertEqual(result.normal_finite_count, 104)
+        self.assertAlmostEqual(result.normal_score_coverage, 104 / 110)
+
+    def test_fault_report_all_invalid_scores_is_a_miss(self):
+        result = evaluate_suffix([np.nan, np.nan], [True, True],
+                                 [[False, True]], 1.0)
+        self.assertEqual(result.eligible_fault_report_count, 1)
+        self.assertEqual(result.hit_fault_report_count, 0)
+        self.assertEqual(result.eligible_fault_report_recall, 0.0)
+
+    def test_invalid_score_count_does_not_change_raw_acquisition_look(self):
+        candidate = Candidate("fixed_n", {"look": 576}, "fixed")
+        metrics = SuffixMetrics(.01, 1.0, 100, 1, 1,
+                                normal_raw_count=106,
+                                normal_finite_count=100,
+                                normal_score_coverage=100 / 106)
+        summary = summarize_candidate(
+            candidate, [TaskOutcome(True, metrics, raw_count=576, elapsed_days=16)],
+            recall_floor=.5)
+        self.assertEqual(summary.mean_acquisition_cost, .25)
+        self.assertEqual(summary.joint_success_count, 0)
 
     def test_type7_quantiles_fixed_n_diagnostics_and_effective_floor(self):
         self.assertEqual(type7_quantile([0, 10], 0.1), 1.0)

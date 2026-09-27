@@ -1,36 +1,59 @@
 {
   "information_boundary": {
-    "manufacturer_semantic_labels_opened": false,
+    "manufacturer_semantic_labels_opened": true,
     "operational_archive_opened": false,
     "operational_zip_member_opened": false,
-    "prior_stage_attempt": {
-      "failure_stage": "SOURCE_PROJECTION",
-      "firewall_started": false,
-      "operational_members_opened": false,
-      "status": "P5_0B3_STAGE_BLOCKED"
-    },
+    "prior_stage_attempts": [
+      {
+        "allowlisted_manufacturer_label_members_opened": false,
+        "commit": "92b2d50",
+        "failure_stage": "SOURCE_PROJECTION",
+        "firewall_started": false,
+        "source_method_process_started": false,
+        "source_operational_rows_opened": false,
+        "status": "P5_0B3_STAGE_BLOCKED"
+      },
+      {
+        "allowlisted_manufacturer_label_members_opened": true,
+        "commit": "ec17f76763f798c1ec2a61b81a3a7f549f13190b",
+        "failure_stage": "SOURCE_FIREWALL",
+        "firewall_artifacts_published": false,
+        "firewall_started": true,
+        "source_method_process_started": false,
+        "source_operational_rows_opened": false,
+        "status": "P5_0B3_FIREWALL_BLOCKED"
+      }
+    ],
     "source_raw_values_opened": false,
-    "source_semantic_labels_opened": false,
+    "source_semantic_labels_opened": true,
     "structural_manifest_path_metadata_read": true,
     "target_access": "NOT_AUTHORIZED",
     "target_operational_files_opened": false,
     "target_raw_values_or_labels_accessed": false
   },
-  "pending_issue9_clarification": {
-    "conservative_rule": "Count only timestamp-valid, evaluator-confirmed normal suffix rows with finite scores toward the minimum of 100; keep invalid scores out of the FPR denominator.",
-    "issue_comment_url": "https://github.com/kuo1234/xlstm_anomaly/issues/9#issuecomment-5857165189",
-    "status": "NO_REPLY_AT_PREACCESS_SEAL"
+  "pending_firewall_diagnosis": {
+    "issue_comment_url": "https://github.com/kuo1234/xlstm_anomaly/issues/9#issuecomment-5857646668",
+    "request": "value-free failure category and failed invariant only",
+    "status": "PENDING_REVIEWER_RESPONSE"
   },
   "pre_data_review": {
-    "reviewer": "astra_predata_review_final",
-    "scope": "code, protocol, and synthetic tests only; no operational archive/raw/labels",
+    "issue_comment_id": 5857603327,
+    "reviewer": "astra_clarification_review",
+    "scope": "result-blind protocol/evaluator/pipeline/tests only; no operational archive/raw values/labels or TARGET data",
     "status": "PASS",
     "unsupported_projection_exception": "blank digest and configuration permitted only for UNSUPPORTED_FOR_ENTITY_SPLIT; rows remain in role/manifest and path-uniqueness validation and are excluded from SOURCE projection"
   },
   "protocol": {
-    "protocol_seal_sha256": "aff4e42223c1f8167d8a6dec818e03e2b7cd891c967572b45805fc58379a28f1",
+    "evaluation_contract_sha256": "775bb6b6b8355def017194faae5e4257f3442d0863e1dc06ac38005d79fdb59d",
+    "protocol_seal_sha256": "635f44cce87fa9f317fd066c5116dc18292b36b1973d203db8d4c4d27a91af02",
     "protocol_status": "P5_0B2R2_PROTOCOL_RESEALED",
-    "source_development_protocol_sha256": "ffc1ff333edff8fb76fdc1ea04962e492b2a549ba1b9bbf5348b536b72df97f1"
+    "source_development_protocol_sha256": "b3961d5007ceefbcbe6ac31c9953dfd47510cfe58a2cae0579bde37e53c48735"
+  },
+  "resolved_issue9_clarification": {
+    "MIN_FINITE_NORMAL_SUFFIX_OBSERVATIONS": 100,
+    "MIN_NORMAL_SCORE_COVERAGE": 0.95,
+    "issue_comment_url": "https://github.com/kuo1234/xlstm_anomaly/issues/9#issuecomment-5857603327",
+    "status": "FROZEN_PREACCESS"
   },
   "runtime": {
     "deterministic_ops": true,
@@ -78,7 +101,7 @@
     },
     {
       "path": "research/p5_0b3/scripts/source_evaluator.py",
-      "sha256": "b570435e3a224e563be490c69175a8cce39a9799c873534c7a84948aacbc9e83"
+      "sha256": "21bd8ed51050f24a4a59ead9b39c1c6e009554127fef5fb6b54c7a4f20c41ce9"
     },
     {
       "path": "research/p5_0b3/scripts/source_ingestion.py",
@@ -90,7 +113,7 @@
     },
     {
       "path": "research/p5_0b3/scripts/source_pipeline.py",
-      "sha256": "30f52acdf35a49d1aa54dfeacd2eb988102c1989b87d5259f83f436fc85e69f4"
+      "sha256": "91d7d668631e72a262ecf308bec06fd36a097d537fa32387be93c2755611634b"
     },
     {
       "path": "research/p5_0b3/scripts/source_projection.py",
@@ -126,7 +149,7 @@
     },
     {
       "path": "research/p5_0b3/tests/test_source_evaluator.py",
-      "sha256": "dd1ec7fe319f969ceb6d61483fda457209bb23e7d5ff050064594ca1a658a52f"
+      "sha256": "48b0843e6d2c7c3faac77e7e5e91efb8d07af07eed1f66afadba5138d42e895b"
     },
     {
       "path": "research/p5_0b3/tests/test_source_ingestion.py",
@@ -134,7 +157,7 @@
     },
     {
       "path": "research/p5_0b3/tests/test_source_pipeline.py",
-      "sha256": "385b0fcd17dbf1a27bd1c9998b551c289b543c26306908baa233665daad0876e"
+      "sha256": "12edf7d931f4eb48541779490fab98dc0273f207b17dbf59d184cf91042fff45"
     },
     {
       "path": "research/p5_0b3/tests/test_source_process_integration.py",
@@ -152,6 +175,6 @@
     "git_diff_check": "PASS",
     "source_projection_smoke": "PASS; structural metadata only; generated projection mode 0600",
     "synthetic_test_command": "PYTHONDONTWRITEBYTECODE=1 /tmp/p5-0b3-venv/bin/python -m unittest discover -s research/p5_0b3/tests -v",
-    "synthetic_test_result": "87 passed"
+    "synthetic_test_result": "93 passed"
   }
 }

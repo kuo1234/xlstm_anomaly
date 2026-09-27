@@ -15,6 +15,8 @@ ROLE_SHA256 = "00e0cec62d238c78f2d0b3c79910c0ffaf1122d1582c28c8848022fb3e10e33f"
 ROLE_COUNTS = {"SOURCE": 74, "TARGET": 16, "UNSUPPORTED_FOR_ENTITY_SPLIT": 3}
 PRIMARY_ABSOLUTE_FPR_CAP = 0.03
 PRIMARY_ABSOLUTE_FAULT_REPORT_RECALL_FLOOR = 0.50
+MIN_FINITE_NORMAL_SUFFIX_OBSERVATIONS = 100
+MIN_NORMAL_SCORE_COVERAGE = 0.95
 REMOVED_FEATURE_SUFFIXES = ("_meter_energy", "_meter_volume")
 CONTINUOUS_FEATURE_SUFFIXES = (
     "_temperature",
@@ -227,6 +229,10 @@ def validate() -> list[str]:
     fail_if(seal.get("base_commit") != BASE_COMMIT, "seal_base_commit", failures)
     fail_if(seal.get("branch") != "research/p5-0b2r2-nondegeneracy-reseal", "branch", failures)
     fail_if(seal.get("role_seal_sha256") != ROLE_SHA256, "seal_role_hash", failures)
+    clarification = seal.get("result_blind_clarification", {})
+    fail_if(clarification.get("issue") != 9, "clarification_issue", failures)
+    fail_if(clarification.get("issue_comment_id") != 5857603327, "clarification_comment", failures)
+    fail_if(clarification.get("scientific_design_reopened") is not False, "clarification_scope", failures)
     fail_if(seal.get("target_access", {}).get("target_label_access") != "NOT_AUTHORIZED", "target_access", failures)
     fail_if(seal.get("target_access", {}).get("target_raw_values_or_scores_accessed") is not False, "target_raw_scores_access", failures)
     fail_if(seal.get("target_access", {}).get("target_prefix_adjudication_performed") is not False, "target_prefix_access", failures)
@@ -258,6 +264,13 @@ def validate() -> list[str]:
     fail_if(seal.get("source_development", {}).get("primary_absolute_fpr_cap") != PRIMARY_ABSOLUTE_FPR_CAP, "source_absolute_fpr_cap", failures)
     fail_if(seal.get("source_development", {}).get("primary_absolute_fault_report_recall_floor") != PRIMARY_ABSOLUTE_FAULT_REPORT_RECALL_FLOOR, "source_recall_floor", failures)
     fail_if(seal.get("source_development", {}).get("recall_min_effective_formula") != "max(0.50, Recall_min_source_q10)", "source_effective_recall_formula", failures)
+    source_normal_gate = seal.get("source_development", {}).get("normal_suffix_evaluation", {})
+    fail_if(source_normal_gate.get("MIN_FINITE_NORMAL_SUFFIX_OBSERVATIONS") != MIN_FINITE_NORMAL_SUFFIX_OBSERVATIONS, "source_normal_suffix_min_finite", failures)
+    fail_if(source_normal_gate.get("MIN_NORMAL_SCORE_COVERAGE") != MIN_NORMAL_SCORE_COVERAGE, "source_normal_suffix_min_coverage", failures)
+    fail_if(source_normal_gate.get("normal_score_coverage") != "N_normal_finite / N_normal_raw; zero raw support is not evaluable", "source_normal_suffix_coverage_formula", failures)
+    fail_if(source_normal_gate.get("fpr_denominator") != "N_normal_finite", "source_normal_suffix_fpr_denominator", failures)
+    fail_if(source_normal_gate.get("invalid_normal_score_semantics") != "neither false positive nor true negative; lowers normal_score_coverage", "source_normal_suffix_invalid_score_semantics", failures)
+    fail_if(source_normal_gate.get("raw_acquisition_semantics") != "invalid-score observations remain raw acquisitions and do not shift or fill scheduled looks", "source_normal_suffix_raw_acquisition", failures)
     fail_if(seal.get("source_development", {}).get("fixed_n_fpr_q90_role") != "FPR_q90_source_fixedN_diagnostic; diagnostic only, never primary and never relaxes the absolute cap", "source_fpr_q90_role", failures)
     evaluation_seal = seal.get("evaluation", {})
     fail_if(evaluation_seal.get("fixed_target_counts_ascii_stratum_order") != TARGET_COUNTS_BY_STRATUM, "seal_evaluation_target_counts", failures)
@@ -269,10 +282,22 @@ def validate() -> list[str]:
     fail_if(evaluation_seal.get("primary_absolute_fault_report_recall_floor") != PRIMARY_ABSOLUTE_FAULT_REPORT_RECALL_FLOOR, "evaluation_recall_floor", failures)
     fail_if(evaluation_seal.get("recall_min_effective_formula") != "max(0.50, Recall_min_source_q10)", "evaluation_effective_recall_formula", failures)
     fail_if(evaluation_seal.get("primary_fault_metric") != "eligible fault-report recall", "evaluation_fault_metric", failures)
+    evaluation_normal_gate = evaluation_seal.get("normal_suffix_evaluation", {})
+    fail_if(evaluation_normal_gate.get("MIN_FINITE_NORMAL_SUFFIX_OBSERVATIONS") != MIN_FINITE_NORMAL_SUFFIX_OBSERVATIONS, "evaluation_normal_suffix_min_finite", failures)
+    fail_if(evaluation_normal_gate.get("MIN_NORMAL_SCORE_COVERAGE") != MIN_NORMAL_SCORE_COVERAGE, "evaluation_normal_suffix_min_coverage", failures)
+    fail_if(evaluation_normal_gate.get("normal_score_coverage") != "N_normal_finite / N_normal_raw; zero raw support is not evaluable", "evaluation_normal_suffix_coverage_formula", failures)
+    fail_if(evaluation_normal_gate.get("fpr_denominator") != "N_normal_finite", "evaluation_normal_suffix_fpr_denominator", failures)
+    fail_if(evaluation_normal_gate.get("invalid_normal_score_semantics") != "neither false positive nor true negative; lowers normal_score_coverage", "evaluation_normal_suffix_invalid_score_semantics", failures)
+    fail_if(evaluation_normal_gate.get("raw_acquisition_semantics") != "invalid-score observations remain raw acquisitions and do not shift or fill scheduled looks", "evaluation_normal_suffix_raw_acquisition", failures)
+    fail_if(evaluation_normal_gate.get("fault_report_eligibility") != "parsed efd_possible=true report interval overlaps a timestamp-valid suffix raw observation", "evaluation_fault_report_raw_overlap", failures)
+    fail_if(evaluation_normal_gate.get("fault_report_hit") != "at least one finite overlapping suffix score is strictly greater than the frozen threshold; invalid-only scores are a miss", "evaluation_fault_report_invalid_score_miss", failures)
     fail_if(evaluation_seal.get("fault_metric_is_unique_physical_fault_recall") is not False, "evaluation_unique_physical_fault_claim", failures)
     fail_if(evaluation_seal.get("fault_metric_matches_paper_repeat_filtered_event_set") is not False, "evaluation_paper_event_claim", failures)
     expected_review = "PENDING" if status == "P5_0B2R2_CANDIDATE" else "PASS"
     fail_if(seal.get("verification", {}).get("astra_review") != expected_review, "astra_review", failures)
+    fail_if(seal.get("verification", {}).get("protocol_invariant_tests") != 17, "protocol_invariant_test_count", failures)
+    fail_if(seal.get("verification", {}).get("synthetic_firewall_tests") != 19, "synthetic_firewall_test_count", failures)
+    fail_if(seal.get("verification", {}).get("combined_test_count") != 36, "protocol_combined_test_count", failures)
     clearance = seal.get("reviewer_adjudication", {})
     fail_if(clearance.get("raw_path_metadata_read") != "STRUCTURAL_METADATA_DEVIATION", "path_metadata_classification", failures)
     fail_if(clearance.get("semantic_boundary_breach") != "NO", "path_metadata_semantic_clearance", failures)
@@ -342,6 +367,14 @@ def validate() -> list[str]:
     fail_if("quantile(method=\"linear\")" not in threshold_doc or "q99" not in threshold_doc, "threshold_contract", failures)
     fail_if("PRIMARY_ABSOLUTE_FPR_CAP = 0.03" not in readiness_doc or "PRIMARY_ABSOLUTE_FAULT_REPORT_RECALL_FLOOR = 0.50" not in readiness_doc or "FPR_q90_source_fixedN_diagnostic" not in readiness_doc or "diagnostic only" not in readiness_doc or "Recall_min_source_q10" not in readiness_doc or "Recall_min_effective" not in readiness_doc or "Never-ready" not in readiness_doc, "readiness_contract", failures)
     fail_if("eligible fault-report recall" not in evaluation_doc or "pointwise future-normal FPR" not in evaluation_doc, "evaluation_contract", failures)
+    for normal_doc, failure_prefix in ((source_doc, "source"), (evaluation_doc, "evaluation")):
+        normalized_doc = re.sub(r"\s+", " ", normal_doc)
+        fail_if("N_normal_raw" not in normalized_doc or "N_normal_finite" not in normalized_doc, f"{failure_prefix}_normal_suffix_counts", failures)
+        fail_if("MIN_FINITE_NORMAL_SUFFIX_OBSERVATIONS = 100" not in normalized_doc, f"{failure_prefix}_normal_suffix_min_finite", failures)
+        fail_if("MIN_NORMAL_SCORE_COVERAGE = 0.95" not in normalized_doc, f"{failure_prefix}_normal_suffix_min_coverage", failures)
+        fail_if("normal_score_coverage = N_normal_finite / N_normal_raw" not in normalized_doc, f"{failure_prefix}_normal_suffix_coverage_formula", failures)
+        fail_if("FPR denominator" not in normalized_doc or "N_normal_finite" not in normalized_doc, f"{failure_prefix}_normal_suffix_fpr_denominator", failures)
+        fail_if("invalid-score observation still advances the raw index" not in normalized_doc, f"{failure_prefix}_normal_suffix_raw_acquisition", failures)
     fail_if("PRIMARY_ABSOLUTE_FPR_CAP = 0.03" not in evaluation_doc or "PRIMARY_ABSOLUTE_FAULT_REPORT_RECALL_FLOOR = 0.50" not in evaluation_doc or "eligible_fault_report_recall >= Recall_min_effective" not in evaluation_doc, "evaluation_primary_success", failures)
     fail_if("faults.csv" not in source_doc or "duplicates are retained" not in source_doc or "not unique physical-fault recall" not in source_doc, "source_fault_report_definition", failures)
     fail_if("faults.csv" not in evaluation_doc or "Duplicate records are retained" not in evaluation_doc or "not unique" not in evaluation_doc, "evaluation_fault_report_definition", failures)

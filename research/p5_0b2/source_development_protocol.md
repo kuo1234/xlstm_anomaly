@@ -74,10 +74,11 @@ annotation-clean first 2,304 raw observations under the same
 `REFERENCE_CLEAN_PRIMARY` interval rule, reach raw observation 2,304 within
 64 days, have at least 200 finite prefix scores at #2304, provide a complete
 fixed suffix whose timestamps are valid and nondecreasing through the final
-row (duplicates allowed), at least 100 evaluator-confirmed normal suffix observations,
-and at least one eligible fault report in the suffix. These are checked only against SOURCE data after
-the firewall runs. Failure marks that stratum `SOURCE_MODEL_NOT_EVALUABLE`;
-there is no cross-stratum borrowing or threshold borrowing.
+row (duplicates allowed), pass the suffix normal-score gate below, and have at
+least one eligible fault report in the suffix. These are checked only against
+SOURCE data after the firewall runs. Failure marks that stratum
+`SOURCE_MODEL_NOT_EVALUABLE`; there is no cross-stratum borrowing or threshold
+borrowing.
 
 ## Annotation use and SOURCE pseudo-target tasks
 
@@ -111,10 +112,26 @@ SOURCE evaluator may use that entity's annotation intervals and suffix scores
 strictly after raw observation 2,304 to compute normal-side and event
 outcomes. Future-normal points are timestamps
 inside `REFERENCE_NORMAL_EVENT` intervals and outside every fault/disturbance
-interval. Eligible fault reports are `faults.csv` rows with `efd_possible=true` whose
-existing parsed intervals overlap suffix observations. Each row is one report;
-duplicates are retained without semantic deduplication. A hit is any suffix
-score strictly above threshold within the report interval. `eligible fault-report recall`
+interval. Define `N_normal_raw` as those valid-timestamp suffix observations,
+whether or not their detector score is finite, and `N_normal_finite` as the
+subset with a finite score. Freeze
+`normal_score_coverage = N_normal_finite / N_normal_raw`; zero raw support is
+not evaluable. A SOURCE pseudo-target is normal-side evaluator-eligible only
+if `MIN_FINITE_NORMAL_SUFFIX_OBSERVATIONS = 100` and
+`MIN_NORMAL_SCORE_COVERAGE = 0.95` both pass. The normal-side FPR denominator
+is exactly `N_normal_finite`; invalid scores are neither TN nor FP and reduce
+the separately enforced coverage. If either gate fails, that pseudo-target is
+`NOT_EVALUABLE` and does not count among the required four evaluable tasks.
+Acquisition looks and the 2,304-row maximum count raw observations. An
+invalid-score observation still advances the raw index; it never shifts a
+look or gets replaced by a later finite score.
+Eligible fault reports are `faults.csv` rows with `efd_possible=true` whose
+existing parsed intervals overlap at least one timestamp-valid suffix
+raw observation, whether or not its score is finite. Each row is one report;
+duplicates are retained without semantic deduplication. A hit requires at
+least one finite suffix score strictly above threshold within the report
+interval. If all overlapping scores are invalid, the report remains in the
+denominator and is a miss. `eligible fault-report recall`
 is report-level, not unique physical-fault recall or the paper's repeat-filtered
 event set. TARGET evaluation and
 `Recall_min_source_q10`/`Recall_min_effective` use the same unit. Freeze

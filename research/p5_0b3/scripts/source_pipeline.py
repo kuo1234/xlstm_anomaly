@@ -44,6 +44,8 @@ try:  # Package import from the project root.
     from .source_evaluator import (
         CandidateSummary as ReadinessCandidateSummary,
         CandidateSelection,
+        MIN_FINITE_NORMAL_SUFFIX_OBSERVATIONS,
+        MIN_NORMAL_SCORE_COVERAGE,
         SuffixMetrics,
         TaskOutcome,
         SourceNotEvaluable,
@@ -74,6 +76,8 @@ except ImportError:  # ``scripts`` directory placed directly on sys.path.
     from source_evaluator import (
         CandidateSummary as ReadinessCandidateSummary,
         CandidateSelection,
+        MIN_FINITE_NORMAL_SUFFIX_OBSERVATIONS,
+        MIN_NORMAL_SCORE_COVERAGE,
         SuffixMetrics,
         TaskOutcome,
         SourceNotEvaluable,
@@ -865,9 +869,16 @@ def _pseudo_target_info(
         suffix_scores = np.asarray(scores[PREFIX_ROWS:], dtype=np.float64)
         normal = _annotation_masks(entity)[1][PREFIX_ROWS:]
         dirty = (known | disturbance_fault | disturbance_other)[PREFIX_ROWS:]
-        suffix_normal = normal & ~dirty & np.isfinite(suffix_scores)
-        if np.count_nonzero(suffix_normal) < 100:
+        # Retain the raw evaluator-confirmed normal mask. The evaluator needs
+        # this denominator to report score coverage independently of FPR.
+        suffix_normal = normal & ~dirty
+        normal_raw_n = int(np.count_nonzero(suffix_normal))
+        normal_finite_n = int(np.count_nonzero(suffix_normal & np.isfinite(suffix_scores)))
+        normal_coverage = normal_finite_n / normal_raw_n if normal_raw_n else 0.0
+        if normal_finite_n < MIN_FINITE_NORMAL_SUFFIX_OBSERVATIONS:
             return reject("insufficient_finite_normal_suffix_scores")
+        if normal_coverage < MIN_NORMAL_SCORE_COVERAGE:
+            return reject("insufficient_normal_suffix_score_coverage")
         report_masks = _report_masks_for_suffix(entity, suffix_stamps)
         if len(report_masks) < 1:
             return reject("no_eligible_fault_report")
@@ -1017,6 +1028,10 @@ def _readiness_selection(
                 "frozen_threshold": trajectory.frozen_threshold,
                 "normal_pointwise_fpr": metric.normal_pointwise_fpr if math.isfinite(metric.normal_pointwise_fpr) else None,
                 "normal_score_count": metric.normal_score_count,
+                "N_normal_raw": metric.normal_raw_count,
+                "N_normal_finite": metric.normal_finite_count,
+                "normal_score_coverage": metric.normal_score_coverage if math.isfinite(metric.normal_score_coverage) else None,
+                "normal_fpr_denominator": metric.normal_finite_count,
                 "eligible_fault_report_recall": metric.eligible_fault_report_recall if math.isfinite(metric.eligible_fault_report_recall) else None,
                 "eligible_fault_report_count": metric.eligible_fault_report_count,
                 "hit_fault_report_count": metric.hit_fault_report_count,

@@ -6,6 +6,8 @@ import unittest
 from pathlib import Path
 
 from research.p5_0b2.scripts.validate_protocol import (
+    MIN_FINITE_NORMAL_SUFFIX_OBSERVATIONS,
+    MIN_NORMAL_SCORE_COVERAGE,
     PRIMARY_ABSOLUTE_FPR_CAP,
     PRIMARY_ABSOLUTE_FAULT_REPORT_RECALL_FLOOR,
     effective_recall_minimum,
@@ -45,6 +47,35 @@ class ProtocolInvariantTests(unittest.TestCase):
             seal["readiness_selection"]["primary_success"]["absolute_fault_report_recall_floor"],
             0.50,
         )
+
+    def test_normal_suffix_count_and_coverage_gates_are_frozen(self):
+        self.assertEqual(MIN_FINITE_NORMAL_SUFFIX_OBSERVATIONS, 100)
+        self.assertEqual(MIN_NORMAL_SCORE_COVERAGE, 0.95)
+        seal = build_seal()
+        for section in ("source_development", "evaluation"):
+            gate = seal[section]["normal_suffix_evaluation"]
+            self.assertEqual(gate["MIN_FINITE_NORMAL_SUFFIX_OBSERVATIONS"], 100)
+            self.assertEqual(gate["MIN_NORMAL_SCORE_COVERAGE"], 0.95)
+            self.assertEqual(gate["normal_score_coverage"],
+                             "N_normal_finite / N_normal_raw; zero raw support is not evaluable")
+            self.assertEqual(gate["fpr_denominator"], "N_normal_finite")
+
+        source = (ROOT / "research/p5_0b2/source_development_protocol.md").read_text(encoding="utf-8")
+        evaluation = (ROOT / "research/p5_0b2/evaluation_contract.md").read_text(encoding="utf-8")
+        for text in (source, evaluation):
+            self.assertIn("N_normal_raw", text)
+            self.assertIn("N_normal_finite", text)
+            self.assertIn("MIN_FINITE_NORMAL_SUFFIX_OBSERVATIONS = 100", text)
+            self.assertIn("MIN_NORMAL_SCORE_COVERAGE = 0.95", text)
+            self.assertIn("invalid", text.lower())
+        self.assertIn("remains in the denominator and is a miss", " ".join(source.split()))
+        self.assertIn("remains in the denominator and is a miss", " ".join(evaluation.split()))
+
+        self.assertEqual(seal["result_blind_clarification"], {
+            "issue": 9,
+            "issue_comment_id": 5857603327,
+            "scientific_design_reopened": False,
+        })
 
     def test_effective_recall_floor_for_zero_source_q10_is_half(self):
         self.assertEqual(effective_recall_minimum(0.0), 0.50)

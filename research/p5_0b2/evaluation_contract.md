@@ -26,20 +26,41 @@ available, the annotation sources parse completely, and the normal/event
 support gates below pass. The evaluator uses only the predeclared annotation tables and interval
 normalization listed in the prefix contract, plus the same pinned structural
 role/start seal. Eligible fault-report recall uses each `faults.csv` row with
-`efd_possible=true` whose existing parsed interval overlaps at least one suffix
-observation as one report. Duplicate records are retained separately without
-semantic deduplication. A report is hit if any suffix score strictly exceeds
-the READY threshold within its interval. This report-level unit is not unique
+`efd_possible=true` whose existing parsed interval overlaps at least one
+timestamp-valid suffix raw observation as one report, regardless of score
+validity. Duplicate records are retained separately without semantic
+deduplication. A report is hit only if at least one finite suffix score
+strictly exceeds the READY threshold within its interval. If every overlapping
+score is invalid, it remains in the denominator and is a miss. This report-level unit is not unique
 physical-fault recall and is not the paper's repeat-filtered event set; it is
 identical to the unit used for `Recall_min_source_q10` and
-`Recall_min_effective`. Future-normal FPR uses `normal_events.csv` intervals minus all
-fault and disturbance intervals; only timestamped suffix rows inside that
-remaining union are denominator points. `disturbance` rows are not counted
-as separate eligible fault reports. Report annotated-normal coverage as the count of
-future-normal observations divided by all suffix observations, alongside the
-metric denominators. An outcome is suffix-evaluable only if the full suffix
-is available, all three annotation sources parse completely, there are at
-least 100 future-normal observations, and at least one eligible fault report.
+`Recall_min_effective`. Define `N_normal_raw` as the valid-naive-timestamp
+suffix rows inside `normal_events.csv` intervals and outside every fault and
+disturbance interval, regardless of score validity. `N_normal_finite` is the
+subset with a finite detector score, and
+`normal_score_coverage = N_normal_finite / N_normal_raw` (zero raw points
+cannot pass). Freeze `MIN_FINITE_NORMAL_SUFFIX_OBSERVATIONS = 100` and
+`MIN_NORMAL_SCORE_COVERAGE = 0.95`. An outcome has a computable primary
+normal-side evaluator only when `N_normal_finite >= 100` and
+`normal_score_coverage >= 0.95`. The
+pointwise future-normal FPR denominator is exactly `N_normal_finite`;
+invalid/non-finite normal scores are neither false positives nor true
+negatives and lower the separate coverage ratio. `disturbance` rows are not
+counted as separate eligible fault reports. Report `N_normal_raw`,
+`N_normal_finite`, `normal_score_coverage`, the FPR numerator/denominator, and
+annotated-normal coverage (future-normal raw observations divided by all
+suffix observations). An outcome is suffix-evaluable only if the full suffix
+is available, all three annotation sources parse completely, both normal
+score-coverage gates pass, and at least one eligible fault report overlaps a
+timestamp-valid suffix row. If the score-coverage gate fails, the SOURCE
+pseudo-target or TARGET suffix is `NOT_EVALUABLE`. Existing denominator rules
+remain in force: this does not remove a TARGET from the fixed 16-entity
+joint-success or never-ready denominator; unavailable TARGET outcomes remain
+failures and receive the fixed censoring cost. The SOURCE pseudo-target must
+meet the existing minimum of four evaluable tasks in its exact stratum.
+Acquisition looks and `N_max = 2304` count raw observations. An invalid-score
+observation still advances the raw index; it never shifts a look or gets
+replaced by a later finite score.
 Ambiguous,
 unparseable, or incomplete suffix label provenance is `NOT_EVALUABLE` for that
 evaluator outcome; it does not remove the target from the eligibility or

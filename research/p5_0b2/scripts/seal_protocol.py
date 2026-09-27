@@ -15,6 +15,8 @@ ROOT = Path(__file__).resolve().parents[3]
 SEAL_PATH = Path("research/p5_0b2/protocol_seal.json")
 PRIMARY_ABSOLUTE_FPR_CAP = 0.03
 PRIMARY_ABSOLUTE_FAULT_REPORT_RECALL_FLOOR = 0.50
+MIN_FINITE_NORMAL_SUFFIX_OBSERVATIONS = 100
+MIN_NORMAL_SCORE_COVERAGE = 0.95
 ARTIFACTS = (
     "research/p5_0b2/README.md",
     "research/p5_0b2/structural_inputs_seal.json",
@@ -79,11 +81,21 @@ def build_seal() -> dict[str, object]:
             "source_label_firewall_sha256": firewall_hash,
             "detector_selection": "macro source-OOF AP, then AUROC, bottleneck width, learning rate, candidate ID",
             "readiness_scale": "selected detector candidate OOF SOURCE scores outside annotated fault/disturbance intervals; float64 type-7 IQR",
-            "fault_metric": "eligible fault-report recall; one efd_possible=true faults.csv row whose parsed interval overlaps suffix observations; duplicates retained",
+            "fault_metric": "eligible fault-report recall; one efd_possible=true faults.csv row whose parsed interval overlaps at least one timestamp-valid suffix raw observation; duplicates retained",
             "recall_minimum": "Recall_min_source_q10: predeclared type-7 q10 of evaluable SOURCE fixed-N pseudo-target eligible fault-report recall",
             "primary_absolute_fault_report_recall_floor": PRIMARY_ABSOLUTE_FAULT_REPORT_RECALL_FLOOR,
             "recall_min_effective_formula": "max(0.50, Recall_min_source_q10)",
             "primary_absolute_fpr_cap": PRIMARY_ABSOLUTE_FPR_CAP,
+            "normal_suffix_evaluation": {
+                "MIN_FINITE_NORMAL_SUFFIX_OBSERVATIONS": MIN_FINITE_NORMAL_SUFFIX_OBSERVATIONS,
+                "MIN_NORMAL_SCORE_COVERAGE": MIN_NORMAL_SCORE_COVERAGE,
+                "N_normal_raw": "valid-naive-timestamp suffix rows inside REFERENCE_NORMAL_EVENT and outside all fault/disturbance intervals, regardless of score validity",
+                "N_normal_finite": "N_normal_raw rows with a finite detector score",
+                "normal_score_coverage": "N_normal_finite / N_normal_raw; zero raw support is not evaluable",
+                "fpr_denominator": "N_normal_finite",
+                "invalid_normal_score_semantics": "neither false positive nor true negative; lowers normal_score_coverage",
+                "raw_acquisition_semantics": "invalid-score observations remain raw acquisitions and do not shift or fill scheduled looks",
+            },
             "fixed_n_fpr_q90_role": "FPR_q90_source_fixedN_diagnostic; diagnostic only, never primary and never relaxes the absolute cap",
         },
         "feature_projection": {
@@ -135,7 +147,19 @@ def build_seal() -> dict[str, object]:
             "primary_absolute_fault_report_recall_floor": PRIMARY_ABSOLUTE_FAULT_REPORT_RECALL_FLOOR,
             "recall_min_effective_formula": "max(0.50, Recall_min_source_q10)",
             "primary_fault_metric": "eligible fault-report recall",
-            "fault_report_unit": "each efd_possible=true faults.csv row whose existing parsed interval overlaps suffix observations; duplicate rows retained without semantic deduplication",
+            "normal_suffix_evaluation": {
+                "MIN_FINITE_NORMAL_SUFFIX_OBSERVATIONS": MIN_FINITE_NORMAL_SUFFIX_OBSERVATIONS,
+                "MIN_NORMAL_SCORE_COVERAGE": MIN_NORMAL_SCORE_COVERAGE,
+                "N_normal_raw": "valid-naive-timestamp suffix rows inside normal_events.csv intervals and outside all fault/disturbance intervals, regardless of score validity",
+                "N_normal_finite": "N_normal_raw rows with a finite detector score",
+                "normal_score_coverage": "N_normal_finite / N_normal_raw; zero raw support is not evaluable",
+                "fpr_denominator": "N_normal_finite",
+                "invalid_normal_score_semantics": "neither false positive nor true negative; lowers normal_score_coverage",
+                "raw_acquisition_semantics": "invalid-score observations remain raw acquisitions and do not shift or fill scheduled looks",
+                "fault_report_eligibility": "parsed efd_possible=true report interval overlaps a timestamp-valid suffix raw observation",
+                "fault_report_hit": "at least one finite overlapping suffix score is strictly greater than the frozen threshold; invalid-only scores are a miss",
+            },
+            "fault_report_unit": "each efd_possible=true faults.csv row whose existing parsed interval overlaps at least one timestamp-valid suffix raw observation; duplicate rows retained without semantic deduplication",
             "fault_metric_is_unique_physical_fault_recall": False,
             "fault_metric_matches_paper_repeat_filtered_event_set": False,
         },
@@ -152,6 +176,11 @@ def build_seal() -> dict[str, object]:
             "semantic_boundary_breach": "NO",
             "outcome_leakage": "NO",
             "review_status": "ISSUE_9_REVIEWER_CLEARED",
+        },
+        "result_blind_clarification": {
+            "issue": 9,
+            "issue_comment_id": 5857603327,
+            "scientific_design_reopened": False,
         },
         "information_boundary": {
             "next_authorized_stage": "P5-0B3 SOURCE-only development and source model/readiness-parameter seal",
@@ -178,8 +207,8 @@ def build_seal() -> dict[str, object]:
             "synthetic_firewall_test_command": "python3 -m unittest research.p5_0b2.tests.test_source_label_firewall -v",
             "synthetic_firewall_tests": 19,
             "protocol_validator_command": "python3 -m research.p5_0b2.scripts.validate_protocol",
-            "protocol_invariant_tests": 16,
-            "combined_test_count": 35,
+            "protocol_invariant_tests": 17,
+            "combined_test_count": 36,
             "astra_review": "PASS",
         },
         "sealed_artifacts": artifact_hashes,

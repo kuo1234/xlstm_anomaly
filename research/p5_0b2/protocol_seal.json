@@ -12,7 +12,7 @@
   "evaluation": {
     "fault_metric_is_unique_physical_fault_recall": false,
     "fault_metric_matches_paper_repeat_filtered_event_set": false,
-    "fault_report_unit": "each efd_possible=true faults.csv row whose existing parsed interval overlaps suffix observations; duplicate rows retained without semantic deduplication",
+    "fault_report_unit": "each efd_possible=true faults.csv row whose existing parsed interval overlaps at least one timestamp-valid suffix raw observation; duplicate rows retained without semantic deduplication",
     "fixed_target_counts_ascii_stratum_order": [
       5,
       1,
@@ -21,6 +21,18 @@
       2
     ],
     "minimum_suffix_evaluable_per_stratum": 0,
+    "normal_suffix_evaluation": {
+      "MIN_FINITE_NORMAL_SUFFIX_OBSERVATIONS": 100,
+      "MIN_NORMAL_SCORE_COVERAGE": 0.95,
+      "N_normal_finite": "N_normal_raw rows with a finite detector score",
+      "N_normal_raw": "valid-naive-timestamp suffix rows inside normal_events.csv intervals and outside all fault/disturbance intervals, regardless of score validity",
+      "fault_report_eligibility": "parsed efd_possible=true report interval overlaps a timestamp-valid suffix raw observation",
+      "fault_report_hit": "at least one finite overlapping suffix score is strictly greater than the frozen threshold; invalid-only scores are a miss",
+      "fpr_denominator": "N_normal_finite",
+      "invalid_normal_score_semantics": "neither false positive nor true negative; lowers normal_score_coverage",
+      "normal_score_coverage": "N_normal_finite / N_normal_raw; zero raw support is not evaluable",
+      "raw_acquisition_semantics": "invalid-score observations remain raw acquisitions and do not shift or fill scheduled looks"
+    },
     "pooled_success_denominator": 16,
     "primary_absolute_fault_report_recall_floor": 0.5,
     "primary_absolute_fpr_cap": 0.03,
@@ -97,6 +109,11 @@
     "source_only_margin_selection": true,
     "zero_success_path": "If every candidate has zero pseudo-target tasks satisfying all primary joint-success conditions, mark that exact stratum SOURCE_MODEL_NOT_EVALUABLE; do not seal the tie-break winner."
   },
+  "result_blind_clarification": {
+    "issue": 9,
+    "issue_comment_id": 5857603327,
+    "scientific_design_reopened": false
+  },
   "reviewer_adjudication": {
     "outcome_leakage": "NO",
     "raw_path_metadata_read": "STRUCTURAL_METADATA_DEVIATION",
@@ -132,7 +149,7 @@
     },
     {
       "path": "research/p5_0b2/source_development_protocol.md",
-      "sha256": "ffc1ff333edff8fb76fdc1ea04962e492b2a549ba1b9bbf5348b536b72df97f1"
+      "sha256": "b3961d5007ceefbcbe6ac31c9953dfd47510cfe58a2cae0579bde37e53c48735"
     },
     {
       "path": "research/p5_0b2/source_label_firewall.md",
@@ -152,7 +169,7 @@
     },
     {
       "path": "research/p5_0b2/evaluation_contract.md",
-      "sha256": "580ab962ccc2b7e9a3ff0ab0b91b1e84cfabd753767be47d53f964c4a4e8f8a3"
+      "sha256": "775bb6b6b8355def017194faae5e4257f3442d0863e1dc06ac38005d79fdb59d"
     },
     {
       "path": "research/p5_0b2/canonical_sequence.md",
@@ -168,11 +185,11 @@
     },
     {
       "path": "research/p5_0b2/scripts/validate_protocol.py",
-      "sha256": "f053fd7a81bf7b1ab500bbc16d3d723f1744e3c35bcb2d2abcf78bd507e4d372"
+      "sha256": "d44ea75ec97e1119cb014c6eb61028eb7feea30790a09a52dfb88b49a9c96a28"
     },
     {
       "path": "research/p5_0b2/scripts/seal_protocol.py",
-      "sha256": "ef524e0d9572b607901124badd5cd435abd16c8f4507be568b3d267767e6d10f"
+      "sha256": "5e447db98e6a3aed826c1889afd3e1b89cc362a8ad3eb376e5d47f775600d69b"
     },
     {
       "path": "research/p5_0b2/tests/test_source_label_firewall.py",
@@ -180,7 +197,7 @@
     },
     {
       "path": "research/p5_0b2/tests/test_protocol_invariants.py",
-      "sha256": "6430d2fc2fc7e9cd6be9462ad079a893c17fa1b612203a18d2372a5f209340de"
+      "sha256": "1ba59e2460ebd33b54970c0b1d8da8598d2a210938d2e4f900303428ff304f52"
     },
     {
       "path": "research/p5_0b2/reviewer_amendment_b2r.md",
@@ -193,9 +210,19 @@
   ],
   "source_development": {
     "detector_selection": "macro source-OOF AP, then AUROC, bottleneck width, learning rate, candidate ID",
-    "fault_metric": "eligible fault-report recall; one efd_possible=true faults.csv row whose parsed interval overlaps suffix observations; duplicates retained",
+    "fault_metric": "eligible fault-report recall; one efd_possible=true faults.csv row whose parsed interval overlaps at least one timestamp-valid suffix raw observation; duplicates retained",
     "fixed_n_fpr_q90_role": "FPR_q90_source_fixedN_diagnostic; diagnostic only, never primary and never relaxes the absolute cap",
     "fold_algorithm": "SHA256(UTF8(P5-0B2-SOURCE-FOLD-v1|role_digest)); within exact strata, sorted by fold_digest then role_digest, assigned round-robin to five folds",
+    "normal_suffix_evaluation": {
+      "MIN_FINITE_NORMAL_SUFFIX_OBSERVATIONS": 100,
+      "MIN_NORMAL_SCORE_COVERAGE": 0.95,
+      "N_normal_finite": "N_normal_raw rows with a finite detector score",
+      "N_normal_raw": "valid-naive-timestamp suffix rows inside REFERENCE_NORMAL_EVENT and outside all fault/disturbance intervals, regardless of score validity",
+      "fpr_denominator": "N_normal_finite",
+      "invalid_normal_score_semantics": "neither false positive nor true negative; lowers normal_score_coverage",
+      "normal_score_coverage": "N_normal_finite / N_normal_raw; zero raw support is not evaluable",
+      "raw_acquisition_semantics": "invalid-score observations remain raw acquisitions and do not shift or fill scheduled looks"
+    },
     "primary_absolute_fault_report_recall_floor": 0.5,
     "primary_absolute_fpr_cap": 0.03,
     "readiness_scale": "selected detector candidate OOF SOURCE scores outside annotated fault/disturbance intervals; float64 type-7 IQR",
@@ -223,8 +250,8 @@
   },
   "verification": {
     "astra_review": "PASS",
-    "combined_test_count": 35,
-    "protocol_invariant_tests": 16,
+    "combined_test_count": 36,
+    "protocol_invariant_tests": 17,
     "protocol_validator_command": "python3 -m research.p5_0b2.scripts.validate_protocol",
     "synthetic_firewall_test_command": "python3 -m unittest research.p5_0b2.tests.test_source_label_firewall -v",
     "synthetic_firewall_tests": 19

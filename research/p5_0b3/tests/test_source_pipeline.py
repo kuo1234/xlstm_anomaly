@@ -34,7 +34,10 @@ def _entity(
     rows: int = 300,
     pseudo_target: bool = False,
     prefix_fault: bool = False,
+    normal_suffix_rows: int = 100,
 ) -> SourceEntityRows:
+    if pseudo_target and rows == 2424 and normal_suffix_rows != 100:
+        rows = 2304 + normal_suffix_rows + 20
     stamps = tuple(BASE + timedelta(minutes=index) for index in range(rows))
     x = np.column_stack((
         np.linspace(0.0, 1.0, rows, dtype=np.float64),
@@ -45,9 +48,9 @@ def _entity(
         # The first 2,304 raw observations are clean; the suffix contains
         # 100 normal observations followed by a known fault report.
         normal_start = BASE + timedelta(minutes=2304)
-        normal_end = BASE + timedelta(minutes=2403)
-        fault_start = BASE + timedelta(minutes=2404)
-        fault_end = BASE + timedelta(minutes=2423)
+        normal_end = BASE + timedelta(minutes=2303 + normal_suffix_rows)
+        fault_start = BASE + timedelta(minutes=2304 + normal_suffix_rows)
+        fault_end = stamps[-1]
         intervals = [
             CanonicalSourceInterval(
                 "normal_events", "REFERENCE_NORMAL_EVENT", normal_start, normal_end,
@@ -59,8 +62,9 @@ def _entity(
         ]
         # Keep the fault observations well outside the source-fit range so
         # every ready candidate has a deterministic synthetic hit.
-        x[2404:, 0] = 10.0
-        x[2404:, 1] = -10.0
+        fault_index = 2304 + normal_suffix_rows
+        x[fault_index:, 0] = 10.0
+        x[fault_index:, 1] = -10.0
     if prefix_fault:
         intervals.append(CanonicalSourceInterval(
             "faults", "KNOWN_FAULT", stamps[10], stamps[10], digest
@@ -157,6 +161,38 @@ class SourcePipelineTests(unittest.TestCase):
         self.assertIsNotNone(_pseudo_target_info(eligible, scores))
         ineligible = _entity("bad", rows=2424, pseudo_target=True, prefix_fault=True)
         self.assertIsNone(_pseudo_target_info(ineligible, scores))
+
+    def test_pseudo_target_requires_finite_normal_count_and_coverage(self):
+        def eligible_with(normal_rows, finite_rows):
+            entity = _entity("coverage", rows=2424, pseudo_target=True,
+                             normal_suffix_rows=normal_rows)
+            scores = np.linspace(0.0, 1.0, len(entity.timestamps))
+            scores[2304 + finite_rows:2304 + normal_rows] = np.nan
+            return _pseudo_target_info(entity, scores)
+
+        self.assertIsNotNone(eligible_with(100, 100))
+        self.assertIsNotNone(eligible_with(104, 100))
+        self.assertIsNone(eligible_with(106, 100))
+        self.assertIsNone(eligible_with(99, 99))
+
+    def test_readiness_task_audit_reports_raw_finite_coverage_and_fpr_denominator(self):
+        entities = tuple(_entity(f"audit-{index}", rows=2428, pseudo_target=True,
+                                 normal_suffix_rows=104)
+                         for index in range(4))
+        score_values = np.linspace(0.0, 1.0, 2428)
+        score_values[2404:2408] = np.nan
+        score_map = {entity.role_digest: score_values.copy() for entity in entities}
+        diagnostics = {}
+        try:
+            _readiness_selection(entities, score_map, 1.0, diagnostics)
+        except SourcePipelineError:
+            pass
+        row = next(item for item in diagnostics["readiness_task_outcomes"]
+                   if item["ready"])
+        self.assertEqual(row["N_normal_raw"], 104)
+        self.assertEqual(row["N_normal_finite"], 100)
+        self.assertEqual(row["normal_score_coverage"], 100 / 104)
+        self.assertEqual(row["normal_fpr_denominator"], 100)
 
     def test_repeat_fit_is_terminal_when_scores_are_not_repeatable(self):
         candidate = candidate_grid(2)[0]
