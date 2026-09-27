@@ -61,7 +61,7 @@ RESULTS_MD = BASE_DIR / "stage1b_r_results.md"
 LABEL_LOG = BASE_DIR / "stage1b_r_label_access_log.json"
 FEASIBILITY_JSON = BASE_DIR / "stage1b_r_feasibility.json"
 R_SCORE_NAMES = ("r_native_window", "r_endpoint")
-RESULT_SCHEMA = "adaptive-normality-m1-stage1b-r-diagnostic-v1"
+RESULT_SCHEMA = "adaptive-normality-m1-stage1b-r-diagnostic-v2"
 SCORE_SCHEMA = "adaptive-normality-m1-stage1b-r-score-inventory-v1"
 EXECUTION_SCHEMA = "adaptive-normality-m1-stage1b-r-execution-calibration-v1"
 THRESHOLD_QUANTILE = {"q": 0.99, "method": "higher"}
@@ -78,6 +78,11 @@ STAGE1B_SOURCE_FILES = (
     "scripts/adaptive_normality_m1_models.py",
     "scripts/adaptive_normality_m1_scores.py",
 )
+STAGE1B_EXECUTION_SOURCE_FILES = tuple(
+    path for path in STAGE1B_SOURCE_FILES
+    if path != "scripts/adaptive_normality_m1_stage1b_r_metrics.py"
+)
+METRIC_EVALUATOR_PATH = "scripts/adaptive_normality_m1_stage1b_r_metrics.py"
 
 
 class Stage1BRMetricError(RuntimeError):
@@ -94,6 +99,21 @@ def _sha256_file(path: Path) -> str:
 
 def _array_sha256(values: np.ndarray) -> str:
     return hashlib.sha256(np.ascontiguousarray(values).tobytes()).hexdigest()
+
+
+def _validate_run_score_timestamp_inventory(
+    execution: Mapping[str, Any],
+    run: Mapping[str, Any],
+    score_entry: Mapping[str, Any],
+    timestamps: np.ndarray,
+    machine: str,
+) -> None:
+    """Cross-check timestamp provenance after loading the committed machine run record."""
+    if (execution.get("score_timestamp_count") != len(timestamps) or
+            run.get("scores", {}).get("timestamp_count") != len(timestamps) or
+            run.get("scores", {}).get("timestamp_sha256") != score_entry.get("timestamp_sha256") or
+            run.get("scores", {}).get("score_names") != list(R_SCORE_NAMES)):
+        raise Stage1BRMetricError(f"{machine}: R run timestamp inventory differs")
 
 
 def compose_stage1b_r_score_arrays(
@@ -174,6 +194,8 @@ def stage1b_r_result_document(
     feasibility: Mapping[str, Any],
     *,
     seal_sha: str,
+    evaluator_commit: str,
+    evaluator_sha256: str,
     label_access: Mapping[str, Any] | None = None,
     execution_summary: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
@@ -181,6 +203,10 @@ def stage1b_r_result_document(
         raise ValueError("Stage-1B-R results require exactly the ordered frozen nine-machine metric rows")
     if len(seal_sha) != 40 or any(char not in "0123456789abcdef" for char in seal_sha):
         raise ValueError("Stage1B-R score seal SHA must be a full Git commit ID")
+    if len(evaluator_commit) != 40 or any(char not in "0123456789abcdef" for char in evaluator_commit):
+        raise ValueError("Stage1B-R metric evaluator commit must be a full Git commit ID")
+    if len(evaluator_sha256) != 64 or any(char not in "0123456789abcdef" for char in evaluator_sha256):
+        raise ValueError("Stage1B-R metric evaluator SHA-256 is invalid")
     feasibility_decision = feasibility.get("decision")
     if feasibility_decision == "FINAL_COMPLEMENT_ROUTE_STILL_FEASIBLE":
         decision = "FINAL_STAGE1_GATE_STILL_FEASIBLE"
@@ -210,6 +236,8 @@ def stage1b_r_result_document(
         "stage1_pass_permitted": False,
         "diagnostic_only": True,
         "STAGE1B_R_SCORE_SEAL_SHA": seal_sha,
+        "metric_evaluator_commit": evaluator_commit,
+        "metric_evaluator_sha256": evaluator_sha256,
         "machine_count": len(MACHINES),
         "machines": documented_rows,
         "complement_delta_AP": {
@@ -248,6 +276,7 @@ def _markdown_result(document: Mapping[str, Any]) -> str:
         "The remaining 19 machines were not opened or evaluated.",
         "",
         f"R score seal: `{document['STAGE1B_R_SCORE_SEAL_SHA']}`",
+        f"Metric evaluator: `{document['metric_evaluator_commit']}` (`{document['metric_evaluator_sha256']}`)",
         "",
         "## Per-machine metrics",
         "",
@@ -535,8 +564,19 @@ def verify_stage1b_r_score_seal(repo: str | Path, seal_sha: str, *, remote: str 
             not np.isfinite(float(summary.get("training_seconds", float("nan"))))):
         raise Stage1BRMetricError("R execution summary has invalid machine/time/label provenance")
     source_commit = summary["source_commit"]
-    for rel in STAGE1B_SOURCE_FILES:
+    for rel in STAGE1B_EXECUTION_SOURCE_FILES:
         _bound_commit_file(root, source_commit, rel)
+    # Metric-only evaluator repairs may follow the sealed training/scoring code.
+    # Pin the evaluator itself to a committed commit that is already on the remote
+    # branch before allowing the label-access callback to run.
+    evaluator_commit = subprocess.check_output(
+        ["git", "-C", str(root), "rev-parse", "HEAD"], text=True
+    ).strip()
+    if len(evaluator_commit) != 40 or any(char not in "0123456789abcdef" for char in evaluator_commit):
+        raise Stage1BRMetricError("metric evaluator commit is not a full Git commit ID")
+    remote_sha = _require_remote_r_seal(root, evaluator_commit, remote=remote, branch=branch)
+    evaluator_path = _bound_commit_file(root, evaluator_commit, METRIC_EVALUATOR_PATH)
+    evaluator_sha256 = _sha256_file(evaluator_path)
     if not git_committed(score_manifest_path, root) or not git_committed(execution_manifest_path, root):
         raise Stage1BRMetricError("Stage-1B-R top-level manifests must be committed")
 
@@ -555,27 +595,6 @@ def verify_stage1b_r_score_seal(repo: str | Path, seal_sha: str, *, remote: str 
         score_path = _bound_commit_file(root, seal_sha, score_rel, score_entry.get("sha256"))
         if score_path.stat().st_size != int(score_entry.get("bytes", -1)):
             raise Stage1BRMetricError(f"{machine}: R score artifact byte count differs")
-        test_rows = int(m1_data.MANIFEST["machines"][machine]["test_rows"])
-        with np.load(score_path, allow_pickle=False) as arrays:
-            if set(arrays.files) != {"timestamps", *R_SCORE_NAMES}:
-                raise Stage1BRMetricError(f"{machine}: R score archive contains unexpected arrays")
-            timestamps = np.asarray(arrays["timestamps"])
-            expected_times = np.arange(m1_data.W, test_rows, dtype=np.int64)
-            if not np.array_equal(timestamps, expected_times):
-                raise Stage1BRMetricError(f"{machine}: R scores are not exactly indexed at t in [256,test_rows)")
-            if _array_sha256(timestamps) != score_entry.get("timestamp_sha256"):
-                raise Stage1BRMetricError(f"{machine}: R timestamp hash differs")
-            if (execution.get("score_timestamp_count") != len(timestamps) or
-                    run.get("scores", {}).get("timestamp_count") != len(timestamps) or
-                    run.get("scores", {}).get("timestamp_sha256") != score_entry.get("timestamp_sha256") or
-                    run.get("scores", {}).get("score_names") != list(R_SCORE_NAMES)):
-                raise Stage1BRMetricError(f"{machine}: R run timestamp inventory differs")
-            if len(timestamps) != int(score_entry.get("count", -1)):
-                raise Stage1BRMetricError(f"{machine}: R score timestamp count differs")
-            if any(np.asarray(arrays[name]).shape != timestamps.shape or not np.isfinite(arrays[name]).all()
-                   for name in R_SCORE_NAMES):
-                raise Stage1BRMetricError(f"{machine}: R scores are not finite and aligned")
-
         run_rel = execution.get("run_record")
         run_sha = execution.get("run_record_sha256")
         if not isinstance(run_rel, str) or not run_rel.startswith((BASE_DIR / "runs").as_posix() + "/"):
@@ -586,6 +605,23 @@ def verify_stage1b_r_score_seal(repo: str | Path, seal_sha: str, *, remote: str 
                 run.get("test_labels_read") is not False or run.get("anomaly_metrics_computed") is not False or
                 run.get("status") != "complete"):
             raise Stage1BRMetricError(f"{machine}: R run record identity/flags differ")
+        test_rows = int(m1_data.MANIFEST["machines"][machine]["test_rows"])
+        with np.load(score_path, allow_pickle=False) as arrays:
+            if set(arrays.files) != {"timestamps", *R_SCORE_NAMES}:
+                raise Stage1BRMetricError(f"{machine}: R score archive contains unexpected arrays")
+            timestamps = np.asarray(arrays["timestamps"])
+            expected_times = np.arange(m1_data.W, test_rows, dtype=np.int64)
+            if not np.array_equal(timestamps, expected_times):
+                raise Stage1BRMetricError(f"{machine}: R scores are not exactly indexed at t in [256,test_rows)")
+            if _array_sha256(timestamps) != score_entry.get("timestamp_sha256"):
+                raise Stage1BRMetricError(f"{machine}: R timestamp hash differs")
+            _validate_run_score_timestamp_inventory(execution, run, score_entry, timestamps, machine)
+            if len(timestamps) != int(score_entry.get("count", -1)):
+                raise Stage1BRMetricError(f"{machine}: R score timestamp count differs")
+            if any(np.asarray(arrays[name]).shape != timestamps.shape or not np.isfinite(arrays[name]).all()
+                   for name in R_SCORE_NAMES):
+                raise Stage1BRMetricError(f"{machine}: R scores are not finite and aligned")
+
         if not isinstance(execution.get("source_commit"), str) or len(execution["source_commit"]) != 40:
             raise Stage1BRMetricError(f"{machine}: source commit missing from R execution seal")
         if execution.get("source_commit") != summary.get("source_commit"):
@@ -706,7 +742,9 @@ def verify_stage1b_r_score_seal(repo: str | Path, seal_sha: str, *, remote: str 
     return {"score_manifest": score_doc, "execution_manifest": execution_doc,
             "score_entries": score_by_machine, "execution_entries": execution_by_machine,
             "execution_summary": summary,
-            "remote_branch_sha": remote_sha, "seal_sha": seal_sha}
+            "remote_branch_sha": remote_sha, "seal_sha": seal_sha,
+            "metric_evaluator_commit": evaluator_commit,
+            "metric_evaluator_sha256": evaluator_sha256}
 
 
 def run_after_committed_r_seal(
@@ -885,6 +923,8 @@ def evaluate_stage1b_r(repo: str | Path, seal_sha: str, *, remote: str = "origin
         label_log["status"] = "complete"
         _write_label_access_log(root / LABEL_LOG, label_log)
         result = stage1b_r_result_document(rows, feasibility, seal_sha=seal_sha,
+                                          evaluator_commit=seal["metric_evaluator_commit"],
+                                          evaluator_sha256=seal["metric_evaluator_sha256"],
                                           label_access=label_log,
                                           execution_summary=seal["execution_summary"])
         # The result directory is created only after score-seal verification and metric completion.

@@ -14,6 +14,8 @@ from scripts.adaptive_normality_m1_stage1b_r_metrics import (
     stage1b_r_result_document,
     write_stage1b_r_result_artifacts,
     _validate_frozen_calibration_extension,
+    _validate_run_score_timestamp_inventory,
+    Stage1BRMetricError,
 )
 from scripts.adaptive_normality_m1_stage1b_r import _canonical_calibration
 
@@ -120,14 +122,18 @@ def test_xlstm_lstm_diagnostic_is_paired_and_descriptive_only():
 
 def test_result_document_cannot_return_stage1_pass():
     feasibility = {"decision": "FINAL_COMPLEMENT_ROUTE_STILL_FEASIBLE", "bounds": {}}
-    result = stage1b_r_result_document(_rows(), feasibility, seal_sha="a" * 40)
+    result = stage1b_r_result_document(
+        _rows(), feasibility, seal_sha="a" * 40, evaluator_commit="d" * 40, evaluator_sha256="e" * 64
+    )
     assert result["schema"] == RESULT_SCHEMA
     assert result["decision"] == "FINAL_STAGE1_GATE_STILL_FEASIBLE"
     assert result["stage1_pass_permitted"] is False
     assert "M1_STAGE1_PASS" not in repr(result)
 
     feasibility["decision"] = "FINAL_COMPLEMENT_ROUTE_IMPOSSIBLE"
-    result = stage1b_r_result_document(_rows(), feasibility, seal_sha="a" * 40)
+    result = stage1b_r_result_document(
+        _rows(), feasibility, seal_sha="a" * 40, evaluator_commit="d" * 40, evaluator_sha256="e" * 64
+    )
     assert result["decision"] == "FINAL_STAGE1_GATE_ALREADY_IMPOSSIBLE"
 
 
@@ -153,9 +159,32 @@ def test_metric_entrypoint_verifies_seal_before_invoking_label_loader():
     assert events == []
 
 
+def test_run_timestamp_inventory_checks_execution_and_committed_run_record():
+    times = np.arange(256, 261, dtype=np.int64)
+    score_entry = {"timestamp_sha256": "a" * 64}
+    run = {"scores": {
+        "timestamp_count": len(times),
+        "timestamp_sha256": "a" * 64,
+        "score_names": ["r_native_window", "r_endpoint"],
+    }}
+    execution = {"score_timestamp_count": len(times)}
+    _validate_run_score_timestamp_inventory(execution, run, score_entry, times, MACHINES[0])
+
+    with pytest.raises(Stage1BRMetricError, match="timestamp inventory differs"):
+        _validate_run_score_timestamp_inventory(
+            {"score_timestamp_count": len(times) - 1}, run, score_entry, times, MACHINES[0]
+        )
+    with pytest.raises(Stage1BRMetricError, match="timestamp inventory differs"):
+        _validate_run_score_timestamp_inventory(
+            execution, {"scores": {**run["scores"], "timestamp_count": len(times) - 1}},
+            score_entry, times, MACHINES[0]
+        )
+
+
 def test_result_writers_are_deterministic_and_immutable(tmp_path):
     result = stage1b_r_result_document(
-        _rows(), {"decision": "FINAL_COMPLEMENT_ROUTE_STILL_FEASIBLE", "bounds": {}}, seal_sha="c" * 40
+        _rows(), {"decision": "FINAL_COMPLEMENT_ROUTE_STILL_FEASIBLE", "bounds": {}}, seal_sha="c" * 40,
+        evaluator_commit="d" * 40, evaluator_sha256="e" * 64,
     )
     paths = write_stage1b_r_result_artifacts(tmp_path, result)
     assert set(paths) == {"json", "markdown"}
