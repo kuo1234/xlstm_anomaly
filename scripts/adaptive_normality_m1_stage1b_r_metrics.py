@@ -101,6 +101,21 @@ def _array_sha256(values: np.ndarray) -> str:
     return hashlib.sha256(np.ascontiguousarray(values).tobytes()).hexdigest()
 
 
+def _repo_relative_path(value: Any, repo: Path) -> str | None:
+    """Normalize a recorded repository artifact path without accepting escapes."""
+    if not isinstance(value, str):
+        return None
+    path = Path(value)
+    if path.is_absolute():
+        try:
+            return path.resolve().relative_to(repo.resolve()).as_posix()
+        except ValueError:
+            return None
+    if ".." in path.parts:
+        return None
+    return path.as_posix()
+
+
 def _validate_run_score_timestamp_inventory(
     execution: Mapping[str, Any],
     run: Mapping[str, Any],
@@ -440,11 +455,11 @@ def _verify_stage1a_reuse(repo: Path, source_commit: str,
             old_run.get("source_commit") != execution_entry.get("source_commit") or
             execution_entry.get("run_record") != run_rel or
             execution_entry.get("run_record_sha256") != binding.get("run_record_sha256") or
-            binding.get("score_artifact") != score_entry.get("artifact") or
+            _repo_relative_path(binding.get("score_artifact"), repo) != score_entry.get("artifact") or
             binding.get("score_sha256") != score_entry.get("sha256") or
             execution_entry.get("score_artifact") != score_entry.get("artifact") or
             execution_entry.get("score_sha256") != score_entry.get("sha256") or
-            old_run.get("scores", {}).get("path") != score_entry.get("artifact") or
+            _repo_relative_path(old_run.get("scores", {}).get("path"), repo) != score_entry.get("artifact") or
             old_run.get("scores", {}).get("sha256") != score_entry.get("sha256") or
             binding.get("calibration_artifact") != old_run.get("calibration", {}).get("path") or
             binding.get("calibration_sha256") != old_run.get("calibration", {}).get("sha256") or

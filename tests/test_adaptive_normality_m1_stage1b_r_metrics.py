@@ -15,6 +15,7 @@ from scripts.adaptive_normality_m1_stage1b_r_metrics import (
     write_stage1b_r_result_artifacts,
     _validate_frozen_calibration_extension,
     _validate_run_score_timestamp_inventory,
+    _repo_relative_path,
     Stage1BRMetricError,
 )
 from scripts.adaptive_normality_m1_stage1b_r import _canonical_calibration
@@ -179,6 +180,17 @@ def test_run_timestamp_inventory_checks_execution_and_committed_run_record():
             execution, {"scores": {**run["scores"], "timestamp_count": len(times) - 1}},
             score_entry, times, MACHINES[0]
         )
+
+
+def test_repo_relative_path_accepts_rooted_absolute_artifact_without_escapes(tmp_path):
+    repository = tmp_path / "repo"
+    artifact = repository / "reports" / "score.npz"
+    artifact.parent.mkdir(parents=True)
+    artifact.touch()
+    assert _repo_relative_path(str(artifact), repository) == "reports/score.npz"
+    assert _repo_relative_path("reports/score.npz", repository) == "reports/score.npz"
+    assert _repo_relative_path(str(tmp_path / "outside.npz"), repository) is None
+    assert _repo_relative_path("reports/../outside.npz", repository) is None
 
 
 def test_result_writers_are_deterministic_and_immutable(tmp_path):
