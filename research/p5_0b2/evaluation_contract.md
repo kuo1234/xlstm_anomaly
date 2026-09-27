@@ -1,5 +1,12 @@
 # Fixed-suffix evaluation and success contract
 
+**P5-0B2R2 state:** Astra review is PASS; terminal status is
+`P5_0B2R2_PROTOCOL_RESEALED`. P5-0B2R2 performed a result-blind protocol
+reseal only. This terminal status authorizes only the P5-0B3 SOURCE-only
+development/source model-readiness-parameter seal. TARGET labels, raw values,
+scores, prefix adjudication, suffix evaluation, and efficacy remain
+unauthorized.
+
 ## Information wall
 
 The method process never receives suffix features, suffix scores, semantic
@@ -24,7 +31,8 @@ observation as one report. Duplicate records are retained separately without
 semantic deduplication. A report is hit if any suffix score strictly exceeds
 the READY threshold within its interval. This report-level unit is not unique
 physical-fault recall and is not the paper's repeat-filtered event set; it is
-identical to the unit used for `Recall_min_source`. Future-normal FPR uses `normal_events.csv` intervals minus all
+identical to the unit used for `Recall_min_source_q10` and
+`Recall_min_effective`. Future-normal FPR uses `normal_events.csv` intervals minus all
 fault and disturbance intervals; only timestamped suffix rows inside that
 remaining union are denominator points. `disturbance` rows are not counted
 as separate eligible fault reports. Report annotated-normal coverage as the count of
@@ -77,13 +85,17 @@ assign both methods the conservative maximum normalized acquisition cost of
 ## Frozen success logic
 
 Before target prefix adjudication, the source-only seal fixes per-stratum
-`Recall_min_source` using the procedure in `readiness_rule_contract.md` and
-records the diagnostic `FPR_q90_source_fixedN_diagnostic`. Freeze
-`PRIMARY_ABSOLUTE_FPR_CAP = 0.03`. Primary TARGET joint success is READY
-within budget AND normal-side pointwise FPR <= 0.03 AND
-`eligible_fault_report_recall >= Recall_min_source`. The q90 statistic is
-never a primary cap and never relaxes 0.03. If no SOURCE candidate qualifies,
-follow the `SOURCE_MODEL_NOT_EVALUABLE` / negative path. Never-ready counts as not successful. Prefix-`NOT_EVALUABLE` and
+`Recall_min_source_q10` as the type-7 q10 of SOURCE fixed-N eligible
+fault-report recall and defines
+`Recall_min_effective = max(0.50, Recall_min_source_q10)` using the procedure
+in `readiness_rule_contract.md`. Freeze
+`PRIMARY_ABSOLUTE_FPR_CAP = 0.03` and
+`PRIMARY_ABSOLUTE_FAULT_REPORT_RECALL_FLOOR = 0.50`. Primary TARGET joint
+success is READY within budget AND future-normal pointwise FPR <= 0.03 AND
+`eligible_fault_report_recall >= Recall_min_effective`. The q90 statistic is
+never a primary cap and never relaxes 0.03; the recall floor is never lowered
+by a source result. If no SOURCE candidate qualifies, follow the
+`SOURCE_MODEL_NOT_EVALUABLE` / negative path. Never-ready counts as not successful. Prefix-`NOT_EVALUABLE` and
 suffix-evaluator-ineligible cases also count as not successful for both
 methods. The primary fixed-N comparison is READY
 at raw row 2,304 and applies the same source model, q99 estimator, target
@@ -126,7 +138,9 @@ and stratum as unresolved and make no five-stratum pooled success claim.
 The 0.03 ceiling is our frozen operating ceiling. Paper §4.4 reports
 normal-event pointwise accuracy >=0.97 as motivation, but event-averaged
 normal accuracy is not necessarily mathematically identical to pooled
-timestamp FPR. This empirical logic is not a future-FPR guarantee.
+timestamp FPR. This empirical logic is not a future-FPR guarantee. The 0.50
+recall floor is a predeclared protocol non-degeneracy rule; this contract does
+not claim that it comes from or is equivalent to any paper-reported 60% result.
 
 No stopping-rule revision, margin change, new target class, endpoint
 selection, or alternative success condition is allowed after any target

@@ -1,4 +1,4 @@
-"""Build the deterministic P5-0B2R artifact hash manifest.
+"""Build the deterministic P5-0B2R2 artifact hash manifest.
 
 This script reads only protocol files and the committed P5-0B1R structural
 artifacts listed in the protocol. It does not access project data or labels.
@@ -14,6 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[3]
 SEAL_PATH = Path("research/p5_0b2/protocol_seal.json")
 PRIMARY_ABSOLUTE_FPR_CAP = 0.03
+PRIMARY_ABSOLUTE_FAULT_REPORT_RECALL_FLOOR = 0.50
 ARTIFACTS = (
     "research/p5_0b2/README.md",
     "research/p5_0b2/structural_inputs_seal.json",
@@ -35,6 +36,7 @@ ARTIFACTS = (
     "research/p5_0b2/tests/test_source_label_firewall.py",
     "research/p5_0b2/tests/test_protocol_invariants.py",
     "research/p5_0b2/reviewer_amendment_b2r.md",
+    "research/p5_0b2/reviewer_amendment_b2r2.md",
 )
 
 
@@ -57,10 +59,10 @@ def build_seal() -> dict[str, object]:
         if row["path"] == "research/p5_0b2/scripts/source_label_firewall.py"
     )
     return {
-        "schema_version": "p5-0b2r-protocol-seal-v1",
-        "status": "P5_0B2R_REFRAME",
-        "base_commit": "01bcbda00fdedfac7c5b772b310d6444d2bb4ca5",
-        "branch": "research/p5-0b2r-result-blind-repair",
+        "schema_version": "p5-0b2r2-protocol-seal-v1",
+        "status": "P5_0B2R2_PROTOCOL_RESEALED",
+        "base_commit": "758c48b23e54bd775a71bc0542fb008cd7e2e426",
+        "branch": "research/p5-0b2r2-nondegeneracy-reseal",
         "role_seal_sha256": "00e0cec62d238c78f2d0b3c79910c0ffaf1122d1582c28c8848022fb3e10e33f",
         "energy_fault_detector": {
             "repository": "AEFDI/EnergyFaultDetector",
@@ -78,7 +80,9 @@ def build_seal() -> dict[str, object]:
             "detector_selection": "macro source-OOF AP, then AUROC, bottleneck width, learning rate, candidate ID",
             "readiness_scale": "selected detector candidate OOF SOURCE scores outside annotated fault/disturbance intervals; float64 type-7 IQR",
             "fault_metric": "eligible fault-report recall; one efd_possible=true faults.csv row whose parsed interval overlaps suffix observations; duplicates retained",
-            "recall_minimum": "Recall_min_source: predeclared type-7 10th percentile over evaluable SOURCE fixed-N pseudo-target report-level recalls",
+            "recall_minimum": "Recall_min_source_q10: predeclared type-7 q10 of evaluable SOURCE fixed-N pseudo-target eligible fault-report recall",
+            "primary_absolute_fault_report_recall_floor": PRIMARY_ABSOLUTE_FAULT_REPORT_RECALL_FLOOR,
+            "recall_min_effective_formula": "max(0.50, Recall_min_source_q10)",
             "primary_absolute_fpr_cap": PRIMARY_ABSOLUTE_FPR_CAP,
             "fixed_n_fpr_q90_role": "FPR_q90_source_fixedN_diagnostic; diagnostic only, never primary and never relaxes the absolute cap",
         },
@@ -114,7 +118,10 @@ def build_seal() -> dict[str, object]:
             "primary_success": {
                 "ready_within_budget": True,
                 "future_normal_pointwise_fpr_lte": PRIMARY_ABSOLUTE_FPR_CAP,
-                "eligible_fault_report_recall_gte": "Recall_min_source",
+                "eligible_fault_report_recall_gte": "Recall_min_effective",
+                "absolute_fault_report_recall_floor": PRIMARY_ABSOLUTE_FAULT_REPORT_RECALL_FLOOR,
+                "recall_min_source_q10": "Recall_min_source_q10",
+                "recall_min_effective_formula": "max(0.50, Recall_min_source_q10)",
             },
             "zero_success_path": "If every candidate has zero pseudo-target tasks satisfying all primary joint-success conditions, mark that exact stratum SOURCE_MODEL_NOT_EVALUABLE; do not seal the tie-break winner.",
         },
@@ -125,6 +132,8 @@ def build_seal() -> dict[str, object]:
             "unavailable_outcomes_count_as_failure": True,
             "unavailable_source_model_or_margins_prohibit_pooled_claim": True,
             "primary_absolute_fpr_cap": PRIMARY_ABSOLUTE_FPR_CAP,
+            "primary_absolute_fault_report_recall_floor": PRIMARY_ABSOLUTE_FAULT_REPORT_RECALL_FLOOR,
+            "recall_min_effective_formula": "max(0.50, Recall_min_source_q10)",
             "primary_fault_metric": "eligible fault-report recall",
             "fault_report_unit": "each efd_possible=true faults.csv row whose existing parsed interval overlaps suffix observations; duplicate rows retained without semantic deduplication",
             "fault_metric_is_unique_physical_fault_recall": False,
@@ -136,10 +145,16 @@ def build_seal() -> dict[str, object]:
             "target_prefix_adjudication_performed": False,
             "suffix_evaluation_performed": False,
             "predist_training_performed": False,
-            "next_stage": "No next stage authorized pending Issue #9 adjudication of the disclosed initial path-metadata read",
+            "next_stage": "P5-0B3 SOURCE-only development and source model/readiness-parameter seal",
+        },
+        "reviewer_adjudication": {
+            "raw_path_metadata_read": "STRUCTURAL_METADATA_DEVIATION",
+            "semantic_boundary_breach": "NO",
+            "outcome_leakage": "NO",
+            "review_status": "ISSUE_9_REVIEWER_CLEARED",
         },
         "information_boundary": {
-            "next_authorized_stage": "None pending Issue #9 adjudication of the disclosed initial path-metadata read",
+            "next_authorized_stage": "P5-0B3 SOURCE-only development and source model/readiness-parameter seal",
             "allowed_source_method_inputs": [
                 "pinned protocol and public EnergyFaultDetector v0.7.1 source",
                 "SOURCE role digests and exact SOURCE strata",
@@ -151,17 +166,20 @@ def build_seal() -> dict[str, object]:
             "target_label_access": "NOT_AUTHORIZED",
             "target_raw_paths_opened": False,
             "target_path_metadata_read_during_initial_validation": True,
+            "raw_path_metadata_read_status": "STRUCTURAL_METADATA_DEVIATION",
+            "semantic_boundary_breach": "NO",
+            "outcome_leakage": "NO",
             "target_values_scores_missingness_or_eligibility_released": False,
             "source_label_csv_access": "sealed firewall process only; method receives SOURCE-only artifact",
             "source_raw_file_gate": "SOURCE-only manifest projection; one unique raw_path per role entry; open/hash only SOURCE paths",
-            "initial_path_metadata_read": "The inherited validator parsed raw_path strings from entity_manifest.csv for uniqueness, but did not follow any path; the final B2R validator does not open path-bearing manifests.",
+            "initial_path_metadata_read": "Issue #9 reviewer cleared the prior raw_path metadata read as a structural metadata deviation with no semantic boundary breach or outcome leakage.",
         },
         "verification": {
             "synthetic_firewall_test_command": "python3 -m unittest research.p5_0b2.tests.test_source_label_firewall -v",
             "synthetic_firewall_tests": 19,
             "protocol_validator_command": "python3 -m research.p5_0b2.scripts.validate_protocol",
-            "protocol_invariant_tests": 9,
-            "combined_test_count": 28,
+            "protocol_invariant_tests": 16,
+            "combined_test_count": 35,
             "astra_review": "PASS",
         },
         "sealed_artifacts": artifact_hashes,

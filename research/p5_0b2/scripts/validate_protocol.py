@@ -1,4 +1,4 @@
-"""Validate P5-0B2 protocol invariants and pinned structural artifact hashes."""
+"""Validate P5-0B2R2 protocol invariants and pinned structural artifact hashes."""
 
 from __future__ import annotations
 
@@ -10,10 +10,11 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[3]
-BASE_COMMIT = "01bcbda00fdedfac7c5b772b310d6444d2bb4ca5"
+BASE_COMMIT = "758c48b23e54bd775a71bc0542fb008cd7e2e426"
 ROLE_SHA256 = "00e0cec62d238c78f2d0b3c79910c0ffaf1122d1582c28c8848022fb3e10e33f"
 ROLE_COUNTS = {"SOURCE": 74, "TARGET": 16, "UNSUPPORTED_FOR_ENTITY_SPLIT": 3}
 PRIMARY_ABSOLUTE_FPR_CAP = 0.03
+PRIMARY_ABSOLUTE_FAULT_REPORT_RECALL_FLOOR = 0.50
 REMOVED_FEATURE_SUFFIXES = ("_meter_energy", "_meter_volume")
 CONTINUOUS_FEATURE_SUFFIXES = (
     "_temperature",
@@ -68,13 +69,18 @@ def project_features(common_names: list[str]) -> list[str]:
 
 
 def primary_success(ready_within_budget: bool, future_normal_fpr: float,
-                    eligible_fault_report_recall: float, recall_min_source: float) -> bool:
+                    eligible_fault_report_recall: float, recall_min_effective: float) -> bool:
     """Frozen primary joint-success rule; source FPR q90 is intentionally absent."""
     return (
         ready_within_budget
         and future_normal_fpr <= PRIMARY_ABSOLUTE_FPR_CAP
-        and eligible_fault_report_recall >= recall_min_source
+        and eligible_fault_report_recall >= recall_min_effective
     )
+
+
+def effective_recall_minimum(recall_min_source_q10: float) -> float:
+    """Apply the frozen project floor to the source-derived q10 margin."""
+    return max(PRIMARY_ABSOLUTE_FAULT_REPORT_RECALL_FLOOR, recall_min_source_q10)
 
 
 def source_candidates_have_any_joint_success(joint_success_counts: list[int]) -> bool:
@@ -110,7 +116,7 @@ def validate() -> list[str]:
     except Exception:
         return ["required_seal_input"]
 
-    fail_if(structural.get("schema_version") != "p5-0b2r-structural-inputs-v1", "structural_schema", failures)
+    fail_if(structural.get("schema_version") != "p5-0b2r2-structural-inputs-v1", "structural_schema", failures)
     fail_if(structural.get("base_commit") != BASE_COMMIT, "base_commit", failures)
     fail_if(structural.get("role_seal", {}).get("sha256") != ROLE_SHA256, "structural_role_hash", failures)
     fail_if(hashlib.sha256(role_bytes).hexdigest() != ROLE_SHA256, "role_file_hash", failures)
@@ -216,17 +222,23 @@ def validate() -> list[str]:
             break
 
     status = seal.get("status")
-    fail_if(seal.get("schema_version") != "p5-0b2r-protocol-seal-v1", "seal_schema", failures)
-    fail_if(status not in {"P5_0B2R_CANDIDATE", "P5_0B2R_PROTOCOL_RESEALED", "P5_0B2R_BLOCKED_BY_FEATURE_SCHEMA", "P5_0B2R_REFRAME"}, "terminal_status", failures)
+    fail_if(seal.get("schema_version") != "p5-0b2r2-protocol-seal-v1", "seal_schema", failures)
+    fail_if(status not in {"P5_0B2R2_CANDIDATE", "P5_0B2R2_PROTOCOL_RESEALED", "P5_0B2R2_BLOCKED_BY_PROTOCOL_INVARIANT"}, "terminal_status", failures)
     fail_if(seal.get("base_commit") != BASE_COMMIT, "seal_base_commit", failures)
-    fail_if(seal.get("branch") != "research/p5-0b2r-result-blind-repair", "branch", failures)
+    fail_if(seal.get("branch") != "research/p5-0b2r2-nondegeneracy-reseal", "branch", failures)
     fail_if(seal.get("role_seal_sha256") != ROLE_SHA256, "seal_role_hash", failures)
     fail_if(seal.get("target_access", {}).get("target_label_access") != "NOT_AUTHORIZED", "target_access", failures)
+    fail_if(seal.get("target_access", {}).get("target_raw_values_or_scores_accessed") is not False, "target_raw_scores_access", failures)
+    fail_if(seal.get("target_access", {}).get("target_prefix_adjudication_performed") is not False, "target_prefix_access", failures)
+    fail_if(seal.get("target_access", {}).get("suffix_evaluation_performed") is not False, "target_suffix_access", failures)
     boundary = seal.get("information_boundary", {})
     fail_if(boundary.get("target_label_access") != "NOT_AUTHORIZED", "information_boundary_target_labels", failures)
     fail_if(boundary.get("target_raw_paths_opened") is not False, "information_boundary_raw_paths", failures)
     fail_if(boundary.get("target_values_scores_missingness_or_eligibility_released") is not False, "information_boundary_target_data", failures)
     fail_if(boundary.get("target_path_metadata_read_during_initial_validation") is not True, "path_metadata_disclosure_status", failures)
+    fail_if(boundary.get("raw_path_metadata_read_status") != "STRUCTURAL_METADATA_DEVIATION", "path_metadata_status", failures)
+    fail_if(boundary.get("semantic_boundary_breach") != "NO", "semantic_boundary_breach", failures)
+    fail_if(boundary.get("outcome_leakage") != "NO", "outcome_leakage", failures)
     fail_if("SOURCE-only manifest projection" not in boundary.get("source_raw_file_gate", ""), "information_boundary_source_projection", failures)
     fail_if(seal.get("energy_fault_detector", {}).get("selected_version") != "v0.7.1", "efd_version", failures)
     fail_if(seal.get("energy_fault_detector", {}).get("selected_commit") != "ced470e1386066931bad32f3cb6e24bac9c5bb89", "efd_commit", failures)
@@ -234,13 +246,18 @@ def validate() -> list[str]:
     fail_if(seal.get("readiness_selection", {}).get("primary_fixed_n_reference") != 2304, "primary_fixed_n", failures)
     primary_success_contract = seal.get("readiness_selection", {}).get("primary_success", {})
     fail_if(primary_success_contract.get("future_normal_pointwise_fpr_lte") != PRIMARY_ABSOLUTE_FPR_CAP, "primary_fpr_cap", failures)
-    fail_if(primary_success_contract.get("eligible_fault_report_recall_gte") != "Recall_min_source", "primary_recall_minimum", failures)
+    fail_if(primary_success_contract.get("eligible_fault_report_recall_gte") != "Recall_min_effective", "primary_recall_minimum", failures)
+    fail_if(primary_success_contract.get("absolute_fault_report_recall_floor") != PRIMARY_ABSOLUTE_FAULT_REPORT_RECALL_FLOOR, "primary_recall_floor", failures)
+    fail_if(primary_success_contract.get("recall_min_source_q10") != "Recall_min_source_q10", "primary_recall_q10", failures)
+    fail_if(primary_success_contract.get("recall_min_effective_formula") != "max(0.50, Recall_min_source_q10)", "primary_effective_recall_formula", failures)
     fail_if(seal.get("readiness_selection", {}).get("zero_success_path") != "If every candidate has zero pseudo-target tasks satisfying all primary joint-success conditions, mark that exact stratum SOURCE_MODEL_NOT_EVALUABLE; do not seal the tie-break winner.", "zero_success_path", failures)
     fail_if(seal.get("feature_projection", {}).get("features_per_stratum_ascii_order_before") != [10, 13, 10, 14, 10], "seal_feature_counts_before", failures)
     fail_if(seal.get("feature_projection", {}).get("features_per_stratum_ascii_order_after") != EXPECTED_FEATURE_COUNTS_BY_STRATUM, "seal_feature_counts_after", failures)
     fail_if(seal.get("feature_projection", {}).get("forbidden_suffixes") != list(REMOVED_FEATURE_SUFFIXES), "seal_feature_exclusions", failures)
     fail_if(seal.get("feature_projection", {}).get("counter_transform_added") is not False, "seal_counter_transform", failures)
     fail_if(seal.get("source_development", {}).get("primary_absolute_fpr_cap") != PRIMARY_ABSOLUTE_FPR_CAP, "source_absolute_fpr_cap", failures)
+    fail_if(seal.get("source_development", {}).get("primary_absolute_fault_report_recall_floor") != PRIMARY_ABSOLUTE_FAULT_REPORT_RECALL_FLOOR, "source_recall_floor", failures)
+    fail_if(seal.get("source_development", {}).get("recall_min_effective_formula") != "max(0.50, Recall_min_source_q10)", "source_effective_recall_formula", failures)
     fail_if(seal.get("source_development", {}).get("fixed_n_fpr_q90_role") != "FPR_q90_source_fixedN_diagnostic; diagnostic only, never primary and never relaxes the absolute cap", "source_fpr_q90_role", failures)
     evaluation_seal = seal.get("evaluation", {})
     fail_if(evaluation_seal.get("fixed_target_counts_ascii_stratum_order") != TARGET_COUNTS_BY_STRATUM, "seal_evaluation_target_counts", failures)
@@ -249,14 +266,26 @@ def validate() -> list[str]:
     fail_if(evaluation_seal.get("unavailable_outcomes_count_as_failure") is not True, "seal_evaluation_missing_outcomes", failures)
     fail_if(evaluation_seal.get("unavailable_source_model_or_margins_prohibit_pooled_claim") is not True, "seal_evaluation_model_gate", failures)
     fail_if(evaluation_seal.get("primary_absolute_fpr_cap") != PRIMARY_ABSOLUTE_FPR_CAP, "evaluation_absolute_fpr_cap", failures)
+    fail_if(evaluation_seal.get("primary_absolute_fault_report_recall_floor") != PRIMARY_ABSOLUTE_FAULT_REPORT_RECALL_FLOOR, "evaluation_recall_floor", failures)
+    fail_if(evaluation_seal.get("recall_min_effective_formula") != "max(0.50, Recall_min_source_q10)", "evaluation_effective_recall_formula", failures)
     fail_if(evaluation_seal.get("primary_fault_metric") != "eligible fault-report recall", "evaluation_fault_metric", failures)
     fail_if(evaluation_seal.get("fault_metric_is_unique_physical_fault_recall") is not False, "evaluation_unique_physical_fault_claim", failures)
     fail_if(evaluation_seal.get("fault_metric_matches_paper_repeat_filtered_event_set") is not False, "evaluation_paper_event_claim", failures)
-    expected_review = "PENDING" if status == "P5_0B2R_CANDIDATE" else "PASS"
+    expected_review = "PENDING" if status == "P5_0B2R2_CANDIDATE" else "PASS"
     fail_if(seal.get("verification", {}).get("astra_review") != expected_review, "astra_review", failures)
-    if status == "P5_0B2R_REFRAME":
-        fail_if(not seal.get("information_boundary", {}).get("initial_path_metadata_read"), "path_metadata_disclosure", failures)
-        fail_if(seal.get("target_access", {}).get("next_stage") != "No next stage authorized pending Issue #9 adjudication of the disclosed initial path-metadata read", "reframe_next_stage", failures)
+    clearance = seal.get("reviewer_adjudication", {})
+    fail_if(clearance.get("raw_path_metadata_read") != "STRUCTURAL_METADATA_DEVIATION", "path_metadata_classification", failures)
+    fail_if(clearance.get("semantic_boundary_breach") != "NO", "path_metadata_semantic_clearance", failures)
+    fail_if(clearance.get("outcome_leakage") != "NO", "path_metadata_outcome_clearance", failures)
+    fail_if(clearance.get("review_status") != "ISSUE_9_REVIEWER_CLEARED", "path_metadata_review_status", failures)
+    if status == "P5_0B2R2_PROTOCOL_RESEALED":
+        authorized_stage = "P5-0B3 SOURCE-only development and source model/readiness-parameter seal"
+        fail_if(seal.get("target_access", {}).get("next_stage") != authorized_stage, "resealed_next_stage", failures)
+        fail_if(boundary.get("next_authorized_stage") != authorized_stage, "resealed_boundary_next_stage", failures)
+    elif status == "P5_0B2R2_CANDIDATE":
+        fail_if("conditional on P5_0B2R2_PROTOCOL_RESEALED" not in seal.get("target_access", {}).get("next_stage", ""), "candidate_next_stage", failures)
+    else:
+        fail_if("No next stage authorized" not in seal.get("target_access", {}).get("next_stage", ""), "blocked_next_stage", failures)
 
     entries = seal.get("sealed_artifacts", [])
     manifest: dict[str, str] = {}
@@ -291,6 +320,7 @@ def validate() -> list[str]:
         "research/p5_0b2/tests/test_source_label_firewall.py",
         "research/p5_0b2/tests/test_protocol_invariants.py",
         "research/p5_0b2/reviewer_amendment_b2r.md",
+        "research/p5_0b2/reviewer_amendment_b2r2.md",
     }
     fail_if(set(manifest) != expected_paths, "artifact_manifest_coverage", failures)
 
@@ -310,9 +340,9 @@ def validate() -> list[str]:
     fail_if("efd_possible" not in firewall_doc or "target_semantics_logged=false" not in firewall_doc, "firewall_contract", failures)
     fail_if("P5-0B2-SOURCE-FOLD-v1" not in source_doc or "selected candidate's OOF score" not in source_doc, "source_selection_boundary", failures)
     fail_if("quantile(method=\"linear\")" not in threshold_doc or "q99" not in threshold_doc, "threshold_contract", failures)
-    fail_if("PRIMARY_ABSOLUTE_FPR_CAP = 0.03" not in readiness_doc or "FPR_q90_source_fixedN_diagnostic" not in readiness_doc or "diagnostic only" not in readiness_doc or "Recall_min_source" not in readiness_doc or "Never-ready" not in readiness_doc, "readiness_contract", failures)
+    fail_if("PRIMARY_ABSOLUTE_FPR_CAP = 0.03" not in readiness_doc or "PRIMARY_ABSOLUTE_FAULT_REPORT_RECALL_FLOOR = 0.50" not in readiness_doc or "FPR_q90_source_fixedN_diagnostic" not in readiness_doc or "diagnostic only" not in readiness_doc or "Recall_min_source_q10" not in readiness_doc or "Recall_min_effective" not in readiness_doc or "Never-ready" not in readiness_doc, "readiness_contract", failures)
     fail_if("eligible fault-report recall" not in evaluation_doc or "pointwise future-normal FPR" not in evaluation_doc, "evaluation_contract", failures)
-    fail_if("PRIMARY_ABSOLUTE_FPR_CAP = 0.03" not in evaluation_doc or "eligible_fault_report_recall >= Recall_min_source" not in evaluation_doc, "evaluation_primary_success", failures)
+    fail_if("PRIMARY_ABSOLUTE_FPR_CAP = 0.03" not in evaluation_doc or "PRIMARY_ABSOLUTE_FAULT_REPORT_RECALL_FLOOR = 0.50" not in evaluation_doc or "eligible_fault_report_recall >= Recall_min_effective" not in evaluation_doc, "evaluation_primary_success", failures)
     fail_if("faults.csv" not in source_doc or "duplicates are retained" not in source_doc or "not unique physical-fault recall" not in source_doc, "source_fault_report_definition", failures)
     fail_if("faults.csv" not in evaluation_doc or "Duplicate records are retained" not in evaluation_doc or "not unique" not in evaluation_doc, "evaluation_fault_report_definition", failures)
     fail_if("every candidate has zero such" not in readiness_doc or "SOURCE_MODEL_NOT_EVALUABLE" not in readiness_doc, "readiness_zero_success_path", failures)
@@ -321,7 +351,7 @@ def validate() -> list[str]:
     fail_if("fewer than four prefix-eligible targets" in evaluation_doc, "evaluation_impossible_gate", failures)
     fail_if("feature_projection.json" not in preprocessing_doc or "Raw columns outside that list" not in preprocessing_doc, "preprocessing_projection", failures)
     fail_if("feature_projection.json" not in detector_doc or "Raw union-only and excluded status/mode columns" not in detector_doc, "detector_projection", failures)
-    fail_if(not any(status_label in final_gate for status_label in ("P5_0B2R_CANDIDATE", "P5_0B2R_PROTOCOL_RESEALED", "P5_0B2R_REFRAME", "P5_0B2R_BLOCKED_BY_FEATURE_SCHEMA")), "final_gate_status", failures)
+    fail_if(not any(status_label in final_gate for status_label in ("P5_0B2R2_CANDIDATE", "P5_0B2R2_PROTOCOL_RESEALED", "P5_0B2R2_BLOCKED_BY_PROTOCOL_INVARIANT")), "final_gate_status", failures)
     fail_if("TARGET_LABEL_ACCESS=NOT_AUTHORIZED" not in final_gate, "final_gate_target_access", failures)
     claim_docs = (
         "research/p5_0b2/README.md",
@@ -330,6 +360,7 @@ def validate() -> list[str]:
         "research/p5_0b2/evaluation_contract.md",
         "research/p5_0b2/final_gate.md",
         "research/p5_0b2/reviewer_amendment_b2r.md",
+        "research/p5_0b2/reviewer_amendment_b2r2.md",
     )
     for path in claim_docs:
         if has_banned_positive_claim((ROOT / path).read_text(encoding="utf-8")):

@@ -1,9 +1,16 @@
 # SOURCE-only detector and readiness development protocol
 
+**P5-0B2R2 state:** Astra review is PASS; terminal status is
+`P5_0B2R2_PROTOCOL_RESEALED`. P5-0B2R2 performed a result-blind protocol
+reseal only. This terminal status authorizes only the P5-0B3 SOURCE-only
+development/source model-readiness-parameter seal. TARGET labels, raw values,
+scores, prefix adjudication, suffix evaluation, and efficacy remain
+unauthorized.
+
 ## Scope and seal timing
 
 This document fixes the development procedure; it does not authorize running
-it in P5-0B2. The next stage may use only the 74 entities already marked
+it in P5-0B2 or under this candidate. The next stage may use only the 74 entities already marked
 SOURCE by the pinned role seal, their SOURCE operational rows, and the
 canonical SOURCE-only label artifact emitted by the sealed firewall. It may
 not inspect target rows, target labels, target missingness, target scores, or
@@ -20,7 +27,7 @@ canonical SOURCE-only firewall artifact. Resolve raw inputs through a
 SOURCE-only projection of the committed `entity_manifest.csv`; its structural
 inventory has one unique `raw_path` per entity. At the authorized P5-0B3
 SOURCE-only gate, validate that no raw path is shared across role entries
-before opening any operational file. The P5-0B2R validator pins the existing
+before opening any operational file. The P5-0B2R2 candidate validator pins the existing
 manifest digest without opening its path-bearing contents. Open and hash-check
 only the 74 SOURCE paths. Do not pass target manifest rows or target raw paths
 to the method process. If a later runtime cannot preserve this one-file-per-entity
@@ -109,7 +116,16 @@ existing parsed intervals overlap suffix observations. Each row is one report;
 duplicates are retained without semantic deduplication. A hit is any suffix
 score strictly above threshold within the report interval. `eligible fault-report recall`
 is report-level, not unique physical-fault recall or the paper's repeat-filtered
-event set. TARGET evaluation and `Recall_min_source` use the same unit.
+event set. TARGET evaluation and
+`Recall_min_source_q10`/`Recall_min_effective` use the same unit. Freeze
+`PRIMARY_ABSOLUTE_FPR_CAP = 0.03` and
+`PRIMARY_ABSOLUTE_FAULT_REPORT_RECALL_FLOOR = 0.50`; every SOURCE primary
+joint-success task requires READY within budget, future-normal pointwise FPR
+at most 0.03, and eligible fault-report recall at least
+`Recall_min_effective`, where
+`Recall_min_effective = max(0.50, Recall_min_source_q10)`. This floor is a
+protocol non-degeneracy rule and is not derived from or equated to any
+paper-reported 60% result.
 Disturbance intervals are not separate reports. Suffix features and scores never enter fitting, readiness features,
 or threshold updates. Predeclared source evaluator outcomes may enter
 SOURCE-only detector/readiness candidate selection and margin calibration, as
@@ -251,11 +267,18 @@ tests, and hashes must be sealed before this stage is run.
 - If every readiness candidate has zero pseudo-targets satisfying all frozen
   primary joint-success conditions within a stratum, do not seal a
   lexicographic winner; mark that stratum `SOURCE_MODEL_NOT_EVALUABLE` and
-  follow the negative-result path. Any affected stratum bars a pooled
-  five-stratum success claim.
+  follow the negative-result path. Never lower the 0.50 recall floor, relax
+  the 0.03 FPR cap, or change the candidate grid to create a success. Any
+  affected stratum bars a pooled five-stratum success claim.
 - No condition permits merging strata, tuning on target values, reopening
   public README exposure, or exposing a target-specific source-development
   failure reason to the method-selection process.
 - Source-only execution seals the model and readiness parameters. It does
-  not authorize target label access. The next target operation is the sealed
-  prefix-only adjudication, and only after the source seal is reviewed.
+  not authorize target label access. The terminal
+  `P5_0B2R2_PROTOCOL_RESEALED` status authorizes only the P5-0B3 SOURCE-only
+  development/source model-readiness-parameter seal. TARGET labels, raw
+  values, scores, prefix adjudication, suffix evaluation, and efficacy remain
+  unauthorized. The resealed amendment records
+  `RAW_PATH_METADATA_READ=STRUCTURAL_METADATA_DEVIATION`,
+  `SEMANTIC_BOUNDARY_BREACH=NO`, and `OUTCOME_LEAKAGE=NO`; no operational
+  manifest content, data, or labels are accessed by this documentation work.

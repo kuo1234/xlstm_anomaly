@@ -1,6 +1,6 @@
 {
-  "base_commit": "01bcbda00fdedfac7c5b772b310d6444d2bb4ca5",
-  "branch": "research/p5-0b2r-result-blind-repair",
+  "base_commit": "758c48b23e54bd775a71bc0542fb008cd7e2e426",
+  "branch": "research/p5-0b2r2-nondegeneracy-reseal",
   "energy_fault_detector": {
     "decision": "generic dense MultilayerAutoencoder with external per-row RMSE; PreDist loader and event-specific procedure excluded",
     "paper_cited_commit": "9e0d65074c88e51e180e3bf37f580280bbb54496",
@@ -22,8 +22,10 @@
     ],
     "minimum_suffix_evaluable_per_stratum": 0,
     "pooled_success_denominator": 16,
+    "primary_absolute_fault_report_recall_floor": 0.5,
     "primary_absolute_fpr_cap": 0.03,
     "primary_fault_metric": "eligible fault-report recall",
+    "recall_min_effective_formula": "max(0.50, Recall_min_source_q10)",
     "unavailable_outcomes_count_as_failure": true,
     "unavailable_source_model_or_margins_prohibit_pooled_claim": true
   },
@@ -58,8 +60,11 @@
       "the 74 SOURCE operational files selected by a SOURCE-only manifest projection",
       "canonical SOURCE-only label intervals and released SOURCE audit fields"
     ],
-    "initial_path_metadata_read": "The inherited validator parsed raw_path strings from entity_manifest.csv for uniqueness, but did not follow any path; the final B2R validator does not open path-bearing manifests.",
-    "next_authorized_stage": "None pending Issue #9 adjudication of the disclosed initial path-metadata read",
+    "initial_path_metadata_read": "Issue #9 reviewer cleared the prior raw_path metadata read as a structural metadata deviation with no semantic boundary breach or outcome leakage.",
+    "next_authorized_stage": "P5-0B3 SOURCE-only development and source model/readiness-parameter seal",
+    "outcome_leakage": "NO",
+    "raw_path_metadata_read_status": "STRUCTURAL_METADATA_DEVIATION",
+    "semantic_boundary_breach": "NO",
     "source_label_csv_access": "sealed firewall process only; method receives SOURCE-only artifact",
     "source_raw_file_gate": "SOURCE-only manifest projection; one unique raw_path per role entry; open/hash only SOURCE paths",
     "target_label_access": "NOT_AUTHORIZED",
@@ -81,24 +86,33 @@
     ],
     "primary_fixed_n_reference": 2304,
     "primary_success": {
-      "eligible_fault_report_recall_gte": "Recall_min_source",
+      "absolute_fault_report_recall_floor": 0.5,
+      "eligible_fault_report_recall_gte": "Recall_min_effective",
       "future_normal_pointwise_fpr_lte": 0.03,
-      "ready_within_budget": true
+      "ready_within_budget": true,
+      "recall_min_effective_formula": "max(0.50, Recall_min_source_q10)",
+      "recall_min_source_q10": "Recall_min_source_q10"
     },
     "selection_objective": "joint success fraction, acquisition cost, eligible fault-report recall, pointwise FPR, conjunct count, lexical candidate ID",
     "source_only_margin_selection": true,
     "zero_success_path": "If every candidate has zero pseudo-target tasks satisfying all primary joint-success conditions, mark that exact stratum SOURCE_MODEL_NOT_EVALUABLE; do not seal the tie-break winner."
   },
+  "reviewer_adjudication": {
+    "outcome_leakage": "NO",
+    "raw_path_metadata_read": "STRUCTURAL_METADATA_DEVIATION",
+    "review_status": "ISSUE_9_REVIEWER_CLEARED",
+    "semantic_boundary_breach": "NO"
+  },
   "role_seal_sha256": "00e0cec62d238c78f2d0b3c79910c0ffaf1122d1582c28c8848022fb3e10e33f",
-  "schema_version": "p5-0b2r-protocol-seal-v1",
+  "schema_version": "p5-0b2r2-protocol-seal-v1",
   "sealed_artifacts": [
     {
       "path": "research/p5_0b2/README.md",
-      "sha256": "26244de9a0a1903c6a9ead80d621105c6000ceefd3e3da31b720c9042a513ddf"
+      "sha256": "e37eb9e5d89c0ef367d979b4119056a0e36a0d28d7231bc5edae6bb0e1727b21"
     },
     {
       "path": "research/p5_0b2/structural_inputs_seal.json",
-      "sha256": "045b0c0676040b19191097400edcb10fcf3a7ae77a9424b38c7fba1eb2130f73"
+      "sha256": "f559715076457b4a8ba848b3a5156e45e2acd6909193524fbf5aba32a446e3c0"
     },
     {
       "path": "research/p5_0b2/feature_projection.json",
@@ -118,7 +132,7 @@
     },
     {
       "path": "research/p5_0b2/source_development_protocol.md",
-      "sha256": "8e63740ae552ab2b9b25a8af43aed83033a47de1f3ad5a307dbbfd564bc02eea"
+      "sha256": "ffc1ff333edff8fb76fdc1ea04962e492b2a549ba1b9bbf5348b536b72df97f1"
     },
     {
       "path": "research/p5_0b2/source_label_firewall.md",
@@ -130,7 +144,7 @@
     },
     {
       "path": "research/p5_0b2/readiness_rule_contract.md",
-      "sha256": "4410c89b6356af8c5ef678ef9be1163990cc84cb22a7bf89f63c4592836f5b01"
+      "sha256": "6a9017f1ac08b94a8bd6bdb16d21dfc0ae3a4997dfad20013d8db9e392e2e893"
     },
     {
       "path": "research/p5_0b2/threshold_contract.md",
@@ -138,7 +152,7 @@
     },
     {
       "path": "research/p5_0b2/evaluation_contract.md",
-      "sha256": "a6d9b4a913be5e6229a2576aee274411c97f26ac70c0968bcf6c58687b140068"
+      "sha256": "580ab962ccc2b7e9a3ff0ab0b91b1e84cfabd753767be47d53f964c4a4e8f8a3"
     },
     {
       "path": "research/p5_0b2/canonical_sequence.md",
@@ -146,7 +160,7 @@
     },
     {
       "path": "research/p5_0b2/final_gate.md",
-      "sha256": "f88a6b7ba64f2f707a94dbfa98bf347fbe577e8b90bc839487ef7be4a7997c40"
+      "sha256": "5096bdca53e46e740659f07dfcac11d7e2afb6fb91e5949d57462fd007a9f860"
     },
     {
       "path": "research/p5_0b2/scripts/source_label_firewall.py",
@@ -154,11 +168,11 @@
     },
     {
       "path": "research/p5_0b2/scripts/validate_protocol.py",
-      "sha256": "268c80b7a7f7f7c5e42f633f392b398dcf835714d679818ffa0f22a7782f5a15"
+      "sha256": "f053fd7a81bf7b1ab500bbc16d3d723f1744e3c35bcb2d2abcf78bd507e4d372"
     },
     {
       "path": "research/p5_0b2/scripts/seal_protocol.py",
-      "sha256": "2b709f0b820e85d6223d231ad13fbfc506944b90839f1e62e67f949a6ef8c1bb"
+      "sha256": "ef524e0d9572b607901124badd5cd435abd16c8f4507be568b3d267767e6d10f"
     },
     {
       "path": "research/p5_0b2/tests/test_source_label_firewall.py",
@@ -166,11 +180,15 @@
     },
     {
       "path": "research/p5_0b2/tests/test_protocol_invariants.py",
-      "sha256": "9a6925d9773038cad2a025363074f4e787a633484f555daf4cedcebf3c6f2f8d"
+      "sha256": "6430d2fc2fc7e9cd6be9462ad079a893c17fa1b612203a18d2372a5f209340de"
     },
     {
       "path": "research/p5_0b2/reviewer_amendment_b2r.md",
       "sha256": "8716564c7c4d002234c9fb0628d688961069b67b5aba1b27a274b48429136656"
+    },
+    {
+      "path": "research/p5_0b2/reviewer_amendment_b2r2.md",
+      "sha256": "6528c7790f1a3bb6adebff405153f633c93c84d5eec41cb32531e4974054f5fc"
     }
   ],
   "source_development": {
@@ -178,16 +196,18 @@
     "fault_metric": "eligible fault-report recall; one efd_possible=true faults.csv row whose parsed interval overlaps suffix observations; duplicates retained",
     "fixed_n_fpr_q90_role": "FPR_q90_source_fixedN_diagnostic; diagnostic only, never primary and never relaxes the absolute cap",
     "fold_algorithm": "SHA256(UTF8(P5-0B2-SOURCE-FOLD-v1|role_digest)); within exact strata, sorted by fold_digest then role_digest, assigned round-robin to five folds",
+    "primary_absolute_fault_report_recall_floor": 0.5,
     "primary_absolute_fpr_cap": 0.03,
     "readiness_scale": "selected detector candidate OOF SOURCE scores outside annotated fault/disturbance intervals; float64 type-7 IQR",
-    "recall_minimum": "Recall_min_source: predeclared type-7 10th percentile over evaluable SOURCE fixed-N pseudo-target report-level recalls",
+    "recall_min_effective_formula": "max(0.50, Recall_min_source_q10)",
+    "recall_minimum": "Recall_min_source_q10: predeclared type-7 q10 of evaluable SOURCE fixed-N pseudo-target eligible fault-report recall",
     "seed": 17,
     "source_label_firewall_sha256": "43f8cc705e2b614e9a81ef77fcc1b3e2bdac13880b0b2086037ea7b369b72514",
     "source_label_firewall_version": "p5-0b2-source-label-firewall-v1"
   },
-  "status": "P5_0B2R_REFRAME",
+  "status": "P5_0B2R2_PROTOCOL_RESEALED",
   "target_access": {
-    "next_stage": "No next stage authorized pending Issue #9 adjudication of the disclosed initial path-metadata read",
+    "next_stage": "P5-0B3 SOURCE-only development and source model/readiness-parameter seal",
     "predist_training_performed": false,
     "suffix_evaluation_performed": false,
     "target_label_access": "NOT_AUTHORIZED",
@@ -203,8 +223,8 @@
   },
   "verification": {
     "astra_review": "PASS",
-    "combined_test_count": 28,
-    "protocol_invariant_tests": 9,
+    "combined_test_count": 35,
+    "protocol_invariant_tests": 16,
     "protocol_validator_command": "python3 -m research.p5_0b2.scripts.validate_protocol",
     "synthetic_firewall_test_command": "python3 -m unittest research.p5_0b2.tests.test_source_label_firewall -v",
     "synthetic_firewall_tests": 19

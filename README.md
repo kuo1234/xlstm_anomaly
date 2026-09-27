@@ -49,13 +49,20 @@ The current G1 execution was launched only after the exact pre-label seal
 logs are operational artifacts, not scientific outcomes. H2/H3a must not be
 interpreted until the run completes and the independent post-run audit passes.
 
-P5-0B2R is an Astra-reviewed result-blind protocol amendment in
-`research/p5_0b2/`. Its documentation and structural projection changes are
-sealed with status `P5_0B2R_REFRAME` pending Issue #9 adjudication; no READY outcome is described as
-safe, certified, or guaranteed. `REFERENCE_CLEAN_PRIMARY` denotes only a
-reference-clean commissioning prefix that is record-clean under available
-annotations. Missing annotations do not establish physical normality, and
-unlabelled faults may remain.
+P5-0B2R2 is a result-blind non-degeneracy amendment in `research/p5_0b2/`.
+Astra review is PASS and terminal status is
+`P5_0B2R2_PROTOCOL_RESEALED`. P5-0B2R2 performed a result-blind protocol
+reseal only. This terminal status authorizes only the P5-0B3 SOURCE-only
+development/source model-readiness-parameter seal. TARGET labels, raw values,
+scores, prefix adjudication, suffix evaluation, and efficacy remain
+unauthorized. The resealed protocol freezes
+`PRIMARY_ABSOLUTE_FAULT_REPORT_RECALL_FLOOR = 0.50` and
+`Recall_min_effective = max(0.50, Recall_min_source_q10)` alongside the
+existing `PRIMARY_ABSOLUTE_FPR_CAP = 0.03`; it does not describe a READY
+outcome as safe, certified, or guaranteed. `REFERENCE_CLEAN_PRIMARY` denotes
+only a reference-clean commissioning prefix that is record-clean under
+available annotations. Missing annotations do not establish physical
+normality, and unlabelled faults may remain.
 
 ## Research scope and non-goals
 

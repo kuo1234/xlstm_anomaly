@@ -7,18 +7,21 @@ from pathlib import Path
 
 from research.p5_0b2.scripts.validate_protocol import (
     PRIMARY_ABSOLUTE_FPR_CAP,
+    PRIMARY_ABSOLUTE_FAULT_REPORT_RECALL_FLOOR,
+    effective_recall_minimum,
     has_banned_positive_claim,
     primary_success,
     project_features,
     source_candidates_have_any_joint_success,
 )
+from research.p5_0b2.scripts.seal_protocol import build_seal
 
 
 ROOT = Path(__file__).resolve().parents[3]
 
 
 class ProtocolInvariantTests(unittest.TestCase):
-    def test_protocol_validator_accepts_the_review_candidate(self):
+    def test_protocol_validator_accepts_the_resealed_protocol(self):
         result = subprocess.run(
             [sys.executable, "-m", "research.p5_0b2.scripts.validate_protocol"],
             cwd=ROOT,
@@ -34,6 +37,25 @@ class ProtocolInvariantTests(unittest.TestCase):
         self.assertEqual(PRIMARY_ABSOLUTE_FPR_CAP, 0.03)
         self.assertTrue(primary_success(True, 0.03, 0.6, 0.5))
         self.assertFalse(primary_success(True, 0.030001, 0.6, 0.5))
+
+    def test_primary_absolute_fault_report_recall_floor_is_exactly_half(self):
+        self.assertEqual(PRIMARY_ABSOLUTE_FAULT_REPORT_RECALL_FLOOR, 0.50)
+        seal = json.loads((ROOT / "research/p5_0b2/protocol_seal.json").read_text(encoding="utf-8"))
+        self.assertEqual(
+            seal["readiness_selection"]["primary_success"]["absolute_fault_report_recall_floor"],
+            0.50,
+        )
+
+    def test_effective_recall_floor_for_zero_source_q10_is_half(self):
+        self.assertEqual(effective_recall_minimum(0.0), 0.50)
+
+    def test_effective_recall_floor_uses_source_q10_above_half(self):
+        self.assertEqual(effective_recall_minimum(0.75), 0.75)
+
+    def test_primary_success_rejects_recall_below_effective_floor(self):
+        floor = effective_recall_minimum(0.0)
+        self.assertFalse(primary_success(True, 0.03, 0.49, floor))
+        self.assertTrue(primary_success(True, 0.03, 0.50, floor))
 
     def test_source_q90_cannot_relax_primary_fpr_cap(self):
         # The diagnostic is deliberately not an input to the primary gate.
@@ -103,6 +125,33 @@ class ProtocolInvariantTests(unittest.TestCase):
             path = ROOT / artifact["path"]
             self.assertTrue(path.is_file(), artifact["path"])
             self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), artifact["sha256"], artifact["path"])
+
+    def test_reviewer_clearance_marks_path_read_as_structural_only(self):
+        seal = json.loads((ROOT / "research/p5_0b2/protocol_seal.json").read_text(encoding="utf-8"))
+        self.assertEqual(seal["reviewer_adjudication"], {
+            "raw_path_metadata_read": "STRUCTURAL_METADATA_DEVIATION",
+            "semantic_boundary_breach": "NO",
+            "outcome_leakage": "NO",
+            "review_status": "ISSUE_9_REVIEWER_CLEARED",
+        })
+
+    def test_target_access_remains_unauthorized_after_path_clearance(self):
+        seal = json.loads((ROOT / "research/p5_0b2/protocol_seal.json").read_text(encoding="utf-8"))
+        access = seal["target_access"]
+        self.assertEqual(access["target_label_access"], "NOT_AUTHORIZED")
+        self.assertFalse(access["target_raw_values_or_scores_accessed"])
+        self.assertFalse(access["target_prefix_adjudication_performed"])
+        self.assertFalse(access["suffix_evaluation_performed"])
+        authorized_stage = "P5-0B3 SOURCE-only development and source model/readiness-parameter seal"
+        self.assertEqual(access["next_stage"], authorized_stage)
+        self.assertEqual(seal["information_boundary"]["next_authorized_stage"], authorized_stage)
+
+    def test_seal_builder_is_canonical_and_repeatable(self):
+        first = build_seal()
+        second = build_seal()
+        self.assertEqual(first, second)
+        written = json.loads((ROOT / "research/p5_0b2/protocol_seal.json").read_text(encoding="utf-8"))
+        self.assertEqual(first, written)
 
 
 if __name__ == "__main__":

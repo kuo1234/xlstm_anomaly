@@ -1,12 +1,15 @@
-# P5-0B2 final gate
+# P5-0B2R2 final gate
 
-**Astra review: PASS.** Terminal status: `P5_0B2R_REFRAME` pending Issue #9
-adjudication of the disclosed initial path-metadata read.
+**Astra review: PASS.** Terminal status:
+`P5_0B2R2_PROTOCOL_RESEALED`. P5-0B2R2 performed a result-blind protocol
+reseal only. This terminal status authorizes only the P5-0B3 SOURCE-only
+development/source model-readiness-parameter seal.
 
 The prior P5-0B2 seal is superseded for this result-blind amendment. No
-next-stage authorization follows until the Issue #9 path-metadata adjudication
-is resolved. This seal does not authorize SOURCE development or TARGET label access,
-TARGET scoring, prefix adjudication, suffix evaluation, or efficacy claims.
+TARGET labels, raw values, scores, prefix adjudication, suffix evaluation, or
+efficacy claims are authorized by this reseal. The authorized next operation
+is limited to P5-0B3 SOURCE-only development and source
+model-readiness-parameter sealing.
 
 ## Gate checklist
 
@@ -38,9 +41,17 @@ TARGET scoring, prefix adjudication, suffix evaluation, or efficacy claims.
 - [x] Fixed TARGET counts `5, 1, 4, 4, 2` recorded. The success denominator
       remains all 16 targets, with no impossible four-evaluable-per-stratum
       condition; unavailable outcomes count as failures.
-- [x] Astra review resolved the exact manufacturer-key mismatch, traceback
-      leakage, projection contradiction, bootstrap support gate, and strict
-      CSV completeness/parser issues.
+- [x] Inherited B2R review findings retain the exact manufacturer-key
+      mismatch, traceback leakage, projection contradiction, bootstrap support
+      gate, and strict CSV completeness/parser corrections.
+- [x] Resealed primary gate freezes
+      `PRIMARY_ABSOLUTE_FPR_CAP = 0.03` and
+      `PRIMARY_ABSOLUTE_FAULT_REPORT_RECALL_FLOOR = 0.50`.
+- [x] Resealed primary recall uses
+      `Recall_min_source_q10` and
+      `Recall_min_effective = max(0.50, Recall_min_source_q10)` for both
+      SOURCE and TARGET; the report-level unit and zero-success negative path
+      remain unchanged.
 
 ## Protocol correction
 
@@ -55,16 +66,24 @@ correction.
 
 ## Access and verification
 
-This phase read public papers/repository source and committed P5-0B1R
-structural metadata. It did not open any operational raw file, semantic label
-payload, dataset archive, target value/score, or archive README; did not run
-the label firewall; did not train an AE or PreDist model; did not adjudicate
-target prefixes; and did not access suffix outcomes. During initial
-integration, the inherited validator parsed `raw_path` strings from
-`entity_manifest.csv` for its unique-path check but did not use them to open
-operational files. The final B2R validator no longer opens that path-bearing
-manifest and compares only its committed digest token. This path-metadata
-access is disclosed for GPT adjudication in Issue #9.
+This reseal read only public papers/repository source and committed
+structural metadata. It does not open operational data, semantic label
+payloads, target values/scores, or archive content; it does not run the label
+firewall, train an AE or PreDist model, adjudicate target prefixes, or access
+suffix outcomes. During initial integration, the inherited validator parsed
+`raw_path` strings from `entity_manifest.csv` for its unique-path check but
+did not use them to open operational files. The reseal records the reviewer
+clearance fields exactly as:
+
+`RAW_PATH_METADATA_READ=STRUCTURAL_METADATA_DEVIATION`
+
+`SEMANTIC_BOUNDARY_BREACH=NO`
+
+`OUTCOME_LEAKAGE=NO`
+
+The P5-0B2R2 validator no longer opens that path-bearing manifest and
+compares only its committed digest token. No operational manifest content,
+data, or label payload is opened by this documentation amendment.
 
 Verification already run against synthetic data and committed structural
 metadata only:
@@ -73,7 +92,7 @@ metadata only:
   19 firewall tests passed.
 - `python3 -m research.p5_0b2.scripts.validate_protocol` — passed.
 - `python3 -m unittest research.p5_0b2.tests.test_source_label_firewall research.p5_0b2.tests.test_protocol_invariants -v` —
-  all 28 tests passed.
+  all 35 tests passed.
 - `git diff --check` — passed.
 
 The validator verified the immutable role counts, five eligible SOURCE
@@ -84,6 +103,7 @@ the final validator. Artifact hashes are in `protocol_seal.json`.
 
 ## Next authorized stage
 
-No next stage is authorized pending Issue #9 adjudication of the disclosed
-path-metadata read. Keep `TARGET_LABEL_ACCESS=NOT_AUTHORIZED`; P5-0B3 remains
-closed until a subsequent Issue comment explicitly opens it.
+The terminal `P5_0B2R2_PROTOCOL_RESEALED` status authorizes only the P5-0B3
+SOURCE-only development/source model-readiness-parameter seal. Keep
+`TARGET_LABEL_ACCESS=NOT_AUTHORIZED`; TARGET labels, raw values, scores,
+prefix adjudication, suffix evaluation, and efficacy remain unauthorized.

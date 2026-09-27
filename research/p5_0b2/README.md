@@ -1,17 +1,21 @@
-# P5-0B2R result-blind protocol repair
+# P5-0B2R2 result-blind non-degeneracy amendment
 
-**Review state:** Astra review passed; terminal status is `P5_0B2R_REFRAME`.
-The prior P5-0B2 seal is superseded. P5-0B3 is not authorized pending Issue
-#9 adjudication of the disclosed initial path-metadata read.
+**Review state:** Astra review is PASS; terminal status is
+`P5_0B2R2_PROTOCOL_RESEALED`. The prior P5-0B2R seal remains superseded.
+P5-0B2R2 performed a result-blind protocol reseal only. This terminal status
+authorizes only the P5-0B3 SOURCE-only development/source
+model-readiness-parameter seal. TARGET labels, raw values, scores, prefix
+adjudication, suffix evaluation, and efficacy remain unauthorized.
 
-This result-blind amendment updates protocol language, name-based feature
-projection, validators, and synthetic tests. It does not access semantic
-labels, operational sensor values, model outcomes, or TARGET evaluation data.
+This result-blind amendment adds a predeclared non-degeneracy floor while
+retaining the prior report-level metric, FPR cap, candidate grid, and
+structural projection. It does not access semantic labels, operational sensor
+values, model outcomes, or TARGET evaluation data.
 
 ## Frozen structural inputs
 
 The controlling base is commit
-`01bcbda00fdedfac7c5b772b310d6444d2bb4ca5`. The P5-0B1R role seal is pinned
+`758c48b23e54bd775a71bc0542fb008cd7e2e426`. The P5-0B1R role seal is pinned
 by SHA-256
 `00e0cec62d238c78f2d0b3c79910c0ffaf1122d1582c28c8848022fb3e10e33f`.
 The fixed inventory is 74 SOURCE, 16 TARGET, and 3 unsupported entities in
@@ -34,18 +38,27 @@ reconsideration is introduced.
 
 The absolute primary future-normal pointwise FPR ceiling is
 `PRIMARY_ABSOLUTE_FPR_CAP = 0.03`. `FPR_q90_source_fixedN_diagnostic` is
-diagnostic only and never controls or relaxes that cap. Primary joint success
-requires READY within budget, FPR no greater than 0.03, and
-`eligible_fault_report_recall >= Recall_min_source`.
+diagnostic only and never controls or relaxes that cap. Freeze
+`PRIMARY_ABSOLUTE_FAULT_REPORT_RECALL_FLOOR = 0.50`. Define
+`Recall_min_source_q10` as the type-7 q10 of SOURCE fixed-N eligible
+fault-report recall, giving each evaluable SOURCE pseudo-target task equal
+weight, and define
+`Recall_min_effective = max(0.50, Recall_min_source_q10)`. Every SOURCE and
+TARGET primary joint-success gate requires READY within budget, future-normal
+pointwise FPR no greater than 0.03, and
+`eligible_fault_report_recall >= Recall_min_effective`.
 If every readiness candidate has zero tasks satisfying the full joint gate in
 a stratum, mark that stratum `SOURCE_MODEL_NOT_EVALUABLE`; do not seal the
-tie-break winner.
+tie-break winner, lower either floor, relax the FPR cap, or change the
+candidate grid. The 0.50 floor is a predeclared protocol non-degeneracy rule;
+this amendment makes no claim that it comes from or is equivalent to any
+paper-reported 60% result.
 
 Each `faults.csv` row with `efd_possible=true` whose existing parsed interval
 overlaps suffix observations is one eligible report. Duplicates remain
 separate; this report-level metric is not unique physical-fault recall and is
-not the paper's repeat-filtered event set. The same unit defines source
-`Recall_min_source` and TARGET evaluation.
+not the paper's repeat-filtered event set. The same unit defines
+`Recall_min_source_q10`, `Recall_min_effective`, and TARGET evaluation.
 
 ## Selected detector reference
 
@@ -61,12 +74,16 @@ PreDist loader/protocol is excluded. See `detector_backbone_audit.md`.
 No source or target semantic label payload, operational sensor value, model
 outcome, TARGET score, prefix eligibility result, or PreDist model is accessed
 or produced in this phase. Public code/docs and the pinned P5-0B1R role/schema
-metadata are used. During initial integration, the inherited validator parsed
-all `raw_path` strings in `entity_manifest.csv` for uniqueness without
-opening any path; the final B2R validator does not open path-bearing manifests.
-This path-metadata read is disclosed for Issue #9 adjudication. TARGET label
-access, scoring, prefix adjudication, suffix evaluation, and efficacy claims
-remain unauthorized.
+metadata are used. The previously disclosed path-only metadata read is
+classified for this reseal as
+`RAW_PATH_METADATA_READ=STRUCTURAL_METADATA_DEVIATION`; it did not cross a
+semantic boundary or expose an outcome:
+`SEMANTIC_BOUNDARY_BREACH=NO` and `OUTCOME_LEAKAGE=NO`. No operational
+manifest content, data, or label payload is opened by this amendment. TARGET
+label access, scoring, prefix adjudication, suffix evaluation, and efficacy
+claims remain unauthorized. The terminal
+`P5_0B2R2_PROTOCOL_RESEALED` status authorizes only the P5-0B3 SOURCE-only
+development/source model-readiness-parameter seal.
 
 The fixed TARGET counts across the five strata are `5, 1, 4, 4, 2`. The
 pooled success denominator remains all 16 entities, and unavailable outcomes
@@ -76,5 +93,6 @@ An unavailable SOURCE model or frozen margin bars a pooled claim.
 ## Artifact map
 
 The normative documents and their hashes are listed in `protocol_seal.json`.
-`canonical_sequence.md` defines the only permitted phase order. `final_gate.md`
-records the terminal gate and any protocol correction.
+`canonical_sequence.md` defines the only permitted phase order. The
+P5-0B2R2 reseal records the floor, reviewer clearance, Astra disposition, and
+the restricted next-stage authorization.

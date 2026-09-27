@@ -1,5 +1,12 @@
 # Readiness-rule development and selection contract
 
+**P5-0B2R2 state:** Astra review is PASS; terminal status is
+`P5_0B2R2_PROTOCOL_RESEALED`. P5-0B2R2 performed a result-blind protocol
+reseal only. This terminal status authorizes only the P5-0B3 SOURCE-only
+development/source model-readiness-parameter seal; TARGET labels, raw values,
+scores, prefix adjudication, suffix evaluation, and efficacy remain
+unauthorized.
+
 ## Rule boundary
 
 The anomaly score and model are frozen by the detector/source-model seal.
@@ -111,23 +118,29 @@ source pseudo-target, first score the fixed-N q99 baseline through the
 suffix from raw row 2,305 to the entity's final raw row. Define
 `FPR_q90_source_fixedN_diagnostic` as the type-7 empirical 90th percentile of
 per-entity fixed-N future-normal pointwise FPR. It is diagnostic only and is
-never a primary cap. Freeze `PRIMARY_ABSOLUTE_FPR_CAP = 0.03`. Define
-`Recall_min_source` as the predeclared type-7 empirical 10th percentile of
+never a primary cap. Freeze `PRIMARY_ABSOLUTE_FPR_CAP = 0.03` and
+`PRIMARY_ABSOLUTE_FAULT_REPORT_RECALL_FLOOR = 0.50`. Define
+`Recall_min_source_q10` as the predeclared type-7 empirical q10 of SOURCE
 fixed-N eligible fault-report recall across evaluable SOURCE pseudo-target
-tasks, giving each task equal weight. The report unit is each `faults.csv` row
+tasks, giving each task equal weight. Then define
+`Recall_min_effective = max(0.50, Recall_min_source_q10)`. The report unit is
+each `faults.csv` row
 with `efd_possible=true` whose existing parsed interval overlaps suffix
 observations; duplicate rows remain separate reports, without semantic
 deduplication. A report is hit if any suffix score strictly exceeds the
 frozen threshold within its interval. This is report-level recall, not unique
 physical-fault recall and not the paper's repeat-filtered event set. Use the
-same unit for `Recall_min_source` and TARGET evaluation. If fewer than four
-evaluable pseudo-targets exist in a stratum, that stratum is
+same unit for `Recall_min_source_q10`, `Recall_min_effective`, and TARGET
+evaluation. If fewer than four evaluable pseudo-targets exist in a stratum,
+that stratum is
 `SOURCE_MODEL_NOT_EVALUABLE`.
 
 Primary SOURCE pseudo-target joint success requires READY within budget, normal-side
-pointwise FPR at most `PRIMARY_ABSOLUTE_FPR_CAP`, and
-`eligible_fault_report_recall >= Recall_min_source`. The q90 fixed-N FPR
-statistic remains diagnostic only and cannot replace or relax the 0.03 cap. Never-ready is failure and remains in the denominator. Choose a candidate lexicographically
+future-normal pointwise FPR at most `PRIMARY_ABSOLUTE_FPR_CAP`, and
+`eligible_fault_report_recall >= Recall_min_effective`. The q90 fixed-N FPR
+statistic remains diagnostic only and cannot replace or relax the 0.03 cap;
+the recall floor cannot be lowered by a source result. Never-ready is failure
+and remains in the denominator. Choose a candidate lexicographically
 by: (1) highest fraction of source pseudo-target tasks jointly successful;
 (2) lowest mean acquisition cost among all tasks, where `raw_count` is the
 scheduled raw-row count at READY and `elapsed_days` is the recorded timestamp
@@ -154,15 +167,19 @@ The 0.03 ceiling is our frozen operating ceiling. Paper §4.4 reports
 normal-event pointwise accuracy >=0.97 as motivation, but its event-averaged
 normal accuracy is not necessarily mathematically identical to our pooled
 timestamp FPR; this protocol makes no guarantee from that correspondence.
-Source recall quantiles are empirical engineering rules, not population
-guarantees.
+The 0.50 floor is a predeclared protocol non-degeneracy rule. It is not
+derived from or claimed equivalent to any paper-reported 60% result. Source
+recall quantiles are empirical engineering rules, not population guarantees.
 
 ## Sealed output
 
 For each evaluable stratum, seal the exact selected family, all numeric
-parameters, the fixed 0.03 primary cap, diagnostic `FPR_q90_source_fixedN_diagnostic`, and source-derived `Recall_min_source`, source fold outcomes,
-score-support policy, code/dependency hashes, and tie-break result. If source
-selection yields no evaluable candidate or no candidate has any jointly
+parameters, the fixed 0.03 primary cap, fixed
+`PRIMARY_ABSOLUTE_FAULT_REPORT_RECALL_FLOOR = 0.50`, diagnostic
+`FPR_q90_source_fixedN_diagnostic`, `Recall_min_source_q10`,
+`Recall_min_effective`, source fold outcomes, score-support policy,
+code/dependency hashes, and tie-break result. If source selection yields no
+evaluable candidate or no candidate has any jointly
 successful pseudo-target under the frozen primary rule, mark the stratum
 `SOURCE_MODEL_NOT_EVALUABLE`. No target eligibility, target score, or target
 trajectory can revise these values.
