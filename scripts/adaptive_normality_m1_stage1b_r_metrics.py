@@ -821,7 +821,8 @@ def _load_sealed_scores(repo: Path, seal: Mapping[str, Any]) -> dict[str, dict[s
                 expected_stage1a_binding.get("run_record_sha256") != old_execution.get("run_record_sha256")):
             raise Stage1BRMetricError(f"{machine}: committed Stage-1A run record is missing or changed")
         old_run = json.loads(stage1a_run_path.read_text())
-        if (expected_stage1a_binding.get("score_artifact") != old_score_entry.get("artifact") or
+        if (_repo_relative_path(expected_stage1a_binding.get("score_artifact"), repo) !=
+                old_score_entry.get("artifact") or
                 expected_stage1a_binding.get("calibration_artifact") != old_run.get("calibration", {}).get("path") or
                 expected_stage1a_binding.get("calibration_sha256") != old_run.get("calibration", {}).get("sha256") or
                 expected_stage1a_binding.get("scaler") != old_run.get("scaler") or
