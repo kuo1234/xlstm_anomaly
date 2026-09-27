@@ -1,0 +1,42 @@
+{
+  "schema_version": "p5-0b2-structural-inputs-v1",
+  "base_commit": "96e7afa9696303d31e5b7f0163349a97d53ce029",
+  "role_seal": {
+    "path": "research/p5_0b1r/role_split_seal.json",
+    "sha256": "00e0cec62d238c78f2d0b3c79910c0ffaf1122d1582c28c8848022fb3e10e33f",
+    "entity_counts": {
+      "SOURCE": 74,
+      "TARGET": 16,
+      "UNSUPPORTED_FOR_ENTITY_SPLIT": 3
+    },
+    "eligible_strata_count": 5,
+    "target_counts_by_exact_stratum_in_ascii_order": [5, 1, 4, 4, 2],
+    "role_rule": "Use the committed exact (manufacturer, configuration_type) strata and roles without override, reroll, or merge."
+  },
+  "referenced_structural_artifacts": {
+    "research/p5_0b1r/entity_manifest.csv": "ecd59569a17e4699b964724aaf4bf8180b7f703f07bfdab3f5ebb0471e349556",
+    "research/p5_0b1r/access_policy.json": "45447b922ede5b0367883816331b7154b83723dc883f654cc65d3c95b9969b46",
+    "research/p5_0b1r/schema_audit.csv": "3b06f57c7dc500b01f230adb5d2db8911c320f957584912018c1606faef4ab3a",
+    "research/p5_0b1r/horizon_coverage.csv": "66a823c7e3682ebc11b5522436de10665c88ccd2332e29ddd27ad0f4f26fb25b",
+    "research/p5_0b1r/download_manifest.json": "8062b306deaf4a887b294f82c3810c167ff682414bf4735171261a9109904f67"
+  },
+  "target_start": "Timestamp in the first raw data row; invalid first timestamp means NOT_EVALUABLE and is never shifted.",
+  "acquisition": {
+    "unit": "raw timestamped observations in original row order",
+    "looks": [144, 288, 576, 1152, 2304],
+    "n_max": 2304,
+    "max_elapsed_days": 64,
+    "primary_purge_raw_observations": 0,
+    "common_suffix_starts_after_raw_observation": 2304,
+    "look_counts_finite_scores": false,
+    "insufficient_frozen_score_support": "NOT_READY",
+    "insufficient_trajectory_at_n_max": "never-ready/commissioning failure; no extension"
+  },
+  "target_blackout_for_this_phase": [
+    "TARGET raw sensor values or scores",
+    "TARGET distributions and missingness/details beyond committed P5-0B1R structural summaries",
+    "TARGET normal/fault/event/date/description payloads",
+    "TARGET prefix eligibility results"
+  ],
+  "source_access_in_this_phase": "No SOURCE semantic labels were opened. This file cites only sealed structural artifacts."
+}

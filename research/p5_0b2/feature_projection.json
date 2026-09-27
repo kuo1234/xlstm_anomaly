@@ -1,0 +1,133 @@
+{
+  "projection_rule": {
+    "effect": "project only ordered_features; all union-only, status, mode, fault, event, identifier, label, and other unapproved raw columns are ignored before detector-schema validation",
+    "exclude_if_contains": [
+      "__duplicate_"
+    ],
+    "keep_exact_names": [],
+    "keep_name_suffixes": [
+      "_temperature",
+      "_temperature_setpoint",
+      "_room_temperature_setpoint",
+      "_meter_energy",
+      "_meter_flow",
+      "_meter_heat_power",
+      "_meter_volume",
+      "_control_valve_position",
+      "_control_valve_position_setpoint"
+    ],
+    "source": "automated_common_feature_intersection, preserving its committed order"
+  },
+  "role_seal_sha256": "00e0cec62d238c78f2d0b3c79910c0ffaf1122d1582c28c8848022fb3e10e33f",
+  "schema_audit_sha256": "3b06f57c7dc500b01f230adb5d2db8911c320f957584912018c1606faef4ab3a",
+  "schema_version": "p5-0b2-feature-projection-v1",
+  "strata": [
+    {
+      "common_feature_count": 10,
+      "configuration_type": "SH + DHW",
+      "excluded_common_features": [],
+      "manufacturer": "manufacturer 1",
+      "ordered_features": [
+        "outdoor_temperature",
+        "p_hc1_return_temperature",
+        "p_net_meter_energy",
+        "p_net_meter_flow",
+        "p_net_meter_heat_power",
+        "p_net_meter_volume",
+        "p_net_return_temperature",
+        "p_net_supply_temperature",
+        "s_hc1_supply_temperature",
+        "s_hc1_supply_temperature_setpoint"
+      ]
+    },
+    {
+      "common_feature_count": 13,
+      "configuration_type": "SH + DHW with sub-circuits",
+      "excluded_common_features": [],
+      "manufacturer": "manufacturer 1",
+      "ordered_features": [
+        "outdoor_temperature",
+        "p_hc1_return_temperature",
+        "p_net_meter_energy",
+        "p_net_meter_flow",
+        "p_net_meter_heat_power",
+        "p_net_meter_volume",
+        "p_net_return_temperature",
+        "p_net_supply_temperature",
+        "s_hc1.1_supply_temperature",
+        "s_hc1.1_supply_temperature_setpoint",
+        "s_hc1.2_supply_temperature_setpoint",
+        "s_hc1_supply_temperature",
+        "s_hc1_supply_temperature_setpoint"
+      ]
+    },
+    {
+      "common_feature_count": 12,
+      "configuration_type": "SH",
+      "excluded_common_features": [
+        "s_hc1_control_unit_mode",
+        "s_hc1_heating_pump_status_setpoint"
+      ],
+      "manufacturer": "manufacturer 2",
+      "ordered_features": [
+        "p_hc1_control_valve_position_setpoint",
+        "p_hc1_return_temperature",
+        "p_net_meter_energy",
+        "p_net_meter_flow",
+        "p_net_meter_heat_power",
+        "p_net_meter_volume",
+        "p_net_return_temperature",
+        "p_net_supply_temperature",
+        "s_hc1_supply_temperature",
+        "s_hc1_supply_temperature_setpoint"
+      ]
+    },
+    {
+      "common_feature_count": 17,
+      "configuration_type": "SH + DHW",
+      "excluded_common_features": [
+        "s_dhw_control_unit_mode",
+        "s_hc1_control_unit_mode",
+        "s_hc1_heating_pump_status_setpoint"
+      ],
+      "manufacturer": "manufacturer 2",
+      "ordered_features": [
+        "p_dhw_control_valve_position",
+        "p_hc1_control_valve_position_setpoint",
+        "p_hc1_return_temperature",
+        "p_net_meter_energy",
+        "p_net_meter_flow",
+        "p_net_meter_heat_power",
+        "p_net_meter_volume",
+        "p_net_return_temperature",
+        "p_net_supply_temperature",
+        "s_dhw_lower_storage_temperature",
+        "s_dhw_supply_temperature",
+        "s_dhw_upper_storage_temperature",
+        "s_hc1_supply_temperature",
+        "s_hc1_supply_temperature_setpoint"
+      ]
+    },
+    {
+      "common_feature_count": 12,
+      "configuration_type": "SH with buffer tank",
+      "excluded_common_features": [
+        "s_dhw_3-way_valve_status",
+        "s_hc1_heating_pump_status_setpoint"
+      ],
+      "manufacturer": "manufacturer 2",
+      "ordered_features": [
+        "p_hc1_control_valve_position_setpoint",
+        "p_hc1_return_temperature",
+        "p_net_meter_energy",
+        "p_net_meter_flow",
+        "p_net_meter_heat_power",
+        "p_net_meter_volume",
+        "p_net_return_temperature",
+        "p_net_supply_temperature",
+        "s_hc1_supply_temperature",
+        "s_hc1_supply_temperature_setpoint"
+      ]
+    }
+  ]
+}
