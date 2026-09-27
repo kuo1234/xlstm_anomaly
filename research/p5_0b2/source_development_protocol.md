@@ -18,13 +18,14 @@ and their exact strata; the permitted value-free
 constants; raw timestamps and sensor rows for SOURCE entities only; and the
 canonical SOURCE-only firewall artifact. Resolve raw inputs through a
 SOURCE-only projection of the committed `entity_manifest.csv`; its structural
-inventory has one unique `raw_path` per entity. The protocol validator checks
-that no raw path is shared across role entries. Open and hash-check only the
-74 SOURCE paths. Do not pass target manifest rows or target raw paths to the
-method process. If a later runtime cannot preserve this one-file-per-entity
+inventory has one unique `raw_path` per entity. At the authorized P5-0B3
+SOURCE-only gate, validate that no raw path is shared across role entries
+before opening any operational file. The P5-0B2R validator pins the existing
+manifest digest without opening its path-bearing contents. Open and hash-check
+only the 74 SOURCE paths. Do not pass target manifest rows or target raw paths
+to the method process. If a later runtime cannot preserve this one-file-per-entity
 boundary, stop before opening operational values and require a versioned
-information-boundary amendment. The P5-0B2 validator reads only manifest
-metadata and never opens a `raw_path` file. The firewall process alone may
+information-boundary amendment. The firewall process alone may
 temporarily map raw manufacturer label rows to SOURCE/TARGET/unsupported
 roles, and it emits only SOURCE intervals plus a restricted access audit.
 Only the access auditor receives hashes of the full manufacturer-level
@@ -67,7 +68,7 @@ annotation-clean first 2,304 raw observations under the same
 64 days, have at least 200 finite prefix scores at #2304, provide a complete
 fixed suffix whose timestamps are valid and nondecreasing through the final
 row (duplicates allowed), at least 100 evaluator-confirmed normal suffix observations,
-and at least one evaluable fault event in the suffix. These are checked only against SOURCE data after
+and at least one eligible fault report in the suffix. These are checked only against SOURCE data after
 the firewall runs. Failure marks that stratum `SOURCE_MODEL_NOT_EVALUABLE`;
 there is no cross-stratum borrowing or threshold borrowing.
 
@@ -103,9 +104,13 @@ SOURCE evaluator may use that entity's annotation intervals and suffix scores
 strictly after raw observation 2,304 to compute normal-side and event
 outcomes. Future-normal points are timestamps
 inside `REFERENCE_NORMAL_EVENT` intervals and outside every fault/disturbance
-interval. Fault events are `KNOWN_FAULT` intervals from `faults.csv` with
-`efd_possible=true`; disturbance intervals are not counted as separate fault
-events. Suffix features and scores never enter fitting, readiness features,
+interval. Eligible fault reports are `faults.csv` rows with `efd_possible=true` whose
+existing parsed intervals overlap suffix observations. Each row is one report;
+duplicates are retained without semantic deduplication. A hit is any suffix
+score strictly above threshold within the report interval. `eligible fault-report recall`
+is report-level, not unique physical-fault recall or the paper's repeat-filtered
+event set. TARGET evaluation and `Recall_min_source` use the same unit.
+Disturbance intervals are not separate reports. Suffix features and scores never enter fitting, readiness features,
 or threshold updates. Predeclared source evaluator outcomes may enter
 SOURCE-only detector/readiness candidate selection and margin calibration, as
 specified below; they are unavailable to the per-entity readiness process.
@@ -113,9 +118,14 @@ The sequence is identical for every candidate.
 
 ## Preprocessing, model candidates, and fit budget
 
-Use the fixed feature order from `feature_projection.json`, derived from the
-committed common-feature intersection by its explicit continuous-name
-allowlist. Raw columns outside this projection, including categorical/status
+Use the fixed feature order from `feature_projection.json`, derived solely
+from the pinned committed common-feature intersection: ASCII lexical ordered
+temperatures/setpoints, control-valve position/setpoint, `*_meter_flow`, and
+`*_meter_heat_power`. Exclude `*_meter_energy` and `*_meter_volume`; do not
+apply CounterDiffTransformer or value-based reconsideration. In ASCII lexical
+stratum order, D changes from `[10, 13, 10, 14, 10]` to
+`[8, 11, 8, 12, 8]`. Recompute all D-dependent widths from this reduced
+projection. Raw columns outside this projection, including categorical/status
 fields, are discarded before the strict projected-schema check; do not inspect
 target values or derive target-specific schema/missingness statistics. The
 preprocessing candidate set is a singleton: source-fit
@@ -238,6 +248,11 @@ tests, and hashes must be sealed before this stage is run.
   yields `SOURCE_MODEL_NOT_EVALUABLE` for that exact stratum, unless the
   upstream detector itself violates the frozen inference contract, in which
   case the phase stops `BACKBONE_NOT_ADMISSIBLE`.
+- If every readiness candidate has zero pseudo-targets satisfying all frozen
+  primary joint-success conditions within a stratum, do not seal a
+  lexicographic winner; mark that stratum `SOURCE_MODEL_NOT_EVALUABLE` and
+  follow the negative-result path. Any affected stratum bars a pooled
+  five-stratum success claim.
 - No condition permits merging strata, tuning on target values, reopening
   public README exposure, or exposing a target-specific source-development
   failure reason to the method-selection process.

@@ -16,12 +16,14 @@ SOURCE audit compartment.
 
 ## Primary provenance class
 
-The sole primary class is `REFERENCE_CLEAN_PRIMARY`. It means only that the
-prefix is retrospectively free of overlap with the available, predeclared
-`KNOWN_FAULT`, `DISTURBANCE_FAULT`, and `DISTURBANCE_OTHER` intervals under
-the rules frozen in `source_label_firewall.md`. Non-fault disturbance
-intervals include recorded tasks/maintenance activities. It is not “verified
-normal,” proof of physical normality, or evidence about suffix outcomes.
+The sole primary class is `REFERENCE_CLEAN_PRIMARY`, meaning a
+reference-clean commissioning prefix that is record-clean under available annotations.
+Eligibility requires no overlap with the available, predeclared `KNOWN_FAULT`,
+`DISTURBANCE_FAULT`, and `DISTURBANCE_OTHER` intervals under the rules frozen
+in `source_label_firewall.md`. Non-fault disturbance intervals include
+recorded tasks/maintenance activities. The absence of known fault, disturbance,
+or maintenance annotations does not prove physical normality; unlabelled faults may remain.
+This is not a positive claim of normality or evidence about suffix outcomes.
 There is no secondary class and no fallback class; no class may be added
 because primary eligibility is low.
 

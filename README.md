@@ -49,6 +49,14 @@ The current G1 execution was launched only after the exact pre-label seal
 logs are operational artifacts, not scientific outcomes. H2/H3a must not be
 interpreted until the run completes and the independent post-run audit passes.
 
+P5-0B2R is an Astra-reviewed result-blind protocol amendment in
+`research/p5_0b2/`. Its documentation and structural projection changes are
+sealed with status `P5_0B2R_REFRAME` pending Issue #9 adjudication; no READY outcome is described as
+safe, certified, or guaranteed. `REFERENCE_CLEAN_PRIMARY` denotes only a
+reference-clean commissioning prefix that is record-clean under available
+annotations. Missing annotations do not establish physical normality, and
+unlabelled faults may remain.
+
 ## Research scope and non-goals
 
 The study separates three questions:

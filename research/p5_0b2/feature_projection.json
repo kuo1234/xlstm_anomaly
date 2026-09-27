@@ -9,31 +9,30 @@
       "_temperature",
       "_temperature_setpoint",
       "_room_temperature_setpoint",
-      "_meter_energy",
       "_meter_flow",
       "_meter_heat_power",
-      "_meter_volume",
       "_control_valve_position",
       "_control_valve_position_setpoint"
     ],
-    "source": "automated_common_feature_intersection, preserving its committed order"
+    "source": "automated_common_feature_intersection, retained names sorted in ASCII lexical order"
   },
   "role_seal_sha256": "00e0cec62d238c78f2d0b3c79910c0ffaf1122d1582c28c8848022fb3e10e33f",
   "schema_audit_sha256": "3b06f57c7dc500b01f230adb5d2db8911c320f957584912018c1606faef4ab3a",
-  "schema_version": "p5-0b2-feature-projection-v1",
+  "schema_version": "p5-0b2-feature-projection-v2",
   "strata": [
     {
       "common_feature_count": 10,
       "configuration_type": "SH + DHW",
-      "excluded_common_features": [],
+      "excluded_common_features": [
+        "p_net_meter_energy",
+        "p_net_meter_volume"
+      ],
       "manufacturer": "manufacturer 1",
       "ordered_features": [
         "outdoor_temperature",
         "p_hc1_return_temperature",
-        "p_net_meter_energy",
         "p_net_meter_flow",
         "p_net_meter_heat_power",
-        "p_net_meter_volume",
         "p_net_return_temperature",
         "p_net_supply_temperature",
         "s_hc1_supply_temperature",
@@ -43,15 +42,16 @@
     {
       "common_feature_count": 13,
       "configuration_type": "SH + DHW with sub-circuits",
-      "excluded_common_features": [],
+      "excluded_common_features": [
+        "p_net_meter_energy",
+        "p_net_meter_volume"
+      ],
       "manufacturer": "manufacturer 1",
       "ordered_features": [
         "outdoor_temperature",
         "p_hc1_return_temperature",
-        "p_net_meter_energy",
         "p_net_meter_flow",
         "p_net_meter_heat_power",
-        "p_net_meter_volume",
         "p_net_return_temperature",
         "p_net_supply_temperature",
         "s_hc1.1_supply_temperature",
@@ -65,6 +65,8 @@
       "common_feature_count": 12,
       "configuration_type": "SH",
       "excluded_common_features": [
+        "p_net_meter_energy",
+        "p_net_meter_volume",
         "s_hc1_control_unit_mode",
         "s_hc1_heating_pump_status_setpoint"
       ],
@@ -72,10 +74,8 @@
       "ordered_features": [
         "p_hc1_control_valve_position_setpoint",
         "p_hc1_return_temperature",
-        "p_net_meter_energy",
         "p_net_meter_flow",
         "p_net_meter_heat_power",
-        "p_net_meter_volume",
         "p_net_return_temperature",
         "p_net_supply_temperature",
         "s_hc1_supply_temperature",
@@ -86,6 +86,8 @@
       "common_feature_count": 17,
       "configuration_type": "SH + DHW",
       "excluded_common_features": [
+        "p_net_meter_energy",
+        "p_net_meter_volume",
         "s_dhw_control_unit_mode",
         "s_hc1_control_unit_mode",
         "s_hc1_heating_pump_status_setpoint"
@@ -95,10 +97,8 @@
         "p_dhw_control_valve_position",
         "p_hc1_control_valve_position_setpoint",
         "p_hc1_return_temperature",
-        "p_net_meter_energy",
         "p_net_meter_flow",
         "p_net_meter_heat_power",
-        "p_net_meter_volume",
         "p_net_return_temperature",
         "p_net_supply_temperature",
         "s_dhw_lower_storage_temperature",
@@ -112,6 +112,8 @@
       "common_feature_count": 12,
       "configuration_type": "SH with buffer tank",
       "excluded_common_features": [
+        "p_net_meter_energy",
+        "p_net_meter_volume",
         "s_dhw_3-way_valve_status",
         "s_hc1_heating_pump_status_setpoint"
       ],
@@ -119,10 +121,8 @@
       "ordered_features": [
         "p_hc1_control_valve_position_setpoint",
         "p_hc1_return_temperature",
-        "p_net_meter_energy",
         "p_net_meter_flow",
         "p_net_meter_heat_power",
-        "p_net_meter_volume",
         "p_net_return_temperature",
         "p_net_supply_temperature",
         "s_hc1_supply_temperature",

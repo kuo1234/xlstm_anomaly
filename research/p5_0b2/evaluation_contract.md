@@ -18,19 +18,20 @@ nondecreasing in raw-row order (duplicates are allowed), the full suffix is
 available, the annotation sources parse completely, and the normal/event
 support gates below pass. The evaluator uses only the predeclared annotation tables and interval
 normalization listed in the prefix contract, plus the same pinned structural
-role/start seal. Event recall uses `faults.csv` records with
-`efd_possible=true`; each such record whose closed interval overlaps at least
-one suffix observation is one event, and duplicate records are retained as
-separate annotated events. A fault event is detected when any suffix score
-whose timestamp is within that interval is strictly greater than the READY
-threshold. Future-normal FPR uses `normal_events.csv` intervals minus all
+role/start seal. Eligible fault-report recall uses each `faults.csv` row with
+`efd_possible=true` whose existing parsed interval overlaps at least one suffix
+observation as one report. Duplicate records are retained separately without
+semantic deduplication. A report is hit if any suffix score strictly exceeds
+the READY threshold within its interval. This report-level unit is not unique
+physical-fault recall and is not the paper's repeat-filtered event set; it is
+identical to the unit used for `Recall_min_source`. Future-normal FPR uses `normal_events.csv` intervals minus all
 fault and disturbance intervals; only timestamped suffix rows inside that
 remaining union are denominator points. `disturbance` rows are not counted
-as separate fault events. Report annotated-normal coverage as the count of
+as separate eligible fault reports. Report annotated-normal coverage as the count of
 future-normal observations divided by all suffix observations, alongside the
 metric denominators. An outcome is suffix-evaluable only if the full suffix
 is available, all three annotation sources parse completely, there are at
-least 100 future-normal observations, and at least one evaluable fault event.
+least 100 future-normal observations, and at least one eligible fault report.
 Ambiguous,
 unparseable, or incomplete suffix label provenance is `NOT_EVALUABLE` for that
 evaluator outcome; it does not remove the target from the eligibility or
@@ -38,11 +39,10 @@ never-ready denominator and does not authorize a replacement.
 
 ## Required metrics
 
-- **Primary anomaly-side outcome:** suffix event recall, the fraction of
-  evaluator-confirmed fault/anomaly events with at least one score strictly
-  above the frozen READY threshold during the `KNOWN_FAULT` interval from
-  `faults.csv` where `efd_possible=true`.
-  Report the number of events and entities in each denominator.
+- **Primary anomaly-side outcome:** eligible fault-report recall (`eligible_fault_report_recall`): the fraction of
+  eligible fault reports with at least one score strictly above the frozen
+  READY threshold within the report interval.
+  Report the number of reports and entities in each denominator.
 - **Primary normal-side outcome:** pointwise future-normal FPR, false alarms
   divided by evaluator-confirmed normal suffix observations. Normal points
   are inside `normal_events.csv` intervals and outside every fault and
@@ -51,8 +51,8 @@ never-ready denominator and does not authorize a replacement.
   episode after at least one non-alarm point. Do not substitute AP/AUROC for
   threshold-dependent outcomes.
 - **Secondary anomaly timing:** detection delay in raw observations and
-  elapsed time from each annotated event start to its first alarm. Undetected
-  events are right-censored at event end and separately counted.
+  elapsed time from each eligible report interval start to its first alarm. Unhit
+  reports are right-censored at interval end and separately counted.
 - **Acquisition cost:** both raw observation count at READY and elapsed days
   from the pinned first raw timestamp to READY. The primary scalar is
   `C=0.5*(raw_count/2304 + elapsed_days/64)`. For never-ready entities and
@@ -64,7 +64,7 @@ never-ready denominator and does not authorize a replacement.
   tune any rule.
 
 Report every one of the fixed 16 TARGET entities separately. Macro FPR and
-event-recall summaries use only suffix-evaluable entities and state their
+eligible fault-report-recall summaries use only suffix-evaluable entities and state their
 denominators; report micro numerators and denominators as well. Joint success
 uses all pinned TARGET entities in each exact stratum as its denominator.
 Prefix-`NOT_EVALUABLE`, targets in a stratum without a sealed SOURCE model or
@@ -77,11 +77,13 @@ assign both methods the conservative maximum normalized acquisition cost of
 ## Frozen success logic
 
 Before target prefix adjudication, the source-only seal fixes per-stratum
-`FPR_max` and `Recall_min` using the procedure in
-`readiness_rule_contract.md`. A target's READY outcome is successful only if
-it reached READY within the fixed budget, its future-normal pointwise FPR is
-at most `FPR_max`, and its suffix event recall is at least `Recall_min`.
-Never-ready counts as not successful. Prefix-`NOT_EVALUABLE` and
+`Recall_min_source` using the procedure in `readiness_rule_contract.md` and
+records the diagnostic `FPR_q90_source_fixedN_diagnostic`. Freeze
+`PRIMARY_ABSOLUTE_FPR_CAP = 0.03`. Primary TARGET joint success is READY
+within budget AND normal-side pointwise FPR <= 0.03 AND
+`eligible_fault_report_recall >= Recall_min_source`. The q90 statistic is
+never a primary cap and never relaxes 0.03. If no SOURCE candidate qualifies,
+follow the `SOURCE_MODEL_NOT_EVALUABLE` / negative path. Never-ready counts as not successful. Prefix-`NOT_EVALUABLE` and
 suffix-evaluator-ineligible cases also count as not successful for both
 methods. The primary fixed-N comparison is READY
 at raw row 2,304 and applies the same source model, q99 estimator, target
@@ -97,7 +99,7 @@ otherwise unavailable outcome is a failure with acquisition cost `C=1`, so
 the pooled success fraction does not condition on evaluator availability.
 There is no minimum per-stratum suffix-evaluable count: imposing four in each
 stratum would make the predeclared five-stratum claim impossible by design.
-Report FPR and event-recall metrics for every evaluable entity/stratum with
+Report FPR and eligible fault-report-recall metrics for every evaluable entity/stratum with
 their actual denominators, including zero or small denominators; these
 conditional metric summaries do not replace the fixed-population success
 denominator.
@@ -121,7 +123,10 @@ bootstrap; report the interval as a small-cohort empirical summary, not a
 population generalization or FPR guarantee. If a SOURCE model or frozen
 margins are unavailable for any stratum, report the affected fixed entities
 and stratum as unresolved and make no five-stratum pooled success claim.
-This empirical logic is not a safety or future-FPR guarantee.
+The 0.03 ceiling is our frozen operating ceiling. Paper §4.4 reports
+normal-event pointwise accuracy >=0.97 as motivation, but event-averaged
+normal accuracy is not necessarily mathematically identical to pooled
+timestamp FPR. This empirical logic is not a future-FPR guarantee.
 
 No stopping-rule revision, margin change, new target class, endpoint
 selection, or alternative success condition is allowed after any target

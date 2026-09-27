@@ -76,7 +76,7 @@ after all windows and thresholds needed for that rule are supported. Every
 candidate uses the threshold calculated at its first READY look, frozen for
 its entire evaluator suffix. For an always-ready or fixed-N baseline, READY
 is emitted at its specified supported look and uses that look's q99. A
-never-ready task has zero event recall and zero alarm rate for candidate
+never-ready task has zero eligible fault-report recall and zero alarm rate for candidate
 tie-break metrics, but remains a joint-success failure and has acquisition
 cost 1.
 
@@ -108,17 +108,26 @@ Only source pseudo-target folds defined in `source_development_protocol.md`
 may set numerical success margins and select a readiness candidate. Use the
 OOF streams from the already-selected detector candidate only. For each
 source pseudo-target, first score the fixed-N q99 baseline through the
-suffix from raw row 2,305 to the entity's final raw row. Define `FPR_max` as
-the type-7 empirical 90th percentile of
-per-entity fixed-N future-normal pointwise FPR, and `Recall_min` as the type-7
-empirical 10th percentile of fixed-N event recall, macro-weighting each
-evaluable source entity equally. If fewer than four evaluable pseudo-targets
-exist in a stratum, that stratum is `SOURCE_MODEL_NOT_EVALUABLE`.
+suffix from raw row 2,305 to the entity's final raw row. Define
+`FPR_q90_source_fixedN_diagnostic` as the type-7 empirical 90th percentile of
+per-entity fixed-N future-normal pointwise FPR. It is diagnostic only and is
+never a primary cap. Freeze `PRIMARY_ABSOLUTE_FPR_CAP = 0.03`. Define
+`Recall_min_source` as the predeclared type-7 empirical 10th percentile of
+fixed-N eligible fault-report recall across evaluable SOURCE pseudo-target
+tasks, giving each task equal weight. The report unit is each `faults.csv` row
+with `efd_possible=true` whose existing parsed interval overlaps suffix
+observations; duplicate rows remain separate reports, without semantic
+deduplication. A report is hit if any suffix score strictly exceeds the
+frozen threshold within its interval. This is report-level recall, not unique
+physical-fault recall and not the paper's repeat-filtered event set. Use the
+same unit for `Recall_min_source` and TARGET evaluation. If fewer than four
+evaluable pseudo-targets exist in a stratum, that stratum is
+`SOURCE_MODEL_NOT_EVALUABLE`.
 
-A candidate succeeds on one source pseudo-target only if it emits READY by
-the budget and its q99 threshold frozen at its first READY look yields
-pointwise future-normal FPR at most `FPR_max` and suffix event recall at least
-`Recall_min`. Never-ready is failure and remains in the denominator. Choose a candidate lexicographically
+Primary SOURCE pseudo-target joint success requires READY within budget, normal-side
+pointwise FPR at most `PRIMARY_ABSOLUTE_FPR_CAP`, and
+`eligible_fault_report_recall >= Recall_min_source`. The q90 fixed-N FPR
+statistic remains diagnostic only and cannot replace or relax the 0.03 cap. Never-ready is failure and remains in the denominator. Choose a candidate lexicographically
 by: (1) highest fraction of source pseudo-target tasks jointly successful;
 (2) lowest mean acquisition cost among all tasks, where `raw_count` is the
 scheduled raw-row count at READY and `elapsed_days` is the recorded timestamp
@@ -127,21 +136,33 @@ The fixed-N reference for primary comparison is specifically READY at raw
 row 2,304 (when score-supported). Candidate-grid fixed-N baselines at earlier
 looks remain calibration comparators only. Cost is
 `0.5*(raw_count/2304 + elapsed_days/64)`;
-(3) highest macro event recall; (4) lowest macro pointwise FPR; (5) fewer
+(3) highest macro eligible fault-report recall; (4) lowest macro pointwise FPR; (5) fewer
 conjuncts; (6) fixed candidate ID in ASCII lexical order. The candidate set
 includes fixed-N baselines, so if no adaptive rule improves this objective,
 the source seal records that fixed-N was selected and claims no adaptive
 stopping benefit. All margins and the selected candidate are hashed before
 TARGET prefix eligibility is run.
 
-The source quantiles and margins are empirical engineering rules. They are
-not a 1% FPR certificate or a dependence-aware statistical guarantee.
+Before applying tie-breaks, count each candidate's tasks that satisfy all
+three primary joint-success conditions. If every candidate has zero such
+tasks within a stratum, do not seal the lexicographic winner as an operational
+readiness rule: mark that stratum `SOURCE_MODEL_NOT_EVALUABLE` and take the
+negative-result path. Apply this independently by exact stratum; any affected
+stratum bars a five-stratum pooled success claim.
+
+The 0.03 ceiling is our frozen operating ceiling. Paper §4.4 reports
+normal-event pointwise accuracy >=0.97 as motivation, but its event-averaged
+normal accuracy is not necessarily mathematically identical to our pooled
+timestamp FPR; this protocol makes no guarantee from that correspondence.
+Source recall quantiles are empirical engineering rules, not population
+guarantees.
 
 ## Sealed output
 
 For each evaluable stratum, seal the exact selected family, all numeric
-parameters, source-derived `FPR_max`/`Recall_min`, source fold outcomes,
+parameters, the fixed 0.03 primary cap, diagnostic `FPR_q90_source_fixedN_diagnostic`, and source-derived `Recall_min_source`, source fold outcomes,
 score-support policy, code/dependency hashes, and tie-break result. If source
-selection yields no evaluable candidate, mark the stratum
+selection yields no evaluable candidate or no candidate has any jointly
+successful pseudo-target under the frozen primary rule, mark the stratum
 `SOURCE_MODEL_NOT_EVALUABLE`. No target eligibility, target score, or target
 trajectory can revise these values.

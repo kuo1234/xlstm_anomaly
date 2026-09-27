@@ -1,10 +1,11 @@
 # P5-0B2 final gate
 
-**Review state: Astra review PASS.** Terminal status:
-`P5_0B2_PROTOCOL_SEALED`.
+**Astra review: PASS.** Terminal status: `P5_0B2R_REFRAME` pending Issue #9
+adjudication of the disclosed initial path-metadata read.
 
-The validated seal authorizes only subsequent SOURCE-only development and
-model/readiness-parameter sealing. It does not authorize TARGET label access,
+The prior P5-0B2 seal is superseded for this result-blind amendment. No
+next-stage authorization follows until the Issue #9 path-metadata adjudication
+is resolved. This seal does not authorize SOURCE development or TARGET label access,
 TARGET scoring, prefix adjudication, suffix evaluation, or efficacy claims.
 
 ## Gate checklist
@@ -55,12 +56,15 @@ correction.
 ## Access and verification
 
 This phase read public papers/repository source and committed P5-0B1R
-structural artifacts only. It did not open source or target semantic label
-payloads, any operational raw path, the dataset archive, target raw values,
-target scores, or the archive README; did not run the label firewall; did not
-train an AE or PreDist model; did not adjudicate target prefixes; and did not
-access suffix outcomes. Synthetic firewall/protocol checks and the passing
-Astra review are recorded in the terminal seal.
+structural metadata. It did not open any operational raw file, semantic label
+payload, dataset archive, target value/score, or archive README; did not run
+the label firewall; did not train an AE or PreDist model; did not adjudicate
+target prefixes; and did not access suffix outcomes. During initial
+integration, the inherited validator parsed `raw_path` strings from
+`entity_manifest.csv` for its unique-path check but did not use them to open
+operational files. The final B2R validator no longer opens that path-bearing
+manifest and compares only its committed digest token. This path-metadata
+access is disclosed for GPT adjudication in Issue #9.
 
 Verification already run against synthetic data and committed structural
 metadata only:
@@ -69,17 +73,17 @@ metadata only:
   19 firewall tests passed.
 - `python3 -m research.p5_0b2.scripts.validate_protocol` — passed.
 - `python3 -m unittest research.p5_0b2.tests.test_source_label_firewall research.p5_0b2.tests.test_protocol_invariants -v` —
-  all 20 tests passed.
+  all 28 tests passed.
 - `git diff --check` — passed.
 
 The validator verified the immutable role counts, five eligible SOURCE
-strata, pinned P5-0B1R structural hashes, unique per-entity raw paths, fixed
-acquisition schedule, canonical phase order, and artifact hash manifest. It
-did not open a raw path or semantic label file. Artifact hashes are in
-`protocol_seal.json`.
+strata, pinned P5-0B1R structural digest values, live hashes of permitted
+role/schema artifacts, fixed acquisition schedule, canonical phase order,
+and artifact hash manifest. Path-bearing manifest contents are not opened by
+the final validator. Artifact hashes are in `protocol_seal.json`.
 
 ## Next authorized stage
 
-`P5_0B2_PROTOCOL_SEALED` → `P5-0B3 SOURCE-only development and source model /
-readiness-parameter seal`. `TARGET_LABEL_ACCESS=NOT_AUTHORIZED` until a later
-review explicitly opens the prefix-only adjudication stage.
+No next stage is authorized pending Issue #9 adjudication of the disclosed
+path-metadata read. Keep `TARGET_LABEL_ACCESS=NOT_AUTHORIZED`; P5-0B3 remains
+closed until a subsequent Issue comment explicitly opens it.

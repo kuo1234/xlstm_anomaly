@@ -1,6 +1,6 @@
 {
-  "schema_version": "p5-0b2-structural-inputs-v1",
-  "base_commit": "96e7afa9696303d31e5b7f0163349a97d53ce029",
+  "schema_version": "p5-0b2r-structural-inputs-v1",
+  "base_commit": "01bcbda00fdedfac7c5b772b310d6444d2bb4ca5",
   "role_seal": {
     "path": "research/p5_0b1r/role_split_seal.json",
     "sha256": "00e0cec62d238c78f2d0b3c79910c0ffaf1122d1582c28c8848022fb3e10e33f",

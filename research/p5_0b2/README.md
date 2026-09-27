@@ -1,19 +1,17 @@
-# P5-0B2 pre-label method and protocol seal
+# P5-0B2R result-blind protocol repair
 
-**Review state:** Astra review passed; terminal status is
-`P5_0B2_PROTOCOL_SEALED` (authorizes only the next SOURCE-only development
-phase).
+**Review state:** Astra review passed; terminal status is `P5_0B2R_REFRAME`.
+The prior P5-0B2 seal is superseded. P5-0B3 is not authorized pending Issue
+#9 adjudication of the disclosed initial path-metadata read.
 
-This directory freezes the detector, source-only development procedure, label
-firewall, target prefix adjudication contract, readiness selection procedure,
-threshold state, acquisition boundary, evaluator outcomes, and next-stage
-information boundary before any TARGET prefix eligibility result is exposed.
-It does not execute any of those data-dependent stages.
+This result-blind amendment updates protocol language, name-based feature
+projection, validators, and synthetic tests. It does not access semantic
+labels, operational sensor values, model outcomes, or TARGET evaluation data.
 
 ## Frozen structural inputs
 
 The controlling base is commit
-`96e7afa9696303d31e5b7f0163349a97d53ce029`. The P5-0B1R role seal is pinned
+`01bcbda00fdedfac7c5b772b310d6444d2bb4ca5`. The P5-0B1R role seal is pinned
 by SHA-256
 `00e0cec62d238c78f2d0b3c79910c0ffaf1122d1582c28c8848022fb3e10e33f`.
 The fixed inventory is 74 SOURCE, 16 TARGET, and 3 unsupported entities in
@@ -24,10 +22,30 @@ purge 0, and the common suffix starts strictly after raw observation 2304.
 Hashes for the referenced P5-0B1R structural artifacts are recorded in
 `structural_inputs_seal.json`.
 
-`feature_projection.json` freezes an ordered continuous-sensor name projection
-from each eligible stratum's committed common intersection. It excludes
-status/mode and other unapproved columns before strict detector-schema
-validation, so raw union-only columns do not create a schema mismatch.
+`feature_projection.json` freezes a deterministic ASCII-lexical projection
+from each eligible stratum's committed common intersection. In ASCII-lexical
+stratum order, projected D changes from `[10, 13, 10, 14, 10]` to
+`[8, 11, 8, 12, 8]` after excluding `*_meter_energy` and `*_meter_volume`.
+It retains temperatures/setpoints, control-valve positions/setpoints,
+`*_meter_flow`, and `*_meter_heat_power`. No counter transform or value-based
+reconsideration is introduced.
+
+## Frozen primary outcomes
+
+The absolute primary future-normal pointwise FPR ceiling is
+`PRIMARY_ABSOLUTE_FPR_CAP = 0.03`. `FPR_q90_source_fixedN_diagnostic` is
+diagnostic only and never controls or relaxes that cap. Primary joint success
+requires READY within budget, FPR no greater than 0.03, and
+`eligible_fault_report_recall >= Recall_min_source`.
+If every readiness candidate has zero tasks satisfying the full joint gate in
+a stratum, mark that stratum `SOURCE_MODEL_NOT_EVALUABLE`; do not seal the
+tie-break winner.
+
+Each `faults.csv` row with `efd_possible=true` whose existing parsed interval
+overlaps suffix observations is one eligible report. Duplicates remain
+separate; this report-level metric is not unique physical-fault recall and is
+not the paper's repeat-filtered event set. The same unit defines source
+`Recall_min_source` and TARGET evaluation.
 
 ## Selected detector reference
 
@@ -40,15 +58,15 @@ PreDist loader/protocol is excluded. See `detector_backbone_audit.md`.
 
 ## Phase boundary
 
-No source or target semantic label payload, target raw value, target score,
-target prefix eligibility result, or PreDist model was accessed or produced
-while sealing this protocol. Public code/docs and committed P5-0B1R structural
-artifacts were used. The next authorized stage may run only the sealed source
-label firewall and SOURCE-only model/readiness development. It may open the
-74 SOURCE operational files from a SOURCE-only projection of the pinned
-structural manifest; each manifest row has a unique raw path. It may not open
-any TARGET raw path or TARGET label payload. TARGET prefix adjudication and
-all later TARGET access remain unauthorized.
+No source or target semantic label payload, operational sensor value, model
+outcome, TARGET score, prefix eligibility result, or PreDist model is accessed
+or produced in this phase. Public code/docs and the pinned P5-0B1R role/schema
+metadata are used. During initial integration, the inherited validator parsed
+all `raw_path` strings in `entity_manifest.csv` for uniqueness without
+opening any path; the final B2R validator does not open path-bearing manifests.
+This path-metadata read is disclosed for Issue #9 adjudication. TARGET label
+access, scoring, prefix adjudication, suffix evaluation, and efficacy claims
+remain unauthorized.
 
 The fixed TARGET counts across the five strata are `5, 1, 4, 4, 2`. The
 pooled success denominator remains all 16 entities, and unavailable outcomes
