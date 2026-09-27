@@ -1,0 +1,92 @@
+manufacturer,configuration_type,role,horizon_days,nominal_rows_10min,assigned_entities,raw_available_entities,chronology_valid_entities,entities_with_horizon_window,entities_reaching_elapsed_horizon,coverage_fraction_all_assigned,coverage_fraction_raw_available,coverage_fraction_chronology_valid,actual_rows_min,actual_rows_median,actual_rows_max,nominal_row_fraction_median,gap_count_median,largest_gap_seconds_max,missing_cell_fraction_median,interpretation
+manufacturer 1,SH + DHW,SOURCE,1,144,23,23,23,23,23,1.0,1.0,1.0,144,144,144,1.0,0,600.0,0.4,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 1,SH + DHW,SOURCE,2,288,23,23,23,23,23,1.0,1.0,1.0,280,288,288,1.0,0,5400.0,0.4,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 1,SH + DHW,SOURCE,4,576,23,23,23,23,23,1.0,1.0,1.0,568,576,576,1.0,0,5400.0,0.4,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 1,SH + DHW,SOURCE,8,1152,23,23,23,23,23,1.0,1.0,1.0,1118,1152,1152,1.0,0,5400.0,0.4,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 1,SH + DHW,SOURCE,16,2304,23,23,23,23,23,1.0,1.0,1.0,1632,2304,2304,1.0,0,23400.0,0.35294118,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 1,SH + DHW,SOURCE,32,4608,23,23,23,23,23,1.0,1.0,1.0,1632,4608,4608,1.0,0,23400.0,0.18027936,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 1,SH + DHW,SOURCE,64,9216,23,23,23,23,23,1.0,1.0,1.0,1632,9216,9216,1.0,0,916200.0,0.10239931,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 1,SH + DHW,TARGET,1,144,5,5,5,5,5,1.0,1.0,1.0,14,144,144,1.0,0,600.0,0.06666667,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 1,SH + DHW,TARGET,2,288,5,5,5,5,5,1.0,1.0,1.0,14,288,288,1.0,0,600.0,0.06666667,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 1,SH + DHW,TARGET,4,576,5,5,5,5,5,1.0,1.0,1.0,14,576,576,1.0,0,600.0,0.06666667,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 1,SH + DHW,TARGET,8,1152,5,5,5,5,5,1.0,1.0,1.0,14,1152,1152,1.0,0,600.0,0.06666667,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 1,SH + DHW,TARGET,16,2304,5,5,5,5,5,1.0,1.0,1.0,14,2304,2304,1.0,0,600.0,0.06666667,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 1,SH + DHW,TARGET,32,4608,5,5,5,5,5,1.0,1.0,1.0,14,4608,4608,1.0,0,3600.0,0.06666667,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 1,SH + DHW,TARGET,64,9216,5,5,5,5,5,1.0,1.0,1.0,3513,9180,9216,0.99609375,4,3365400.0,0.06666667,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 1,SH + DHW with sub-circuits,SOURCE,1,144,6,6,6,6,6,1.0,1.0,1.0,143,144.0,144,1.0,0.0,1200.0,0.26177536,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 1,SH + DHW with sub-circuits,SOURCE,2,288,6,6,6,6,6,1.0,1.0,1.0,287,288.0,288,1.0,0.0,1200.0,0.25860507,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 1,SH + DHW with sub-circuits,SOURCE,4,576,6,6,6,6,6,1.0,1.0,1.0,570,576.0,576,1.0,0.0,3600.0,0.25701993,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 1,SH + DHW with sub-circuits,SOURCE,8,1152,6,6,6,6,6,1.0,1.0,1.0,1105,1152.0,1152,1.0,0.0,25200.0,0.256227355,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 1,SH + DHW with sub-circuits,SOURCE,16,2304,6,6,6,6,6,1.0,1.0,1.0,2247,2304.0,2304,1.0,0.0,25200.0,0.18383368,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 1,SH + DHW with sub-circuits,SOURCE,32,4608,6,6,6,6,6,1.0,1.0,1.0,4551,4608.0,4608,1.0,0.0,25200.0,0.092190525,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 1,SH + DHW with sub-circuits,SOURCE,64,9216,6,6,6,6,6,1.0,1.0,1.0,9126,9215.0,9216,0.999891495,0.5,25200.0,0.048216185,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 1,SH + DHW with sub-circuits,TARGET,1,144,1,1,1,1,1,1.0,1.0,1.0,144,144,144,1.0,0,600.0,0.31578947,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 1,SH + DHW with sub-circuits,TARGET,2,288,1,1,1,1,1,1.0,1.0,1.0,288,288,288,1.0,0,600.0,0.31578947,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 1,SH + DHW with sub-circuits,TARGET,4,576,1,1,1,1,1,1.0,1.0,1.0,576,576,576,1.0,0,600.0,0.31578947,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 1,SH + DHW with sub-circuits,TARGET,8,1152,1,1,1,1,1,1.0,1.0,1.0,1152,1152,1152,1.0,0,600.0,0.31578947,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 1,SH + DHW with sub-circuits,TARGET,16,2304,1,1,1,1,1,1.0,1.0,1.0,2304,2304,2304,1.0,0,600.0,0.27453399,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 1,SH + DHW with sub-circuits,TARGET,32,4608,1,1,1,1,1,1.0,1.0,1.0,4608,4608,4608,1.0,0,600.0,0.137267,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 1,SH + DHW with sub-circuits,TARGET,64,9216,1,1,1,1,1,1.0,1.0,1.0,9216,9216,9216,1.0,0,600.0,0.06935307,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,,UNSUPPORTED_FOR_ENTITY_SPLIT,1,144,1,1,1,1,1,1.0,1.0,1.0,144,144,144,1.0,0,601.0,0.43430931,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,,UNSUPPORTED_FOR_ENTITY_SPLIT,2,288,1,1,1,1,1,1.0,1.0,1.0,288,288,288,1.0,0,601.0,0.41985736,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,,UNSUPPORTED_FOR_ENTITY_SPLIT,4,576,1,1,1,1,1,1.0,1.0,1.0,576,576,576,1.0,0,601.0,0.4126783,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,,UNSUPPORTED_FOR_ENTITY_SPLIT,8,1152,1,1,1,1,1,1.0,1.0,1.0,1152,1152,1152,1.0,0,602.0,0.40906532,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,,UNSUPPORTED_FOR_ENTITY_SPLIT,16,2304,1,1,1,1,1,1.0,1.0,1.0,2304,2304,2304,1.0,0,602.0,0.40723536,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,,UNSUPPORTED_FOR_ENTITY_SPLIT,32,4608,1,1,1,1,1,1.0,1.0,1.0,4608,4608,4608,1.0,0,602.0,0.40633211,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,,UNSUPPORTED_FOR_ENTITY_SPLIT,64,9216,1,1,1,1,1,1.0,1.0,1.0,9216,9216,9216,1.0,0,602.0,0.2162866,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH,SOURCE,1,144,16,16,16,16,16,1.0,1.0,1.0,144,144.0,1414,1.0,0.0,602.0,0.013392855,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH,SOURCE,2,288,16,16,16,16,16,1.0,1.0,1.0,288,288.0,1558,1.0,0.0,605.0,0.00669643,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH,SOURCE,4,576,16,16,16,16,16,1.0,1.0,1.0,560,576.0,1846,1.0,0.0,10200.0,0.003348215,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH,SOURCE,8,1152,16,16,16,16,16,1.0,1.0,1.0,1136,1152.0,2422,1.0,0.0,10200.0,0.001674105,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH,SOURCE,16,2304,16,16,16,16,16,1.0,1.0,1.0,2287,2304.0,3574,1.0,0.0,10800.0,0.00089906,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH,SOURCE,32,4608,16,16,16,16,16,1.0,1.0,1.0,4591,4608.0,5878,1.0,0.0,10800.0,0.00072855,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH,SOURCE,64,9216,16,16,16,16,13,0.8125,0.8125,0.8125,4844,9215.0,10486,0.99989149,0.0,10800.0,0.0005251850000000001,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH,TARGET,1,144,4,4,4,4,4,1.0,1.0,1.0,144,144.0,1414,1.0,0.0,605.0,0.11875,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH,TARGET,2,288,4,4,4,4,4,1.0,1.0,1.0,288,288.0,1558,1.0,0.0,605.0,0.08988095,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH,TARGET,4,576,4,4,4,4,4,1.0,1.0,1.0,576,576.0,1846,1.0,0.0,605.0,0.06279762,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH,TARGET,8,1152,4,4,4,4,4,1.0,1.0,1.0,1152,1152.0,2422,1.0,0.0,605.0,0.04925595,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH,TARGET,16,2304,4,4,4,4,4,1.0,1.0,1.0,2302,2304.0,3574,1.0,0.0,1800.0,0.045870535,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH,TARGET,32,4608,4,4,4,4,4,1.0,1.0,1.0,4606,4608.0,5878,1.0,0.0,1800.0,0.04079241,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH,TARGET,64,9216,4,4,4,4,4,1.0,1.0,1.0,9213,9216.0,10486,1.0,0.0,1800.0,0.03825335,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH + DHW,SOURCE,1,144,18,18,18,18,18,1.0,1.0,1.0,144,144.0,1414,1.0,0.0,602.0,0.0,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH + DHW,SOURCE,2,288,18,18,18,18,18,1.0,1.0,1.0,288,288.0,1558,1.0,0.0,605.0,1.4585e-05,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH + DHW,SOURCE,4,576,18,18,18,18,18,1.0,1.0,1.0,576,576.0,1846,1.0,0.0,605.0,0.00010729500000000001,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH + DHW,SOURCE,8,1152,18,18,18,18,18,1.0,1.0,1.0,1152,1152.0,2422,1.0,0.0,605.0,7.887000000000001e-05,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH + DHW,SOURCE,16,2304,18,18,18,18,18,1.0,1.0,1.0,2303,2304.0,3574,1.0,0.0,1200.0,0.000187345,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH + DHW,SOURCE,32,4608,18,18,18,18,18,1.0,1.0,1.0,4606,4608.0,5878,1.0,0.0,1800.0,0.00012131,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH + DHW,SOURCE,64,9216,18,18,18,18,17,0.94444444,0.94444444,0.94444444,5094,9215.0,10486,0.99989149,0.5,1800.0,9.0045e-05,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH + DHW,TARGET,1,144,4,4,4,4,4,1.0,1.0,1.0,144,144.0,144,1.0,0.0,605.0,0.407888405,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH + DHW,TARGET,2,288,4,4,4,4,4,1.0,1.0,1.0,288,288.0,288,1.0,0.0,605.0,0.38600664,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH + DHW,TARGET,4,576,4,4,4,4,4,1.0,1.0,1.0,576,576.0,576,1.0,0.0,608.0,0.29353618,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH + DHW,TARGET,8,1152,4,4,4,4,4,1.0,1.0,1.0,1152,1152.0,1152,1.0,0.0,608.0,0.215471305,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH + DHW,TARGET,16,2304,4,4,4,4,4,1.0,1.0,1.0,2303,2303.5,2304,0.999782985,0.5,1200.0,0.12955572,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH + DHW,TARGET,32,4608,4,4,4,4,4,1.0,1.0,1.0,4607,4607.5,4608,0.999891495,0.5,1200.0,0.086955245,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH + DHW,TARGET,64,9216,4,4,4,4,4,1.0,1.0,1.0,9213,9214.5,9216,0.99983724,1.5,1200.0,0.082492955,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH + DHW with sub-circuits,UNSUPPORTED_FOR_ENTITY_SPLIT,1,144,1,1,1,1,1,1.0,1.0,1.0,144,144,144,1.0,0,601.0,0.47002033,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH + DHW with sub-circuits,UNSUPPORTED_FOR_ENTITY_SPLIT,2,288,1,1,1,1,1,1.0,1.0,1.0,288,288,288,1.0,0,601.0,0.46697154,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH + DHW with sub-circuits,UNSUPPORTED_FOR_ENTITY_SPLIT,4,576,1,1,1,1,1,1.0,1.0,1.0,576,576,576,1.0,0,605.0,0.36458333,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH + DHW with sub-circuits,UNSUPPORTED_FOR_ENTITY_SPLIT,8,1152,1,1,1,1,1,1.0,1.0,1.0,1152,1152,1152,1.0,0,605.0,0.30335366,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH + DHW with sub-circuits,UNSUPPORTED_FOR_ENTITY_SPLIT,16,2304,1,1,1,1,1,1.0,1.0,1.0,2302,2302,2302,0.99913194,1,1800.0,0.28204531,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH + DHW with sub-circuits,UNSUPPORTED_FOR_ENTITY_SPLIT,32,4608,1,1,1,1,1,1.0,1.0,1.0,4606,4606,4606,0.99956597,1,1800.0,0.2653273,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH + DHW with sub-circuits,UNSUPPORTED_FOR_ENTITY_SPLIT,64,9216,1,1,1,1,1,1.0,1.0,1.0,9213,9213,9213,0.99967448,2,1800.0,0.28104772,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH with buffer tank,SOURCE,1,144,11,11,11,11,11,1.0,1.0,1.0,144,144,144,1.0,0,601.0,0.00694444,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH with buffer tank,SOURCE,2,288,11,11,11,11,11,1.0,1.0,1.0,288,288,288,1.0,0,601.0,0.00347222,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH with buffer tank,SOURCE,4,576,11,11,11,11,11,1.0,1.0,1.0,576,576,576,1.0,0,601.0,0.00173611,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH with buffer tank,SOURCE,8,1152,11,11,11,11,11,1.0,1.0,1.0,1152,1152,1152,1.0,0,602.0,0.00086806,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH with buffer tank,SOURCE,16,2304,11,11,11,11,11,1.0,1.0,1.0,2303,2304,2304,1.0,0,1200.0,0.00477431,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH with buffer tank,SOURCE,32,4608,11,11,11,11,11,1.0,1.0,1.0,4607,4608,4608,1.0,0,1200.0,0.00238715,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH with buffer tank,SOURCE,64,9216,11,11,11,11,10,0.90909091,0.90909091,0.90909091,5257,9216,9216,1.0,0,1200.0,0.00150553,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH with buffer tank,TARGET,1,144,2,2,2,2,2,1.0,1.0,1.0,144,779.0,1414,5.40972222,0.0,601.0,0.07755646499999999,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH with buffer tank,TARGET,2,288,2,2,2,2,2,1.0,1.0,1.0,288,923.0,1558,3.20486111,0.0,602.0,0.07919966,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH with buffer tank,TARGET,4,576,2,2,2,2,2,1.0,1.0,1.0,576,1211.0,1846,2.1024305549999998,0.0,602.0,0.07742960500000001,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH with buffer tank,TARGET,8,1152,2,2,2,2,2,1.0,1.0,1.0,1152,1787.0,2422,1.55121528,0.0,605.0,0.07631969000000001,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH with buffer tank,TARGET,16,2304,2,2,2,2,2,1.0,1.0,1.0,2304,2939.0,3574,1.27560764,0.0,605.0,0.07539832499999999,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH with buffer tank,TARGET,32,4608,2,2,2,2,2,1.0,1.0,1.0,4608,5243.0,5878,1.13780382,0.0,605.0,0.075894155,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH with buffer tank,TARGET,64,9216,2,2,2,2,2,1.0,1.0,1.0,9215,9850.5,10486,1.068847655,0.5,1200.0,0.072547895,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH with sub-circuits,UNSUPPORTED_FOR_ENTITY_SPLIT,1,144,1,1,1,1,1,1.0,1.0,1.0,1414,1414,1414,9.81944444,0,600.0,0.10344828,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH with sub-circuits,UNSUPPORTED_FOR_ENTITY_SPLIT,2,288,1,1,1,1,1,1.0,1.0,1.0,1558,1558,1558,5.40972222,0,602.0,0.10344828,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH with sub-circuits,UNSUPPORTED_FOR_ENTITY_SPLIT,4,576,1,1,1,1,1,1.0,1.0,1.0,1846,1846,1846,3.20486111,0,602.0,0.10344828,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH with sub-circuits,UNSUPPORTED_FOR_ENTITY_SPLIT,8,1152,1,1,1,1,1,1.0,1.0,1.0,2422,2422,2422,2.10243056,0,605.0,0.10344828,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH with sub-circuits,UNSUPPORTED_FOR_ENTITY_SPLIT,16,2304,1,1,1,1,1,1.0,1.0,1.0,3574,3574,3574,1.55121528,0,605.0,0.10393069,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH with sub-circuits,UNSUPPORTED_FOR_ENTITY_SPLIT,32,4608,1,1,1,1,1,1.0,1.0,1.0,5878,5878,5878,1.27560764,0,605.0,0.10479168,structural time/data availability only; not normal-label or evaluator coverage
+manufacturer 2,SH with sub-circuits,UNSUPPORTED_FOR_ENTITY_SPLIT,64,9216,1,1,1,1,1,1.0,1.0,1.0,10486,10486,10486,1.13780382,0,606.0,0.10420133,structural time/data availability only; not normal-label or evaluator coverage
