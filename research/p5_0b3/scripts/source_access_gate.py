@@ -65,17 +65,25 @@ def build_source_projection(
             manufacturer = _required_text(raw, "manufacturer")
             entity_id = _required_text(raw, "entity_id")
             role = _required_text(raw, "role")
-            configuration_type = _required_text(raw, "configuration_type")
             if role not in EXPECTED_ROLES:
+                _fail()
+            configuration_type = str(raw.get("configuration_type", "") or "").strip()
+            if role != "UNSUPPORTED_FOR_ENTITY_SPLIT" and not configuration_type:
                 _fail()
             key = (manufacturer, entity_id)
             if key in roles:
                 _fail()
             role_digest = str(raw.get("role_digest", "")).strip()
-            if (re.fullmatch(r"[0-9a-f]{64}", role_digest) is None or
-                    role_digest in role_digests):
+            if role == "UNSUPPORTED_FOR_ENTITY_SPLIT" and not role_digest:
+                # These structural rows may have no usable split digest. They
+                # remain in the full-role/path uniqueness audit but can never
+                # enter the SOURCE projection.
+                pass
+            elif (re.fullmatch(r"[0-9a-f]{64}", role_digest) is None or
+                  role_digest in role_digests):
                 _fail()
-            role_digests.add(role_digest)
+            else:
+                role_digests.add(role_digest)
             roles[key] = {
                 "manufacturer": manufacturer,
                 "entity_id": entity_id,
@@ -96,11 +104,17 @@ def build_source_projection(
             if raw_path in raw_paths:
                 _fail()
             raw_paths.add(raw_path)
+            role = _required_text(raw, "role")
+            configuration_type = str(raw.get("configuration_type", "") or "").strip()
+            if role not in EXPECTED_ROLES or (
+                role != "UNSUPPORTED_FOR_ENTITY_SPLIT" and not configuration_type
+            ):
+                _fail()
             manifest[key] = {
                 "manufacturer": manufacturer,
                 "entity_id": entity_id,
-                "configuration_type": _required_text(raw, "configuration_type"),
-                "role": _required_text(raw, "role"),
+                "configuration_type": configuration_type,
+                "role": role,
                 "role_digest": str(raw.get("role_digest", "")).strip(),
                 "raw_path": raw_path,
                 "raw_sha256": _required_text(raw, "raw_sha256"),

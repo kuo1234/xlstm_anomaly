@@ -44,6 +44,24 @@ class SourceAccessGateTests(unittest.TestCase):
         self.assertNotIn("target/private.csv", serialized)
         self.assertNotIn("u1", serialized)
 
+    def test_unsupported_structural_row_may_have_no_split_digest(self):
+        entities, manifest, _ = fixtures()
+        entities[-1]["role_digest"] = ""
+        manifest[-1]["role_digest"] = ""
+        entities[-1]["configuration_type"] = ""
+        manifest[-1]["configuration_type"] = ""
+        projection = build_source_projection(entities, manifest, expected_source_entities=2)
+        self.assertEqual(len(projection), 2)
+        self.assertTrue(all(item["role"] == "SOURCE" for item in projection))
+
+    def test_source_and_target_rows_still_require_valid_unique_split_digests(self):
+        for index in (0, 2):
+            entities, manifest, _ = fixtures()
+            entities[index]["role_digest"] = ""
+            manifest[index]["role_digest"] = ""
+            with self.assertRaises(SourceAccessGateError):
+                build_source_projection(entities, manifest, expected_source_entities=2)
+
     def test_opens_hashes_and_stages_only_source_paths(self):
         entities, manifest, payloads = fixtures()
         opened = []

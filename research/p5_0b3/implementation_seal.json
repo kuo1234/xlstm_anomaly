@@ -2,8 +2,18 @@
   "information_boundary": {
     "manufacturer_semantic_labels_opened": false,
     "operational_archive_opened": false,
+    "operational_zip_member_opened": false,
+    "prior_stage_attempt": {
+      "failure_stage": "SOURCE_PROJECTION",
+      "firewall_started": false,
+      "operational_members_opened": false,
+      "status": "P5_0B3_STAGE_BLOCKED"
+    },
     "source_raw_values_opened": false,
+    "source_semantic_labels_opened": false,
+    "structural_manifest_path_metadata_read": true,
     "target_access": "NOT_AUTHORIZED",
+    "target_operational_files_opened": false,
     "target_raw_values_or_labels_accessed": false
   },
   "pending_issue9_clarification": {
@@ -14,7 +24,8 @@
   "pre_data_review": {
     "reviewer": "astra_predata_review_final",
     "scope": "code, protocol, and synthetic tests only; no operational archive/raw/labels",
-    "status": "PASS"
+    "status": "PASS",
+    "unsupported_projection_exception": "blank digest and configuration permitted only for UNSUPPORTED_FOR_ENTITY_SPLIT; rows remain in role/manifest and path-uniqueness validation and are excluded from SOURCE projection"
   },
   "protocol": {
     "protocol_seal_sha256": "aff4e42223c1f8167d8a6dec818e03e2b7cd891c967572b45805fc58379a28f1",
@@ -59,7 +70,7 @@
     },
     {
       "path": "research/p5_0b3/scripts/source_access_gate.py",
-      "sha256": "8b343347f00899fc72cd0f78fff34ecad9a2e3c7da1e2e0d5856bfc53b128d92"
+      "sha256": "1054652b9c0357490573eb479d7ad8993b1676d42900d2f0f93fcd342f471354"
     },
     {
       "path": "research/p5_0b3/scripts/source_detector.py",
@@ -107,7 +118,7 @@
     },
     {
       "path": "research/p5_0b3/tests/test_source_access_gate.py",
-      "sha256": "d8eedbc2966abbb5942c947638f90b806fa54068c7dd1659fb878484a7dbaa05"
+      "sha256": "a8c06a1c2516cfab438262fbbd42af31eade4bffde28cd511e914882e266f61d"
     },
     {
       "path": "research/p5_0b3/tests/test_source_detector.py",
@@ -139,7 +150,8 @@
   "verification": {
     "compileall": "PASS",
     "git_diff_check": "PASS",
+    "source_projection_smoke": "PASS; structural metadata only; generated projection mode 0600",
     "synthetic_test_command": "PYTHONDONTWRITEBYTECODE=1 /tmp/p5-0b3-venv/bin/python -m unittest discover -s research/p5_0b3/tests -v",
-    "synthetic_test_result": "85 passed"
+    "synthetic_test_result": "87 passed"
   }
 }
