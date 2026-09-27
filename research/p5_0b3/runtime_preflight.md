@@ -36,11 +36,13 @@ with seed `17`. The preprocessing arrays were byte-identical; all `259` scores
 were finite and identical across runs. Maximum absolute and relative score
 deltas were both `0.0`, within the required `atol=1e-7`, `rtol=1e-7` gate.
 
-The combined output is retained in `runtime_preflight.log`; the parsed result
-is retained in `runtime_preflight_result.json` (SHA-256
-`e5ea82ab60d69e1578d4cef835e815c83e1d0fdb63eaa17a645557cbac9cb939`). The log
-SHA-256 is
-`cd8867669f98f5087e65c2ee56e2d5745f74e593a4f6713b3e2e28e44d7cd121`. It
+The parsed result is retained in `runtime_preflight_result.json` (SHA-256
+`e5ea82ab60d69e1578d4cef835e815c83e1d0fdb63eaa17a645557cbac9cb939`). The
+preflight was rerun after `preprocessing.py` was updated to enforce the
+protocol's `std <= 1e-12 * max(1, abs(mean))` stratum failure rule; it again
+passed with byte-identical arrays and zero score delta. The captured TensorFlow
+diagnostic log SHA-256 is
+`73d910b815e23af343bfd302f8b8a30c5403830d8933a9d895a7e3805e3a2472`. It
 includes this TensorFlow
 diagnostic, unchanged across both preflight invocations:
 

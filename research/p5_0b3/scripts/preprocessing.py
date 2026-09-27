@@ -31,14 +31,18 @@ class MedianImputeStandardScaler:
     def fit(self, training_rows: np.ndarray) -> "MedianImputeStandardScaler":
         """Learn per-column median, mean, and population std from training rows."""
         array = self._array(training_rows)
+        if np.isnan(array).all(axis=0).any():
+            raise ValueError("a training column has no finite values")
         medians = np.nanmedian(array, axis=0)
         if not np.isfinite(medians).all():
             raise ValueError("a training column has no finite values")
         imputed = self._impute(array, medians)
         means = np.mean(imputed, axis=0, dtype=np.float64)
         scales = np.std(imputed, axis=0, ddof=0, dtype=np.float64)
-        if not np.isfinite(scales).all() or np.any(scales == 0.0):
-            raise ValueError("a source training scale is non-finite or zero")
+        minimum_scales = 1e-12 * np.maximum(1.0, np.abs(means))
+        if (not np.isfinite(means).all() or not np.isfinite(scales).all() or
+                np.any(scales <= minimum_scales)):
+            raise ValueError("a source training scale is non-finite or below the frozen floor")
         self.medians_ = medians
         self.means_ = means
         self.scales_ = scales

@@ -34,10 +34,18 @@ class PreprocessingTests(unittest.TestCase):
         expected_first = (9.0 - 3.0) / np.sqrt(8.0 / 3.0)
         np.testing.assert_allclose(transformed, [[expected_first, 0.0]], rtol=1e-7, atol=1e-7)
 
-    def test_zero_or_nonfinite_training_scale_fails(self):
+    def test_zero_near_zero_or_nonfinite_training_scale_fails(self):
         with self.assertRaises(ValueError):
             preprocessing.MedianImputeStandardScaler().fit(
                 np.array([[2.0, 1.0], [2.0, 3.0]], dtype=np.float32))
+        # A positive but source-contract-invalid scale must fail too.
+        with self.assertRaises(ValueError):
+            preprocessing.MedianImputeStandardScaler().fit(
+                np.array([[0.0], [1e-13], [2e-13]], dtype=np.float64))
+        # The relative floor scales with the absolute source mean.
+        with self.assertRaises(ValueError):
+            preprocessing.MedianImputeStandardScaler().fit(
+                np.array([[1e6], [1e6 + 1e-7], [1e6 + 2e-7]], dtype=np.float64))
         with self.assertRaises(ValueError):
             preprocessing.MedianImputeStandardScaler().fit(
                 np.array([[np.nan], [np.nan]], dtype=np.float32))
@@ -59,7 +67,7 @@ class PreprocessingTests(unittest.TestCase):
 
     def test_rejects_nonfinite_float32_cast(self):
         fitted = preprocessing.MedianImputeStandardScaler().fit(
-            np.array([[0.0, 0.0], [2e-38, 4e-38]], dtype=np.float64))
+            np.array([[0.0, 0.0], [2e-6, 4e-6]], dtype=np.float64))
         with self.assertRaises(ValueError):
             fitted.transform(np.array([[3e38, 3e38]], dtype=np.float64))
 

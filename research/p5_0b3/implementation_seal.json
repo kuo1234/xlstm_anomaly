@@ -1,0 +1,145 @@
+{
+  "information_boundary": {
+    "manufacturer_semantic_labels_opened": false,
+    "operational_archive_opened": false,
+    "source_raw_values_opened": false,
+    "target_access": "NOT_AUTHORIZED",
+    "target_raw_values_or_labels_accessed": false
+  },
+  "pending_issue9_clarification": {
+    "conservative_rule": "Count only timestamp-valid, evaluator-confirmed normal suffix rows with finite scores toward the minimum of 100; keep invalid scores out of the FPR denominator.",
+    "issue_comment_url": "https://github.com/kuo1234/xlstm_anomaly/issues/9#issuecomment-5857165189",
+    "status": "NO_REPLY_AT_PREACCESS_SEAL"
+  },
+  "pre_data_review": {
+    "reviewer": "astra_predata_review_final",
+    "scope": "code, protocol, and synthetic tests only; no operational archive/raw/labels",
+    "status": "PASS"
+  },
+  "protocol": {
+    "protocol_seal_sha256": "aff4e42223c1f8167d8a6dec818e03e2b7cd891c967572b45805fc58379a28f1",
+    "protocol_status": "P5_0B2R2_PROTOCOL_RESEALED",
+    "source_development_protocol_sha256": "ffc1ff333edff8fb76fdc1ea04962e492b2a549ba1b9bbf5348b536b72df97f1"
+  },
+  "runtime": {
+    "deterministic_ops": true,
+    "device": "CPU",
+    "efd_commit": "ced470e1386066931bad32f3cb6e24bac9c5bb89",
+    "efd_git_tree": "899d9ea5a891508bb6b447ca4cd7a9b825607209",
+    "inter_threads": 1,
+    "intra_threads": 1,
+    "keras": "3.15.1",
+    "numpy": "1.26.4",
+    "python": "3.12.3",
+    "seed": 17,
+    "tensorflow": "2.18.1"
+  },
+  "runtime_lock_sha256": "5cc46d5a1b2dc63dd4ec1f879babd337a97481f1af8595603ea9ed97ecfad9a5",
+  "runtime_preflight_result_sha256": "e5ea82ab60d69e1578d4cef835e815c83e1d0fdb63eaa17a645557cbac9cb939",
+  "sealed_files": [
+    {
+      "path": "research/p5_0b3/scripts/firewall_process.py",
+      "sha256": "87c69541379d50efb50862ecab19957a55cd22c2a6e1a14d7ce11080708689f3"
+    },
+    {
+      "path": "research/p5_0b3/scripts/firewall_runner.py",
+      "sha256": "43eae8275dac0478e02567365b702a74fb009a339826b37abbd8d60be6cc9893"
+    },
+    {
+      "path": "research/p5_0b3/scripts/preprocessing.py",
+      "sha256": "e2aa3389c0b796180795914ac6b86e5d1352c0f0429f25000a74c82c3640f082"
+    },
+    {
+      "path": "research/p5_0b3/scripts/readiness.py",
+      "sha256": "fcc81d4f4861c40d16eb229f5481837934bb53e64ed27a0fb5462137d3debe23"
+    },
+    {
+      "path": "research/p5_0b3/scripts/runtime_preflight.py",
+      "sha256": "46a88ce07c7ce9881ab3c380903da09fe114e945c0f09693312c5efbf779ef0d"
+    },
+    {
+      "path": "research/p5_0b3/scripts/source_access_gate.py",
+      "sha256": "8b343347f00899fc72cd0f78fff34ecad9a2e3c7da1e2e0d5856bfc53b128d92"
+    },
+    {
+      "path": "research/p5_0b3/scripts/source_detector.py",
+      "sha256": "5949c15086cbcfc8cf5b4fafcbc5046a94a4357b641f715aefc8b32fdb83bec5"
+    },
+    {
+      "path": "research/p5_0b3/scripts/source_evaluator.py",
+      "sha256": "b570435e3a224e563be490c69175a8cce39a9799c873534c7a84948aacbc9e83"
+    },
+    {
+      "path": "research/p5_0b3/scripts/source_ingestion.py",
+      "sha256": "6272e89e22ae0233fd36a9ab779e1afc641073c06ebcaaaad77c7e55837fd1a2"
+    },
+    {
+      "path": "research/p5_0b3/scripts/source_method_process.py",
+      "sha256": "c2c729d8f78316d630702a6ac33ed7f39a59970eced9a4909f4ed15048cecad0"
+    },
+    {
+      "path": "research/p5_0b3/scripts/source_pipeline.py",
+      "sha256": "30f52acdf35a49d1aa54dfeacd2eb988102c1989b87d5259f83f436fc85e69f4"
+    },
+    {
+      "path": "research/p5_0b3/scripts/source_projection.py",
+      "sha256": "b6320a92803a1a456cbe4b21cc75e7d59e04f7c9c83e73b07541de8a11176716"
+    },
+    {
+      "path": "research/p5_0b3/scripts/source_stage_runner.py",
+      "sha256": "577a2ec8466a0418c3e17c284454d496ba40671d1ea3b8d826b369bc12a14697"
+    },
+    {
+      "path": "research/p5_0b3/tests/test_firewall_runner.py",
+      "sha256": "dd5efb1bd1cb9ede2172d0457da1a83a8f60e053cb46a90b54f8d08beb150d3c"
+    },
+    {
+      "path": "research/p5_0b3/tests/test_preprocessing.py",
+      "sha256": "6a18b47ff28e32da1d981b2a26c85e654984f8ed2ffc9318ffcaa32843db4761"
+    },
+    {
+      "path": "research/p5_0b3/tests/test_readiness.py",
+      "sha256": "a19e83ba1218366ea03ea0c27b257ddb69f6ebf0d78db25db7e4ee4a19d6d11b"
+    },
+    {
+      "path": "research/p5_0b3/tests/test_runtime_preflight.py",
+      "sha256": "58c304ca67d8d03fbfb80e0aab726e0a148dd7d03d2bdb6a7ed11f2eedcad4a1"
+    },
+    {
+      "path": "research/p5_0b3/tests/test_source_access_gate.py",
+      "sha256": "d8eedbc2966abbb5942c947638f90b806fa54068c7dd1659fb878484a7dbaa05"
+    },
+    {
+      "path": "research/p5_0b3/tests/test_source_detector.py",
+      "sha256": "38f991b2c0798e32b42e1d8c82e25dde5d09490e1c6535112f28c6d54fe44d12"
+    },
+    {
+      "path": "research/p5_0b3/tests/test_source_evaluator.py",
+      "sha256": "dd1ec7fe319f969ceb6d61483fda457209bb23e7d5ff050064594ca1a658a52f"
+    },
+    {
+      "path": "research/p5_0b3/tests/test_source_ingestion.py",
+      "sha256": "21ee62c788fa7ba8d3b7958a87696e87f072725f44a254a9d6f51dda43bf18f8"
+    },
+    {
+      "path": "research/p5_0b3/tests/test_source_pipeline.py",
+      "sha256": "385b0fcd17dbf1a27bd1c9998b551c289b543c26306908baa233665daad0876e"
+    },
+    {
+      "path": "research/p5_0b3/tests/test_source_process_integration.py",
+      "sha256": "645f60e767cdd10a03418adf5d69e2e396114c89e23167b4612429a2fa3aaf4f"
+    },
+    {
+      "path": "research/p5_0b3/tests/test_source_projection.py",
+      "sha256": "09d6b88cc0a744f3cc5517a7c0395817512267e2d3917cd9d6f0d4169900f820"
+    }
+  ],
+  "start_sha": "1c8603814e342d59657d1beeed05e9cba084d371",
+  "status": "P5_0B3_PREACCESS_CODE_SEALED",
+  "verification": {
+    "compileall": "PASS",
+    "git_diff_check": "PASS",
+    "synthetic_test_command": "PYTHONDONTWRITEBYTECODE=1 /tmp/p5-0b3-venv/bin/python -m unittest discover -s research/p5_0b3/tests -v",
+    "synthetic_test_result": "85 passed"
+  }
+}
