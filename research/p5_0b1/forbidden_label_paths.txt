@@ -1,0 +1,9 @@
+# ZIP central-directory metadata only: member path and uncompressed size.
+# Label/event payloads were not opened, parsed, or hashed; work stopped after
+# the README boundary incident. Do not treat this as the complete hash manifest.
+manufacturer 1/disturbances.csv | 5063 bytes | SHA-256 not computed
+manufacturer 1/faults.csv | 7646 bytes | SHA-256 not computed
+manufacturer 1/normal_events.csv | 3102 bytes | SHA-256 not computed
+manufacturer 2/disturbances.csv | 4940 bytes | SHA-256 not computed
+manufacturer 2/faults.csv | 8055 bytes | SHA-256 not computed
+manufacturer 2/normal_events.csv | 2078 bytes | SHA-256 not computed

@@ -1,0 +1,27 @@
+{
+  "record": "https://zenodo.org/records/19496480",
+  "record_id": "19496480",
+  "version": "v2",
+  "publication_date": "2026-04-10",
+  "license": "CC BY 4.0",
+  "archive_filename": "predist_dataset.zip",
+  "download_url": "https://zenodo.org/api/records/19496480/files/predist_dataset.zip/content",
+  "downloaded_path": "/tmp/predist_dataset-v2-19496480.zip",
+  "expected_size_bytes": 266814500,
+  "actual_size_bytes": 266814500,
+  "expected_md5": "298b6425df12ee0d93c05bd67efa3b75",
+  "actual_md5": "298b6425df12ee0d93c05bd67efa3b75",
+  "actual_sha256": "bbd95677835110a953146441f2215ad4ebd207bf3aca70496ce799605cfc218e",
+  "md5_verified": true,
+  "archive_committed": false,
+  "zip_directory_entries": 108,
+  "zip_member_payload_access": {
+    "raw_time_series": "not opened",
+    "label_event_tables": "not opened",
+    "root_readme": "opened and printed; includes known unlabelled anomaly intervals",
+    "configuration_types": "first rows opened for each manufacturer",
+    "feature_descriptions": "first rows opened for each manufacturer"
+  },
+  "boundary_status": "LABEL_BOUNDARY_BREACH",
+  "note": "The root README contained semantic anomaly-outcome metadata; processing stopped immediately after recognizing the boundary risk."
+}
