@@ -845,11 +845,14 @@ def _load_sealed_scores(repo: Path, seal: Mapping[str, Any]) -> dict[str, dict[s
         with np.load(calibration_path, allow_pickle=False) as cal_arrays:
             references = {name: np.asarray(cal_arrays[f"tail_reference__{name}"])
                           for name in refs_names}
+        arrays, score_timestamps = compose_stage1b_r_score_arrays(
+            old_raw, raw_r, times, references
+        )
+        if not np.array_equal(score_timestamps, times):
+            raise Stage1BRMetricError(f"{machine}: pre-label fusion changed the sealed timestamps")
         result[machine] = {
             "timestamps": times,
-            "raw_stage1a": old_raw,
-            "raw_r": raw_r,
-            "references": references,
+            "scores": arrays,
             "thresholds": r_execution["thresholds"],
         }
     return result
@@ -895,8 +898,8 @@ def _compute_rows(score_data: Mapping[str, Mapping[str, Any]], labels_by_machine
     rows = []
     for machine in MACHINES:
         item = score_data[machine]
-        arrays, timestamps = compose_stage1b_r_score_arrays(
-            item["raw_stage1a"], item["raw_r"], item["timestamps"], item["references"])
+        arrays = item["scores"]
+        timestamps = item["timestamps"]
         labels = labels_by_machine[machine]
         if not np.array_equal(timestamps, labels["timestamps"]):
             raise Stage1BRMetricError(f"{machine}: score timestamps differ from pinned label alignment")
