@@ -109,6 +109,10 @@
       "sha256": "b52950ccdbf713de559acbc9a2a439bb87e5c856307076bdf927958b9d8e22d4"
     },
     {
+      "path": "research/p5_0b3/scripts/identity_domain_diagnostic.py",
+      "sha256": "c00d6648425fcfe99e51d8c728ec14cb96e56efe57a548a354eb8d3a63ef9142"
+    },
+    {
       "path": "research/p5_0b3/scripts/preprocessing.py",
       "sha256": "e2aa3389c0b796180795914ac6b86e5d1352c0f0429f25000a74c82c3640f082"
     },
@@ -155,6 +159,10 @@
     {
       "path": "research/p5_0b3/tests/test_firewall_runner.py",
       "sha256": "9786b7c84c461de41caefad95cb87e9c45d0e3a326c158ebff8ba566b8204771"
+    },
+    {
+      "path": "research/p5_0b3/tests/test_identity_domain_diagnostic.py",
+      "sha256": "1331913f8926b7160f112dae56a2f5b86a8be9379bb4d3d6967e1c27784a9df9"
     },
     {
       "path": "research/p5_0b3/tests/test_preprocessing.py",
@@ -204,7 +212,37 @@
     "compileall": "PASS",
     "git_diff_check": "PASS",
     "source_projection_smoke": "PASS; structural metadata only; generated projection mode 0600",
-    "synthetic_test_command": "PYTHONDONTWRITEBYTECODE=1 /tmp/p5-0b3-venv/bin/python -m unittest discover -s research/p5_0b3/tests -v",
-    "synthetic_test_result": "97 passed"
+    "synthetic_test_command": "PYTHONDONTWRITEBYTECODE=1 /tmp/p5-0b3-venv/bin/python -m unittest discover -s research/p5_0b3/tests -q",
+    "synthetic_test_result": "114 passed",
+    "identity_diagnostic_test_command": "PYTHONDONTWRITEBYTECODE=1 /tmp/p5-0b3-venv/bin/python -m unittest research.p5_0b3.tests.test_identity_domain_diagnostic -v",
+    "identity_diagnostic_test_result": "17 passed",
+    "identity_diagnostic_astra_review": "PASS"
+  },
+  "identity_domain_diagnostic": {
+    "approved_issue_comment_id": 5862069615,
+    "implementation_only": true,
+    "label_identity_field": "substation ID",
+    "permitted_role_fields": [
+      "manufacturer",
+      "entity_id",
+      "role"
+    ],
+    "output_enums": [
+      "IDENTITY_ALL_RESOLVE_AFTER_DECIMAL_CANONICALIZATION",
+      "IDENTITY_EMPTY_OR_NONDECIMAL",
+      "IDENTITY_OUTSIDE_SEALED_UNIVERSE",
+      "IDENTITY_INVALID_ROLE_VALUE",
+      "IDENTITY_MIXED_FAILURE",
+      "IDENTITY_UNCLASSIFIED"
+    ],
+    "semantic_label_fields_read": false,
+    "source_operational_rows_opened": false,
+    "status": "SEALED_AWAITING_ONE_IDENTITY_DIAGNOSTIC_RUN",
+    "target_access": "NOT_AUTHORIZED",
+    "astra_static_review": {
+      "result": "PASS",
+      "reviewer": "astra_firewall_enum_review",
+      "scope": "static source, seal, and synthetic tests only; no project inputs or privileged diagnostic CLI accessed"
+    }
   }
 }
