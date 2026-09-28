@@ -6,6 +6,7 @@ import hashlib
 from pathlib import Path
 import sys
 
+from research.p5_0b2.scripts.source_label_firewall import FAILURE_CATEGORIES, FirewallError
 from research.p5_0b3.scripts.firewall_runner import run_firewall_from_zip
 
 
@@ -40,27 +41,35 @@ def _arguments(argv: list[str]) -> dict[str, str]:
 
 def main(argv: list[str] | None = None) -> int:
     try:
-        args = _arguments(list(sys.argv[1:] if argv is None else argv))
-        _verify_firewall_pin()
-        archive_path = Path(args["--archive"]).resolve()
-        if (archive_path != PINNED_ARCHIVE_PATH.resolve() or
-                archive_path.stat().st_size != PINNED_ARCHIVE_BYTES):
-            raise RuntimeError
-        role_bytes = Path(args["--role-seal"]).read_bytes()
-        if hashlib.sha256(role_bytes).hexdigest() != PINNED_ROLE_SEAL_SHA256:
-            raise RuntimeError
+        try:
+            args = _arguments(list(sys.argv[1:] if argv is None else argv))
+            _verify_firewall_pin()
+            archive_path = Path(args["--archive"]).resolve()
+            if (archive_path != PINNED_ARCHIVE_PATH.resolve() or
+                    archive_path.stat().st_size != PINNED_ARCHIVE_BYTES):
+                raise RuntimeError
+            role_bytes = Path(args["--role-seal"]).read_bytes()
+            if hashlib.sha256(role_bytes).hexdigest() != PINNED_ROLE_SEAL_SHA256:
+                raise RuntimeError
+        except Exception:
+            raise FirewallError("ARGUMENT_OR_PIN") from None
         result = run_firewall_from_zip(
             archive_path, role_bytes,
             args["--restricted-output"], args["--method-output"]
         )
         source_hash = result["source_artifact_sha256"]
-        if len(source_hash) != 64:
-            raise RuntimeError
+        if (not isinstance(source_hash, str) or len(source_hash) != 64
+                or any(c not in "0123456789abcdef" for c in source_hash)):
+            raise FirewallError("METHOD_ARTIFACT_COPY_OR_DIGEST") from None
         print(f"P5_0B3_FIREWALL_OK {source_hash}")
         return 0
+    except FirewallError as exc:
+        category = exc.category if exc.category in FAILURE_CATEGORIES else "UNCLASSIFIED"
+        print(f"P5_0B3_FIREWALL_BLOCKED {category}")
+        return 2
     except Exception:
         # Firewall protocol requires exception details and input paths redacted.
-        print("P5_0B3_FIREWALL_BLOCKED")
+        print("P5_0B3_FIREWALL_BLOCKED UNCLASSIFIED")
         return 2
 
 

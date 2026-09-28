@@ -1,4 +1,38 @@
 {
+  "firewall_diagnosis": {
+    "failed_invariant": "SEALED_FIREWALL_COMPLETION_INVARIANT_FAILED: the privileged firewall did not complete canonical SOURCE-only artifact publication under the sealed parser/filter/publish contract.",
+    "historical_failure_category": "FIREWALL_POST_ALLOWLIST_READ_UNCLASSIFIED",
+    "issue_comment_id": 5861753669,
+    "issue_comment_url": "https://github.com/kuo1234/xlstm_anomaly/issues/9#issuecomment-5861753669",
+    "request": "fixed, value-free diagnostic enum; no scientific protocol clarification",
+    "status": "RESOLVED_BY_REVIEWER"
+  },
+  "firewall_diagnostic_patch": {
+    "SCIENTIFIC_SEMANTICS_CHANGED": false,
+    "approved_issue_comment_id": 5861753669,
+    "astra_review": {
+      "result": "PASS",
+      "reviewer": "astra_firewall_enum_review",
+      "scope": "static source, seals, and synthetic tests only; no project inputs or generated firewall artifacts accessed"
+    },
+    "categories": [
+      "ARGUMENT_OR_PIN",
+      "ARCHIVE_MEMBER_IO",
+      "ROLE_SEAL_OR_ROLE_INDEX",
+      "CSV_HEADER_OR_RECORD_SHAPE",
+      "IDENTITY_OR_ROLE_MAPPING",
+      "SOURCE_BOOLEAN_OR_TIME_PARSE",
+      "CANONICALIZATION",
+      "RESTRICTED_ARTIFACT_PUBLICATION",
+      "METHOD_ARTIFACT_COPY_OR_DIGEST",
+      "UNCLASSIFIED"
+    ],
+    "failed_invariant": "SEALED_FIREWALL_COMPLETION_INVARIANT_FAILED: the privileged firewall did not complete canonical SOURCE-only artifact publication under the sealed parser/filter/publish contract.",
+    "historical_failure_category": "FIREWALL_POST_ALLOWLIST_READ_UNCLASSIFIED",
+    "rerun_authorization": "exactly one SOURCE firewall diagnostic rerun after patch, tests, and Astra static PASS",
+    "status": "IMPLEMENTATION_DIAGNOSTICS_ONLY",
+    "target_access": "NOT_AUTHORIZED"
+  },
   "information_boundary": {
     "manufacturer_semantic_labels_opened": true,
     "operational_archive_opened": false,
@@ -31,11 +65,6 @@
     "target_operational_files_opened": false,
     "target_raw_values_or_labels_accessed": false
   },
-  "pending_firewall_diagnosis": {
-    "issue_comment_url": "https://github.com/kuo1234/xlstm_anomaly/issues/9#issuecomment-5857646668",
-    "request": "value-free failure category and failed invariant only",
-    "status": "PENDING_REVIEWER_RESPONSE"
-  },
   "pre_data_review": {
     "issue_comment_id": 5857603327,
     "reviewer": "astra_clarification_review",
@@ -45,7 +74,7 @@
   },
   "protocol": {
     "evaluation_contract_sha256": "775bb6b6b8355def017194faae5e4257f3442d0863e1dc06ac38005d79fdb59d",
-    "protocol_seal_sha256": "635f44cce87fa9f317fd066c5116dc18292b36b1973d203db8d4c4d27a91af02",
+    "protocol_seal_sha256": "33444c8adc23c4dd89f64c6a337fa79f0a21fed747d2a166c7c4687da880ad32",
     "protocol_status": "P5_0B2R2_PROTOCOL_RESEALED",
     "source_development_protocol_sha256": "b3961d5007ceefbcbe6ac31c9953dfd47510cfe58a2cae0579bde37e53c48735"
   },
@@ -73,11 +102,11 @@
   "sealed_files": [
     {
       "path": "research/p5_0b3/scripts/firewall_process.py",
-      "sha256": "87c69541379d50efb50862ecab19957a55cd22c2a6e1a14d7ce11080708689f3"
+      "sha256": "9de933786f313fc111aac8881eac49d366c8134ee250279cb3bdfd5a05476b0b"
     },
     {
       "path": "research/p5_0b3/scripts/firewall_runner.py",
-      "sha256": "43eae8275dac0478e02567365b702a74fb009a339826b37abbd8d60be6cc9893"
+      "sha256": "b52950ccdbf713de559acbc9a2a439bb87e5c856307076bdf927958b9d8e22d4"
     },
     {
       "path": "research/p5_0b3/scripts/preprocessing.py",
@@ -121,11 +150,11 @@
     },
     {
       "path": "research/p5_0b3/scripts/source_stage_runner.py",
-      "sha256": "577a2ec8466a0418c3e17c284454d496ba40671d1ea3b8d826b369bc12a14697"
+      "sha256": "f4eebb88c65d7c9c505e830ca0c4a9968d9d42f107a87756951acd7f7d155f42"
     },
     {
       "path": "research/p5_0b3/tests/test_firewall_runner.py",
-      "sha256": "dd5efb1bd1cb9ede2172d0457da1a83a8f60e053cb46a90b54f8d08beb150d3c"
+      "sha256": "9786b7c84c461de41caefad95cb87e9c45d0e3a326c158ebff8ba566b8204771"
     },
     {
       "path": "research/p5_0b3/tests/test_preprocessing.py",
@@ -161,7 +190,7 @@
     },
     {
       "path": "research/p5_0b3/tests/test_source_process_integration.py",
-      "sha256": "645f60e767cdd10a03418adf5d69e2e396114c89e23167b4612429a2fa3aaf4f"
+      "sha256": "fdd150da23217b9c6f2bd9737eb794c8949e7ab07e49f13cebd28f35fc789fac"
     },
     {
       "path": "research/p5_0b3/tests/test_source_projection.py",
@@ -171,10 +200,11 @@
   "start_sha": "1c8603814e342d59657d1beeed05e9cba084d371",
   "status": "P5_0B3_PREACCESS_CODE_SEALED",
   "verification": {
+    "astra_static_review": "PASS",
     "compileall": "PASS",
     "git_diff_check": "PASS",
     "source_projection_smoke": "PASS; structural metadata only; generated projection mode 0600",
     "synthetic_test_command": "PYTHONDONTWRITEBYTECODE=1 /tmp/p5-0b3-venv/bin/python -m unittest discover -s research/p5_0b3/tests -v",
-    "synthetic_test_result": "93 passed"
+    "synthetic_test_result": "97 passed"
   }
 }

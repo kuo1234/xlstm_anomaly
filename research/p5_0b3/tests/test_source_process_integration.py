@@ -297,7 +297,9 @@ class SourceProcessBoundaryTests(unittest.TestCase):
                 runner.verify_implementation_seal(root)
 
     def test_runner_preserves_fixed_terminal_firewall_and_backbone_tokens(self):
-        for token in ("P5_0B3_FIREWALL_BLOCKED", "P5_0B3_BACKBONE_NOT_ADMISSIBLE"):
+        categories = sorted(runner.FIREWALL_FAILURE_CATEGORIES)
+        for token in ([f"P5_0B3_FIREWALL_BLOCKED {item}" for item in categories]
+                      + ["P5_0B3_BACKBONE_NOT_ADMISSIBLE"]):
             with tempfile.TemporaryDirectory() as temp:
                 root = Path(temp)
                 result = __import__("subprocess").CompletedProcess([], 2, token + "\n", "warning\n")
@@ -307,6 +309,17 @@ class SourceProcessBoundaryTests(unittest.TestCase):
                                     private_stderr_path=root / "private.stderr")
                 self.assertEqual(str(raised.exception), token)
                 self.assertEqual((root / "private.stderr").read_text(encoding="utf-8"), "warning\n")
+
+    def test_runner_rejects_non_enum_firewall_stdout(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            result = __import__("subprocess").CompletedProcess([], 2,
+                "P5_0B3_FIREWALL_BLOCKED /SECRET/path\n", "sensitive exception text\n")
+            with patch.object(runner.subprocess, "run", return_value=result):
+                with self.assertRaises(runner.StageFailure) as raised:
+                    runner._run(["python"], {}, "P5_0B3_METHOD_OK ", cwd=root,
+                                private_stderr_path=root / "private.stderr")
+            self.assertEqual(str(raised.exception), "P5_0B3_STAGE_BLOCKED")
 
     def test_projection_builder_exposes_only_source_role_rows(self):
         roles, manifest, projection = fixtures()

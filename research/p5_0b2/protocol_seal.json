@@ -181,19 +181,19 @@
     },
     {
       "path": "research/p5_0b2/scripts/source_label_firewall.py",
-      "sha256": "43f8cc705e2b614e9a81ef77fcc1b3e2bdac13880b0b2086037ea7b369b72514"
+      "sha256": "70b088cdc7c26b6516064522698f20b2c3540c3be4d50ef111a51a05c33a0cc1"
     },
     {
       "path": "research/p5_0b2/scripts/validate_protocol.py",
-      "sha256": "d44ea75ec97e1119cb014c6eb61028eb7feea30790a09a52dfb88b49a9c96a28"
+      "sha256": "239baea37f054730c0845450cc7ab7abaea966e35aa13d0c938a0355727b5eef"
     },
     {
       "path": "research/p5_0b2/scripts/seal_protocol.py",
-      "sha256": "5e447db98e6a3aed826c1889afd3e1b89cc362a8ad3eb376e5d47f775600d69b"
+      "sha256": "ddf760fae5e18feb0747557bb0f52c345d9d654756b225d14737fd7ac427eb41"
     },
     {
       "path": "research/p5_0b2/tests/test_source_label_firewall.py",
-      "sha256": "8782083aca68a4a43b75608cbce6388b30475bebde5f8fec893614ba9354c46a"
+      "sha256": "c801e0526288e845d5654b5b7fad01fedfd04a3614696d34854031c36f633974"
     },
     {
       "path": "research/p5_0b2/tests/test_protocol_invariants.py",
@@ -229,7 +229,7 @@
     "recall_min_effective_formula": "max(0.50, Recall_min_source_q10)",
     "recall_minimum": "Recall_min_source_q10: predeclared type-7 q10 of evaluable SOURCE fixed-N pseudo-target eligible fault-report recall",
     "seed": 17,
-    "source_label_firewall_sha256": "43f8cc705e2b614e9a81ef77fcc1b3e2bdac13880b0b2086037ea7b369b72514",
+    "source_label_firewall_sha256": "70b088cdc7c26b6516064522698f20b2c3540c3be4d50ef111a51a05c33a0cc1",
     "source_label_firewall_version": "p5-0b2-source-label-firewall-v1"
   },
   "status": "P5_0B2R2_PROTOCOL_RESEALED",
@@ -250,10 +250,10 @@
   },
   "verification": {
     "astra_review": "PASS",
-    "combined_test_count": 36,
+    "combined_test_count": 39,
     "protocol_invariant_tests": 17,
     "protocol_validator_command": "python3 -m research.p5_0b2.scripts.validate_protocol",
     "synthetic_firewall_test_command": "python3 -m unittest research.p5_0b2.tests.test_source_label_firewall -v",
-    "synthetic_firewall_tests": 19
+    "synthetic_firewall_tests": 22
   }
 }

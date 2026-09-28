@@ -296,8 +296,8 @@ def validate() -> list[str]:
     expected_review = "PENDING" if status == "P5_0B2R2_CANDIDATE" else "PASS"
     fail_if(seal.get("verification", {}).get("astra_review") != expected_review, "astra_review", failures)
     fail_if(seal.get("verification", {}).get("protocol_invariant_tests") != 17, "protocol_invariant_test_count", failures)
-    fail_if(seal.get("verification", {}).get("synthetic_firewall_tests") != 19, "synthetic_firewall_test_count", failures)
-    fail_if(seal.get("verification", {}).get("combined_test_count") != 36, "protocol_combined_test_count", failures)
+    fail_if(seal.get("verification", {}).get("synthetic_firewall_tests") != 22, "synthetic_firewall_test_count", failures)
+    fail_if(seal.get("verification", {}).get("combined_test_count") != 39, "protocol_combined_test_count", failures)
     clearance = seal.get("reviewer_adjudication", {})
     fail_if(clearance.get("raw_path_metadata_read") != "STRUCTURAL_METADATA_DEVIATION", "path_metadata_classification", failures)
     fail_if(clearance.get("semantic_boundary_breach") != "NO", "path_metadata_semantic_clearance", failures)

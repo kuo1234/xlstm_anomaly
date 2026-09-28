@@ -205,10 +205,10 @@ def build_seal() -> dict[str, object]:
         },
         "verification": {
             "synthetic_firewall_test_command": "python3 -m unittest research.p5_0b2.tests.test_source_label_firewall -v",
-            "synthetic_firewall_tests": 19,
+            "synthetic_firewall_tests": 22,
             "protocol_validator_command": "python3 -m research.p5_0b2.scripts.validate_protocol",
             "protocol_invariant_tests": 17,
-            "combined_test_count": 36,
+            "combined_test_count": 39,
             "astra_review": "PASS",
         },
         "sealed_artifacts": artifact_hashes,

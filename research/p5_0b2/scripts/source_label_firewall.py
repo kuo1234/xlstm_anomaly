@@ -27,19 +27,29 @@ REQUIRED_COLUMNS = {
     "normal_events": {"substation ID", "Event start", "Event end"},
     "disturbances": {"substation ID", "Event start", "type"},
 }
+FAILURE_CATEGORIES = frozenset({
+    "ARGUMENT_OR_PIN", "ARCHIVE_MEMBER_IO", "ROLE_SEAL_OR_ROLE_INDEX",
+    "CSV_HEADER_OR_RECORD_SHAPE", "IDENTITY_OR_ROLE_MAPPING",
+    "SOURCE_BOOLEAN_OR_TIME_PARSE", "CANONICALIZATION",
+    "RESTRICTED_ARTIFACT_PUBLICATION", "METHOD_ARTIFACT_COPY_OR_DIGEST",
+    "UNCLASSIFIED",
+})
 
 
 class FirewallError(RuntimeError):
     """An intentionally value-free firewall failure."""
 
-    def __init__(self) -> None:
+    def __init__(self, category: str = "UNCLASSIFIED") -> None:
+        if category not in FAILURE_CATEGORIES:
+            category = "UNCLASSIFIED"
+        self.category = category
         super().__init__("FIREWALL_FAILED")
 
 
-def _fail() -> None:
+def _fail(category: str = "UNCLASSIFIED") -> None:
     # Suppress the active exception context: tracebacks must not repeat a
     # malformed annotation value, source path, or decoder/filesystem detail.
-    raise FirewallError() from None
+    raise FirewallError(category) from None
 
 
 def _text(value: object) -> str:
@@ -57,15 +67,15 @@ def build_role_index(entities: Iterable[Mapping[str, object]]) -> dict[tuple[str
         entity_id = _text(row.get("entity_id"))
         role = _text(row.get("role"))
         if manufacturer not in MANUFACTURERS or not entity_id or role not in ALLOWED_ROLES:
-            _fail()
+            _fail("ROLE_SEAL_OR_ROLE_INDEX")
         key = (manufacturer, entity_id)
         if key in index:
-            _fail()
+            _fail("ROLE_SEAL_OR_ROLE_INDEX")
         entry = {"role": role}
         if role == "SOURCE":
             role_digest = _text(row.get("role_digest"))
             if not role_digest or role_digest in source_digests:
-                _fail()
+                _fail("ROLE_SEAL_OR_ROLE_INDEX")
             source_digests.add(role_digest)
             entry["role_digest"] = role_digest
         index[key] = entry
@@ -77,25 +87,25 @@ def load_role_index(path: str | Path) -> dict[tuple[str, str], dict[str, str]]:
     try:
         raw = Path(path).read_bytes()
         if hashlib.sha256(raw).hexdigest() != ROLE_SEAL_SHA256:
-            _fail()
+            _fail("ROLE_SEAL_OR_ROLE_INDEX")
         payload = json.loads(raw)
         return build_role_index(payload["entities"])
     except FirewallError:
         raise
     except Exception:
-        _fail()
+        _fail("ROLE_SEAL_OR_ROLE_INDEX")
 
 
 def _parse_time(value: object) -> datetime:
     text = _text(value)
     if not text:
-        _fail()
+        _fail("SOURCE_BOOLEAN_OR_TIME_PARSE")
     try:
         parsed = datetime.fromisoformat(text.replace("Z", "+00:00"))
     except Exception:
-        _fail()
+        _fail("SOURCE_BOOLEAN_OR_TIME_PARSE")
     if parsed.tzinfo is not None:
-        _fail()
+        _fail("SOURCE_BOOLEAN_OR_TIME_PARSE")
     return parsed
 
 
@@ -109,7 +119,7 @@ def _fault_possible(value: object) -> bool:
         return True
     if normalized in {"false", "0", "no"}:
         return False
-    _fail()
+    _fail("SOURCE_BOOLEAN_OR_TIME_PARSE")
 
 
 def _row_interval(
@@ -118,7 +128,7 @@ def _row_interval(
 ) -> tuple[str, str, str]:
     if table == "faults":
         if "efd_possible" not in row:
-            _fail()
+            _fail("CSV_HEADER_OR_RECORD_SHAPE")
         if not _fault_possible(row.get("efd_possible")):
             return "", "", ""
         start_text = _text(row.get("Possible anomaly start"))
@@ -133,22 +143,22 @@ def _row_interval(
         elif report is not None:
             start = report - timedelta(hours=48)
         else:
-            _fail()
+            _fail("SOURCE_BOOLEAN_OR_TIME_PARSE")
         if end_text:
             end = _parse_time(end_text)
         elif report is not None:
             end = report + timedelta(hours=24)
         else:
-            _fail()
+            _fail("SOURCE_BOOLEAN_OR_TIME_PARSE")
         if end < start:
-            _fail()
+            _fail("SOURCE_BOOLEAN_OR_TIME_PARSE")
         return "KNOWN_FAULT", _iso_timestamp(start), _iso_timestamp(end)
 
     if table == "normal_events":
         start = _parse_time(row.get("Event start"))
         end = _parse_time(row.get("Event end"))
         if end < start:
-            _fail()
+            _fail("SOURCE_BOOLEAN_OR_TIME_PARSE")
         return "REFERENCE_NORMAL_EVENT", _iso_timestamp(start), _iso_timestamp(end)
 
     if table == "disturbances":
@@ -164,7 +174,7 @@ def _row_interval(
             kind = "DISTURBANCE_OTHER"
         return kind, _iso_timestamp(left), _iso_timestamp(right)
 
-    _fail()
+    _fail("SOURCE_BOOLEAN_OR_TIME_PARSE")
 
 
 def normalize_table_rows(
@@ -175,31 +185,31 @@ def normalize_table_rows(
 ) -> list[dict[str, str]]:
     """Drop TARGET/unsupported rows before reading any semantic field."""
     if table not in TABLES or manufacturer not in MANUFACTURERS:
-        _fail()
+        _fail("IDENTITY_OR_ROLE_MAPPING")
     output: list[dict[str, str]] = []
     for row in rows:
         # Identity is the only field read before role classification.
         entity_id = _text(row.get("substation ID"))
         if not entity_id:
-            _fail()
+            _fail("IDENTITY_OR_ROLE_MAPPING")
         role_entry = role_index.get((_text(manufacturer), entity_id))
         if role_entry is None:
-            _fail()
+            _fail("IDENTITY_OR_ROLE_MAPPING")
         role = role_entry.get("role")
         if role in {"TARGET", "UNSUPPORTED_FOR_ENTITY_SPLIT"}:
             continue
         if role != "SOURCE":
-            _fail()
+            _fail("IDENTITY_OR_ROLE_MAPPING")
         # Validate SOURCE row structure only after role classification and
         # before interpreting any interval field. DictReader uses missing
         # values for short records and the None key for excess cells.
         if None in row or not REQUIRED_COLUMNS[table].issubset(row.keys()):
-            _fail()
+            _fail("CSV_HEADER_OR_RECORD_SHAPE")
         if any(value is None for value in row.values()):
-            _fail()
+            _fail("CSV_HEADER_OR_RECORD_SHAPE")
         role_digest = _text(role_entry.get("role_digest"))
         if not role_digest:
-            _fail()
+            _fail("ROLE_SEAL_OR_ROLE_INDEX")
         kind, interval_start, interval_end = _row_interval(table, row)
         if not kind:
             # EFD's published `efd_possible=false` rows are excluded.
@@ -226,7 +236,7 @@ def canonical_source_bytes(rows: Iterable[Mapping[str, str]]) -> bytes:
         "interval_end",
     }
     if any(set(row) != allowed for row in canonical_rows):
-        _fail()
+        _fail("CANONICALIZATION")
     canonical_rows.sort(
         key=lambda row: (
             row["role_digest"],
@@ -250,7 +260,7 @@ def extract_source_bytes(
     """Return only canonical SOURCE bytes and distinct SOURCE entity count."""
     expected_keys = {(manufacturer, table) for manufacturer in MANUFACTURERS for table in TABLES}
     if set(tables) != expected_keys:
-        _fail()
+        _fail("CANONICALIZATION")
     normalized: list[dict[str, str]] = []
     for manufacturer, table in sorted(tables):
         normalized.extend(normalize_table_rows(table, manufacturer, tables[(manufacturer, table)], role_index))
@@ -267,7 +277,7 @@ def read_source_csv(
 ) -> list[dict[str, str]]:
     """Stream raw CSV rows through the role filter without returning raw rows."""
     if table not in TABLES or manufacturer not in MANUFACTURERS:
-        _fail()
+        _fail("IDENTITY_OR_ROLE_MAPPING")
     try:
         with Path(path).open("r", encoding="utf-8-sig", newline="") as stream:
             reader = csv.DictReader(stream, delimiter=";", strict=True)
@@ -277,21 +287,25 @@ def read_source_csv(
                 or len(reader.fieldnames) != len(set(reader.fieldnames))
                 or not REQUIRED_COLUMNS[table].issubset(set(reader.fieldnames))
             ):
-                _fail()
+                _fail("CSV_HEADER_OR_RECORD_SHAPE")
             def single_physical_line_records():
                 previous_line = reader.line_num
                 for row in reader:
                     current_line = reader.line_num
                     if current_line != previous_line + 1:
-                        _fail()
+                        _fail("CSV_HEADER_OR_RECORD_SHAPE")
                     previous_line = current_line
                     yield row
 
             return normalize_table_rows(table, manufacturer, single_physical_line_records(), role_index)
     except FirewallError:
         raise
+    except (csv.Error, UnicodeDecodeError):
+        _fail("CSV_HEADER_OR_RECORD_SHAPE")
+    except OSError:
+        _fail("ARCHIVE_MEMBER_IO")
     except Exception:
-        _fail()
+        _fail("UNCLASSIFIED")
 
 
 def _write_sync(path: Path, content: bytes) -> None:
@@ -310,12 +324,12 @@ def publish_artifacts(
     """Atomically publish the three restricted firewall artifacts."""
     destination = Path(output_dir)
     if destination.exists() or source_entity_count < 0:
-        _fail()
+        _fail("RESTRICTED_ARTIFACT_PUBLICATION")
     for name, digest in input_sha256.items():
         if name not in {f"{manufacturer}/{table}.csv" for manufacturer in MANUFACTURERS for table in TABLES}:
-            _fail()
+            _fail("RESTRICTED_ARTIFACT_PUBLICATION")
         if len(digest) != 64 or any(character not in "0123456789abcdef" for character in digest):
-            _fail()
+            _fail("RESTRICTED_ARTIFACT_PUBLICATION")
     source_hash = hashlib.sha256(source_payload).hexdigest()
     source_rows = [line for line in source_payload.splitlines() if line]
     audit = {
@@ -349,7 +363,7 @@ def publish_artifacts(
     except Exception:
         if temp_path is not None and temp_path.exists():
             shutil.rmtree(temp_path, ignore_errors=True)
-        _fail()
+        _fail("RESTRICTED_ARTIFACT_PUBLICATION")
     return {"source_artifact_sha256": source_hash, "audit_sha256": hashlib.sha256(audit_bytes).hexdigest()}
 
 
@@ -359,8 +373,10 @@ def sha256_file(path: str | Path) -> str:
         with Path(path).open("rb") as stream:
             for chunk in iter(lambda: stream.read(1024 * 1024), b""):
                 digest.update(chunk)
+    except OSError:
+        _fail("ARCHIVE_MEMBER_IO")
     except Exception:
-        _fail()
+        _fail("UNCLASSIFIED")
     return digest.hexdigest()
 
 
@@ -372,7 +388,7 @@ def execute_firewall(
     """Read only the three known label tables per manufacturer and publish SOURCE rows."""
     expected_keys = {(manufacturer, table) for manufacturer in MANUFACTURERS for table in TABLES}
     if set(label_paths) != expected_keys:
-        _fail()
+        _fail("ARGUMENT_OR_PIN")
     role_index = load_role_index(role_seal_path)
     normalized: list[dict[str, str]] = []
     input_hashes: dict[str, str] = {}
@@ -383,7 +399,7 @@ def execute_firewall(
             rows = read_source_csv(table, manufacturer, path, role_index)
             after_hash = sha256_file(path)
             if before_hash != after_hash:
-                _fail()
+                _fail("ARCHIVE_MEMBER_IO")
             normalized.extend(rows)
             input_hashes[f"{manufacturer}/{table}.csv"] = before_hash
         payload = canonical_source_bytes(normalized)

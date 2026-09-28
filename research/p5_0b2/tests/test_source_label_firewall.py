@@ -100,6 +100,24 @@ class SourceLabelFirewallTests(unittest.TestCase):
         self.assertEqual(rows[0]["annotation_kind"], "KNOWN_FAULT")
         self.assertNotIn(target_key[1], json.dumps(rows))
 
+    def test_failure_categories_are_fixed_and_value_free(self):
+        self.assertEqual(firewall.FAILURE_CATEGORIES, frozenset({
+            "ARGUMENT_OR_PIN", "ARCHIVE_MEMBER_IO", "ROLE_SEAL_OR_ROLE_INDEX",
+            "CSV_HEADER_OR_RECORD_SHAPE", "IDENTITY_OR_ROLE_MAPPING",
+            "SOURCE_BOOLEAN_OR_TIME_PARSE", "CANONICALIZATION",
+            "RESTRICTED_ARTIFACT_PUBLICATION", "METHOD_ARTIFACT_COPY_OR_DIGEST",
+            "UNCLASSIFIED",
+        }))
+        with self.assertRaises(FirewallError) as raised:
+            firewall._fail("SOURCE_BOOLEAN_OR_TIME_PARSE")
+        self.assertEqual(raised.exception.category, "SOURCE_BOOLEAN_OR_TIME_PARSE")
+        self.assertEqual(str(raised.exception), "FIREWALL_FAILED")
+
+    def test_malformed_target_semantics_are_discarded_before_parse(self):
+        bad_target = GuardedTargetRow({"substation ID": "T1", "efd_possible": "SECRET BAD BOOLEAN"})
+        output = normalize_table_rows("faults", "manufacturer 1", [bad_target], role_index())
+        self.assertEqual(output, [])
+
     def test_formatted_tracebacks_redact_parse_decode_and_filesystem_details(self):
         secret_value = "SYNTHETIC_SECRET_DATE_8f2d"
         secret_path = "SYNTHETIC_SECRET_SOURCE_PATH_8f2d.csv"
@@ -279,8 +297,23 @@ class SourceLabelFirewallTests(unittest.TestCase):
                 "S1;T1;2020-01-01 00:00:00;2020-01-01 01:00:00;2020-01-01 02:00:00;true\n",
                 encoding="utf-8",
             )
-            with self.assertRaisesRegex(FirewallError, "^FIREWALL_FAILED$"):
+            with self.assertRaisesRegex(FirewallError, "^FIREWALL_FAILED$") as raised:
                 read_source_csv("faults", "manufacturer 1", csv_path, role_index())
+            self.assertEqual(raised.exception.category, "CSV_HEADER_OR_RECORD_SHAPE")
+
+    def test_csv_and_filesystem_failures_have_fixed_categories(self):
+        with tempfile.TemporaryDirectory() as temp:
+            malformed = Path(temp) / "malformed.csv"
+            malformed.write_bytes(
+                b"substation ID;efd_possible;Possible anomaly start;Possible anomaly end;Report date\n"
+                b'S1;true;"unterminated;2020-01-01;;\n'
+            )
+            with self.assertRaises(FirewallError) as csv_raised:
+                read_source_csv("faults", "manufacturer 1", malformed, role_index())
+            self.assertEqual(csv_raised.exception.category, "CSV_HEADER_OR_RECORD_SHAPE")
+        with self.assertRaises(FirewallError) as io_raised:
+            sha256_file("/synthetic/missing-source-table.csv")
+        self.assertEqual(io_raised.exception.category, "ARCHIVE_MEMBER_IO")
 
     def test_short_source_record_fails_before_interval_normalization(self):
         with tempfile.TemporaryDirectory() as temp:

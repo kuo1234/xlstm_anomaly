@@ -25,8 +25,8 @@ ALLOWED_MEMBERS = frozenset(
 )
 
 
-def _fail() -> None:
-    raise firewall.FirewallError() from None
+def _fail(category: str = "RESTRICTED_ARTIFACT_PUBLICATION") -> None:
+    raise firewall.FirewallError(category) from None
 
 
 def read_allowed_zip_members(archive: str | Path | BinaryIO) -> dict[str, bytes]:
@@ -38,14 +38,14 @@ def read_allowed_zip_members(archive: str | Path | BinaryIO) -> dict[str, bytes]
                 if info.filename in counts:
                     counts[info.filename] += 1
             if any(count != 1 for count in counts.values()):
-                _fail()
+                _fail("ARCHIVE_MEMBER_IO")
             # Exact names only; traversal entries and all other payloads are
             # never opened or written to disk.
             return {name: zipped.read(name) for name in sorted(ALLOWED_MEMBERS)}
     except firewall.FirewallError:
         raise
     except Exception:
-        _fail()
+        raise firewall.FirewallError("ARCHIVE_MEMBER_IO") from None
 
 
 def run_firewall_from_members(
@@ -61,19 +61,29 @@ def run_firewall_from_members(
     `source_labels.jsonl` and `source_labels.sha256`. The return value contains
     only the SOURCE artifact digest; in particular it omits the audit digest.
     """
-    if set(members) != ALLOWED_MEMBERS or not isinstance(role_seal_bytes, bytes):
-        _fail()
-    restricted = Path(restricted_output_dir)
-    method = Path(method_output_dir)
-    if restricted.resolve() == method.resolve() or restricted.exists() or method.exists():
-        _fail()
-    restricted.parent.mkdir(parents=True, exist_ok=True)
-    method.parent.mkdir(parents=True, exist_ok=True)
+    if set(members) != ALLOWED_MEMBERS:
+        raise firewall.FirewallError("ARCHIVE_MEMBER_IO") from None
+    if not isinstance(role_seal_bytes, bytes):
+        raise firewall.FirewallError("ROLE_SEAL_OR_ROLE_INDEX") from None
+    try:
+        restricted = Path(restricted_output_dir)
+        method = Path(method_output_dir)
+        if restricted.resolve() == method.resolve() or restricted.exists() or method.exists():
+            _fail()
+        restricted.parent.mkdir(parents=True, exist_ok=True)
+        method.parent.mkdir(parents=True, exist_ok=True)
+    except firewall.FirewallError:
+        raise
+    except Exception:
+        raise firewall.FirewallError("RESTRICTED_ARTIFACT_PUBLICATION") from None
     try:
         with tempfile.TemporaryDirectory(prefix="p5-0b3-firewall-input-") as temp_name:
             temp = Path(temp_name)
             role_path = temp / "role_seal.json"
-            role_path.write_bytes(role_seal_bytes)
+            try:
+                role_path.write_bytes(role_seal_bytes)
+            except OSError:
+                raise firewall.FirewallError("ROLE_SEAL_OR_ROLE_INDEX") from None
             label_paths: dict[tuple[str, str], Path] = {}
             for member in sorted(ALLOWED_MEMBERS):
                 manufacturer, filename = member.split("/", 1)
@@ -83,7 +93,14 @@ def run_firewall_from_members(
                 path.write_bytes(members[member])
                 label_paths[(manufacturer, table)] = path
             result = firewall.execute_firewall(label_paths, role_path, restricted)
+    except firewall.FirewallError:
+        raise
+    except OSError:
+        raise firewall.FirewallError("ARCHIVE_MEMBER_IO") from None
+    except Exception:
+        raise firewall.FirewallError("UNCLASSIFIED") from None
 
+    try:
         source_path = restricted / "source_labels.jsonl"
         digest_path = restricted / "source_labels.sha256"
         if {entry.name for entry in restricted.iterdir()} != {
@@ -93,9 +110,9 @@ def run_firewall_from_members(
         source_payload = source_path.read_bytes()
         source_digest = hashlib.sha256(source_payload).hexdigest()
         if result.get("source_artifact_sha256") != source_digest:
-            _fail()
+            _fail("METHOD_ARTIFACT_COPY_OR_DIGEST")
         if digest_path.read_bytes() != (source_digest + "\n").encode("ascii"):
-            _fail()
+            _fail("METHOD_ARTIFACT_COPY_OR_DIGEST")
 
         method.mkdir(mode=0o700)
         os.chmod(method, 0o700)
@@ -111,12 +128,24 @@ def run_firewall_from_members(
         return {"source_artifact_sha256": source_digest}
     except firewall.FirewallError:
         raise
+    except OSError:
+        if method.exists():
+            try:
+                for child in method.iterdir():
+                    child.unlink(missing_ok=True)
+                method.rmdir()
+            except OSError:
+                pass
+        raise firewall.FirewallError("METHOD_ARTIFACT_COPY_OR_DIGEST") from None
     except Exception:
         if method.exists():
-            for child in method.iterdir():
-                child.unlink(missing_ok=True)
-            method.rmdir()
-        _fail()
+            try:
+                for child in method.iterdir():
+                    child.unlink(missing_ok=True)
+                method.rmdir()
+            except OSError:
+                pass
+        raise firewall.FirewallError("UNCLASSIFIED") from None
 
 
 def run_firewall_from_zip(
