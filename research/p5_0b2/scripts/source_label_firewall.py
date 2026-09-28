@@ -18,7 +18,7 @@ from typing import Iterable, Mapping
 
 
 ROLE_SEAL_SHA256 = "00e0cec62d238c78f2d0b3c79910c0ffaf1122d1582c28c8848022fb3e10e33f"
-FIREWALL_VERSION = "p5-0b2-source-label-firewall-v1"
+FIREWALL_VERSION = "p5-0b2-source-label-firewall-v2"
 TABLES = ("faults", "normal_events", "disturbances")
 MANUFACTURERS = ("manufacturer 1", "manufacturer 2")
 ALLOWED_ROLES = {"SOURCE", "TARGET", "UNSUPPORTED_FOR_ENTITY_SPLIT"}
@@ -58,13 +58,29 @@ def _text(value: object) -> str:
     return str(value).strip()
 
 
+def canonical_entity_id(value: object) -> str:
+    """Canonicalize positive decimal IDs without accepting numeric coercions."""
+    if not isinstance(value, str):
+        _fail("IDENTITY_OR_ROLE_MAPPING")
+    stripped = value.strip()
+    if not stripped or any(character < "0" or character > "9" for character in stripped):
+        _fail("IDENTITY_OR_ROLE_MAPPING")
+    try:
+        number = int(stripped, 10)
+    except Exception:
+        _fail("IDENTITY_OR_ROLE_MAPPING")
+    if number <= 0:
+        _fail("IDENTITY_OR_ROLE_MAPPING")
+    return str(number)
+
+
 def build_role_index(entities: Iterable[Mapping[str, object]]) -> dict[tuple[str, str], dict[str, str]]:
     """Build an exact manufacturer/entity lookup; never expose TARGET rows."""
     index: dict[tuple[str, str], dict[str, str]] = {}
     source_digests: set[str] = set()
     for row in entities:
         manufacturer = _text(row.get("manufacturer"))
-        entity_id = _text(row.get("entity_id"))
+        entity_id = canonical_entity_id(row.get("entity_id"))
         role = _text(row.get("role"))
         if manufacturer not in MANUFACTURERS or not entity_id or role not in ALLOWED_ROLES:
             _fail("ROLE_SEAL_OR_ROLE_INDEX")
@@ -182,6 +198,7 @@ def normalize_table_rows(
     manufacturer: str,
     rows: Iterable[Mapping[str, object]],
     role_index: Mapping[tuple[str, str], Mapping[str, str]],
+    outside_rows_discarded: list[bool] | None = None,
 ) -> list[dict[str, str]]:
     """Drop TARGET/unsupported rows before reading any semantic field."""
     if table not in TABLES or manufacturer not in MANUFACTURERS:
@@ -189,12 +206,14 @@ def normalize_table_rows(
     output: list[dict[str, str]] = []
     for row in rows:
         # Identity is the only field read before role classification.
-        entity_id = _text(row.get("substation ID"))
-        if not entity_id:
-            _fail("IDENTITY_OR_ROLE_MAPPING")
+        entity_id = canonical_entity_id(row.get("substation ID"))
         role_entry = role_index.get((_text(manufacturer), entity_id))
         if role_entry is None:
-            _fail("IDENTITY_OR_ROLE_MAPPING")
+            # Valid identifiers outside the sealed universe are ignored before
+            # any semantic row field is accessed.
+            if outside_rows_discarded is not None:
+                outside_rows_discarded[0] = True
+            continue
         role = role_entry.get("role")
         if role in {"TARGET", "UNSUPPORTED_FOR_ENTITY_SPLIT"}:
             continue
@@ -274,6 +293,7 @@ def read_source_csv(
     manufacturer: str,
     path: str | Path,
     role_index: Mapping[tuple[str, str], Mapping[str, str]],
+    outside_rows_discarded: list[bool] | None = None,
 ) -> list[dict[str, str]]:
     """Stream raw CSV rows through the role filter without returning raw rows."""
     if table not in TABLES or manufacturer not in MANUFACTURERS:
@@ -297,7 +317,9 @@ def read_source_csv(
                     previous_line = current_line
                     yield row
 
-            return normalize_table_rows(table, manufacturer, single_physical_line_records(), role_index)
+            return normalize_table_rows(
+                table, manufacturer, single_physical_line_records(), role_index, outside_rows_discarded
+            )
     except FirewallError:
         raise
     except (csv.Error, UnicodeDecodeError):
@@ -320,6 +342,7 @@ def publish_artifacts(
     source_payload: bytes,
     source_entity_count: int,
     input_sha256: Mapping[str, str],
+    outside_operational_universe_rows_discarded: bool = False,
 ) -> dict[str, str]:
     """Atomically publish the three restricted firewall artifacts."""
     destination = Path(output_dir)
@@ -342,6 +365,7 @@ def publish_artifacts(
         "target_rows_emitted": False,
         "target_identifiers_logged": False,
         "target_semantics_logged": False,
+        "outside_operational_universe_rows_discarded": bool(outside_operational_universe_rows_discarded),
     }
     audit_bytes = (json.dumps(audit, sort_keys=True, indent=2) + "\n").encode("utf-8")
     parent = destination.parent
@@ -392,11 +416,12 @@ def execute_firewall(
     role_index = load_role_index(role_seal_path)
     normalized: list[dict[str, str]] = []
     input_hashes: dict[str, str] = {}
+    outside_rows_discarded = [False]
     try:
         for manufacturer, table in sorted(expected_keys):
             path = label_paths[(manufacturer, table)]
             before_hash = sha256_file(path)
-            rows = read_source_csv(table, manufacturer, path, role_index)
+            rows = read_source_csv(table, manufacturer, path, role_index, outside_rows_discarded)
             after_hash = sha256_file(path)
             if before_hash != after_hash:
                 _fail("ARCHIVE_MEMBER_IO")
@@ -404,7 +429,9 @@ def execute_firewall(
             input_hashes[f"{manufacturer}/{table}.csv"] = before_hash
         payload = canonical_source_bytes(normalized)
         source_entity_count = sum(1 for entry in role_index.values() if entry.get("role") == "SOURCE")
-        return publish_artifacts(output_dir, payload, source_entity_count, input_hashes)
+        return publish_artifacts(
+            output_dir, payload, source_entity_count, input_hashes, outside_rows_discarded[0]
+        )
     except FirewallError:
         raise
     except Exception:

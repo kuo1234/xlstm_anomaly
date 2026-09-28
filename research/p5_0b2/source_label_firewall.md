@@ -14,15 +14,38 @@ directly.
 The role authority is the immutable
 `research/p5_0b1r/role_split_seal.json`, SHA-256
 `00e0cec62d238c78f2d0b3c79910c0ffaf1122d1582c28c8848022fb3e10e33f`.
-Build an internal lookup keyed by exact `(manufacturer, entity_id)` from that
-seal. Reject duplicate keys or any ambiguous entity key before reading label
-tables. The public v0.7.1 PreDist source identifies the label inputs as
-semicolon-delimited `faults.csv`, `normal_events.csv`, and `disturbances.csv`
-with `substation ID` as the entity field. This contract does not use or
-instantiate `PreDistDataset`. The pinned manufacturer keys are exactly
-`manufacturer 1` and `manufacturer 2` (lowercase); do not case-fold or
-normalize them. Synthetic tests use those sealed key spellings, including a
-test against the pinned structural role index.
+Its 93 entities define the sealed operational experiment universe: 74 SOURCE,
+16 TARGET, and 3 unsupported. Build an internal lookup keyed by the exact
+`manufacturer` and strict decimal-canonicalized `entity_id`; the role-seal
+bytes and assigned roles remain unchanged. Reject malformed role IDs and
+duplicate canonical keys before reading label tables. The public v0.7.1
+PreDist source identifies the label inputs as semicolon-delimited `faults.csv`,
+`normal_events.csv`, and `disturbances.csv` with `substation ID` as the entity
+field. This contract does not use or instantiate `PreDistDataset`. The pinned
+manufacturer keys are exactly `manufacturer 1` and `manufacturer 2`
+(lowercase); do not case-fold or normalize them. Synthetic tests use those
+sealed key spellings, including a test against the pinned structural role
+index.
+
+### Sealed operational-universe projection
+
+The P5-0B1R structural preflight requires every operational-data member to
+have an exact identity in the sealed configuration inventory. The reviewer
+therefore adjudicated a valid label identity absent from the sealed 93-entity
+role universe as outside this experiment's operational universe, not as an
+unassigned entity. This is a structural scope restriction fixed by the
+pre-existing estimand; it is not outcome-based row selection and does not
+change the role split or any SOURCE/TARGET denominator.
+
+For identity comparison only, strip surrounding whitespace, require ASCII
+decimal digits (`^[0-9]+$`), canonicalize with `str(int(value, 10))`, and
+require a positive integer. This accepts leading zeroes and surrounding
+whitespace (for example, `01` becomes `1`) and rejects empty, zero, signed,
+decimal, scientific-notation, Unicode-digit, or embedded-text forms. Apply the
+same rule to sealed role IDs and label `substation ID` values without changing
+the role-seal bytes. A valid canonical label ID missing from the same
+manufacturer's sealed universe is discarded immediately, before role lookup
+or any semantic label-field access. Invalid identities still fail closed.
 
 Before iteration, validate that every required table header occurs exactly
 once without reading row content. Extra header columns are ignored; duplicate
@@ -30,15 +53,17 @@ headers, missing required headers, or an unexpected table fail closed. The CSV
 parser runs in strict mode and each header/data record must occupy exactly one
 physical line; malformed quotes or multiline records fail the entire table
 with a generic error because row boundaries cannot be trusted. For each
-parseable row, inspect only its identity field to classify the role. If TARGET or
-unsupported, discard it immediately without checking field values/counts or
-parsing dates, type, description, or other semantic fields; do not append it
-to an intermediate table. For SOURCE rows only, verify all header cells are
-present and there are no excess cells before parsing interval fields. A short
-or overlong SOURCE record, unknown entity, missing identity, duplicate role
-key, malformed source interval, or unexpected schema fails closed: delete
+parseable row, inspect only `substation ID` first and apply the strict decimal
+canonicalizer. A valid canonical ID outside the same-manufacturer sealed
+universe is discarded immediately. For a matched identity, inspect the
+sealed role; if TARGET or unsupported, discard it immediately without
+checking row shape or reading dates, type, description, or other semantic
+fields. Do not append either class of discarded row to an intermediate table.
+For SOURCE rows only, verify the record shape before parsing interval fields.
+A malformed identity, short or overlong SOURCE record, duplicate canonical
+role key, malformed SOURCE interval, or unexpected schema fails closed: delete
 partial output and emit only a generic failure status, never the offending
-row, entity, date, event, or target count.
+row, entity, date, event, or discarded-row count.
 
 ## Canonical SOURCE-only artifact
 
@@ -97,8 +122,12 @@ The firewall emits exactly three files in a restricted output directory:
 2. `source_labels.sha256`: SHA-256 of the exact artifact bytes;
 3. `access_audit.json`: firewall version, role-seal hash, input table names
    and SHA-256 values, output hash, SOURCE entity count, SOURCE record count,
-   schema/version identifiers, and booleans `target_rows_emitted=false`,
-   `target_identifiers_logged=false`, `target_semantics_logged=false`.
+   schema/version identifiers, booleans `target_rows_emitted=false`,
+   `target_identifiers_logged=false`, `target_semantics_logged=false`, and the
+   fixed boolean `outside_operational_universe_rows_discarded`. The latter is
+   the only audit signal for outside-universe rows; never record their count,
+   IDs, manufacturer/table distribution, or semantic values. It is restricted
+   auditor metadata and is not copied to method-facing output.
 
 `source_entity_count` is the number of SOURCE role entries in the pinned role
 seal, including entities with no emitted annotation rows; it is not a count

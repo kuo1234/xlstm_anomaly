@@ -77,7 +77,7 @@ def build_seal() -> dict[str, object]:
         "source_development": {
             "fold_algorithm": "SHA256(UTF8(P5-0B2-SOURCE-FOLD-v1|role_digest)); within exact strata, sorted by fold_digest then role_digest, assigned round-robin to five folds",
             "seed": 17,
-            "source_label_firewall_version": "p5-0b2-source-label-firewall-v1",
+            "source_label_firewall_version": "p5-0b2-source-label-firewall-v2",
             "source_label_firewall_sha256": firewall_hash,
             "detector_selection": "macro source-OOF AP, then AUROC, bottleneck width, learning rate, candidate ID",
             "readiness_scale": "selected detector candidate OOF SOURCE scores outside annotated fault/disturbance intervals; float64 type-7 IQR",
@@ -182,6 +182,16 @@ def build_seal() -> dict[str, object]:
             "issue_comment_id": 5857603327,
             "scientific_design_reopened": False,
         },
+        "data_universe_clarification": {
+            "issue": 9,
+            "adjudication_comment_id": 5865521121,
+            "handoff_comment_id": 5865526941,
+            "SCIENTIFIC_ESTIMAND_CHANGED": False,
+            "DATA_UNIVERSE_CLARIFICATION": True,
+            "outside_rows_semantic_fields_accessed": False,
+            "rule": "Project annotation identities to the same-manufacturer sealed 93-entity operational universe before reading semantic fields; discard valid outside identities without counts or identifiers.",
+            "target_access": "NOT_AUTHORIZED",
+        },
         "information_boundary": {
             "next_authorized_stage": "P5-0B3 SOURCE-only development and source model/readiness-parameter seal",
             "allowed_source_method_inputs": [
@@ -205,10 +215,10 @@ def build_seal() -> dict[str, object]:
         },
         "verification": {
             "synthetic_firewall_test_command": "python3 -m unittest research.p5_0b2.tests.test_source_label_firewall -v",
-            "synthetic_firewall_tests": 22,
+            "synthetic_firewall_tests": 27,
             "protocol_validator_command": "python3 -m research.p5_0b2.scripts.validate_protocol",
-            "protocol_invariant_tests": 17,
-            "combined_test_count": 39,
+            "protocol_invariant_tests": 18,
+            "combined_test_count": 45,
             "astra_review": "PASS",
         },
         "sealed_artifacts": artifact_hashes,

@@ -1,6 +1,16 @@
 {
   "base_commit": "758c48b23e54bd775a71bc0542fb008cd7e2e426",
   "branch": "research/p5-0b2r2-nondegeneracy-reseal",
+  "data_universe_clarification": {
+    "DATA_UNIVERSE_CLARIFICATION": true,
+    "SCIENTIFIC_ESTIMAND_CHANGED": false,
+    "adjudication_comment_id": 5865521121,
+    "handoff_comment_id": 5865526941,
+    "issue": 9,
+    "outside_rows_semantic_fields_accessed": false,
+    "rule": "Project annotation identities to the same-manufacturer sealed 93-entity operational universe before reading semantic fields; discard valid outside identities without counts or identifiers.",
+    "target_access": "NOT_AUTHORIZED"
+  },
   "energy_fault_detector": {
     "decision": "generic dense MultilayerAutoencoder with external per-row RMSE; PreDist loader and event-specific procedure excluded",
     "paper_cited_commit": "9e0d65074c88e51e180e3bf37f580280bbb54496",
@@ -149,11 +159,11 @@
     },
     {
       "path": "research/p5_0b2/source_development_protocol.md",
-      "sha256": "b3961d5007ceefbcbe6ac31c9953dfd47510cfe58a2cae0579bde37e53c48735"
+      "sha256": "02b8b2828990a47407e2ecacf0ab42ff1618f35ad599d05464e55fc2e1ccf122"
     },
     {
       "path": "research/p5_0b2/source_label_firewall.md",
-      "sha256": "1b8e0a0b7b3af0c3e06b8d11d41cf955d816a30e3736144e30d64a390309a6c8"
+      "sha256": "8b4436a87f3ba56485ac3855f6466ca7c0b11203ab993f69cfe3bc495bab8ef2"
     },
     {
       "path": "research/p5_0b2/target_prefix_adjudication_contract.md",
@@ -181,23 +191,23 @@
     },
     {
       "path": "research/p5_0b2/scripts/source_label_firewall.py",
-      "sha256": "70b088cdc7c26b6516064522698f20b2c3540c3be4d50ef111a51a05c33a0cc1"
+      "sha256": "c8eb27cd389382ae9f8d0ab06317a6082ea745bfdc53ee1f142c21227f4540fe"
     },
     {
       "path": "research/p5_0b2/scripts/validate_protocol.py",
-      "sha256": "239baea37f054730c0845450cc7ab7abaea966e35aa13d0c938a0355727b5eef"
+      "sha256": "212041a825f7951efa113ee730003bb9e0c7dff25353bfc4c003ac3e689c2436"
     },
     {
       "path": "research/p5_0b2/scripts/seal_protocol.py",
-      "sha256": "ddf760fae5e18feb0747557bb0f52c345d9d654756b225d14737fd7ac427eb41"
+      "sha256": "0f1277e9b5ebdcb6299a9ab182f21696d172e55966755f7e53a712fea40cbb34"
     },
     {
       "path": "research/p5_0b2/tests/test_source_label_firewall.py",
-      "sha256": "c801e0526288e845d5654b5b7fad01fedfd04a3614696d34854031c36f633974"
+      "sha256": "8eaaa7a4ec15b35ee49121ab619dc4a70d09f6158c3f983067a8fc254185d5c5"
     },
     {
       "path": "research/p5_0b2/tests/test_protocol_invariants.py",
-      "sha256": "1ba59e2460ebd33b54970c0b1d8da8598d2a210938d2e4f900303428ff304f52"
+      "sha256": "771d2cdadb8ef864f6f40a83f205d36967e5fdd556897f66690853564fc8c287"
     },
     {
       "path": "research/p5_0b2/reviewer_amendment_b2r.md",
@@ -229,8 +239,8 @@
     "recall_min_effective_formula": "max(0.50, Recall_min_source_q10)",
     "recall_minimum": "Recall_min_source_q10: predeclared type-7 q10 of evaluable SOURCE fixed-N pseudo-target eligible fault-report recall",
     "seed": 17,
-    "source_label_firewall_sha256": "70b088cdc7c26b6516064522698f20b2c3540c3be4d50ef111a51a05c33a0cc1",
-    "source_label_firewall_version": "p5-0b2-source-label-firewall-v1"
+    "source_label_firewall_sha256": "c8eb27cd389382ae9f8d0ab06317a6082ea745bfdc53ee1f142c21227f4540fe",
+    "source_label_firewall_version": "p5-0b2-source-label-firewall-v2"
   },
   "status": "P5_0B2R2_PROTOCOL_RESEALED",
   "target_access": {
@@ -250,10 +260,10 @@
   },
   "verification": {
     "astra_review": "PASS",
-    "combined_test_count": 39,
-    "protocol_invariant_tests": 17,
+    "combined_test_count": 45,
+    "protocol_invariant_tests": 18,
     "protocol_validator_command": "python3 -m research.p5_0b2.scripts.validate_protocol",
     "synthetic_firewall_test_command": "python3 -m unittest research.p5_0b2.tests.test_source_label_firewall -v",
-    "synthetic_firewall_tests": 22
+    "synthetic_firewall_tests": 27
   }
 }

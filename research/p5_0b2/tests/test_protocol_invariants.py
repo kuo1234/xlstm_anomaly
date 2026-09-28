@@ -177,6 +177,41 @@ class ProtocolInvariantTests(unittest.TestCase):
         self.assertEqual(access["next_stage"], authorized_stage)
         self.assertEqual(seal["information_boundary"]["next_authorized_stage"], authorized_stage)
 
+    def test_operational_universe_projection_preserves_frozen_split_and_estimand(self):
+        structural = json.loads(
+            (ROOT / "research/p5_0b2/structural_inputs_seal.json").read_text(encoding="utf-8")
+        )
+        role_seal = structural["role_seal"]
+        role_bytes = (ROOT / role_seal["path"]).read_bytes()
+        self.assertEqual(hashlib.sha256(role_bytes).hexdigest(),
+                         "00e0cec62d238c78f2d0b3c79910c0ffaf1122d1582c28c8848022fb3e10e33f")
+        self.assertEqual(role_seal["sha256"], hashlib.sha256(role_bytes).hexdigest())
+        self.assertEqual(role_seal["entity_counts"], {
+            "SOURCE": 74, "TARGET": 16, "UNSUPPORTED_FOR_ENTITY_SPLIT": 3,
+        })
+        self.assertEqual(role_seal["target_counts_by_exact_stratum_in_ascii_order"], [5, 1, 4, 4, 2])
+
+        protocol = json.loads((ROOT / "research/p5_0b2/protocol_seal.json").read_text(encoding="utf-8"))
+        self.assertEqual(protocol["role_seal_sha256"], role_seal["sha256"])
+        self.assertEqual(protocol["source_development"]["source_label_firewall_version"],
+                         "p5-0b2-source-label-firewall-v2")
+        self.assertEqual(protocol["evaluation"]["fixed_target_counts_ascii_stratum_order"], [5, 1, 4, 4, 2])
+        self.assertEqual(protocol["evaluation"]["pooled_success_denominator"], 16)
+        self.assertEqual(protocol["evaluation"]["primary_absolute_fpr_cap"], 0.03)
+        self.assertEqual(protocol["evaluation"]["primary_absolute_fault_report_recall_floor"], 0.50)
+        self.assertEqual(protocol["evaluation"]["normal_suffix_evaluation"]["MIN_FINITE_NORMAL_SUFFIX_OBSERVATIONS"], 100)
+        self.assertEqual(protocol["evaluation"]["normal_suffix_evaluation"]["MIN_NORMAL_SCORE_COVERAGE"], 0.95)
+        self.assertEqual(protocol["target_access"]["target_label_access"], "NOT_AUTHORIZED")
+
+        firewall_doc = (ROOT / "research/p5_0b2/source_label_firewall.md").read_text(encoding="utf-8")
+        self.assertIn("outside this experiment's operational universe", firewall_doc)
+        self.assertIn("outside_operational_universe_rows_discarded", firewall_doc)
+        self.assertIn("before role lookup", firewall_doc)
+        source_doc = " ".join(
+            (ROOT / "research/p5_0b2/source_development_protocol.md").read_text(encoding="utf-8").split()
+        )
+        self.assertIn("discarded before role or semantic-field access", source_doc)
+
     def test_seal_builder_is_canonical_and_repeatable(self):
         first = build_seal()
         second = build_seal()

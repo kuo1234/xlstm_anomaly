@@ -25,7 +25,7 @@ class FirewallRunnerTests(unittest.TestCase):
         role_payload = json.dumps(
             {"entities": [{
                 "manufacturer": "manufacturer 1",
-                "entity_id": "source-1",
+                "entity_id": "987654321",
                 "role": "SOURCE",
                 "role_digest": "d" * 64,
             }]},
@@ -41,7 +41,7 @@ class FirewallRunnerTests(unittest.TestCase):
             for table, header in headers.items():
                 body = ""
                 if manufacturer == "manufacturer 1" and table == "faults":
-                    body = "source-1;true;2020-01-01;2020-01-02;\n"
+                    body = "987654321;true;2020-01-01;2020-01-02;\n"
                 members[f"{manufacturer}/{table}.csv"] = (header + body).encode("utf-8")
         return members, role_payload
 
@@ -81,7 +81,7 @@ class FirewallRunnerTests(unittest.TestCase):
             )
             source = (method / "source_labels.jsonl").read_text(encoding="utf-8")
             self.assertIn('"role_digest":"' + "d" * 64 + '"', source)
-            self.assertNotIn("source-1", source)
+            self.assertNotIn("987654321", source)
             self.assertNotIn("access_audit", json.dumps(result))
             audit = json.loads((restricted / "access_audit.json").read_text(encoding="utf-8"))
             self.assertNotIn("entity_id", audit)

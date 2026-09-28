@@ -74,9 +74,9 @@
   },
   "protocol": {
     "evaluation_contract_sha256": "775bb6b6b8355def017194faae5e4257f3442d0863e1dc06ac38005d79fdb59d",
-    "protocol_seal_sha256": "33444c8adc23c4dd89f64c6a337fa79f0a21fed747d2a166c7c4687da880ad32",
+    "protocol_seal_sha256": "1cf2da3dd56950bad2aee207c3d4eb3f11f74d8115e62a70d6c652ff28314a1c",
     "protocol_status": "P5_0B2R2_PROTOCOL_RESEALED",
-    "source_development_protocol_sha256": "b3961d5007ceefbcbe6ac31c9953dfd47510cfe58a2cae0579bde37e53c48735"
+    "source_development_protocol_sha256": "02b8b2828990a47407e2ecacf0ab42ff1618f35ad599d05464e55fc2e1ccf122"
   },
   "resolved_issue9_clarification": {
     "MIN_FINITE_NORMAL_SUFFIX_OBSERVATIONS": 100,
@@ -158,7 +158,7 @@
     },
     {
       "path": "research/p5_0b3/tests/test_firewall_runner.py",
-      "sha256": "9786b7c84c461de41caefad95cb87e9c45d0e3a326c158ebff8ba566b8204771"
+      "sha256": "f11095666b181f6574974750dd3f8953211025b7da85a3ec7fc0e8a10e5066d5"
     },
     {
       "path": "research/p5_0b3/tests/test_identity_domain_diagnostic.py",
@@ -216,7 +216,13 @@
     "synthetic_test_result": "114 passed",
     "identity_diagnostic_test_command": "PYTHONDONTWRITEBYTECODE=1 /tmp/p5-0b3-venv/bin/python -m unittest research.p5_0b3.tests.test_identity_domain_diagnostic -v",
     "identity_diagnostic_test_result": "17 passed",
-    "identity_diagnostic_astra_review": "PASS"
+    "identity_diagnostic_astra_review": "PASS",
+    "b2_protocol_validator": "PASS",
+    "b2_firewall_synthetic_tests": "27 passed",
+    "b2_protocol_invariant_tests": "18 passed",
+    "b2_combined_tests": "45 passed",
+    "operational_universe_astra_review": "PASS",
+    "b3_firewall_runner_tests": "6 passed"
   },
   "identity_domain_diagnostic": {
     "approved_issue_comment_id": 5862069615,
@@ -237,12 +243,42 @@
     ],
     "semantic_label_fields_read": false,
     "source_operational_rows_opened": false,
-    "status": "SEALED_AWAITING_ONE_IDENTITY_DIAGNOSTIC_RUN",
+    "status": "COMPLETED_AND_ADJUDICATED",
     "target_access": "NOT_AUTHORIZED",
     "astra_static_review": {
       "result": "PASS",
       "reviewer": "astra_firewall_enum_review",
       "scope": "static source, seal, and synthetic tests only; no project inputs or privileged diagnostic CLI accessed"
+    },
+    "identity_diagnostic_result": "IDENTITY_OUTSIDE_SEALED_UNIVERSE",
+    "reviewer_adjudication_issue_comment_id": 5865521121,
+    "provenance": "RESOLVED_AS_OUTSIDE_OPERATIONAL_UNIVERSE"
+  },
+  "operational_universe_projection_repair": {
+    "approved_issue_handoff_comment_id": 5865526941,
+    "adjudication_issue_comment_id": 5865521121,
+    "SCIENTIFIC_ESTIMAND_CHANGED": false,
+    "DATA_UNIVERSE_CLARIFICATION": true,
+    "operational_universe_size": 93,
+    "role_split_sha256_unchanged": "00e0cec62d238c78f2d0b3c79910c0ffaf1122d1582c28c8848022fb3e10e33f",
+    "row_order": [
+      "read_substation_ID_only",
+      "strict_positive_ASCII_decimal_canonicalization",
+      "same_manufacturer_sealed_operational_universe_lookup",
+      "discard_outside_identity_before_role_or_semantic_field_access",
+      "discard_TARGET_or_UNSUPPORTED_before_semantic_field_access",
+      "parse_semantic_fields_only_for_matched_SOURCE_rows"
+    ],
+    "outside_rows_restricted_audit_field": "outside_operational_universe_rows_discarded",
+    "outside_rows_count_or_identity_published": false,
+    "outside_rows_semantic_fields_accessed": false,
+    "target_access": "NOT_AUTHORIZED",
+    "status": "ASTRA_REVIEWED_AWAITING_ONE_FIREWALL_RERUN",
+    "astra_static_review": {
+      "result": "PASS",
+      "reviewer": "astra_firewall_enum_review",
+      "issue_handoff_comment_id": 5865526941,
+      "scope": "static source, seals, documentation, and synthetic tests only; no project inputs or privileged CLI accessed"
     }
   }
 }

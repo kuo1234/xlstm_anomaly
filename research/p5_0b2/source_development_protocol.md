@@ -32,9 +32,15 @@ manifest digest without opening its path-bearing contents. Open and hash-check
 only the 74 SOURCE paths. Do not pass target manifest rows or target raw paths
 to the method process. If a later runtime cannot preserve this one-file-per-entity
 boundary, stop before opening operational values and require a versioned
-information-boundary amendment. The firewall process alone may
-temporarily map raw manufacturer label rows to SOURCE/TARGET/unsupported
-roles, and it emits only SOURCE intervals plus a restricted access audit.
+information-boundary amendment. The firewall process alone may read raw
+manufacturer label rows. It first canonicalizes only each row's `substation
+ID` and projects it to the same-manufacturer sealed 93-entity operational
+universe. A valid decimal identity outside that universe is discarded before
+role or semantic-field access; matched TARGET/unsupported rows are then
+discarded before semantic-field access. Only matched SOURCE rows can reach
+interval parsing. The firewall emits only SOURCE intervals plus a restricted
+access audit whose sole outside-universe signal is a fixed boolean, with no
+outside ID or count.
 Only the access auditor receives hashes of the full manufacturer-level
 input tables; the method process receives the canonical SOURCE artifact hash
 and released SOURCE-only audit fields.
@@ -272,8 +278,9 @@ The source development process may read only the canonical SOURCE-only label
 artifact and SOURCE operational data. It must not open or receive the
 manufacturer label CSVs. The only process allowed to read those raw label
 tables is the sealed firewall process in `source_label_firewall.md`; its
-output is SOURCE-only. The firewall code, dependency identity, synthetic
-tests, and hashes must be sealed before this stage is run.
+output is SOURCE-only and its identity-first operational-universe projection
+is documented there. The firewall code, dependency identity, synthetic tests,
+and hashes must be sealed before this stage is run.
 
 ## Terminal conditions
 
