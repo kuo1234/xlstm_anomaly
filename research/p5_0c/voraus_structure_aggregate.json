@@ -1,0 +1,2079 @@
+{
+  "audit": {
+    "purpose": "aggregate-only structural metadata audit",
+    "model_work": false,
+    "data_values_read": [
+      "sample",
+      "time",
+      "anomaly",
+      "category",
+      "setting",
+      "action",
+      "active"
+    ],
+    "full_feature_values_read": false,
+    "time_interpretation": "within-sample file-order pairs only; no chronology compared across samples",
+    "setting_interpretation": "official variant/split metadata, not physical identities",
+    "action_interpretation": "within-sample phase/action metadata; not an independent target",
+    "sample_identifiers_or_raw_rows_emitted": false
+  },
+  "source": {
+    "file_name": "voraus-ad-dataset-100hz.parquet",
+    "file_size_bytes": 1115942833
+  },
+  "schema": {
+    "field_count": 137,
+    "metadata_field_count": 7,
+    "full_field_signature_sha256": "56f1f4ca6f10be8bb2b1750b48899f3b175898da8ce8443da86d4540c90c0f20",
+    "fields": [
+      {
+        "name": "time",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "sample",
+        "type": "int64",
+        "nullable": true
+      },
+      {
+        "name": "anomaly",
+        "type": "bool",
+        "nullable": true
+      },
+      {
+        "name": "category",
+        "type": "int64",
+        "nullable": true
+      },
+      {
+        "name": "setting",
+        "type": "int64",
+        "nullable": true
+      },
+      {
+        "name": "action",
+        "type": "uint8",
+        "nullable": true
+      },
+      {
+        "name": "active",
+        "type": "int64",
+        "nullable": true
+      },
+      {
+        "name": "robot_voltage",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "robot_current",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "io_current",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "system_current",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "target_position_1",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "target_velocity_1",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "target_acceleration_1",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "target_torque_1",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "computed_inertia_1",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "computed_torque_1",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_position_1",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_velocity_1",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "joint_position_1",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "joint_velocity_1",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_torque_1",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "torque_sensor_a_1",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "torque_sensor_b_1",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_iq_1",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_id_1",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "power_motor_el_1",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "power_motor_mech_1",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "power_load_mech_1",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_voltage_1",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "supply_voltage_1",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "brake_voltage_1",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "target_position_2",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "target_velocity_2",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "target_acceleration_2",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "target_torque_2",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "computed_inertia_2",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "computed_torque_2",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_position_2",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_velocity_2",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "joint_position_2",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "joint_velocity_2",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_torque_2",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "torque_sensor_a_2",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "torque_sensor_b_2",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_iq_2",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_id_2",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "power_motor_el_2",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "power_motor_mech_2",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "power_load_mech_2",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_voltage_2",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "supply_voltage_2",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "brake_voltage_2",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "target_position_3",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "target_velocity_3",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "target_acceleration_3",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "target_torque_3",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "computed_inertia_3",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "computed_torque_3",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_position_3",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_velocity_3",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "joint_position_3",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "joint_velocity_3",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_torque_3",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "torque_sensor_a_3",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "torque_sensor_b_3",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_iq_3",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_id_3",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "power_motor_el_3",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "power_motor_mech_3",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "power_load_mech_3",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_voltage_3",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "supply_voltage_3",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "brake_voltage_3",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "target_position_4",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "target_velocity_4",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "target_acceleration_4",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "target_torque_4",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "computed_inertia_4",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "computed_torque_4",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_position_4",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_velocity_4",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "joint_position_4",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "joint_velocity_4",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_torque_4",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "torque_sensor_a_4",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "torque_sensor_b_4",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_iq_4",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_id_4",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "power_motor_el_4",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "power_motor_mech_4",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "power_load_mech_4",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_voltage_4",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "supply_voltage_4",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "brake_voltage_4",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "target_position_5",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "target_velocity_5",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "target_acceleration_5",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "target_torque_5",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "computed_inertia_5",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "computed_torque_5",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_position_5",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_velocity_5",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "joint_position_5",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "joint_velocity_5",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_torque_5",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "torque_sensor_a_5",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "torque_sensor_b_5",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_iq_5",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_id_5",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "power_motor_el_5",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "power_motor_mech_5",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "power_load_mech_5",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_voltage_5",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "supply_voltage_5",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "brake_voltage_5",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "target_position_6",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "target_velocity_6",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "target_acceleration_6",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "target_torque_6",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "computed_inertia_6",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "computed_torque_6",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_position_6",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_velocity_6",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "joint_position_6",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "joint_velocity_6",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_torque_6",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "torque_sensor_a_6",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "torque_sensor_b_6",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_iq_6",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_id_6",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "power_motor_el_6",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "power_motor_mech_6",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "power_load_mech_6",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "motor_voltage_6",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "supply_voltage_6",
+        "type": "double",
+        "nullable": true
+      },
+      {
+        "name": "brake_voltage_6",
+        "type": "double",
+        "nullable": true
+      }
+    ]
+  },
+  "counts": {
+    "parquet_row_groups": 1,
+    "rows": 2321690,
+    "samples": 2122,
+    "samples_with_mixed_anomaly_labels": 0,
+    "null_values_in_read_metadata_columns": {},
+    "rows_by_anomaly_label": [
+      {
+        "anomaly": "False",
+        "rows": 1488328
+      },
+      {
+        "anomaly": "True",
+        "rows": 833362
+      }
+    ],
+    "samples_by_anomaly_label": [
+      {
+        "anomaly": "False",
+        "samples": 1367
+      },
+      {
+        "anomaly": "True",
+        "samples": 755
+      }
+    ],
+    "samples_with_noncontiguous_file_blocks": 0,
+    "rows_by_action_and_anomaly_label": [
+      {
+        "action": "0",
+        "anomaly": "False",
+        "rows": 93305
+      },
+      {
+        "action": "0",
+        "anomaly": "True",
+        "rows": 51573
+      },
+      {
+        "action": "1",
+        "anomaly": "False",
+        "rows": 154911
+      },
+      {
+        "action": "1",
+        "anomaly": "True",
+        "rows": 85598
+      },
+      {
+        "action": "10",
+        "anomaly": "False",
+        "rows": 31469
+      },
+      {
+        "action": "10",
+        "anomaly": "True",
+        "rows": 17298
+      },
+      {
+        "action": "11",
+        "anomaly": "False",
+        "rows": 57114
+      },
+      {
+        "action": "11",
+        "anomaly": "True",
+        "rows": 31565
+      },
+      {
+        "action": "12",
+        "anomaly": "False",
+        "rows": 136354
+      },
+      {
+        "action": "12",
+        "anomaly": "True",
+        "rows": 75288
+      },
+      {
+        "action": "13",
+        "anomaly": "False",
+        "rows": 46195
+      },
+      {
+        "action": "13",
+        "anomaly": "True",
+        "rows": 25616
+      },
+      {
+        "action": "14",
+        "anomaly": "False",
+        "rows": 845
+      },
+      {
+        "action": "14",
+        "anomaly": "True",
+        "rows": 528
+      },
+      {
+        "action": "2",
+        "anomaly": "False",
+        "rows": 477351
+      },
+      {
+        "action": "2",
+        "anomaly": "True",
+        "rows": 275621
+      },
+      {
+        "action": "3",
+        "anomaly": "False",
+        "rows": 60036
+      },
+      {
+        "action": "3",
+        "anomaly": "True",
+        "rows": 33142
+      },
+      {
+        "action": "4",
+        "anomaly": "False",
+        "rows": 24763
+      },
+      {
+        "action": "4",
+        "anomaly": "True",
+        "rows": 13757
+      },
+      {
+        "action": "5",
+        "anomaly": "False",
+        "rows": 30319
+      },
+      {
+        "action": "5",
+        "anomaly": "True",
+        "rows": 16685
+      },
+      {
+        "action": "6",
+        "anomaly": "False",
+        "rows": 136419
+      },
+      {
+        "action": "6",
+        "anomaly": "True",
+        "rows": 74267
+      },
+      {
+        "action": "7",
+        "anomaly": "False",
+        "rows": 61569
+      },
+      {
+        "action": "7",
+        "anomaly": "True",
+        "rows": 34009
+      },
+      {
+        "action": "8",
+        "anomaly": "False",
+        "rows": 25602
+      },
+      {
+        "action": "8",
+        "anomaly": "True",
+        "rows": 14479
+      },
+      {
+        "action": "9",
+        "anomaly": "False",
+        "rows": 152076
+      },
+      {
+        "action": "9",
+        "anomaly": "True",
+        "rows": 83936
+      }
+    ]
+  },
+  "sample_length_rows": {
+    "min": 986,
+    "p05": 1055.0,
+    "p25": 1082.0,
+    "median": 1096.0,
+    "p75": 1110.0,
+    "p95": 1137.0,
+    "max": 1164
+  },
+  "sample_field_consistency": {
+    "anomaly": {
+      "single_value_samples": 2122,
+      "multiple_or_missing_value_samples": 0
+    },
+    "category": {
+      "single_value_samples": 2122,
+      "multiple_or_missing_value_samples": 0
+    },
+    "setting": {
+      "single_value_samples": 2122,
+      "multiple_or_missing_value_samples": 0
+    }
+  },
+  "within_sample_time_order": {
+    "comparable_adjacent_pairs": 2319568,
+    "nondecreasing_pairs": 2319568,
+    "strictly_increasing_pairs": 2319568,
+    "decreasing_pairs": 0,
+    "equal_adjacent_pairs": 0,
+    "uncomparable_adjacent_pairs": 0,
+    "samples_with_any_decreasing_adjacent_time": 0,
+    "samples_with_all_time_present": 2122
+  },
+  "setting_sample_support": [
+    {
+      "setting": "0",
+      "samples": 10,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 10
+        }
+      ]
+    },
+    {
+      "setting": "1",
+      "samples": 5,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 5
+        }
+      ]
+    },
+    {
+      "setting": "10",
+      "samples": 14,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 14
+        }
+      ]
+    },
+    {
+      "setting": "11",
+      "samples": 17,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 17
+        }
+      ]
+    },
+    {
+      "setting": "12",
+      "samples": 8,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 8
+        }
+      ]
+    },
+    {
+      "setting": "13",
+      "samples": 14,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 14
+        }
+      ]
+    },
+    {
+      "setting": "14",
+      "samples": 9,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 9
+        }
+      ]
+    },
+    {
+      "setting": "15",
+      "samples": 9,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 9
+        }
+      ]
+    },
+    {
+      "setting": "16",
+      "samples": 7,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 7
+        }
+      ]
+    },
+    {
+      "setting": "17",
+      "samples": 7,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 7
+        }
+      ]
+    },
+    {
+      "setting": "18",
+      "samples": 7,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 7
+        }
+      ]
+    },
+    {
+      "setting": "19",
+      "samples": 7,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 7
+        }
+      ]
+    },
+    {
+      "setting": "2",
+      "samples": 10,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 10
+        }
+      ]
+    },
+    {
+      "setting": "20",
+      "samples": 8,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 8
+        }
+      ]
+    },
+    {
+      "setting": "21",
+      "samples": 7,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 7
+        }
+      ]
+    },
+    {
+      "setting": "22",
+      "samples": 8,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 8
+        }
+      ]
+    },
+    {
+      "setting": "23",
+      "samples": 8,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 8
+        }
+      ]
+    },
+    {
+      "setting": "24",
+      "samples": 9,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 9
+        }
+      ]
+    },
+    {
+      "setting": "25",
+      "samples": 13,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 13
+        }
+      ]
+    },
+    {
+      "setting": "26",
+      "samples": 14,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 14
+        }
+      ]
+    },
+    {
+      "setting": "27",
+      "samples": 10,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 10
+        }
+      ]
+    },
+    {
+      "setting": "28",
+      "samples": 11,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 11
+        }
+      ]
+    },
+    {
+      "setting": "29",
+      "samples": 5,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 5
+        }
+      ]
+    },
+    {
+      "setting": "3",
+      "samples": 11,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 11
+        }
+      ]
+    },
+    {
+      "setting": "30",
+      "samples": 7,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 7
+        }
+      ]
+    },
+    {
+      "setting": "31",
+      "samples": 10,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 10
+        }
+      ]
+    },
+    {
+      "setting": "32",
+      "samples": 10,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 10
+        }
+      ]
+    },
+    {
+      "setting": "33",
+      "samples": 12,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 12
+        }
+      ]
+    },
+    {
+      "setting": "34",
+      "samples": 9,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 9
+        }
+      ]
+    },
+    {
+      "setting": "35",
+      "samples": 14,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 14
+        }
+      ]
+    },
+    {
+      "setting": "36",
+      "samples": 8,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 8
+        }
+      ]
+    },
+    {
+      "setting": "37",
+      "samples": 19,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 19
+        }
+      ]
+    },
+    {
+      "setting": "38",
+      "samples": 12,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 12
+        }
+      ]
+    },
+    {
+      "setting": "39",
+      "samples": 9,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 9
+        }
+      ]
+    },
+    {
+      "setting": "4",
+      "samples": 11,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 11
+        }
+      ]
+    },
+    {
+      "setting": "40",
+      "samples": 20,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 20
+        }
+      ]
+    },
+    {
+      "setting": "41",
+      "samples": 7,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 7
+        }
+      ]
+    },
+    {
+      "setting": "42",
+      "samples": 6,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 6
+        }
+      ]
+    },
+    {
+      "setting": "43",
+      "samples": 7,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 7
+        }
+      ]
+    },
+    {
+      "setting": "44",
+      "samples": 9,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 9
+        }
+      ]
+    },
+    {
+      "setting": "45",
+      "samples": 11,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 11
+        }
+      ]
+    },
+    {
+      "setting": "46",
+      "samples": 13,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 13
+        }
+      ]
+    },
+    {
+      "setting": "47",
+      "samples": 12,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 12
+        }
+      ]
+    },
+    {
+      "setting": "48",
+      "samples": 10,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 10
+        }
+      ]
+    },
+    {
+      "setting": "49",
+      "samples": 4,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 4
+        }
+      ]
+    },
+    {
+      "setting": "5",
+      "samples": 6,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 6
+        }
+      ]
+    },
+    {
+      "setting": "50",
+      "samples": 9,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 9
+        }
+      ]
+    },
+    {
+      "setting": "51",
+      "samples": 8,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 8
+        }
+      ]
+    },
+    {
+      "setting": "52",
+      "samples": 9,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 9
+        }
+      ]
+    },
+    {
+      "setting": "53",
+      "samples": 9,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 9
+        }
+      ]
+    },
+    {
+      "setting": "54",
+      "samples": 13,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 13
+        }
+      ]
+    },
+    {
+      "setting": "55",
+      "samples": 13,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 13
+        }
+      ]
+    },
+    {
+      "setting": "56",
+      "samples": 15,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 15
+        }
+      ]
+    },
+    {
+      "setting": "57",
+      "samples": 16,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 16
+        }
+      ]
+    },
+    {
+      "setting": "58",
+      "samples": 11,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 11
+        }
+      ]
+    },
+    {
+      "setting": "59",
+      "samples": 12,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 12
+        }
+      ]
+    },
+    {
+      "setting": "6",
+      "samples": 8,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 8
+        }
+      ]
+    },
+    {
+      "setting": "60",
+      "samples": 10,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 10
+        }
+      ]
+    },
+    {
+      "setting": "61",
+      "samples": 12,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 12
+        }
+      ]
+    },
+    {
+      "setting": "62",
+      "samples": 11,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 11
+        }
+      ]
+    },
+    {
+      "setting": "63",
+      "samples": 9,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 9
+        }
+      ]
+    },
+    {
+      "setting": "64",
+      "samples": 11,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 11
+        }
+      ]
+    },
+    {
+      "setting": "65",
+      "samples": 12,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 12
+        }
+      ]
+    },
+    {
+      "setting": "66",
+      "samples": 13,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 13
+        }
+      ]
+    },
+    {
+      "setting": "67",
+      "samples": 19,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 19
+        }
+      ]
+    },
+    {
+      "setting": "68",
+      "samples": 14,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 14
+        }
+      ]
+    },
+    {
+      "setting": "69",
+      "samples": 12,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 12
+        }
+      ]
+    },
+    {
+      "setting": "7",
+      "samples": 13,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 13
+        }
+      ]
+    },
+    {
+      "setting": "70",
+      "samples": 5,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 5
+        }
+      ]
+    },
+    {
+      "setting": "71",
+      "samples": 20,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 20
+        }
+      ]
+    },
+    {
+      "setting": "72",
+      "samples": 948,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "False",
+          "samples": 948
+        }
+      ]
+    },
+    {
+      "setting": "73",
+      "samples": 319,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "False",
+          "samples": 319
+        }
+      ]
+    },
+    {
+      "setting": "74",
+      "samples": 37,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "False",
+          "samples": 37
+        }
+      ]
+    },
+    {
+      "setting": "75",
+      "samples": 44,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "False",
+          "samples": 44
+        }
+      ]
+    },
+    {
+      "setting": "76",
+      "samples": 19,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "False",
+          "samples": 19
+        }
+      ]
+    },
+    {
+      "setting": "8",
+      "samples": 11,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 11
+        }
+      ]
+    },
+    {
+      "setting": "9",
+      "samples": 6,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 6
+        }
+      ]
+    }
+  ],
+  "category_sample_support": [
+    {
+      "category": "0",
+      "samples": 144,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 144
+        }
+      ]
+    },
+    {
+      "category": "1",
+      "samples": 156,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 156
+        }
+      ]
+    },
+    {
+      "category": "10",
+      "samples": 89,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 89
+        }
+      ]
+    },
+    {
+      "category": "11",
+      "samples": 37,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 37
+        }
+      ]
+    },
+    {
+      "category": "12",
+      "samples": 1367,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "False",
+          "samples": 1367
+        }
+      ]
+    },
+    {
+      "category": "2",
+      "samples": 72,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 72
+        }
+      ]
+    },
+    {
+      "category": "3",
+      "samples": 48,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 48
+        }
+      ]
+    },
+    {
+      "category": "4",
+      "samples": 22,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 22
+        }
+      ]
+    },
+    {
+      "category": "5",
+      "samples": 11,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 11
+        }
+      ]
+    },
+    {
+      "category": "6",
+      "samples": 74,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 74
+        }
+      ]
+    },
+    {
+      "category": "7",
+      "samples": 80,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 80
+        }
+      ]
+    },
+    {
+      "category": "8",
+      "samples": 10,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 10
+        }
+      ]
+    },
+    {
+      "category": "9",
+      "samples": 12,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "True",
+          "samples": 12
+        }
+      ]
+    }
+  ],
+  "action_sample_support": [
+    {
+      "action": "0",
+      "samples": 2122,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "False",
+          "samples": 1367
+        },
+        {
+          "anomaly": "True",
+          "samples": 755
+        }
+      ]
+    },
+    {
+      "action": "1",
+      "samples": 2122,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "False",
+          "samples": 1367
+        },
+        {
+          "anomaly": "True",
+          "samples": 755
+        }
+      ]
+    },
+    {
+      "action": "10",
+      "samples": 2122,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "False",
+          "samples": 1367
+        },
+        {
+          "anomaly": "True",
+          "samples": 755
+        }
+      ]
+    },
+    {
+      "action": "11",
+      "samples": 2122,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "False",
+          "samples": 1367
+        },
+        {
+          "anomaly": "True",
+          "samples": 755
+        }
+      ]
+    },
+    {
+      "action": "12",
+      "samples": 2122,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "False",
+          "samples": 1367
+        },
+        {
+          "anomaly": "True",
+          "samples": 755
+        }
+      ]
+    },
+    {
+      "action": "13",
+      "samples": 2122,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "False",
+          "samples": 1367
+        },
+        {
+          "anomaly": "True",
+          "samples": 755
+        }
+      ]
+    },
+    {
+      "action": "14",
+      "samples": 558,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "False",
+          "samples": 348
+        },
+        {
+          "anomaly": "True",
+          "samples": 210
+        }
+      ]
+    },
+    {
+      "action": "2",
+      "samples": 2122,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "False",
+          "samples": 1367
+        },
+        {
+          "anomaly": "True",
+          "samples": 755
+        }
+      ]
+    },
+    {
+      "action": "3",
+      "samples": 2122,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "False",
+          "samples": 1367
+        },
+        {
+          "anomaly": "True",
+          "samples": 755
+        }
+      ]
+    },
+    {
+      "action": "4",
+      "samples": 2122,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "False",
+          "samples": 1367
+        },
+        {
+          "anomaly": "True",
+          "samples": 755
+        }
+      ]
+    },
+    {
+      "action": "5",
+      "samples": 2122,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "False",
+          "samples": 1367
+        },
+        {
+          "anomaly": "True",
+          "samples": 755
+        }
+      ]
+    },
+    {
+      "action": "6",
+      "samples": 2122,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "False",
+          "samples": 1367
+        },
+        {
+          "anomaly": "True",
+          "samples": 755
+        }
+      ]
+    },
+    {
+      "action": "7",
+      "samples": 2122,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "False",
+          "samples": 1367
+        },
+        {
+          "anomaly": "True",
+          "samples": 755
+        }
+      ]
+    },
+    {
+      "action": "8",
+      "samples": 2122,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "False",
+          "samples": 1367
+        },
+        {
+          "anomaly": "True",
+          "samples": 755
+        }
+      ]
+    },
+    {
+      "action": "9",
+      "samples": 2122,
+      "samples_by_anomaly_label": [
+        {
+          "anomaly": "False",
+          "samples": 1367
+        },
+        {
+          "anomaly": "True",
+          "samples": 755
+        }
+      ]
+    }
+  ],
+  "setting_action_candidate_support": {
+    "distinct_strata": 1152,
+    "sample_support_per_stratum": {
+      "min": 1,
+      "p05": 4.0,
+      "p25": 8.0,
+      "median": 10.0,
+      "p75": 13.0,
+      "p95": 27.650000000000773,
+      "max": 948
+    },
+    "strata_by_anomaly_support": {
+      "False": 75,
+      "True": 1077
+    },
+    "actions_per_sample": {
+      "min": 14,
+      "p05": 14.0,
+      "p25": 14.0,
+      "median": 14.0,
+      "p75": 15.0,
+      "p95": 15.0,
+      "max": 15
+    },
+    "setting_action_strata_per_sample": {
+      "min": 14,
+      "p05": 14.0,
+      "p25": 14.0,
+      "median": 14.0,
+      "p75": 15.0,
+      "p95": 15.0,
+      "max": 15
+    }
+  }
+}

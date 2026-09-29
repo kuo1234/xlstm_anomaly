@@ -1,0 +1,50 @@
+{
+  "audit_date": "2026-09-29",
+  "primary": {
+    "name": "voraus-AD 100 Hz",
+    "role": "primary candidate",
+    "download_url": "https://media.vorausrobotik.com/voraus-ad-dataset-100hz.parquet",
+    "downloaded_for_this_audit": true,
+    "file_name": "voraus-ad-dataset-100hz.parquet",
+    "file_size_bytes": 1115942833,
+    "sha256": "c90ab1c78af52651b954d41787f7e89d750f0a128b57600b0e5ceec22621f704",
+    "observed_http_metadata": {
+      "last_modified": "2026-04-10",
+      "etag": "\"69d8ea42-4283efb1\"",
+      "note": "ETag is recorded as retrieval metadata, not treated as a cryptographic checksum."
+    },
+    "official_repository": "https://github.com/vorausrobotik/voraus-ad-dataset",
+    "official_repository_commit": "a91a86a642d23df58833b792a53de01edfd81abe",
+    "paper": "https://arxiv.org/abs/2311.04765",
+    "paper_version_used": "arXiv:2311.04765v1",
+    "license": "CC BY-NC-SA 4.0",
+    "license_source": "https://github.com/vorausrobotik/voraus-ad-dataset/blob/a91a86a642d23df58833b792a53de01edfd81abe/README.md",
+    "raw_file_committed": false
+  },
+  "external_validation": {
+    "name": "AURSAD v1.1",
+    "role": "external-validation candidate; locked against tuning",
+    "zenodo_record": "https://zenodo.org/records/4559556",
+    "doi": "10.5281/zenodo.4559556",
+    "version": "1.1",
+    "file_name": "AURSAD.h5",
+    "file_size_bytes": 6417816949,
+    "official_md5": "08e4706cf15144761a12cb86bd071d72",
+    "sha256": "40ae5ce055a7f9cf399f4485bc667c81171013b3742799ed3f28f1e7243c7aea",
+    "sha256_provenance": {
+      "repository": "https://github.com/priestly-ops/COLDSTART",
+      "commit": "9454d21f1f0ee4924868ce171607e19a3648f1ec",
+      "artifact": "reports/aursad/aursad_episode_audit.json",
+      "verification_note": "The pinned audit reports this SHA-256 and the same file size as Zenodo. The official MD5 is recorded separately; MD5-to-SHA256 byte correspondence was not independently checked in this turn."
+    },
+    "license": "CC BY 4.0",
+    "license_source": "https://zenodo.org/api/records/4559556 (metadata.license.id = cc-by-4.0)",
+    "fully_downloaded_for_this_audit": false,
+    "raw_file_committed": false,
+    "note": "A partial temporary download was not used as evidence or hashed as if complete."
+  },
+  "coldstart_review_pin": {
+    "repository": "https://github.com/priestly-ops/COLDSTART",
+    "commit": "9454d21f1f0ee4924868ce171607e19a3648f1ec"
+  }
+}
