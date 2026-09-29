@@ -1,0 +1,86 @@
+{
+  "schema_version": "p5-0b3-source-failure-summary-v1",
+  "strata": [
+    {
+      "manufacturer": "manufacturer 1",
+      "configuration_type": "SH + DHW",
+      "status": "SOURCE_MODEL_NOT_EVALUABLE",
+      "failure_stage": "readiness_candidate_evaluation",
+      "source_entity_count": 23,
+      "fold_support_status": "PASS",
+      "failing_fold_count": 0,
+      "common_heldout_entity_count": 4,
+      "pseudo_target_eligibility_reason_counts": {
+        "eligible": 2,
+        "insufficient_finite_normal_suffix_scores": 6,
+        "no_eligible_fault_report": 5,
+        "prefix_elapsed_out_of_range": 1,
+        "prefix_not_annotation_clean": 9
+      },
+      "eligible_pseudo_target_count": 2,
+      "readiness_selection": "NOT_REACHED",
+      "max_joint_success_count": null,
+      "candidate_count_evaluated": null
+    },
+    {
+      "manufacturer": "manufacturer 1",
+      "configuration_type": "SH + DHW with sub-circuits",
+      "status": "SOURCE_MODEL_NOT_EVALUABLE",
+      "failure_stage": "detector_candidate_selection",
+      "source_entity_count": 6,
+      "fold_support_status": "PASS",
+      "failing_fold_count": 0,
+      "common_heldout_entity_count": null,
+      "pseudo_target_eligibility_reason_counts": null,
+      "eligible_pseudo_target_count": null,
+      "readiness_selection": "NOT_REACHED",
+      "max_joint_success_count": null,
+      "candidate_count_evaluated": null
+    },
+    {
+      "manufacturer": "manufacturer 2",
+      "configuration_type": "SH",
+      "status": "SOURCE_MODEL_NOT_EVALUABLE",
+      "failure_stage": "detector_candidate_selection",
+      "source_entity_count": 16,
+      "fold_support_status": "PASS",
+      "failing_fold_count": 0,
+      "common_heldout_entity_count": null,
+      "pseudo_target_eligibility_reason_counts": null,
+      "eligible_pseudo_target_count": null,
+      "readiness_selection": "NOT_REACHED",
+      "max_joint_success_count": null,
+      "candidate_count_evaluated": null
+    },
+    {
+      "manufacturer": "manufacturer 2",
+      "configuration_type": "SH + DHW",
+      "status": "SOURCE_MODEL_NOT_EVALUABLE",
+      "failure_stage": "detector_candidate_selection",
+      "source_entity_count": 18,
+      "fold_support_status": "PASS",
+      "failing_fold_count": 0,
+      "common_heldout_entity_count": null,
+      "pseudo_target_eligibility_reason_counts": null,
+      "eligible_pseudo_target_count": null,
+      "readiness_selection": "NOT_REACHED",
+      "max_joint_success_count": null,
+      "candidate_count_evaluated": null
+    },
+    {
+      "manufacturer": "manufacturer 2",
+      "configuration_type": "SH with buffer tank",
+      "status": "SOURCE_MODEL_NOT_EVALUABLE",
+      "failure_stage": "detector_candidate_selection",
+      "source_entity_count": 11,
+      "fold_support_status": "PASS",
+      "failing_fold_count": 0,
+      "common_heldout_entity_count": null,
+      "pseudo_target_eligibility_reason_counts": null,
+      "eligible_pseudo_target_count": null,
+      "readiness_selection": "NOT_REACHED",
+      "max_joint_success_count": null,
+      "candidate_count_evaluated": null
+    }
+  ]
+}

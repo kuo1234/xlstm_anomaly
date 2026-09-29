@@ -1,0 +1,90 @@
+{
+  "execution": {
+    "branch": "research/p5-0b3-source-only-development",
+    "commit": "ca658bcda7c910bb70dd629c6c6409db7a2f0c43",
+    "no_protocol_change_after_completed_run": true,
+    "no_protocol_change_during_sealing": true,
+    "no_rerun_after_completed_run": true,
+    "run_mode": "existing completed SOURCE-only run; result sealing and diagnosis only",
+    "run_timestamp_evidence_utc": {
+      "basis": "Host filesystem modification times; exact process start/end wall-clock timestamps were not persisted.",
+      "source_projection_filesystem_mtime": "2026-09-28T08:01:52.236068+00:00",
+      "source_summary_filesystem_mtime": "2026-09-28T17:32:44.524380+00:00"
+    },
+    "target_access": "NOT_AUTHORIZED",
+    "target_access_performed": false
+  },
+  "firewall": {
+    "outside_operational_universe_rows_discarded": true,
+    "outside_universe_semantic_fields_accessed": false,
+    "result": "P5_0B3_FIREWALL_OK",
+    "source_labels_checksum_sidecar_sha256": "33c17852a848ed64872a786e475bf7cdccbeaa75a73f8227b3459ac6754c44cc",
+    "source_labels_payload_sha256": "b5b48a90524af73685f53bf3f37c945f6b54b1265c4037e1ab3d25d6c43915ac",
+    "source_operational_rows_opened_before_firewall_ok": false
+  },
+  "protocol": {
+    "evaluation_contract_sha256": "775bb6b6b8355def017194faae5e4257f3442d0863e1dc06ac38005d79fdb59d",
+    "protocol_seal_sha256": "1cf2da3dd56950bad2aee207c3d4eb3f11f74d8115e62a70d6c652ff28314a1c",
+    "scientific_estimand_changed": false,
+    "source_development_protocol_sha256": "02b8b2828990a47407e2ecacf0ab42ff1618f35ad599d05464e55fc2e1ccf122"
+  },
+  "results": {
+    "private_audit_artifacts": [
+      {
+        "artifact": "stratum_00_audit.json",
+        "byte_size": 6730,
+        "sha256": "fae22e4e20f62cf59a5480e954f3dd4af3da97a02f88e7f121ba6b99d11ac1de"
+      },
+      {
+        "artifact": "stratum_01_audit.json",
+        "byte_size": 2945,
+        "sha256": "2e64679e610b1a743368efd1918b4cf06405ab04cf9e1e7190f04ee4ebf5408d"
+      },
+      {
+        "artifact": "stratum_02_audit.json",
+        "byte_size": 4379,
+        "sha256": "d22984a5982a219a443bde7c49f4cfd12311925cb38631097d1305d49f85bdec"
+      },
+      {
+        "artifact": "stratum_03_audit.json",
+        "byte_size": 4676,
+        "sha256": "b79cde3dd9356ddc6c124688d145647ed48afd5476006bb5dab7179cb6bf08b0"
+      },
+      {
+        "artifact": "stratum_04_audit.json",
+        "byte_size": 3645,
+        "sha256": "6e09d3a87525285a97fa5c74843aabda897cb8affb0bdbf1716086233ee8f13a"
+      }
+    ],
+    "private_audit_artifacts_committed": false,
+    "source_failure_summary_path": "research/p5_0b3/results/source_failure_summary.json",
+    "source_failure_summary_sha256": "4968cf5dedb191fa579bf224bda00b2941455a67b8f95908ee80533ec83939eb",
+    "source_projection_sha256": "b44eff28c35f8ada8981c4b6c60ae52655eafebdf0beb91fc5723155ddf9b1ff",
+    "source_summary_path": "research/p5_0b3/results/source_summary.json",
+    "source_summary_sha256": "46acbc0b58e5456866e806204393ae5d07edeaac5fe287e4dcbdce6be8358f1c",
+    "summarizer_sha256": "5448f5aeba257bf41301e08860ac0fe213ccdb6ab11c7886524b2024711d87d0"
+  },
+  "runtime": {
+    "deterministic_ops": true,
+    "device": "CPU",
+    "efd_commit": "ced470e1386066931bad32f3cb6e24bac9c5bb89",
+    "efd_tree": "899d9ea5a891508bb6b447ca4cd7a9b825607209",
+    "inter_threads": 1,
+    "intra_threads": 1,
+    "keras": "3.15.1",
+    "numpy": "1.26.4",
+    "python": "3.12.3",
+    "pythonhashseed": 17,
+    "runtime_lock_sha256": "5cc46d5a1b2dc63dd4ec1f879babd337a97481f1af8595603ea9ed97ecfad9a5",
+    "runtime_preflight_result_sha256": "e5ea82ab60d69e1578d4cef835e815c83e1d0fdb63eaa17a645557cbac9cb939",
+    "tensorflow": "2.18.1"
+  },
+  "safe_access_summary": {
+    "expected_source_entities": 74,
+    "opened_source_files": 74,
+    "target_operational_files_opened": 0,
+    "target_semantic_rows_released": 0
+  },
+  "schema_version": "p5-0b3-source-result-seal-v1",
+  "sealed_at_utc": "2026-09-29T04:08:58+00:00"
+}
