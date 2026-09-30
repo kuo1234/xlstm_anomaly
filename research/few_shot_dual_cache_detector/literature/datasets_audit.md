@@ -1,3 +1,10 @@
+> **v0.4 更正說明（2026-09-30）**：本報告為 2026-09-29 的歷史紀錄。依 #12 的二次審查，更正如下：
+> - **CARE to Compare** 固定使用 **v6**（DOI 10.5281/zenodo.15846963，95 個事件、36 台、3 座風場、**45 anomaly／50 normal**）。原本記錄的 14006163 和「44／51」已過期。**時間戳是逐檔匿名**，無法重建跨事件的真實時間順序，因此不能用於長期老化或持續適應的 replay；89 turbine-years 是事件窗口的加總。
+> - **Penmanshiel** 的機型是 **Senvion MM82**，不是 MM92；最新版本為 v3（10.5281/zenodo.16807304），涵蓋 2016–2024。
+> - **Kelmarsh** 的最新版本為 v4（10.5281/zenodo.16807551），涵蓋 2016–2024。
+> - Kelmarsh／Penmanshiel 只是可行性候選，**尚未通過資料 gate**。
+> - 以下內文保留原樣，衝突時以 `datasets_audit.json` 與 `../proposal_v0.4.md` §6 為準。
+
 # Dataset Audit: Machine-Data Forecasting Under Long-Horizon Drift
 
 _Audit date: 2026-09-29. Prepared for thesis scoping — online/test-time adaptation of multivariate forecasters under real drift (Direction 2), and retrieval-memory forecasting across recurring operating regimes (Direction 3)._

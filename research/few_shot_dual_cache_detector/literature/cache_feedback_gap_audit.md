@@ -1,3 +1,8 @@
+> **v0.4 更正說明（2026-09-30）**：本報告為 2026-09-29 的歷史紀錄。依 #12 的二次審查：
+> - **G4g 的廣義版本已被推翻**：CLAP-S（arXiv:2501.09877）已在光纖聲學感測上使用 Tip 式 support memory，並比較 Tip 與 Tip-F；EEG Tip-F（10.1088/2632-2153/ae15e5）也是先例。
+> - **G4c 的同 shot 數比較已被佔據**（Tip-Adapter、CLAP-S）；一般性的適應傷害也已有研究（arXiv:2507.08721、arXiv:2501.04352）；cache 汙染的清理有 PuRF（arXiv:2608.25653）。
+> - 目前只保留窄版本（同一份證據紀錄下的 false absorption 與 rollback residual harm），標記為 OPEN_AT_SEARCH_DEPTH／待證。見 `../proposal_v0.4.md` §5。
+
 # Gap Audit: Cache-Based Adaptation and Feedback-Driven Detector Updating for Time-Series Anomaly Detection
 
 Search date: 2026-09-29. Sources: OpenAlex (keyed API), arXiv API, CrossRef, Unpaywall/Semantic Scholar/PMC via full-text fetch. All papers listed were verified by a real lookup this session (verification levels recorded per entry in `cache_feedback_papers.json`); none are cited from memory alone.

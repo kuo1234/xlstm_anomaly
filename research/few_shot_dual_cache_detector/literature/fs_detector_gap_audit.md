@@ -1,3 +1,9 @@
+> **v0.4 更正說明（2026-09-30）**：本報告為 2026-09-29 的歷史紀錄。依 #12 的二次審查：
+> - G4c 的廣義版本已被佔據（Tip-Adapter、CLAP-S）。
+> - G4d 出現新威脅（iADCPS arXiv:2504.04374、Axle Sensor Fusion arXiv:2602.16101、Wang et al. 2023 10.1109/TIM.2023.3265118）。
+> - CARE 改用 v6，而且不能用於跨事件的時間順序實驗。
+> - 目前主張見 `../proposal_v0.4.md` §5，最接近的文獻見 `v0.4_closest_competitors.json`。
+
 # Task A Gap Audit: Universal / Few-Shot Time-Series Anomaly Detectors for Machines
 
 *Audit date: 2026-09-29. Coverage target: 2023-2026 including arXiv through September 2026.*

@@ -211,8 +211,8 @@ RQ5 直接回答你最初的問題：「LLM 的長短期記憶能不能推廣到
 
 ## 附：審查輸出檔
 
-- 方向 2 缺口審查：[d2_gap_audit.md]({{artifact:7c2e432c-975a-4669-848c-07e20ac8b907}})；論文清單：[d2_papers.json]({{artifact:4dceff32-9c16-41ab-ad64-6bd6c65fbad7}})（33 篇）
-- 方向 3 缺口審查：[d3_gap_audit.md]({{artifact:3e959f4f-597f-4236-9f4b-f24ef877a002}})；論文清單：[d3_papers.json]({{artifact:fa60ded4-c4b3-491a-9165-3e27f8dcbefc}})（42 篇）
-- 資料集審查：[datasets_audit.md]({{artifact:aaf41d9f-a481-4204-9fde-89349a3d2ed3}})／[datasets_audit.json]({{artifact:60929f6e-01c0-4c08-b7e6-7d6f6ee29e71}})（19 個資料集）
+- 方向 2 缺口審查：[d2_gap_audit.md](../literature/d2_online_adaptation_gap_audit.md)；論文清單：[d2_papers.json](../literature/d2_online_adaptation_papers.json)（33 篇）
+- 方向 3 缺口審查：[d3_gap_audit.md](../literature/d3_retrieval_memory_gap_audit.md)；論文清單：[d3_papers.json](../literature/d3_retrieval_memory_papers.json)（42 篇）
+- 資料集審查：[datasets_audit.md](../literature/datasets_audit.md)／[datasets_audit.json](../literature/datasets_audit.json)（19 個資料集）
 
 **審查限制**：OPEN_AT_SEARCH_DEPTH 只代表在本次查詢範圍內沒找到，不代表證明不存在。RevIN 與 ICLR 2025 的洩漏修正論文只驗證到書目資料；JITL 的關鍵論文因付費牆未能閱讀；資料集只驗證到 landing page 或 API metadata，欄位與時間範圍在選定後需要重新確認。

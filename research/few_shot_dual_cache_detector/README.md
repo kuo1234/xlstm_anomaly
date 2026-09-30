@@ -1,38 +1,41 @@
-# Few-shot universal detector with dual cache（P7 研究構想紀錄）
+# P7：部署後正常參考更新的安全性（研究構想紀錄）
 
 **Issue**：[#12](https://github.com/kuo1234/xlstm_anomaly/issues/12)
-**Branch**：`research/few-shot-dual-cache-detector`（只有文件；base `origin/main` 60fd1ce）
-**日期**：2026-09-29
-**狀態**：`RESEARCH_BACKLOG / AWAITING_SECOND_REVIEW`
+**Branch**：`research/few-shot-dual-cache-detector`（只有文件）
+**狀態**：`REFRAME / docs-only v0.4 delivered / awaiting review`（2026-09-30）
 
-本目錄記錄論文題目的探索過程與目前的構想。**不授權任何訓練、GPU 實驗或標籤存取**；也沒有修改 M1（#11）或 P5（#9）。
+本目錄記錄論文題目的探索過程與目前的構想。**不授權任何訓練、GPU／CPU／toy 實驗、方法實作、標籤存取或資料下載**；也沒有修改 M1（#11）、P5（#9）或 main。
 
-## 一句話
+## 目前的主張（v0.4）
 
-一個凍結的通用異常偵測器，給它 K 筆新機台的正常樣本就上線。之後靠正常 cache 和故障 cache 持續學習，以面對機台老化和新故障型態。持續偏離要升格為正常時，必須有**訊號歷史以外的證據**，例如 context、內部 context、peer 或操作員回饋。核心研究問題是：只動 cache 什麼時候就夠，什麼時候必須動權重？
+> 在固定、而且有到達時序的證據紀錄下，部署後對正常參考的更新會造成多少故障誤吸收？cache 與參數更新之間，傷害大小、撤銷範圍和回滾後的殘餘傷害有什麼差異？
+
+- **主文件**：[proposal_v0.4.md](proposal_v0.4.md)。包含三層證據的准入規則、縮小後的新意主張、資料邊界、證據紀錄與指標規格、rollback lineage，以及 JITL 補查狀態。
+- 工作假說 H1（**待證**）：在相同證據下，cache 式更新的誤吸收比較容易被偵測與撤銷。
+- 以下主張**都不能**宣稱：通用偵測器、已能辨識良性老化、完整的新故障型態持續學習、「首次把 cache 用在感測訊號」、coverage 或安全保證。
+
+## 歷史主張與目前主張
+
+| 版本 | 主張 | 狀態 |
+|---|---|---|
+| [history/proposal_v0.1_retrieval_forecasting.md](history/proposal_v0.1_retrieval_forecasting.md) | 檢索式預測記憶，以延遲誤差估計效用並據此維護 | 歷史；D3 **不升為核心**（見 v0.4 §8） |
+| [history/proposal_v0.2_dual_cache_detector.md](history/proposal_v0.2_dual_cache_detector.md) | 通用偵測器＋雙 cache＋以操作員回饋為必要條件 | 歷史 |
+| [proposal_v0.3.md](proposal_v0.3.md) | context 優先；「持續且可被解釋」即可升格；SMD 接 CARE 做長期老化 | 歷史；**被 v0.4 取代**。其中「context 可解釋即正常」、G4g 廣義版本、CARE 跨事件老化、anchor／conformal 保證都已撤回 |
+| **[proposal_v0.4.md](proposal_v0.4.md)** | 證據紀錄下的准入安全性、誤吸收、撤銷與殘餘傷害 | **目前版本** |
 
 ## 檔案
 
 | 檔案 | 內容 |
 |---|---|
-| [proposal_v0.3.md](proposal_v0.3.md) | **目前版本的研究計畫**：context 優先、回饋選配、SMD 加 CARE 兩階段 |
-| [problems_and_feasibility.md](problems_and_feasibility.md) | 8 個主要問題、解法、SMD 的實測事實、可行性評估 |
-| [second_review_request.md](second_review_request.md) | **給 ChatGPT 的二次調查清單**（A1–C11），附回覆格式 |
-| [literature/gap_summary.md](literature/gap_summary.md) | 四輪文獻缺口審查的總表與限制 |
-| literature/*_gap_audit.md、*_papers.json | 各輪的完整審查報告與論文清單（附 verification_level） |
-| literature/datasets_audit.* | 19 個機台資料集的審查 |
-| [toy_identifiability_sim/](toy_identifiability_sim/) | 自我確認 cache 規則的 toy 模擬：`sim.py` 可重現 `results.csv` 和 `figure.png` |
-| history/proposal_v0.1_retrieval_forecasting.md | 備案：檢索式預測的記憶維護（D3） |
-| history/proposal_v0.2_dual_cache_detector.md | 前一版：以操作員回饋為必要條件 |
-
-## 演進
-
-1. **v0.1**（預測方向）：用延遲誤差估計檢索記憶的效用，並據此維護記憶；Kelmarsh／Penmanshiel 為主資料。
-2. **v0.2**（使用者釐清目標是 detector）：凍結通用偵測器＋雙 cache＋操作員回饋；CARE to Compare 為主資料。
-3. **v0.3**（使用者提出「時間累積就能判定」的構想）：toy 模擬顯示只看時間的規則會吸收持續故障，因此改為 context 優先、回饋選配；加入 SMD 作為第一階段資料。
+| [proposal_v0.4.md](proposal_v0.4.md) | 目前的研究計畫 |
+| [problems_and_feasibility.md](problems_and_feasibility.md) | 問題、解法與可行性評估（已更新到 v0.4） |
+| [literature/gap_summary.md](literature/gap_summary.md) | 缺口判定的變化、最接近的文獻、未解決項目 |
+| [literature/v0.4_closest_competitors.json](literature/v0.4_closest_competitors.json) | 14 筆最接近的文獻，附查核層級 |
+| literature/*_gap_audit.md、*_papers.json、datasets_audit.* | 各輪的原始審查（開頭附 v0.4 更正說明） |
+| [second_review_request.md](second_review_request.md) | 給二次審查的清單（已完成，結論為 REFRAME） |
+| [toy_identifiability_sim/](toy_identifiability_sim/) | toy 模擬（本次未更動，也未重跑） |
 
 ## 資料存取聲明
 
-- 只讀取了本機 `xlstm_anomaly-realdata` 中 SMD machine-1-4 和 machine-2-1 的 train 與 test **特徵檔**，用來確認形狀和常數通道數量。
-- **未開啟任何標籤檔。**
-- toy 模擬只使用合成資料。
+- v0.3：只讀取了本機 SMD machine-1-4 和 machine-2-1 的 train 與 test **特徵檔**，沒有開啟任何標籤檔。
+- v0.4：沒有存取任何資料或標籤，也沒有執行任何實驗。MWAdp-JITL 的全文由使用者提供 PDF 供閱讀，**PDF 沒有放入 repo**。

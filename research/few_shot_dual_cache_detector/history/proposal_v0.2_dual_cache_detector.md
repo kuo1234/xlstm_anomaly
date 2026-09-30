@@ -168,9 +168,9 @@ repo #3 已經確立：**只看訊號本身，無法區分良性新工況和持�
 
 ## 附：審查輸出檔
 
-- few-shot TSAD 缺口審查：[fs_detector_gap_audit.md]({{artifact:7056e445-cd0e-404f-8b65-961a275605a8}})；[fs_detector_papers.json]({{artifact:7b2f8b56-dc85-4241-9cb3-9dc5d464a6f1}})（29 篇）
-- cache 與回饋缺口審查：[cache_feedback_gap_audit.md]({{artifact:786e7f1c-0862-4b8f-a9fd-6ed85f48ab8e}})；[cache_feedback_papers.json]({{artifact:84d62eab-9222-4db6-bd37-91ba56648b9e}})（20 篇）
-- 資料集審查（前一輪）：[datasets_audit.md]({{artifact:aaf41d9f-a481-4204-9fde-89349a3d2ed3}})
-- v0.1 預測版計畫：[thesis_proposal_outline.md]({{artifact:8cf9313b-23fd-4f99-b80f-ca17193e4e78}})
+- few-shot TSAD 缺口審查：[fs_detector_gap_audit.md](../literature/fs_detector_gap_audit.md)；[fs_detector_papers.json](../literature/fs_detector_papers.json)（29 篇）
+- cache 與回饋缺口審查：[cache_feedback_gap_audit.md](../literature/cache_feedback_gap_audit.md)；[cache_feedback_papers.json](../literature/cache_feedback_papers.json)（20 篇）
+- 資料集審查（前一輪）：[datasets_audit.md](../literature/datasets_audit.md)
+- v0.1 預測版計畫：[thesis_proposal_outline.md](proposal_v0.1_retrieval_forecasting.md)
 
 **審查限制**：OPEN_AT_SEARCH_DEPTH 只代表在本次查詢範圍內沒找到。這一輪 arXiv 和 Semantic Scholar 有 rate limit，部分查詢改走 OpenAlex，最新的預印本可能有遺漏。Tip-Adapter、AAD 只驗證到書目資料；IUF 和 DCASE 2024 的說明論文只讀了摘要；CWRU 和 TEP 的官方頁面無法連線，只透過次要來源確認。

@@ -1,43 +1,58 @@
-# 文獻缺口審查總表（2026-09-29）
+# 文獻缺口審查總表（v0.4，2026-09-30）
 
-判定用語：OCCUPIED／PARTIALLY_OCCUPIED／OPEN_AT_SEARCH_DEPTH（在列出的查詢範圍內未見前例，**不是**證明不存在）／UNRESOLVED。
-各輪的完整證據、查詢語句和最接近的競爭者，請見同目錄下的 `*_gap_audit.md`；論文清單在 `*_papers.json`，每筆都標註了 verification_level。
+判定用語：OCCUPIED／PARTIALLY_OCCUPIED／OPEN_AT_SEARCH_DEPTH（在列出的查詢深度內未確認，**不是**證明不存在）／CONTRADICTED／UNRESOLVED。
+本表整合了 2026-09-29 的四輪審查，以及 #12 的兩份二次審查：[Codex](https://github.com/kuo1234/xlstm_anomaly/issues/12#issuecomment-5896220289)、[ChatGPT](https://github.com/kuo1234/xlstm_anomaly/issues/12#issuecomment-5896418052)。**目前主張以 [../proposal_v0.4.md](../proposal_v0.4.md) §5 為準**；各輪的 `*_gap_audit.md` 是歷史紀錄，檔案開頭都加了 v0.4 更正說明。
 
-| 輪次 | 主題 | JSON 筆數 | 檔案 |
-|---|---|---|---|
-| D2 | 預測模型的線上適應（慢模型＋快 adapter、延遲標籤、gate） | 35 | d2_online_adaptation_* |
-| D3 | 檢索式預測記憶與部署後的維護 | 42 | d3_retrieval_memory_* |
-| D4a | 通用或少樣本 TSAD、跨機台、新故障型態 | 29 | fs_detector_* |
-| D4b | cache 式適應與回饋驅動的偵測器更新 | 20 | cache_feedback_* |
-| DS | 機台資料集（19 個） | — | datasets_audit.* |
+## 1. 檔案
 
-## 與本構想最相關的判定（D4）
-
-| 缺口 | 判定 | 最接近的工作 |
+| 檔案 | 內容 | 筆數 |
 |---|---|---|
-| G4a 凍結通用 TS 偵測器＋新機台 few-shot cache | PARTIALLY_OCCUPIED | DADA（ICLR 2025, arXiv:2405.15273）；PatchCore few-shot（arXiv:2307.10792）；DCASE 2023–2024 Task 2 first-shot（arXiv:2406.07250） |
-| G4b 以延遲操作員回饋更新雙 cache，並有 quarantine | PARTIALLY_OCCUPIED（各元件分散在不同文獻） | TDA（arXiv:2403.18293）、DMN（arXiv:2403.17589），兩者用偽標籤；AAD（10.1109/icdm.2016.0102）；Siddiqui KDD 2018（10.1145/3219819.3220083）；DeepLog（10.1145/3133956.3134015）；DRA（arXiv:2203.14506） |
-| G4c 相同預算下 L0／L1／L2 的正面比較，附 false-absorption 指標 | **OPEN_AT_SEARCH_DEPTH** | 只有同一篇論文內的比較，例如 Tip-Adapter vs. -F；PromptAD（CVPR 2024） |
-| G4d 同一機制既吸收老化又學新故障，並量測誤吸收 | **OPEN_AT_SEARCH_DEPTH** | AnDri（arXiv:2506.15831）；UCAD（AAAI 2024）；IUF（ECCV 2024） |
-| G4e few-shot 閾值與 FPR 可靠度 | PARTIALLY_OCCUPIED | ColdFusion（ACL Findings 2024, 10.18653/v1/2024.findings-acl.453）；COLDSTART |
-| G4f 真實機台、長期部署、多種故障型態的評估 | **OPEN_AT_SEARCH_DEPTH** | — |
-| G4g Tip-Adapter／TDA 式 cache 轉移到時間序列 | **OPEN_AT_SEARCH_DEPTH** | — |
+| [v0.4_closest_competitors.json](v0.4_closest_competitors.json) | **v0.4 新增的最接近文獻**：識別碼、發現來源、審查者的閱讀層級、本代理的查核層級、已佔據的貢獻、尚未確認的交集 | 14 |
+| d2_online_adaptation_* | 預測模型的線上適應（備案方向） | 35 |
+| d3_retrieval_memory_* | 檢索記憶與維護（備案方向；MWAdp-JITL 已讀全文，另新增 2 筆 JITL） | 44 |
+| fs_detector_* | 通用或少樣本 TSAD | 29 |
+| cache_feedback_* | cache 式適應與回饋 | 20 |
+| datasets_audit.* | 19 個資料集；CARE、Kelmarsh、Penmanshiel 已更正 | — |
 
-## D2／D3 的主要判定（備案方向）
+## 2. 判定變化（原始 → v0.4）
 
-- G2a 延遲標籤協定、G2b gate、G2c 慢加快結構：PARTIALLY_OCCUPIED。主要威脅是 Proceed（arXiv:2412.08435）與 PADRE（IJCAI 2026, 10.24963/ijcai.2026/503）。
-- G2d 線上更新不學入故障（機台資料）、G2e 基礎模型 vs. 線上適應在多年期資料上比較：OPEN_AT_SEARCH_DEPTH。
-- G3a 檢索資料庫部署後的維護、G3b 以延遲誤差估計記憶效用：OPEN_AT_SEARCH_DEPTH。主要威脅是 SARAF（KDD 2026, 10.1145/3770855.3817813）、JITL 軟感測器文獻、SAM-kNN。
+| 缺口 | 2026-09-29 判定 | v0.4 判定 | 變化原因 |
+|---|---|---|---|
+| G4a 凍結通用偵測器＋few-shot cache | PARTIALLY_OCCUPIED | PARTIALLY_OCCUPIED（不再作為主張） | 論文主軸改為准入安全 |
+| G4b 雙 cache＋延遲操作員回饋 | PARTIALLY_OCCUPIED | 併入 RQ2（E2 證據） | — |
+| G4c cache vs. 權重 | OPEN_AT_SEARCH_DEPTH | 廣義版本 **OCCUPIED**；窄版本 OPEN_AT_SEARCH_DEPTH（待證） | Tip-Adapter、CLAP-S 已做同 shot 數比較；Monitoring Risks、OGA 已做適應風險。窄版本限定為：同一份證據紀錄下的 false absorption 與 rollback residual harm |
+| G4d 吸收老化＋學新故障 | OPEN_AT_SEARCH_DEPTH | NEW_THREAT；窄版本 OPEN_AT_SEARCH_DEPTH | iADCPS、Axle Sensor Fusion、Wang 2023。改為以准入安全為主軸，fault memory 另列第二軸 |
+| G4e few-shot 閾值 | PARTIALLY_OCCUPIED | 不變；另外撤回 conformal 保證 | — |
+| G4f 真實長期多故障評估 | OPEN_AT_SEARCH_DEPTH | 找不到滿足條件的資料 | CARE 的時間戳是逐檔匿名 |
+| G4g cache 轉移到時間序列 | OPEN_AT_SEARCH_DEPTH | 廣義版本 **CONTRADICTED**；窄版本 OPEN_AT_SEARCH_DEPTH | CLAP-S（感測訊號）、EEG Tip-F、PuRF（cache 汙染清理） |
+| §4.2 以 context 作為升格證據 | 設計新意 | 寬泛版本 **OCCUPIED** | Wang 2023（new-normal buffer＋continual update＋abnormal-data rules）、BP-MSET、Letzgus 2020 |
+| G3b 以延遲誤差估計記憶效用 | OPEN_AT_SEARCH_DEPTH | 廣義版本 **PARTIALLY_OCCUPIED**；整體 UNRESOLVED | MWAdp-JITL 在查詢時用近期實際誤差選擇區段（全文已讀）；Scopus／WoS 補查未完成 |
+| G3c JITL 資料庫維護 | PARTIALLY_OCCUPIED | PARTIALLY_OCCUPIED（證據更強） | correntropy JITL 在新標籤到達時補充並重新清理資料庫；LST-FEDA 用最新樣本更新 |
 
-## 已經由人工另行查核存在的論文（Crossref／arXiv API）
+## 3. v0.4 最接近的文獻（摘要；完整內容見 JSON）
 
-PADRE（IJCAI 2026）、SARAF（KDD 2026）、LEAF（IJCAI 2025）、arXiv:2605.17250、TiRex-2（arXiv:2607.01204）、Proceed（arXiv:2412.08435）、PETSA（arXiv:2506.23424）。
+| ID | 文獻 | 識別碼 | 本代理的查核層級 | 已佔據的貢獻 |
+|---|---|---|---|---|
+| C01 | Wang et al. 2023（MSET＋continual learning） | 10.1109/TIM.2023.3265118 | metadata | **正常參考更新的直接近鄰**：new-normal buffer、continual update、abnormal-data rules |
+| C02 | BP-MSET 2025 | 10.1016/j.neucom.2024.128693 | metadata | 小樣本與不連續樣本下的動態更新 |
+| C03 | Letzgus 2020 NBM | 10.5194/wes-5-1375-2020 | metadata | context-conditioned NBM，並清理出乾淨的參考資料 |
+| C04 | iADCPS | arXiv:2504.04374 | metadata | 用有限的新正常樣本持續適應演化中的 CPS |
+| C05 | CLAP-S | arXiv:2501.09877 | metadata | 感測訊號上的 Tip 式 cache；同 shot 數比較 cache 與 adapter |
+| C06 | EEG Tip-F 2025 | 10.1088/2632-2153/ae15e5 | metadata | 跨模態的 cache 先例 |
+| C07 | PuRF | arXiv:2608.25653 | metadata | cache 汙染的清理與刷新 |
+| C08 | Monitoring Risks in TTA | arXiv:2507.08721 | metadata | 適應風險監測 |
+| C09 | OGA | arXiv:2501.04352 | metadata | 串流設定下的尾端風險 |
+| C10 | Axle Sensor Fusion | arXiv:2602.16101 | metadata | 工況變動下的持續故障學習（模擬資料） |
+| C11 | MWAdp-JITL | 10.1016/j.neucom.2020.01.083 | **full_text** | 查詢時依相似度與近期誤差選擇歷史區段 |
+| C12 | correntropy JITL | 10.3390/s17081830 | metadata | 資料庫的清理與補充 |
+| C13 | LST-FEDA | 10.1016/j.chemolab.2024.105246 | metadata | 用最新樣本更新 |
+| C14 | MSDG | 10.3390/s24227218 | metadata | SMD 的通道關係會隨時間變動，支持「E0 只能否決」 |
 
-## 審查限制（二次調查請優先處理）
+「metadata」代表本代理只以 Crossref 或 arXiv API 確認文獻存在；機制描述來自審查者的閱讀，審查者的閱讀層級記錄在 JSON 中。**未取得全文的文獻，本文件不推定其具體機制。**
 
-1. arXiv 與 Semantic Scholar 在 D4 輪遇到 HTTP 429，部分查詢改走 OpenAlex，2026 年的預印本可能漏掉。
-2. 只驗證到 metadata 的論文：Tip-Adapter、AAD、RevIN、ICLR 2025 Lau/Shao/Yeung，以及 JITL 關鍵論文「Integrating adaptive moving window and just-in-time learning paradigms for soft-sensor design」（Neurocomputing 2020，付費牆）。
-3. 只讀了摘要：IUF、DCASE 2024 Task 2 說明論文、SARAF。
-4. 製程控制與化學計量學的 JITL 文獻，用 OpenAlex 搜尋雜訊很大，建議用 Scopus 或 Web of Science 補查。
-5. 所有資料集只驗證到 landing page 或 API metadata，沒有下載完整檔案。
-6. D2 的 JSON 有 35 筆，子代理的報告寫「33 篇已驗證」，差異的 2 筆應為 metadata_only，需要核對。
+## 4. 仍未解決（阻止研究 GO，但不阻止 docs-only 交付）
+
+1. **Scopus／WoS citation-chain 補查**（JITL 資料庫維護）：UNRESOLVED，因為沒有訂閱資料庫的介面。
+2. 2025–2026 年的 arXiv 預印本：兩輪審查都補搜過，但仍可能有遺漏。
+3. CARE v6 的檔案內容（欄位、故障型態清單、每型重複次數）：未驗證。
+4. SMD `interpretation_label` 的內容與一致性（參見 OmniAnomaly issue #66）：未驗證，也不得在沒有授權的情況下開啟。

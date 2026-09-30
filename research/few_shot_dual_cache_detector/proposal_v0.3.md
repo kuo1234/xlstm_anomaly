@@ -1,3 +1,5 @@
+> **歷史版本（2026-09-30 起被 [proposal_v0.4.md](proposal_v0.4.md) 取代）。** 本文件中「context 可解釋即可升格」、G4g 的廣義新意、CARE 跨事件長期老化，以及 anchor／conformal 保證等主張都已撤回，以 v0.4 為準。
+
 # 研究計畫 v0.3：少樣本通用偵測器的雙快取持續適應（context 優先、回饋選配、兩階段資料）
 
 > 狀態：**研究構想紀錄（research backlog）**。本文件不授權任何訓練、GPU 實驗或標籤存取。啟動前必須另行建立並封存 protocol。

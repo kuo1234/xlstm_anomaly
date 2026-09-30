@@ -1,3 +1,9 @@
+> **v0.4 更正說明（2026-09-30）**：本報告為 2026-09-29 的歷史紀錄。
+> - MWAdp-JITL（Urhan & Alakent, Neurocomputing 392:23–37, 10.1016/j.neucom.2020.01.083）的**全文已讀**（使用者提供 PDF，未放入 repo）。它在查詢時，以相似度加上近期的實際預測誤差選擇歷史區段，因此 **G3b 的廣義版本降為 PARTIALLY_OCCUPIED**。
+> - 它**沒有**逐筆的持續效用與淘汰、沒有 H 步延遲，也沒有篩選故障汙染。
+> - correntropy JITL（10.3390/s17081830）與 LST-FEDA（10.1016/j.chemolab.2024.105246）使 G3c 的佔據程度更高。
+> - Scopus／WoS 補查仍 **UNRESOLVED**；D3 **不升為核心新意**。見 `../proposal_v0.4.md` §8。
+
 # Direction 3 Gap Audit — Retrieval / External Memory for Forecasting Under Drift on Machine Data
 
 **Scope.** Candidate design: a memory bank of historical segments (long-term memory) queried with the recent window
