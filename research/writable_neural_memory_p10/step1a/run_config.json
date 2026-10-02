@@ -1,0 +1,56 @@
+{
+ "cfg": {
+  "machines": [
+   "machine-3-7",
+   "machine-1-6",
+   "machine-2-7"
+  ],
+  "phi_seeds": [
+   11,
+   22,
+   33
+  ],
+  "w": 8,
+  "dk": 128,
+  "knn_k": 5,
+  "operators": [
+   "W1",
+   "W2_f1",
+   "W2_f0995",
+   "W3_b01",
+   "W3_b05"
+  ],
+  "m1a": {
+   "families": [
+    "level",
+    "ramp",
+    "gain",
+    "none"
+   ],
+   "seg_len": 256,
+   "guard": 16,
+   "eval_len": 512,
+   "calib_len": 1024,
+   "q": 0.99
+  },
+  "m1b": {
+   "faults": [
+    "spike",
+    "burst"
+   ],
+   "a_len": 30,
+   "deltas": [
+    64,
+    256,
+    1024
+   ],
+   "guard": 16,
+   "episodes": 16,
+   "seed": 904,
+   "burst_sigma": 2.0,
+   "burst_channels": 8,
+   "variant_burst_scale": 0.6
+  }
+ },
+ "gl1_config": "/Users/kuo/.claude-science/orgs/baed755c-e699-4352-9ba2-d57c7a8dd2a3/workspaces/e9d5c91b-e987-4266-b4fc-f1e737f29869/gl1impl/configs/p10_gl1_config.yaml"
+}
