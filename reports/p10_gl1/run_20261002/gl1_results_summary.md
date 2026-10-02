@@ -1,7 +1,7 @@
 # P10 G-L1 結果：**FAIL-PERSIST → 依預宣告決策樹進 G-L2**（run_20261002）
 
 - 執行：sealed `1dda8f1`，GB10，2026-10-02 07:29–09:15 UTC。6 primary 機台 × 3 seeds × 6 模型 + kNN。Completeness validator **通過**（沒有 TECHNICAL-INCOMPLETE）；24 個 job marker 共用同一個 seal digest；technical invalid：無。
-- 原始輸出 tarball（保留在 GB10 `.worktrees/p10-gl1/reports/p10_gl1/run_20261002/`）SHA256 `0600c9f01a2e0de2b06394beffe09311121ffc10146f5e010765f06c4d8ae663`。本資料夾是彙整版：`decision.json`、`fits_all.csv`、`episodes_all.csv`、`sentinel_all.csv`、`g0_responses_all.npz`（含 raw null fork）、`job_markers.json`、`logs/`。
+- 原始輸出 tarball（保留在 GB10 `.worktrees/p10-gl1/reports/p10_gl1/run_20261002/`）SHA256 `0600c9f01a2e0de2b06394beffe09311121ffc10146f5e010765f06c4d8ae663`。本資料夾是彙整版：`decision.json`、`fits_all.csv`、`episodes_all.csv.gz`、`sentinel_all.csv.gz`、`g0_responses_all.npz`（含 raw null fork）、`job_markers.json`、`logs/`。
 - 執行期間沒有修改任何 protocol、config、margin 或機台。
 
 ## 1. Gate 判定（primary = mLSTM）
@@ -42,7 +42,7 @@ mLSTM 各機台的 ΔFPR：
 | machine-1-3 |  -0.027 | -0.019 |  0.002 |
 
 ### P3 與 P4（mLSTM）
-- P3 只評估 `none`（因為沒有任何 family 通過 P2）：Δrecall -0.0008 [-0.0154, +0.0162] → PASS。
+- P3 只評估 `none`（因為沒有任何 family 通過 P2）：Δrecall -0.0008 [-0.0154, +0.0162] → no-drift sentinel guardrail 本身 PASS；但 `decision.json` 的 formal `P3` flag 定義為「sentinel non-inferiority ∧ P2」，因為 P2 失敗而連帶標為 false。
 - P4：無漂移時 ΔFPR -0.0006 [-0.0035, +0.0011]，沒有發散 → PASS。
 
 ## 2. 描述性結果（不參與判定）
