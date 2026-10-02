@@ -1,5 +1,5 @@
 gate: P10-GL1
-protocol: research/writable_neural_memory_p10/gl1/gl1_protocol_v0.3.md
+protocol: research/writable_neural_memory_p10/gl1/gl1_protocol_v0.4.md
 seal:
   sha256sums: configs/p10_gl1_SHA256SUMS
 data:
@@ -151,7 +151,9 @@ sentinel:
     stuck: 512
     corr_break: 768
   seed: 903
-  detect_quantile: 0.95
+  event_window: 30
+  event_threshold_quantile: 0.95
+  local_q_quantile: 0.95
   noninferiority_margin: 0.02
   large_degradation_flag: 0.1
 stability:

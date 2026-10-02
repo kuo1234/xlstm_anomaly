@@ -236,7 +236,132 @@ def test_p1_is_not_an_inclusion_filter():
 def test_dry_run_end_to_end(tmp_path):
     cfg = Rn.load_config(CFG_PATH)
     dec = Rn.dry_run(cfg, str(tmp_path), torch.device("cpu"))
-    assert dec["decision"] in {"PASS", "FAIL-FIT", "FAIL-PERSIST", "FAIL-UTILITY", "FAIL-COLLAPSE", "FAIL-STABILITY"}
+    assert dec["decision"] in {"PASS", "FAIL-FIT", "FAIL-PERSIST", "FAIL-UTILITY", "FAIL-COLLAPSE", "FAIL-STABILITY"}, dec.get("problems")
+    assert "scientific_failure_flags" in dec and "P4_diverged_fits_primary" in dec
     r = dec["results"]["mlstm"]
     for k in ("P0", "P1", "P2", "P3", "P4", "P2_machine_effects", "P3_large_degradation_flags"):
         assert k in r
+
+
+# ---------------------------------------------------------------- P3 frozen pre-onset sentinel threshold (seal blocker 2)
+def test_sentinel_collapse_regression():
+    """Uniform post-onset score contraction keeps the local rank q but must lose frozen-threshold recall."""
+    c = small_cfg()
+    rng = np.random.default_rng(0)
+    s_cal = rng.gamma(2.0, 1.0, size=1024)                 # clean pre-onset scores (same for both arms)
+    s_bg = rng.gamma(2.0, 1.0, size=1024)                  # post-onset sentinel-free background
+    ev = float(np.quantile(np.lib.stride_tricks.sliding_window_view(s_cal, 30).max(1), 0.95)) * 3
+    reset = K.sentinel_detection(s_cal, s_bg, ev, c)
+    collapsed = K.sentinel_detection(s_cal, 0.1 * s_bg, 0.1 * ev, c)
+    assert reset["detected"] and not collapsed["detected"]                 # primary P3 sees the collapse
+    assert reset["q_local"] == collapsed["q_local"] and collapsed["detected_local"]  # old metric would not
+
+
+def test_sentinel_rows_use_frozen_threshold():
+    c = small_cfg()
+    assert c["sentinel"]["event_window"] == {v["length"] for v in c["sentinel"]["types"].values()}.pop()
+    res = _tiny_eval(c)
+    assert res["sentinel"]
+    for r in res["sentinel"]:
+        assert r["detected"] == (r["event_max"] > r["event_thr"])
+        assert {"q_local", "detected_local"} <= set(r)
+
+
+# ---------------------------------------------------------------- execution completeness (seal blocker 1)
+def _fake_run(out, c, machines):
+    fams = list(c["utility"]["families"]) + ["none"]
+    E = c["utility"]["episodes_per_family"]
+    kinds = list(c["sentinel"]["types"])
+    pos = [16 * (i + 10) for i in range(c["g0"]["positions_per_machine"])]
+    for m in machines:
+        for s in c["training"]["seeds"]:
+            tmp = Rn._start_job(os.path.join(out, m, f"seed{s}"))
+            fits, g0, eps, sen = [], [], [], []
+            for n in Rn.trained_models(c):
+                fits.append(dict(machine=m, seed=s, model=n, nan_train="False", val_ratio=1.0, diverged="False"))
+                if n in Rn.G0_MODELS:
+                    for p in pos:
+                        g0.append(dict(machine=m, seed=s, model=n, pos=p))
+                        np.savez_compressed(os.path.join(tmp, f"g0_{n}_{p}.npz"), R=np.exp(-np.arange(1, 129) / 9.0), null=np.zeros(128))
+                for f in fams:
+                    for e in range(E):
+                        for a in Rn.arms_for(n):
+                            eps.append(dict(machine=m, seed=s, model=n, family=f, ep=e, arm=a, fpr=0.01))
+                            for k in kinds:
+                                sen.append(dict(machine=m, seed=s, model=n, family=f, ep=e, arm=a, kind=k, detected=True))
+            for nm, rows in (("fits.csv", fits), ("g0_index.csv", g0), ("episodes.csv", eps), ("sentinel.csv", sen)):
+                Rn.write_csv(os.path.join(tmp, nm), rows)
+            Rn._finish_job(c, tmp, os.path.join(out, m, f"seed{s}"),
+                           dict(job="fit", machine=m, seed=s, plan_hash="h", g0_positions=pos))
+        tmp = Rn._start_job(os.path.join(out, m, "knn"))
+        ke = [dict(machine=m, seed=0, model="knn_append", family=f, ep=e, arm=a, fpr=0.0)
+              for f in fams for e in range(E) for a in ("persistent", "reset")]
+        ks = [dict(r, kind=k, detected=True) for r in ke for k in kinds]
+        Rn.write_csv(os.path.join(tmp, "episodes_knn.csv"), ke)
+        Rn.write_csv(os.path.join(tmp, "sentinel_knn.csv"), ks)
+        Rn._finish_job(c, tmp, os.path.join(out, m, "knn"), dict(job="knn", machine=m, seed=0, plan_hash="h"))
+
+
+def _drop_row(path, pred):
+    import csv as _csv
+    rows = list(_csv.DictReader(open(path)))
+    keep = [r for r in rows if not pred(r)]
+    Rn.write_csv(path, keep)
+    return len(rows) - len(keep)
+
+
+MACH = ["synthetic-A", "synthetic-B"]
+
+
+def _cfg_for(machines):
+    c = small_cfg()
+    c["data"]["primary_machines"] = list(machines)
+    c["data"]["reserve_machines"] = []
+    return c
+
+
+def test_completeness_complete_run_passes(tmp_path):
+    c = _cfg_for(MACH)
+    _fake_run(str(tmp_path), c, MACH)
+    assert Rn.validate_execution_completeness(c, str(tmp_path), MACH) == []
+
+
+@pytest.mark.parametrize("damage", ["missing_seed", "missing_episode", "dup_sentinel", "missing_g0",
+                                    "stale_digest", "partial_tmp", "missing_fit", "missing_knn_row"])
+def test_completeness_fail_closed(tmp_path, damage):
+    import shutil
+    out = str(tmp_path)
+    c = _cfg_for(MACH)
+    _fake_run(out, c, MACH)
+    d = os.path.join(out, "synthetic-A", "seed11")
+    if damage == "missing_seed":
+        shutil.rmtree(os.path.join(out, "synthetic-B", "seed22"))
+    elif damage == "missing_episode":
+        assert _drop_row(os.path.join(d, "episodes.csv"),
+                         lambda r: r["model"] == "mlstm" and r["family"] == "level" and r["ep"] == "1" and r["arm"] == "reset") == 1
+    elif damage == "dup_sentinel":
+        import csv as _csv
+        rows = list(_csv.DictReader(open(os.path.join(d, "sentinel.csv"))))
+        Rn.write_csv(os.path.join(d, "sentinel.csv"), rows + rows[:1])
+    elif damage == "missing_g0":
+        os.remove(os.path.join(d, "g0_titans_160.npz"))
+    elif damage == "stale_digest":
+        p = os.path.join(d, "job_done.json"); meta = json.load(open(p)); meta["config_digest"] = "old"
+        json.dump(meta, open(p, "w"))
+    elif damage == "partial_tmp":
+        os.makedirs(os.path.join(out, "synthetic-B", "seed11.tmp-999"))
+    elif damage == "missing_fit":
+        _drop_row(os.path.join(d, "fits.csv"), lambda r: r["model"] == "gdeltanet")
+    elif damage == "missing_knn_row":
+        _drop_row(os.path.join(out, "synthetic-B", "knn", "sentinel_knn.csv"), lambda r: r["ep"] == "0" and r["kind"] == "stuck")
+    probs = Rn.validate_execution_completeness(c, out, MACH)
+    assert probs, damage
+    dec = Rn.finalize(c, out)
+    assert dec["decision"] == "TECHNICAL-INCOMPLETE" and dec["problems"]
+
+
+def test_stale_output_guard(tmp_path):
+    final = os.path.join(str(tmp_path), "m", "seed11")
+    os.makedirs(final)
+    with pytest.raises(K.TechnicalInvalid):
+        Rn._start_job(final)

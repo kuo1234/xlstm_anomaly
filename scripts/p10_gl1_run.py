@@ -13,6 +13,7 @@ from __future__ import annotations
 import argparse
 import copy
 import csv
+import hashlib
 import json
 import os
 import sys
@@ -67,6 +68,47 @@ def manifest(cfg):
     return {r["machine"]: r for r in rows}
 
 
+
+def config_digest(cfg):
+    return hashlib.sha256(json.dumps(cfg, sort_keys=True, default=str).encode()).hexdigest()
+
+
+def seal_digest(cfg):
+    p = os.path.join(REPO, cfg["seal"]["sha256sums"])
+    return K.sha256_file(p) if os.path.exists(p) else "unsealed"
+
+
+def trained_models(cfg):
+    m = cfg["models"]
+    return list(dict.fromkeys(["window_only", m["primary"]] + m["replications"] + m["references_trained"]))
+
+
+def arms_for(name):
+    if name == "window_only":
+        return ["single"]
+    if name == "mlstm_std":
+        return ["reset"]
+    return ["persistent", "reset"]
+
+
+G0_MODELS = ("mlstm", "gdeltanet", "titans", "lstm")
+
+
+def _finish_job(cfg, tmp, final, meta):
+    meta = dict(meta, config_digest=config_digest(cfg), seal_digest=seal_digest(cfg), finished=time.time())
+    with open(os.path.join(tmp, "job_done.json"), "w") as f:
+        json.dump(meta, f, indent=1)
+    os.replace(tmp, final)
+
+
+def _start_job(final):
+    if os.path.exists(final):
+        raise K.TechnicalInvalid(f"output {final} already exists; refusing to overwrite (stale-run guard)")
+    tmp = f"{final}.tmp-{os.getpid()}"
+    os.makedirs(tmp, exist_ok=False)
+    return tmp
+
+
 # ============================================================================ per-(machine, seed) job
 def write_csv(path, rows):
     if not rows:
@@ -76,10 +118,11 @@ def write_csv(path, rows):
         w = csv.DictWriter(f, fieldnames=keys, restval=""); w.writeheader(); w.writerows(rows)
 
 
-def fit_machine_seed(cfg, P, machine, seed, out, dev, models=None, log=print):
-    os.makedirs(out, exist_ok=True)
+def fit_machine_seed(cfg, P, machine, seed, final, dev, models=None, log=print):
+    os.makedirs(os.path.dirname(final), exist_ok=True)
+    out = _start_job(final)
     plan = K.make_plan(P, cfg, machine)
-    names = models or ([cfg["models"]["primary"]] + cfg["models"]["replications"] + cfg["models"]["references_trained"])
+    names = models or trained_models(cfg)
     fits, g0rows, eprows, srows = [], [], [], []
     trained = {}
     for name in ["window_only"] + [n for n in names if n != "window_only"]:
@@ -96,7 +139,7 @@ def fit_machine_seed(cfg, P, machine, seed, out, dev, models=None, log=print):
             row[f"val_mse_{a}"] = v
         if name == "window_only":
             trained["window_only_val"] = mse["single"]
-        row["val_ratio"] = row["val_mse"] / trained["window_only_val"]
+        row["val_ratio"] = row["val_mse"] / trained.get("window_only_val", float("nan"))
         res = K.evaluate_fit(model, name, P, plan, cfg, dev, sig, log)
         row["diverged"] = bool(res["diverged"])
         row["stream_state_norm_max"] = res["stream_state_norm_max"]
@@ -115,14 +158,18 @@ def fit_machine_seed(cfg, P, machine, seed, out, dev, models=None, log=print):
     write_csv(os.path.join(out, "g0_index.csv"), g0rows)
     write_csv(os.path.join(out, "episodes.csv"), eprows)
     write_csv(os.path.join(out, "sentinel.csv"), srows)
+    _finish_job(cfg, out, final, dict(job="fit", machine=machine, seed=seed, plan_hash=K.plan_hash(plan),
+                                     g0_positions=[int(p) for p in plan.g0_pos]))
 
 
-def knn_machine(cfg, P, machine, out, dev):
-    os.makedirs(out, exist_ok=True)
+def knn_machine(cfg, P, machine, final, dev):
+    os.makedirs(os.path.dirname(final), exist_ok=True)
+    out = _start_job(final)
     plan = K.make_plan(P, cfg, machine)
     rows, srows = K.knn_evaluate(P, plan, cfg, dev)
     write_csv(os.path.join(out, "episodes_knn.csv"), [dict(machine=machine, seed=0, model="knn_append", **r) for r in rows])
     write_csv(os.path.join(out, "sentinel_knn.csv"), [dict(machine=machine, seed=0, model="knn_append", **r) for r in srows])
+    _finish_job(cfg, out, final, dict(job="knn", machine=machine, seed=0, plan_hash=K.plan_hash(plan)))
 
 
 # ============================================================================ statistics
@@ -282,13 +329,96 @@ def evaluate_model(cfg, out, machines, model, eps, sents, fits):
     return res
 
 
+def validate_execution_completeness(cfg, out, machines):
+    """Fail-closed audit of the sealed plan BEFORE any endpoint is computed.
+    Returns list of problems (empty = complete). Any problem => TECHNICAL-INCOMPLETE."""
+    probs = []
+    seeds = cfg["training"]["seeds"]
+    fams = list(cfg["utility"]["families"]) + ["none"]
+    E = cfg["utility"]["episodes_per_family"]
+    kinds = list(cfg["sentinel"]["types"])
+    npos = cfg["g0"]["positions_per_machine"]
+    cd, sd = config_digest(cfg), seal_digest(cfg)
+    for root, dirs, _ in os.walk(out):
+        for d in dirs:
+            if ".tmp-" in d:
+                probs.append(f"partial job directory {os.path.join(root, d)}")
+    for m in machines:
+        plan_hashes = set()
+        jobs = [(s, os.path.join(out, m, f"seed{s}")) for s in seeds] + [("knn", os.path.join(out, m, "knn"))]
+        for s, d in jobs:
+            mk = os.path.join(d, "job_done.json")
+            if not os.path.exists(mk):
+                probs.append(f"missing or unfinished job {m}/{s}"); continue
+            meta = json.load(open(mk))
+            if meta.get("config_digest") != cd:
+                probs.append(f"stale job {m}/{s}: config digest differs")
+            if meta.get("seal_digest") != sd:
+                probs.append(f"stale job {m}/{s}: seal digest differs")
+            if str(meta.get("machine")) != m or str(meta.get("seed")) != str(0 if s == "knn" else s):
+                probs.append(f"job marker mismatch in {m}/{s}")
+            plan_hashes.add(meta.get("plan_hash"))
+        if len(plan_hashes) > 1:
+            probs.append(f"{m}: jobs disagree on the sealed plan")
+        for s in seeds:
+            d = os.path.join(out, m, f"seed{s}")
+            if not os.path.exists(os.path.join(d, "job_done.json")):
+                continue
+            fits = list(csv.DictReader(open(os.path.join(d, "fits.csv")))) if os.path.getsize(os.path.join(d, "fits.csv")) else []
+            fk = [(r["machine"], str(r["seed"]), r["model"]) for r in fits]
+            exp_f = [(m, str(s), n) for n in trained_models(cfg)]
+            if sorted(fk) != sorted(exp_f):
+                probs.append(f"{m}/seed{s}: fit rows {sorted(set(fk) ^ set(exp_f))} missing/extra or duplicated" if set(fk) != set(exp_f) else f"{m}/seed{s}: duplicate fit rows")
+            nan_models = {r["model"] for r in fits if r.get("nan_train") == "True"}
+            meta = json.load(open(os.path.join(d, "job_done.json")))
+            g0pos = meta.get("g0_positions", [])
+            if len(g0pos) != npos or len(set(g0pos)) != npos:
+                probs.append(f"{m}/seed{s}: G0 plan has {len(g0pos)} positions (expected {npos})")
+            gidx = list(csv.DictReader(open(os.path.join(d, "g0_index.csv")))) if os.path.getsize(os.path.join(d, "g0_index.csv")) else []
+            for n in G0_MODELS:
+                if n not in trained_models(cfg) or n in nan_models:
+                    continue
+                got = [int(r["pos"]) for r in gidx if r["model"] == n]
+                if sorted(got) != sorted(g0pos):
+                    probs.append(f"{m}/seed{s}/{n}: G0 rows incomplete or duplicated")
+                for p in g0pos:
+                    if not os.path.exists(os.path.join(d, f"g0_{n}_{p}.npz")):
+                        probs.append(f"{m}/seed{s}/{n}: missing G0 npz at {p}")
+            eps = list(csv.DictReader(open(os.path.join(d, "episodes.csv")))) if os.path.getsize(os.path.join(d, "episodes.csv")) else []
+            sen = list(csv.DictReader(open(os.path.join(d, "sentinel.csv")))) if os.path.getsize(os.path.join(d, "sentinel.csv")) else []
+            ek = [(r["model"], r["family"], int(r["ep"]), r["arm"]) for r in eps]
+            sk = [(r["model"], r["family"], int(r["ep"]), r["arm"], r["kind"]) for r in sen]
+            exp_e = [(n, f, e, a) for n in trained_models(cfg) if n not in nan_models
+                     for f in fams for e in range(E) for a in arms_for(n)]
+            exp_s = [x + (k,) for x in exp_e for k in kinds]
+            if sorted(ek) != sorted(exp_e):
+                probs.append(f"{m}/seed{s}: episode rows incomplete/duplicated ({len(ek)} vs {len(exp_e)})")
+            if sorted(sk) != sorted(exp_s):
+                probs.append(f"{m}/seed{s}: sentinel rows incomplete/duplicated ({len(sk)} vs {len(exp_s)})")
+        d = os.path.join(out, m, "knn")
+        if os.path.exists(os.path.join(d, "job_done.json")):
+            eps = list(csv.DictReader(open(os.path.join(d, "episodes_knn.csv"))))
+            sen = list(csv.DictReader(open(os.path.join(d, "sentinel_knn.csv"))))
+            exp_e = [(f, e, a) for f in fams for e in range(E) for a in ("persistent", "reset")]
+            if sorted((r["family"], int(r["ep"]), r["arm"]) for r in eps) != sorted(exp_e):
+                probs.append(f"{m}/knn: episode rows incomplete/duplicated")
+            if sorted((r["family"], int(r["ep"]), r["arm"], r["kind"]) for r in sen) != sorted(x + (k,) for x in exp_e for k in kinds):
+                probs.append(f"{m}/knn: sentinel rows incomplete/duplicated")
+    return probs
+
+
 def finalize(cfg, out):
     machines, tech = effective_machines(cfg, out)
     if len(machines) < len(cfg["data"]["primary_machines"]):
         dec = dict(decision="TECHNICAL-INCOMPLETE", machines=machines, technical_invalid=tech)
         json.dump(dec, open(os.path.join(out, "decision.json"), "w"), indent=1)
         return dec
-    fits = read_all(out, "fits.csv")
+    probs = validate_execution_completeness(cfg, out, machines)
+    if probs:
+        dec = dict(decision="TECHNICAL-INCOMPLETE", machines=machines, technical_invalid=tech, problems=probs)
+        json.dump(dec, open(os.path.join(out, "decision.json"), "w"), indent=1)
+        return dec
+    fits = [f for f in read_all(out, "fits.csv") if f["machine"] in machines]
     eps = read_all(out, "episodes.csv") + read_all(out, "episodes_knn.csv")
     sents = read_all(out, "sentinel.csv") + read_all(out, "sentinel_knn.csv")
     prim = cfg["models"]["primary"]
@@ -300,8 +430,14 @@ def finalize(cfg, out):
             results[r] = evaluate_model(cfg, out, machines, r, eps, sents, fits)
     gl1 = results[prim]["label"]
     family_claim = gl1 == "PASS" and sum(results[r]["label"] == "PASS" for r in cfg["models"]["replications"]) >= 1
+    sci = [dict(model=f["model"], machine=f["machine"], seed=f["seed"],
+                nan_train=f["nan_train"] == "True", diverged=f.get("diverged") == "True",
+                poor_fit=(f["nan_train"] != "True" and float(f["val_ratio"]) > cfg["validity"]["val_mse_max_ratio_vs_window_only"]))
+           for f in fits]
+    sci = [x for x in sci if x["nan_train"] or x["diverged"] or x["poor_fit"]]
     dec = dict(gate="P10-GL1", decision=gl1, primary=prim, machines=machines, technical_invalid=tech,
-               family_claim_supported=family_claim, results=results,
+               family_claim_supported=family_claim, scientific_failure_flags=sci,
+               P4_diverged_fits_primary=results[prim]["P4_diverged_fits"], results=results,
                next=("WIM protocol v0.3" if gl1 == "PASS" else "G-L2"))
     json.dump(dec, open(os.path.join(out, "decision.json"), "w"), indent=1, default=str)
     return dec

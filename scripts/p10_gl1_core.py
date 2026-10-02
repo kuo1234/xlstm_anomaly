@@ -337,6 +337,36 @@ def make_plan(P, cfg, machine_key):
     return EvalPlan(g0_pos, onsets, chans, sent_chans, donor, g0_chans)
 
 
+
+def sentinel_detection(s_cal, s_bg, event_max, cfg):
+    """P3 primary (frozen pre-onset event threshold) and secondary (local rank) detection.
+    s_cal: arm's clean scores on [t0-Lc, t0); s_bg: arm's sentinel-free scores on the evaluation
+    window; event_max: max score over the 30-step sentinel event. Returns dict."""
+    sc = cfg["sentinel"]
+    Ls = sc["event_window"]
+    cal_max = np.lib.stride_tricks.sliding_window_view(np.asarray(s_cal), Ls).max(1)
+    event_thr = float(np.quantile(cal_max, sc["event_threshold_quantile"]))
+    bg_max = np.lib.stride_tricks.sliding_window_view(np.asarray(s_bg), Ls).max(1)
+    q = float((bg_max < event_max).mean())
+    return dict(event_thr=event_thr, event_max=float(event_max), detected=bool(event_max > event_thr),
+                q_local=q, detected_local=bool(q > sc["local_q_quantile"]))
+
+
+def plan_hash(plan):
+    h = hashlib.sha256()
+    h.update(np.asarray(plan.g0_pos, dtype=np.int64).tobytes())
+    for f in sorted(plan.onsets):
+        h.update(f.encode()); h.update(np.asarray(plan.onsets[f], dtype=np.int64).tobytes())
+    for k in sorted(plan.chans, key=str):
+        c, sg = plan.chans[k]
+        h.update(str(k).encode()); h.update(np.asarray(c).tobytes()); h.update(np.asarray(sg).tobytes())
+    for k in sorted(plan.sent_chans, key=str):
+        h.update(str(k).encode()); h.update(np.asarray(plan.sent_chans[k]).tobytes())
+    for k in sorted(plan.sent_donor, key=str):
+        h.update(f"{k}:{plan.sent_donor[k]}".encode())
+    return h.hexdigest()
+
+
 def g0_response(model, P, plan, cfg, dev, clean_states):
     """Impulse responses R(lag), lag=1..Lmax, and the null-fork difference."""
     g0 = cfg["g0"]
@@ -432,8 +462,7 @@ def evaluate_fit(model, name, P, plan, cfg, dev, sig, log=print):
                 out["episodes"].append(dict(family=f, ep=i, arm=arm, t0=t0, thr=thr, fpr=fpr,
                                             fpr_late=float((s_ev[E // 2:] > thr).mean())))
                 # ---- sentinels (forked, scored, discarded)
-                Ls = 30
-                win = np.lib.stride_tricks.sliding_window_view(s_ev, Ls).max(1)
+                Ls = scfg["event_window"]
                 for kind, off in scfg["offsets"].items():
                     ts = t0 + off
                     rng = np.random.default_rng([scfg["seed"], i, off, zlib.crc32(f.encode())])
@@ -452,9 +481,8 @@ def evaluate_fit(model, name, P, plan, cfg, dev, sig, log=print):
                     else:
                         pred_s = windowed_preds(model, zS, taus_s - 1 - lo, R, wb)
                     ev = float(scores_from(pred_s, zS[taus_s - lo], sigma).max())
-                    q = float((win < ev).mean())
-                    out["sentinel"].append(dict(family=f, ep=i, arm=arm, kind=kind, ts=ts, q=q,
-                                                detected=q > scfg["detect_quantile"]))
+                    det = sentinel_detection(s_cal, s_ev, ev, cfg)
+                    out["sentinel"].append(dict(family=f, ep=i, arm=arm, kind=kind, ts=ts, **det))
     return out
 
 
@@ -525,24 +553,22 @@ def knn_evaluate(P, plan, cfg, dev):
                 thr = float(np.quantile(s_cal, ucfg["threshold_quantile"]))
                 rows.append(dict(family=f, ep=i, arm=arm, t0=t0, thr=thr, fpr=float((s_ev > thr).mean()),
                                  fpr_late=float((s_ev[E // 2:] > thr).mean())))
-                win = np.lib.stride_tricks.sliding_window_view(s_ev, 30).max(1)
                 for kind, off in scfg["offsets"].items():
                     ts = t0 + off
                     rng = np.random.default_rng([scfg["seed"], i, off, zlib.crc32(f.encode())])
-                    donor = P.z[plan.sent_donor[(f, i)]:plan.sent_donor[(f, i)] + 30] if kind == "corr_break" else None
+                    donor = P.z[plan.sent_donor[(f, i)]:plan.sent_donor[(f, i)] + scfg["event_window"]] if kind == "corr_break" else None
                     segS = apply_sentinel(segD, ts - lo, kind, plan.sent_chans[(f, i, kind)], P.u, cfg, rng, donor)
                     zS = to_t(segS, dev)
-                    tq = np.arange(ts, ts + 30)
+                    tq = np.arange(ts, ts + scfg["event_window"])
                     Qs = feats(zS, tq - lo)
                     if arm == "persistent":
-                        ends_e = np.arange(t0, ts + 30)
+                        ends_e = np.arange(t0, ts + scfg["event_window"])
                         Fse = feats(zS, ends_e - lo)  # drift windows then sentinel windows (fork)
                         extra = torch.cat([Fh, Fse], 0)
                         extra_end = np.concatenate([clean_hist_ends, ends_e])
                         ev = float(nn_dist(Qs, tq, extra, extra_end).max())
                     else:
                         ev = float(nn_dist(Qs, tq, None, None).max())
-                    q = float((win < ev).mean())
-                    srows.append(dict(family=f, ep=i, arm=arm, kind=kind, ts=ts, q=q,
-                                      detected=q > scfg["detect_quantile"]))
+                    det = sentinel_detection(s_cal, s_ev, ev, cfg)
+                    srows.append(dict(family=f, ep=i, arm=arm, kind=kind, ts=ts, **det))
     return rows, srows
