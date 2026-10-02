@@ -1,0 +1,7 @@
+/home/p76141495/home/xlstm_anomaly/.worktrees/p10-gl1/scripts/p10_gl1_run.py:181: RuntimeWarning: Mean of empty slice
+  point = np.nanmean(np.nanmean(np.nanmean(D, 2), 1))
+/home/p76141495/home/xlstm_anomaly/.worktrees/p10-gl1/scripts/p10_gl1_run.py:188: RuntimeWarning: Mean of empty slice
+  bs = np.nanmean(np.nanmean(np.nanmean(X, 3), 2), 1)
+/home/p76141495/home/xlstm_anomaly/.worktrees/p10-gl1/scripts/p10_gl1_run.py:302: RuntimeWarning: Mean of empty slice
+  per_machine[f] = {m: float(np.nanmean(Dfpr[i])) for i, m in enumerate(machines)}
+"FAIL-PERSIST"

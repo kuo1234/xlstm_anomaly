@@ -1,0 +1,443 @@
+{
+ "gate": "P10-GL1",
+ "decision": "FAIL-PERSIST",
+ "primary": "mlstm",
+ "machines": [
+  "machine-3-7",
+  "machine-1-6",
+  "machine-2-7",
+  "machine-3-5",
+  "machine-2-9",
+  "machine-1-3"
+ ],
+ "technical_invalid": {},
+ "family_claim_supported": false,
+ "scientific_failure_flags": [
+  {
+   "model": "titans",
+   "machine": "machine-2-9",
+   "seed": "22",
+   "nan_train": true,
+   "diverged": true,
+   "poor_fit": false
+  },
+  {
+   "model": "titans",
+   "machine": "machine-2-9",
+   "seed": "11",
+   "nan_train": true,
+   "diverged": true,
+   "poor_fit": false
+  },
+  {
+   "model": "titans",
+   "machine": "machine-1-3",
+   "seed": "33",
+   "nan_train": false,
+   "diverged": true,
+   "poor_fit": false
+  },
+  {
+   "model": "titans",
+   "machine": "machine-1-3",
+   "seed": "11",
+   "nan_train": false,
+   "diverged": true,
+   "poor_fit": false
+  },
+  {
+   "model": "titans",
+   "machine": "machine-3-7",
+   "seed": "22",
+   "nan_train": false,
+   "diverged": true,
+   "poor_fit": false
+  },
+  {
+   "model": "titans",
+   "machine": "machine-3-5",
+   "seed": "11",
+   "nan_train": true,
+   "diverged": true,
+   "poor_fit": false
+  },
+  {
+   "model": "titans",
+   "machine": "machine-2-7",
+   "seed": "22",
+   "nan_train": true,
+   "diverged": true,
+   "poor_fit": false
+  },
+  {
+   "model": "titans",
+   "machine": "machine-2-7",
+   "seed": "33",
+   "nan_train": true,
+   "diverged": true,
+   "poor_fit": false
+  },
+  {
+   "model": "titans",
+   "machine": "machine-2-7",
+   "seed": "11",
+   "nan_train": true,
+   "diverged": true,
+   "poor_fit": false
+  }
+ ],
+ "P4_diverged_fits_primary": [],
+ "results": {
+  "mlstm": {
+   "model": "mlstm",
+   "P0_machines_adequate": 6,
+   "P0": true,
+   "P1": false,
+   "P1_machines_pass": 3,
+   "P1_machine_h05": {
+    "machine-3-7": 121.0,
+    "machine-1-6": 725.0,
+    "machine-2-7": 329.0,
+    "machine-3-5": 258.5,
+    "machine-2-9": 468.0,
+    "machine-1-3": 451.0
+   },
+   "P2_family": {
+    "level": {
+     "point": -0.020955403645833332,
+     "lo": -0.04606605812355323,
+     "hi": 0.0042252717194733724,
+     "pass_": false
+    },
+    "ramp": {
+     "point": -0.01831732855902778,
+     "lo": -0.033960469563802075,
+     "hi": -0.0032009548611111114,
+     "pass_": false
+    },
+    "gain": {
+     "point": 0.00043176721643518515,
+     "lo": -0.0016684638129340276,
+     "hi": 0.0022515190972222225,
+     "pass_": false
+    }
+   },
+   "P2": false,
+   "P2_machine_effects": {
+    "level": {
+     "machine-3-7": -0.036933051215277776,
+     "machine-1-6": 0.024197048611111112,
+     "machine-2-7": -0.012627495659722222,
+     "machine-3-5": -0.006117078993055556,
+     "machine-2-9": -0.0671115451388889,
+     "machine-1-3": -0.027140299479166668
+    },
+    "ramp": {
+     "machine-3-7": -0.02197265625,
+     "machine-1-6": 0.007866753472222222,
+     "machine-2-7": -0.03671603732638889,
+     "machine-3-5": -0.004964192708333333,
+     "machine-2-9": -0.035359700520833336,
+     "machine-1-3": -0.018758138020833332
+    },
+    "gain": {
+     "machine-3-7": -0.0018310546875,
+     "machine-1-6": 0.0020345052083333335,
+     "machine-2-7": -0.0013427734375,
+     "machine-3-5": 0.0007595486111111111,
+     "machine-2-9": 0.001437717013888889,
+     "machine-1-3": 0.0015326605902777778
+    }
+   },
+   "P3_family": {
+    "none": {
+     "point": -0.0007716049382716054,
+     "lo": -0.015432098765432098,
+     "hi": 0.016203703703703703,
+     "pass_": true,
+     "per_kind": {
+      "spike": 0.013888888888888888,
+      "stuck": -0.004629629629629629,
+      "corr_break": -0.011574074074074073
+     }
+    }
+   },
+   "P3": false,
+   "P3_large_degradation_flags": [],
+   "P4_nodrift": {
+    "point": -0.0006126121238425927,
+    "lo": -0.0035265322084780094,
+    "hi": 0.0011122526945891197
+   },
+   "P4_diverged_fits": [],
+   "P4": true,
+   "label": "FAIL-PERSIST"
+  },
+  "gdeltanet": {
+   "model": "gdeltanet",
+   "P0_machines_adequate": 6,
+   "P0": true,
+   "P1": false,
+   "P1_machines_pass": 1,
+   "P1_machine_h05": {
+    "machine-3-7": 269.5,
+    "machine-1-6": 339.5,
+    "machine-2-7": 421.5,
+    "machine-3-5": 334.5,
+    "machine-2-9": 324.0,
+    "machine-1-3": 215.5
+   },
+   "P2_family": {
+    "level": {
+     "point": -0.003944679542824074,
+     "lo": -0.016426029911747683,
+     "hi": 0.007885233561197911,
+     "pass_": false
+    },
+    "ramp": {
+     "point": 0.0013653790509259264,
+     "lo": -0.010403159812644678,
+     "hi": 0.016943528917100683,
+     "pass_": false
+    },
+    "gain": {
+     "point": -0.0011935763888888888,
+     "lo": -0.004738419144241897,
+     "hi": 0.001516893174913194,
+     "pass_": false
+    }
+   },
+   "P2": false,
+   "P2_machine_effects": {
+    "level": {
+     "machine-3-7": -0.013536241319444444,
+     "machine-1-6": -0.0016276041666666667,
+     "machine-2-7": -0.0014241536458333333,
+     "machine-3-5": 0.007120768229166667,
+     "machine-2-9": -0.012654622395833334,
+     "machine-1-3": -0.0015462239583333333
+    },
+    "ramp": {
+     "machine-3-7": -0.010850694444444444,
+     "machine-1-6": 0.028781467013888888,
+     "machine-2-7": 0.004950629340277778,
+     "machine-3-5": -0.0009223090277777778,
+     "machine-2-9": -0.008938259548611112,
+     "machine-1-3": -0.004828559027777778
+    },
+    "gain": {
+     "machine-3-7": -0.003512912326388889,
+     "machine-1-6": -0.005425347222222222,
+     "machine-2-7": 0.001247829861111111,
+     "machine-3-5": 0.002346462673611111,
+     "machine-2-9": 0.0002848307291666667,
+     "machine-1-3": -0.002102322048611111
+    }
+   },
+   "P3_family": {
+    "none": {
+     "point": -0.006172839506172839,
+     "lo": -0.02546296296296296,
+     "hi": 0.008487654320987654,
+     "pass_": false,
+     "per_kind": {
+      "spike": -0.016203703703703703,
+      "stuck": -0.004629629629629629,
+      "corr_break": 0.0023148148148148147
+     }
+    }
+   },
+   "P3": false,
+   "P3_large_degradation_flags": [],
+   "P4_nodrift": {
+    "point": 0.00028257016782407414,
+    "lo": -0.001064724392361111,
+    "hi": 0.0015281959816261566
+   },
+   "P4_diverged_fits": [],
+   "P4": true,
+   "label": "FAIL-PERSIST"
+  },
+  "titans": {
+   "model": "titans",
+   "P0_machines_adequate": 4,
+   "P0": true,
+   "P1": false,
+   "P1_machines_pass": 1,
+   "P1_machine_h05": {
+    "machine-3-7": 0.0,
+    "machine-1-6": 0.0,
+    "machine-2-7": 0.0,
+    "machine-3-5": 2007.5,
+    "machine-2-9": 0.0,
+    "machine-1-3": 0.0
+   },
+   "P2_family": {
+    "level": {
+     "point": -0.08203803168402778,
+     "lo": -0.2781726243760851,
+     "hi": 0.025010229040075205,
+     "pass_": false
+    },
+    "ramp": {
+     "point": -0.06182318793402778,
+     "lo": -0.2596917809380425,
+     "hi": 0.023036270141601554,
+     "pass_": false
+    },
+    "gain": {
+     "point": 0.00016140407986110832,
+     "lo": -0.06385137769911024,
+     "hi": 0.05386746724446611,
+     "pass_": false
+    }
+   },
+   "P2": false,
+   "P2_machine_effects": {
+    "level": {
+     "machine-3-7": -0.3053927951388889,
+     "machine-1-6": 0.022610134548611112,
+     "machine-2-7": NaN,
+     "machine-3-5": -0.15606689453125,
+     "machine-2-9": 0.031005859375,
+     "machine-1-3": -0.002346462673611111
+    },
+    "ramp": {
+     "machine-3-7": -0.2720947265625,
+     "machine-1-6": -0.0013427734375,
+     "machine-2-7": NaN,
+     "machine-3-5": -0.06903076171875,
+     "machine-2-9": 0.045491536458333336,
+     "machine-1-3": -0.012139214409722222
+    },
+    "gain": {
+     "machine-3-7": -0.06426323784722222,
+     "machine-1-6": 0.0019666883680555555,
+     "machine-2-7": NaN,
+     "machine-3-5": 0.06406656901041667,
+     "machine-2-9": 0.000244140625,
+     "machine-1-3": -0.0012071397569444445
+    }
+   },
+   "P3_family": {
+    "none": {
+     "point": -0.020833333333333332,
+     "lo": -0.11203703703703702,
+     "hi": 0.02222222222222222,
+     "pass_": false,
+     "per_kind": {
+      "spike": -0.027777777777777776,
+      "stuck": -0.003472222222222222,
+      "corr_break": -0.059027777777777776
+     }
+    }
+   },
+   "P3": false,
+   "P3_large_degradation_flags": [],
+   "P4_nodrift": {
+    "point": -0.0002577039930555556,
+    "lo": -0.005520290798611111,
+    "hi": 0.007894388834635408
+   },
+   "P4_diverged_fits": [
+    "machine-2-9/s22",
+    "machine-2-9/s11",
+    "machine-1-3/s33",
+    "machine-1-3/s11",
+    "machine-3-7/s22",
+    "machine-3-5/s11",
+    "machine-2-7/s22",
+    "machine-2-7/s33",
+    "machine-2-7/s11"
+   ],
+   "P4": false,
+   "label": "FAIL-PERSIST"
+  },
+  "lstm": {
+   "model": "lstm",
+   "P0_machines_adequate": 6,
+   "P0": true,
+   "P1": false,
+   "P1_machines_pass": 0,
+   "P1_machine_h05": {
+    "machine-3-7": 21.5,
+    "machine-1-6": 16.0,
+    "machine-2-7": 18.0,
+    "machine-3-5": 16.0,
+    "machine-2-9": 15.0,
+    "machine-1-3": 14.0
+   },
+   "P2_family": {
+    "level": {
+     "point": 5.651403356481483e-05,
+     "lo": -0.0005855419017650463,
+     "hi": 0.0008183232060185185,
+     "pass_": false
+    },
+    "ramp": {
+     "point": -0.0001695421006944444,
+     "lo": -0.0008635909469039353,
+     "hi": 0.0003413447627314815,
+     "pass_": false
+    },
+    "gain": {
+     "point": 1.3563368055555553e-05,
+     "lo": -0.00017858434606481477,
+     "hi": 0.00014693648726851852,
+     "pass_": false
+    }
+   },
+   "P2": false,
+   "P2_machine_effects": {
+    "level": {
+     "machine-3-7": -0.0001220703125,
+     "machine-1-6": -0.0009901258680555555,
+     "machine-2-7": 0.00013563368055555556,
+     "machine-3-5": -2.712673611111111e-05,
+     "machine-2-9": 0.00017632378472222222,
+     "machine-1-3": 0.0011664496527777778
+    },
+    "ramp": {
+     "machine-3-7": 0.0,
+     "machine-1-6": -0.0013563368055555555,
+     "machine-2-7": 9.494357638888889e-05,
+     "machine-3-5": -2.712673611111111e-05,
+     "machine-2-9": 4.0690104166666664e-05,
+     "machine-1-3": 0.00023057725694444444
+    },
+    "gain": {
+     "machine-3-7": 2.712673611111111e-05,
+     "machine-1-6": 8.138020833333333e-05,
+     "machine-2-7": -8.138020833333333e-05,
+     "machine-3-5": 0.0,
+     "machine-2-9": -5.425347222222222e-05,
+     "machine-1-3": 0.00010850694444444444
+    }
+   },
+   "P3_family": {
+    "none": {
+     "point": 0.0007716049382716049,
+     "lo": 0.0,
+     "hi": 0.003858024691358025,
+     "pass_": true,
+     "per_kind": {
+      "spike": 0.0,
+      "stuck": 0.0023148148148148147,
+      "corr_break": 0.0
+     }
+    }
+   },
+   "P3": false,
+   "P3_large_degradation_flags": [],
+   "P4_nodrift": {
+    "point": -6.781684027777774e-06,
+    "lo": -0.00012207031250000003,
+    "hi": 8.816189236111111e-05
+   },
+   "P4_diverged_fits": [],
+   "P4": true,
+   "label": "FAIL-PERSIST"
+  }
+ },
+ "next": "G-L2"
+}
