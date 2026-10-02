@@ -1,0 +1,10 @@
+machine,role,rows,channels,near_const_fit,sha256,source
+machine-3-7,primary,28705,38,9,5eb1f16e62c30eb498e968b2c6da3e8f60c8367e264f771245a970362d7d8574,NetManAIOps/OmniAnomaly master ServerMachineDataset/train/<machine>.txt (train split only; test/test_label NOT downloaded)
+machine-1-6,primary,23688,38,5,27e1765c04c2a5d08f39d98e7979e7764886fc733c36382fe081157a5ac0b9d8,NetManAIOps/OmniAnomaly master ServerMachineDataset/train/<machine>.txt (train split only; test/test_label NOT downloaded)
+machine-2-7,primary,23696,38,8,32e9d88b18bf1b377a2bd0a6d5de2a766f36c58781e76dbe2491b0347557dec2,NetManAIOps/OmniAnomaly master ServerMachineDataset/train/<machine>.txt (train split only; test/test_label NOT downloaded)
+machine-3-5,primary,23690,38,12,7eb4f157d5aace0f5758c8035a4cc90445fc0d3ae59c57b1bf00d7e62c363bba,NetManAIOps/OmniAnomaly master ServerMachineDataset/train/<machine>.txt (train split only; test/test_label NOT downloaded)
+machine-2-9,primary,28722,38,9,465db893338b6f14985dd30ac2ff20a319246bb8584cd0a9a4aaacf52cbc2f1f,NetManAIOps/OmniAnomaly master ServerMachineDataset/train/<machine>.txt (train split only; test/test_label NOT downloaded)
+machine-1-3,primary,23702,38,9,a4ef16a49d921e0ba9497ce2690d3833eb4a85f9a8a88392de4c3fde42e413ac,NetManAIOps/OmniAnomaly master ServerMachineDataset/train/<machine>.txt (train split only; test/test_label NOT downloaded)
+machine-2-6,reserve,28743,38,8,dc30adaef939060aebea3836c691e3d1bb47da593fa43553acbc52c6825dc8ae,NetManAIOps/OmniAnomaly master ServerMachineDataset/train/<machine>.txt (train split only; test/test_label NOT downloaded)
+machine-3-9,reserve,28713,38,10,7896b57b65da1d48ee992ba128fb914ae7e6d2bef8ea4ed8df039657fc017468,NetManAIOps/OmniAnomaly master ServerMachineDataset/train/<machine>.txt (train split only; test/test_label NOT downloaded)
+machine-2-2,reserve,23699,38,7,e2e0f52994c8c884f9552c6289e42268d9d988ba7c7abadcc0d8dcd8ba993c30,NetManAIOps/OmniAnomaly master ServerMachineDataset/train/<machine>.txt (train split only; test/test_label NOT downloaded)
