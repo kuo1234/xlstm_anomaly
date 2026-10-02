@@ -1,0 +1,239 @@
+{
+ "versions": {
+  "xlstm": "2.0.5",
+  "mlstm_kernels": "2.0.5",
+  "torch": "2.13.0"
+ },
+ "kernels": {
+  "mLSTMexp": {
+   "chunk": "mlstm_kernels.torch.chunkwise.native.mlstm_chunkwise__native_autograd",
+   "step": "mlstm_kernels.torch.recurrent.native_step.mlstm_recurrent_step__native",
+   "reference": "xlstm.blocks.mlstm.layer.mLSTMLayer.step (backend recurrent_step_stabilized_simple)"
+  },
+  "mLSTMsig": {
+   "chunk_gpu": "mlstm_kernels.torch.chunkwise.triton_xl_chunk_siging.mlstm_siging_chunkwise__xl_chunk",
+   "parallel_zero_state": "mlstm_kernels.torch.parallel.native_siging.mlstm_siging_parallel__native_autograd",
+   "step": "p10_canonical_mlstm.siging_step (local; verified against both official kernels)"
+  }
+ },
+ "dtype": "torch.float64",
+ "kernel_chunk_vs_step_S150": {
+  "S": 150,
+  "chunk": 64,
+  "H_chunk_vs_native_step": 1.0658141036401503e-13,
+  "H_chunk_vs_xlstm_backend_step": 1.0658141036401503e-13,
+  "state_chunk_vs_native_step": {
+   "C_eff_rel": 1.6377850120152905e-16,
+   "n_eff_rel": 1.3616834579541159e-16,
+   "conv": 0.0
+  },
+  "state_chunk_vs_xlstm_backend_step": {
+   "C_eff_rel": 1.6377850120152905e-16,
+   "n_eff_rel": 1.3616834579541159e-16,
+   "conv": 0.0
+  }
+ },
+ "kernel_chunk_vs_step_S128": {
+  "S": 128,
+  "chunk": 64,
+  "H_chunk_vs_native_step": 6.217248937900877e-14,
+  "H_chunk_vs_xlstm_backend_step": 6.217248937900877e-14,
+  "state_chunk_vs_native_step": {
+   "C_eff_rel": 4.3019107740615735e-16,
+   "n_eff_rel": 5.721384436982946e-16,
+   "conv": 0.0
+  },
+  "state_chunk_vs_xlstm_backend_step": {
+   "C_eff_rel": 4.3019107740615735e-16,
+   "n_eff_rel": 5.721384436982946e-16,
+   "conv": 0.0
+  }
+ },
+ "kernel_chunk_vs_step_S50": {
+  "S": 50,
+  "chunk": 64,
+  "H_chunk_vs_native_step": 0.0,
+  "H_chunk_vs_xlstm_backend_step": 0.0,
+  "state_chunk_vs_native_step": {
+   "C_eff_rel": 0.0,
+   "n_eff_rel": 0.0,
+   "conv": 0.0
+  },
+  "state_chunk_vs_xlstm_backend_step": {
+   "C_eff_rel": 0.0,
+   "n_eff_rel": 0.0,
+   "conv": 0.0
+  }
+ },
+ "layer_vs_official_step_S150": {
+  "S": 150,
+  "split": null,
+  "y_max_abs": 3.1086244689504383e-15,
+  "y_scale": 5.9588143098029445,
+  "state": {
+   "C_eff_rel": 5.716496887358492e-16,
+   "n_eff_rel": 3.0295057655644945e-16,
+   "conv": 0.0
+  }
+ },
+ "layer_vs_official_step_S150_split70": {
+  "S": 150,
+  "split": 70,
+  "y_max_abs": 2.6645352591003757e-15,
+  "y_scale": 5.9588143098029445,
+  "state": {
+   "C_eff_rel": 3.810997924905661e-16,
+   "n_eff_rel": 4.847209224903189e-16,
+   "conv": 0.0
+  }
+ },
+ "layer_vs_official_step_S129_split1": {
+  "S": 129,
+  "split": 1,
+  "y_max_abs": 2.6645352591003757e-15,
+  "y_scale": 5.682981901169112,
+  "state": {
+   "C_eff_rel": 3.482040765694082e-16,
+   "n_eff_rel": 2.781825758386959e-16,
+   "conv": 0.0
+  }
+ },
+ "mixed_chunk_and_official_step_S150_split70": {
+  "chunk_then_official_step": 2.220446049250313e-15,
+  "official_step_then_chunk": 2.4424906541753444e-15,
+  "state_chunk_then_step": {
+   "C_eff_rel": 4.778453911535202e-16,
+   "n_eff_rel": 3.102751059208853e-16,
+   "conv": 0.0
+  },
+  "state_step_then_chunk": {
+   "C_eff_rel": 1.7065906826911433e-16,
+   "n_eff_rel": 1.5513755296044257e-16,
+   "conv": 0.0
+  },
+  "y_scale": 4.792090041824204
+ },
+ "layer_vs_official_parallel_forward_S150": {
+  "S": 150,
+  "y_max_abs": 3.989668573289862e-08,
+  "y_scale": 6.128614390326494
+ },
+ "conv_state": {
+  "exp": {
+   "split_vs_full": 3.552713678800501e-15,
+   "conv_state_full_vs_split": 0.0,
+   "conv_state_equals_last_inputs": 0.0,
+   "effect_of_zeroing_conv_state_first3": 1.621290530290223
+  },
+  "sig": {
+   "split_vs_full": 3.3306690738754696e-16,
+   "conv_state_full_vs_split": 0.0,
+   "conv_state_equals_last_inputs": 0.0,
+   "effect_of_zeroing_conv_state_first3": 1.2368166735118402
+  }
+ },
+ "siging": {
+  "normalize=False": {
+   "step_vs_official_parallel": 5.329070518200751e-15,
+   "scale": 10.625740523504039
+  },
+  "normalize=True": {
+   "step_vs_official_parallel": 8.881784197001252e-15,
+   "scale": 9.61478670259327
+  },
+  "layer_wrapper_vs_official_parallel_core": 2.6645352591003757e-15
+ },
+ "siging_triton_gpu": {
+  "skipped": "no cuda"
+ },
+ "forecaster_smoke": {
+  "exp": {
+   "arm": "mLSTMexp",
+   "pred_shape": [
+    2,
+    150,
+    7
+   ],
+   "state_keys": [
+    "C",
+    "conv",
+    "m",
+    "n"
+   ],
+   "state_shapes": {
+    "C": [
+     2,
+     4,
+     16,
+     16
+    ],
+    "n": [
+     2,
+     4,
+     16
+    ],
+    "m": [
+     2,
+     4,
+     1
+    ],
+    "conv": [
+     2,
+     3,
+     64
+    ]
+   },
+   "split_vs_full": 8.881784197001252e-16,
+   "step_loop_vs_forward": 2.220446049250313e-15,
+   "causality_leak_before_t100": 0.0,
+   "perturbation_effect_at_t100": 5.804240718690803,
+   "loss_first": 0.3413810431957245,
+   "loss_last": 0.0015803801361471415,
+   "n_params": 9487
+  },
+  "sig": {
+   "arm": "mLSTMsig",
+   "pred_shape": [
+    2,
+    150,
+    7
+   ],
+   "state_keys": [
+    "C",
+    "conv",
+    "m",
+    "n"
+   ],
+   "state_shapes": {
+    "C": [
+     2,
+     4,
+     16,
+     16
+    ],
+    "n": [
+     2,
+     4,
+     16
+    ],
+    "m": [
+     2,
+     4,
+     1
+    ],
+    "conv": [
+     2,
+     3,
+     64
+    ]
+   },
+   "split_vs_full": 8.881784197001252e-16,
+   "step_loop_vs_forward": 1.1102230246251565e-15,
+   "causality_leak_before_t100": 0.0,
+   "perturbation_effect_at_t100": 5.835358353496209,
+   "loss_first": 0.33804047107696533,
+   "loss_last": 0.0016386624192819,
+   "n_params": 9487
+  }
+ }
+}
