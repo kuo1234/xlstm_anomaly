@@ -91,7 +91,7 @@ Sweep A 固定 L=38 滑動 boundary，Sweep B 從 fault onset 起改長度 L=16�
 
 ---
 
-### Step 1c — oracle rollback granularity：pending review
+### Step 1c — oracle rollback granularity：PASS
 
 在 Step 1b 的 L=30 / 38 / 46 segment 上比較 rollback target（none / fault steps / admitted segment / fault + recovery），
 immediate 與 64-step delayed rollback；W1 tag delete、W2 ledger subtraction、W3 checkpoint + replay。
@@ -109,11 +109,29 @@ immediate 與 64-step delayed rollback；W1 tag delete、W2 ledger subtraction�
 
 ---
 
+### Step 2a — real-stream non-oracle admission / rollback pilot：pending review
+
+SMD test stream（machine-3-7 / 1-6 / 2-7），policy 只看 causal anomaly score；score traces 先 seal 並 push（`0f04812`），
+之後才經 purpose-gated loader 讀 label。比較 no-update / always / threshold / quarantine / provenance rollback（key+value、value-only）
+與 write-fraction-matched random controls。
+
+結果：
+
+- always-update 在真實資料上明顯吸收 anomaly（W1 AP 0.645 → 0.350，point recall 0.77 → 0.19）
+- causal admission gate 可完全恢復，且略優於 no-update（threshold AP +0.04、27/27 units；normal FPR 0.23 → 0.09）
+- random writes 在相同 write fraction 下仍停在 always-update 水準 → gain 來自「寫哪些」，不是「寫得少」
+- provenance rollback 沒有超過 threshold gate（4/27）：它的 trigger 用的是同一個 instantaneous score
+- 兩個失敗模式：低於 τ 的 slow-onset anomaly；fault 後的新 regime（new normal vs 長 fault 的 identifiability）
+
+見：
+
+`step2a/STEP2A_REAL_STREAM.md`
+
+---
+
 ## Next question
 
 待 review 決定。
-
-目前仍採 oracle boundary / oracle semantics。
 
 尚未宣稱：
 
@@ -136,5 +154,6 @@ immediate 與 64-step delayed rollback；W1 tag delete、W2 ledger subtraction�
 - `step1a1/`：mechanism diagnostics
 - `step1b/`：mixed-segment / boundary pilot
 - `step1c/`：oracle rollback granularity pilot
+- `step2a/`：real-stream non-oracle admission / rollback pilot（sealed run + results）
 
 舊的 `docs-only` / `no research GO` 狀態已不再適用。
