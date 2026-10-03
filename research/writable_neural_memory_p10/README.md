@@ -73,11 +73,27 @@ P10 與 P7 已整合：
 
 ---
 
+### Step 1b — mixed-segment / boundary pilot：pending review
+
+一個 oracle admission segment 同時含 new-normal（ramp / level）、burst fault 與 recovery evidence：
+Sweep A 固定 L=38 滑動 boundary，Sweep B 從 fault onset 起改長度 L=16–62。
+
+結果（φ1 + φ2、ramp + level 一致）：
+
+- 決定 contamination 正負號的是 **segment 結尾相對於 fault recovery transition 的位置**，不是 fault 步數比例
+- 結尾在 fault 內（無 recovery keys）：W1 / W3 出現 inversion（memory 把 fault 當成預期），同時失去 adaptation
+- 包含 recovery keys：一般 masking；再加入 post-recovery benign steps：W3 β=.5 轉為 sensitization（B/D ≈ 1.1）
+- W2 f=.995（normalised Hebbian）對 boundary 幾乎不敏感
+
+見：
+
+`step1b/STEP1B_BOUNDARY.md`
+
+---
+
 ## Next question
 
-下一步是 mixed-segment / boundary mechanism：
-
-> 如果一個 variable-length admission segment 同時包含 new-normal、fault 與 recovery evidence，boundary / length 如何改變 adaptation benefit、masking 與 sensitization？
+待 review 決定：mixed contamination dose、admission policy，或 rollback / reversible write。
 
 目前仍採 oracle boundary / oracle semantics。
 
@@ -100,5 +116,6 @@ P10 與 P7 已整合：
 - `step0/`：canonical mLSTM repair / parity
 - `step1a/`：role-matched oracle memory pilot
 - `step1a1/`：mechanism diagnostics
+- `step1b/`：mixed-segment / boundary pilot
 
 舊的 `docs-only` / `no research GO` 狀態已不再適用。

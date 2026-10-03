@@ -1,0 +1,109 @@
+{
+ "cfg": {
+  "machines": [
+   "machine-3-7",
+   "machine-1-6",
+   "machine-2-7"
+  ],
+  "phi_seeds": [
+   11,
+   22,
+   33
+  ],
+  "w": 8,
+  "dk_relu": 128,
+  "dk_pca": 64,
+  "knn_k": 5,
+  "families": [
+   "ramp",
+   "level"
+  ],
+  "fault_offset": 128,
+  "a_len": 30,
+  "burst_sigma": 2.0,
+  "burst_channels": 8,
+  "variant_scale": 0.6,
+  "sweepA_L": 38,
+  "sweepA_offsets": [
+   -16,
+   -8,
+   0,
+   8,
+   16,
+   30
+  ],
+  "sweepB_L": [
+   16,
+   30,
+   38,
+   46,
+   62
+  ],
+  "deltas": [
+   64,
+   256
+  ],
+  "eval_start": 84,
+  "eval_len": 512,
+  "calib_len": 1024,
+  "q": 0.99,
+  "seed": 905
+ },
+ "segments": [
+  [
+   "A",
+   -16,
+   38
+  ],
+  [
+   "A",
+   -8,
+   38
+  ],
+  [
+   "A",
+   0,
+   38
+  ],
+  [
+   "A",
+   8,
+   38
+  ],
+  [
+   "A",
+   16,
+   38
+  ],
+  [
+   "A",
+   30,
+   38
+  ],
+  [
+   "B",
+   0,
+   16
+  ],
+  [
+   "B",
+   0,
+   30
+  ],
+  [
+   "B",
+   0,
+   38
+  ],
+  [
+   "B",
+   0,
+   46
+  ],
+  [
+   "B",
+   0,
+   62
+  ]
+ ]
+}
