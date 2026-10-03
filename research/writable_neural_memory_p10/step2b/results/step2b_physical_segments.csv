@@ -1,0 +1,7 @@
+machine,start_min,start_max,n_checkpoints,n_unit_segments,max_age,ck_fault,ck_mixed,ck_normal,mean_seg_anom_frac
+machine-1-6,2960,2960,3,3,256,0,0,3,0.000
+machine-1-6,3280,3312,6,6,256,0,6,0,0.014
+machine-1-6,18656,18752,262,9,4992,206,16,40,0.948
+machine-2-7,18576,18576,18,9,384,18,0,0,0.774
+machine-3-7,592,592,1,1,256,0,0,1,0.000
+machine-3-7,21152,21264,516,9,7552,12,27,477,0.132

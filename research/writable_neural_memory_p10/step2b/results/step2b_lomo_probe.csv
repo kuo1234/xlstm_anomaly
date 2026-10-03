@@ -1,0 +1,7 @@
+level,held_out,AUROC,n_test,note
+checkpoint,machine-1-6,1.0,249,
+checkpoint,machine-2-7,,18,single class in train or test
+checkpoint,machine-3-7,1.0,490,
+segment_first_check,machine-1-6,1.0,12,
+segment_first_check,machine-2-7,,9,single class in train or test
+segment_first_check,machine-3-7,1.0,10,

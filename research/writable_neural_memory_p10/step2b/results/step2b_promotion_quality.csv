@@ -1,0 +1,16 @@
+policy,op,fault,mixed,normal
+DE_stab,W1,12,3,4
+DE_stab,W2_f0995,10,8,5
+DE_stab,W3_b01,12,3,4
+DE_stab512,W1,6,3,0
+DE_stab512,W2_f0995,6,1,5
+DE_stab512,W3_b01,7,0,6
+DE_stab_lb,W1,14,3,5
+DE_stab_lb,W2_f0995,11,12,16
+DE_stab_lb,W3_b01,10,6,10
+DEph_cv,W1,0,3,0
+DEph_cv,W2_f0995,0,3,3
+DEph_cv,W3_b01,0,3,1
+D_trail512,W1,13,3,0
+D_trail512,W2_f0995,14,0,3
+D_trail512,W3_b01,14,0,6

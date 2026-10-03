@@ -112,11 +112,11 @@ def main(run_dir, seal_sha, label_root, out_dir):
     idrows = []
     for level, df in (("checkpoint", H), ("segment_first_check", first)):
         for scope, gdf in [("pooled", df)] + [(m, g) for m, g in df.groupby("machine")]:
-            row = dict(level=level, scope=scope, n_fault=int(gdf.yf.sum()), n_normal=int((1 - gdf.yf).sum()),
+            row = dict(unit_level=level, scope=scope, n_fault=int(gdf.yf.sum()), n_normal=int((1 - gdf.yf).sum()),
                        n_fault_segments=int(gdf[gdf.yf == 1].groupby(["phi_seed", "op", "start"]).ngroups),
                        n_normal_segments=int(gdf[gdf.yf == 0].groupby(["phi_seed", "op", "start"]).ngroups))
             for f in FEATURES:
-                row[f] = _auc(gdf.yf, gdf[f])
+                row[f] = _auc(gdf.yf, gdf[f])   # feature "level" no longer collides with the unit-level key
             idrows.append(row)
     ident = pd.DataFrame(idrows)
     ident.to_csv(out_dir / "step2b_identifiability_auroc.csv", index=False)

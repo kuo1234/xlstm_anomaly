@@ -1,0 +1,10 @@
+rule,machine,n_fault,pass_fault,n_normal,pass_normal
+pre-registered: self<=1 & stat<=0.5,machine-1-6,206,0.204,43,0.930
+pre-registered: self<=1 & stat<=0.5,machine-2-7,18,0.389,0,
+pre-registered: self<=1 & stat<=0.5,machine-3-7,12,0.250,478,0.971
+post-hoc: + cv<=0.10,machine-1-6,206,0.000,43,0.930
+post-hoc: + cv<=0.10,machine-2-7,18,0.000,0,
+post-hoc: + cv<=0.10,machine-3-7,12,0.000,478,0.969
+cv<=0.10 alone,machine-1-6,206,0.019,43,0.930
+cv<=0.10 alone,machine-2-7,18,0.000,0,
+cv<=0.10 alone,machine-3-7,12,0.000,478,0.998

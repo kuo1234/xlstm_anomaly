@@ -109,7 +109,7 @@ immediate 與 64-step delayed rollback；W1 tag delete、W2 ledger subtraction�
 
 ---
 
-### Step 2a — real-stream non-oracle admission / rollback pilot：pending review
+### Step 2a — real-stream non-oracle admission / rollback pilot：PASS
 
 SMD test stream（machine-3-7 / 1-6 / 2-7），policy 只看 causal anomaly score；score traces 先 seal 並 push（`0f04812`），
 之後才經 purpose-gated loader 讀 label。比較 no-update / always / threshold / quarantine / provenance rollback（key+value、value-only）
@@ -129,13 +129,37 @@ SMD test stream（machine-3-7 / 1-6 / 2-7），policy 只看 causal anomaly scor
 
 ---
 
+### Step 2b — delayed-evidence drift-vs-fault admission pilot：pending review
+
+同三台 SMD（development / exploratory，label 先前已 exposure-visible）。quarantine segment 每 128 步計算 causal delayed
+evidence（score variability、trial-write self-consistency、plateau ratio、channel structure、key novelty、operator disagreement），
+動作只有 KEEP / PROMOTE（只 promote trailing 256 步）。label-blind run 先 seal 並 push（`2c9e92b`），之後才經 gated loader 讀 label。
+
+結果：
+
+- 預先登錄的 rule（trial-write `self ≤ 1` ∧ plateau `stat ≤ 0.5`）**沒有**突破 drift-vs-long-fault wall：
+  所有 promote policy 都落在 PF recall ≈ 0.72–0.81 / PN FPR ≈ 0.20–0.33；比 Step 2a quarantine 少寫 fault，但遠不及 threshold
+- 三台機器互相衝突：machine-3-7 必須 promote（+0.31 AP），machine-1-6 / 2-7 任何 fault promotion 都扣分
+- 只 promote trailing window（不寫整個 buffer）本身就減半 fault 寫入；delayed-commit purge（q0.95）成本大於收益
+- 持續的 persistent segment 實際上只有 2 個 physical regime，兩者都是「fault 開頭、後段穩定成新 regime」
+- instantaneous level 跨機器反轉（pooled AUROC 0.32）；**score variability `cv`** 是唯一跨兩台一致的 delayed signal（pooled 0.99）
+- post-hoc（dev-tuned，非 confirmatory）rule 加上 `cv ≤ 0.10`：W1/W2/W3 AP 0.756 / 0.755 / 0.780，同時保有 threshold 的 PF recall 與
+  quarantine 的 PN FPR；但只建立在 2 個 regime 上，需在未看過 label 的機器上 sealed 驗證
+
+見：
+
+`step2b/STEP2B_DELAYED_EVIDENCE.md`
+
+---
+
 ## Next question
 
-待 review 決定。
+待 review 決定（建議：sealed Step 2c，在未 label-inspected 的 SMD 機器或其他 labelled dataset 上驗證 `cv` 是否 transfer）。
 
 尚未宣稱：
 
 - admission 已解決
+- drift-vs-fault 可由 observation-only evidence 一般性分辨
 - segment boundary 可自動找到
 - neural memory 優於 explicit cache
 - deployment safety 已建立
@@ -155,5 +179,6 @@ SMD test stream（machine-3-7 / 1-6 / 2-7），policy 只看 causal anomaly scor
 - `step1b/`：mixed-segment / boundary pilot
 - `step1c/`：oracle rollback granularity pilot
 - `step2a/`：real-stream non-oracle admission / rollback pilot（sealed run + results）
+- `step2b/`：delayed-evidence drift-vs-fault admission pilot（sealed main + post-hoc runs, results）
 
 舊的 `docs-only` / `no research GO` 狀態已不再適用。

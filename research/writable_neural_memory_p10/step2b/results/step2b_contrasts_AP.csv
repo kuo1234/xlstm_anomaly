@@ -1,0 +1,14 @@
+contrast,unit_wins,unit_ties,n_units,mean_dAP,machines_positive,dAP_machine-1-6,dAP_machine-2-7,dAP_machine-3-7
+DE_stab - C_threshold,9,1,27,0.0264,1,-0.1446,-0.0868,0.3108
+DE_stab - D_quarantine,17,1,27,0.0427,2,0.0593,-0.0868,0.1557
+D_trail512 - D_quarantine,15,2,27,0.0170,2,0.0160,-0.0009,0.0360
+DE_stab512 - D_trail512,7,15,27,0.0040,1,0.0407,0.0000,-0.0286
+DE_stab - D_trail512,17,3,27,0.0257,2,0.0433,-0.0859,0.1197
+DE_stab_lb - DE_stab,2,0,27,-0.0211,0,-0.0320,-0.0247,-0.0066
+C_lb - C_threshold,3,0,27,-0.0120,1,-0.0243,-0.0133,0.0015
+DE_stab - rand_DE,27,0,27,0.2840,3,0.1322,0.3740,0.3459
+DE_stab - A_no_update,11,0,27,0.0670,1,-0.1220,-0.0664,0.3894
+DEph_cv - C_threshold,15,2,27,0.0955,2,0.0003,-0.0009,0.2872
+DEph_cv - DE_stab,16,4,27,0.0691,2,0.1449,0.0859,-0.0235
+DEph_cv - D_quarantine,18,2,27,0.1118,2,0.2042,-0.0009,0.1322
+DEph_cv - A_no_update,27,0,27,0.1361,3,0.0229,0.0195,0.3659
