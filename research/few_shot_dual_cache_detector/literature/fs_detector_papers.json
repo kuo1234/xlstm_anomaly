@@ -1,0 +1,513 @@
+[
+  {
+    "title": "Towards a General Time Series Anomaly Detector with Adaptive Bottlenecks and Dual Adversarial Decoders",
+    "authors_short": "Qichao Shentu, Beibu Li, Kai Zhao et al.",
+    "year": 2024,
+    "venue": "ICLR 2025 (arXiv:2405.15273)",
+    "doi_or_url": "https://doi.org/10.48550/arxiv.2405.15273",
+    "code_url": "",
+    "verification_level": "full_text",
+    "category": "universal_foundation_TSAD",
+    "relevance_1to3": 1,
+    "key_mechanism": "Pretrained frozen general TSAD backbone: adaptive-bottleneck encoder + dual adversarial decoders reconstructing normal vs. anomalous patterns; trained on ~400M points from 12+ heterogeneous Monash-derived series, applied zero-shot at test time with SPOT auto-thresholding.",
+    "evaluation_datasets": [
+      "SMD",
+      "MSL",
+      "SMAP",
+      "SWaT",
+      "PSM",
+      "NeurIPS-TS synthetic",
+      "UCR"
+    ],
+    "machine_data_used": true,
+    "notes": "Zero-shot only: weights are frozen after pretraining and never updated post-deployment; no cache/kNN memory, no few-shot commissioning step, no explicit handling of benign aging vs. new fault types. Directly the 'frozen universal encoder' half of the lead's design, but with no memory/adaptation layer on top. Read in full (24 pages, arXiv v4)."
+  },
+  {
+    "title": "MOMENT: A Family of Open Time-series Foundation Models",
+    "authors_short": "Mononito Goswami, Konrad Szafer, Arjun Choudhry et al.",
+    "year": 2024,
+    "venue": "arXiv (Cornell University)",
+    "doi_or_url": "https://doi.org/10.48550/arxiv.2402.03885",
+    "code_url": "",
+    "verification_level": "abstract",
+    "category": "universal_foundation_TSAD",
+    "relevance_1to3": 2,
+    "key_mechanism": "Open family of time-series foundation models pretrained on the large 'Time Series Pile' via masked reconstruction (T5-style patch masking); usable zero-shot or lightly fine-tuned for forecasting, classification, imputation and anomaly detection.",
+    "evaluation_datasets": [
+      "UCR/UEA archive subset",
+      "Time Series Pile pretraining corpus",
+      "various downstream AD benchmarks"
+    ],
+    "machine_data_used": "partial",
+    "notes": "General-purpose backbone, not commissioning-focused; anomaly detection is one of several downstream heads evaluated via linear probing or fine-tuning, not via a non-parametric cache. Read via OpenAlex abstract only in this pass."
+  },
+  {
+    "title": "UniTS: A Unified Multi-Task Time Series Model",
+    "authors_short": "Shanghua Gao, Teddy Koker, Owen Queen et al.",
+    "year": 2024,
+    "venue": "arXiv preprint",
+    "doi_or_url": "https://doi.org/10.52202/079017-4463",
+    "code_url": "",
+    "verification_level": "metadata_only",
+    "category": "universal_foundation_TSAD",
+    "relevance_1to3": 2,
+    "key_mechanism": "Unified multi-task time-series model with a shared transformer backbone and task-specific tokens/heads spanning forecasting, classification, imputation and anomaly detection, trained jointly across many datasets.",
+    "evaluation_datasets": [
+      "38 multi-domain time series tasks (forecasting/classification/imputation/AD)"
+    ],
+    "machine_data_used": "partial",
+    "notes": "Multi-task foundation model; anomaly detection is trained as one of the joint tasks with labeled data, not a training-free few-shot cache mechanism."
+  },
+  {
+    "title": "Timer: Generative Pre-trained Transformers Are Large Time Series Models",
+    "authors_short": "Yong Liu, Haoran Zhang, Chenyu Li et al.",
+    "year": 2024,
+    "venue": "arXiv (Cornell University)",
+    "doi_or_url": "https://doi.org/10.48550/arxiv.2402.02368",
+    "code_url": "",
+    "verification_level": "abstract",
+    "category": "universal_foundation_TSAD",
+    "relevance_1to3": 2,
+    "key_mechanism": "GPT-style decoder-only generative pretrained transformer for time series, trained autoregressively on a large curated multi-domain corpus; primarily targets forecasting but is positioned as a general large time-series model.",
+    "evaluation_datasets": [
+      "Unified Time Series Dataset (UTSD) pretraining corpus",
+      "forecasting benchmarks"
+    ],
+    "machine_data_used": "partial",
+    "notes": "Forecasting-first foundation model; anomaly detection is a downstream adaptation via reconstruction error, no explicit cache/memory adaptation mechanism."
+  },
+  {
+    "title": "Timer-XL: Long-Context Transformers for Unified Time Series Forecasting",
+    "authors_short": "Yong Liu, Qin Guo, Xiangdong Huang et al.",
+    "year": 2024,
+    "venue": "arXiv (Cornell University)",
+    "doi_or_url": "https://doi.org/10.48550/arxiv.2410.04803",
+    "code_url": "",
+    "verification_level": "abstract",
+    "category": "universal_foundation_TSAD",
+    "relevance_1to3": 2,
+    "key_mechanism": "Long-context extension of Timer using a unified TimeAttention mechanism enabling causal generative pretraining over much longer context windows, targeting unified univariate/multivariate forecasting.",
+    "evaluation_datasets": [
+      "Long-context multi-domain forecasting benchmarks"
+    ],
+    "machine_data_used": "partial",
+    "notes": "Extends Timer for long-context forecasting; not built or evaluated as an anomaly detector, no memory/cache adaptation."
+  },
+  {
+    "title": "AnomalyBERT: Self-Supervised Transformer for Time Series Anomaly Detection using Data Degradation Scheme",
+    "authors_short": "Yungi Jeong, Eun-Seok Yang, Jung Hyun Ryu et al.",
+    "year": 2023,
+    "venue": "arXiv (Cornell University)",
+    "doi_or_url": "https://doi.org/10.48550/arxiv.2305.04468",
+    "code_url": "",
+    "verification_level": "abstract",
+    "category": "universal_foundation_TSAD",
+    "relevance_1to3": 2,
+    "key_mechanism": "Self-supervised transformer for TSAD trained with a synthetic data-degradation scheme (injecting soft/hard synthetic anomalies) so a single model learns to reconstruct/flag anomalies without real anomaly labels.",
+    "evaluation_datasets": [
+      "SWaT",
+      "WADI",
+      "SMAP",
+      "MSL",
+      "SMD"
+    ],
+    "machine_data_used": true,
+    "notes": "Trained per-dataset (not a single frozen universal model reused zero-shot across machines); no cache-based few-shot commissioning or online update mechanism."
+  },
+  {
+    "title": "Can Large Language Models be Anomaly Detectors for Time Series?",
+    "authors_short": "Sarah Alnegheimish, Linh Nguyen, Laure Berti\u2010\u00c9quille et al.",
+    "year": 2024,
+    "venue": "IEEE DSAA 2024",
+    "doi_or_url": "https://doi.org/10.1109/dsaa61799.2024.10722786",
+    "code_url": "",
+    "verification_level": "abstract",
+    "category": "universal_foundation_TSAD",
+    "relevance_1to3": 2,
+    "key_mechanism": "Evaluates whether general-purpose LLMs (prompted, not fine-tuned) can act as zero-shot time-series anomaly detectors/forecasters by serializing numeric sequences as text.",
+    "evaluation_datasets": [
+      "NAB",
+      "standard univariate TSAD benchmarks"
+    ],
+    "machine_data_used": "partial",
+    "notes": "LLM-prompting based zero-shot detector; no persistent memory/cache across deployment, no explicit fault-vs-aging separation."
+  },
+  {
+    "title": "TAB: Unified Benchmarking of Time Series Anomaly Detection Methods",
+    "authors_short": "Xiangfei Qiu, Zhe Li, Wanghui Qiu et al.",
+    "year": 2025,
+    "venue": "Proceedings of the VLDB Endowment",
+    "doi_or_url": "https://doi.org/10.14778/3746405.3746407",
+    "code_url": "",
+    "verification_level": "full_text",
+    "category": "universal_foundation_TSAD",
+    "relevance_1to3": 2,
+    "key_mechanism": "Large-scale unified TSAD benchmark and evaluation pipeline spanning 29 multivariate + 1635 univariate series and comparing non-learning, ML, deep-learning, LLM-based and time-series-pretrained TSAD methods under a standardized protocol.",
+    "evaluation_datasets": [
+      "29 multivariate datasets",
+      "1635 univariate series from multiple domains"
+    ],
+    "machine_data_used": "partial",
+    "notes": "Benchmark/evaluation paper, not a new detector; useful for sourcing baselines and highlights that foundation/pretrained TSAD methods are not yet dominant on multivariate industrial-style series. Full text read."
+  },
+  {
+    "title": "Towards Total Recall in Industrial Anomaly Detection",
+    "authors_short": "Karsten Roth, Latha Pemula, Joaquin Zepeda et al.",
+    "year": 2022,
+    "venue": "CVPR 2022",
+    "doi_or_url": "https://doi.org/10.1109/cvpr52688.2022.01392",
+    "code_url": "",
+    "verification_level": "abstract",
+    "category": "memory_bank_kNN",
+    "relevance_1to3": 2,
+    "key_mechanism": "Original PatchCore: builds a coreset memory bank of nominal patch-level embeddings from a frozen pretrained CNN and scores test images by nearest-neighbor distance in embedding space; state-of-the-art unsupervised industrial visual defect detection.",
+    "evaluation_datasets": [
+      "MVTec AD (15 industrial object/texture classes)"
+    ],
+    "machine_data_used": "partial",
+    "notes": "Foundational training-free memory-bank detector; image domain, per-class memory built from many nominal images, not time series, not evaluated for cross-machine few-shot transfer or online cache maintenance."
+  },
+  {
+    "title": "Optimizing PatchCore for Few/many-shot Anomaly Detection",
+    "authors_short": "Jo\u00e3o Pedro Santos, Triet Tran, Oliver Rippel",
+    "year": 2023,
+    "venue": "arXiv (Cornell University)",
+    "doi_or_url": "https://doi.org/10.48550/arxiv.2307.10792",
+    "code_url": "",
+    "verification_level": "full_text",
+    "category": "memory_bank_kNN",
+    "relevance_1to3": 1,
+    "key_mechanism": "Systematically studies how PatchCore's coreset memory-bank detector degrades under few-shot (1-, 5-, 10-shot) nominal-image budgets and proposes augmentation/subsampling and backbone changes to recover accuracy at low shot counts.",
+    "evaluation_datasets": [
+      "MVTec AD",
+      "VisA"
+    ],
+    "machine_data_used": "partial",
+    "notes": "Directly the 'few-shot Tip-Adapter/coreset' precedent the design hypothesis leans on, but for static images: single fixed memory built once from k nominal images, no fault cache, no operator-feedback-driven eviction/update after deployment, no benign-drift absorption. Read in full."
+  },
+  {
+    "title": "FR-PatchCore: An Industrial Anomaly Detection Method for Improving Generalization",
+    "authors_short": "Zhiqian Jiang, Yu Zhang, Yong Wang et al.",
+    "year": 2024,
+    "venue": "Sensors",
+    "doi_or_url": "https://doi.org/10.3390/s24051368",
+    "code_url": "",
+    "verification_level": "abstract",
+    "category": "memory_bank_kNN",
+    "relevance_1to3": 2,
+    "key_mechanism": "Modifies PatchCore's feature extraction/reweighting to improve generalization of the coreset memory bank across different objects/domains in industrial visual anomaly detection.",
+    "evaluation_datasets": [
+      "MVTec AD"
+    ],
+    "machine_data_used": "partial",
+    "notes": "Incremental improvement to the memory-bank mechanism itself (feature robustness), not to its lifecycle management or cross-machine few-shot commissioning protocol."
+  },
+  {
+    "title": "Unsupervised Continual Anomaly Detection with Contrastively-Learned Prompt",
+    "authors_short": "Jiaqi Liu, Kai Wu, Qiang Nie et al.",
+    "year": 2024,
+    "venue": "AAAI 2024",
+    "doi_or_url": "https://doi.org/10.1609/aaai.v38i4.28153",
+    "code_url": "",
+    "verification_level": "full_text",
+    "category": "continual_open_set_fault_diagnosis",
+    "relevance_1to3": 1,
+    "key_mechanism": "Continual (class-/task-incremental) unsupervised anomaly detection for industrial images: a Continual Prompting Module keeps a small key-prompt-knowledge memory bank per task, retrieved via nearest-key lookup, combined with SAM-guided structural contrastive learning to keep task-specific normal knowledge without catastrophic forgetting.",
+    "evaluation_datasets": [
+      "MVTec AD (task-incremental split across object classes)"
+    ],
+    "machine_data_used": "partial",
+    "notes": "Closest architectural analogue to a normal-cache-per-context design, but tasks are discrete labeled classes introduced by the experimenter (not organically discovered drift/new machines), image domain not time series, and it has no explicit fault cache or operator-feedback loop; new task = new training step, not training-free lookup. Read in full (AAAI 2024, OA gold)."
+  },
+  {
+    "title": "An Incremental Unified Framework for Small Defect Inspection",
+    "authors_short": "Jiaqi Tang, Hao Lu, Xiaogang Xu et al.",
+    "year": 2023,
+    "venue": "ECCV 2024",
+    "doi_or_url": "https://doi.org/10.48550/arxiv.2312.08917",
+    "code_url": "",
+    "verification_level": "abstract",
+    "category": "continual_open_set_fault_diagnosis",
+    "relevance_1to3": 2,
+    "key_mechanism": "Incremental Unified Framework for defect inspection: reduces feature-conflict when sequentially adding new product/object types via Object-Aware Self-Attention and a Semantic Compression Loss that protects previously learned semantic space.",
+    "evaluation_datasets": [
+      "proprietary/industrial multi-object defect-inspection benchmark"
+    ],
+    "machine_data_used": "partial",
+    "notes": "Object-incremental (new product SKU) rather than fault-type-incremental or machine-incremental; still requires backprop/fine-tuning per new object, not a training-free cache; visual defect domain, not sensor time series."
+  },
+  {
+    "title": "ReplayCAD: Generative Diffusion Replay for Continual Anomaly Detection",
+    "authors_short": "Lei Hu, Zhiyong Gan, Ling Deng et al.",
+    "year": 2025,
+    "venue": "IJCAI 2025",
+    "doi_or_url": "https://doi.org/10.24963/ijcai.2025/328",
+    "code_url": "",
+    "verification_level": "abstract",
+    "category": "continual_open_set_fault_diagnosis",
+    "relevance_1to3": 2,
+    "key_mechanism": "Continual anomaly detection via generative diffusion replay: synthesizes pseudo-samples of previously seen classes with a diffusion model to rehearse old knowledge while learning new classes, avoiding a growing raw memory buffer.",
+    "evaluation_datasets": [
+      "MVTec AD continual split"
+    ],
+    "machine_data_used": "partial",
+    "notes": "Replay-based (generative), not a retrieval/kNN memory bank; addresses catastrophic forgetting across labeled classes, not benign-aging vs. new-fault disambiguation from feedback."
+  },
+  {
+    "title": "ONER: Online Experience Replay for Incremental Anomaly Detection",
+    "authors_short": "Jin, Yizhou, Jiahui Zhu, Guodong Wang et al.",
+    "year": 2024,
+    "venue": "arXiv (Cornell University)",
+    "doi_or_url": "https://doi.org/10.48550/arxiv.2412.03907",
+    "code_url": "",
+    "verification_level": "abstract",
+    "category": "continual_open_set_fault_diagnosis",
+    "relevance_1to3": 2,
+    "key_mechanism": "Online experience-replay method for incremental anomaly detection that continuously updates a compact replay buffer during streaming deployment to mitigate forgetting without full retraining.",
+    "evaluation_datasets": [
+      "incremental industrial anomaly detection benchmarks (image domain)"
+    ],
+    "machine_data_used": "partial",
+    "notes": "Online buffer maintenance closer in spirit to cache eviction than most continual-AD work, but still image-domain and buffer content is not gated by confirmed operator feedback on faults vs. false alarms."
+  },
+  {
+    "title": "From Zero to Hero: Cold-Start Anomaly Detection",
+    "authors_short": "Tal Reiss, George Kour, Naama Zwerdling et al.",
+    "year": 2024,
+    "venue": "Findings of ACL 2024",
+    "doi_or_url": "https://doi.org/10.18653/v1/2024.findings-acl.453",
+    "code_url": "",
+    "verification_level": "full_text",
+    "category": "few_shot_threshold_calibration",
+    "relevance_1to3": 1,
+    "key_mechanism": "Formalizes the 'cold-start' AD setting: a zero-shot detector is initialized with no data, then receives a small number of contaminated (possibly anomaly-containing) observations; proposes ColdFusion to adapt the zero-shot score using these few contaminated samples, plus an evaluation suite/protocol for this setting.",
+    "evaluation_datasets": [
+      "multi-domain cold-start AD evaluation suite (general OOD/AD benchmarks, not machine sensor time series)"
+    ],
+    "machine_data_used": false,
+    "notes": "Directly matches the few-shot-commissioning-after-zero-shot-init framing (G4a/G4e) at a conceptual level, but domain is general (e.g., NLP/tabular-style OOD), not machine sensor time series, no explicit fault-cache vs normal-cache split, and it targets a single adaptation step rather than an ongoing deployment with aging + new fault types. Read in full."
+  },
+  {
+    "title": "Description and Discussion on DCASE 2021 Challenge Task 2: Unsupervised Anomalous Sound Detection for Machine Condition Monitoring under Domain Shifted Conditions",
+    "authors_short": "Yohei Kawaguchi, Keisuke Imoto, Yuma Koizumi et al.",
+    "year": 2021,
+    "venue": "arXiv (Cornell University)",
+    "doi_or_url": "https://doi.org/10.48550/arxiv.2106.04492",
+    "code_url": "",
+    "verification_level": "abstract",
+    "category": "few_shot_cross_machine",
+    "relevance_1to3": 2,
+    "key_mechanism": "Task description for DCASE 2021 Challenge Task 2: unsupervised anomalous sound detection for machine condition monitoring under domain-shifted conditions (source/target domain gap per machine type), establishing the domain-shift ASD protocol.",
+    "evaluation_datasets": [
+      "ToyADMOS2",
+      "MIMII (fans, pumps, valves, sliders + toy variants)"
+    ],
+    "machine_data_used": true,
+    "notes": "Domain-shift (not literally few-shot commissioning) baseline year; sets up the machine-condition-monitoring-under-shift lineage that DCASE 2022-2024 extend toward first-shot/few-shot."
+  },
+  {
+    "title": "Description and Discussion on DCASE 2022 Challenge Task 2: Unsupervised Anomalous Sound Detection for Machine Condition Monitoring Applying Domain Generalization Techniques",
+    "authors_short": "Kota Dohi, Keisuke Imoto, Noboru Harada et al.",
+    "year": 2022,
+    "venue": "arXiv (Cornell University)",
+    "doi_or_url": "https://doi.org/10.48550/arxiv.2206.05876",
+    "code_url": "",
+    "verification_level": "abstract",
+    "category": "few_shot_cross_machine",
+    "relevance_1to3": 2,
+    "key_mechanism": "Task description for DCASE 2022 Challenge Task 2: unsupervised ASD for machine condition monitoring, now requiring domain-generalization techniques (a single model must work across source and target domains without domain labels at test time).",
+    "evaluation_datasets": [
+      "ToyADMOS2",
+      "MIMII-DG"
+    ],
+    "machine_data_used": true,
+    "notes": "Domain-generalization requirement anticipates cross-machine transfer but still trains one model per machine TYPE from many normal recordings, not a few-shot new-machine cache."
+  },
+  {
+    "title": "First-Shot Anomaly Sound Detection for Machine Condition Monitoring: A Domain Generalization Baseline",
+    "authors_short": "Noboru Harada, Daisuke Niizumi, Yasunori Ohishi et al.",
+    "year": 2023,
+    "venue": "EUSIPCO 2023",
+    "doi_or_url": "https://doi.org/10.23919/eusipco58844.2023.10289721",
+    "code_url": "",
+    "verification_level": "abstract",
+    "category": "few_shot_cross_machine",
+    "relevance_1to3": 1,
+    "key_mechanism": "Proposes and analyzes a domain-generalization baseline for the DCASE first-shot ASD problem: a single pretrained embedding model plus a lightweight per-machine scoring layer (e.g., cosine/kNN-style scoring against a small set of reference embeddings) intended to generalize to unseen machine types with minimal per-machine tuning.",
+    "evaluation_datasets": [
+      "DCASE 2023 Task 2 development/evaluation machine set"
+    ],
+    "machine_data_used": true,
+    "notes": "Closest DCASE result to a kNN-on-embeddings few-shot detector: a shared frozen embedding backbone scored against per-machine reference sets. Still audio/acoustic signals (not general multivariate sensor time series), no persistent cross-deployment memory update, no explicit new-fault-type or aging distinction."
+  },
+  {
+    "title": "Description and Discussion on DCASE 2024 Challenge Task 2: First-Shot Unsupervised Anomalous Sound Detection for Machine Condition Monitoring",
+    "authors_short": "Tomoya Nishida, Noboru Harada, Daisuke Niizumi et al.",
+    "year": 2024,
+    "venue": "arXiv (Cornell University)",
+    "doi_or_url": "https://doi.org/10.48550/arxiv.2406.07250",
+    "code_url": "",
+    "verification_level": "abstract",
+    "category": "few_shot_cross_machine",
+    "relevance_1to3": 1,
+    "key_mechanism": "Task description for DCASE 2024 Challenge Task 2: 'first-shot' unsupervised ASD for machine condition monitoring \u2014 each new machine type is introduced with only ONE section of normal (and no) recordings and no machine-specific hyperparameter tuning is allowed, explicitly formalizing rapid deployment to brand-new machines.",
+    "evaluation_datasets": [
+      "ToyADMOS2-derived and real-machine recordings across many machine types (first-shot per-machine split)"
+    ],
+    "machine_data_used": true,
+    "notes": "This is the closest published formalization of 'given a few samples of a target machine, detect anomalies with no per-machine tuning' (G4a/G4e) outside vision/vibration; top systems are typically frozen embedding extractor + kNN/cosine scoring against the few given normal samples \u2014 i.e., already a cache-only (L0) solution in practice. But: (i) acoustic domain, (ii) no mechanism for absorbing benign aging or accumulating confirmed-fault evidence over a subsequent long deployment (single evaluation snapshot, no multi-year drift), (iii) no operator-feedback loop."
+  },
+  {
+    "title": "MIMII DG: Sound Dataset for Malfunctioning Industrial Machine Investigation and Inspection for Domain Generalization Task",
+    "authors_short": "Kota Dohi, Tomoya Nishida, Harsh Purohit et al.",
+    "year": 2022,
+    "venue": "arXiv (Cornell University)",
+    "doi_or_url": "https://doi.org/10.48550/arxiv.2205.13879",
+    "code_url": "",
+    "verification_level": "abstract",
+    "category": "few_shot_cross_machine",
+    "relevance_1to3": 2,
+    "key_mechanism": "Introduces the MIMII-DG sound dataset for malfunctioning industrial machine investigation, specifically constructed with per-machine source/target domain shifts (varying load, speed, viscosity, etc.) to support domain-generalization ASD research.",
+    "evaluation_datasets": [
+      "MIMII-DG (fan, gearbox, bearing, slide rail, valve; multiple domain-shift conditions per machine)"
+    ],
+    "machine_data_used": true,
+    "notes": "Dataset paper; supplies the multi-machine, multi-domain-shift acoustic data used by DCASE 2022-2024 baselines above. Real industrial machine sounds with induced/observed domain shift, a candidate benchmark dataset in its own right."
+  },
+  {
+    "title": "ToyADMOS2 dataset: Another dataset of miniature-machine operating sounds for anomalous sound detection under domain shift conditions",
+    "authors_short": "Noboru Harada, Daisuke Niizumi, Daiki Takeuchi et al.",
+    "year": 2021,
+    "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+    "doi_or_url": "https://doi.org/10.5281/zenodo.4580270",
+    "code_url": "",
+    "verification_level": "abstract",
+    "category": "few_shot_cross_machine",
+    "relevance_1to3": 2,
+    "key_mechanism": "Dataset of miniature-machine (toy car, toy conveyor) operating sounds with controlled domain-shift conditions (e.g., changed speed, load, environmental noise), used as a scalable proxy for anomalous-sound-detection-under-domain-shift research.",
+    "evaluation_datasets": [
+      "ToyADMOS2 (toy car, toy conveyor)"
+    ],
+    "machine_data_used": true,
+    "notes": "Miniature/proxy machines rather than full industrial equipment; useful for controlled domain-shift ablations, less representative of real rotating machinery physics."
+  },
+  {
+    "title": "Attention-based deep meta-transfer learning for few-shot fine-grained fault diagnosis",
+    "authors_short": "Chuanjiang Li, Shaobo Li, Huan Wang et al.",
+    "year": 2023,
+    "venue": "Knowledge-Based Systems",
+    "doi_or_url": "https://doi.org/10.1016/j.knosys.2023.110345",
+    "code_url": "",
+    "verification_level": "abstract",
+    "category": "few_shot_cross_machine",
+    "relevance_1to3": 1,
+    "key_mechanism": "Attention-based deep meta-transfer learning for few-shot fine-grained fault diagnosis: meta-learns an attention-augmented feature extractor across a set of base fault-diagnosis tasks so that a new (fine-grained) fault category on a related machine can be classified from very few labeled examples.",
+    "evaluation_datasets": [
+      "rolling-bearing / gearbox fault-diagnosis benchmarks (multi-condition)"
+    ],
+    "machine_data_used": true,
+    "notes": "Meta-learning route to few-shot cross-machine/cross-condition fault classification; this is a supervised classification setting (given a few labeled examples of a NAMED new fault class) rather than open-ended anomaly detection with a frozen backbone and non-parametric cache, and it fine-tunes/meta-updates weights rather than using training-free retrieval."
+  },
+  {
+    "title": "Limited Data Rolling Bearing Fault Diagnosis With Few-Shot Learning",
+    "authors_short": "Ansi Zhang, Shaobo Li, Yuxin Cui et al.",
+    "year": 2019,
+    "venue": "IEEE Access",
+    "doi_or_url": "https://doi.org/10.1109/access.2019.2934233",
+    "code_url": "",
+    "verification_level": "abstract",
+    "category": "few_shot_cross_machine",
+    "relevance_1to3": 2,
+    "key_mechanism": "Early (2019) few-shot rolling-bearing fault diagnosis approach using metric/few-shot learning (e.g., prototype- or Siamese-style comparison) to classify bearing health state from a very limited number of labeled samples per class.",
+    "evaluation_datasets": [
+      "CWRU-style bearing vibration data"
+    ],
+    "machine_data_used": true,
+    "notes": "Predates the foundation-model era; supervised few-shot fault classification on a fixed known fault taxonomy, not open-set/new-fault-type detection and not combined with a frozen universal backbone."
+  },
+  {
+    "title": "Continual Anomaly Detection: A Comprehensive Survey and Research Roadmap",
+    "authors_short": "Kamil Faber, Christopher Kanan, Vincenzo Lomonaco et al.",
+    "year": 2026,
+    "venue": "Preprints.org",
+    "doi_or_url": "https://doi.org/10.20944/preprints202601.1931.v1",
+    "code_url": "",
+    "verification_level": "abstract",
+    "category": "continual_open_set_fault_diagnosis",
+    "relevance_1to3": 2,
+    "key_mechanism": "2026 survey and research roadmap for continual anomaly detection, taxonomizing existing methods (rehearsal/replay, regularization, prompt/memory-based, architecture-expansion) and identifying open problems including streaming deployment and non-stationary normality.",
+    "evaluation_datasets": [
+      "survey covering many benchmarks (predominantly vision AD)"
+    ],
+    "machine_data_used": "partial",
+    "notes": "Survey confirms the field is still overwhelmingly vision-defect-inspection-centric; explicitly names open problems around streaming/non-stationary normal distributions that overlap with G4d, giving independent corroboration that the aging+new-fault-type combined mechanism gap is recognized as open by the continual-AD community itself."
+  },
+  {
+    "title": "From Pre-training to Post-training: A Survey on Time Series Foundation Models",
+    "authors_short": "Zhen Liu, Boyuan Li, Hao Huang et al.",
+    "year": 2026,
+    "venue": "arXiv preprint",
+    "doi_or_url": "https://doi.org/10.36227/techrxiv.176978429.90235801/v1",
+    "code_url": "",
+    "verification_level": "abstract",
+    "category": "universal_foundation_TSAD",
+    "relevance_1to3": 2,
+    "key_mechanism": "2026 survey on time-series foundation models organized around a pre-training-to-post-training lifecycle (pretraining objectives, adaptation/fine-tuning strategies, and post-deployment continual updates), covering forecasting, classification and anomaly detection use-cases.",
+    "evaluation_datasets": [
+      "survey covering many TSFM benchmarks"
+    ],
+    "machine_data_used": "partial",
+    "notes": "Explicitly frames 'post-training'/post-deployment adaptation of time-series foundation models as an emerging, still-open direction, corroborating that a systematic memory-lifecycle mechanism for a deployed TS anomaly detector is not yet a solved, well-benchmarked problem."
+  },
+  {
+    "title": "CANDI: Curated Test-Time Adaptation for Multivariate Time-Series Anomaly Detection Under Distribution Shift",
+    "authors_short": "HyunGi Kim, Jisoo Mok, Hyungyu Lee et al.",
+    "year": 2026,
+    "venue": "arXiv (Cornell University)",
+    "doi_or_url": "https://doi.org/10.48550/arxiv.2604.01845",
+    "code_url": "",
+    "verification_level": "metadata_only",
+    "category": "universal_foundation_TSAD",
+    "relevance_1to3": 1,
+    "key_mechanism": "Curated test-time adaptation for multivariate TSAD under distribution shift: uses latent-Mahalanobis-distance-based curation to select which incoming test-time samples are safe to adapt the (parametric) model on, avoiding adapting on true anomalies.",
+    "evaluation_datasets": [
+      "multivariate TSAD benchmarks under distribution shift"
+    ],
+    "machine_data_used": true,
+    "notes": "Already mapped by the user's own repo audit; included here only for cross-reference. Addresses benign-shift adaptation via curated test-time adaptation of MODEL WEIGHTS, not a non-parametric fault/normal cache with operator feedback; does not target cross-machine few-shot commissioning."
+  },
+  {
+    "title": "Adaptive Anomaly Detection in the Presence of Concept Drift: Extended Report",
+    "authors_short": "Park, Jongjun, Chiang, Fei, Milani, Mostafa",
+    "year": 2025,
+    "venue": "arXiv (Cornell University)",
+    "doi_or_url": "https://doi.org/10.48550/arxiv.2506.15831",
+    "code_url": "",
+    "verification_level": "metadata_only",
+    "category": "continual_open_set_fault_diagnosis",
+    "relevance_1to3": 1,
+    "key_mechanism": "Adaptive anomaly detection under concept drift: maintains a pool of normal-pattern 'profiles' that can be activated/deactivated/added over time as the data distribution drifts, so previously seen normal regimes are not forgotten and new ones can be incorporated.",
+    "evaluation_datasets": [
+      "streaming time series with synthetic/real concept drift"
+    ],
+    "machine_data_used": true,
+    "notes": "Already mapped by the user's own repo audit; included here only for cross-reference. Activate/deactivate/add normal-pattern mechanism is conceptually the closest existing analogue to a maintained normal-cache with lifecycle operations, but has no separate fault cache, no operator-feedback gating, and is not paired with a frozen universal cross-machine backbone or few-shot commissioning story."
+  },
+  {
+    "title": "MemStream: Memory-Based Streaming Anomaly Detection",
+    "authors_short": "Siddharth Bhatia, Arjit Jain, Shivin Srivastava et al.",
+    "year": 2022,
+    "venue": "WWW 2022",
+    "doi_or_url": "https://doi.org/10.1145/3485447.3512221",
+    "code_url": "",
+    "verification_level": "metadata_only",
+    "category": "memory_bank_kNN",
+    "relevance_1to3": 2,
+    "key_mechanism": "Memory-based streaming anomaly detector: an autoencoder embeds incoming records into a latent space, a fixed-size memory of recent normal embeddings is used for kNN-distance scoring, and the memory is updated online only for samples classified as normal.",
+    "evaluation_datasets": [
+      "multiple streaming outlier-detection benchmark datasets (KDDCUP, NSL-KDD, etc.)"
+    ],
+    "machine_data_used": "partial",
+    "notes": "General streaming memory-bank detector with online memory update gated by the model's OWN normal/anomaly decision (self-labeling), not by delayed confirmed operator feedback, and not evaluated on machine condition-monitoring time series or cross-machine few-shot commissioning."
+  }
+]

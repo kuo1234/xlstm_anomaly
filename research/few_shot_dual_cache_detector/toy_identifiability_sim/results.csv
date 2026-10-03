@@ -1,0 +1,37 @@
+config,scenario,scenario_desc,strategy,fault_recall,normal_alarm_rate,n_promotions,fault_absorbed_into_normal,first_promotion_t
+constant load,A,transient spike fault (20 steps),S1 signal-only + promote if persistent (user rule),0.95,0.006060606060606061,0,False,
+constant load,A,transient spike fault (20 steps),S2 context model + promote if persistent,0.85,0.00808080808080808,0,False,
+constant load,A,transient spike fault (20 steps),S3 context model + never auto-promote unexplained,0.85,0.00808080808080808,0,False,
+constant load,B,benign short test (setpoint +0.6 for 20 steps),S1 signal-only + promote if persistent (user rule),,0.008,0,False,
+constant load,B,benign short test (setpoint +0.6 for 20 steps),S2 context model + promote if persistent,,0.0,0,False,
+constant load,B,benign short test (setpoint +0.6 for 20 steps),S3 context model + never auto-promote unexplained,,0.0,0,False,
+constant load,C,benign permanent setpoint change (+0.6),S1 signal-only + promote if persistent (user rule),,0.07,1,False,1654.0
+constant load,C,benign permanent setpoint change (+0.6),S2 context model + promote if persistent,,0.0465,0,False,
+constant load,C,benign permanent setpoint change (+0.6),S3 context model + never auto-promote unexplained,,0.0465,0,False,
+constant load,D,"sensor-bias fault (+1.2), y identical to C",S1 signal-only + promote if persistent (user rule),0.09333333333333334,0.0,1,True,1654.0
+constant load,D,"sensor-bias fault (+1.2), y identical to C",S2 context model + promote if persistent,0.10066666666666667,0.0,1,True,1656.0
+constant load,D,"sensor-bias fault (+1.2), y identical to C",S3 context model + never auto-promote unexplained,0.9786666666666667,0.0,0,False,
+constant load,E,slow degradation fault (linear ramp 0->1.5),S1 signal-only + promote if persistent (user rule),0.17666666666666667,0.0,1,True,2632.0
+constant load,E,slow degradation fault (linear ramp 0->1.5),S2 context model + promote if persistent,0.22333333333333333,0.0,1,True,2567.0
+constant load,E,slow degradation fault (linear ramp 0->1.5),S3 context model + never auto-promote unexplained,0.49866666666666665,0.0,0,False,
+constant load,F,long fault (400 steps) then repaired,S1 signal-only + promote if persistent (user rule),0.35,0.0,1,True,1654.0
+constant load,F,long fault (400 steps) then repaired,S2 context model + promote if persistent,0.3775,0.0,1,True,1656.0
+constant load,F,long fault (400 steps) then repaired,S3 context model + never auto-promote unexplained,0.9375,0.00375,0,False,
+cyclic load,A,transient spike fault (20 steps),S1 signal-only + promote if persistent (user rule),0.95,0.0,0,False,
+cyclic load,A,transient spike fault (20 steps),S2 context model + promote if persistent,0.85,0.007575757575757576,0,False,
+cyclic load,A,transient spike fault (20 steps),S3 context model + never auto-promote unexplained,0.85,0.007575757575757576,0,False,
+cyclic load,B,benign short test (setpoint +0.6 for 20 steps),S1 signal-only + promote if persistent (user rule),,0.0015,0,False,
+cyclic load,B,benign short test (setpoint +0.6 for 20 steps),S2 context model + promote if persistent,,0.0,0,False,
+cyclic load,B,benign short test (setpoint +0.6 for 20 steps),S3 context model + never auto-promote unexplained,,0.0,0,False,
+cyclic load,C,benign permanent setpoint change (+0.6),S1 signal-only + promote if persistent (user rule),,0.007,0,False,
+cyclic load,C,benign permanent setpoint change (+0.6),S2 context model + promote if persistent,,0.0,0,False,
+cyclic load,C,benign permanent setpoint change (+0.6),S3 context model + never auto-promote unexplained,,0.0,0,False,
+cyclic load,D,"sensor-bias fault (+1.2), y identical to C",S1 signal-only + promote if persistent (user rule),0.009333333333333334,0.0,0,False,
+cyclic load,D,"sensor-bias fault (+1.2), y identical to C",S2 context model + promote if persistent,0.10066666666666667,0.0,1,True,1656.0
+cyclic load,D,"sensor-bias fault (+1.2), y identical to C",S3 context model + never auto-promote unexplained,0.9833333333333333,0.0,0,False,
+cyclic load,E,slow degradation fault (linear ramp 0->1.5),S1 signal-only + promote if persistent (user rule),0.0026666666666666666,0.0,0,False,
+cyclic load,E,slow degradation fault (linear ramp 0->1.5),S2 context model + promote if persistent,0.25466666666666665,0.0,1,True,2567.0
+cyclic load,E,slow degradation fault (linear ramp 0->1.5),S3 context model + never auto-promote unexplained,0.496,0.0,0,False,
+cyclic load,F,long fault (400 steps) then repaired,S1 signal-only + promote if persistent (user rule),0.02,0.0,0,False,
+cyclic load,F,long fault (400 steps) then repaired,S2 context model + promote if persistent,0.3775,0.0,1,True,1656.0
+cyclic load,F,long fault (400 steps) then repaired,S3 context model + never auto-promote unexplained,0.965,0.003125,0,False,
