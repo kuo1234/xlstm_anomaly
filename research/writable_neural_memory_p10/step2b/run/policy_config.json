@@ -1,0 +1,70 @@
+{
+ "machines": [
+  "machine-3-7",
+  "machine-1-6",
+  "machine-2-7"
+ ],
+ "phi_seeds": [
+  11,
+  22,
+  33
+ ],
+ "w": 8,
+ "dk": 128,
+ "knn_k": 5,
+ "sd_floor": 0.02,
+ "z_clip": 20.0,
+ "fit_frac": 0.8,
+ "calib_q": 0.99,
+ "block": 16,
+ "ops": [
+  "W1",
+  "W2_f0995",
+  "W3_b01"
+ ],
+ "quarantine_promote_blocks": 32,
+ "vus_window": 100,
+ "seg_gap_blocks": 2,
+ "check_start": 256,
+ "check_every": 128,
+ "trail": 256,
+ "self_q": 0.9,
+ "self_max": 1.0,
+ "stat_max": 0.5,
+ "promote_age_trail": 512,
+ "lb_steps": 128,
+ "lb_q": 0.95,
+ "base_win": 256,
+ "chan_shift": 1.0,
+ "top_c": 3,
+ "random_seed": 917,
+ "policies": [
+  "A_no_update",
+  "B_always",
+  "C_threshold",
+  "D_quarantine",
+  "H_hold",
+  "D_trail512",
+  "DE_stab",
+  "DE_stab512",
+  "C_lb",
+  "DE_stab_lb",
+  "rand_DE"
+ ],
+ "features": [
+  "level",
+  "cv",
+  "slope",
+  "self0",
+  "self",
+  "learn",
+  "stat",
+  "shift",
+  "nch",
+  "conc",
+  "novel",
+  "dis",
+  "frozen",
+  "age"
+ ]
+}
