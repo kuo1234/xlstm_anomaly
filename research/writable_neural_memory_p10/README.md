@@ -73,7 +73,7 @@ P10 與 P7 已整合：
 
 ---
 
-### Step 1b — mixed-segment / boundary pilot：pending review
+### Step 1b — mixed-segment / boundary pilot：PASS
 
 一個 oracle admission segment 同時含 new-normal（ramp / level）、burst fault 與 recovery evidence：
 Sweep A 固定 L=38 滑動 boundary，Sweep B 從 fault onset 起改長度 L=16–62。
@@ -91,9 +91,27 @@ Sweep A 固定 L=38 滑動 boundary，Sweep B 從 fault onset 起改長度 L=16�
 
 ---
 
+### Step 1c — oracle rollback granularity：pending review
+
+在 Step 1b 的 L=30 / 38 / 46 segment 上比較 rollback target（none / fault steps / admitted segment / fault + recovery），
+immediate 與 64-step delayed rollback；W1 tag delete、W2 ledger subtraction、W3 checkpoint + replay。
+
+結果（φ1 + φ2、ramp + level 一致）：
+
+- 只移除 fault-value steps：W2 幾乎足夠（殘留 ≤ 0.07），W1 殘留 30–50%，W3 β=.5 殘留約 100%（recovery-key writes）
+- 有後續寫入時，admitted segment 不是正確的 rollback 單位：fault-touched keys 會溢出到之後的 writes
+- 移除所有 fault-touched writes（value 或 key）可對所有 operator 精確回到 clean counterfactual
+- 代價：immediate rollback 會失去 adaptation；W3 的 replay 成本隨 delay 增加；W2 subtraction 只在 decay-kept semantics 下精確
+
+見：
+
+`step1c/STEP1C_ROLLBACK.md`
+
+---
+
 ## Next question
 
-待 review 決定：mixed contamination dose、admission policy，或 rollback / reversible write。
+待 review 決定。
 
 目前仍採 oracle boundary / oracle semantics。
 
@@ -117,5 +135,6 @@ Sweep A 固定 L=38 滑動 boundary，Sweep B 從 fault onset 起改長度 L=16�
 - `step1a/`：role-matched oracle memory pilot
 - `step1a1/`：mechanism diagnostics
 - `step1b/`：mixed-segment / boundary pilot
+- `step1c/`：oracle rollback granularity pilot
 
 舊的 `docs-only` / `no research GO` 狀態已不再適用。
