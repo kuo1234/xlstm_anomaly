@@ -1,0 +1,140 @@
+{
+  "phase": "A",
+  "neural_training": false,
+  "cases": [
+    "case01",
+    "case02",
+    "case03",
+    "case04",
+    "case05"
+  ],
+  "seeds": [
+    11,
+    22,
+    33
+  ],
+  "ops": [
+    "W1",
+    "W2_f0995",
+    "W3_b01"
+  ],
+  "w": 8,
+  "dk": 128,
+  "k": 5,
+  "fit_frac": 0.8,
+  "sd_floor": 0.02,
+  "clip": 20.0,
+  "views": [
+    "step2e_regression_clip",
+    "fit_only_clip",
+    "fit_only_no_clip"
+  ],
+  "window": 256,
+  "stride": 128,
+  "start_end": 256,
+  "manifold_shrinkage": 0.1,
+  "manifold_ridge": 1e-06,
+  "near_constant_raw_sd": 0.02,
+  "top_k": 5,
+  "pca_components": 5,
+  "clean_gap": "third-clean-block close (gap>2); no test writes in evidence-only frozen M0",
+  "A0": [
+    "log_score",
+    "cv"
+  ],
+  "A1_extra": [
+    "mean_r_0",
+    "mean_r_1",
+    "mean_r_2",
+    "mean_r_3",
+    "mean_r_4",
+    "mean_r_5",
+    "mean_r_6",
+    "mean_r_7",
+    "mean_r_8",
+    "mean_r_9",
+    "mean_r_10",
+    "mean_r_11",
+    "mean_r_12",
+    "mean_r_13",
+    "mean_r_14",
+    "mean_r_15",
+    "mean_r_16",
+    "mean_r_17",
+    "mean_r_18",
+    "mean_r_19",
+    "mean_r_20",
+    "mean_r_21",
+    "mean_r_22",
+    "mean_r_23",
+    "mean_r_24",
+    "mean_r_25",
+    "mean_r_26",
+    "mean_r_27",
+    "mean_r_28",
+    "mean_r_29",
+    "mean_r_30",
+    "mean_r_31",
+    "mean_r_32",
+    "mean_r_33",
+    "mean_r_34",
+    "mean_r_35",
+    "mean_r_36",
+    "mean_r_37",
+    "mean_r_38",
+    "mean_r_39",
+    "mean_r_40",
+    "mean_r_41",
+    "mean_r_42",
+    "mean_r_43",
+    "mean_r_44",
+    "mean_r_45",
+    "mean_r_46",
+    "mean_r_47",
+    "mean_r_48",
+    "mean_r_49",
+    "mean_r_50",
+    "mean_r_51",
+    "mean_r_52"
+  ],
+  "A2_extra": [
+    "maha_mean",
+    "maha_centroid",
+    "cov_distance",
+    "corr_distance",
+    "manip_energy",
+    "near_constant_energy",
+    "top5_energy",
+    "direction_cosine"
+  ],
+  "probe_C": 1.0,
+  "probe_seed": 731,
+  "probe_max_iter": 2000,
+  "folds": [
+    {
+      "train": [
+        "case03",
+        "case05"
+      ],
+      "test": [
+        "case01",
+        "case02",
+        "case04"
+      ]
+    },
+    {
+      "train": [
+        "case01",
+        "case02",
+        "case04"
+      ],
+      "test": [
+        "case03",
+        "case05"
+      ]
+    }
+  ],
+  "probe_claim": "diagnostic supervised upper bound only; no shared run/SP-intervention family per fold; SP seed family still shared across folds",
+  "primary": "seed11/W1; windows matched by exact end index and wholly FAULT vs wholly NORMAL_B",
+  "cv_diagnostic_threshold": 0.1
+}
