@@ -1,0 +1,3414 @@
+{
+  "index_convention": "zero-based raw columns; Time retained in schema, excluded from old P2 inputs",
+  "pinned_source": "Extended TEP v1 DOI10.11583/DTU.13385936.v1",
+  "channels": [
+    {
+      "dataset": "processdata",
+      "raw_index": 0,
+      "observation_index": null,
+      "source_name": "Time",
+      "source_ordinal": "pd(1)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "simulation time",
+      "unit": "h",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": false,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(1)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[0]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 1,
+      "observation_index": 0,
+      "source_name": "A Feed",
+      "source_ordinal": "pd(2)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "kscmh",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(2)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[1]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 2,
+      "observation_index": 1,
+      "source_name": "D Feed",
+      "source_ordinal": "pd(3)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "kg/h",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(3)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[2]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 3,
+      "observation_index": 2,
+      "source_name": "E Feed",
+      "source_ordinal": "pd(4)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "kg/h",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(4)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[3]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 4,
+      "observation_index": 3,
+      "source_name": "A and C Feed",
+      "source_ordinal": "pd(5)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "kscmh",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(5)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[4]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 5,
+      "observation_index": 4,
+      "source_name": "Recycle Flow",
+      "source_ordinal": "pd(6)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "kscmh",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(6)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[5]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 6,
+      "observation_index": 5,
+      "source_name": "Reactor Feed Rate",
+      "source_ordinal": "pd(7)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "kscmh",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(7)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[6]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 7,
+      "observation_index": 6,
+      "source_name": "Reactor Pressure",
+      "source_ordinal": "pd(8)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "kPa gauge",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(8)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[7]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 8,
+      "observation_index": 7,
+      "source_name": "Reactor Level",
+      "source_ordinal": "pd(9)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "%",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(9)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[8]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 9,
+      "observation_index": 8,
+      "source_name": "Reactor Temperature",
+      "source_ordinal": "pd(10)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "degC",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(10)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[9]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 10,
+      "observation_index": 9,
+      "source_name": "Purge Rate",
+      "source_ordinal": "pd(11)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "kscmh",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(11)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[10]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 11,
+      "observation_index": 10,
+      "source_name": "Product Sep Temp",
+      "source_ordinal": "pd(12)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "degC",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(12)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[11]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 12,
+      "observation_index": 11,
+      "source_name": "Product Sep Level",
+      "source_ordinal": "pd(13)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "%",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(13)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[12]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 13,
+      "observation_index": 12,
+      "source_name": "Product Sep Pressure",
+      "source_ordinal": "pd(14)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "kPa gauge",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(14)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[13]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 14,
+      "observation_index": 13,
+      "source_name": "Product Sep Underflow",
+      "source_ordinal": "pd(15)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "m3/h",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(15)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[14]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 15,
+      "observation_index": 14,
+      "source_name": "Stripper Level",
+      "source_ordinal": "pd(16)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "%",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(16)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[15]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 16,
+      "observation_index": 15,
+      "source_name": "Stripper Pressure",
+      "source_ordinal": "pd(17)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "kPa gauge",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(17)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[16]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 17,
+      "observation_index": 16,
+      "source_name": "Stripper Underflow",
+      "source_ordinal": "pd(18)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "m3/h",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(18)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[17]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 18,
+      "observation_index": 17,
+      "source_name": "Stripper Temp",
+      "source_ordinal": "pd(19)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "degC",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(19)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[18]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 19,
+      "observation_index": 18,
+      "source_name": "Stripper Steam Flow",
+      "source_ordinal": "pd(20)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "kg/h",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(20)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[19]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 20,
+      "observation_index": 19,
+      "source_name": "Compressor Work",
+      "source_ordinal": "pd(21)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "kW",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(21)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[20]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 21,
+      "observation_index": 20,
+      "source_name": "Reactor Coolant Temp",
+      "source_ordinal": "pd(22)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "degC",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(22)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[21]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 22,
+      "observation_index": 21,
+      "source_name": "Separator Coolant Temp",
+      "source_ordinal": "pd(23)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "degC",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(23)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[22]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 23,
+      "observation_index": 22,
+      "source_name": "Component A to Reactor",
+      "source_ordinal": "pd(24)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "mol %",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": 6,
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(24)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[23]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 24,
+      "observation_index": 23,
+      "source_name": "Component B to Reactor",
+      "source_ordinal": "pd(25)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "mol %",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": 6,
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(25)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[24]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 25,
+      "observation_index": 24,
+      "source_name": "Component C to Reactor",
+      "source_ordinal": "pd(26)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "mol %",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": 6,
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(26)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[25]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 26,
+      "observation_index": 25,
+      "source_name": "Component D to Reactor",
+      "source_ordinal": "pd(27)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "mol %",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": 6,
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(27)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[26]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 27,
+      "observation_index": 26,
+      "source_name": "Component E to Reactor",
+      "source_ordinal": "pd(28)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "mol %",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": 6,
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(28)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[27]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 28,
+      "observation_index": 27,
+      "source_name": "Component F to Reactor",
+      "source_ordinal": "pd(29)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "mol %",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": 6,
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(29)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[28]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 29,
+      "observation_index": 28,
+      "source_name": "Component A in Purge",
+      "source_ordinal": "pd(30)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "mol %",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": 6,
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(30)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[29]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 30,
+      "observation_index": 29,
+      "source_name": "Component B in Purge",
+      "source_ordinal": "pd(31)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "mol %",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": 6,
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(31)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[30]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 31,
+      "observation_index": 30,
+      "source_name": "Component C in Purge",
+      "source_ordinal": "pd(32)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "mol %",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": 6,
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(32)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[31]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 32,
+      "observation_index": 31,
+      "source_name": "Component D in Purge",
+      "source_ordinal": "pd(33)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "mol %",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": 6,
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(33)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[32]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 33,
+      "observation_index": 32,
+      "source_name": "Component E in Purge",
+      "source_ordinal": "pd(34)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "mol %",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": 6,
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(34)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[33]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 34,
+      "observation_index": 33,
+      "source_name": "Component F in Purge",
+      "source_ordinal": "pd(35)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "mol %",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": 6,
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(35)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[34]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 35,
+      "observation_index": 34,
+      "source_name": "Component G in Purge",
+      "source_ordinal": "pd(36)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "mol %",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": 6,
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(36)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[35]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 36,
+      "observation_index": 35,
+      "source_name": "Component H in Purge",
+      "source_ordinal": "pd(37)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "mol %",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": 6,
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(37)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[36]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 37,
+      "observation_index": 36,
+      "source_name": "Component D in Product",
+      "source_ordinal": "pd(38)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "mol %",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": 15,
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(38)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[37]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 38,
+      "observation_index": 37,
+      "source_name": "Component E in Product",
+      "source_ordinal": "pd(39)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "mol %",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": 15,
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(39)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[38]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 39,
+      "observation_index": 38,
+      "source_name": "Component F in Product",
+      "source_ordinal": "pd(40)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "mol %",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": 15,
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(40)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[39]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 40,
+      "observation_index": 39,
+      "source_name": "Component G in Product",
+      "source_ordinal": "pd(41)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "mol %",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": 15,
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(41)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[40]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 41,
+      "observation_index": 40,
+      "source_name": "Component H in Product",
+      "source_ordinal": "pd(42)",
+      "role": "measurement",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged measurement",
+      "unit": "mol %",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": 15,
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(42)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[41]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 42,
+      "observation_index": 41,
+      "source_name": "D feed",
+      "source_ordinal": "pd(43)",
+      "role": "manipulated",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged manipulated variable; physical actuator feedback vs demanded value UNKNOWN",
+      "unit": "%",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(43)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[42]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 43,
+      "observation_index": 42,
+      "source_name": "E Feed",
+      "source_ordinal": "pd(44)",
+      "role": "manipulated",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged manipulated variable; physical actuator feedback vs demanded value UNKNOWN",
+      "unit": "%",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(44)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[43]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 44,
+      "observation_index": 43,
+      "source_name": "A Feed",
+      "source_ordinal": "pd(45)",
+      "role": "manipulated",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged manipulated variable; physical actuator feedback vs demanded value UNKNOWN",
+      "unit": "%",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(45)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[44]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 45,
+      "observation_index": 44,
+      "source_name": "A and C Feed",
+      "source_ordinal": "pd(46)",
+      "role": "manipulated",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged manipulated variable; physical actuator feedback vs demanded value UNKNOWN",
+      "unit": "%",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(46)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[45]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 46,
+      "observation_index": 45,
+      "source_name": "Recycle",
+      "source_ordinal": "pd(47)",
+      "role": "manipulated",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged manipulated variable; physical actuator feedback vs demanded value UNKNOWN",
+      "unit": "%",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(47)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[46]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 47,
+      "observation_index": 46,
+      "source_name": "Purge",
+      "source_ordinal": "pd(48)",
+      "role": "manipulated",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged manipulated variable; physical actuator feedback vs demanded value UNKNOWN",
+      "unit": "%",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(48)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[47]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 48,
+      "observation_index": 47,
+      "source_name": "Separator",
+      "source_ordinal": "pd(49)",
+      "role": "manipulated",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged manipulated variable; physical actuator feedback vs demanded value UNKNOWN",
+      "unit": "%",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(49)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[48]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 49,
+      "observation_index": 48,
+      "source_name": "Stripper",
+      "source_ordinal": "pd(50)",
+      "role": "manipulated",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged manipulated variable; physical actuator feedback vs demanded value UNKNOWN",
+      "unit": "%",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(50)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[49]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 50,
+      "observation_index": 49,
+      "source_name": "Steam",
+      "source_ordinal": "pd(51)",
+      "role": "manipulated",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged manipulated variable; physical actuator feedback vs demanded value UNKNOWN",
+      "unit": "%",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(51)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[50]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 51,
+      "observation_index": 50,
+      "source_name": "Reactor Coolant",
+      "source_ordinal": "pd(52)",
+      "role": "manipulated",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged manipulated variable; physical actuator feedback vs demanded value UNKNOWN",
+      "unit": "%",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(52)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[51]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 52,
+      "observation_index": 51,
+      "source_name": "Condenser Coolant",
+      "source_ordinal": "pd(53)",
+      "role": "manipulated",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged manipulated variable; physical actuator feedback vs demanded value UNKNOWN",
+      "unit": "%",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(53)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[52]"
+        }
+      ]
+    },
+    {
+      "dataset": "processdata",
+      "raw_index": 53,
+      "observation_index": 52,
+      "source_name": "Agitator",
+      "source_ordinal": "pd(54)",
+      "role": "manipulated",
+      "role_status": "VERIFIED_SOURCE_TABLE",
+      "semantic_kind": "logged manipulated variable; physical actuator feedback vs demanded value UNKNOWN",
+      "unit": "%",
+      "unit_status": "VERIFIED_SOURCE_TABLE",
+      "sampling_convention": {
+        "saved_grid_minutes": 3,
+        "source": "thesis A.3.2; healthy extraction manifest",
+        "sensor_update_period_minutes": "UNKNOWN",
+        "reference_2015_analyzer_minutes": "UNKNOWN",
+        "reference_2015_is_dataset_guarantee": false
+      },
+      "runtime_observable": {
+        "in_recorded_simulation": true,
+        "in_real_deployment": "UNKNOWN",
+        "instrument_or_actuator_feedback_provenance": "UNKNOWN"
+      },
+      "available_at_point_t": {
+        "recorded_at_timestamp_t": true,
+        "available_before_t_decision": "UNKNOWN",
+        "past_logged_value_observation_contract": "possible subject to future explicit delay contract"
+      },
+      "latency": "UNKNOWN",
+      "same_tick_ordering": "UNKNOWN",
+      "authorized_exogenous_command": false,
+      "model_input_enabled_by_p3a": false,
+      "prior_p2_input": true,
+      "evidence": [
+        {
+          "source": "thesis",
+          "location": "Table A.4 p78",
+          "ordinal": "pd(54)"
+        },
+        {
+          "source": "inspection",
+          "location": "process_channels[53]"
+        }
+      ]
+    }
+  ],
+  "additional_inventory": [
+    {
+      "dataset": "additional_meas",
+      "exists": "VERIFIED in inspected official runs",
+      "channels": [
+        {
+          "dataset": "additional_meas",
+          "raw_index": 0,
+          "source_ordinal": "add(1)",
+          "source_name": "Feed A temp",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "degC",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[0]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 1,
+          "source_ordinal": "add(2)",
+          "source_name": "Feed D temp",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "degC",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[1]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 2,
+          "source_ordinal": "add(3)",
+          "source_name": "Feed E temp",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "degC",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[2]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 3,
+          "source_ordinal": "add(4)",
+          "source_name": "Feed A and C temp",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "degC",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[3]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 4,
+          "source_ordinal": "add(5)",
+          "source_name": "Reactor cooling inlet temp",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "degC",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[4]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 5,
+          "source_ordinal": "add(6)",
+          "source_name": "Reactor cooling flow",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "m3/h",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[5]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 6,
+          "source_ordinal": "add(7)",
+          "source_name": "Condenser cooling inlet temp",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "degC",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[6]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 7,
+          "source_ordinal": "add(8)",
+          "source_name": "Condenser cooling flow",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "m3/h",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[7]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 8,
+          "source_ordinal": "add(9)",
+          "source_name": "A in stream 1",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "mol %",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[8]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 9,
+          "source_ordinal": "add(10)",
+          "source_name": "B in stream 1",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "mol %",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[9]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 10,
+          "source_ordinal": "add(11)",
+          "source_name": "C in stream 1",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "mol %",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[10]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 11,
+          "source_ordinal": "add(12)",
+          "source_name": "D in stream 1",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "mol %",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[11]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 12,
+          "source_ordinal": "add(13)",
+          "source_name": "E in stream 1",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "mol %",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[12]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 13,
+          "source_ordinal": "add(14)",
+          "source_name": "F in stream 1",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "mol %",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[13]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 14,
+          "source_ordinal": "add(15)",
+          "source_name": "A in stream 2",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "mol %",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[14]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 15,
+          "source_ordinal": "add(16)",
+          "source_name": "B in stream 2",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "mol %",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[15]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 16,
+          "source_ordinal": "add(17)",
+          "source_name": "C in stream 2",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "mol %",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[16]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 17,
+          "source_ordinal": "add(18)",
+          "source_name": "D in stream 2",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "mol %",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[17]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 18,
+          "source_ordinal": "add(19)",
+          "source_name": "E in stream 2",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "mol %",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[18]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 19,
+          "source_ordinal": "add(20)",
+          "source_name": "F in stream 2",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "mol %",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[19]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 20,
+          "source_ordinal": "add(21)",
+          "source_name": "A in stream 3",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "mol %",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[20]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 21,
+          "source_ordinal": "add(22)",
+          "source_name": "B in stream 3",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "mol %",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[21]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 22,
+          "source_ordinal": "add(23)",
+          "source_name": "C in stream 3",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "mol %",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[22]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 23,
+          "source_ordinal": "add(24)",
+          "source_name": "D in stream 3",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "mol %",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[23]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 24,
+          "source_ordinal": "add(25)",
+          "source_name": "E in stream 3",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "mol %",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[24]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 25,
+          "source_ordinal": "add(26)",
+          "source_name": "F in stream 3",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "mol %",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[25]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 26,
+          "source_ordinal": "add(27)",
+          "source_name": "A in stream 4",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "mol %",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[26]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 27,
+          "source_ordinal": "add(28)",
+          "source_name": "B in stream 4",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "mol %",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[27]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 28,
+          "source_ordinal": "add(29)",
+          "source_name": "C in stream 4",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "mol %",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[28]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 29,
+          "source_ordinal": "add(30)",
+          "source_name": "D in stream 4",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "mol %",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[29]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 30,
+          "source_ordinal": "add(31)",
+          "source_name": "E in stream 4",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "mol %",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[30]"
+            }
+          ]
+        },
+        {
+          "dataset": "additional_meas",
+          "raw_index": 31,
+          "source_ordinal": "add(32)",
+          "source_name": "F in stream 4",
+          "role": "measurement",
+          "role_status": "VERIFIED_SOURCE_TABLE",
+          "unit": "mol %",
+          "sampling_convention": "UNKNOWN for extracted rows; source simulation logging grid3min",
+          "runtime_observable": "UNKNOWN in deployment; source measurement point only",
+          "available_at_point_t": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "timestamp_alignment": "UNKNOWN: no Time column in 32-column labels; cannot join by row index",
+          "model_input_enabled_by_p3a": false,
+          "evidence": [
+            {
+              "source": "thesis",
+              "location": "Table A.5 p79"
+            },
+            {
+              "source": "inspection",
+              "location": "additional_channels[31]"
+            }
+          ]
+        }
+      ],
+      "timestamp_alignment": "UNKNOWN; rows can be2000 while economic_data2001; no independently verified per-row timestamps",
+      "runtime_availability": "UNKNOWN; instrumentation feasibility not operational access",
+      "evidence": [
+        "thesis Table A.5",
+        "inspection datasets/labels"
+      ],
+      "input_enabled": false
+    },
+    {
+      "dataset": "economic_data",
+      "exists": "VERIFIED in inspected official runs",
+      "shape": [
+        2001,
+        5
+      ],
+      "columns": [
+        {
+          "raw_index": 0,
+          "source_name": "Operating cost",
+          "role": "unknown",
+          "unit": "UNKNOWN",
+          "available_at_point_t": "UNKNOWN",
+          "runtime_observable": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "documented_semantic_role": "economic/production/quality aggregate (measurement construction UNKNOWN)"
+        },
+        {
+          "raw_index": 1,
+          "source_name": "Production setpoint",
+          "role": "unknown",
+          "unit": "UNKNOWN",
+          "available_at_point_t": "UNKNOWN",
+          "runtime_observable": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "documented_semantic_role": "setpoint context (not verified authorized online command)"
+        },
+        {
+          "raw_index": 2,
+          "source_name": "Actual production",
+          "role": "unknown",
+          "unit": "UNKNOWN",
+          "available_at_point_t": "UNKNOWN",
+          "runtime_observable": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "documented_semantic_role": "economic/production/quality aggregate (measurement construction UNKNOWN)"
+        },
+        {
+          "raw_index": 3,
+          "source_name": "Quality setpoint",
+          "role": "unknown",
+          "unit": "UNKNOWN",
+          "available_at_point_t": "UNKNOWN",
+          "runtime_observable": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "documented_semantic_role": "setpoint context (not verified authorized online command)"
+        },
+        {
+          "raw_index": 4,
+          "source_name": "Actual quality",
+          "role": "unknown",
+          "unit": "UNKNOWN",
+          "available_at_point_t": "UNKNOWN",
+          "runtime_observable": "UNKNOWN",
+          "latency": "UNKNOWN",
+          "same_tick_ordering": "UNKNOWN",
+          "documented_semantic_role": "economic/production/quality aggregate (measurement construction UNKNOWN)"
+        }
+      ],
+      "column_order_status": "README listing order; stored column-to-name mapping not independently verified",
+      "timestamp_alignment": "UNKNOWN; 5 listed variables, no explicit timestamp column; mismatch in SP/mode runs",
+      "evidence": [
+        "readme data structure"
+      ],
+      "input_enabled": false
+    },
+    {
+      "dataset": "setpoint_init",
+      "exists": "VERIFIED",
+      "role": "simulator internal",
+      "kind": "3x12 profile: before/after/activation",
+      "runtime_availability": "EVALUATOR_ONLY; future profile not timestamp-valid online command",
+      "timestamp_alignment": "profile schedule, not runtime samples",
+      "evidence": [
+        "thesis A.3.4"
+      ],
+      "input_enabled": false
+    },
+    {
+      "dataset": "idv_init",
+      "exists": "VERIFIED",
+      "role": "simulator internal",
+      "kind": "3x28 fault profile",
+      "runtime_availability": "EVALUATOR_ONLY",
+      "timestamp_alignment": "profile schedule",
+      "evidence": [
+        "thesis A.3.4"
+      ],
+      "input_enabled": false
+    },
+    {
+      "dataset": "time_info / run attrs / source path",
+      "exists": "VERIFIED",
+      "role": "simulator internal",
+      "runtime_availability": "EVALUATOR_ONLY",
+      "timestamp_alignment": "simulation reconstruction metadata",
+      "evidence": [
+        "readme",
+        "inspection"
+      ],
+      "input_enabled": false
+    },
+    {
+      "dataset": "idv_monitoring",
+      "exists": "DOCUMENTED_ONLY_FOR_RANDOM_FAULTS; not inspected in P3-A",
+      "role": "simulator internal",
+      "runtime_availability": "EVALUATOR_ONLY (noise-free internal simulation values)",
+      "timestamp_alignment": "UNKNOWN",
+      "evidence": [
+        "thesis Table A.6 p80 / A.3.3"
+      ],
+      "input_enabled": false
+    },
+    {
+      "dataset": "alarm / operator authorization / controller update log / true command stream",
+      "exists": "UNKNOWN; no such dataset in currently inspected runs",
+      "role": "unknown",
+      "runtime_availability": "UNKNOWN",
+      "timestamp_alignment": "UNKNOWN",
+      "evidence": [
+        "inspection limited run dataset keys; absence here is not global source absence"
+      ],
+      "input_enabled": false
+    }
+  ],
+  "source_evidence": "source_evidence.json",
+  "command_boundary": "observed manipulated value != authorized setpoint / command != simulator event profile"
+}

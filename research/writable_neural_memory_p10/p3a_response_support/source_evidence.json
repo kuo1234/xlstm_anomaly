@@ -1,0 +1,47 @@
+{
+  "dataset_v1": {
+    "url": "https://doi.org/10.11583/DTU.13385936.v1",
+    "metadata_path": "data/step2d/official/article_v1.json",
+    "sha256": "327f4c141bdebbc103c3dc1b8d1f61f8b410fbadd8fac93a9cef80817ae021f4",
+    "raw_filename": "TEP_Mode1.h5",
+    "whole_file_hash_verified": false,
+    "coverage": "bounded official ranges and previously materialized healthy arrays, not whole HDF5"
+  },
+  "readme": {
+    "url": "https://doi.org/10.11583/DTU.13385936.v1",
+    "path": "data/step2d/official/Readme.html",
+    "sha256": "68f3b03ea10732ec631a720be614b44267e7b61c10eb2f141d95c8fb1293b460"
+  },
+  "thesis": {
+    "url": "https://backend.orbit.dtu.dk/ws/portalfiles/portal/262630763/Thesis_Christopher_Clarc_Reinartz.pdf",
+    "path": "data/step2e/Reinartz2021.pdf",
+    "sha256": "5d4e73b7d676ae77517e509d2f6653a75d151f256d2507bd65746b6d78723d67",
+    "text_path": "data/step2e/thesis.txt",
+    "text_sha256": "3427c882cf91d778802dd53ae4db2d2e328cb0862276cb651d1aafe39338e3ad",
+    "evidence": "Appendix A.3.2-A.3.4, Table A.4 pp78, A.5 pp79, A.6 pp80"
+  },
+  "inspection": {
+    "path": "research/writable_neural_memory_p10/step2d/inspection.json",
+    "sha256": "b0fbed1bd3498386eb24bdb70442c57cfedd3ec6229a2b917d9b5c29ce349286",
+    "evidence": "official root Processdata_Labels / Additional_Meas_Labels; dataset shapes and source attrs"
+  },
+  "healthy_manifest": {
+    "path": "research/writable_neural_memory_p10/left_point_pilot/healthy_train_manifest.json",
+    "sha256": "caab31687a5596f9f68df6d56953261eb6387b26246ebfed574053f05b0a105d"
+  },
+  "reference_2015": {
+    "url": "https://depts.washington.edu/control/LARRY/TE/temexd_mod.zip",
+    "path": "data/p3a_response_support/reference/temexd_mod.zip",
+    "sha256": "e43227aaded739cfeba1ec281c54ac8a549f60753e064305a669b906c4b16b0d",
+    "code_path": "data/p3a_response_support/reference/temexd_mod.c",
+    "code_sha256": "eff57b75700e7472005785150c21f82b0c3d178ebceebe37e532794f23785aba",
+    "evidence": "documented input/output table; analyzer code lines3229-3280",
+    "equivalence_to_2021_generator": "UNKNOWN; Extended TEP author says modified Bathelt simulator"
+  },
+  "reference_1995": {
+    "url": "https://depts.washington.edu/control/LARRY/TE/tables.zip",
+    "path": "data/p3a_response_support/reference/tables.zip",
+    "sha256": "c115be110eadaf828068f1d5b22ab144508072fb5676ed377162ea02d927a49e",
+    "evidence": "author archive table3 measurement order / table4 manipulated order; supporting cross-check only"
+  }
+}
