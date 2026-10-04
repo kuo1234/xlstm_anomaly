@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-04T17:59:51.645610+00:00",
+  "freeze": {
+    "freeze_commit": "bd89ca252a1a84a3e68f38467984a05d0d2ea096",
+    "verified_remote_SHA": "374a0081fff1ec5777f80555a1fec72748f0d308",
+    "check_utc": "2026-10-04T17:58:01.794156+00:00"
+  },
+  "status": "PASS",
+  "trajectories": 135,
+  "rows": 622080,
+  "updates": 75725,
+  "selected_count": 94169,
+  "loss_exposures": 93950,
+  "all_ledger_artifact_hashes": true,
+  "independent_pre_update_score_max_error": 0,
+  "independent_SGD_operator_max_error": 1.1102230246251565e-16,
+  "all_full_state_hashes_reconstructed": true,
+  "all_weighted_IDs_causal": true,
+  "all_absent_mutation_paths_verified": true,
+  "semantic_twin_equal_pairs": 45,
+  "Q1_immediate_parameter_parity_pairs": 15,
+  "old_P2_seal_sha256": "37d50b1d51fb3c01c01e217432ce8cb05fa755bfd5512f680d46826bc371bd8b",
+  "old_P2_seal_byte_equal_base": true,
+  "runtime_labels_read": 0,
+  "local_raw_downloads": 0,
+  "note": "independent post-result verification only; no model refit/policy rerun/threshold search"
+}

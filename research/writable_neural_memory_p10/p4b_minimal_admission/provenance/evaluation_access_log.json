@@ -1,0 +1,958 @@
+{
+  "utc": "2026-10-04T17:56:22.325995+00:00",
+  "pushed_trace_commit": "374a0081fff1ec5777f80555a1fec72748f0d308",
+  "freeze": {
+    "freeze_commit": "bd89ca252a1a84a3e68f38467984a05d0d2ea096",
+    "verified_remote_SHA": "374a0081fff1ec5777f80555a1fec72748f0d308",
+    "check_utc": "2026-10-04T17:56:14.526132+00:00"
+  },
+  "runtime_labels_read": 0,
+  "historical_truth_exposed": true,
+  "evaluator_reads": [
+    {
+      "utc": "2026-10-04T17:56:14.638268+00:00",
+      "trajectory": "seed101_benign_B_with_anomalies_FROZEN",
+      "truth_sha256": "9acf97ead10cc071e235a0133a3eba0782718bc333570dd29b6e5d4c1c797ff4",
+      "labels_sha256": "f394f54485f6f5ef075d7f486813347c16b9a412410aecdabbed88188133076d",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:14.698509+00:00",
+      "trajectory": "seed101_benign_B_with_anomalies_IMMEDIATE_UPDATE",
+      "truth_sha256": "9acf97ead10cc071e235a0133a3eba0782718bc333570dd29b6e5d4c1c797ff4",
+      "labels_sha256": "f394f54485f6f5ef075d7f486813347c16b9a412410aecdabbed88188133076d",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:14.776176+00:00",
+      "trajectory": "seed101_benign_B_with_anomalies_M2N2_STYLE_CAUSAL",
+      "truth_sha256": "9acf97ead10cc071e235a0133a3eba0782718bc333570dd29b6e5d4c1c797ff4",
+      "labels_sha256": "f394f54485f6f5ef075d7f486813347c16b9a412410aecdabbed88188133076d",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:14.836051+00:00",
+      "trajectory": "seed101_benign_B_with_anomalies_CANDI_STYLE_CAUSAL",
+      "truth_sha256": "9acf97ead10cc071e235a0133a3eba0782718bc333570dd29b6e5d4c1c797ff4",
+      "labels_sha256": "f394f54485f6f5ef075d7f486813347c16b9a412410aecdabbed88188133076d",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:14.920162+00:00",
+      "trajectory": "seed101_benign_B_with_anomalies_QUARANTINE_1",
+      "truth_sha256": "9acf97ead10cc071e235a0133a3eba0782718bc333570dd29b6e5d4c1c797ff4",
+      "labels_sha256": "f394f54485f6f5ef075d7f486813347c16b9a412410aecdabbed88188133076d",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:14.977016+00:00",
+      "trajectory": "seed101_benign_B_with_anomalies_QUARANTINE_64",
+      "truth_sha256": "9acf97ead10cc071e235a0133a3eba0782718bc333570dd29b6e5d4c1c797ff4",
+      "labels_sha256": "f394f54485f6f5ef075d7f486813347c16b9a412410aecdabbed88188133076d",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:15.042941+00:00",
+      "trajectory": "seed101_benign_B_with_anomalies_QUARANTINE_128",
+      "truth_sha256": "9acf97ead10cc071e235a0133a3eba0782718bc333570dd29b6e5d4c1c797ff4",
+      "labels_sha256": "f394f54485f6f5ef075d7f486813347c16b9a412410aecdabbed88188133076d",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:15.099150+00:00",
+      "trajectory": "seed101_benign_B_with_anomalies_QUARANTINE_256",
+      "truth_sha256": "9acf97ead10cc071e235a0133a3eba0782718bc333570dd29b6e5d4c1c797ff4",
+      "labels_sha256": "f394f54485f6f5ef075d7f486813347c16b9a412410aecdabbed88188133076d",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:15.164818+00:00",
+      "trajectory": "seed101_benign_B_with_anomalies_QUARANTINE_512",
+      "truth_sha256": "9acf97ead10cc071e235a0133a3eba0782718bc333570dd29b6e5d4c1c797ff4",
+      "labels_sha256": "f394f54485f6f5ef075d7f486813347c16b9a412410aecdabbed88188133076d",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:15.210205+00:00",
+      "trajectory": "seed101_stationary_A_with_anomalies_FROZEN",
+      "truth_sha256": "0eb04e03dd87193bb4e6cf15281274c553ba03779cac492d01ed60515b7e0fde",
+      "labels_sha256": "f394f54485f6f5ef075d7f486813347c16b9a412410aecdabbed88188133076d",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:15.266273+00:00",
+      "trajectory": "seed101_stationary_A_with_anomalies_IMMEDIATE_UPDATE",
+      "truth_sha256": "0eb04e03dd87193bb4e6cf15281274c553ba03779cac492d01ed60515b7e0fde",
+      "labels_sha256": "f394f54485f6f5ef075d7f486813347c16b9a412410aecdabbed88188133076d",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:15.322995+00:00",
+      "trajectory": "seed101_stationary_A_with_anomalies_M2N2_STYLE_CAUSAL",
+      "truth_sha256": "0eb04e03dd87193bb4e6cf15281274c553ba03779cac492d01ed60515b7e0fde",
+      "labels_sha256": "f394f54485f6f5ef075d7f486813347c16b9a412410aecdabbed88188133076d",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:15.373903+00:00",
+      "trajectory": "seed101_stationary_A_with_anomalies_CANDI_STYLE_CAUSAL",
+      "truth_sha256": "0eb04e03dd87193bb4e6cf15281274c553ba03779cac492d01ed60515b7e0fde",
+      "labels_sha256": "f394f54485f6f5ef075d7f486813347c16b9a412410aecdabbed88188133076d",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:15.429178+00:00",
+      "trajectory": "seed101_stationary_A_with_anomalies_QUARANTINE_1",
+      "truth_sha256": "0eb04e03dd87193bb4e6cf15281274c553ba03779cac492d01ed60515b7e0fde",
+      "labels_sha256": "f394f54485f6f5ef075d7f486813347c16b9a412410aecdabbed88188133076d",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:15.474514+00:00",
+      "trajectory": "seed101_stationary_A_with_anomalies_QUARANTINE_64",
+      "truth_sha256": "0eb04e03dd87193bb4e6cf15281274c553ba03779cac492d01ed60515b7e0fde",
+      "labels_sha256": "f394f54485f6f5ef075d7f486813347c16b9a412410aecdabbed88188133076d",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:15.529202+00:00",
+      "trajectory": "seed101_stationary_A_with_anomalies_QUARANTINE_128",
+      "truth_sha256": "0eb04e03dd87193bb4e6cf15281274c553ba03779cac492d01ed60515b7e0fde",
+      "labels_sha256": "f394f54485f6f5ef075d7f486813347c16b9a412410aecdabbed88188133076d",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:15.574602+00:00",
+      "trajectory": "seed101_stationary_A_with_anomalies_QUARANTINE_256",
+      "truth_sha256": "0eb04e03dd87193bb4e6cf15281274c553ba03779cac492d01ed60515b7e0fde",
+      "labels_sha256": "f394f54485f6f5ef075d7f486813347c16b9a412410aecdabbed88188133076d",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:15.629260+00:00",
+      "trajectory": "seed101_stationary_A_with_anomalies_QUARANTINE_512",
+      "truth_sha256": "0eb04e03dd87193bb4e6cf15281274c553ba03779cac492d01ed60515b7e0fde",
+      "labels_sha256": "f394f54485f6f5ef075d7f486813347c16b9a412410aecdabbed88188133076d",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:15.674680+00:00",
+      "trajectory": "seed101_semantic_fault_twin_FROZEN",
+      "truth_sha256": "bf840960f3213ac9ce251802fc04801d1c9fa632d8f746de79b6161f3998d565",
+      "labels_sha256": "a9f4f616b69083a185d1862beb122ff8cc7551b7263545be3bcd373aafd932bf",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:15.731970+00:00",
+      "trajectory": "seed101_semantic_fault_twin_IMMEDIATE_UPDATE",
+      "truth_sha256": "bf840960f3213ac9ce251802fc04801d1c9fa632d8f746de79b6161f3998d565",
+      "labels_sha256": "a9f4f616b69083a185d1862beb122ff8cc7551b7263545be3bcd373aafd932bf",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:15.787607+00:00",
+      "trajectory": "seed101_semantic_fault_twin_M2N2_STYLE_CAUSAL",
+      "truth_sha256": "bf840960f3213ac9ce251802fc04801d1c9fa632d8f746de79b6161f3998d565",
+      "labels_sha256": "a9f4f616b69083a185d1862beb122ff8cc7551b7263545be3bcd373aafd932bf",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:15.835640+00:00",
+      "trajectory": "seed101_semantic_fault_twin_CANDI_STYLE_CAUSAL",
+      "truth_sha256": "bf840960f3213ac9ce251802fc04801d1c9fa632d8f746de79b6161f3998d565",
+      "labels_sha256": "a9f4f616b69083a185d1862beb122ff8cc7551b7263545be3bcd373aafd932bf",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:15.891995+00:00",
+      "trajectory": "seed101_semantic_fault_twin_QUARANTINE_1",
+      "truth_sha256": "bf840960f3213ac9ce251802fc04801d1c9fa632d8f746de79b6161f3998d565",
+      "labels_sha256": "a9f4f616b69083a185d1862beb122ff8cc7551b7263545be3bcd373aafd932bf",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:15.937530+00:00",
+      "trajectory": "seed101_semantic_fault_twin_QUARANTINE_64",
+      "truth_sha256": "bf840960f3213ac9ce251802fc04801d1c9fa632d8f746de79b6161f3998d565",
+      "labels_sha256": "a9f4f616b69083a185d1862beb122ff8cc7551b7263545be3bcd373aafd932bf",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:15.992432+00:00",
+      "trajectory": "seed101_semantic_fault_twin_QUARANTINE_128",
+      "truth_sha256": "bf840960f3213ac9ce251802fc04801d1c9fa632d8f746de79b6161f3998d565",
+      "labels_sha256": "a9f4f616b69083a185d1862beb122ff8cc7551b7263545be3bcd373aafd932bf",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:16.037957+00:00",
+      "trajectory": "seed101_semantic_fault_twin_QUARANTINE_256",
+      "truth_sha256": "bf840960f3213ac9ce251802fc04801d1c9fa632d8f746de79b6161f3998d565",
+      "labels_sha256": "a9f4f616b69083a185d1862beb122ff8cc7551b7263545be3bcd373aafd932bf",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:16.093190+00:00",
+      "trajectory": "seed101_semantic_fault_twin_QUARANTINE_512",
+      "truth_sha256": "bf840960f3213ac9ce251802fc04801d1c9fa632d8f746de79b6161f3998d565",
+      "labels_sha256": "a9f4f616b69083a185d1862beb122ff8cc7551b7263545be3bcd373aafd932bf",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:16.149297+00:00",
+      "trajectory": "seed202_benign_B_with_anomalies_FROZEN",
+      "truth_sha256": "040ad98f457893c45a3cdecba2d4181f30eae1b75224ea6bc5da6181b0f3a748",
+      "labels_sha256": "430cb728f21cf87eca4e0b61872767f3a17ad77214da46360f2efb113073eedd",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:16.216560+00:00",
+      "trajectory": "seed202_benign_B_with_anomalies_IMMEDIATE_UPDATE",
+      "truth_sha256": "040ad98f457893c45a3cdecba2d4181f30eae1b75224ea6bc5da6181b0f3a748",
+      "labels_sha256": "430cb728f21cf87eca4e0b61872767f3a17ad77214da46360f2efb113073eedd",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:16.283839+00:00",
+      "trajectory": "seed202_benign_B_with_anomalies_M2N2_STYLE_CAUSAL",
+      "truth_sha256": "040ad98f457893c45a3cdecba2d4181f30eae1b75224ea6bc5da6181b0f3a748",
+      "labels_sha256": "430cb728f21cf87eca4e0b61872767f3a17ad77214da46360f2efb113073eedd",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:16.353739+00:00",
+      "trajectory": "seed202_benign_B_with_anomalies_CANDI_STYLE_CAUSAL",
+      "truth_sha256": "040ad98f457893c45a3cdecba2d4181f30eae1b75224ea6bc5da6181b0f3a748",
+      "labels_sha256": "430cb728f21cf87eca4e0b61872767f3a17ad77214da46360f2efb113073eedd",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:16.427356+00:00",
+      "trajectory": "seed202_benign_B_with_anomalies_QUARANTINE_1",
+      "truth_sha256": "040ad98f457893c45a3cdecba2d4181f30eae1b75224ea6bc5da6181b0f3a748",
+      "labels_sha256": "430cb728f21cf87eca4e0b61872767f3a17ad77214da46360f2efb113073eedd",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:16.483591+00:00",
+      "trajectory": "seed202_benign_B_with_anomalies_QUARANTINE_64",
+      "truth_sha256": "040ad98f457893c45a3cdecba2d4181f30eae1b75224ea6bc5da6181b0f3a748",
+      "labels_sha256": "430cb728f21cf87eca4e0b61872767f3a17ad77214da46360f2efb113073eedd",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:16.550593+00:00",
+      "trajectory": "seed202_benign_B_with_anomalies_QUARANTINE_128",
+      "truth_sha256": "040ad98f457893c45a3cdecba2d4181f30eae1b75224ea6bc5da6181b0f3a748",
+      "labels_sha256": "430cb728f21cf87eca4e0b61872767f3a17ad77214da46360f2efb113073eedd",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:16.608066+00:00",
+      "trajectory": "seed202_benign_B_with_anomalies_QUARANTINE_256",
+      "truth_sha256": "040ad98f457893c45a3cdecba2d4181f30eae1b75224ea6bc5da6181b0f3a748",
+      "labels_sha256": "430cb728f21cf87eca4e0b61872767f3a17ad77214da46360f2efb113073eedd",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:16.675280+00:00",
+      "trajectory": "seed202_benign_B_with_anomalies_QUARANTINE_512",
+      "truth_sha256": "040ad98f457893c45a3cdecba2d4181f30eae1b75224ea6bc5da6181b0f3a748",
+      "labels_sha256": "430cb728f21cf87eca4e0b61872767f3a17ad77214da46360f2efb113073eedd",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:16.721532+00:00",
+      "trajectory": "seed202_stationary_A_with_anomalies_FROZEN",
+      "truth_sha256": "0359d50664befff7d957ac5d38936f19ee7a46b9bb14507f035f6f15cea228fe",
+      "labels_sha256": "430cb728f21cf87eca4e0b61872767f3a17ad77214da46360f2efb113073eedd",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:16.778675+00:00",
+      "trajectory": "seed202_stationary_A_with_anomalies_IMMEDIATE_UPDATE",
+      "truth_sha256": "0359d50664befff7d957ac5d38936f19ee7a46b9bb14507f035f6f15cea228fe",
+      "labels_sha256": "430cb728f21cf87eca4e0b61872767f3a17ad77214da46360f2efb113073eedd",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:16.836303+00:00",
+      "trajectory": "seed202_stationary_A_with_anomalies_M2N2_STYLE_CAUSAL",
+      "truth_sha256": "0359d50664befff7d957ac5d38936f19ee7a46b9bb14507f035f6f15cea228fe",
+      "labels_sha256": "430cb728f21cf87eca4e0b61872767f3a17ad77214da46360f2efb113073eedd",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:16.900464+00:00",
+      "trajectory": "seed202_stationary_A_with_anomalies_CANDI_STYLE_CAUSAL",
+      "truth_sha256": "0359d50664befff7d957ac5d38936f19ee7a46b9bb14507f035f6f15cea228fe",
+      "labels_sha256": "430cb728f21cf87eca4e0b61872767f3a17ad77214da46360f2efb113073eedd",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:16.947399+00:00",
+      "trajectory": "seed202_stationary_A_with_anomalies_QUARANTINE_1",
+      "truth_sha256": "0359d50664befff7d957ac5d38936f19ee7a46b9bb14507f035f6f15cea228fe",
+      "labels_sha256": "430cb728f21cf87eca4e0b61872767f3a17ad77214da46360f2efb113073eedd",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:16.993738+00:00",
+      "trajectory": "seed202_stationary_A_with_anomalies_QUARANTINE_64",
+      "truth_sha256": "0359d50664befff7d957ac5d38936f19ee7a46b9bb14507f035f6f15cea228fe",
+      "labels_sha256": "430cb728f21cf87eca4e0b61872767f3a17ad77214da46360f2efb113073eedd",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:17.049597+00:00",
+      "trajectory": "seed202_stationary_A_with_anomalies_QUARANTINE_128",
+      "truth_sha256": "0359d50664befff7d957ac5d38936f19ee7a46b9bb14507f035f6f15cea228fe",
+      "labels_sha256": "430cb728f21cf87eca4e0b61872767f3a17ad77214da46360f2efb113073eedd",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:17.095856+00:00",
+      "trajectory": "seed202_stationary_A_with_anomalies_QUARANTINE_256",
+      "truth_sha256": "0359d50664befff7d957ac5d38936f19ee7a46b9bb14507f035f6f15cea228fe",
+      "labels_sha256": "430cb728f21cf87eca4e0b61872767f3a17ad77214da46360f2efb113073eedd",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:17.151578+00:00",
+      "trajectory": "seed202_stationary_A_with_anomalies_QUARANTINE_512",
+      "truth_sha256": "0359d50664befff7d957ac5d38936f19ee7a46b9bb14507f035f6f15cea228fe",
+      "labels_sha256": "430cb728f21cf87eca4e0b61872767f3a17ad77214da46360f2efb113073eedd",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:17.198082+00:00",
+      "trajectory": "seed202_semantic_fault_twin_FROZEN",
+      "truth_sha256": "eb5b26fdbfa0b9b9a1a006460a8facf2acf9f3faf96e7334ec6bc253bd4bf466",
+      "labels_sha256": "456f573fcee441c3152bb107047a110fa676a4b72b82437e7e85f7e0a25abeb1",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:17.256038+00:00",
+      "trajectory": "seed202_semantic_fault_twin_IMMEDIATE_UPDATE",
+      "truth_sha256": "eb5b26fdbfa0b9b9a1a006460a8facf2acf9f3faf96e7334ec6bc253bd4bf466",
+      "labels_sha256": "456f573fcee441c3152bb107047a110fa676a4b72b82437e7e85f7e0a25abeb1",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:17.313213+00:00",
+      "trajectory": "seed202_semantic_fault_twin_M2N2_STYLE_CAUSAL",
+      "truth_sha256": "eb5b26fdbfa0b9b9a1a006460a8facf2acf9f3faf96e7334ec6bc253bd4bf466",
+      "labels_sha256": "456f573fcee441c3152bb107047a110fa676a4b72b82437e7e85f7e0a25abeb1",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:17.374641+00:00",
+      "trajectory": "seed202_semantic_fault_twin_CANDI_STYLE_CAUSAL",
+      "truth_sha256": "eb5b26fdbfa0b9b9a1a006460a8facf2acf9f3faf96e7334ec6bc253bd4bf466",
+      "labels_sha256": "456f573fcee441c3152bb107047a110fa676a4b72b82437e7e85f7e0a25abeb1",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:17.423016+00:00",
+      "trajectory": "seed202_semantic_fault_twin_QUARANTINE_1",
+      "truth_sha256": "eb5b26fdbfa0b9b9a1a006460a8facf2acf9f3faf96e7334ec6bc253bd4bf466",
+      "labels_sha256": "456f573fcee441c3152bb107047a110fa676a4b72b82437e7e85f7e0a25abeb1",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:17.481328+00:00",
+      "trajectory": "seed202_semantic_fault_twin_QUARANTINE_64",
+      "truth_sha256": "eb5b26fdbfa0b9b9a1a006460a8facf2acf9f3faf96e7334ec6bc253bd4bf466",
+      "labels_sha256": "456f573fcee441c3152bb107047a110fa676a4b72b82437e7e85f7e0a25abeb1",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:17.528395+00:00",
+      "trajectory": "seed202_semantic_fault_twin_QUARANTINE_128",
+      "truth_sha256": "eb5b26fdbfa0b9b9a1a006460a8facf2acf9f3faf96e7334ec6bc253bd4bf466",
+      "labels_sha256": "456f573fcee441c3152bb107047a110fa676a4b72b82437e7e85f7e0a25abeb1",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:17.575128+00:00",
+      "trajectory": "seed202_semantic_fault_twin_QUARANTINE_256",
+      "truth_sha256": "eb5b26fdbfa0b9b9a1a006460a8facf2acf9f3faf96e7334ec6bc253bd4bf466",
+      "labels_sha256": "456f573fcee441c3152bb107047a110fa676a4b72b82437e7e85f7e0a25abeb1",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:17.631832+00:00",
+      "trajectory": "seed202_semantic_fault_twin_QUARANTINE_512",
+      "truth_sha256": "eb5b26fdbfa0b9b9a1a006460a8facf2acf9f3faf96e7334ec6bc253bd4bf466",
+      "labels_sha256": "456f573fcee441c3152bb107047a110fa676a4b72b82437e7e85f7e0a25abeb1",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:17.689114+00:00",
+      "trajectory": "seed303_benign_B_with_anomalies_FROZEN",
+      "truth_sha256": "582804a2a860e3b8369699b54f67f8488aaf86c789501d12ec5fffcd639eb10f",
+      "labels_sha256": "e488a67bbcf33fdb93aebc94363c930bad72f83ca295e1f31151e8d72fb288a2",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:17.758514+00:00",
+      "trajectory": "seed303_benign_B_with_anomalies_IMMEDIATE_UPDATE",
+      "truth_sha256": "582804a2a860e3b8369699b54f67f8488aaf86c789501d12ec5fffcd639eb10f",
+      "labels_sha256": "e488a67bbcf33fdb93aebc94363c930bad72f83ca295e1f31151e8d72fb288a2",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:17.825808+00:00",
+      "trajectory": "seed303_benign_B_with_anomalies_M2N2_STYLE_CAUSAL",
+      "truth_sha256": "582804a2a860e3b8369699b54f67f8488aaf86c789501d12ec5fffcd639eb10f",
+      "labels_sha256": "e488a67bbcf33fdb93aebc94363c930bad72f83ca295e1f31151e8d72fb288a2",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:17.896190+00:00",
+      "trajectory": "seed303_benign_B_with_anomalies_CANDI_STYLE_CAUSAL",
+      "truth_sha256": "582804a2a860e3b8369699b54f67f8488aaf86c789501d12ec5fffcd639eb10f",
+      "labels_sha256": "e488a67bbcf33fdb93aebc94363c930bad72f83ca295e1f31151e8d72fb288a2",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:17.970646+00:00",
+      "trajectory": "seed303_benign_B_with_anomalies_QUARANTINE_1",
+      "truth_sha256": "582804a2a860e3b8369699b54f67f8488aaf86c789501d12ec5fffcd639eb10f",
+      "labels_sha256": "e488a67bbcf33fdb93aebc94363c930bad72f83ca295e1f31151e8d72fb288a2",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:18.038959+00:00",
+      "trajectory": "seed303_benign_B_with_anomalies_QUARANTINE_64",
+      "truth_sha256": "582804a2a860e3b8369699b54f67f8488aaf86c789501d12ec5fffcd639eb10f",
+      "labels_sha256": "e488a67bbcf33fdb93aebc94363c930bad72f83ca295e1f31151e8d72fb288a2",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:18.096569+00:00",
+      "trajectory": "seed303_benign_B_with_anomalies_QUARANTINE_128",
+      "truth_sha256": "582804a2a860e3b8369699b54f67f8488aaf86c789501d12ec5fffcd639eb10f",
+      "labels_sha256": "e488a67bbcf33fdb93aebc94363c930bad72f83ca295e1f31151e8d72fb288a2",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:18.154017+00:00",
+      "trajectory": "seed303_benign_B_with_anomalies_QUARANTINE_256",
+      "truth_sha256": "582804a2a860e3b8369699b54f67f8488aaf86c789501d12ec5fffcd639eb10f",
+      "labels_sha256": "e488a67bbcf33fdb93aebc94363c930bad72f83ca295e1f31151e8d72fb288a2",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:18.221322+00:00",
+      "trajectory": "seed303_benign_B_with_anomalies_QUARANTINE_512",
+      "truth_sha256": "582804a2a860e3b8369699b54f67f8488aaf86c789501d12ec5fffcd639eb10f",
+      "labels_sha256": "e488a67bbcf33fdb93aebc94363c930bad72f83ca295e1f31151e8d72fb288a2",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:18.268191+00:00",
+      "trajectory": "seed303_stationary_A_with_anomalies_FROZEN",
+      "truth_sha256": "a29ad33020b8bbea3846a26438c02c2875a8482e97dbc99d22bb28ca7fe2583f",
+      "labels_sha256": "e488a67bbcf33fdb93aebc94363c930bad72f83ca295e1f31151e8d72fb288a2",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:18.325510+00:00",
+      "trajectory": "seed303_stationary_A_with_anomalies_IMMEDIATE_UPDATE",
+      "truth_sha256": "a29ad33020b8bbea3846a26438c02c2875a8482e97dbc99d22bb28ca7fe2583f",
+      "labels_sha256": "e488a67bbcf33fdb93aebc94363c930bad72f83ca295e1f31151e8d72fb288a2",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:18.383758+00:00",
+      "trajectory": "seed303_stationary_A_with_anomalies_M2N2_STYLE_CAUSAL",
+      "truth_sha256": "a29ad33020b8bbea3846a26438c02c2875a8482e97dbc99d22bb28ca7fe2583f",
+      "labels_sha256": "e488a67bbcf33fdb93aebc94363c930bad72f83ca295e1f31151e8d72fb288a2",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:18.448571+00:00",
+      "trajectory": "seed303_stationary_A_with_anomalies_CANDI_STYLE_CAUSAL",
+      "truth_sha256": "a29ad33020b8bbea3846a26438c02c2875a8482e97dbc99d22bb28ca7fe2583f",
+      "labels_sha256": "e488a67bbcf33fdb93aebc94363c930bad72f83ca295e1f31151e8d72fb288a2",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:18.495770+00:00",
+      "trajectory": "seed303_stationary_A_with_anomalies_QUARANTINE_1",
+      "truth_sha256": "a29ad33020b8bbea3846a26438c02c2875a8482e97dbc99d22bb28ca7fe2583f",
+      "labels_sha256": "e488a67bbcf33fdb93aebc94363c930bad72f83ca295e1f31151e8d72fb288a2",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:18.553723+00:00",
+      "trajectory": "seed303_stationary_A_with_anomalies_QUARANTINE_64",
+      "truth_sha256": "a29ad33020b8bbea3846a26438c02c2875a8482e97dbc99d22bb28ca7fe2583f",
+      "labels_sha256": "e488a67bbcf33fdb93aebc94363c930bad72f83ca295e1f31151e8d72fb288a2",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:18.600594+00:00",
+      "trajectory": "seed303_stationary_A_with_anomalies_QUARANTINE_128",
+      "truth_sha256": "a29ad33020b8bbea3846a26438c02c2875a8482e97dbc99d22bb28ca7fe2583f",
+      "labels_sha256": "e488a67bbcf33fdb93aebc94363c930bad72f83ca295e1f31151e8d72fb288a2",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:18.647085+00:00",
+      "trajectory": "seed303_stationary_A_with_anomalies_QUARANTINE_256",
+      "truth_sha256": "a29ad33020b8bbea3846a26438c02c2875a8482e97dbc99d22bb28ca7fe2583f",
+      "labels_sha256": "e488a67bbcf33fdb93aebc94363c930bad72f83ca295e1f31151e8d72fb288a2",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:18.702655+00:00",
+      "trajectory": "seed303_stationary_A_with_anomalies_QUARANTINE_512",
+      "truth_sha256": "a29ad33020b8bbea3846a26438c02c2875a8482e97dbc99d22bb28ca7fe2583f",
+      "labels_sha256": "e488a67bbcf33fdb93aebc94363c930bad72f83ca295e1f31151e8d72fb288a2",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:18.749902+00:00",
+      "trajectory": "seed303_semantic_fault_twin_FROZEN",
+      "truth_sha256": "50bdf32c44a32321bafe3a6b7c3fcf4b29171936cf5346d43ba7cc6dd130ead6",
+      "labels_sha256": "05b1198fa25d8170c3d26156fddf129f990f12d8ce4eba969f0e4562e1e4e0f0",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:18.809305+00:00",
+      "trajectory": "seed303_semantic_fault_twin_IMMEDIATE_UPDATE",
+      "truth_sha256": "50bdf32c44a32321bafe3a6b7c3fcf4b29171936cf5346d43ba7cc6dd130ead6",
+      "labels_sha256": "05b1198fa25d8170c3d26156fddf129f990f12d8ce4eba969f0e4562e1e4e0f0",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:18.867233+00:00",
+      "trajectory": "seed303_semantic_fault_twin_M2N2_STYLE_CAUSAL",
+      "truth_sha256": "50bdf32c44a32321bafe3a6b7c3fcf4b29171936cf5346d43ba7cc6dd130ead6",
+      "labels_sha256": "05b1198fa25d8170c3d26156fddf129f990f12d8ce4eba969f0e4562e1e4e0f0",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:18.928082+00:00",
+      "trajectory": "seed303_semantic_fault_twin_CANDI_STYLE_CAUSAL",
+      "truth_sha256": "50bdf32c44a32321bafe3a6b7c3fcf4b29171936cf5346d43ba7cc6dd130ead6",
+      "labels_sha256": "05b1198fa25d8170c3d26156fddf129f990f12d8ce4eba969f0e4562e1e4e0f0",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:18.977772+00:00",
+      "trajectory": "seed303_semantic_fault_twin_QUARANTINE_1",
+      "truth_sha256": "50bdf32c44a32321bafe3a6b7c3fcf4b29171936cf5346d43ba7cc6dd130ead6",
+      "labels_sha256": "05b1198fa25d8170c3d26156fddf129f990f12d8ce4eba969f0e4562e1e4e0f0",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:19.036305+00:00",
+      "trajectory": "seed303_semantic_fault_twin_QUARANTINE_64",
+      "truth_sha256": "50bdf32c44a32321bafe3a6b7c3fcf4b29171936cf5346d43ba7cc6dd130ead6",
+      "labels_sha256": "05b1198fa25d8170c3d26156fddf129f990f12d8ce4eba969f0e4562e1e4e0f0",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:19.083532+00:00",
+      "trajectory": "seed303_semantic_fault_twin_QUARANTINE_128",
+      "truth_sha256": "50bdf32c44a32321bafe3a6b7c3fcf4b29171936cf5346d43ba7cc6dd130ead6",
+      "labels_sha256": "05b1198fa25d8170c3d26156fddf129f990f12d8ce4eba969f0e4562e1e4e0f0",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:19.142536+00:00",
+      "trajectory": "seed303_semantic_fault_twin_QUARANTINE_256",
+      "truth_sha256": "50bdf32c44a32321bafe3a6b7c3fcf4b29171936cf5346d43ba7cc6dd130ead6",
+      "labels_sha256": "05b1198fa25d8170c3d26156fddf129f990f12d8ce4eba969f0e4562e1e4e0f0",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:19.190126+00:00",
+      "trajectory": "seed303_semantic_fault_twin_QUARANTINE_512",
+      "truth_sha256": "50bdf32c44a32321bafe3a6b7c3fcf4b29171936cf5346d43ba7cc6dd130ead6",
+      "labels_sha256": "05b1198fa25d8170c3d26156fddf129f990f12d8ce4eba969f0e4562e1e4e0f0",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:19.247964+00:00",
+      "trajectory": "seed404_benign_B_with_anomalies_FROZEN",
+      "truth_sha256": "57d772db4236a1a4a9ba6b1dc74fbf486d710c2bc0e256d5138f15517671af87",
+      "labels_sha256": "dfbbf19712b6e21833bc66ff7980d338b199113ef28c06fc4c3f5807a410f32b",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:19.317505+00:00",
+      "trajectory": "seed404_benign_B_with_anomalies_IMMEDIATE_UPDATE",
+      "truth_sha256": "57d772db4236a1a4a9ba6b1dc74fbf486d710c2bc0e256d5138f15517671af87",
+      "labels_sha256": "dfbbf19712b6e21833bc66ff7980d338b199113ef28c06fc4c3f5807a410f32b",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:19.385690+00:00",
+      "trajectory": "seed404_benign_B_with_anomalies_M2N2_STYLE_CAUSAL",
+      "truth_sha256": "57d772db4236a1a4a9ba6b1dc74fbf486d710c2bc0e256d5138f15517671af87",
+      "labels_sha256": "dfbbf19712b6e21833bc66ff7980d338b199113ef28c06fc4c3f5807a410f32b",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:19.456630+00:00",
+      "trajectory": "seed404_benign_B_with_anomalies_CANDI_STYLE_CAUSAL",
+      "truth_sha256": "57d772db4236a1a4a9ba6b1dc74fbf486d710c2bc0e256d5138f15517671af87",
+      "labels_sha256": "dfbbf19712b6e21833bc66ff7980d338b199113ef28c06fc4c3f5807a410f32b",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:19.532184+00:00",
+      "trajectory": "seed404_benign_B_with_anomalies_QUARANTINE_1",
+      "truth_sha256": "57d772db4236a1a4a9ba6b1dc74fbf486d710c2bc0e256d5138f15517671af87",
+      "labels_sha256": "dfbbf19712b6e21833bc66ff7980d338b199113ef28c06fc4c3f5807a410f32b",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:19.600021+00:00",
+      "trajectory": "seed404_benign_B_with_anomalies_QUARANTINE_64",
+      "truth_sha256": "57d772db4236a1a4a9ba6b1dc74fbf486d710c2bc0e256d5138f15517671af87",
+      "labels_sha256": "dfbbf19712b6e21833bc66ff7980d338b199113ef28c06fc4c3f5807a410f32b",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:19.657658+00:00",
+      "trajectory": "seed404_benign_B_with_anomalies_QUARANTINE_128",
+      "truth_sha256": "57d772db4236a1a4a9ba6b1dc74fbf486d710c2bc0e256d5138f15517671af87",
+      "labels_sha256": "dfbbf19712b6e21833bc66ff7980d338b199113ef28c06fc4c3f5807a410f32b",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:19.727574+00:00",
+      "trajectory": "seed404_benign_B_with_anomalies_QUARANTINE_256",
+      "truth_sha256": "57d772db4236a1a4a9ba6b1dc74fbf486d710c2bc0e256d5138f15517671af87",
+      "labels_sha256": "dfbbf19712b6e21833bc66ff7980d338b199113ef28c06fc4c3f5807a410f32b",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:19.785560+00:00",
+      "trajectory": "seed404_benign_B_with_anomalies_QUARANTINE_512",
+      "truth_sha256": "57d772db4236a1a4a9ba6b1dc74fbf486d710c2bc0e256d5138f15517671af87",
+      "labels_sha256": "dfbbf19712b6e21833bc66ff7980d338b199113ef28c06fc4c3f5807a410f32b",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:19.832165+00:00",
+      "trajectory": "seed404_stationary_A_with_anomalies_FROZEN",
+      "truth_sha256": "68f2e3c1244e6ec714802ff9fb868f1d19f305a46208a16a6eb94152b2d3b4a7",
+      "labels_sha256": "dfbbf19712b6e21833bc66ff7980d338b199113ef28c06fc4c3f5807a410f32b",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:19.889408+00:00",
+      "trajectory": "seed404_stationary_A_with_anomalies_IMMEDIATE_UPDATE",
+      "truth_sha256": "68f2e3c1244e6ec714802ff9fb868f1d19f305a46208a16a6eb94152b2d3b4a7",
+      "labels_sha256": "dfbbf19712b6e21833bc66ff7980d338b199113ef28c06fc4c3f5807a410f32b",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:19.947998+00:00",
+      "trajectory": "seed404_stationary_A_with_anomalies_M2N2_STYLE_CAUSAL",
+      "truth_sha256": "68f2e3c1244e6ec714802ff9fb868f1d19f305a46208a16a6eb94152b2d3b4a7",
+      "labels_sha256": "dfbbf19712b6e21833bc66ff7980d338b199113ef28c06fc4c3f5807a410f32b",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:20.011898+00:00",
+      "trajectory": "seed404_stationary_A_with_anomalies_CANDI_STYLE_CAUSAL",
+      "truth_sha256": "68f2e3c1244e6ec714802ff9fb868f1d19f305a46208a16a6eb94152b2d3b4a7",
+      "labels_sha256": "dfbbf19712b6e21833bc66ff7980d338b199113ef28c06fc4c3f5807a410f32b",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:20.059737+00:00",
+      "trajectory": "seed404_stationary_A_with_anomalies_QUARANTINE_1",
+      "truth_sha256": "68f2e3c1244e6ec714802ff9fb868f1d19f305a46208a16a6eb94152b2d3b4a7",
+      "labels_sha256": "dfbbf19712b6e21833bc66ff7980d338b199113ef28c06fc4c3f5807a410f32b",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:20.117568+00:00",
+      "trajectory": "seed404_stationary_A_with_anomalies_QUARANTINE_64",
+      "truth_sha256": "68f2e3c1244e6ec714802ff9fb868f1d19f305a46208a16a6eb94152b2d3b4a7",
+      "labels_sha256": "dfbbf19712b6e21833bc66ff7980d338b199113ef28c06fc4c3f5807a410f32b",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:20.164477+00:00",
+      "trajectory": "seed404_stationary_A_with_anomalies_QUARANTINE_128",
+      "truth_sha256": "68f2e3c1244e6ec714802ff9fb868f1d19f305a46208a16a6eb94152b2d3b4a7",
+      "labels_sha256": "dfbbf19712b6e21833bc66ff7980d338b199113ef28c06fc4c3f5807a410f32b",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:20.222898+00:00",
+      "trajectory": "seed404_stationary_A_with_anomalies_QUARANTINE_256",
+      "truth_sha256": "68f2e3c1244e6ec714802ff9fb868f1d19f305a46208a16a6eb94152b2d3b4a7",
+      "labels_sha256": "dfbbf19712b6e21833bc66ff7980d338b199113ef28c06fc4c3f5807a410f32b",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:20.269741+00:00",
+      "trajectory": "seed404_stationary_A_with_anomalies_QUARANTINE_512",
+      "truth_sha256": "68f2e3c1244e6ec714802ff9fb868f1d19f305a46208a16a6eb94152b2d3b4a7",
+      "labels_sha256": "dfbbf19712b6e21833bc66ff7980d338b199113ef28c06fc4c3f5807a410f32b",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:20.327747+00:00",
+      "trajectory": "seed404_semantic_fault_twin_FROZEN",
+      "truth_sha256": "e274daf0ab8ab55d342d83e2413806e584957607d3dbafd2214b303e61b98df2",
+      "labels_sha256": "c6b7a1f697969652932dbf99e48cc0b8f12ab8433c79d4080e6c7ba5d4813da9",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:20.376740+00:00",
+      "trajectory": "seed404_semantic_fault_twin_IMMEDIATE_UPDATE",
+      "truth_sha256": "e274daf0ab8ab55d342d83e2413806e584957607d3dbafd2214b303e61b98df2",
+      "labels_sha256": "c6b7a1f697969652932dbf99e48cc0b8f12ab8433c79d4080e6c7ba5d4813da9",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:20.434838+00:00",
+      "trajectory": "seed404_semantic_fault_twin_M2N2_STYLE_CAUSAL",
+      "truth_sha256": "e274daf0ab8ab55d342d83e2413806e584957607d3dbafd2214b303e61b98df2",
+      "labels_sha256": "c6b7a1f697969652932dbf99e48cc0b8f12ab8433c79d4080e6c7ba5d4813da9",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:20.495729+00:00",
+      "trajectory": "seed404_semantic_fault_twin_CANDI_STYLE_CAUSAL",
+      "truth_sha256": "e274daf0ab8ab55d342d83e2413806e584957607d3dbafd2214b303e61b98df2",
+      "labels_sha256": "c6b7a1f697969652932dbf99e48cc0b8f12ab8433c79d4080e6c7ba5d4813da9",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:20.544495+00:00",
+      "trajectory": "seed404_semantic_fault_twin_QUARANTINE_1",
+      "truth_sha256": "e274daf0ab8ab55d342d83e2413806e584957607d3dbafd2214b303e61b98df2",
+      "labels_sha256": "c6b7a1f697969652932dbf99e48cc0b8f12ab8433c79d4080e6c7ba5d4813da9",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:20.602517+00:00",
+      "trajectory": "seed404_semantic_fault_twin_QUARANTINE_64",
+      "truth_sha256": "e274daf0ab8ab55d342d83e2413806e584957607d3dbafd2214b303e61b98df2",
+      "labels_sha256": "c6b7a1f697969652932dbf99e48cc0b8f12ab8433c79d4080e6c7ba5d4813da9",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:20.650124+00:00",
+      "trajectory": "seed404_semantic_fault_twin_QUARANTINE_128",
+      "truth_sha256": "e274daf0ab8ab55d342d83e2413806e584957607d3dbafd2214b303e61b98df2",
+      "labels_sha256": "c6b7a1f697969652932dbf99e48cc0b8f12ab8433c79d4080e6c7ba5d4813da9",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:20.708992+00:00",
+      "trajectory": "seed404_semantic_fault_twin_QUARANTINE_256",
+      "truth_sha256": "e274daf0ab8ab55d342d83e2413806e584957607d3dbafd2214b303e61b98df2",
+      "labels_sha256": "c6b7a1f697969652932dbf99e48cc0b8f12ab8433c79d4080e6c7ba5d4813da9",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:20.756310+00:00",
+      "trajectory": "seed404_semantic_fault_twin_QUARANTINE_512",
+      "truth_sha256": "e274daf0ab8ab55d342d83e2413806e584957607d3dbafd2214b303e61b98df2",
+      "labels_sha256": "c6b7a1f697969652932dbf99e48cc0b8f12ab8433c79d4080e6c7ba5d4813da9",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:20.826312+00:00",
+      "trajectory": "seed505_benign_B_with_anomalies_FROZEN",
+      "truth_sha256": "56be1e840fa78f55f0f66d689334ed9393ac25df07b32e0f092006245bce0831",
+      "labels_sha256": "e7ddbedc0ce0110893b487a8e49780522d8a2bfa9e1876def745ecd6584febdb",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:20.885884+00:00",
+      "trajectory": "seed505_benign_B_with_anomalies_IMMEDIATE_UPDATE",
+      "truth_sha256": "56be1e840fa78f55f0f66d689334ed9393ac25df07b32e0f092006245bce0831",
+      "labels_sha256": "e7ddbedc0ce0110893b487a8e49780522d8a2bfa9e1876def745ecd6584febdb",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:20.954705+00:00",
+      "trajectory": "seed505_benign_B_with_anomalies_M2N2_STYLE_CAUSAL",
+      "truth_sha256": "56be1e840fa78f55f0f66d689334ed9393ac25df07b32e0f092006245bce0831",
+      "labels_sha256": "e7ddbedc0ce0110893b487a8e49780522d8a2bfa9e1876def745ecd6584febdb",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:21.024987+00:00",
+      "trajectory": "seed505_benign_B_with_anomalies_CANDI_STYLE_CAUSAL",
+      "truth_sha256": "56be1e840fa78f55f0f66d689334ed9393ac25df07b32e0f092006245bce0831",
+      "labels_sha256": "e7ddbedc0ce0110893b487a8e49780522d8a2bfa9e1876def745ecd6584febdb",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:21.101124+00:00",
+      "trajectory": "seed505_benign_B_with_anomalies_QUARANTINE_1",
+      "truth_sha256": "56be1e840fa78f55f0f66d689334ed9393ac25df07b32e0f092006245bce0831",
+      "labels_sha256": "e7ddbedc0ce0110893b487a8e49780522d8a2bfa9e1876def745ecd6584febdb",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:21.170509+00:00",
+      "trajectory": "seed505_benign_B_with_anomalies_QUARANTINE_64",
+      "truth_sha256": "56be1e840fa78f55f0f66d689334ed9393ac25df07b32e0f092006245bce0831",
+      "labels_sha256": "e7ddbedc0ce0110893b487a8e49780522d8a2bfa9e1876def745ecd6584febdb",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:21.228757+00:00",
+      "trajectory": "seed505_benign_B_with_anomalies_QUARANTINE_128",
+      "truth_sha256": "56be1e840fa78f55f0f66d689334ed9393ac25df07b32e0f092006245bce0831",
+      "labels_sha256": "e7ddbedc0ce0110893b487a8e49780522d8a2bfa9e1876def745ecd6584febdb",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:21.297717+00:00",
+      "trajectory": "seed505_benign_B_with_anomalies_QUARANTINE_256",
+      "truth_sha256": "56be1e840fa78f55f0f66d689334ed9393ac25df07b32e0f092006245bce0831",
+      "labels_sha256": "e7ddbedc0ce0110893b487a8e49780522d8a2bfa9e1876def745ecd6584febdb",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:21.355555+00:00",
+      "trajectory": "seed505_benign_B_with_anomalies_QUARANTINE_512",
+      "truth_sha256": "56be1e840fa78f55f0f66d689334ed9393ac25df07b32e0f092006245bce0831",
+      "labels_sha256": "e7ddbedc0ce0110893b487a8e49780522d8a2bfa9e1876def745ecd6584febdb",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:21.414680+00:00",
+      "trajectory": "seed505_stationary_A_with_anomalies_FROZEN",
+      "truth_sha256": "dbed0f7b55f1769a78689e12c8a6225a52862fe47c18ca759241956007279f6c",
+      "labels_sha256": "e7ddbedc0ce0110893b487a8e49780522d8a2bfa9e1876def745ecd6584febdb",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:21.462092+00:00",
+      "trajectory": "seed505_stationary_A_with_anomalies_IMMEDIATE_UPDATE",
+      "truth_sha256": "dbed0f7b55f1769a78689e12c8a6225a52862fe47c18ca759241956007279f6c",
+      "labels_sha256": "e7ddbedc0ce0110893b487a8e49780522d8a2bfa9e1876def745ecd6584febdb",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:21.530868+00:00",
+      "trajectory": "seed505_stationary_A_with_anomalies_M2N2_STYLE_CAUSAL",
+      "truth_sha256": "dbed0f7b55f1769a78689e12c8a6225a52862fe47c18ca759241956007279f6c",
+      "labels_sha256": "e7ddbedc0ce0110893b487a8e49780522d8a2bfa9e1876def745ecd6584febdb",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:21.584649+00:00",
+      "trajectory": "seed505_stationary_A_with_anomalies_CANDI_STYLE_CAUSAL",
+      "truth_sha256": "dbed0f7b55f1769a78689e12c8a6225a52862fe47c18ca759241956007279f6c",
+      "labels_sha256": "e7ddbedc0ce0110893b487a8e49780522d8a2bfa9e1876def745ecd6584febdb",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:21.632465+00:00",
+      "trajectory": "seed505_stationary_A_with_anomalies_QUARANTINE_1",
+      "truth_sha256": "dbed0f7b55f1769a78689e12c8a6225a52862fe47c18ca759241956007279f6c",
+      "labels_sha256": "e7ddbedc0ce0110893b487a8e49780522d8a2bfa9e1876def745ecd6584febdb",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:21.690336+00:00",
+      "trajectory": "seed505_stationary_A_with_anomalies_QUARANTINE_64",
+      "truth_sha256": "dbed0f7b55f1769a78689e12c8a6225a52862fe47c18ca759241956007279f6c",
+      "labels_sha256": "e7ddbedc0ce0110893b487a8e49780522d8a2bfa9e1876def745ecd6584febdb",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:21.736957+00:00",
+      "trajectory": "seed505_stationary_A_with_anomalies_QUARANTINE_128",
+      "truth_sha256": "dbed0f7b55f1769a78689e12c8a6225a52862fe47c18ca759241956007279f6c",
+      "labels_sha256": "e7ddbedc0ce0110893b487a8e49780522d8a2bfa9e1876def745ecd6584febdb",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:21.794124+00:00",
+      "trajectory": "seed505_stationary_A_with_anomalies_QUARANTINE_256",
+      "truth_sha256": "dbed0f7b55f1769a78689e12c8a6225a52862fe47c18ca759241956007279f6c",
+      "labels_sha256": "e7ddbedc0ce0110893b487a8e49780522d8a2bfa9e1876def745ecd6584febdb",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:21.840456+00:00",
+      "trajectory": "seed505_stationary_A_with_anomalies_QUARANTINE_512",
+      "truth_sha256": "dbed0f7b55f1769a78689e12c8a6225a52862fe47c18ca759241956007279f6c",
+      "labels_sha256": "e7ddbedc0ce0110893b487a8e49780522d8a2bfa9e1876def745ecd6584febdb",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:21.898659+00:00",
+      "trajectory": "seed505_semantic_fault_twin_FROZEN",
+      "truth_sha256": "32ae1b5b0cd8acbec3279b3060a2363d2d4f7194f6028cadc1895a339ac90e81",
+      "labels_sha256": "b85d4aba3598c22d0dae8c3495f294a40293cf9ee690cf5e8debb629f3d9528a",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:21.946791+00:00",
+      "trajectory": "seed505_semantic_fault_twin_IMMEDIATE_UPDATE",
+      "truth_sha256": "32ae1b5b0cd8acbec3279b3060a2363d2d4f7194f6028cadc1895a339ac90e81",
+      "labels_sha256": "b85d4aba3598c22d0dae8c3495f294a40293cf9ee690cf5e8debb629f3d9528a",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:22.016029+00:00",
+      "trajectory": "seed505_semantic_fault_twin_M2N2_STYLE_CAUSAL",
+      "truth_sha256": "32ae1b5b0cd8acbec3279b3060a2363d2d4f7194f6028cadc1895a339ac90e81",
+      "labels_sha256": "b85d4aba3598c22d0dae8c3495f294a40293cf9ee690cf5e8debb629f3d9528a",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:22.064730+00:00",
+      "trajectory": "seed505_semantic_fault_twin_CANDI_STYLE_CAUSAL",
+      "truth_sha256": "32ae1b5b0cd8acbec3279b3060a2363d2d4f7194f6028cadc1895a339ac90e81",
+      "labels_sha256": "b85d4aba3598c22d0dae8c3495f294a40293cf9ee690cf5e8debb629f3d9528a",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:22.113265+00:00",
+      "trajectory": "seed505_semantic_fault_twin_QUARANTINE_1",
+      "truth_sha256": "32ae1b5b0cd8acbec3279b3060a2363d2d4f7194f6028cadc1895a339ac90e81",
+      "labels_sha256": "b85d4aba3598c22d0dae8c3495f294a40293cf9ee690cf5e8debb629f3d9528a",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:22.170526+00:00",
+      "trajectory": "seed505_semantic_fault_twin_QUARANTINE_64",
+      "truth_sha256": "32ae1b5b0cd8acbec3279b3060a2363d2d4f7194f6028cadc1895a339ac90e81",
+      "labels_sha256": "b85d4aba3598c22d0dae8c3495f294a40293cf9ee690cf5e8debb629f3d9528a",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:22.217213+00:00",
+      "trajectory": "seed505_semantic_fault_twin_QUARANTINE_128",
+      "truth_sha256": "32ae1b5b0cd8acbec3279b3060a2363d2d4f7194f6028cadc1895a339ac90e81",
+      "labels_sha256": "b85d4aba3598c22d0dae8c3495f294a40293cf9ee690cf5e8debb629f3d9528a",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:22.274532+00:00",
+      "trajectory": "seed505_semantic_fault_twin_QUARANTINE_256",
+      "truth_sha256": "32ae1b5b0cd8acbec3279b3060a2363d2d4f7194f6028cadc1895a339ac90e81",
+      "labels_sha256": "b85d4aba3598c22d0dae8c3495f294a40293cf9ee690cf5e8debb629f3d9528a",
+      "role": "evaluator only"
+    },
+    {
+      "utc": "2026-10-04T17:56:22.321249+00:00",
+      "trajectory": "seed505_semantic_fault_twin_QUARANTINE_512",
+      "truth_sha256": "32ae1b5b0cd8acbec3279b3060a2363d2d4f7194f6028cadc1895a339ac90e81",
+      "labels_sha256": "b85d4aba3598c22d0dae8c3495f294a40293cf9ee690cf5e8debb629f3d9528a",
+      "role": "evaluator only"
+    }
+  ]
+}

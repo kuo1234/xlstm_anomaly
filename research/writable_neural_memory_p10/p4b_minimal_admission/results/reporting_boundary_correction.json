@@ -1,0 +1,1426 @@
+{
+  "utc": "2026-10-04T18:03:50.245863+00:00",
+  "purpose": "additive report correction only",
+  "frozen_metrics_sha256": "104dca58878db2294cebc11db0f85541b747f3e1deb19aa7b20b37295f93574d",
+  "raw_primary_gate": "ADAPTATION_HARMS_RETENTION",
+  "gate_changed": false,
+  "raw_metrics_preserved": true,
+  "policy_or_detector_rerun": false,
+  "cutoff_or_Q_change": false,
+  "affected_raw_negative_durations": 5,
+  "root_cause": "first global PROMOTE precedes transition; raw end-start negative. Formal A point must not terminate a later B-transition interval.",
+  "rows": [
+    {
+      "trajectory": "seed101_benign_B_with_anomalies_FROZEN",
+      "physical_group": 101,
+      "policy": "FROZEN",
+      "frozen_raw_burden": {
+        "alarms": 363,
+        "clean_points": 1024,
+        "rate": 0.3544921875,
+        "duration": 1024,
+        "endpoint": 3072
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 363,
+        "clean_points": 1024,
+        "rate": 0.3544921875,
+        "duration": 1024,
+        "endpoint": 3072
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 363,
+        "clean_points": 1024,
+        "rate": 0.3544921875,
+        "duration": 1024,
+        "endpoint": 3072
+      }
+    },
+    {
+      "trajectory": "seed101_benign_B_with_anomalies_IMMEDIATE_UPDATE",
+      "physical_group": 101,
+      "policy": "IMMEDIATE_UPDATE",
+      "frozen_raw_burden": {
+        "alarms": 159,
+        "clean_points": 1024,
+        "rate": 0.1552734375,
+        "duration": 1024,
+        "endpoint": 3072
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 159,
+        "clean_points": 1024,
+        "rate": 0.1552734375,
+        "duration": 1024,
+        "endpoint": 3072
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 159,
+        "clean_points": 1024,
+        "rate": 0.1552734375,
+        "duration": 1024,
+        "endpoint": 3072
+      }
+    },
+    {
+      "trajectory": "seed101_benign_B_with_anomalies_M2N2_STYLE_CAUSAL",
+      "physical_group": 101,
+      "policy": "M2N2_STYLE_CAUSAL",
+      "frozen_raw_burden": {
+        "alarms": 188,
+        "clean_points": 1024,
+        "rate": 0.18359375,
+        "duration": 1024,
+        "endpoint": 3072
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 188,
+        "clean_points": 1024,
+        "rate": 0.18359375,
+        "duration": 1024,
+        "endpoint": 3072
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 188,
+        "clean_points": 1024,
+        "rate": 0.18359375,
+        "duration": 1024,
+        "endpoint": 3072
+      }
+    },
+    {
+      "trajectory": "seed101_benign_B_with_anomalies_CANDI_STYLE_CAUSAL",
+      "physical_group": 101,
+      "policy": "CANDI_STYLE_CAUSAL",
+      "frozen_raw_burden": {
+        "alarms": 359,
+        "clean_points": 1024,
+        "rate": 0.3505859375,
+        "duration": 1024,
+        "endpoint": 3072
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 359,
+        "clean_points": 1024,
+        "rate": 0.3505859375,
+        "duration": 1024,
+        "endpoint": 3072
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 359,
+        "clean_points": 1024,
+        "rate": 0.3505859375,
+        "duration": 1024,
+        "endpoint": 3072
+      }
+    },
+    {
+      "trajectory": "seed101_benign_B_with_anomalies_QUARANTINE_1",
+      "physical_group": 101,
+      "policy": "QUARANTINE_1",
+      "frozen_raw_burden": {
+        "alarms": 0,
+        "clean_points": 0,
+        "rate": null,
+        "duration": -326,
+        "endpoint": 1722
+      },
+      "raw_duration_negative": true,
+      "pre_transition_formal_times": [
+        1722
+      ],
+      "transition_premature_formal_times": [
+        2104,
+        2123,
+        2178,
+        2225,
+        2256,
+        2279,
+        2299
+      ],
+      "first_formal_at_or_after_transition": 2104,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 0,
+        "clean_points": 56,
+        "rate": 0.0,
+        "duration": 56,
+        "endpoint": 2104
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 46,
+        "clean_points": 274,
+        "rate": 0.1678832116788321,
+        "duration": 274,
+        "endpoint": 2322
+      }
+    },
+    {
+      "trajectory": "seed101_benign_B_with_anomalies_QUARANTINE_64",
+      "physical_group": 101,
+      "policy": "QUARANTINE_64",
+      "frozen_raw_burden": {
+        "alarms": 363,
+        "clean_points": 1024,
+        "rate": 0.3544921875,
+        "duration": 1024,
+        "endpoint": 3135
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": 3135,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 363,
+        "clean_points": 1024,
+        "rate": 0.3544921875,
+        "duration": 1024,
+        "endpoint": 3072
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 363,
+        "clean_points": 1024,
+        "rate": 0.3544921875,
+        "duration": 1024,
+        "endpoint": 3072
+      }
+    },
+    {
+      "trajectory": "seed101_benign_B_with_anomalies_QUARANTINE_128",
+      "physical_group": 101,
+      "policy": "QUARANTINE_128",
+      "frozen_raw_burden": {
+        "alarms": 363,
+        "clean_points": 1024,
+        "rate": 0.3544921875,
+        "duration": 1024,
+        "endpoint": 3072
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 363,
+        "clean_points": 1024,
+        "rate": 0.3544921875,
+        "duration": 1024,
+        "endpoint": 3072
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 363,
+        "clean_points": 1024,
+        "rate": 0.3544921875,
+        "duration": 1024,
+        "endpoint": 3072
+      }
+    },
+    {
+      "trajectory": "seed101_benign_B_with_anomalies_QUARANTINE_256",
+      "physical_group": 101,
+      "policy": "QUARANTINE_256",
+      "frozen_raw_burden": {
+        "alarms": 363,
+        "clean_points": 1024,
+        "rate": 0.3544921875,
+        "duration": 1024,
+        "endpoint": 3072
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 363,
+        "clean_points": 1024,
+        "rate": 0.3544921875,
+        "duration": 1024,
+        "endpoint": 3072
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 363,
+        "clean_points": 1024,
+        "rate": 0.3544921875,
+        "duration": 1024,
+        "endpoint": 3072
+      }
+    },
+    {
+      "trajectory": "seed101_benign_B_with_anomalies_QUARANTINE_512",
+      "physical_group": 101,
+      "policy": "QUARANTINE_512",
+      "frozen_raw_burden": {
+        "alarms": 363,
+        "clean_points": 1024,
+        "rate": 0.3544921875,
+        "duration": 1024,
+        "endpoint": 3072
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 363,
+        "clean_points": 1024,
+        "rate": 0.3544921875,
+        "duration": 1024,
+        "endpoint": 3072
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 363,
+        "clean_points": 1024,
+        "rate": 0.3544921875,
+        "duration": 1024,
+        "endpoint": 3072
+      }
+    },
+    {
+      "trajectory": "seed202_benign_B_with_anomalies_FROZEN",
+      "physical_group": 202,
+      "policy": "FROZEN",
+      "frozen_raw_burden": {
+        "alarms": 419,
+        "clean_points": 1024,
+        "rate": 0.4091796875,
+        "duration": 1024,
+        "endpoint": 3136
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 419,
+        "clean_points": 1024,
+        "rate": 0.4091796875,
+        "duration": 1024,
+        "endpoint": 3136
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 419,
+        "clean_points": 1024,
+        "rate": 0.4091796875,
+        "duration": 1024,
+        "endpoint": 3136
+      }
+    },
+    {
+      "trajectory": "seed202_benign_B_with_anomalies_IMMEDIATE_UPDATE",
+      "physical_group": 202,
+      "policy": "IMMEDIATE_UPDATE",
+      "frozen_raw_burden": {
+        "alarms": 172,
+        "clean_points": 1024,
+        "rate": 0.16796875,
+        "duration": 1024,
+        "endpoint": 3136
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 172,
+        "clean_points": 1024,
+        "rate": 0.16796875,
+        "duration": 1024,
+        "endpoint": 3136
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 172,
+        "clean_points": 1024,
+        "rate": 0.16796875,
+        "duration": 1024,
+        "endpoint": 3136
+      }
+    },
+    {
+      "trajectory": "seed202_benign_B_with_anomalies_M2N2_STYLE_CAUSAL",
+      "physical_group": 202,
+      "policy": "M2N2_STYLE_CAUSAL",
+      "frozen_raw_burden": {
+        "alarms": 150,
+        "clean_points": 1024,
+        "rate": 0.146484375,
+        "duration": 1024,
+        "endpoint": 3136
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 150,
+        "clean_points": 1024,
+        "rate": 0.146484375,
+        "duration": 1024,
+        "endpoint": 3136
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 150,
+        "clean_points": 1024,
+        "rate": 0.146484375,
+        "duration": 1024,
+        "endpoint": 3136
+      }
+    },
+    {
+      "trajectory": "seed202_benign_B_with_anomalies_CANDI_STYLE_CAUSAL",
+      "physical_group": 202,
+      "policy": "CANDI_STYLE_CAUSAL",
+      "frozen_raw_burden": {
+        "alarms": 407,
+        "clean_points": 1024,
+        "rate": 0.3974609375,
+        "duration": 1024,
+        "endpoint": 3136
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 407,
+        "clean_points": 1024,
+        "rate": 0.3974609375,
+        "duration": 1024,
+        "endpoint": 3136
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 407,
+        "clean_points": 1024,
+        "rate": 0.3974609375,
+        "duration": 1024,
+        "endpoint": 3136
+      }
+    },
+    {
+      "trajectory": "seed202_benign_B_with_anomalies_QUARANTINE_1",
+      "physical_group": 202,
+      "policy": "QUARANTINE_1",
+      "frozen_raw_burden": {
+        "alarms": 0,
+        "clean_points": 0,
+        "rate": null,
+        "duration": -468,
+        "endpoint": 1644
+      },
+      "raw_duration_negative": true,
+      "pre_transition_formal_times": [
+        1644,
+        1844,
+        2045
+      ],
+      "transition_premature_formal_times": [
+        2228,
+        2255,
+        2277,
+        2300,
+        2321,
+        2324,
+        2327,
+        2350
+      ],
+      "first_formal_at_or_after_transition": 2228,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 0,
+        "clean_points": 116,
+        "rate": 0.0,
+        "duration": 116,
+        "endpoint": 2228
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 41,
+        "clean_points": 263,
+        "rate": 0.155893536121673,
+        "duration": 263,
+        "endpoint": 2375
+      }
+    },
+    {
+      "trajectory": "seed202_benign_B_with_anomalies_QUARANTINE_64",
+      "physical_group": 202,
+      "policy": "QUARANTINE_64",
+      "frozen_raw_burden": {
+        "alarms": 419,
+        "clean_points": 1024,
+        "rate": 0.4091796875,
+        "duration": 1024,
+        "endpoint": 3186
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": 3186,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 419,
+        "clean_points": 1024,
+        "rate": 0.4091796875,
+        "duration": 1024,
+        "endpoint": 3136
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 419,
+        "clean_points": 1024,
+        "rate": 0.4091796875,
+        "duration": 1024,
+        "endpoint": 3136
+      }
+    },
+    {
+      "trajectory": "seed202_benign_B_with_anomalies_QUARANTINE_128",
+      "physical_group": 202,
+      "policy": "QUARANTINE_128",
+      "frozen_raw_burden": {
+        "alarms": 419,
+        "clean_points": 1024,
+        "rate": 0.4091796875,
+        "duration": 1024,
+        "endpoint": 3136
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 419,
+        "clean_points": 1024,
+        "rate": 0.4091796875,
+        "duration": 1024,
+        "endpoint": 3136
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 419,
+        "clean_points": 1024,
+        "rate": 0.4091796875,
+        "duration": 1024,
+        "endpoint": 3136
+      }
+    },
+    {
+      "trajectory": "seed202_benign_B_with_anomalies_QUARANTINE_256",
+      "physical_group": 202,
+      "policy": "QUARANTINE_256",
+      "frozen_raw_burden": {
+        "alarms": 419,
+        "clean_points": 1024,
+        "rate": 0.4091796875,
+        "duration": 1024,
+        "endpoint": 3136
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 419,
+        "clean_points": 1024,
+        "rate": 0.4091796875,
+        "duration": 1024,
+        "endpoint": 3136
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 419,
+        "clean_points": 1024,
+        "rate": 0.4091796875,
+        "duration": 1024,
+        "endpoint": 3136
+      }
+    },
+    {
+      "trajectory": "seed202_benign_B_with_anomalies_QUARANTINE_512",
+      "physical_group": 202,
+      "policy": "QUARANTINE_512",
+      "frozen_raw_burden": {
+        "alarms": 419,
+        "clean_points": 1024,
+        "rate": 0.4091796875,
+        "duration": 1024,
+        "endpoint": 3136
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 419,
+        "clean_points": 1024,
+        "rate": 0.4091796875,
+        "duration": 1024,
+        "endpoint": 3136
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 419,
+        "clean_points": 1024,
+        "rate": 0.4091796875,
+        "duration": 1024,
+        "endpoint": 3136
+      }
+    },
+    {
+      "trajectory": "seed303_benign_B_with_anomalies_FROZEN",
+      "physical_group": 303,
+      "policy": "FROZEN",
+      "frozen_raw_burden": {
+        "alarms": 402,
+        "clean_points": 1024,
+        "rate": 0.392578125,
+        "duration": 1024,
+        "endpoint": 2944
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 402,
+        "clean_points": 1024,
+        "rate": 0.392578125,
+        "duration": 1024,
+        "endpoint": 2944
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 402,
+        "clean_points": 1024,
+        "rate": 0.392578125,
+        "duration": 1024,
+        "endpoint": 2944
+      }
+    },
+    {
+      "trajectory": "seed303_benign_B_with_anomalies_IMMEDIATE_UPDATE",
+      "physical_group": 303,
+      "policy": "IMMEDIATE_UPDATE",
+      "frozen_raw_burden": {
+        "alarms": 188,
+        "clean_points": 1024,
+        "rate": 0.18359375,
+        "duration": 1024,
+        "endpoint": 2944
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 188,
+        "clean_points": 1024,
+        "rate": 0.18359375,
+        "duration": 1024,
+        "endpoint": 2944
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 188,
+        "clean_points": 1024,
+        "rate": 0.18359375,
+        "duration": 1024,
+        "endpoint": 2944
+      }
+    },
+    {
+      "trajectory": "seed303_benign_B_with_anomalies_M2N2_STYLE_CAUSAL",
+      "physical_group": 303,
+      "policy": "M2N2_STYLE_CAUSAL",
+      "frozen_raw_burden": {
+        "alarms": 222,
+        "clean_points": 1024,
+        "rate": 0.216796875,
+        "duration": 1024,
+        "endpoint": 2944
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 222,
+        "clean_points": 1024,
+        "rate": 0.216796875,
+        "duration": 1024,
+        "endpoint": 2944
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 222,
+        "clean_points": 1024,
+        "rate": 0.216796875,
+        "duration": 1024,
+        "endpoint": 2944
+      }
+    },
+    {
+      "trajectory": "seed303_benign_B_with_anomalies_CANDI_STYLE_CAUSAL",
+      "physical_group": 303,
+      "policy": "CANDI_STYLE_CAUSAL",
+      "frozen_raw_burden": {
+        "alarms": 400,
+        "clean_points": 1024,
+        "rate": 0.390625,
+        "duration": 1024,
+        "endpoint": 2944
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 400,
+        "clean_points": 1024,
+        "rate": 0.390625,
+        "duration": 1024,
+        "endpoint": 2944
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 400,
+        "clean_points": 1024,
+        "rate": 0.390625,
+        "duration": 1024,
+        "endpoint": 2944
+      }
+    },
+    {
+      "trajectory": "seed303_benign_B_with_anomalies_QUARANTINE_1",
+      "physical_group": 303,
+      "policy": "QUARANTINE_1",
+      "frozen_raw_burden": {
+        "alarms": 0,
+        "clean_points": 0,
+        "rate": null,
+        "duration": -239,
+        "endpoint": 1681
+      },
+      "raw_duration_negative": true,
+      "pre_transition_formal_times": [
+        1681
+      ],
+      "transition_premature_formal_times": [
+        1922,
+        1979,
+        2027,
+        2057,
+        2078,
+        2099,
+        2121,
+        2146,
+        2149
+      ],
+      "first_formal_at_or_after_transition": 1922,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 0,
+        "clean_points": 2,
+        "rate": 0.0,
+        "duration": 2,
+        "endpoint": 1922
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 40,
+        "clean_points": 257,
+        "rate": 0.1556420233463035,
+        "duration": 257,
+        "endpoint": 2177
+      }
+    },
+    {
+      "trajectory": "seed303_benign_B_with_anomalies_QUARANTINE_64",
+      "physical_group": 303,
+      "policy": "QUARANTINE_64",
+      "frozen_raw_burden": {
+        "alarms": 402,
+        "clean_points": 1024,
+        "rate": 0.392578125,
+        "duration": 1024,
+        "endpoint": 3005
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": 3005,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 402,
+        "clean_points": 1024,
+        "rate": 0.392578125,
+        "duration": 1024,
+        "endpoint": 2944
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 402,
+        "clean_points": 1024,
+        "rate": 0.392578125,
+        "duration": 1024,
+        "endpoint": 2944
+      }
+    },
+    {
+      "trajectory": "seed303_benign_B_with_anomalies_QUARANTINE_128",
+      "physical_group": 303,
+      "policy": "QUARANTINE_128",
+      "frozen_raw_burden": {
+        "alarms": 402,
+        "clean_points": 1024,
+        "rate": 0.392578125,
+        "duration": 1024,
+        "endpoint": 2944
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 402,
+        "clean_points": 1024,
+        "rate": 0.392578125,
+        "duration": 1024,
+        "endpoint": 2944
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 402,
+        "clean_points": 1024,
+        "rate": 0.392578125,
+        "duration": 1024,
+        "endpoint": 2944
+      }
+    },
+    {
+      "trajectory": "seed303_benign_B_with_anomalies_QUARANTINE_256",
+      "physical_group": 303,
+      "policy": "QUARANTINE_256",
+      "frozen_raw_burden": {
+        "alarms": 402,
+        "clean_points": 1024,
+        "rate": 0.392578125,
+        "duration": 1024,
+        "endpoint": 2944
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 402,
+        "clean_points": 1024,
+        "rate": 0.392578125,
+        "duration": 1024,
+        "endpoint": 2944
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 402,
+        "clean_points": 1024,
+        "rate": 0.392578125,
+        "duration": 1024,
+        "endpoint": 2944
+      }
+    },
+    {
+      "trajectory": "seed303_benign_B_with_anomalies_QUARANTINE_512",
+      "physical_group": 303,
+      "policy": "QUARANTINE_512",
+      "frozen_raw_burden": {
+        "alarms": 402,
+        "clean_points": 1024,
+        "rate": 0.392578125,
+        "duration": 1024,
+        "endpoint": 2944
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 402,
+        "clean_points": 1024,
+        "rate": 0.392578125,
+        "duration": 1024,
+        "endpoint": 2944
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 402,
+        "clean_points": 1024,
+        "rate": 0.392578125,
+        "duration": 1024,
+        "endpoint": 2944
+      }
+    },
+    {
+      "trajectory": "seed404_benign_B_with_anomalies_FROZEN",
+      "physical_group": 404,
+      "policy": "FROZEN",
+      "frozen_raw_burden": {
+        "alarms": 347,
+        "clean_points": 1024,
+        "rate": 0.3388671875,
+        "duration": 1024,
+        "endpoint": 3264
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 347,
+        "clean_points": 1024,
+        "rate": 0.3388671875,
+        "duration": 1024,
+        "endpoint": 3264
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 347,
+        "clean_points": 1024,
+        "rate": 0.3388671875,
+        "duration": 1024,
+        "endpoint": 3264
+      }
+    },
+    {
+      "trajectory": "seed404_benign_B_with_anomalies_IMMEDIATE_UPDATE",
+      "physical_group": 404,
+      "policy": "IMMEDIATE_UPDATE",
+      "frozen_raw_burden": {
+        "alarms": 167,
+        "clean_points": 1024,
+        "rate": 0.1630859375,
+        "duration": 1024,
+        "endpoint": 3264
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 167,
+        "clean_points": 1024,
+        "rate": 0.1630859375,
+        "duration": 1024,
+        "endpoint": 3264
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 167,
+        "clean_points": 1024,
+        "rate": 0.1630859375,
+        "duration": 1024,
+        "endpoint": 3264
+      }
+    },
+    {
+      "trajectory": "seed404_benign_B_with_anomalies_M2N2_STYLE_CAUSAL",
+      "physical_group": 404,
+      "policy": "M2N2_STYLE_CAUSAL",
+      "frozen_raw_burden": {
+        "alarms": 208,
+        "clean_points": 1024,
+        "rate": 0.203125,
+        "duration": 1024,
+        "endpoint": 3264
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 208,
+        "clean_points": 1024,
+        "rate": 0.203125,
+        "duration": 1024,
+        "endpoint": 3264
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 208,
+        "clean_points": 1024,
+        "rate": 0.203125,
+        "duration": 1024,
+        "endpoint": 3264
+      }
+    },
+    {
+      "trajectory": "seed404_benign_B_with_anomalies_CANDI_STYLE_CAUSAL",
+      "physical_group": 404,
+      "policy": "CANDI_STYLE_CAUSAL",
+      "frozen_raw_burden": {
+        "alarms": 342,
+        "clean_points": 1024,
+        "rate": 0.333984375,
+        "duration": 1024,
+        "endpoint": 3264
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 342,
+        "clean_points": 1024,
+        "rate": 0.333984375,
+        "duration": 1024,
+        "endpoint": 3264
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 342,
+        "clean_points": 1024,
+        "rate": 0.333984375,
+        "duration": 1024,
+        "endpoint": 3264
+      }
+    },
+    {
+      "trajectory": "seed404_benign_B_with_anomalies_QUARANTINE_1",
+      "physical_group": 404,
+      "policy": "QUARANTINE_1",
+      "frozen_raw_burden": {
+        "alarms": 0,
+        "clean_points": 0,
+        "rate": null,
+        "duration": -659,
+        "endpoint": 1581
+      },
+      "raw_duration_negative": true,
+      "pre_transition_formal_times": [
+        1581,
+        1704,
+        1781,
+        1981
+      ],
+      "transition_premature_formal_times": [
+        2280,
+        2282,
+        2302,
+        2324,
+        2327,
+        2378,
+        2425,
+        2457,
+        2478
+      ],
+      "first_formal_at_or_after_transition": 2280,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 0,
+        "clean_points": 40,
+        "rate": 0.0,
+        "duration": 40,
+        "endpoint": 2280
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 39,
+        "clean_points": 259,
+        "rate": 0.15057915057915058,
+        "duration": 259,
+        "endpoint": 2499
+      }
+    },
+    {
+      "trajectory": "seed404_benign_B_with_anomalies_QUARANTINE_64",
+      "physical_group": 404,
+      "policy": "QUARANTINE_64",
+      "frozen_raw_burden": {
+        "alarms": 347,
+        "clean_points": 1024,
+        "rate": 0.3388671875,
+        "duration": 1024,
+        "endpoint": 3357
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": 3357,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 347,
+        "clean_points": 1024,
+        "rate": 0.3388671875,
+        "duration": 1024,
+        "endpoint": 3264
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 347,
+        "clean_points": 1024,
+        "rate": 0.3388671875,
+        "duration": 1024,
+        "endpoint": 3264
+      }
+    },
+    {
+      "trajectory": "seed404_benign_B_with_anomalies_QUARANTINE_128",
+      "physical_group": 404,
+      "policy": "QUARANTINE_128",
+      "frozen_raw_burden": {
+        "alarms": 347,
+        "clean_points": 1024,
+        "rate": 0.3388671875,
+        "duration": 1024,
+        "endpoint": 3264
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 347,
+        "clean_points": 1024,
+        "rate": 0.3388671875,
+        "duration": 1024,
+        "endpoint": 3264
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 347,
+        "clean_points": 1024,
+        "rate": 0.3388671875,
+        "duration": 1024,
+        "endpoint": 3264
+      }
+    },
+    {
+      "trajectory": "seed404_benign_B_with_anomalies_QUARANTINE_256",
+      "physical_group": 404,
+      "policy": "QUARANTINE_256",
+      "frozen_raw_burden": {
+        "alarms": 347,
+        "clean_points": 1024,
+        "rate": 0.3388671875,
+        "duration": 1024,
+        "endpoint": 3264
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 347,
+        "clean_points": 1024,
+        "rate": 0.3388671875,
+        "duration": 1024,
+        "endpoint": 3264
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 347,
+        "clean_points": 1024,
+        "rate": 0.3388671875,
+        "duration": 1024,
+        "endpoint": 3264
+      }
+    },
+    {
+      "trajectory": "seed404_benign_B_with_anomalies_QUARANTINE_512",
+      "physical_group": 404,
+      "policy": "QUARANTINE_512",
+      "frozen_raw_burden": {
+        "alarms": 347,
+        "clean_points": 1024,
+        "rate": 0.3388671875,
+        "duration": 1024,
+        "endpoint": 3264
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 347,
+        "clean_points": 1024,
+        "rate": 0.3388671875,
+        "duration": 1024,
+        "endpoint": 3264
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 347,
+        "clean_points": 1024,
+        "rate": 0.3388671875,
+        "duration": 1024,
+        "endpoint": 3264
+      }
+    },
+    {
+      "trajectory": "seed505_benign_B_with_anomalies_FROZEN",
+      "physical_group": 505,
+      "policy": "FROZEN",
+      "frozen_raw_burden": {
+        "alarms": 368,
+        "clean_points": 1024,
+        "rate": 0.359375,
+        "duration": 1024,
+        "endpoint": 3040
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 368,
+        "clean_points": 1024,
+        "rate": 0.359375,
+        "duration": 1024,
+        "endpoint": 3040
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 368,
+        "clean_points": 1024,
+        "rate": 0.359375,
+        "duration": 1024,
+        "endpoint": 3040
+      }
+    },
+    {
+      "trajectory": "seed505_benign_B_with_anomalies_IMMEDIATE_UPDATE",
+      "physical_group": 505,
+      "policy": "IMMEDIATE_UPDATE",
+      "frozen_raw_burden": {
+        "alarms": 172,
+        "clean_points": 1024,
+        "rate": 0.16796875,
+        "duration": 1024,
+        "endpoint": 3040
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 172,
+        "clean_points": 1024,
+        "rate": 0.16796875,
+        "duration": 1024,
+        "endpoint": 3040
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 172,
+        "clean_points": 1024,
+        "rate": 0.16796875,
+        "duration": 1024,
+        "endpoint": 3040
+      }
+    },
+    {
+      "trajectory": "seed505_benign_B_with_anomalies_M2N2_STYLE_CAUSAL",
+      "physical_group": 505,
+      "policy": "M2N2_STYLE_CAUSAL",
+      "frozen_raw_burden": {
+        "alarms": 190,
+        "clean_points": 1024,
+        "rate": 0.185546875,
+        "duration": 1024,
+        "endpoint": 3040
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 190,
+        "clean_points": 1024,
+        "rate": 0.185546875,
+        "duration": 1024,
+        "endpoint": 3040
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 190,
+        "clean_points": 1024,
+        "rate": 0.185546875,
+        "duration": 1024,
+        "endpoint": 3040
+      }
+    },
+    {
+      "trajectory": "seed505_benign_B_with_anomalies_CANDI_STYLE_CAUSAL",
+      "physical_group": 505,
+      "policy": "CANDI_STYLE_CAUSAL",
+      "frozen_raw_burden": {
+        "alarms": 355,
+        "clean_points": 1024,
+        "rate": 0.3466796875,
+        "duration": 1024,
+        "endpoint": 3040
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 355,
+        "clean_points": 1024,
+        "rate": 0.3466796875,
+        "duration": 1024,
+        "endpoint": 3040
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 355,
+        "clean_points": 1024,
+        "rate": 0.3466796875,
+        "duration": 1024,
+        "endpoint": 3040
+      }
+    },
+    {
+      "trajectory": "seed505_benign_B_with_anomalies_QUARANTINE_1",
+      "physical_group": 505,
+      "policy": "QUARANTINE_1",
+      "frozen_raw_burden": {
+        "alarms": 0,
+        "clean_points": 0,
+        "rate": null,
+        "duration": -434,
+        "endpoint": 1582
+      },
+      "raw_duration_negative": true,
+      "pre_transition_formal_times": [
+        1582,
+        1781,
+        1980
+      ],
+      "transition_premature_formal_times": [
+        2080,
+        2102,
+        2124,
+        2126,
+        2177,
+        2225,
+        2256
+      ],
+      "first_formal_at_or_after_transition": 2080,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 0,
+        "clean_points": 64,
+        "rate": 0.0,
+        "duration": 64,
+        "endpoint": 2080
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 36,
+        "clean_points": 263,
+        "rate": 0.13688212927756654,
+        "duration": 263,
+        "endpoint": 2279
+      }
+    },
+    {
+      "trajectory": "seed505_benign_B_with_anomalies_QUARANTINE_64",
+      "physical_group": 505,
+      "policy": "QUARANTINE_64",
+      "frozen_raw_burden": {
+        "alarms": 368,
+        "clean_points": 1024,
+        "rate": 0.359375,
+        "duration": 1024,
+        "endpoint": 3156
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": 3156,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 368,
+        "clean_points": 1024,
+        "rate": 0.359375,
+        "duration": 1024,
+        "endpoint": 3040
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 368,
+        "clean_points": 1024,
+        "rate": 0.359375,
+        "duration": 1024,
+        "endpoint": 3040
+      }
+    },
+    {
+      "trajectory": "seed505_benign_B_with_anomalies_QUARANTINE_128",
+      "physical_group": 505,
+      "policy": "QUARANTINE_128",
+      "frozen_raw_burden": {
+        "alarms": 368,
+        "clean_points": 1024,
+        "rate": 0.359375,
+        "duration": 1024,
+        "endpoint": 3040
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 368,
+        "clean_points": 1024,
+        "rate": 0.359375,
+        "duration": 1024,
+        "endpoint": 3040
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 368,
+        "clean_points": 1024,
+        "rate": 0.359375,
+        "duration": 1024,
+        "endpoint": 3040
+      }
+    },
+    {
+      "trajectory": "seed505_benign_B_with_anomalies_QUARANTINE_256",
+      "physical_group": 505,
+      "policy": "QUARANTINE_256",
+      "frozen_raw_burden": {
+        "alarms": 368,
+        "clean_points": 1024,
+        "rate": 0.359375,
+        "duration": 1024,
+        "endpoint": 3040
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 368,
+        "clean_points": 1024,
+        "rate": 0.359375,
+        "duration": 1024,
+        "endpoint": 3040
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 368,
+        "clean_points": 1024,
+        "rate": 0.359375,
+        "duration": 1024,
+        "endpoint": 3040
+      }
+    },
+    {
+      "trajectory": "seed505_benign_B_with_anomalies_QUARANTINE_512",
+      "physical_group": 505,
+      "policy": "QUARANTINE_512",
+      "frozen_raw_burden": {
+        "alarms": 368,
+        "clean_points": 1024,
+        "rate": 0.359375,
+        "duration": 1024,
+        "endpoint": 3040
+      },
+      "raw_duration_negative": false,
+      "pre_transition_formal_times": [],
+      "transition_premature_formal_times": [],
+      "first_formal_at_or_after_transition": null,
+      "burden_until_first_in_transition_formal": {
+        "alarms": 368,
+        "clean_points": 1024,
+        "rate": 0.359375,
+        "duration": 1024,
+        "endpoint": 3040
+      },
+      "burden_until_valid_B_commit_secondary": {
+        "alarms": 368,
+        "clean_points": 1024,
+        "rate": 0.359375,
+        "duration": 1024,
+        "endpoint": 3040
+      }
+    }
+  ]
+}
