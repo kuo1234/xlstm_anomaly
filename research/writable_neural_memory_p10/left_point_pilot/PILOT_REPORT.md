@@ -1,6 +1,6 @@
 # Pilot P2 — LEFT-style causal point-map feasibility
 
-**Verdict: LEFT_POINT_EVIDENCE_NOT_SUPPORTED — pending review.** No retuning or second pilot. Review task: Issue #15 comment 5979301841, mirrored in #16.
+**Protocol PASS / frozen verdict LEFT_POINT_EVIDENCE_NOT_SUPPORTED accepted by review5980382672 — see acceptance below.** No retuning or second pilot. Review task: Issue #15 comment 5979301841, mirrored in #16.
 
 ## Scientific target and semantic boundary
 
@@ -132,10 +132,14 @@ All maps are finite and nonconstant. Prototype gate is narrowly distributed and 
 
 **LEFT_POINT_EVIDENCE_NOT_SUPPORTED for the frozen primary causal pilot.** Detect does not materially cover both weak families under frozen calibration relative to both controls. Primary PSM total/disagreement does not distinguish source fault from NORMAL_B; the partial SMD-only cross-path signal is anchor-dependent and does not establish stable cross-family legitimacy evidence. This is not a claim that LEFT, other training schedules or richer measurements can never help. It is a negative result for this pinned healthy-only protocol.
 
-STOP pending Issue review. No alpha/config/threshold tuning, replacement cases, orientation rescue, classifier, admission, controller, RL, xLSTM, P10 online writes or full #16 cycle. Before future operational Safe Cycle work, source disturbance activation and independently established unsafe-operation ground truth must be defined separately. Controller compensation / measured-channel observability is a possible explanation, not verified for these runs. Do not reinterpret poor source-fault recall as unsafe-operation recall, nor relabel weak source faults safe.
+STOP current LEFT pilot per accepted Issue review. No alpha/config/threshold tuning, replacement cases, orientation rescue, classifier, admission, controller, RL, xLSTM, P10 online writes or full #16 cycle. Before future operational Safe Cycle work, source disturbance activation and independently established unsafe-operation ground truth must be defined separately. Controller compensation / measured-channel observability is a possible explanation, not verified for these runs. Do not reinterpret poor source-fault recall as unsafe-operation recall, nor relabel weak source faults safe.
 
 ## Final verification and artifacts
 
 The same12targeted tests passed again after evaluation; exact seal/protocol/code/raw/checkpoint hashes and remote seal ancestry verified at2026-10-04T13:10:39.743172Z. git diff --check passed. No scoring/training/evaluation code changed after the protocol commit or after seeing results. All original sealed maps remain byte-identical.
 
 [Per-run point results](results/point_results.csv), [case component medians](results/case_component_medians.csv), [all physical-case pair margins](results/case_component_pairs.csv), [component range checks](results/component_range_checks.csv), [late-point descriptive metrics](results/cross_run_point_metrics.csv), [evaluation access proof](results/evaluation_start.json), [label access chronology](results/label_access_log.json), [checkpoint manifest](run/checkpoints_manifest.json), [seal](run/seal.json), [exposure audit](exposure_audit.json), [split audit](split_audit.json), [semantic boundary](SEMANTIC_BOUNDARY.md). Complete timestamp/source-state component means are results/*.csv.gz; channel maps remain run/traces/*.npz.
+
+## Review acceptance — reporting-only update
+
+[Issue #15 review5980382672](https://github.com/kuo1234/xlstm_anomaly/issues/15#issuecomment-5980382672) at2026-10-04 21:19 Asia/Taipei accepts protocol PASS and the frozen negative verdict. Scope is pinned LEFT architecture under this healthy-only TEP training adaptation and causal endpoint protocol; it is not a general refutation of LEFT/cross-view scoring. Reviewer confirms training-recipe deviation and unfinished healthy-validation convergence at cap as extrapolation limits. Current LEFT pilot remains STOP. All sealed code/config/checkpoints/maps and original evaluation artifacts remain unchanged; their pending-review field is historical evaluation metadata. [Post-P2 research decision](../post_p2_decision/RESEARCH_DECISION.md) compares next routes; no new model/experiment is authorized by that design document.

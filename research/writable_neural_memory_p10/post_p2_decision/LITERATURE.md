@@ -1,0 +1,17 @@
+# Primary literature / applicability audit
+
+查閱：2026-10-04（Asia/Taipei）；只依原論文、出版社／作者／官方data site。此頁為focused decision review，不是systematic review／完整novelty clearance。Full text不可得時僅列abstract可支持內容，不猜implementation。
+
+| Source / access | 直接支持 | 本專案的 inference／限制 |
+|---|---|---|
+| [Ku, Storer & Georgakis 1995, dynamic PCA](https://www.sciencedirect.com/science/article/pii/0169743995000763), DOI10.1016/0169-7439(95)00076-3；publisher abstract | 以time-lag augmentation納入dynamic behavior，TEP為測試對象 | lagged process monitoring是既有方法。摘要未證明unseen legitimate operating shifts的safe admission；本輪未重現其算法／評估 |
+| [Van den Hof & Schrama 1995, Identification and control—closed-loop issues](https://publications.pvandenhof.nl/Paperfiles/HofSchrama1295.pdf), DOI10.1016/0005-1098(95)00094-X；author full PDF，§4–5 | closed-loop prediction-error approximation依controller／noise／reference條件而變；不是一般open-loop regression等價 | observed actuator histories的predictive usefulness不等於exogenous command或identified physical effect。需審healthy excitation、時序與輸入support；數值rank不是充分safety證據 |
+| [Liu & Jafarpour 2024, CNN-GAT with Granger map](https://www.sciencedirect.com/science/article/abs/pii/S009813542300323X), DOI10.1016/j.compchemeng.2023.108453；publisher abstract/highlights，[author publication listing](https://sees.usc.edu/publications/) | 用fault-free data建立conditional Granger map、CNN/GAT預測與fault診斷；摘要宣稱分辨normal control adjustments | 與擬議process-response問題直接相近，是novelty constraint。Full method、training-label使用、transition splits、code／可部署context未核實；不能先稱healthy-only嚴格reproduction或採其performance numbers |
+| [Malhotra et al. 2015, LSTM-AD](https://www.esann.org/sites/default/files/proceedings/legacy/es2015-56.pdf), ESANN pp89–94；conference full PDF，§2 | predictor用non-anomalous train，healthy validation做early stopping；prediction-error distribution供anomaly scoring | 原文另用anomalous validation選threshold／architecture，不能把整套protocol叫label-free。新probe若做，threshold與hyperparameters須採自己的預先固定healthy-only protocol；控制與感測joint prediction不是新的概念 |
+| [Beck et al. 2024, xLSTM](https://arxiv.org/abs/2405.04517)；author abstract／[NeurIPS paper](https://papers.neurips.cc/paper_files/paper/2024/file/c2ce2f2701c10a2b2f2ea0bfa43cfaa3-Paper-Conference.pdf) | exponential gating、scalar／matrix memories與語言建模實驗 | 結構是representation候選，非benign-vs-fault／safe-admission證明。本文不能替代matched LSTM / context / training-support controls |
+| [Bhatia et al., MemStream](https://arxiv.org/pdf/2106.03837)；WWW2022 author full PDF，Algorithm1／§5 | learned encoding、distance score與threshold-controlled FIFO memory updates；discussespoisoning/self-recovery | writable anomaly memory、更新gate與poisoning已有prior art。論文drift/memory guarantees不是本TEP合法regime／unsafe truth；不能據它把lower candidate loss作COMMIT證明 |
+| [Official Extended TEP v1](https://doi.org/10.11583/DTU.13385936.v1)／[Reinartz thesis](https://backend.orbit.dtu.dk/ws/portalfiles/portal/262630763/Thesis_Christopher_Clarc_Reinartz.pdf), A.3.1–A.3.2；已存ssh kuo official README／thesis | simulator提供fault、setpoint／mode variation及time-series來源；受限SP source split有依據 | source合法command scenario不等於全部operational safety。額外variables存在也不表示online可測、時間對齊已證。原53-channel contract及evaluator-only profiles不可暗改 |
+
+只開abstract的source不在本輪宣稱完整training reproduction。Dynamic PCA、LSTM、Granger-graph prediction、online memory等各自都有直接prior art；若後續有新貢獻，應定位在明確availability／identifiability assumptions下的admission evidence、falsification與write consequence，而非把既有方法拼在一起就宣稱novelty。
+
+Shadow candidate是否提供額外未來資訊，是本專案待測假設；MemStream未直接驗證這個shadow protocol。本輪沒有找到可用來證明passive candidate-write本身識別physical health的source，因此不作該claim。

@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-04T14:08:22.282045+00:00",
+  "scope": "docs-only decision and reporting-only acceptance update",
+  "JSON_validation": "PASS",
+  "relative_links_checked": [
+    "research/writable_neural_memory_p10/post_p2_decision/LITERATURE.md",
+    "research/writable_neural_memory_p10/post_p2_decision/P3A_AUDIT_SPEC.md",
+    "research/writable_neural_memory_p10/post_p2_decision/source_review.json"
+  ],
+  "tracked_modifications": [
+    "README.md",
+    "research/writable_neural_memory_p10/left_point_pilot/PILOT_REPORT.md"
+  ],
+  "protected_LEFT_seal_verify": {
+    "seal_commit": "0c6f11456825f29ce4c6d2848133cc519fec58ce",
+    "remote_sha": "26b4ffcc5bddcbc472116f54469302940b74f47c",
+    "seal_sha256": "37d50b1d51fb3c01c01e217432ce8cb05fa755bfd5512f680d46826bc371bd8b",
+    "utc": "2026-10-04T14:08:22.282029+00:00"
+  },
+  "new_training": false,
+  "new_tests": "not required for documentation-only changes; no experimental code changed",
+  "old_results_modified": false
+}

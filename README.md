@@ -336,6 +336,10 @@ Step 2f 結果：[Evidence audit](research/writable_neural_memory_p10/step2f/STE
 
 [Research decision](research/writable_neural_memory_p10/decision_pilot1/RESEARCH_DECISION.md) 比較六條路，選最小frozen structural stress test；[Pilot report](research/writable_neural_memory_p10/decision_pilot1/PILOT_REPORT.md)：**STRUCTURAL_TRANSFER_NOT_SUPPORTED**。3new benign native seeds + IDV3/4/5，primary concentration case AUROC .3333；IDV3/5反轉、IDV4成立，no-clip不救。只有IDV4屬primary low-CV fault，不能誇大成所有conditional low-CV規則均已否證。無threshold/feature rescue、無第二pilot/NN/RL/controller；資料執行全在ssh kuo，停止等review。
 
-## Pilot P2 — LEFT causal point maps / pending review
+## Pilot P2 — protocol PASS / frozen verdict accepted
 
-[Pilot report](research/writable_neural_memory_p10/left_point_pilot/PILOT_REPORT.md): **LEFT_POINT_EVIDENCE_NOT_SUPPORTED**。官方 LEFT pinned3fadb48，PSM/SMD仅enc_in=53；50/4/4 disjoint healthy runs，seed11、past192 endpoint-only。checkpoint/trace seal0c6f114已push後才source-state evaluation。IDV3/5 frozen recall<1.1%，SP1 NORMAL_B FPR100%；SMD cross-path局部增量保留，但primary PSM反轉、無stable cross-anchor evidence。Source disturbance≠unsafe operation，後者NOT_EVALUABLE。全程ssh kuo，未在本機下載raw，無retuning/admission/controller/RL/xLSTM；STOP等review。
+[Pilot report](research/writable_neural_memory_p10/left_point_pilot/PILOT_REPORT.md): **LEFT_POINT_EVIDENCE_NOT_SUPPORTED**（Issue #15 review5980382672接受，僅限frozen healthy-only TEP protocol，非一般性否證LEFT）。官方 LEFT pinned3fadb48，PSM/SMD仅enc_in=53；50/4/4 disjoint healthy runs，seed11、past192 endpoint-only。checkpoint/trace seal0c6f114已push後才source-state evaluation。IDV3/5 frozen recall<1.1%，SP1 NORMAL_B FPR100%；SMD cross-path局部增量保留，但primary PSM反轉、無stable cross-anchor evidence。Source disturbance≠unsafe operation，後者NOT_EVALUABLE。全程ssh kuo，未在本機下載raw，無retuning/admission/controller/RL/xLSTM；STOP current LEFT pilot。
+
+## Post-P2 research decision — awaiting reviewer task
+
+[Decision](research/writable_neural_memory_p10/post_p2_decision/RESEARCH_DECISION.md) 比較 process-response、healthy-only LSTM/xLSTM、tentative-write future verification；[P3-A audit spec](research/writable_neural_memory_p10/post_p2_decision/P3A_AUDIT_SPEC.md) 建議先查channel／runtime command availability／healthy response support與truth semantics。Manipulated feedback不等於authorized command；lower future loss不等於safe COMMIT。Unsafe truth仍NOT_EVALUABLE。此輪只完成primary literature與設計，未跑新模型／score／acquisition，P3-A與P3-B尚需新的Issue task GO。

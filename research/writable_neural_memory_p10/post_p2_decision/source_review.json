@@ -1,0 +1,183 @@
+{
+  "reviewed_at_utc": "2026-10-04T14:04:11.049774+00:00",
+  "user_timezone": "Asia/Taipei",
+  "base_commit": "26b4ffcc5bddcbc472116f54469302940b74f47c",
+  "authorization": {
+    "user_request": "read comments and research next step",
+    "latest_review15": "https://github.com/kuo1234/xlstm_anomaly/issues/15#issuecomment-5980382672",
+    "latest_review16": "https://github.com/kuo1234/xlstm_anomaly/issues/16#issuecomment-5980382963",
+    "current_scope": "literature/design decision plus reporting-only review acceptance",
+    "P3A_execution_authorized": false,
+    "new_experiment_authorized": false
+  },
+  "recommended_next_task": "P3-A source/channel/command availability and healthy response-support audit",
+  "decision": "RECOMMEND_AUDIT_BEFORE_PROBE",
+  "current_audit_readiness": "not a completed P3-A audit",
+  "evidence_at_base_commit": {
+    "AGENTS.md": {
+      "commit": "26b4ffcc5bddcbc472116f54469302940b74f47c",
+      "sha256": "95343472aacf10fc86aab8d2169e459ace5cf5c3d7660f0e65a6c93adb7c0e58"
+    },
+    "reports/m0_protocol.md": {
+      "commit": "26b4ffcc5bddcbc472116f54469302940b74f47c",
+      "sha256": "59250d1ea7acb5e91c86fda179ecb951a93c965a7ac986369d9cee45ace10950"
+    },
+    "README.md": {
+      "commit": "26b4ffcc5bddcbc472116f54469302940b74f47c",
+      "sha256": "2aba17a3c31c067e5f25433c8235436db06b28dd4aaa8354534a73b66576cafb"
+    },
+    "research/new_normal_identifiability/observable_vs_semantic.md": {
+      "commit": "26b4ffcc5bddcbc472116f54469302940b74f47c",
+      "sha256": "2421ee42e6f52c5c744a77ea24e872aa20dedd8f802a1e2533b2f6dd1748621c"
+    },
+    "research/writable_neural_memory_p10/step1c/STEP1C_ROLLBACK.md": {
+      "commit": "26b4ffcc5bddcbc472116f54469302940b74f47c",
+      "sha256": "89f61bc6c45f9a862e6320755baf15049577b033a14c9ea738e7aea032fce6ab"
+    },
+    "research/writable_neural_memory_p10/step2d/inspection.json": {
+      "commit": "26b4ffcc5bddcbc472116f54469302940b74f47c",
+      "sha256": "b0fbed1bd3498386eb24bdb70442c57cfedd3ec6229a2b917d9b5c29ce349286"
+    },
+    "research/writable_neural_memory_p10/step2e/PROTOCOL.md": {
+      "commit": "26b4ffcc5bddcbc472116f54469302940b74f47c",
+      "sha256": "259c171c0c2ef962e0a1eaeb47fa6c61d8ae6239134d7ad8270d2d2856610d59"
+    },
+    "research/writable_neural_memory_p10/step2f/STEP2F_EVIDENCE_AUDIT.md": {
+      "commit": "26b4ffcc5bddcbc472116f54469302940b74f47c",
+      "sha256": "42eaec6686d1cb2c5716fa1eb278c31db79ddc4ff7da0b25e08722f2dbafe87a"
+    },
+    "research/writable_neural_memory_p10/decision_pilot1/RESEARCH_DECISION.md": {
+      "commit": "26b4ffcc5bddcbc472116f54469302940b74f47c",
+      "sha256": "e4171798cc4e420256c9d9a056af1071784cae078f362d8d353083896169cec6"
+    },
+    "research/writable_neural_memory_p10/left_point_pilot/PILOT_REPORT.md": {
+      "commit": "26b4ffcc5bddcbc472116f54469302940b74f47c",
+      "sha256": "fa58e28b5058416458e395f3064479ca65c40a347d44f137333ec8cce91ef656"
+    },
+    "research/writable_neural_memory_p10/left_point_pilot/SEMANTIC_BOUNDARY.md": {
+      "commit": "26b4ffcc5bddcbc472116f54469302940b74f47c",
+      "sha256": "b514fe95b836581ac47c7f53373ed3bb321b5fef9aad9b01c36a1641c4405de2"
+    }
+  },
+  "existing_remote_source_metadata": {
+    "data/step2d/official/Readme.html": {
+      "sha256": "68f3b03ea10732ec631a720be614b44267e7b61c10eb2f141d95c8fb1293b460",
+      "newly_acquired": false
+    },
+    "data/step2d/official/article_v1.json": {
+      "sha256": "327f4c141bdebbc103c3dc1b8d1f61f8b410fbadd8fac93a9cef80817ae021f4",
+      "newly_acquired": false
+    },
+    "data/step2e/thesis.txt": {
+      "sha256": "3427c882cf91d778802dd53ae4db2d2e328cb0862276cb651d1aafe39338e3ad",
+      "newly_acquired": false
+    }
+  },
+  "primary_literature": [
+    {
+      "title": "Ku, Storer and Georgakis 1995 dynamic PCA",
+      "url": "https://www.sciencedirect.com/science/article/pii/0169743995000763",
+      "doi": "10.1016/0169-7439(95)00076-3",
+      "access": "publisher abstract only",
+      "scope": "time-lag process-monitoring prior art; not admission"
+    },
+    {
+      "title": "Van den Hof and Schrama 1995 closed-loop identification",
+      "url": "https://publications.pvandenhof.nl/Paperfiles/HofSchrama1295.pdf",
+      "doi": "10.1016/0005-1098(95)00094-X",
+      "access": "author full PDF sections 4 and 5 inspected",
+      "scope": "closed-loop approximation/controller/noise dependence"
+    },
+    {
+      "title": "Liu and Jafarpour 2024 CNN-GAT",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S009813542300323X",
+      "doi": "10.1016/j.compchemeng.2023.108453",
+      "access": "publisher abstract/highlights; author publication listing",
+      "full_method_verified": false,
+      "scope": "closest retrieved prior art for faults vs normal control adjustments"
+    },
+    {
+      "title": "Malhotra et al 2015 LSTM-AD",
+      "url": "https://www.esann.org/sites/default/files/proceedings/legacy/es2015-56.pdf",
+      "access": "conference full PDF section2",
+      "scope": "normal-only predictor; anomalous validation used for threshold/architecture selection"
+    },
+    {
+      "title": "Beck et al 2024 xLSTM",
+      "url": "https://arxiv.org/abs/2405.04517",
+      "access": "author abstract; conference source identified",
+      "scope": "architecture; not process legitimacy proof"
+    },
+    {
+      "title": "Bhatia et al MemStream WWW2022",
+      "url": "https://arxiv.org/pdf/2106.03837",
+      "version": "arXiv2106.03837v2",
+      "access": "author full PDF Algorithm1 and update discussion",
+      "scope": "stream memory updating/poisoning prior art; not shadow safety proof"
+    }
+  ],
+  "research_limitations": [
+    "focused search, not systematic novelty clearance",
+    "CNN-GAT full training and evaluation method unavailable",
+    "deployment command availability unknown",
+    "healthy command-response training support not established",
+    "unsafe-operation truth NOT_EVALUABLE"
+  ],
+  "new_raw_observations_read": false,
+  "new_dataset_acquisition": false,
+  "new_scores": false,
+  "new_models": false,
+  "new_feature_selection": false,
+  "old_sealed_artifacts_modified": false,
+  "local_raw_download": false,
+  "official_LEFT_training_reference": {
+    "PSM": {
+      "sha256": "b0d8bd8476a2794db17dc52fd114e249c593199f3109d7ed3dc1d66eecd9b9ab",
+      "config": {
+        "train_epochs": 20,
+        "batch_size": 128,
+        "optim": "adam",
+        "learning_rate": 0.0001,
+        "lradj": "type2",
+        "patience": 3
+      }
+    },
+    "SMD": {
+      "sha256": "0a6b4cc8bb0b53f8ed63bfd1ad71741a15114ab7b458827b819054a90bbf6995",
+      "config": {
+        "train_epochs": 20,
+        "batch_size": 128,
+        "optim": "adam",
+        "learning_rate": 0.0001,
+        "lradj": "type1",
+        "patience": 3
+      }
+    }
+  },
+  "audit_gaps": [
+    {
+      "item": "existing processdata labels/count/order",
+      "status": "source list available; runtime role/unit contract incomplete"
+    },
+    {
+      "item": "3-minute sampling",
+      "status": "verified by source/adapter; response bandwidth adequacy unknown"
+    },
+    {
+      "item": "deployed authorized command stream",
+      "status": "UNKNOWN; existing profiles remain evaluator-only"
+    },
+    {
+      "item": "healthy command-response training",
+      "status": "not included in P2; new source-backed eligibility needed"
+    },
+    {
+      "item": "additional measurement availability/alignment",
+      "status": "NOT VERIFIED for deployment"
+    },
+    {
+      "item": "operational unsafe truth",
+      "status": "NOT_EVALUABLE"
+    }
+  ]
+}
