@@ -1,0 +1,58 @@
+{
+  "verified_utc": "2026-10-04T18:26:38.415604+00:00",
+  "base_commit": "c9e42c2d4bc962494a9c0a3708bb8439cbb7868c",
+  "checks": {
+    "source_document_sha256_and_bytes": 31,
+    "reused_code_sha256": 17,
+    "json_parse_before_this_receipt": 5,
+    "relative_document_links": 10,
+    "required_artifacts": 7,
+    "dataset_candidates": 9,
+    "prior_art_matrix_rows": 11,
+    "docs_only_scope": true,
+    "git_diff_check": true,
+    "active_branch_and_base": true,
+    "source_directory_ignored": true,
+    "markdown_table_columns_and_newlines": true
+  },
+  "blocked_source_requests": [
+    {
+      "id": "esa_paper",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "cmapss",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "concord",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "vgcl_publisher",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "ncmapss_descriptor",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "cmapss_portal",
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "id": "cadence",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ],
+  "model_or_policy_tests_run": false,
+  "runtime_contract_verified": false,
+  "future_protocol_implemented_or_frozen": false,
+  "remote_push_verified": "verify after commit; not claimed by this precommit receipt",
+  "limitations": [
+    "bounded non-exhaustive prior-art search",
+    "full methods blocked for two strong recent threats",
+    "source metadata not raw validation",
+    "no real causal receipt/authorization contract verified"
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "gate": "CONTROLLED_CONTEXT_ONLY",
+  "review_status": "pending_review",
+  "base_git_commit": "c9e42c2d4bc962494a9c0a3708bb8439cbb7868c",
+  "created_utc": "2026-10-04T18:23:04.377361+00:00",
+  "source_scope": "documents/catalogs/static code only; no new raw observations or label files",
+  "dataset_raw_byte_validation_this_task": false,
+  "strict_confirmatory": false,
+  "source_receipts": "provenance/source_files.json",
+  "datasets": [
+    {
+      "id": "Extended-TEP-v1",
+      "context_level": "L0_current_channels",
+      "status": "CONTEXT_UNAVAILABLE",
+      "prior_audit": "../p3a_response_support/source_inventory.json",
+      "raw_hash_status": "range bytes only; whole file unverified",
+      "healthy_transition": "UNAVAILABLE_inspected_support",
+      "runtime_authorized_command": "UNKNOWN"
+    },
+    {
+      "id": "SWaT",
+      "context_level": "L1_potential_only",
+      "status": "BLOCKED_ACCESS",
+      "source_document_ids": [
+        "itrust"
+      ],
+      "raw_acquired_this_task": false
+    },
+    {
+      "id": "WADI",
+      "context_level": "L1_potential_only",
+      "status": "BLOCKED_ACCESS",
+      "source_document_ids": [
+        "itrust"
+      ],
+      "raw_acquired_this_task": false
+    },
+    {
+      "id": "C-MAPSS-FD-family",
+      "context_level": "L1_potential",
+      "status": "NOT_QUALIFIED_SIMULATION",
+      "source_document_ids": [
+        "cmapss_fd_portal"
+      ],
+      "raw_acquired_this_task": false
+    },
+    {
+      "id": "N-CMAPSS-2021",
+      "context_level": "L1_potential",
+      "status": "NOT_QUALIFIED_SIMULATION",
+      "source_document_ids": [
+        "ncmapss_nasa_record",
+        "ncmapss_residual_paper",
+        "ncmapss_descriptor"
+      ],
+      "precursor_document": "ncmapss is separate 2020 descriptor, not raw 2021 version equivalence",
+      "raw_acquired_this_task": false
+    },
+    {
+      "id": "CWRU",
+      "context_level": "L1_record_context",
+      "status": "TRANSITION_UNAVAILABLE",
+      "source_document_ids": [
+        "cwru",
+        "cwru_schema"
+      ],
+      "raw_acquired_this_task": false
+    },
+    {
+      "id": "Paderborn",
+      "context_level": "L1_measured_conditions",
+      "status": "TRANSITION_UNAVAILABLE",
+      "source_document_ids": [
+        "paderborn_site",
+        "paderborn_paper"
+      ],
+      "raw_acquired_this_task": false
+    },
+    {
+      "id": "ESA-AD-Mission1-2",
+      "context_level": "L1_recorded_commands",
+      "status": "RUNTIME_CONTRACT_UNQUALIFIED",
+      "source_document_ids": [
+        "esa_repo",
+        "esa_paper_pdf",
+        "esa_record"
+      ],
+      "raw_acquired_this_task": false,
+      "receipt_time": "UNKNOWN",
+      "authorization": "UNKNOWN",
+      "persistent_settled_healthy_reference": "UNKNOWN"
+    },
+    {
+      "id": "CARE-v6",
+      "context_level": "L1_identity_potential",
+      "status": "HISTORICAL_AUDIT_ONLY",
+      "evidence": "Issue12 prior audit; no newly inspected dataset bytes",
+      "raw_acquired_this_task": false
+    }
+  ],
+  "prior_art_ids": [
+    "S1",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "S9",
+    "S10",
+    "S11"
+  ],
+  "novelty": "UNRESOLVED",
+  "next_execution_authorized": false,
+  "esa_publisher_archive_metadata": [
+    {
+      "filename": "ESA-Mission1.zip",
+      "bytes": 3776246054,
+      "publisher_checksum": "md5:80750189d171f5f398fb3d96c49df12b",
+      "computed_checksum": null,
+      "downloaded": false
+    },
+    {
+      "filename": "ESA-Mission2.zip",
+      "bytes": 4098539912,
+      "publisher_checksum": "md5:0b7505b7f0731ca037ee889ca2a520ce",
+      "computed_checksum": null,
+      "downloaded": false
+    },
+    {
+      "filename": "ESA-Mission3.zip",
+      "bytes": 3734403447,
+      "publisher_checksum": "md5:34b8a8857e2242fb1f00b368b7421595",
+      "computed_checksum": null,
+      "downloaded": false
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "issue": 19,
+  "authorization": "GO feasibility audit only",
+  "base_commit": "c9e42c2d4bc962494a9c0a3708bb8439cbb7868c",
+  "p4b_review": 5982918516,
+  "host": "ssh kuo",
+  "local_raw_downloads": 0,
+  "new_raw_dataset_downloads": 0,
+  "new_raw_label_files_read": 0,
+  "published_label_semantics_and_examples_read": true,
+  "models_run": 0,
+  "adaptation_runs": 0,
+  "shadow_implementations": 0,
+  "proposed_protocol_executed": false,
+  "forbidden": [
+    "RL",
+    "Q sweep",
+    "gap tolerance",
+    "P4B rescue",
+    "trained representation",
+    "oracle runtime context",
+    "shadow implementation"
+  ],
+  "scope_paths": [
+    "research/writable_neural_memory_p10/p5a_context_legitimacy",
+    "README.md"
+  ],
+  "interpretation": "fault occurrence != unsafe operation; native update != formal acceptance"
+}

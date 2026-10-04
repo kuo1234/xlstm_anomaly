@@ -1,0 +1,22 @@
+{
+  "date_taipei": "2026-10-05",
+  "purpose": "bounded primary-source audit, not exhaustive systematic review",
+  "query_groups": [
+    "exact mandatory KBS2021 and ADCHEM2024 titles",
+    "2025 dynamic operating conditions continual anomaly detection ConCord",
+    "2026 validation-gated continual learning official code",
+    "conditional/context anomaly detection and command/flight-conditioned residual",
+    "official NASA C-MAPSS and N-CMAPSS schema/record",
+    "official iTrust SWaT WADI access",
+    "official CWRU Paderborn load/speed sources",
+    "ESA anomaly dataset telecommands rare nominal events official repository/release"
+  ],
+  "accepted_sources": "authors, publisher, official institution/proceedings/catalog and pinned official code",
+  "rejected_evidence": "third-party snippets, mirrors and derivatives not used as method/source proof",
+  "full_text_unknown": [
+    "ConCord2025",
+    "Validation-gated CL2026 publisher full method",
+    "Classic CAD2007 original"
+  ],
+  "novelty_claim": "UNRESOLVED"
+}

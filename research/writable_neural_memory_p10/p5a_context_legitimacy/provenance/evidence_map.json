@@ -1,0 +1,68 @@
+{
+  "S1": {
+    "source_ids": [
+      "kbs2021"
+    ],
+    "read": "full method sections3-4; healthy source/target train protocol"
+  },
+  "S2": {
+    "source_ids": [
+      "adchem2024"
+    ],
+    "read": "PDF sections2.5-3 Algorithm1"
+  },
+  "S3": {
+    "source_ids": [
+      "concord"
+    ],
+    "read": "publisher indexed abstract/introduction/conclusion preview; full method BLOCKED"
+  },
+  "S4": {
+    "source_ids": [
+      "ncmapss_residual_paper"
+    ],
+    "read": "PDF sectionIV operating-conditioned residual and healthy hs selection"
+  },
+  "S5": {
+    "source_ids": [
+      "context_discovery"
+    ],
+    "read": "publisher method sections4-5 MCAF contextual/behavioral neighbor distance and context-discovery objective"
+  },
+  "S6": {
+    "pin": "616b2270b6f2eab88ee5caa37c45507d2d041d22",
+    "read": "P4A inspected online Exp/MLP.py, Normalizer.py; byte hashes reverified"
+  },
+  "S7": {
+    "pin": "28c9679e503832f59e351208cde63657fcb51cad",
+    "source_ids": [
+      "candi_paper"
+    ],
+    "read": "P4A predictor/adapter audit plus official paper; byte hashes reverified"
+  },
+  "S8": {
+    "pin": "636ac05995f52d3a12b6c7186646757a28c900eb",
+    "read": "static Main_loop131-144; esaadb_dataset238-283; dataset176-210; dataset_manager146-213; finetuning70-111",
+    "full_paper": "BLOCKED403; publisher preview only"
+  },
+  "S9": {
+    "source_ids": [
+      "esa_paper_pdf",
+      "esa_record",
+      "esa_repo"
+    ],
+    "read": "paper main data and supplements2.4/3.2.3; catalog metadata; no raw execution"
+  },
+  "S10": {
+    "source_ids": [
+      "cadence_current"
+    ],
+    "read": "PDF sections2.2-4; context partitions and conditional NCE objective"
+  },
+  "S11": {
+    "source_ids": [
+      "occrf"
+    ],
+    "read": "PDF sections3.1-3.3; conditional probability and one-class risk minimization"
+  }
+}
