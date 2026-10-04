@@ -34,4 +34,19 @@ class TestPilot(unittest.TestCase):
   item={'arm':'setpoint','path':'/SP1/tRamp_0/SpMagnitude105'};self.assertTrue(D.check_profiles(item,profiles,0))
   profiles['idv_init'][0][0]=1
   with self.assertRaises(AssertionError):D.check_profiles(item,profiles,0)
+ def test_loader_does_not_parse_timestamps(self):
+  with tempfile.TemporaryDirectory() as t,patch.object(D,'RAW',Path(t)):
+   files={}
+   for name,array in [('train',np.ones((400,53))),('test',np.ones((1601,53))),('timestamps',np.arange(1601))]:
+    p=Path(t)/f'{name}.npy';np.save(p,array);files[name]={'file':p.name,'sha256':D.sha(p)}
+   actual=np.load;calls=[]
+   def load(p):calls.append(Path(p).name);return actual(p)
+   with patch.object(D.np,'load',side_effect=load):D.load_numeric({'files':files,'fit_count':320})
+   self.assertEqual(calls,['train.npy','test.npy'])
+ def test_changed_evidence_blocks_before_remote_or_states(self):
+  with tempfile.TemporaryDirectory() as t,patch.object(D,'OUT',Path(t)):
+   run=Path(t)/'run';run.mkdir();(run/'evidence').write_text('new')
+   seal={'labels_read_by_runner':0,'config':D.CONFIG,'files':{'evidence':'wronghash'}}
+   (run/'seal.json').write_text(json.dumps(seal))
+   with self.assertRaises(AssertionError):D.verify()
 if __name__=='__main__':unittest.main()

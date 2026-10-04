@@ -1,0 +1,68 @@
+[
+  {
+    "id": "pilot01",
+    "native_seed": 3010000,
+    "ramp_hours": 0.0,
+    "old_seed_overlap": [],
+    "old_train_hash_matches": [],
+    "old_test_hash_matches": [],
+    "fit": 319,
+    "cal": 80,
+    "test": 1601
+  },
+  {
+    "id": "pilot02",
+    "native_seed": 3010002,
+    "ramp_hours": 20.0,
+    "old_seed_overlap": [],
+    "old_train_hash_matches": [],
+    "old_test_hash_matches": [],
+    "fit": 319,
+    "cal": 80,
+    "test": 1601
+  },
+  {
+    "id": "pilot03",
+    "native_seed": 3010003,
+    "ramp_hours": 30.0,
+    "old_seed_overlap": [],
+    "old_train_hash_matches": [],
+    "old_test_hash_matches": [],
+    "fit": 319,
+    "cal": 80,
+    "test": 1601
+  },
+  {
+    "id": "pilot04",
+    "native_seed": 34990,
+    "ramp_hours": 1.0,
+    "old_seed_overlap": [],
+    "old_train_hash_matches": [],
+    "old_test_hash_matches": [],
+    "fit": 320,
+    "cal": 80,
+    "test": 1601
+  },
+  {
+    "id": "pilot05",
+    "native_seed": 47570,
+    "ramp_hours": 1.0,
+    "old_seed_overlap": [],
+    "old_train_hash_matches": [],
+    "old_test_hash_matches": [],
+    "fit": 320,
+    "cal": 80,
+    "test": 1601
+  },
+  {
+    "id": "pilot06",
+    "native_seed": 40737,
+    "ramp_hours": 1.0,
+    "old_seed_overlap": [],
+    "old_train_hash_matches": [],
+    "old_test_hash_matches": [],
+    "fit": 320,
+    "cal": 80,
+    "test": 1601
+  }
+]

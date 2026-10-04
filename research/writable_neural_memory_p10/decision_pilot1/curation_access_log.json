@@ -1,0 +1,38 @@
+[
+  {
+    "case": "pilot01",
+    "utc": "2026-10-04T10:23:01.081422+00:00",
+    "purpose": "source compatibility/provenance curator only; no detector outcome selection",
+    "source_profiles_read": true
+  },
+  {
+    "case": "pilot02",
+    "utc": "2026-10-04T10:23:19.808033+00:00",
+    "purpose": "source compatibility/provenance curator only; no detector outcome selection",
+    "source_profiles_read": true
+  },
+  {
+    "case": "pilot03",
+    "utc": "2026-10-04T10:23:38.201844+00:00",
+    "purpose": "source compatibility/provenance curator only; no detector outcome selection",
+    "source_profiles_read": true
+  },
+  {
+    "case": "pilot04",
+    "utc": "2026-10-04T10:23:55.312637+00:00",
+    "purpose": "source compatibility/provenance curator only; no detector outcome selection",
+    "source_profiles_read": true
+  },
+  {
+    "case": "pilot05",
+    "utc": "2026-10-04T10:24:13.406099+00:00",
+    "purpose": "source compatibility/provenance curator only; no detector outcome selection",
+    "source_profiles_read": true
+  },
+  {
+    "case": "pilot06",
+    "utc": "2026-10-04T10:24:30.520692+00:00",
+    "purpose": "source compatibility/provenance curator only; no detector outcome selection",
+    "source_profiles_read": true
+  }
+]

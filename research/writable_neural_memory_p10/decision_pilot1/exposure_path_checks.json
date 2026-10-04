@@ -1,0 +1,50 @@
+[
+  {
+    "id": "pilot01",
+    "path": "Mode1/SpVariation/SimulationCompleted/SP1/tRamp_0/SpMagnitude105",
+    "arm": "setpoint",
+    "tracked_baseline_exact_path_matches": "none",
+    "all_ref_commit_exact_path_hits": "869398f27177265d37ab1d47fabe6f416429dee1 research: choose and freeze residual structure stress pilot",
+    "pre_pilot_evaluation_exposure": "not evidenced by tracked path hits; cannot prove absence in all external/untracked logs"
+  },
+  {
+    "id": "pilot02",
+    "path": "Mode1/SpVariation/SimulationCompleted/SP1/tRamp_20/SpMagnitude95",
+    "arm": "setpoint",
+    "tracked_baseline_exact_path_matches": "none",
+    "all_ref_commit_exact_path_hits": "869398f27177265d37ab1d47fabe6f416429dee1 research: choose and freeze residual structure stress pilot",
+    "pre_pilot_evaluation_exposure": "not evidenced by tracked path hits; cannot prove absence in all external/untracked logs"
+  },
+  {
+    "id": "pilot03",
+    "path": "Mode1/SpVariation/SimulationCompleted/SP2/tRamp_30/SpMagnitude105",
+    "arm": "setpoint",
+    "tracked_baseline_exact_path_matches": "none",
+    "all_ref_commit_exact_path_hits": "869398f27177265d37ab1d47fabe6f416429dee1 research: choose and freeze residual structure stress pilot",
+    "pre_pilot_evaluation_exposure": "not evidenced by tracked path hits; cannot prove absence in all external/untracked logs"
+  },
+  {
+    "id": "pilot04",
+    "path": "Mode1/SingleFault/SimulationCompleted/IDV3/Mode1_IDVInfo_3_100/Run1",
+    "arm": "fault",
+    "tracked_baseline_exact_path_matches": "none",
+    "all_ref_commit_exact_path_hits": "869398f27177265d37ab1d47fabe6f416429dee1 research: choose and freeze residual structure stress pilot",
+    "pre_pilot_evaluation_exposure": "not evidenced by tracked path hits; cannot prove absence in all external/untracked logs"
+  },
+  {
+    "id": "pilot05",
+    "path": "Mode1/SingleFault/SimulationCompleted/IDV4/Mode1_IDVInfo_4_100/Run1",
+    "arm": "fault",
+    "tracked_baseline_exact_path_matches": "none",
+    "all_ref_commit_exact_path_hits": "869398f27177265d37ab1d47fabe6f416429dee1 research: choose and freeze residual structure stress pilot",
+    "pre_pilot_evaluation_exposure": "not evidenced by tracked path hits; cannot prove absence in all external/untracked logs"
+  },
+  {
+    "id": "pilot06",
+    "path": "Mode1/SingleFault/SimulationCompleted/IDV5/Mode1_IDVInfo_5_100/Run1",
+    "arm": "fault",
+    "tracked_baseline_exact_path_matches": "none",
+    "all_ref_commit_exact_path_hits": "869398f27177265d37ab1d47fabe6f416429dee1 research: choose and freeze residual structure stress pilot",
+    "pre_pilot_evaluation_exposure": "not evidenced by tracked path hits; cannot prove absence in all external/untracked logs"
+  }
+]
