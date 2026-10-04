@@ -1,0 +1,40 @@
+{
+  "utc": "2026-10-04T15:43:22.214313+00:00",
+  "tests": {
+    "command": "PYTHONPATH=scripts python3 -m pytest -q tests/test_p10_p3a_response_audit.py",
+    "stdout": "...........                                                              [100%]\n11 passed in 0.17s",
+    "exit_code": 0
+  },
+  "old_p2_integrity": {
+    "seal_commit": "0c6f11456825f29ce4c6d2848133cc519fec58ce",
+    "remote_sha": "075b4fc1d13da84eb875c77943f4831dda4ef776",
+    "seal_sha256": "37d50b1d51fb3c01c01e217432ce8cb05fa755bfd5512f680d46826bc371bd8b",
+    "utc": "2026-10-04T15:43:21.877133+00:00"
+  },
+  "audit_freeze_commit": "075b4fc1d13da84eb875c77943f4831dda4ef776",
+  "freeze_pushed_before_healthy_numeric_read": true,
+  "post_audit_invariants": "58 full unique hashes/seeds, all source profiles unchanged/pre30 fault-free, 50/4/4, all channels retained, pooled train-only rows, exact-prefix/constant/rank bounds verified",
+  "generated_file_hashes": {
+    "research/writable_neural_memory_p10/p3a_response_support/channel_manifest.json": "f0f268fd5817b74e367654eaafd8994f89384103aeced0ebf5573011924f5075",
+    "research/writable_neural_memory_p10/p3a_response_support/source_inventory.json": "bac28a5456e21c1bb858791baf72e23ad2268c98ab87f3ea490a5c99a3ab0ac4",
+    "research/writable_neural_memory_p10/p3a_response_support/audit_access_log.json": "b10f3083d37a47c27ebef8b00c4d00588c71cfdd6395dbfc597d5c22dd7e27a3",
+    "research/writable_neural_memory_p10/p3a_response_support/SOURCE_CHANNEL_AUDIT.md": "76d1a966d5363f3fcb50932bcc9125a19ddf89ad86c6f3b215618ef0ecf11334",
+    "research/writable_neural_memory_p10/p3a_response_support/target_semantics.md": "1a42dfcb136a4bf94cc671f88d629f209ec9bab55cfeae7d1108271150702fe9",
+    "research/writable_neural_memory_p10/p3a_response_support/PROBE_READINESS.md": "c1199f4f1f63c8a9c4c558e17b468c56e7fb92a06c751130b4d43e203b465c81",
+    "research/writable_neural_memory_p10/p3a_response_support/AUDIT_PROTOCOL.md": "19182a9ed11d7b63ddecb84f093b9b62d528d861b54e9fd557bc0ff6cfa926cd",
+    "research/writable_neural_memory_p10/p3a_response_support/healthy_support_manifest.json": "fc1c930afa1710e57b92e3da6de6e4c6f10742246a106f45aefde153d7ba95a7",
+    "research/writable_neural_memory_p10/p3a_response_support/source_evidence.json": "23a9e1f842e3ba11814aa5ed4e8e19660e2b3a88017b4782e71b0e5f8eb2a66e",
+    "research/writable_neural_memory_p10/p3a_response_support/source_access_log.json": "baeeb0f5b0d291bbce2b989da1d4c67b86ebc0cde27f5ca14425f80ff8651e93",
+    "research/writable_neural_memory_p10/p3a_response_support/audit_config.json": "13e33137146aa1c2369dc43cf9fa278731eb07e3ccb3d2d3a4b428eb4e66a7a2",
+    "research/writable_neural_memory_p10/p3a_response_support/task_scope.json": "ffb70f9a5c389967b799d78519df9f3af6f692de02ee442c18264675f86dfd4c"
+  },
+  "models": 0,
+  "new_scores": 0,
+  "new_inputs": false,
+  "event_arrays_numerically_decoded": 0,
+  "protected_event_byte_hashing_disclosed": true,
+  "raw_data_location": "ssh kuo only",
+  "git_diff_check_exit": 0,
+  "verdict": "SUPPORT_INSUFFICIENT",
+  "review_status": "pending review"
+}

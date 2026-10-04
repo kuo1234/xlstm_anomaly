@@ -1,0 +1,2606 @@
+{
+  "started_from": "075b4fc1d13da84eb875c77943f4831dda4ef776",
+  "audit_config_sha256": "13e33137146aa1c2369dc43cf9fa278731eb07e3ccb3d2d3a4b428eb4e66a7a2",
+  "execution_host": "ssh kuo",
+  "raw_download_to_local": false,
+  "source_stage": {
+    "recorded_utc": "2026-10-04T15:34:14.605329+00:00",
+    "execution_host": "ssh kuo",
+    "source_documents": [
+      {
+        "source": "dataset_v1",
+        "path": "data/step2d/official/article_v1.json",
+        "sha256": "327f4c141bdebbc103c3dc1b8d1f61f8b410fbadd8fac93a9cef80817ae021f4",
+        "purpose": "source/role/unit/metadata audit",
+        "values_are_policy_input": false,
+        "record_utc": "2026-10-04T15:34:14.605138+00:00",
+        "earlier_access_timestamp": "not individually instrumented; this record made after initial document inspection",
+        "file_mtime_utc": "2026-10-04T08:09:52.526132+00:00"
+      },
+      {
+        "source": "readme",
+        "path": "data/step2d/official/Readme.html",
+        "sha256": "68f3b03ea10732ec631a720be614b44267e7b61c10eb2f141d95c8fb1293b460",
+        "purpose": "source/role/unit/metadata audit",
+        "values_are_policy_input": false,
+        "record_utc": "2026-10-04T15:34:14.605194+00:00",
+        "earlier_access_timestamp": "not individually instrumented; this record made after initial document inspection",
+        "file_mtime_utc": "2026-10-04T08:09:54.017444+00:00"
+      },
+      {
+        "source": "thesis",
+        "path": "data/step2e/Reinartz2021.pdf",
+        "sha256": "5d4e73b7d676ae77517e509d2f6653a75d151f256d2507bd65746b6d78723d67",
+        "purpose": "source/role/unit/metadata audit",
+        "values_are_policy_input": false,
+        "record_utc": "2026-10-04T15:34:14.605216+00:00",
+        "earlier_access_timestamp": "not individually instrumented; this record made after initial document inspection",
+        "file_mtime_utc": "2026-10-04T08:42:16.852326+00:00"
+      },
+      {
+        "source": "thesis",
+        "path": "data/step2e/thesis.txt",
+        "sha256": "3427c882cf91d778802dd53ae4db2d2e328cb0862276cb651d1aafe39338e3ad",
+        "purpose": "source/role/unit/metadata audit",
+        "values_are_policy_input": false,
+        "record_utc": "2026-10-04T15:34:14.605233+00:00",
+        "earlier_access_timestamp": "not individually instrumented; this record made after initial document inspection",
+        "file_mtime_utc": "2026-10-04T08:42:17.137906+00:00"
+      },
+      {
+        "source": "inspection",
+        "path": "research/writable_neural_memory_p10/step2d/inspection.json",
+        "sha256": "b0fbed1bd3498386eb24bdb70442c57cfedd3ec6229a2b917d9b5c29ce349286",
+        "purpose": "source/role/unit/metadata audit",
+        "values_are_policy_input": false,
+        "record_utc": "2026-10-04T15:34:14.605248+00:00",
+        "earlier_access_timestamp": "not individually instrumented; this record made after initial document inspection",
+        "file_mtime_utc": "2026-10-04T08:19:19.751268+00:00"
+      },
+      {
+        "source": "healthy_manifest",
+        "path": "research/writable_neural_memory_p10/left_point_pilot/healthy_train_manifest.json",
+        "sha256": "caab31687a5596f9f68df6d56953261eb6387b26246ebfed574053f05b0a105d",
+        "purpose": "source/role/unit/metadata audit",
+        "values_are_policy_input": false,
+        "record_utc": "2026-10-04T15:34:14.605265+00:00",
+        "earlier_access_timestamp": "not individually instrumented; this record made after initial document inspection",
+        "file_mtime_utc": "2026-10-04T12:32:10.243685+00:00"
+      },
+      {
+        "source": "reference_2015",
+        "path": "data/p3a_response_support/reference/temexd_mod.zip",
+        "sha256": "e43227aaded739cfeba1ec281c54ac8a549f60753e064305a669b906c4b16b0d",
+        "purpose": "source/role/unit/metadata audit",
+        "values_are_policy_input": false,
+        "record_utc": "2026-10-04T15:34:14.605286+00:00",
+        "earlier_access_timestamp": "not individually instrumented; this record made after initial document inspection",
+        "file_mtime_utc": "2026-10-04T15:24:47.956847+00:00"
+      },
+      {
+        "source": "reference_2015",
+        "path": "data/p3a_response_support/reference/temexd_mod.c",
+        "sha256": "eff57b75700e7472005785150c21f82b0c3d178ebceebe37e532794f23785aba",
+        "purpose": "source/role/unit/metadata audit",
+        "values_are_policy_input": false,
+        "record_utc": "2026-10-04T15:34:14.605303+00:00",
+        "earlier_access_timestamp": "not individually instrumented; this record made after initial document inspection",
+        "file_mtime_utc": "2026-10-04T15:24:47.958734+00:00"
+      },
+      {
+        "source": "reference_1995",
+        "path": "data/p3a_response_support/reference/tables.zip",
+        "sha256": "c115be110eadaf828068f1d5b22ab144508072fb5676ed377162ea02d927a49e",
+        "purpose": "source/role/unit/metadata audit",
+        "values_are_policy_input": false,
+        "record_utc": "2026-10-04T15:34:14.605317+00:00",
+        "earlier_access_timestamp": "not individually instrumented; this record made after initial document inspection",
+        "file_mtime_utc": "2026-10-04T15:24:33.175919+00:00"
+      }
+    ],
+    "official_reference_downloads": [
+      {
+        "url": "https://depts.washington.edu/control/LARRY/TE/temexd_mod.zip",
+        "path": "data/p3a_response_support/reference/temexd_mod.zip",
+        "sha256": "e43227aaded739cfeba1ec281c54ac8a549f60753e064305a669b906c4b16b0d",
+        "download_time_evidence": "remote file mtime; exact HTTP request timestamp not separately captured"
+      },
+      {
+        "url": "https://depts.washington.edu/control/LARRY/TE/tables.zip",
+        "path": "data/p3a_response_support/reference/tables.zip",
+        "sha256": "c115be110eadaf828068f1d5b22ab144508072fb5676ed377162ea02d927a49e",
+        "download_time_evidence": "remote file mtime; exact HTTP request timestamp not separately captured"
+      }
+    ],
+    "download_scope": "two small official documentation/code archives only; no new TEP observations",
+    "source_access_includes_historical_event_metadata": true,
+    "fault_observation_outcomes_used_for_channel_or_lag_selection": false,
+    "zip_extraction_note": "tables.zip legacy compression unsupported in Python zipfile; read table3/4 with unzip -p from identical official bytes; no mirror fallback",
+    "prior_source_curation_log": {
+      "path": "research/writable_neural_memory_p10/left_point_pilot/curation_access_log.json",
+      "sha256": "4006095857022f873fe29d0087a15bf110f70ff0611ba81106ca98d5a5e73dbd"
+    },
+    "new_healthy_numeric_diagnostics_started": false,
+    "cached_hdf5_audit": {
+      "start_utc": "2026-10-04T15:34:43.960375+00:00",
+      "reads": [
+        {
+          "utc": "2026-10-04T15:34:43.966291+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy100",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run100",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:43.970894+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy101",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run101",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:43.975356+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy102",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run102",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:43.979775+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy103",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run103",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:43.984127+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy104",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run104",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:43.988343+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy105",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run105",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:43.992779+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy106",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run106",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:43.997077+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy107",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run107",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.001338+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy108",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run108",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.005534+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy109",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run109",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.009938+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy110",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run110",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.014216+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy111",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run111",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.018466+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy112",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run112",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.022812+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy113",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run113",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.027086+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy114",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run114",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.031339+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy115",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run115",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.035520+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy116",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run116",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.039870+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy117",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run117",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.044121+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy118",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run118",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.048414+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy119",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run119",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.052786+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy120",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run120",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.057075+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy121",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run121",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.061394+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy122",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run122",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.065603+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy123",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run123",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.069982+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy124",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run124",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.074292+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy125",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run125",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.078621+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy126",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run126",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.082855+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy127",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run127",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.087258+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy128",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run128",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.091561+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy129",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run129",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.095894+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy130",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run130",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.100336+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy131",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run131",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.104653+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy132",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run132",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.108957+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy133",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run133",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.113179+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy134",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run134",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.117571+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy135",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run135",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.121895+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy136",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run136",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.126152+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy137",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run137",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.130359+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy138",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run138",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.134741+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy139",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run139",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.139126+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy140",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run140",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.143370+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy141",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run141",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.147733+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy142",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run142",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.152005+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy143",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run143",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.156269+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy144",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run144",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.160444+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy145",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run145",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.164848+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy146",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run146",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.169107+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy147",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run147",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.173356+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy148",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run148",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.177531+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy149",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run149",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.181976+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy150",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run150",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.186269+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy151",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run151",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.190448+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy152",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run152",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.194794+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy153",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run153",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.199134+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy154",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run154",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.203537+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy155",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run155",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.207785+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy156",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run156",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        },
+        {
+          "utc": "2026-10-04T15:34:44.212148+00:00",
+          "kind": "cached source profile/schema audit",
+          "id": "healthy157",
+          "source_path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run157",
+          "numeric_healthy_diagnostic": false,
+          "fault_period_observations_read": false,
+          "values_read": [
+            "setpoint_init",
+            "idv_init",
+            "time_info",
+            "attrs"
+          ]
+        }
+      ],
+      "network_bytes": 0,
+      "source_inventory_sha256": "bac28a5456e21c1bb858791baf72e23ad2268c98ab87f3ea490a5c99a3ab0ac4",
+      "denied_uncached_metadata_requests": [
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3397451776-3397517311"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3397910528-3397976063"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3398893568-3398959103"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3399417856-3399483391"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3400335360-3400400895"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3400859648-3400925183"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3401777152-3401842687"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3402301440-3402366975"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3403284480-3403350015"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3403808768-3403874303"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3404726272-3404791807"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3405250560-3405316095"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3406168064-3406233599"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3406692352-3406757887"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3407675392-3407740927"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3408134144-3408199679"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3409117184-3409182719"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3409641472-3409707007"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3410558976-3410624511"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3411083264-3411148799"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3413508096-3413573631"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3414032384-3414097919"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3414949888-3415015423"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3415474176-3415539711"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3416391680-3416457215"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3416915968-3416981503"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3417899008-3417964543"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3418423296-3418488831"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3419340800-3419406335"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3419865088-3419930623"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3420782592-3420848127"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3421306880-3421372415"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3422289920-3422355455"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3422748672-3422814207"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3423731712-3423797247"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3424256000-3424321535"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3425173504-3425239039"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3425697792-3425763327"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3426680832-3426746367"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3427139584-3427205119"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3429564416-3429629951"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3430088704-3430154239"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3431006208-3431071743"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3431530496-3431596031"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3432513536-3432579071"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3433037824-3433103359"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3433955328-3434020863"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3434479616-3434545151"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3435397120-3435462655"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3435921408-3435986943"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3436904448-3436969983"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3437363200-3437428735"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3438346240-3438411775"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3438870528-3438936063"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3439788032-3439853567"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3440312320-3440377855"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3441229824-3441295359"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3441754112-3441819647"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3442737152-3442802687"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3443261440-3443326975"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3445620736-3445686271"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3446145024-3446210559"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3447128064-3447193599"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3447652352-3447717887"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3448569856-3448635391"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3449094144-3449159679"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3450011648-3450077183"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3450535936-3450601471"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3451518976-3451584511"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3451977728-3452043263"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3452960768-3453026303"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3453485056-3453550591"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3454402560-3454468095"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3454926848-3454992383"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3455844352-3455909887"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3456368640-3456434175"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3457351680-3457417215"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3457875968-3457941503"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3458793472-3458859007"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3459317760-3459383295"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3461742592-3461808127"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3462201344-3462266879"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3463184384-3463249919"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3463708672-3463774207"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3464626176-3464691711"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3465150464-3465215999"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3466133504-3466199039"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3466592256-3466657791"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3467575296-3467640831"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3468099584-3468165119"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3469017088-3469082623"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3469541376-3469606911"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3470458880-3470524415"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3470983168-3471048703"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3471966208-3472031743"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3472490496-3472556031"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3473408000-3473473535"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3473932288-3473997823"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3474849792-3474915327"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3475374080-3475439615"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3477798912-3477864447"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3478323200-3478388735"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3479240704-3479306239"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3479764992-3479830527"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3480748032-3480813567"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3481206784-3481272319"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3482189824-3482255359"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3482714112-3482779647"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3483631616-3483697151"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3484155904-3484221439"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3485073408-3485138943"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3485597696-3485663231"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3486580736-3486646271"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3487105024-3487170559"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3488022528-3488088063"
+        },
+        {
+          "url": "https://ndownloader.figshare.com/files/26003087",
+          "range": "bytes=3488546816-3488612351"
+        }
+      ],
+      "prior_attempt": "first cache-only attempt stopped on uncached extra dataset schema after reading healthy100 profiles; no network bytes and no numeric observations"
+    }
+  },
+  "healthy_observation_reads": [
+    {
+      "utc": "2026-10-04T15:35:44.278677+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy100",
+      "path": "data/left_point_pilot/arrays/healthy100.npy",
+      "sha256": "5d6c1c9d9a9acf96fc7e61c8a98b2fe9816b8083e0998a5aea422c00efa91460",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.279168+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy101",
+      "path": "data/left_point_pilot/arrays/healthy101.npy",
+      "sha256": "e484a0e6c8410e8411f8a04fc3dad36743ab3e38f2b40495afccbbd06a9f8be6",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.279458+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy102",
+      "path": "data/left_point_pilot/arrays/healthy102.npy",
+      "sha256": "5f3998b146ff4c858442c0f5b604477d2066fc3a9af716b5aef4c218577766fc",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.279786+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy103",
+      "path": "data/left_point_pilot/arrays/healthy103.npy",
+      "sha256": "8eb2320bd8851a8eaa2aa2db0d4b5690536f90c3186fe531201006a191fcbf58",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.280120+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy104",
+      "path": "data/left_point_pilot/arrays/healthy104.npy",
+      "sha256": "559687ab4a2bcc03c34a9db277af18e20bcc71ec3ea625af9edb5aa28a540b0e",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.280446+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy105",
+      "path": "data/left_point_pilot/arrays/healthy105.npy",
+      "sha256": "7672a603a54e07416695c25e9f9290e76bccb382cf6f944012f1345a755402d0",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.280771+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy106",
+      "path": "data/left_point_pilot/arrays/healthy106.npy",
+      "sha256": "a8594e51c1c27cb4cb9df00cc24701c82d5af2f2c6b6e66642735e07a3e5621f",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.281099+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy107",
+      "path": "data/left_point_pilot/arrays/healthy107.npy",
+      "sha256": "39c94c21fb2fffacf6df856aa94f890e6b58fa6349c37f3d0924d23e5f5dae73",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.281420+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy108",
+      "path": "data/left_point_pilot/arrays/healthy108.npy",
+      "sha256": "4cf2d19ffdab10af786bb41ee873409319cd5708b011c52b4cd50cbfb774b896",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.281737+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy109",
+      "path": "data/left_point_pilot/arrays/healthy109.npy",
+      "sha256": "0dd600ab0d7edfc417616c05177280df463993ed87316ff7817d66c74f3fb040",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.282055+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy110",
+      "path": "data/left_point_pilot/arrays/healthy110.npy",
+      "sha256": "a2daac6a699c8e57414d6e2153f3c71052321fd980eb8d4163ad0115ef5110bd",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.282372+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy111",
+      "path": "data/left_point_pilot/arrays/healthy111.npy",
+      "sha256": "988d86d4da792a1c491df27f2fe846e245a879cdc64a15b5fb4dbec361db9293",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.282690+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy112",
+      "path": "data/left_point_pilot/arrays/healthy112.npy",
+      "sha256": "6fc075f59d690405309f2b28db0342a85de8144199c01a058f28e40a1fffa163",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.283012+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy113",
+      "path": "data/left_point_pilot/arrays/healthy113.npy",
+      "sha256": "17265cccc987c384eabc45c4708f511c93d7443c9bfae1f443e2b44c360aa78e",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.283331+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy114",
+      "path": "data/left_point_pilot/arrays/healthy114.npy",
+      "sha256": "c74d647210a053b51a458c18a5fe03a0314d3580273f19b90fb255f29fb8bb6e",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.283650+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy115",
+      "path": "data/left_point_pilot/arrays/healthy115.npy",
+      "sha256": "9764fd377770830cd71acc30335ed63a0c91de0832f3f57fcc9a40b10b8334cb",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.283976+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy116",
+      "path": "data/left_point_pilot/arrays/healthy116.npy",
+      "sha256": "0e8633d7392e0d0b08437a45da8691bef8a0731449078e5dad9da29d884f227b",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.284295+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy117",
+      "path": "data/left_point_pilot/arrays/healthy117.npy",
+      "sha256": "7d963d3efcbbda89f28f7e6601dc4299e24378966dba13839be9408d3fa6e421",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.284614+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy118",
+      "path": "data/left_point_pilot/arrays/healthy118.npy",
+      "sha256": "ca8011b9761e31cfca6f234190e46d9cf49cb755206920d708ad1f55e49c4d7f",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.284935+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy119",
+      "path": "data/left_point_pilot/arrays/healthy119.npy",
+      "sha256": "b92bc78d6858fce8e671d938ad6898808bca8d26ad4332f8c60b14c4367e6e0d",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.285253+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy120",
+      "path": "data/left_point_pilot/arrays/healthy120.npy",
+      "sha256": "cfc9266259186f9722fd1d4aecc5633ed604db43b7c9814d6227a07e2a726dbb",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.285569+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy121",
+      "path": "data/left_point_pilot/arrays/healthy121.npy",
+      "sha256": "3f46b08493e99a39afbb21a63bf70a94f8a6fa6f34ba56957a3013d290668175",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.285891+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy122",
+      "path": "data/left_point_pilot/arrays/healthy122.npy",
+      "sha256": "6d754551872458b41ff35b8ec326fac8165e22875e14edf3fddf0be9de156a3d",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.286208+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy123",
+      "path": "data/left_point_pilot/arrays/healthy123.npy",
+      "sha256": "41951553d067aea39540c7ff7b7907070fc95453bb263a8772acb4c23f1097e3",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.286529+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy124",
+      "path": "data/left_point_pilot/arrays/healthy124.npy",
+      "sha256": "11b7460c605542873d2e604d11169638ba202d4a0958ad260ff79218e41ee867",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.286848+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy125",
+      "path": "data/left_point_pilot/arrays/healthy125.npy",
+      "sha256": "dbe625be59d522687c19b179d17dccab9065ac28eea37639392c8a915f1cd47b",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.287159+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy126",
+      "path": "data/left_point_pilot/arrays/healthy126.npy",
+      "sha256": "237d4bcca86f220f8fc8d14743cac9d294322580552489b496866bd6b4686df5",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.287468+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy127",
+      "path": "data/left_point_pilot/arrays/healthy127.npy",
+      "sha256": "bd33f9e43de0a8a08f156e9950f35c76d8269b7d00a75c96b2b90f47b12d0857",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.287778+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy128",
+      "path": "data/left_point_pilot/arrays/healthy128.npy",
+      "sha256": "2f0c3f0d026e070c4c15ac83245bb58b42628bf741c4486b515da70bb6b943d4",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.288101+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy129",
+      "path": "data/left_point_pilot/arrays/healthy129.npy",
+      "sha256": "b45fcfb7636bdbe53167ffcf5fc7e91a9e342445be1de85550195a76bd2e45d1",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.288422+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy130",
+      "path": "data/left_point_pilot/arrays/healthy130.npy",
+      "sha256": "dd0b4dfda87e3fd10b14fb768dc25263625476183e531caf2fab3f67a93b0bab",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.288735+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy131",
+      "path": "data/left_point_pilot/arrays/healthy131.npy",
+      "sha256": "9547d902d69e5fa46408427fb73f29b5db7d76284a5130c153d66626e456b83e",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.289069+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy132",
+      "path": "data/left_point_pilot/arrays/healthy132.npy",
+      "sha256": "423cb749c9eebc0046f0aa3284c43eb27b206803f55fc9383f8a1ece36aa7dff",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.289384+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy133",
+      "path": "data/left_point_pilot/arrays/healthy133.npy",
+      "sha256": "170809673e568c80fd6062519755ade3c3d7eb25d42accccd564b935828711fb",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.289699+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy134",
+      "path": "data/left_point_pilot/arrays/healthy134.npy",
+      "sha256": "2413a11f10951a5fa873f6923430f426b19196004b97ee1e3575f6dd288997a1",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.290013+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy135",
+      "path": "data/left_point_pilot/arrays/healthy135.npy",
+      "sha256": "6a1f1dc8af96580510a56cc73edb84c427b113af92eab0e3369101a91176f691",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.290360+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy136",
+      "path": "data/left_point_pilot/arrays/healthy136.npy",
+      "sha256": "1783222517cefe52722b2ea437bbc8d01009f79c92884c0e3dc7ac54a40adbf1",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.290669+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy137",
+      "path": "data/left_point_pilot/arrays/healthy137.npy",
+      "sha256": "f4fd27b02134e11112c0c850fae8859cf0f5b7d31000f0884339592d45019539",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.290986+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy138",
+      "path": "data/left_point_pilot/arrays/healthy138.npy",
+      "sha256": "b6490572079ccabfb52247f80b1a1824924ae51c1fec6454758eb057a2415f28",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.291298+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy139",
+      "path": "data/left_point_pilot/arrays/healthy139.npy",
+      "sha256": "c4da6e93e82372084d04b9d0d68f192ebee1e0ff8d4471195f05ae045ba6e165",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.291609+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy140",
+      "path": "data/left_point_pilot/arrays/healthy140.npy",
+      "sha256": "00b0017e18b58f21f0c947adc23967375c5fd1dbe723dd2b7e240b13a3c7906d",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.291925+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy141",
+      "path": "data/left_point_pilot/arrays/healthy141.npy",
+      "sha256": "e7cece58bec7a1c39c6b69ccb7ddda3e051cc254b2fd696ce3ecd896d951196e",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.292272+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy142",
+      "path": "data/left_point_pilot/arrays/healthy142.npy",
+      "sha256": "c87d0c1ceb536c557d14419aea0bf21d74c9e0e0c2bc4b07066fc8a7c779f01e",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.292584+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy143",
+      "path": "data/left_point_pilot/arrays/healthy143.npy",
+      "sha256": "021c929bff2212f668d0fedb5b5592113df205034b462e32e9b72f54bd62d00f",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.292964+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy144",
+      "path": "data/left_point_pilot/arrays/healthy144.npy",
+      "sha256": "423e6957c5b2370d00b3d9e5053e9ba2099beb91f09aa39e83fa46e47584f08c",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.293274+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy145",
+      "path": "data/left_point_pilot/arrays/healthy145.npy",
+      "sha256": "823aa9d399eb553bfd223e800e16864d46c860e32c1880b320432b391c183ccd",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.293584+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy146",
+      "path": "data/left_point_pilot/arrays/healthy146.npy",
+      "sha256": "21bcc1d911a0a9957e9661fbe87e72108a46ef6c4067f3fad62ba810fdcb1478",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.293899+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy147",
+      "path": "data/left_point_pilot/arrays/healthy147.npy",
+      "sha256": "406d03aef7e6df7da64ad8f1d473ea105be98d4f5b0640e2692cda4072434332",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.294206+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy148",
+      "path": "data/left_point_pilot/arrays/healthy148.npy",
+      "sha256": "f168cbb783c89e8f3f6140d3269577744d79db5ea38bb6e3861a2bcb7b5fff2e",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.294514+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy149",
+      "path": "data/left_point_pilot/arrays/healthy149.npy",
+      "sha256": "a552af031d80ca57d0b92f3c36098c31f50b9cf2268b8d471f03a6112280f387",
+      "role": "train",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.294831+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy150",
+      "path": "data/left_point_pilot/arrays/healthy150.npy",
+      "sha256": "2885d77086d453a5ccd1cd7472e90867a3b4f65e3f149e3c70216eff24608bf3",
+      "role": "validation",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.295145+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy151",
+      "path": "data/left_point_pilot/arrays/healthy151.npy",
+      "sha256": "af696e99e1558fcd1e5a1ecc3331e3e3b8604e0ed9a09cac7fcaa2dd559720eb",
+      "role": "validation",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.295455+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy152",
+      "path": "data/left_point_pilot/arrays/healthy152.npy",
+      "sha256": "29903342eef5543204b9c6d81fcd81ddaba23596265acc6fb3468c6273da715c",
+      "role": "validation",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.295766+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy153",
+      "path": "data/left_point_pilot/arrays/healthy153.npy",
+      "sha256": "c8f5ca39c9814ac6d7763f94e0e337e4d787471800378ff911f8143f8da80d98",
+      "role": "validation",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.296081+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy154",
+      "path": "data/left_point_pilot/arrays/healthy154.npy",
+      "sha256": "5b526b542f9cb51946eb5cac57507e038d0eeafd07549eec83d7f06bfca4f4fb",
+      "role": "calibration",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.296394+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy155",
+      "path": "data/left_point_pilot/arrays/healthy155.npy",
+      "sha256": "04f61f365e349b29a4613ee1de219da68698b22e62decabe383103b0d344b1fb",
+      "role": "calibration",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.296705+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy156",
+      "path": "data/left_point_pilot/arrays/healthy156.npy",
+      "sha256": "1f38f7a5ce8c430bd199682522e69ccb8f5f5db02427cdaebcee3884becc24e9",
+      "role": "calibration",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    },
+    {
+      "utc": "2026-10-04T15:35:44.297017+00:00",
+      "kind": "healthy-only numeric diagnostic",
+      "id": "healthy157",
+      "path": "data/left_point_pilot/arrays/healthy157.npy",
+      "sha256": "585a7b143d9d55c49b8527d8cc121cf275b805714ab566ec5c34c0302b4e5c43",
+      "role": "calibration",
+      "rows": 600,
+      "channels": 53,
+      "fault_or_event_array": false
+    }
+  ],
+  "numeric_completed_utc": "2026-10-04T15:35:44.836901+00:00",
+  "fault_arrays_read_in_p3a": 0,
+  "labels_evaluator_runs": 0,
+  "models": 0,
+  "scores": 0,
+  "historical_source_metadata_exposure": true,
+  "additional_or_economic_numeric_values_read_in_p3a": false,
+  "protected_p2_seal_not_modified": true,
+  "protected_p2_integrity_check": {
+    "start_utc": "2026-10-04T15:43:21.249162+00:00",
+    "completed_utc": "2026-10-04T15:43:21.877425+00:00",
+    "scope": "SHA256 byte hashing only; includes protected old event observations/scores/checkpoints, no numeric decode or outcome analysis",
+    "sealed_raw_files": [
+      {
+        "file": "left01_train.npy",
+        "sha256": "04fefb16b23fa5f82fd0dc967e5fbad53e86e9314793ff24e483b89a0a12cf4e",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "protected historical event"
+      },
+      {
+        "file": "left01_test.npy",
+        "sha256": "0bcf15ec401dab26ea5bf35c67d7437edf5ad3fa5c2976bb00b8128c870fc5c8",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "protected historical event"
+      },
+      {
+        "file": "left01_timestamps.npy",
+        "sha256": "d9251e6d9fbd6c2bec6a17c11079cddcce91395e3d3b2ca1bcaa505f15ece440",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "protected historical event"
+      },
+      {
+        "file": "left02_train.npy",
+        "sha256": "5bb6aaddd053face73cdfb62ac19360f47c100af9b7fc8be30842173e34324e3",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "protected historical event"
+      },
+      {
+        "file": "left02_test.npy",
+        "sha256": "a56fc22542de94c3387c26211a68fe723339f66e5a209f03ed0927e7aeccfe46",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "protected historical event"
+      },
+      {
+        "file": "left02_timestamps.npy",
+        "sha256": "d9251e6d9fbd6c2bec6a17c11079cddcce91395e3d3b2ca1bcaa505f15ece440",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "protected historical event"
+      },
+      {
+        "file": "left03_train.npy",
+        "sha256": "f2b6a417351c6c00dd55bbc51ef9e1f06ec3cb029422f8ce2cf83f7644955f89",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "protected historical event"
+      },
+      {
+        "file": "left03_test.npy",
+        "sha256": "24cf38b4bb8f76d166bdfb656652271494078efef304fb0fa66d85caea2872c5",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "protected historical event"
+      },
+      {
+        "file": "left03_timestamps.npy",
+        "sha256": "d9251e6d9fbd6c2bec6a17c11079cddcce91395e3d3b2ca1bcaa505f15ece440",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "protected historical event"
+      },
+      {
+        "file": "left04_train.npy",
+        "sha256": "fb064958ad74b590027bc10ef330656044fd5ce48666f521a703422762899499",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "protected historical event"
+      },
+      {
+        "file": "left04_test.npy",
+        "sha256": "87931f1c35a4c3183ff0eb6c1a247f9c6959a374b0e9c2aa37fde82f0d32d8d7",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "protected historical event"
+      },
+      {
+        "file": "left04_timestamps.npy",
+        "sha256": "d9251e6d9fbd6c2bec6a17c11079cddcce91395e3d3b2ca1bcaa505f15ece440",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "protected historical event"
+      },
+      {
+        "file": "left05_train.npy",
+        "sha256": "12ad413603f3c3e5406e2af57f514c258928560ad3d5c9a1865f607495e86cc5",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "protected historical event"
+      },
+      {
+        "file": "left05_test.npy",
+        "sha256": "a7f597da47bc6f4c431323344fe456e0518e25d4b3cdeaf422a3c923f7de3a0f",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "protected historical event"
+      },
+      {
+        "file": "left05_timestamps.npy",
+        "sha256": "d9251e6d9fbd6c2bec6a17c11079cddcce91395e3d3b2ca1bcaa505f15ece440",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "protected historical event"
+      },
+      {
+        "file": "left06_train.npy",
+        "sha256": "950c90a4b0a5759fbb0e90adbbdcce055de4bd436b57f59c3348c5ee6936c17f",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "protected historical event"
+      },
+      {
+        "file": "left06_test.npy",
+        "sha256": "6fb7194741fb48d2219482e58f122d952b7dd5803229ef27e858b70bd224d40d",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "protected historical event"
+      },
+      {
+        "file": "left06_timestamps.npy",
+        "sha256": "d9251e6d9fbd6c2bec6a17c11079cddcce91395e3d3b2ca1bcaa505f15ece440",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "protected historical event"
+      },
+      {
+        "file": "healthy100.npy",
+        "sha256": "5d6c1c9d9a9acf96fc7e61c8a98b2fe9816b8083e0998a5aea422c00efa91460",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy101.npy",
+        "sha256": "e484a0e6c8410e8411f8a04fc3dad36743ab3e38f2b40495afccbbd06a9f8be6",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy102.npy",
+        "sha256": "5f3998b146ff4c858442c0f5b604477d2066fc3a9af716b5aef4c218577766fc",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy103.npy",
+        "sha256": "8eb2320bd8851a8eaa2aa2db0d4b5690536f90c3186fe531201006a191fcbf58",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy104.npy",
+        "sha256": "559687ab4a2bcc03c34a9db277af18e20bcc71ec3ea625af9edb5aa28a540b0e",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy105.npy",
+        "sha256": "7672a603a54e07416695c25e9f9290e76bccb382cf6f944012f1345a755402d0",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy106.npy",
+        "sha256": "a8594e51c1c27cb4cb9df00cc24701c82d5af2f2c6b6e66642735e07a3e5621f",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy107.npy",
+        "sha256": "39c94c21fb2fffacf6df856aa94f890e6b58fa6349c37f3d0924d23e5f5dae73",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy108.npy",
+        "sha256": "4cf2d19ffdab10af786bb41ee873409319cd5708b011c52b4cd50cbfb774b896",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy109.npy",
+        "sha256": "0dd600ab0d7edfc417616c05177280df463993ed87316ff7817d66c74f3fb040",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy110.npy",
+        "sha256": "a2daac6a699c8e57414d6e2153f3c71052321fd980eb8d4163ad0115ef5110bd",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy111.npy",
+        "sha256": "988d86d4da792a1c491df27f2fe846e245a879cdc64a15b5fb4dbec361db9293",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy112.npy",
+        "sha256": "6fc075f59d690405309f2b28db0342a85de8144199c01a058f28e40a1fffa163",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy113.npy",
+        "sha256": "17265cccc987c384eabc45c4708f511c93d7443c9bfae1f443e2b44c360aa78e",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy114.npy",
+        "sha256": "c74d647210a053b51a458c18a5fe03a0314d3580273f19b90fb255f29fb8bb6e",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy115.npy",
+        "sha256": "9764fd377770830cd71acc30335ed63a0c91de0832f3f57fcc9a40b10b8334cb",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy116.npy",
+        "sha256": "0e8633d7392e0d0b08437a45da8691bef8a0731449078e5dad9da29d884f227b",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy117.npy",
+        "sha256": "7d963d3efcbbda89f28f7e6601dc4299e24378966dba13839be9408d3fa6e421",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy118.npy",
+        "sha256": "ca8011b9761e31cfca6f234190e46d9cf49cb755206920d708ad1f55e49c4d7f",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy119.npy",
+        "sha256": "b92bc78d6858fce8e671d938ad6898808bca8d26ad4332f8c60b14c4367e6e0d",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy120.npy",
+        "sha256": "cfc9266259186f9722fd1d4aecc5633ed604db43b7c9814d6227a07e2a726dbb",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy121.npy",
+        "sha256": "3f46b08493e99a39afbb21a63bf70a94f8a6fa6f34ba56957a3013d290668175",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy122.npy",
+        "sha256": "6d754551872458b41ff35b8ec326fac8165e22875e14edf3fddf0be9de156a3d",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy123.npy",
+        "sha256": "41951553d067aea39540c7ff7b7907070fc95453bb263a8772acb4c23f1097e3",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy124.npy",
+        "sha256": "11b7460c605542873d2e604d11169638ba202d4a0958ad260ff79218e41ee867",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy125.npy",
+        "sha256": "dbe625be59d522687c19b179d17dccab9065ac28eea37639392c8a915f1cd47b",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy126.npy",
+        "sha256": "237d4bcca86f220f8fc8d14743cac9d294322580552489b496866bd6b4686df5",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy127.npy",
+        "sha256": "bd33f9e43de0a8a08f156e9950f35c76d8269b7d00a75c96b2b90f47b12d0857",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy128.npy",
+        "sha256": "2f0c3f0d026e070c4c15ac83245bb58b42628bf741c4486b515da70bb6b943d4",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy129.npy",
+        "sha256": "b45fcfb7636bdbe53167ffcf5fc7e91a9e342445be1de85550195a76bd2e45d1",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy130.npy",
+        "sha256": "dd0b4dfda87e3fd10b14fb768dc25263625476183e531caf2fab3f67a93b0bab",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy131.npy",
+        "sha256": "9547d902d69e5fa46408427fb73f29b5db7d76284a5130c153d66626e456b83e",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy132.npy",
+        "sha256": "423cb749c9eebc0046f0aa3284c43eb27b206803f55fc9383f8a1ece36aa7dff",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy133.npy",
+        "sha256": "170809673e568c80fd6062519755ade3c3d7eb25d42accccd564b935828711fb",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy134.npy",
+        "sha256": "2413a11f10951a5fa873f6923430f426b19196004b97ee1e3575f6dd288997a1",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy135.npy",
+        "sha256": "6a1f1dc8af96580510a56cc73edb84c427b113af92eab0e3369101a91176f691",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy136.npy",
+        "sha256": "1783222517cefe52722b2ea437bbc8d01009f79c92884c0e3dc7ac54a40adbf1",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy137.npy",
+        "sha256": "f4fd27b02134e11112c0c850fae8859cf0f5b7d31000f0884339592d45019539",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy138.npy",
+        "sha256": "b6490572079ccabfb52247f80b1a1824924ae51c1fec6454758eb057a2415f28",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy139.npy",
+        "sha256": "c4da6e93e82372084d04b9d0d68f192ebee1e0ff8d4471195f05ae045ba6e165",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy140.npy",
+        "sha256": "00b0017e18b58f21f0c947adc23967375c5fd1dbe723dd2b7e240b13a3c7906d",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy141.npy",
+        "sha256": "e7cece58bec7a1c39c6b69ccb7ddda3e051cc254b2fd696ce3ecd896d951196e",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy142.npy",
+        "sha256": "c87d0c1ceb536c557d14419aea0bf21d74c9e0e0c2bc4b07066fc8a7c779f01e",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy143.npy",
+        "sha256": "021c929bff2212f668d0fedb5b5592113df205034b462e32e9b72f54bd62d00f",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy144.npy",
+        "sha256": "423e6957c5b2370d00b3d9e5053e9ba2099beb91f09aa39e83fa46e47584f08c",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy145.npy",
+        "sha256": "823aa9d399eb553bfd223e800e16864d46c860e32c1880b320432b391c183ccd",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy146.npy",
+        "sha256": "21bcc1d911a0a9957e9661fbe87e72108a46ef6c4067f3fad62ba810fdcb1478",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy147.npy",
+        "sha256": "406d03aef7e6df7da64ad8f1d473ea105be98d4f5b0640e2692cda4072434332",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy148.npy",
+        "sha256": "f168cbb783c89e8f3f6140d3269577744d79db5ea38bb6e3861a2bcb7b5fff2e",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy149.npy",
+        "sha256": "a552af031d80ca57d0b92f3c36098c31f50b9cf2268b8d471f03a6112280f387",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy150.npy",
+        "sha256": "2885d77086d453a5ccd1cd7472e90867a3b4f65e3f149e3c70216eff24608bf3",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy151.npy",
+        "sha256": "af696e99e1558fcd1e5a1ecc3331e3e3b8604e0ed9a09cac7fcaa2dd559720eb",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy152.npy",
+        "sha256": "29903342eef5543204b9c6d81fcd81ddaba23596265acc6fb3468c6273da715c",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy153.npy",
+        "sha256": "c8f5ca39c9814ac6d7763f94e0e337e4d787471800378ff911f8143f8da80d98",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy154.npy",
+        "sha256": "5b526b542f9cb51946eb5cac57507e038d0eeafd07549eec83d7f06bfca4f4fb",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy155.npy",
+        "sha256": "04f61f365e349b29a4613ee1de219da68698b22e62decabe383103b0d344b1fb",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy156.npy",
+        "sha256": "1f38f7a5ce8c430bd199682522e69ccb8f5f5db02427cdaebcee3884becc24e9",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      },
+      {
+        "file": "healthy157.npy",
+        "sha256": "585a7b143d9d55c49b8527d8cc121cf275b805714ab566ec5c34c0302b4e5c43",
+        "purpose": "unchanged protected-artifact integrity only",
+        "numeric_values_decoded": false,
+        "type": "healthy"
+      }
+    ],
+    "earlier_check": "same verify() also executed before audit freeze; exact UTC not separately instrumented",
+    "result": {
+      "seal_commit": "0c6f11456825f29ce4c6d2848133cc519fec58ce",
+      "remote_sha": "075b4fc1d13da84eb875c77943f4831dda4ef776",
+      "seal_sha256": "37d50b1d51fb3c01c01e217432ce8cb05fa755bfd5512f680d46826bc371bd8b",
+      "utc": "2026-10-04T15:43:21.877133+00:00"
+    }
+  },
+  "fault_arrays_read_counter_definition": "numerically loaded/analyzed by P3-A diagnostics; excludes explicitly listed protected SHA256-only byte hashing"
+}
