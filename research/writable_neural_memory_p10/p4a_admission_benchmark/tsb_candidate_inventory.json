@@ -1,0 +1,1349 @@
+[
+  {
+    "file": "009_MSL_id_8_Sensor_tr_714_1st_1390.csv",
+    "original_tags": [
+      "change_point"
+    ],
+    "original_type_text": "change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6928990185154,
+    "upstream_jsd_mean": 0.3271155718347944,
+    "upstream_CD_rate": 0.0181818181818181,
+    "released_source_family": "MSL",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "018_Daphnet_id_1_HumanActivity_tr_9693_1st_20732.csv",
+    "original_tags": [
+      "change_point"
+    ],
+    "original_type_text": "change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6621629841771757,
+    "upstream_jsd_mean": 0.3151623563784957,
+    "upstream_CD_rate": 0.1111111111111111,
+    "released_source_family": "Daphnet",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "032_GHL_id_1_Sensor_tr_50000_1st_65001.csv",
+    "original_tags": [
+      "continuous",
+      "random_walk",
+      "change_point"
+    ],
+    "original_type_text": "continuous random_walk change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.693128576375095,
+    "upstream_jsd_mean": 0.5046969267285303,
+    "upstream_CD_rate": 0.2105263157894736,
+    "released_source_family": "GHL",
+    "real_arm_selected": false,
+    "exclusion": "SOURCE_SIMULATED (existing primary-backed M0 correction)",
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "033_GHL_id_2_Sensor_tr_50000_1st_51001.csv",
+    "original_tags": [
+      "continuous",
+      "random_walk",
+      "change_point"
+    ],
+    "original_type_text": "continuous random_walk change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6931227160260549,
+    "upstream_jsd_mean": 0.5058290345186551,
+    "upstream_CD_rate": 0.0526315789473684,
+    "released_source_family": "GHL",
+    "real_arm_selected": false,
+    "exclusion": "SOURCE_SIMULATED (existing primary-backed M0 correction)",
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "034_GHL_id_3_Sensor_tr_50000_1st_122001.csv",
+    "original_tags": [
+      "continuous",
+      "random_walk",
+      "change_point"
+    ],
+    "original_type_text": "continuous random_walk change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6931240997828392,
+    "upstream_jsd_mean": 0.4993341013448017,
+    "upstream_CD_rate": 0.0526315789473684,
+    "released_source_family": "GHL",
+    "real_arm_selected": false,
+    "exclusion": "SOURCE_SIMULATED (existing primary-backed M0 correction)",
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "035_GHL_id_4_Sensor_tr_50000_1st_90001.csv",
+    "original_tags": [
+      "continuous",
+      "random_walk",
+      "change_point"
+    ],
+    "original_type_text": "continuous random_walk change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6931273512091524,
+    "upstream_jsd_mean": 0.5080397117890769,
+    "upstream_CD_rate": 0.2105263157894736,
+    "released_source_family": "GHL",
+    "real_arm_selected": false,
+    "exclusion": "SOURCE_SIMULATED (existing primary-backed M0 correction)",
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "036_GHL_id_5_Sensor_tr_50000_1st_67147.csv",
+    "original_tags": [
+      "continuous",
+      "random_walk",
+      "change_point"
+    ],
+    "original_type_text": "continuous random_walk change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6931248207930327,
+    "upstream_jsd_mean": 0.5039409421926742,
+    "upstream_CD_rate": 0.1578947368421052,
+    "released_source_family": "GHL",
+    "real_arm_selected": false,
+    "exclusion": "SOURCE_SIMULATED (existing primary-backed M0 correction)",
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "037_GHL_id_6_Sensor_tr_50000_1st_80001.csv",
+    "original_tags": [
+      "continuous",
+      "random_walk",
+      "change_point"
+    ],
+    "original_type_text": "continuous random_walk change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6931240552270553,
+    "upstream_jsd_mean": 0.4989200568264448,
+    "upstream_CD_rate": 0.0526315789473684,
+    "released_source_family": "GHL",
+    "real_arm_selected": false,
+    "exclusion": "SOURCE_SIMULATED (existing primary-backed M0 correction)",
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "038_GHL_id_7_Sensor_tr_50000_1st_100001.csv",
+    "original_tags": [
+      "continuous",
+      "random_walk",
+      "change_point"
+    ],
+    "original_type_text": "continuous random_walk change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.693123424922397,
+    "upstream_jsd_mean": 0.5058321249210344,
+    "upstream_CD_rate": 0.0526315789473684,
+    "released_source_family": "GHL",
+    "real_arm_selected": false,
+    "exclusion": "SOURCE_SIMULATED (existing primary-backed M0 correction)",
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "039_GHL_id_8_Sensor_tr_50000_1st_63030.csv",
+    "original_tags": [
+      "continuous",
+      "random_walk",
+      "change_point"
+    ],
+    "original_type_text": "continuous random_walk change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.693123850411206,
+    "upstream_jsd_mean": 0.5067162487471754,
+    "upstream_CD_rate": 0.2105263157894736,
+    "released_source_family": "GHL",
+    "real_arm_selected": false,
+    "exclusion": "SOURCE_SIMULATED (existing primary-backed M0 correction)",
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "041_GHL_id_10_Sensor_tr_50000_1st_57001.csv",
+    "original_tags": [
+      "continuous",
+      "random_walk"
+    ],
+    "original_type_text": "continuous random_walk",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6931309151914025,
+    "upstream_jsd_mean": 0.5051917279908396,
+    "upstream_CD_rate": 0.2105263157894736,
+    "released_source_family": "GHL",
+    "real_arm_selected": false,
+    "exclusion": "SOURCE_SIMULATED (existing primary-backed M0 correction)",
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "042_GHL_id_11_Sensor_tr_50000_1st_150001.csv",
+    "original_tags": [
+      "continuous",
+      "random_walk",
+      "change_point"
+    ],
+    "original_type_text": "continuous random_walk change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6931228949641735,
+    "upstream_jsd_mean": 0.5047252341451557,
+    "upstream_CD_rate": 0.2105263157894736,
+    "released_source_family": "GHL",
+    "real_arm_selected": false,
+    "exclusion": "SOURCE_SIMULATED (existing primary-backed M0 correction)",
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "043_GHL_id_12_Sensor_tr_39938_1st_40038.csv",
+    "original_tags": [
+      "continuous",
+      "random_walk",
+      "change_point"
+    ],
+    "original_type_text": "continuous random_walk change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6931257237822777,
+    "upstream_jsd_mean": 0.5394020031652725,
+    "upstream_CD_rate": 0.2105263157894736,
+    "released_source_family": "GHL",
+    "real_arm_selected": false,
+    "exclusion": "SOURCE_SIMULATED (existing primary-backed M0 correction)",
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "044_GHL_id_13_Sensor_tr_50000_1st_145001.csv",
+    "original_tags": [
+      "continuous",
+      "random_walk",
+      "change_point"
+    ],
+    "original_type_text": "continuous random_walk change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6931261613784665,
+    "upstream_jsd_mean": 0.5039809569624341,
+    "upstream_CD_rate": 0.1052631578947368,
+    "released_source_family": "GHL",
+    "real_arm_selected": false,
+    "exclusion": "SOURCE_SIMULATED (existing primary-backed M0 correction)",
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "045_GHL_id_14_Sensor_tr_50000_1st_85076.csv",
+    "original_tags": [
+      "continuous",
+      "random_walk",
+      "change_point"
+    ],
+    "original_type_text": "continuous random_walk change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6931248007680868,
+    "upstream_jsd_mean": 0.5006952423961102,
+    "upstream_CD_rate": 0.2105263157894736,
+    "released_source_family": "GHL",
+    "real_arm_selected": false,
+    "exclusion": "SOURCE_SIMULATED (existing primary-backed M0 correction)",
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "046_GHL_id_15_Sensor_tr_50000_1st_156462.csv",
+    "original_tags": [
+      "continuous",
+      "random_walk",
+      "change_point"
+    ],
+    "original_type_text": "continuous random_walk change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6931244002095112,
+    "upstream_jsd_mean": 0.5052143992916598,
+    "upstream_CD_rate": 0.2105263157894736,
+    "released_source_family": "GHL",
+    "real_arm_selected": false,
+    "exclusion": "SOURCE_SIMULATED (existing primary-backed M0 correction)",
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "047_GHL_id_16_Sensor_tr_50000_1st_77001.csv",
+    "original_tags": [
+      "continuous",
+      "random_walk",
+      "change_point"
+    ],
+    "original_type_text": "continuous random_walk change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.69312291362741,
+    "upstream_jsd_mean": 0.5000442070729798,
+    "upstream_CD_rate": 0.0526315789473684,
+    "released_source_family": "GHL",
+    "real_arm_selected": false,
+    "exclusion": "SOURCE_SIMULATED (existing primary-backed M0 correction)",
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "048_GHL_id_17_Sensor_tr_50000_1st_154001.csv",
+    "original_tags": [
+      "continuous",
+      "random_walk",
+      "change_point"
+    ],
+    "original_type_text": "continuous random_walk change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6931260944602129,
+    "upstream_jsd_mean": 0.5091406563045109,
+    "upstream_CD_rate": 0.2105263157894736,
+    "released_source_family": "GHL",
+    "real_arm_selected": false,
+    "exclusion": "SOURCE_SIMULATED (existing primary-backed M0 correction)",
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "050_GHL_id_19_Sensor_tr_43750_1st_55001.csv",
+    "original_tags": [
+      "continuous",
+      "random_walk"
+    ],
+    "original_type_text": "continuous random_walk",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6931307523910044,
+    "upstream_jsd_mean": 0.5025228525127298,
+    "upstream_CD_rate": 0.2105263157894736,
+    "released_source_family": "GHL",
+    "real_arm_selected": false,
+    "exclusion": "SOURCE_SIMULATED (existing primary-backed M0 correction)",
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "051_GHL_id_20_Sensor_tr_50000_1st_75110.csv",
+    "original_tags": [
+      "continuous",
+      "random_walk",
+      "change_point"
+    ],
+    "original_type_text": "continuous random_walk change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6931227666087991,
+    "upstream_jsd_mean": 0.5074753166112123,
+    "upstream_CD_rate": 0.0526315789473684,
+    "released_source_family": "GHL",
+    "real_arm_selected": false,
+    "exclusion": "SOURCE_SIMULATED (existing primary-backed M0 correction)",
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "052_GHL_id_21_Sensor_tr_50000_1st_98001.csv",
+    "original_tags": [
+      "continuous",
+      "random_walk",
+      "change_point"
+    ],
+    "original_type_text": "continuous random_walk change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6931243708676433,
+    "upstream_jsd_mean": 0.4994313451351255,
+    "upstream_CD_rate": 0.0526315789473684,
+    "released_source_family": "GHL",
+    "real_arm_selected": false,
+    "exclusion": "SOURCE_SIMULATED (existing primary-backed M0 correction)",
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "053_GHL_id_22_Sensor_tr_50000_1st_126448.csv",
+    "original_tags": [
+      "continuous",
+      "random_walk",
+      "change_point"
+    ],
+    "original_type_text": "continuous random_walk change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6931247547468322,
+    "upstream_jsd_mean": 0.511419950732015,
+    "upstream_CD_rate": 0.1052631578947368,
+    "released_source_family": "GHL",
+    "real_arm_selected": false,
+    "exclusion": "SOURCE_SIMULATED (existing primary-backed M0 correction)",
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "054_GHL_id_23_Sensor_tr_50000_1st_135001.csv",
+    "original_tags": [
+      "continuous",
+      "random_walk",
+      "change_point"
+    ],
+    "original_type_text": "continuous random_walk change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6931226930384607,
+    "upstream_jsd_mean": 0.5063430070176502,
+    "upstream_CD_rate": 0.2105263157894736,
+    "released_source_family": "GHL",
+    "real_arm_selected": false,
+    "exclusion": "SOURCE_SIMULATED (existing primary-backed M0 correction)",
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "055_GHL_id_24_Sensor_tr_50000_1st_118124.csv",
+    "original_tags": [
+      "continuous",
+      "random_walk",
+      "change_point"
+    ],
+    "original_type_text": "continuous random_walk change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6931229222222649,
+    "upstream_jsd_mean": 0.5058923532095301,
+    "upstream_CD_rate": 0.2105263157894736,
+    "released_source_family": "GHL",
+    "real_arm_selected": false,
+    "exclusion": "SOURCE_SIMULATED (existing primary-backed M0 correction)",
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "056_GHL_id_25_Sensor_tr_50000_1st_105568.csv",
+    "original_tags": [
+      "continuous",
+      "random_walk",
+      "change_point"
+    ],
+    "original_type_text": "continuous random_walk change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.693127248126028,
+    "upstream_jsd_mean": 0.5032770305183534,
+    "upstream_CD_rate": 0.1578947368421052,
+    "released_source_family": "GHL",
+    "real_arm_selected": false,
+    "exclusion": "SOURCE_SIMULATED (existing primary-backed M0 correction)",
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "057_SMD_id_1_Facility_tr_4529_1st_4629.csv",
+    "original_tags": [
+      "change_point"
+    ],
+    "original_type_text": "change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.673272560271706,
+    "upstream_jsd_mean": 0.3768482585746814,
+    "upstream_CD_rate": 0.0263157894736842,
+    "released_source_family": "SMD",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "SMD/machine-1-2",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "059_SMD_id_3_Facility_tr_757_1st_857.csv",
+    "original_tags": [
+      "change_point",
+      "periodic",
+      "random_walk"
+    ],
+    "original_type_text": "change_point periodic random_walk",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6926017628862593,
+    "upstream_jsd_mean": 0.5179752730614194,
+    "upstream_CD_rate": 0.0526315789473684,
+    "released_source_family": "SMD",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "SMD/machine-2-3",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "060_SMD_id_4_Facility_tr_7176_1st_10609.csv",
+    "original_tags": [
+      "change_point"
+    ],
+    "original_type_text": "change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6931134748869838,
+    "upstream_jsd_mean": 0.2899943503918119,
+    "upstream_CD_rate": 0.0263157894736842,
+    "released_source_family": "SMD",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "SMD/machine-3-7",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "061_SMD_id_5_Facility_tr_7176_1st_15144.csv",
+    "original_tags": [
+      "continuous"
+    ],
+    "original_type_text": "continuous",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6929577105578004,
+    "upstream_jsd_mean": 0.4116326018575758,
+    "upstream_CD_rate": 0.0526315789473684,
+    "released_source_family": "SMD",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "SMD/machine-3-8",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "064_SMD_id_8_Facility_tr_2272_1st_2372.csv",
+    "original_tags": [
+      "continuous",
+      "change_point"
+    ],
+    "original_type_text": "continuous change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6929555143092947,
+    "upstream_jsd_mean": 0.5019296904693682,
+    "upstream_CD_rate": 0.0526315789473684,
+    "released_source_family": "SMD",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "SMD/machine-1-3",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "065_SMD_id_9_Facility_tr_737_1st_837.csv",
+    "original_tags": [
+      "periodic",
+      "change_point",
+      "random_walk"
+    ],
+    "original_type_text": "periodic change_point random_walk",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6927183741109229,
+    "upstream_jsd_mean": 0.619065022618089,
+    "upstream_CD_rate": 0.1052631578947368,
+    "released_source_family": "SMD",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "SMD/machine-1-7",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "066_SMD_id_10_Facility_tr_2634_1st_2734.csv",
+    "original_tags": [
+      "change_point"
+    ],
+    "original_type_text": "change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6930223293439917,
+    "upstream_jsd_mean": 0.3671168784044595,
+    "upstream_CD_rate": 0.0263157894736842,
+    "released_source_family": "SMD",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "SMD/machine-3-4",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "067_SMD_id_11_Facility_tr_1980_1st_2080.csv",
+    "original_tags": [
+      "continuous",
+      "change_point"
+    ],
+    "original_type_text": "continuous change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6929263186552728,
+    "upstream_jsd_mean": 0.5007890898047332,
+    "upstream_CD_rate": 0.1052631578947368,
+    "released_source_family": "SMD",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "SMD/machine-3-2",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "068_SMD_id_12_Facility_tr_1099_1st_1199.csv",
+    "original_tags": [
+      "change_point"
+    ],
+    "original_type_text": "change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6926622620573453,
+    "upstream_jsd_mean": 0.5122497279218284,
+    "upstream_CD_rate": 0.1052631578947368,
+    "released_source_family": "SMD",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "SMD/machine-3-9",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "071_SMD_id_15_Facility_tr_1109_1st_1209.csv",
+    "original_tags": [
+      "continuous"
+    ],
+    "original_type_text": "continuous",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6925377941253499,
+    "upstream_jsd_mean": 0.5028561248170461,
+    "upstream_CD_rate": 0.1052631578947368,
+    "released_source_family": "SMD",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "SMD/machine-3-1",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "074_SMD_id_18_Facility_tr_7174_1st_21230.csv",
+    "original_tags": [
+      "change_point"
+    ],
+    "original_type_text": "change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6931124997555548,
+    "upstream_jsd_mean": 0.4027928125252688,
+    "upstream_CD_rate": 0.0789473684210526,
+    "released_source_family": "SMD",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "SMD/machine-3-11",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "075_SMD_id_19_Facility_tr_564_1st_664.csv",
+    "original_tags": [
+      "change_point",
+      "periodic",
+      "random_walk"
+    ],
+    "original_type_text": "change_point periodic random_walk",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.692726688294886,
+    "upstream_jsd_mean": 0.63845793449579,
+    "upstream_CD_rate": 0.3947368421052631,
+    "released_source_family": "SMD",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "SMD/machine-2-7",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "076_SMD_id_20_Facility_tr_5925_1st_17580.csv",
+    "original_tags": [
+      "change_point"
+    ],
+    "original_type_text": "change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6930857613170047,
+    "upstream_jsd_mean": 0.274718667419015,
+    "upstream_CD_rate": 0.0263157894736842,
+    "released_source_family": "SMD",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "SMD/machine-2-8",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "077_SMD_id_21_Facility_tr_3026_1st_3126.csv",
+    "original_tags": [
+      "continuous",
+      "change_point"
+    ],
+    "original_type_text": "continuous change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6929550393234502,
+    "upstream_jsd_mean": 0.4859597701613689,
+    "upstream_CD_rate": 0.131578947368421,
+    "released_source_family": "SMD",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "SMD/machine-1-4",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "078_SMD_id_22_Facility_tr_500_1st_326.csv",
+    "original_tags": [
+      "change_point",
+      "periodic"
+    ],
+    "original_type_text": "change_point periodic",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6927306910741666,
+    "upstream_jsd_mean": 0.6150136951177287,
+    "upstream_CD_rate": 0.6052631578947368,
+    "released_source_family": "SMD",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "SMD/machine-3-10",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "080_LTDB_id_2_Medical_tr_500_1st_266.csv",
+    "original_tags": [
+      "periodic"
+    ],
+    "original_type_text": "periodic",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6765615989766951,
+    "upstream_jsd_mean": 0.2357705034916626,
+    "upstream_CD_rate": 0.6666666666666666,
+    "released_source_family": "LTDB",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "116_TAO_id_1_Environment_tr_500_1st_3.csv",
+    "original_tags": [
+      "continuous"
+    ],
+    "original_type_text": "continuous",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6674079116598969,
+    "upstream_jsd_mean": 0.5112070615947553,
+    "upstream_CD_rate": 0.6666666666666666,
+    "released_source_family": "TAO",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "118_TAO_id_3_Environment_tr_500_1st_7.csv",
+    "original_tags": [
+      "continuous"
+    ],
+    "original_type_text": "continuous",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6670751258724971,
+    "upstream_jsd_mean": 0.5133572482912707,
+    "upstream_CD_rate": 0.6666666666666666,
+    "released_source_family": "TAO",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "119_TAO_id_4_Environment_tr_500_1st_1.csv",
+    "original_tags": [
+      "continuous"
+    ],
+    "original_type_text": "continuous",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6378986010703652,
+    "upstream_jsd_mean": 0.4882049421153048,
+    "upstream_CD_rate": 0.0,
+    "released_source_family": "TAO",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "122_TAO_id_7_Environment_tr_500_1st_19.csv",
+    "original_tags": [
+      "continuous"
+    ],
+    "original_type_text": "continuous",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6430110273022739,
+    "upstream_jsd_mean": 0.4871768319964867,
+    "upstream_CD_rate": 0.3333333333333333,
+    "released_source_family": "TAO",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "123_TAO_id_8_Environment_tr_500_1st_62.csv",
+    "original_tags": [
+      "continuous"
+    ],
+    "original_type_text": "continuous",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.670281679150669,
+    "upstream_jsd_mean": 0.5129406705277471,
+    "upstream_CD_rate": 0.6666666666666666,
+    "released_source_family": "TAO",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "124_TAO_id_9_Environment_tr_500_1st_1.csv",
+    "original_tags": [
+      "continuous"
+    ],
+    "original_type_text": "continuous",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6686139070041981,
+    "upstream_jsd_mean": 0.5105660955447753,
+    "upstream_CD_rate": 0.6666666666666666,
+    "released_source_family": "TAO",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "125_TAO_id_10_Environment_tr_500_1st_9.csv",
+    "original_tags": [
+      "continuous"
+    ],
+    "original_type_text": "continuous",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6465010458404289,
+    "upstream_jsd_mean": 0.4881850511430557,
+    "upstream_CD_rate": 0.6666666666666666,
+    "released_source_family": "TAO",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "127_TAO_id_12_Environment_tr_500_1st_24.csv",
+    "original_tags": [
+      "continuous"
+    ],
+    "original_type_text": "continuous",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6669676476159196,
+    "upstream_jsd_mean": 0.5117700737846094,
+    "upstream_CD_rate": 0.6666666666666666,
+    "released_source_family": "TAO",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "129_OPPORTUNITY_id_1_HumanActivity_tr_1801_1st_1901.csv",
+    "original_tags": [
+      "change_point",
+      "random_walk"
+    ],
+    "original_type_text": "change_point random_walk ",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6929667031441039,
+    "upstream_jsd_mean": 0.6223027057155265,
+    "upstream_CD_rate": 0.3870967741935484,
+    "released_source_family": "OPPORTUNITY",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "130_OPPORTUNITY_id_2_HumanActivity_tr_1045_1st_1145.csv",
+    "original_tags": [
+      "change_point"
+    ],
+    "original_type_text": "change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6929275592120999,
+    "upstream_jsd_mean": 0.5095428524653592,
+    "upstream_CD_rate": 0.1532258064516129,
+    "released_source_family": "OPPORTUNITY",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "132_OPPORTUNITY_id_4_HumanActivity_tr_895_1st_995.csv",
+    "original_tags": [
+      "change_point",
+      "random_walk"
+    ],
+    "original_type_text": "change_point random_walk ",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6927918791892365,
+    "upstream_jsd_mean": 0.5951343814900631,
+    "upstream_CD_rate": 0.1008064516129032,
+    "released_source_family": "OPPORTUNITY",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "133_OPPORTUNITY_id_5_HumanActivity_tr_1745_1st_6500.csv",
+    "original_tags": [
+      "change_point",
+      "random_walk"
+    ],
+    "original_type_text": "change_point random_walk ",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.692574857977498,
+    "upstream_jsd_mean": 0.4219266564833051,
+    "upstream_CD_rate": 0.0080645161290322,
+    "released_source_family": "OPPORTUNITY",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "134_OPPORTUNITY_id_6_HumanActivity_tr_1477_1st_1577.csv",
+    "original_tags": [
+      "change_point",
+      "random_walk"
+    ],
+    "original_type_text": "change_point random_walk ",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6929187619276591,
+    "upstream_jsd_mean": 0.6164683196218419,
+    "upstream_CD_rate": 0.2177419354838709,
+    "released_source_family": "OPPORTUNITY",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "135_OPPORTUNITY_id_7_HumanActivity_tr_2085_1st_2185.csv",
+    "original_tags": [
+      "change_point",
+      "random_walk"
+    ],
+    "original_type_text": "change_point random_walk",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6930171672034378,
+    "upstream_jsd_mean": 0.602853974377274,
+    "upstream_CD_rate": 0.314516129032258,
+    "released_source_family": "OPPORTUNITY",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "136_OPPORTUNITY_id_8_HumanActivity_tr_1495_1st_1595.csv",
+    "original_tags": [
+      "change_point",
+      "random_walk"
+    ],
+    "original_type_text": "change_point random_walk",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6929912633771929,
+    "upstream_jsd_mean": 0.6412849351415904,
+    "upstream_CD_rate": 0.4274193548387097,
+    "released_source_family": "OPPORTUNITY",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "137_CreditCard_id_1_Finance_tr_500_1st_541.csv",
+    "original_tags": [
+      "change_point"
+    ],
+    "original_type_text": "change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6757549404444025,
+    "upstream_jsd_mean": 0.1987711210949198,
+    "upstream_CD_rate": 0.0344827586206896,
+    "released_source_family": "CreditCard",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "138_CATSv2_id_1_Sensor_tr_16568_1st_16668.csv",
+    "original_tags": [
+      "continuous",
+      "periodic",
+      "random_walk"
+    ],
+    "original_type_text": "continuous periodic random_walk",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6930920959802207,
+    "upstream_jsd_mean": 0.5599458470001769,
+    "upstream_CD_rate": 0.2941176470588235,
+    "released_source_family": "CATSv2",
+    "real_arm_selected": false,
+    "exclusion": "SOURCE_SIMULATED (existing primary-backed M0 correction)",
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "139_CATSv2_id_2_Sensor_tr_5592_1st_5692.csv",
+    "original_tags": [
+      "periodic",
+      "continuous",
+      "random_walk"
+    ],
+    "original_type_text": "periodic continuous random_walk",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6930779762342043,
+    "upstream_jsd_mean": 0.6671734989456003,
+    "upstream_CD_rate": 0.2941176470588235,
+    "released_source_family": "CATSv2",
+    "real_arm_selected": false,
+    "exclusion": "SOURCE_SIMULATED (existing primary-backed M0 correction)",
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "141_CATSv2_id_4_Sensor_tr_41727_1st_41827.csv",
+    "original_tags": [
+      "continuous",
+      "random_walk"
+    ],
+    "original_type_text": "continuous random_walk",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6931156150892452,
+    "upstream_jsd_mean": 0.3855019668512414,
+    "upstream_CD_rate": 0.0588235294117647,
+    "released_source_family": "CATSv2",
+    "real_arm_selected": false,
+    "exclusion": "SOURCE_SIMULATED (existing primary-backed M0 correction)",
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "142_CATSv2_id_5_Sensor_tr_30704_1st_30804.csv",
+    "original_tags": [
+      "periodic",
+      "random_walk"
+    ],
+    "original_type_text": "periodic random_walk",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6931316963488185,
+    "upstream_jsd_mean": 0.5900371415883089,
+    "upstream_CD_rate": 0.2941176470588235,
+    "released_source_family": "CATSv2",
+    "real_arm_selected": false,
+    "exclusion": "SOURCE_SIMULATED (existing primary-backed M0 correction)",
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "143_CATSv2_id_6_Sensor_tr_50000_1st_60232.csv",
+    "original_tags": [
+      "continuous",
+      "random_walk"
+    ],
+    "original_type_text": "continuous random_walk",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6931112469304797,
+    "upstream_jsd_mean": 0.4100177925999091,
+    "upstream_CD_rate": 0.0588235294117647,
+    "released_source_family": "CATSv2",
+    "real_arm_selected": false,
+    "exclusion": "SOURCE_SIMULATED (existing primary-backed M0 correction)",
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "148_SMAP_id_5_Sensor_tr_2011_1st_5060.csv",
+    "original_tags": [
+      "change_point"
+    ],
+    "original_type_text": "change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6930504683479841,
+    "upstream_jsd_mean": 0.252543501085013,
+    "upstream_CD_rate": 0.04,
+    "released_source_family": "SMAP",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "154_SMAP_id_11_Sensor_tr_2117_1st_4770.csv",
+    "original_tags": [
+      "continuous"
+    ],
+    "original_type_text": "continuous",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.692606607712298,
+    "upstream_jsd_mean": 0.3942383533879642,
+    "upstream_CD_rate": 0.04,
+    "released_source_family": "SMAP",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "156_SMAP_id_13_Sensor_tr_1173_1st_2750.csv",
+    "original_tags": [
+      "change_point"
+    ],
+    "original_type_text": "change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6929800708471463,
+    "upstream_jsd_mean": 0.2687192932989943,
+    "upstream_CD_rate": 0.04,
+    "released_source_family": "SMAP",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "166_SMAP_id_23_Sensor_tr_1113_1st_1890.csv",
+    "original_tags": [
+      "change_point"
+    ],
+    "original_type_text": "change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.692859494230385,
+    "upstream_jsd_mean": 0.2792934633614403,
+    "upstream_CD_rate": 0.04,
+    "released_source_family": "SMAP",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "167_SMAP_id_24_Sensor_tr_2094_1st_5600.csv",
+    "original_tags": [
+      "continuous"
+    ],
+    "original_type_text": "continuous",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6928361740849287,
+    "upstream_jsd_mean": 0.5001858270778787,
+    "upstream_CD_rate": 0.04,
+    "released_source_family": "SMAP",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "171_SWaT_id_1_Sensor_tr_3749_1st_9522.csv",
+    "original_tags": [
+      "continuous",
+      "change_point"
+    ],
+    "original_type_text": "continuous change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6930299893951204,
+    "upstream_jsd_mean": 0.4816495921847518,
+    "upstream_CD_rate": 0.0757575757575757,
+    "released_source_family": "SWaT",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "172_SWaT_id_2_Sensor_tr_23700_1st_23800.csv",
+    "original_tags": [
+      "continuous"
+    ],
+    "original_type_text": "continuous",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6931323763075932,
+    "upstream_jsd_mean": 0.6015992430079447,
+    "upstream_CD_rate": 0.3333333333333333,
+    "released_source_family": "SWaT",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "173_GECCO_id_1_Sensor_tr_16165_1st_16265.csv",
+    "original_tags": [
+      "continuous"
+    ],
+    "original_type_text": "continuous",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.693099614731868,
+    "upstream_jsd_mean": 0.5595932125004157,
+    "upstream_CD_rate": 0.1111111111111111,
+    "released_source_family": "GECCO",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "179_Exathlon_id_6_Facility_tr_11665_1st_13484.csv",
+    "original_tags": [
+      "change_point"
+    ],
+    "original_type_text": "change_point",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6930438115896259,
+    "upstream_jsd_mean": 0.3544712770226778,
+    "upstream_CD_rate": 0.032258064516129,
+    "released_source_family": "Exathlon",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "188_Exathlon_id_15_Facility_tr_12538_1st_12638.csv",
+    "original_tags": [
+      "change_point",
+      "random_walk"
+    ],
+    "original_type_text": "change_point random_walk",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6930248085289257,
+    "upstream_jsd_mean": 0.4710720130245851,
+    "upstream_CD_rate": 0.0526315789473684,
+    "released_source_family": "Exathlon",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "190_Exathlon_id_17_Facility_tr_12538_1st_12638.csv",
+    "original_tags": [
+      "change_point",
+      "random_walk"
+    ],
+    "original_type_text": "change_point random_walk",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6930248085289257,
+    "upstream_jsd_mean": 0.4710720130245851,
+    "upstream_CD_rate": 0.0526315789473684,
+    "released_source_family": "Exathlon",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "198_Exathlon_id_25_Facility_tr_12538_1st_12638.csv",
+    "original_tags": [
+      "change_point",
+      "random_walk"
+    ],
+    "original_type_text": "change_point  random_walk",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6930248085289257,
+    "upstream_jsd_mean": 0.4710720130245851,
+    "upstream_CD_rate": 0.0526315789473684,
+    "released_source_family": "Exathlon",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  },
+  {
+    "file": "199_Exathlon_id_26_Facility_tr_12538_1st_12638.csv",
+    "original_tags": [
+      "change_point",
+      "random_walk"
+    ],
+    "original_type_text": "change_point  random_walk",
+    "upstream_CD": 1,
+    "upstream_jsd": 0.6930248085289257,
+    "upstream_jsd_mean": 0.4710720130245851,
+    "upstream_CD_rate": 0.0526315789473684,
+    "released_source_family": "Exathlon",
+    "real_arm_selected": true,
+    "exclusion": null,
+    "native_source_group": "UNKNOWN",
+    "selection_used_numeric_outcomes": false,
+    "prior_label_exposure": "historically read during M0 phase A; not confirmatory"
+  }
+]

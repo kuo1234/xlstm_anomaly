@@ -1,0 +1,8 @@
+{
+  "recorded_utc": "2026-10-04T17:29:53.438239+00:00",
+  "source": "direct user response in this task",
+  "question": "Separate formal TTAccept from first effective baseline B write and FPR recovery?",
+  "answer": "\u5206\u958b\u5831\u544a\uff08\u5efa\u8b70\uff09",
+  "formal_TTAccept_native": "N/A_NATIVE",
+  "permission_scope": "metric definition only; no P4-B"
+}

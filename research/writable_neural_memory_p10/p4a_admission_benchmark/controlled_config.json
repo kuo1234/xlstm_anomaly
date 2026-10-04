@@ -1,0 +1,253 @@
+{
+  "version": "p4a-controlled-v1",
+  "generator_kind": "independent M2N2-style sinusoidal finite-ramp generator; NOT exact official reproduction",
+  "reference_repo": "carrtesy/M2N2",
+  "reference_commit": "616b2270b6f2eab88ee5caa37c45507d2d041d22",
+  "reference_files": [
+    "data/univariate_generator.py",
+    "data/multivariate_generator.py"
+  ],
+  "dimensions": 4,
+  "length": 6144,
+  "units": "abstract sample index; no physical safety claim",
+  "fit": [
+    0,
+    1024
+  ],
+  "calibration": [
+    1024,
+    1536
+  ],
+  "evaluation": [
+    1536,
+    6144
+  ],
+  "frequency": [
+    0.04,
+    0.05,
+    0.025,
+    0.02
+  ],
+  "phase": [
+    0,
+    0.5,
+    1,
+    1.5
+  ],
+  "amplitude_A": [
+    1.5,
+    2,
+    1.5,
+    2
+  ],
+  "amplitude_B": [
+    1.5,
+    2,
+    2.25,
+    2
+  ],
+  "offset_A": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "offset_B": [
+    2,
+    -1.5,
+    0,
+    0
+  ],
+  "noise_amp": 0.05,
+  "regime_change_affected_dimensions": [
+    0,
+    1,
+    2
+  ],
+  "transition_mechanism": "affine parameter ramp w(t)=clip((t-start)/256,0,1), no latent reset or residual state",
+  "settled_definition": "first t with w=1; exactly the target periodic/noise law, not empirical CV/loss/visual stability",
+  "scaling": "per physical run mean and population std fit ONLY x[0:1024]; std<1e-8 maps to1; no clipping",
+  "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+  ],
+  "physical_runs": [
+    {
+      "seed": 101,
+      "t_transition_start": 2048,
+      "t_settled_B": 2304,
+      "events": [
+        {
+          "id": "collective_under_B",
+          "start": 3072,
+          "end": 3200,
+          "dimensions": [
+            0
+          ],
+          "mechanism": "add3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        },
+        {
+          "id": "long_anomaly_under_B",
+          "start": 4096,
+          "end": 4608,
+          "dimensions": [
+            1
+          ],
+          "mechanism": "subtract3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        }
+      ],
+      "acceptance_censor_time": 3072
+    },
+    {
+      "seed": 202,
+      "t_transition_start": 2112,
+      "t_settled_B": 2368,
+      "events": [
+        {
+          "id": "collective_under_B",
+          "start": 3136,
+          "end": 3264,
+          "dimensions": [
+            0
+          ],
+          "mechanism": "add3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        },
+        {
+          "id": "long_anomaly_under_B",
+          "start": 4160,
+          "end": 4672,
+          "dimensions": [
+            1
+          ],
+          "mechanism": "subtract3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        }
+      ],
+      "acceptance_censor_time": 3136
+    },
+    {
+      "seed": 303,
+      "t_transition_start": 1920,
+      "t_settled_B": 2176,
+      "events": [
+        {
+          "id": "collective_under_B",
+          "start": 2944,
+          "end": 3072,
+          "dimensions": [
+            0
+          ],
+          "mechanism": "add3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        },
+        {
+          "id": "long_anomaly_under_B",
+          "start": 3968,
+          "end": 4480,
+          "dimensions": [
+            1
+          ],
+          "mechanism": "subtract3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        }
+      ],
+      "acceptance_censor_time": 2944
+    },
+    {
+      "seed": 404,
+      "t_transition_start": 2240,
+      "t_settled_B": 2496,
+      "events": [
+        {
+          "id": "collective_under_B",
+          "start": 3264,
+          "end": 3392,
+          "dimensions": [
+            0
+          ],
+          "mechanism": "add3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        },
+        {
+          "id": "long_anomaly_under_B",
+          "start": 4288,
+          "end": 4800,
+          "dimensions": [
+            1
+          ],
+          "mechanism": "subtract3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        }
+      ],
+      "acceptance_censor_time": 3264
+    },
+    {
+      "seed": 505,
+      "t_transition_start": 2016,
+      "t_settled_B": 2272,
+      "events": [
+        {
+          "id": "collective_under_B",
+          "start": 3040,
+          "end": 3168,
+          "dimensions": [
+            0
+          ],
+          "mechanism": "add3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        },
+        {
+          "id": "long_anomaly_under_B",
+          "start": 4064,
+          "end": 4576,
+          "dimensions": [
+            1
+          ],
+          "mechanism": "subtract3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        }
+      ],
+      "acceptance_censor_time": 3040
+    }
+  ],
+  "arms": [
+    "benign_B_with_anomalies",
+    "stationary_A_with_anomalies",
+    "semantic_fault_twin"
+  ],
+  "primary_arms": [
+    "benign_B_with_anomalies",
+    "stationary_A_with_anomalies"
+  ],
+  "semantic_fault_twin": "exact same observations as benign arm; transition-start onward assigned non-benign persistent fault; evaluator-only normative counterfactual, mandatory non-identifiability stratum, no claim it is solvable",
+  "counterfactual_grouping": "three variants plus any probes share physical seed group; not independent N",
+  "old_A_probe_length": 512,
+  "old_A_probe_rng_stream": 2,
+  "probe_role": "future read-only snapshot evaluation; never adaptation input",
+  "recurrence": "NOT_GENERATED; optional secondary later requires amendment",
+  "runtime_interface": [
+    "x_t",
+    "monotonic sample time",
+    "initial train scaler"
+  ],
+  "runtime_excluded": [
+    "labels",
+    "semantic states",
+    "event IDs",
+    "onsets",
+    "settled endpoint",
+    "arm name",
+    "seed",
+    "probes"
+  ],
+  "models": 0,
+  "detector_scores": 0,
+  "memory_writes": 0,
+  "online_policies": 0
+}
