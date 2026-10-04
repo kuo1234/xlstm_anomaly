@@ -1,0 +1,26 @@
+{
+  "parent_git_commit": "d5ecc07064909c976400d024056ee67ef436966a",
+  "host": "spark-3994 / ssh kuo",
+  "environment": {
+    "python": "3.12.3",
+    "h5py": "3.16.0",
+    "numpy": "1.26.4",
+    "requests": "2.31.0"
+  },
+  "tests": {
+    "command": "python3 -m unittest discover -s tests -p test_p10_step2d_tep.py -v",
+    "passed": 9,
+    "failed": 0
+  },
+  "sha256": {
+    "scripts/p10_step2d_tep_inspect.py": "31a73da6c9841e554a0ab36b6a3955f31864c77568405378a3bf9ba6280754a9",
+    "tests/test_p10_step2d_tep.py": "f182de2399e22bd048a52a3e06cf6077e9167c4a1255c7b59201ac839239708d",
+    "research/writable_neural_memory_p10/step2d/selection.json": "8f0a1148bb1d846fcb0f667397218e9569614e70cb2e903de8a017646c19a760",
+    "research/writable_neural_memory_p10/step2d/inspection.json": "b0fbed1bd3498386eb24bdb70442c57cfedd3ec6229a2b917d9b5c29ce349286",
+    "research/writable_neural_memory_p10/step2d/tep_label_semantics.json": "772353dc1a937257d44771b59763ef24a8aaf839b6a87a358d559e04e874967c",
+    "research/writable_neural_memory_p10/step2d/tep_subset_manifest.json": "e8833e1f73ec966f1d19321483e206c39b3f5a7a729c073ab59bf865ace0693b"
+  },
+  "verdict": "TEP_PROTOCOL_PARTIAL",
+  "no_detector_benchmark": true,
+  "no_local_raw_download": true
+}

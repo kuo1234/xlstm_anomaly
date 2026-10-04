@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "verdict": "TEP_PROTOCOL_PARTIAL",
+  "source_doi": "10.11583/DTU.13385936.v1",
+  "scope": "source/profile audit; no benchmark and no policy labels certified for execution",
+  "evaluator_only": [
+    "run_path",
+    "modeAtInit",
+    "seed",
+    "simTerminatedSuccessfully",
+    "tRampSetpoint",
+    "idv_init",
+    "setpoint_init",
+    "time_info",
+    "economic_data",
+    "meanOpCost",
+    "meanProduction",
+    "meanQuality",
+    "target_mode",
+    "event_family",
+    "magnitude",
+    "state_labels"
+  ],
+  "policy_inputs": {
+    "dataset": "processdata",
+    "columns": "1:54 (53 measured/manipulated variables; original order, constants retained)",
+    "excluded": "column 0 Time; all simulator attrs/profiles, economic_data and path-derived IDs",
+    "timestamps": "alignment/evaluator only, preserved without resampling",
+    "additional_meas": "not used; variable row alignment not assumed"
+  },
+  "profile_axes": {
+    "status": "UNVERIFIED_SOURCE_ROW_MEANING",
+    "observed_setpoint_shape": [
+      3,
+      12
+    ],
+    "observed_fault_shape": [
+      3,
+      28
+    ],
+    "candidate_rows": [
+      "initial value",
+      "target value",
+      "activation time in simulation hours"
+    ],
+    "candidate_activation_hours": 30.0,
+    "evidence": "third row 30 on changed SP/IDV columns; not named by dataset attrs or README. Do not treat inference as certified label.",
+    "source_verification_needed": "dataset-specific paper/method or generator definition; linked 2015 simulator is modified and cannot alone certify the 2021 row contract"
+  },
+  "normal_a": {
+    "interval": "[warmup_end, event_start)",
+    "warmup_end_hours": null,
+    "status": "UNVERIFIED_WARMUP",
+    "requires": "verified initial-mode normal operation, no active faults, source-defined warmup cut"
+  },
+  "transition": {
+    "interval": "[event_start, event_start + tRampSetpoint)",
+    "duration_source": "README TransitionTime / tRampSetpoint attr, hours",
+    "candidate_interval_hours": [
+      30.0,
+      40.0
+    ],
+    "semantics": "commanded mode/setpoint ramp with no programmed IDV in inspected completed cases; globally nominal/healthy transition guarantee unverified",
+    "policy_action": "WAIT is a proposed conservative protocol, not a source action label"
+  },
+  "normal_b": {
+    "settled_start_hours": null,
+    "interval": null,
+    "status": "NOT_IDENTIFIABLE",
+    "post_ramp_status": "POST_RAMP_UNVERIFIED",
+    "promote_safe_interval": null,
+    "endpoint_rule": "ramp command end is not a verified settling end; never use detector score or CV to create endpoint"
+  },
+  "fault": {
+    "interval": "[verified activation, observed stream end + dt), right-censored",
+    "candidate_activation_hours": 30.0,
+    "fault_ids": [
+      1,
+      2
+    ],
+    "magnitude_percent": 100,
+    "status": "fault presence/family verified by path + profile; activation row semantics pending",
+    "ramp_attr_warning": "fault runs tRampSetpoint=1 does not establish a fault onset ramp or settling time"
+  },
+  "forced_shutdown": {
+    "source": "SimulationStopped / simTerminatedSuccessfully",
+    "handling": "exclude from benign PROMOTE-safe and primary normal-starvation intervals; keep separately as SHUTDOWN_CENSORED; no fabricated observations after shutdown",
+    "certified_shutdown_time_hours": null
+  },
+  "warmup": {
+    "source_defined_cut_hours": null,
+    "handling": "do not invent cutoff, fit scaler or label initial prefix normal before verification"
+  },
+  "default_evaluator_state": "UNKNOWN until axes and warmup verified; stopped runs remain UNKNOWN in guarded implementation",
+  "source_health_guarantee": "completed normally means simulation completed, not evidence of healthy settled operation",
+  "detector_score_endpoint": false,
+  "cv_max_unchanged": 0.1,
+  "training_authorized": false,
+  "rl_authorized": false
+}

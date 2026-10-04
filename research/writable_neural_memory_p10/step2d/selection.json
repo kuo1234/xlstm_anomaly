@@ -1,0 +1,16 @@
+{
+  "created_utc": "2026-10-04T08:14:42.569572+00:00",
+  "source_doi": "10.11583/DTU.13385936.v1",
+  "initial_mode": 1,
+  "file": "TEP_Mode1.h5",
+  "paths": [
+    "Mode1/ModeTransition/SimulationCompleted/Mode1ToMode2/TransitionTime10",
+    "Mode1/ModeTransition/SimulationCompleted/Mode1ToMode3/TransitionTime10",
+    "Mode1/SpVariation/SimulationCompleted/SP1/tRamp_10/SpMagnitude105",
+    "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run1",
+    "Mode1/SingleFault/SimulationCompleted/IDV2/Mode1_IDVInfo_2_100/Run1"
+  ],
+  "selection_basis": "fixed mode 1; targets 2,3; 10 h ramps; SP1 +5%; faults 1,2 100%; literal Run1. Before selected array inspection, without detector results. Metadata seed is recorded, never assumed equal to RunID.",
+  "seed_rule": "Use seed stored at each exact path; do not search or replace seeds; no common-random-number pairing claimed.",
+  "no_detection_results": true
+}

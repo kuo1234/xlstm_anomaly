@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "verdict": "TEP_PROTOCOL_PARTIAL",
+  "selection": {
+    "created_utc": "2026-10-04T08:14:42.569572+00:00",
+    "source_doi": "10.11583/DTU.13385936.v1",
+    "initial_mode": 1,
+    "file": "TEP_Mode1.h5",
+    "paths": [
+      "Mode1/ModeTransition/SimulationCompleted/Mode1ToMode2/TransitionTime10",
+      "Mode1/ModeTransition/SimulationCompleted/Mode1ToMode3/TransitionTime10",
+      "Mode1/SpVariation/SimulationCompleted/SP1/tRamp_10/SpMagnitude105",
+      "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run1",
+      "Mode1/SingleFault/SimulationCompleted/IDV2/Mode1_IDVInfo_2_100/Run1"
+    ],
+    "selection_basis": "fixed mode 1; targets 2,3; 10 h ramps; SP1 +5%; faults 1,2 100%; literal Run1. Before selected array inspection, without detector results. Metadata seed is recorded, never assumed equal to RunID.",
+    "seed_rule": "Use seed stored at each exact path; do not search or replace seeds; no common-random-number pairing claimed.",
+    "no_detection_results": true
+  },
+  "selection_sha256": "8f0a1148bb1d846fcb0f667397218e9569614e70cb2e903de8a017646c19a760",
+  "seeds_fixed_from_exact_paths": [
+    91000,
+    null,
+    3010001,
+    21812,
+    20819
+  ],
+  "seed_selection": "literal paths fixed before selected full observation reads; seeds recorded from those paths, never selected by score or CV",
+  "pairing": {
+    "type": "same initial production mode / semantic intervention pairing",
+    "common_random_numbers": false,
+    "same_initial_observation_trace": false,
+    "independent_unit": "physical simulation run; not windows/operators/checkpoints",
+    "note": "transition/ramp each have one run at chosen path. Run1 fault IDs use different native seeds; no noise-matched causal contrast claimed"
+  },
+  "runs": [
+    {
+      "path": "Mode1/ModeTransition/SimulationCompleted/Mode1ToMode2/TransitionTime10",
+      "family": "ModeTransition",
+      "initial_mode": 1,
+      "status": "INSPECTED",
+      "seed": 91000,
+      "replicate_id": null,
+      "replacement": null,
+      "target_mode": 2,
+      "fault_id": null,
+      "magnitude_percent": null,
+      "ramp_duration_hours": 10.0,
+      "activation_candidate_hours": 30,
+      "activation_certified_hours": null,
+      "settled_start_hours": null,
+      "smoke_observations_read": true,
+      "profile_sha256": "e0eb18bd532ab2a66e1f4b9568f771fa03a6aec2e5effb17746246a52d61760d"
+    },
+    {
+      "path": "Mode1/ModeTransition/SimulationCompleted/Mode1ToMode3/TransitionTime10",
+      "family": "ModeTransition",
+      "initial_mode": 1,
+      "status": "MISSING_PRESELECTED_PATH",
+      "seed": null,
+      "replicate_id": null,
+      "replacement": null,
+      "target_mode": 3,
+      "fault_id": null,
+      "magnitude_percent": null,
+      "ramp_duration_hours": null,
+      "activation_candidate_hours": null,
+      "activation_certified_hours": null,
+      "settled_start_hours": null,
+      "smoke_observations_read": false,
+      "source_counterpart": "Mode1/ModeTransition/SimulationStopped/Mode1ToMode3/TransitionTime10",
+      "meaning": "same command exists only as emergency-stopped case; not a benign replacement"
+    },
+    {
+      "path": "Mode1/SpVariation/SimulationCompleted/SP1/tRamp_10/SpMagnitude105",
+      "family": "SpVariation",
+      "initial_mode": 1,
+      "status": "INSPECTED",
+      "seed": 3010001,
+      "replicate_id": null,
+      "replacement": null,
+      "target_mode": null,
+      "fault_id": null,
+      "magnitude_percent": 105,
+      "ramp_duration_hours": 10.0,
+      "activation_candidate_hours": 30,
+      "activation_certified_hours": null,
+      "settled_start_hours": null,
+      "smoke_observations_read": false,
+      "profile_sha256": "52964fd6b47f428dfb6d01725f5990944ee73a5f7b81a5ee9e162dafffcd364d"
+    },
+    {
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run1",
+      "family": "SingleFault",
+      "initial_mode": 1,
+      "status": "INSPECTED",
+      "seed": 21812,
+      "replicate_id": 1,
+      "replacement": null,
+      "target_mode": null,
+      "fault_id": 1,
+      "magnitude_percent": 100,
+      "ramp_duration_hours": 1.0,
+      "activation_candidate_hours": 30,
+      "activation_certified_hours": null,
+      "settled_start_hours": null,
+      "smoke_observations_read": true,
+      "profile_sha256": "b2eff8c176816e6a769d9e3aba3372245f2cc589973e3ce73103157df2d125e7"
+    },
+    {
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV2/Mode1_IDVInfo_2_100/Run1",
+      "family": "SingleFault",
+      "initial_mode": 1,
+      "status": "INSPECTED",
+      "seed": 20819,
+      "replicate_id": 1,
+      "replacement": null,
+      "target_mode": null,
+      "fault_id": 2,
+      "magnitude_percent": 100,
+      "ramp_duration_hours": 1.0,
+      "activation_candidate_hours": 30,
+      "activation_certified_hours": null,
+      "settled_start_hours": null,
+      "smoke_observations_read": false,
+      "profile_sha256": "9a24cf60201200bb09c732d935502fd89c6582b31e62011b14bf4839f245b86e"
+    }
+  ],
+  "files": [
+    {
+      "name": "TEP_Mode1.h5",
+      "id": 26003087,
+      "bytes": 23924710848,
+      "official_md5": "c79ecc6d12a5ccb49caffcd8f531feae",
+      "official_sha256": null,
+      "download_url": "https://ndownloader.figshare.com/files/26003087"
+    },
+    {
+      "name": "TEP_Mode2.h5",
+      "id": 26003162,
+      "bytes": 23897125720,
+      "official_md5": "72ee75fdf6da8e59327f04fd4fd49662",
+      "official_sha256": null,
+      "download_url": "https://ndownloader.figshare.com/files/26003162"
+    },
+    {
+      "name": "TEP_Mode3.h5",
+      "id": 26003492,
+      "bytes": 23921551744,
+      "official_md5": "5f4bf0d87e7f9ff81ee632f84f2d9050",
+      "official_sha256": null,
+      "download_url": "https://ndownloader.figshare.com/files/26003492"
+    },
+    {
+      "name": "TEP_Mode4.h5",
+      "id": 26024015,
+      "bytes": 23219369960,
+      "official_md5": "c1e76a74022230450dc14fe904451236",
+      "official_sha256": null,
+      "download_url": "https://ndownloader.figshare.com/files/26024015"
+    },
+    {
+      "name": "TEP_Mode5.h5",
+      "id": 26028068,
+      "bytes": 23890304712,
+      "official_md5": "8f3c1a1ebeb80ad78089f82a7d521fda",
+      "official_sha256": null,
+      "download_url": "https://ndownloader.figshare.com/files/26028068"
+    },
+    {
+      "name": "TEP_Mode6.h5",
+      "id": 26034659,
+      "bytes": 23907566544,
+      "official_md5": "d01e032a1f3ff9ca3afaa1f74c52e1a6",
+      "official_sha256": null,
+      "download_url": "https://ndownloader.figshare.com/files/26034659"
+    },
+    {
+      "name": "Readme.html",
+      "id": 26775368,
+      "bytes": 8493,
+      "official_md5": "963359b135036c0b19951929798a8b46",
+      "official_sha256": null,
+      "download_url": "https://ndownloader.figshare.com/files/26775368"
+    }
+  ],
+  "acquisition": {
+    "host": "ssh kuo / spark-3994",
+    "raw_dir": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/step2d/official",
+    "official_api": "https://api.figshare.com/v2/articles/13385936/versions/1",
+    "api_sha256": "327f4c141bdebbc103c3dc1b8d1f61f8b410fbadd8fac93a9cef80817ae021f4",
+    "readme_sha256": "68f3b03ea10732ec631a720be614b44267e7b61c10eb2f141d95c8fb1293b460",
+    "range_manifest": "inspection.json:acquisition.ranges",
+    "cached_mode1_bytes": 9437184,
+    "whole_hdf5_file_acquired": false,
+    "full_modefile_md5_verified": false,
+    "raw_data_downloaded_locally": false
+  },
+  "ready_for_benchmark": false,
+  "blocked_requirements": [
+    "profile-axis activation semantics",
+    "source-defined warmup exclusion",
+    "source-defined settled endpoint / PROMOTE-safe labels",
+    "healthy/nominal eligibility of commanded transitions, not merely successful completion",
+    "second proposed transition missing from completed group"
+  ],
+  "posthoc_case_rescue": false,
+  "detection_or_cv_results_observed": false
+}
