@@ -1,0 +1,15 @@
+{
+  "verdict": "TRANSFER_NOT_SUPPORTED",
+  "reason": "Frozen conjunction promotes both long faults in W1/W3 and adapts SP1 by promotion during protocol WAIT; no entirely-safe NORMAL_B promotion. W2 avoids fault promotion but starves both SP1 shifts.",
+  "primary_fault_false_promotions": 2,
+  "replicate_fault_false_promotions": 12,
+  "replicate_early_SP_promotions": 12,
+  "replicate_safe_NORMAL_B_promotions": 0,
+  "physical_runs": 5,
+  "native_seed_families": 3,
+  "benign_seed_families": 1,
+  "seeds_operators_independent_N": false,
+  "cv_max": 0.1,
+  "posthoc_rule_or_retuning": false,
+  "rl": false
+}

@@ -1,0 +1,9 @@
+{
+  "utc": "2026-10-04T08:52:42.642212+00:00",
+  "units": 360,
+  "physical_runs": 5,
+  "primary": "seed11/W1; other seeds/operators robustness only",
+  "benign_AP": "undefined (no faults); not relabelled as anomalies",
+  "rl_run": false,
+  "retuned": false
+}

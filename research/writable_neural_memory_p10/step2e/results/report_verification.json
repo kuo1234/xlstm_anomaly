@@ -1,0 +1,37 @@
+{
+  "utc": "2026-10-04T08:56:50.972720+00:00",
+  "tests_passed": 11,
+  "seal_sha256": "34c6b78e430b63978e86c4cd3714d080b17d3507a4c6fe142075cdf822f533f6",
+  "verdict": {
+    "verdict": "TRANSFER_NOT_SUPPORTED",
+    "reason": "Frozen conjunction promotes both long faults in W1/W3 and adapts SP1 by promotion during protocol WAIT; no entirely-safe NORMAL_B promotion. W2 avoids fault promotion but starves both SP1 shifts.",
+    "primary_fault_false_promotions": 2,
+    "replicate_fault_false_promotions": 12,
+    "replicate_early_SP_promotions": 12,
+    "replicate_safe_NORMAL_B_promotions": 0,
+    "physical_runs": 5,
+    "native_seed_families": 3,
+    "benign_seed_families": 1,
+    "seeds_operators_independent_N": false,
+    "cv_max": 0.1,
+    "posthoc_rule_or_retuning": false,
+    "rl": false
+  },
+  "result_hashes": {
+    "case_robustness_means.csv": "8ce98674c90dd3b7cf09ad31e398e44f82669540b73c447f6df7c589c9d7dc56",
+    "units.csv": "da7e7ba5b5e43c6f2248f3786232565ae2f24812ae939ac0b2a9ac9ca68da8a7",
+    "occupancy.csv.gz": "1ccaa7b90487d4f8509aef9ac4b067742c9717e2a4007ac336c44d1cb2904bab",
+    "label_access_log.json": "853a8da569972eadee1ddef143e6198e156859e1eb1101dc5c88e154d08da01e",
+    "evaluation_start.json": "0767e322f2019bf80a3090d9f67a6c72784329e54df41b92c2f59efff4c7c3f2",
+    "long_faults.csv": "39d833a4adba90dfcd92192a14ffe68577b620e093ab2ba29cc2c552b12175e6",
+    "verdict.json": "6c013c98c2d033f3e6387985f8749ec4b0abe9ab51b53fd60b80ae7302d573b9",
+    "case_deltas.csv": "7f810f47fc3b58e8ca23f7880d1ccb42b1e7add1e526159642dad97383aaf41b",
+    "primary_case_results.csv": "8ed680dc90a9e7359487bd1e3fa178edd96a9e9650c8e3137f0b27089b4e2cea",
+    "segments.csv": "fa62c1a5050d1a85a9feb825a41a3abb4db658213c25b5095e92e13c488e7315",
+    "checkpoints_labelled.csv.gz": "4f8431939d182bbf261bc99ba18fe210b184468d559e9b813fff7b77999352c9",
+    "physical_segment_cv.csv": "3c6caa1c966ec3c2e384f44f61928ed9d4cc9954e593b5b4cd94b64d158c9224",
+    "complete.json": "17a072f5376a47d5c122ed55968ee9b2643dabbee2f089fa65e03083a6141a8d",
+    "promotions.csv": "0116615a832e55a1bbdf08e76bc199d7e7deda8af35202a24a46c3208c474423",
+    "checkpoint_pass_rates.csv": "86ddb3dcd1fc7d3806497b6d3a9f68fb15a4e42ff5fdf5a47252cdded2c21177"
+  }
+}

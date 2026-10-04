@@ -1,0 +1,67 @@
+[
+  {
+    "case": "case01",
+    "utc": "2026-10-04T08:52:12.510814+00:00",
+    "purpose": "step2e_after_pushed_seal_evaluation",
+    "proof": {
+      "seal_commit": "572d27bb69f61cdde4669a267377f326ffcdf74c",
+      "seal_sha256": "34c6b78e430b63978e86c4cd3714d080b17d3507a4c6fe142075cdf822f533f6",
+      "remote_sha": "572d27bb69f61cdde4669a267377f326ffcdf74c",
+      "utc": "2026-10-04T08:52:12.489299+00:00"
+    },
+    "time_sha256": "d9251e6d9fbd6c2bec6a17c11079cddcce91395e3d3b2ca1bcaa505f15ece440",
+    "evaluator_source": "setpoint"
+  },
+  {
+    "case": "case02",
+    "utc": "2026-10-04T08:52:12.510952+00:00",
+    "purpose": "step2e_after_pushed_seal_evaluation",
+    "proof": {
+      "seal_commit": "572d27bb69f61cdde4669a267377f326ffcdf74c",
+      "seal_sha256": "34c6b78e430b63978e86c4cd3714d080b17d3507a4c6fe142075cdf822f533f6",
+      "remote_sha": "572d27bb69f61cdde4669a267377f326ffcdf74c",
+      "utc": "2026-10-04T08:52:12.489299+00:00"
+    },
+    "time_sha256": "d9251e6d9fbd6c2bec6a17c11079cddcce91395e3d3b2ca1bcaa505f15ece440",
+    "evaluator_source": "setpoint"
+  },
+  {
+    "case": "case03",
+    "utc": "2026-10-04T08:52:12.511048+00:00",
+    "purpose": "step2e_after_pushed_seal_evaluation",
+    "proof": {
+      "seal_commit": "572d27bb69f61cdde4669a267377f326ffcdf74c",
+      "seal_sha256": "34c6b78e430b63978e86c4cd3714d080b17d3507a4c6fe142075cdf822f533f6",
+      "remote_sha": "572d27bb69f61cdde4669a267377f326ffcdf74c",
+      "utc": "2026-10-04T08:52:12.489299+00:00"
+    },
+    "time_sha256": "d9251e6d9fbd6c2bec6a17c11079cddcce91395e3d3b2ca1bcaa505f15ece440",
+    "evaluator_source": "setpoint"
+  },
+  {
+    "case": "case04",
+    "utc": "2026-10-04T08:52:12.511127+00:00",
+    "purpose": "step2e_after_pushed_seal_evaluation",
+    "proof": {
+      "seal_commit": "572d27bb69f61cdde4669a267377f326ffcdf74c",
+      "seal_sha256": "34c6b78e430b63978e86c4cd3714d080b17d3507a4c6fe142075cdf822f533f6",
+      "remote_sha": "572d27bb69f61cdde4669a267377f326ffcdf74c",
+      "utc": "2026-10-04T08:52:12.489299+00:00"
+    },
+    "time_sha256": "d9251e6d9fbd6c2bec6a17c11079cddcce91395e3d3b2ca1bcaa505f15ece440",
+    "evaluator_source": "fault"
+  },
+  {
+    "case": "case05",
+    "utc": "2026-10-04T08:52:12.511221+00:00",
+    "purpose": "step2e_after_pushed_seal_evaluation",
+    "proof": {
+      "seal_commit": "572d27bb69f61cdde4669a267377f326ffcdf74c",
+      "seal_sha256": "34c6b78e430b63978e86c4cd3714d080b17d3507a4c6fe142075cdf822f533f6",
+      "remote_sha": "572d27bb69f61cdde4669a267377f326ffcdf74c",
+      "utc": "2026-10-04T08:52:12.489299+00:00"
+    },
+    "time_sha256": "d9251e6d9fbd6c2bec6a17c11079cddcce91395e3d3b2ca1bcaa505f15ece440",
+    "evaluator_source": "fault"
+  }
+]

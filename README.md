@@ -318,8 +318,10 @@ Step 2c 結果：[Frozen transfer report](research/writable_neural_memory_p10/st
 
 ## P7/P10 Step 2d — audit PASS / full TEP PARTIAL
 
-[Extended TEP audit](research/writable_neural_memory_p10/step2d/STEP2D_TEP_AUDIT.md)：**TEP_PROTOCOL_PARTIAL / pending review**。在 `ssh kuo` 完成官方 DTU v1 range acquisition、固定 Mode1 subset 與兩條 observation parser smoke；raw data 全在遠端，未下載完整 HDF5。已確認 fault / mode-transition / setpoint hierarchy，但 activation profile row、warm-up 與 settled-normal/PROMOTE-safe endpoint 尚未由來源證實；預選 Mode1→3 的 10 h completed case 缺失（只有 emergency-stopped counterpart），不補挑。9 tests PASS；沒有 benchmark、CV tuning 或 RL。
+[Extended TEP audit](research/writable_neural_memory_p10/step2d/STEP2D_TEP_AUDIT.md)：**audit PASS / full TEP PARTIAL**。在 `ssh kuo` 完成官方 DTU v1 range acquisition、固定 Mode1 subset 與兩條 observation parser smoke；raw data 全在遠端，未下載完整 HDF5。已確認 fault / mode-transition / setpoint hierarchy，但 activation profile row、warm-up 與 settled-normal/PROMOTE-safe endpoint 尚未由來源證實；預選 Mode1→3 的 10 h completed case 缺失（只有 emergency-stopped counterpart），不補挑。9 tests PASS；沒有 benchmark、CV tuning 或 RL。
 
 ## P7/P10 Step 2e — pending review
 
 [Restricted TEP protocol](research/writable_neural_memory_p10/step2e/PROTOCOL.md)：Issue #15 review 5978181304 授權 SP variation vs fault pilot。作者 thesis Appendix A.3.2 支持前30h nominal、SP 30–70h transition / 70h後 settled normal；fixed 3 SP + 2 fault cases，七 policies，`cv<=0.10` / point counts 不調整。所有 acquisition / experiment 留在 `ssh kuo`；Step3 / RL 仍未授權。
+
+Step 2e 結果：[Restricted TEP report](research/writable_neural_memory_p10/step2e/STEP2E_RESTRICTED_TEP.md) — **TRANSFER_NOT_SUPPORTED / pending review**。Primary W1/seed11：IDV1/2 都誤 promote，fault-written 42.26%/75.45%（threshold 0%/0%）；SP1±5% 在51.95h提前 promote 後改善NORMAL_B FPR，但SP2較threshold差。Robustness：12次fault promotions、12次SP early promotions、0次全NORMAL_B安全promotion。三SP共享同一native seed與normal prefix，不能算三個獨立benign replications。Frozen .10 / checkpoint參數未調整；Step3 / RL未執行，停等review。
