@@ -1,0 +1,140 @@
+{
+  "records": [
+    {
+      "id": "seed101_benign_B_with_anomalies",
+      "group": 101,
+      "arm": "benign_B_with_anomalies",
+      "observation": {
+        "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed101_benign_B_with_anomalies_observations.npy",
+        "sha256": "3c65fd451e400173082a6904b08a0d04dc3ad443bf7366ebcdd391470a17db6c"
+      }
+    },
+    {
+      "id": "seed101_stationary_A_with_anomalies",
+      "group": 101,
+      "arm": "stationary_A_with_anomalies",
+      "observation": {
+        "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed101_stationary_A_with_anomalies_observations.npy",
+        "sha256": "d6ef410fde177f3e43289c46ad13ca495a11bdf09d306cc5616b8e0fd046571b"
+      }
+    },
+    {
+      "id": "seed101_semantic_fault_twin",
+      "group": 101,
+      "arm": "semantic_fault_twin",
+      "observation": {
+        "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed101_semantic_fault_twin_observations.npy",
+        "sha256": "3c65fd451e400173082a6904b08a0d04dc3ad443bf7366ebcdd391470a17db6c"
+      }
+    },
+    {
+      "id": "seed202_benign_B_with_anomalies",
+      "group": 202,
+      "arm": "benign_B_with_anomalies",
+      "observation": {
+        "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed202_benign_B_with_anomalies_observations.npy",
+        "sha256": "a5b6dd905d32623edcb264b279e9618ec1f66e963ac403694aeaf909b59c95b9"
+      }
+    },
+    {
+      "id": "seed202_stationary_A_with_anomalies",
+      "group": 202,
+      "arm": "stationary_A_with_anomalies",
+      "observation": {
+        "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed202_stationary_A_with_anomalies_observations.npy",
+        "sha256": "2246be1892de3e92e19eda3abfd8323685ba902d1bd75ca2355e07035a74eafb"
+      }
+    },
+    {
+      "id": "seed202_semantic_fault_twin",
+      "group": 202,
+      "arm": "semantic_fault_twin",
+      "observation": {
+        "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed202_semantic_fault_twin_observations.npy",
+        "sha256": "a5b6dd905d32623edcb264b279e9618ec1f66e963ac403694aeaf909b59c95b9"
+      }
+    },
+    {
+      "id": "seed303_benign_B_with_anomalies",
+      "group": 303,
+      "arm": "benign_B_with_anomalies",
+      "observation": {
+        "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed303_benign_B_with_anomalies_observations.npy",
+        "sha256": "ca88c58fd8e0cbb6782c486fcf8b5245fd3dd305a175e056338efa2030e47b37"
+      }
+    },
+    {
+      "id": "seed303_stationary_A_with_anomalies",
+      "group": 303,
+      "arm": "stationary_A_with_anomalies",
+      "observation": {
+        "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed303_stationary_A_with_anomalies_observations.npy",
+        "sha256": "c1e842764c65efbb8512db0ffa5e29f584869ef924caad346060085523ebd379"
+      }
+    },
+    {
+      "id": "seed303_semantic_fault_twin",
+      "group": 303,
+      "arm": "semantic_fault_twin",
+      "observation": {
+        "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed303_semantic_fault_twin_observations.npy",
+        "sha256": "ca88c58fd8e0cbb6782c486fcf8b5245fd3dd305a175e056338efa2030e47b37"
+      }
+    },
+    {
+      "id": "seed404_benign_B_with_anomalies",
+      "group": 404,
+      "arm": "benign_B_with_anomalies",
+      "observation": {
+        "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed404_benign_B_with_anomalies_observations.npy",
+        "sha256": "41f2d18eee672b5f35014ca8a95284df2ae2a772d3e12000e4cc3afc7abee6e4"
+      }
+    },
+    {
+      "id": "seed404_stationary_A_with_anomalies",
+      "group": 404,
+      "arm": "stationary_A_with_anomalies",
+      "observation": {
+        "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed404_stationary_A_with_anomalies_observations.npy",
+        "sha256": "82a2257713b42221887774101f6042c02c30038cdb703837a98ce87cd33210a1"
+      }
+    },
+    {
+      "id": "seed404_semantic_fault_twin",
+      "group": 404,
+      "arm": "semantic_fault_twin",
+      "observation": {
+        "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed404_semantic_fault_twin_observations.npy",
+        "sha256": "41f2d18eee672b5f35014ca8a95284df2ae2a772d3e12000e4cc3afc7abee6e4"
+      }
+    },
+    {
+      "id": "seed505_benign_B_with_anomalies",
+      "group": 505,
+      "arm": "benign_B_with_anomalies",
+      "observation": {
+        "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed505_benign_B_with_anomalies_observations.npy",
+        "sha256": "ef6b336975f37d8c4ad32661dffd7b06cd080da75e7774d837bb502e17dee173"
+      }
+    },
+    {
+      "id": "seed505_stationary_A_with_anomalies",
+      "group": 505,
+      "arm": "stationary_A_with_anomalies",
+      "observation": {
+        "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed505_stationary_A_with_anomalies_observations.npy",
+        "sha256": "4543935f14095cc03034b501c6272c5fc14fd53491a436b3c2f86e0f6bb49f2a"
+      }
+    },
+    {
+      "id": "seed505_semantic_fault_twin",
+      "group": 505,
+      "arm": "semantic_fault_twin",
+      "observation": {
+        "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed505_semantic_fault_twin_observations.npy",
+        "sha256": "ef6b336975f37d8c4ad32661dffd7b06cd080da75e7774d837bb502e17dee173"
+      }
+    }
+  ],
+  "evaluator_truth_not_in_runtime_manifest": true
+}

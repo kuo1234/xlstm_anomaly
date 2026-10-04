@@ -1,0 +1,16 @@
+# P4-B evaluation contract
+Frozen P4-A metrics_contract.json is inherited by hash in config. Normative truth is only loaded by eval after all label-free trajectories and manifest are committed/pushed. Semantic/anomaly truth is not operational unsafe truth.
+
+FAR-admit per stream = negative episodes with any actual decoder mutation exposure / all negative episodes: two injected events in benign/stationary arms; twin one persistent negative episode from transition start onward (do not also double-count nested anomalies). Report benign, stationary, twin and all-strata episode counts/rates. Include twin in aggregate, never claim aggregate universal safety.
+
+Purity = unique negative effective-exposure IDs / all unique effective-exposure IDs, no-write=N/A. Selected and queued IDs are not writes; positive loss weights are logged even if a numeric zero gradient leaves parameters unchanged. Also report sum of negative weights / all optimization weights, exposure count, repeated IDs, actual update count, and per-event fraction of points written. Ordinary validA updates are not false admissions; a mixed/A/transition cohort is separately invalid for a B-PROMOTE target.
+
+First valid B commit requires formal PROMOTE in NORMAL_B_SETTLED with all actual contributing IDs in that state, before first B anomaly. First valid commit latency max(0,t-settled); absent=censored. Earlier transition commit remains premature, never relabelled safe afterward. Baseline first effectiveB exposure can begin at transition start; separately first wholly clean settledB exposure. No native formal commit invented. Acceptance Coverage=#physical benign groups valid before censor /5.
+
+Transition burden: legitimate transition/settledB alarms until first formal commit or first-anomaly censor, count/rate/duration, regardless of whether that commit later proves invalid. Report legitimate-clean B FPR on all cleanB and fixed pre-anomaly utility window. Baseline exposure-aligned burden separately. Recovery uses fixed64×3 blocks (PROTOCOL), no outcome cutoff tuning.
+
+Post-valid-accept anomaly point/event recall and delay on two fixedB events; no valid commit=N/A with coverage, but whole-stream event/point recall always reported. Baselines additionally exposure-conditioned outcomes, not formal acceptance. Compare frozen on exactly same event IDs, no point-adjust. Event recall any alarm; within-event long-fault written fractions prevent first-point detection hiding false normalization.
+
+OldA probes score read-only on initial, immediately pre/post first valid commit, pre-first-B-anomaly and final decoder. FPR, median/mean scores and distributions reported; parameters hashed before/after probe call. Gate max(initial->postcommit,initial->preanomaly) FPR deterioration≤.05; same-commit before/after separately. Probes never tune or write. Recurrence N/A.
+
+Physical N=5. Technical seed absent because deterministic model. All Q in Pareto table; no windows-as-N, no iid p-value. Gate checks both group-level paired patterns and macro values as specified in config. Supplemental adaptation utility and recovery do not equal normative legitimacy. Mandatory same-X fault failure included; X-only solution is not claimed.

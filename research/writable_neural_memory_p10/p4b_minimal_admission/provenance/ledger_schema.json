@@ -1,0 +1,13 @@
+{
+  "version": "p4b-ledger-v1",
+  "time": "logical causal phase ticks score3t/decision3t+1/mutation3t+2; wallclock not semantic latency",
+  "row": "one row per evaluation point; every WAIT and no-write retained",
+  "selected_ids": "newly selected current IDs; not necessarily loss-exposed",
+  "buffer_entry_exit": "exact queued/flush IDs, pre/post lengths; pending final IDs in run manifest",
+  "candidate": "start/count/reset; no payload buffer/replay in Q",
+  "loss": "IDs and weights of actual operator call; effective_written IDs only if full parameter hash changed",
+  "paths": "parameter/adapter/optimizer/scaler-EMA/reference/calibration/encoder flags mandatory; all except decoder frozen or absent",
+  "state": "SHA256 frozen encoder/scaler/references/tau/invcov plus decoder before/after",
+  "rollback": "NOT_IMPLEMENTED",
+  "snapshots": "decoder after every output; evaluator read-only probes reconstruct any timing"
+}

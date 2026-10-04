@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-04T17:55:01.810441+00:00",
+  "host": "ssh kuo",
+  "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+  "numpy": "1.26.4",
+  "scipy": "1.17.1",
+  "pandas": "3.0.3",
+  "sklearn": "1.9.0",
+  "dtype": "float64",
+  "OPENBLAS_NUM_THREADS": 1,
+  "GPU": "NOT_USED",
+  "raw_local_downloads": 0,
+  "commands": [
+    "OPENBLAS_NUM_THREADS=1 python3 research/writable_neural_memory_p10/p4b_minimal_admission/tests/test_pilot.py",
+    "OPENBLAS_NUM_THREADS=1 python3 research/writable_neural_memory_p10/p4b_minimal_admission/scripts/run.py",
+    "OPENBLAS_NUM_THREADS=1 python3 research/writable_neural_memory_p10/p4b_minimal_admission/scripts/eval.py"
+  ],
+  "tests_pre_result_passed": 16
+}

@@ -1,0 +1,102 @@
+{
+  "version": "p4b-v1",
+  "physical_groups": [
+    101,
+    202,
+    303,
+    404,
+    505
+  ],
+  "policies": [
+    "FROZEN",
+    "IMMEDIATE_UPDATE",
+    "M2N2_STYLE_CAUSAL",
+    "CANDI_STYLE_CAUSAL",
+    "QUARANTINE_1",
+    "QUARANTINE_64",
+    "QUARANTINE_128",
+    "QUARANTINE_256",
+    "QUARANTINE_512"
+  ],
+  "Q": [
+    1,
+    64,
+    128,
+    256,
+    512
+  ],
+  "arms": [
+    "benign_B_with_anomalies",
+    "stationary_A_with_anomalies",
+    "semantic_fault_twin"
+  ],
+  "model": "linear_autoencoder",
+  "latent_dim": 2,
+  "history": 1,
+  "technical_replicates": 1,
+  "model_rng": "NONE: deterministic SVD and least squares",
+  "dtype": "float64",
+  "threshold_quantile": 0.99,
+  "learning_rate": 0.01,
+  "loss": "mean squared reconstruction across selected points and4 channels",
+  "momentum": 0,
+  "optimizer_state": "NONE",
+  "gradient_clipping": false,
+  "candidate": "score>frozen A-calibration tau",
+  "candidate_reset": "one non-alarm resets candidate and release; no gap bridging",
+  "Q_unit": "consecutive alarm points",
+  "Q_write": "first current point at Q -> formal PROMOTE; subsequent alarm points in same run -> UPDATE; no backfill",
+  "immediate": "same anomaly-candidate writes asQ1, but no formal regime commit",
+  "M2N2": "write current point iff score<=tau",
+  "CANDI": {
+    "min_samples": 16,
+    "hard_top_calibration_fraction": 0.005,
+    "reference_cap": 32,
+    "moderate_reference": "calibration score interquartile",
+    "chi_square_p": 0.05,
+    "covariance_ridge": 1e-06,
+    "separate_buffers": true,
+    "flush": "one batch mean-SGD step when hard or moderate buffer reaches16; no final forced flush",
+    "thresholds_or_refs_adapt": false
+  },
+  "scaler": "fitA0:1024 only; population sd floor1e-8->1; no clipping",
+  "calibration": [
+    1024,
+    1536
+  ],
+  "eval_start": 1536,
+  "rollback": "NOT_IMPLEMENTED",
+  "native": "NOT_RUN",
+  "TSB": "NOT_RUN",
+  "recovery": {
+    "block": 64,
+    "consecutive": 3,
+    "min_clean_points": 32,
+    "max_FPR": 0.1,
+    "start": "settled_B; original timeline"
+  },
+  "utility_window": "last256 clean settled-B samples before first B anomaly",
+  "gates": {
+    "coverage_min": 0.8,
+    "valid_TTA_median_max": 512,
+    "stationary_FAR_decrease_min": 0.5,
+    "stationary_improvement_groups_min": 4,
+    "event_recall_drop_max": 0.1,
+    "old_A_FPR_increase_max": 0.05,
+    "expression_FROZEN_B_FPR_min": 0.1,
+    "expression_groups_min": 4,
+    "utility_FPR_decrease_min": 0.05,
+    "utility_groups_min": 4
+  },
+  "gate_priority": [
+    "PROTOCOL_OR_INSTRUMENTATION_FAIL",
+    "ADAPTATION_PROBLEM_NOT_EXPRESSED",
+    "SAFE_DELAY_TRADEOFF_SUPPORTED",
+    "ADAPTATION_HARMS_RETENTION",
+    "DELAY_ONLY_DURATION_FILTER",
+    "NO_INCREMENT_OVER_EXISTING_ADAPTATION"
+  ],
+  "contract_sha256": "147a23bcab0e4e7419336fe47bbec5e7e3ec6210dec0578fb3e49ca7b053997e",
+  "controlled_config_sha256": "3c2a0bd506cab3aad8023856eb15bd32c0fe2d073ecebe28b519e7036c4a9075",
+  "controlled_manifest_sha256": "0b42978de02ab4f97b0f03d780e8590b7490cff84f06858d5e60c3a1b589fc47"
+}
