@@ -1,0 +1,219 @@
+{
+  "datasets": [
+    {
+      "id": "case01",
+      "fit_rows": [
+        0,
+        319
+      ],
+      "cal_rows": [
+        319,
+        399
+      ],
+      "test_rows": [
+        0,
+        1601
+      ],
+      "files": {
+        "train": {
+          "file": "case01_train.npy",
+          "sha256": "beb4870510bddd3a597928e165cc0f80cf0982c964eb4ddbb149e990cea462c7",
+          "shape": [
+            399,
+            53
+          ]
+        },
+        "test": {
+          "file": "case01_test.npy",
+          "sha256": "e2291065217cbb6edf754f28986075193fbc48ae259101a6dd96291f428589e7",
+          "shape": [
+            1601,
+            53
+          ]
+        },
+        "timestamps": {
+          "file": "case01_timestamps.npy",
+          "sha256": "d9251e6d9fbd6c2bec6a17c11079cddcce91395e3d3b2ca1bcaa505f15ece440",
+          "shape": [
+            1601
+          ]
+        }
+      },
+      "fit_source": "source-normal prefix first80%; CAL last20% entirely held out from primary scaler/memory/manifold fitting",
+      "regression_only_exception": "old Step2e scaler full train replays prior sealed control; not a new primary fitted arm"
+    },
+    {
+      "id": "case02",
+      "fit_rows": [
+        0,
+        319
+      ],
+      "cal_rows": [
+        319,
+        399
+      ],
+      "test_rows": [
+        0,
+        1601
+      ],
+      "files": {
+        "train": {
+          "file": "case02_train.npy",
+          "sha256": "beb4870510bddd3a597928e165cc0f80cf0982c964eb4ddbb149e990cea462c7",
+          "shape": [
+            399,
+            53
+          ]
+        },
+        "test": {
+          "file": "case02_test.npy",
+          "sha256": "b42325797ba88902d556a67ca2675a53ef47dac0340a3f9c2c108fd48a6de3ad",
+          "shape": [
+            1601,
+            53
+          ]
+        },
+        "timestamps": {
+          "file": "case02_timestamps.npy",
+          "sha256": "d9251e6d9fbd6c2bec6a17c11079cddcce91395e3d3b2ca1bcaa505f15ece440",
+          "shape": [
+            1601
+          ]
+        }
+      },
+      "fit_source": "source-normal prefix first80%; CAL last20% entirely held out from primary scaler/memory/manifold fitting",
+      "regression_only_exception": "old Step2e scaler full train replays prior sealed control; not a new primary fitted arm"
+    },
+    {
+      "id": "case03",
+      "fit_rows": [
+        0,
+        319
+      ],
+      "cal_rows": [
+        319,
+        399
+      ],
+      "test_rows": [
+        0,
+        1601
+      ],
+      "files": {
+        "train": {
+          "file": "case03_train.npy",
+          "sha256": "beb4870510bddd3a597928e165cc0f80cf0982c964eb4ddbb149e990cea462c7",
+          "shape": [
+            399,
+            53
+          ]
+        },
+        "test": {
+          "file": "case03_test.npy",
+          "sha256": "df88ae23c61868006e3d2d701b0ebfa9f04972c1dfff4a5c5e15d75756bee60f",
+          "shape": [
+            1601,
+            53
+          ]
+        },
+        "timestamps": {
+          "file": "case03_timestamps.npy",
+          "sha256": "d9251e6d9fbd6c2bec6a17c11079cddcce91395e3d3b2ca1bcaa505f15ece440",
+          "shape": [
+            1601
+          ]
+        }
+      },
+      "fit_source": "source-normal prefix first80%; CAL last20% entirely held out from primary scaler/memory/manifold fitting",
+      "regression_only_exception": "old Step2e scaler full train replays prior sealed control; not a new primary fitted arm"
+    },
+    {
+      "id": "case04",
+      "fit_rows": [
+        0,
+        320
+      ],
+      "cal_rows": [
+        320,
+        400
+      ],
+      "test_rows": [
+        0,
+        1601
+      ],
+      "files": {
+        "train": {
+          "file": "case04_train.npy",
+          "sha256": "5fcff6d1f765faf5746718de5f110eea8f6e9ebcb07c9d01bb3216d52031cf06",
+          "shape": [
+            400,
+            53
+          ]
+        },
+        "test": {
+          "file": "case04_test.npy",
+          "sha256": "a67f462aca1f8417da65ee3de4bbe260697b12e2cebd5a4878aa0b4b87941eb2",
+          "shape": [
+            1601,
+            53
+          ]
+        },
+        "timestamps": {
+          "file": "case04_timestamps.npy",
+          "sha256": "d9251e6d9fbd6c2bec6a17c11079cddcce91395e3d3b2ca1bcaa505f15ece440",
+          "shape": [
+            1601
+          ]
+        }
+      },
+      "fit_source": "source-normal prefix first80%; CAL last20% entirely held out from primary scaler/memory/manifold fitting",
+      "regression_only_exception": "old Step2e scaler full train replays prior sealed control; not a new primary fitted arm"
+    },
+    {
+      "id": "case05",
+      "fit_rows": [
+        0,
+        320
+      ],
+      "cal_rows": [
+        320,
+        400
+      ],
+      "test_rows": [
+        0,
+        1601
+      ],
+      "files": {
+        "train": {
+          "file": "case05_train.npy",
+          "sha256": "3e4ec773fb667e70e54ee4f80050239e6a0b6382eda778cc0d7be6155a19cd18",
+          "shape": [
+            400,
+            53
+          ]
+        },
+        "test": {
+          "file": "case05_test.npy",
+          "sha256": "bffab031569ab8bd3bc412968f56d407ae4449540e07314dc1f9660bc955c21e",
+          "shape": [
+            1601,
+            53
+          ]
+        },
+        "timestamps": {
+          "file": "case05_timestamps.npy",
+          "sha256": "d9251e6d9fbd6c2bec6a17c11079cddcce91395e3d3b2ca1bcaa505f15ece440",
+          "shape": [
+            1601
+          ]
+        }
+      },
+      "fit_source": "source-normal prefix first80%; CAL last20% entirely held out from primary scaler/memory/manifold fitting",
+      "regression_only_exception": "old Step2e scaler full train replays prior sealed control; not a new primary fitted arm"
+    }
+  ],
+  "event_runs": "same five sealed Step2e literal cases; not new holdout",
+  "raw_host": "ssh kuo / spark-3994",
+  "no_local_raw_download": true,
+  "source_metadata_git_blob": "095c345fdde0e2e529ee6a033ffc047649e8b630",
+  "old_seal_sha256": "34c6b78e430b63978e86c4cd3714d080b17d3507a4c6fe142075cdf822f533f6"
+}
