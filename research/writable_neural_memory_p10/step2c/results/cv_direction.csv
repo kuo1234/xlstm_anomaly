@@ -1,0 +1,16 @@
+scope,machine,n_fault,n_nonanomaly,fault_cv_median,nonanomaly_cv_median,direction,cv_AUROC
+primary_seed11_W1,machine-1-1,14,7,0.7525792166244178,0.5842352058288757,consistent,0.8673469387755102
+primary_seed11_W1,machine-1-2,1,0,1.1441424851195832,,unresolved,
+primary_seed11_W1,machine-2-2,0,1,,1.4873996541135657,unresolved,
+primary_seed11_W1,machine-2-3,0,80,,0.462384301069672,unresolved,
+primary_seed11_W1,machine-2-4,3,0,0.4453292848104858,,unresolved,
+primary_seed11_W1,machine-3-1,1,23,1.0451562694751777,0.6840146957082969,consistent,1.0
+primary_seed11_W1,machine-3-3,2,0,0.6174971407461363,,unresolved,
+robustness_all,machine-1-1,121,82,0.5315797169805314,0.3147728244445587,consistent,0.8352146744607942
+robustness_all,machine-1-2,2,0,1.1631583081720216,,unresolved,
+robustness_all,machine-1-3,0,18,,0.00236826929487105,unresolved,
+robustness_all,machine-2-2,11,3,0.6769816163368532,0.8514558665266778,REVERSED,0.48484848484848486
+robustness_all,machine-2-3,0,249,,0.4594162228287648,unresolved,
+robustness_all,machine-2-4,19,0,0.4149035159425748,,unresolved,
+robustness_all,machine-3-1,6,243,1.033913382735391,0.5228580030080273,consistent,1.0
+robustness_all,machine-3-3,6,0,0.6239450992977649,,unresolved,

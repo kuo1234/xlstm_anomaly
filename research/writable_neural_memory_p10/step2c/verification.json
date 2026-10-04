@@ -1,0 +1,12 @@
+{
+  "seal_integrity": "PASS",
+  "sealed_code_unchanged": "PASS",
+  "unit_completeness": "648/648",
+  "machines": "9/9",
+  "metric_bounds": "PASS",
+  "occupancy_and_write_counts": "PASS all648",
+  "label_accesses": "9 after remote-seal verification",
+  "no_policy_retuning": true,
+  "prelabel_tests": "23 passed",
+  "reporting_only_change": "fill absent primary diagnostic rows with N/A and explicitly print robustness reversal; frozen evaluator unchanged"
+}

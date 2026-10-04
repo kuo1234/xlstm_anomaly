@@ -313,3 +313,5 @@ PyTorch         2.13.0 / 2.13.0+cu130
 
 Step 2a：PASS；Step 2b：**exploratory PASS / pre-registered method FAIL**（Issue #15 review 5975468315）。
 [Step 2c frozen transfer protocol](research/writable_neural_memory_p10/step2c/PROTOCOL.md) 與 [exposure audit](research/writable_neural_memory_p10/step2c/STEP2C_DATA_AUDIT.md)：9 台新 SMD machines，frozen exploratory machine-transfer，非 strict confirmatory；`cv<=0.10` 不調參。New-normal promotion 無 source ground truth，NOT EVALUABLE；HAI / SWaT acquisition BLOCKED。所有結果 pending review，Step3 / RL 未授權。
+
+Step 2c 結果：[Frozen transfer report](research/writable_neural_memory_p10/step2c/STEP2C_TRANSFER.md) — **PARTIAL_TRANSFER / pending review**。9 machines，8/9 ΔAP 正向，macro ΔAP +0.0157 / ΔVUS-PR +0.0181；21 次 replicate-trajectory promotions 中 0 次碰到 labelled anomaly。但 primary CV direction 僅 2/9 台具兩個 class，operator robustness 在 2-2 反轉；沒有 benign-regime truth，new-normal adaptation NOT EVALUABLE。Point recall 約 .278，部分低於 τ 的長 anomaly 仍大量寫入；零 fault promotion 不代表全面 memory safety。未調整 frozen rule；Step3 / RL 未執行，等待 review。

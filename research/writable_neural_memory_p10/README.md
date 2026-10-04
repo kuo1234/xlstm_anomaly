@@ -186,3 +186,5 @@ Issue #15 review 5975468315 已授權 Step 2c frozen transfer；`cv <= 0.10` 不
 ### Step 2c — Frozen Stabilisation Transfer Test：pending review
 
 [Protocol](step2c/PROTOCOL.md) / [data exposure audit](step2c/STEP2C_DATA_AUDIT.md)。9 個未參與 Step 2a/2b 的 SMD machines，歷史 labels 已 exposure，因此為 frozen exploratory machine-transfer，不能稱 strict confirmatory。DEph_cv 的 self<=1 / stat<=.5 / cv<=.10、block16 / check256+128 / trail256 全部凍結。HAI Git LFS 與 SWaT 原始資料 acquisition BLOCKED；new-normal promotion 無 source truth，NOT EVALUABLE。先推送 score seal 再開 labels；結果待 reviewer 判定，不自行進 Step3 / RL。
+
+Step 2c 結果：[Frozen transfer report](step2c/STEP2C_TRANSFER.md) — **PARTIAL_TRANSFER / pending review**。9 machines，8/9 ΔAP 正向，macro ΔAP +0.0157 / ΔVUS-PR +0.0181；21 次 replicate-trajectory promotions 中 0 次碰到 labelled anomaly。但 primary CV direction 僅 2/9 台具兩個 class，operator robustness 在 2-2 反轉；沒有 benign-regime truth，new-normal adaptation NOT EVALUABLE。Point recall 約 .278，部分低於 τ 的長 anomaly 仍大量寫入；零 fault promotion 不代表全面 memory safety。未調整 frozen rule；Step3 / RL 未執行，等待 review。

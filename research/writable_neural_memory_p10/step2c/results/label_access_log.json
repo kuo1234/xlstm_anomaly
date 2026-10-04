@@ -1,0 +1,101 @@
+[
+  {
+    "machine": "machine-1-1",
+    "purpose": "step2c_frozen_transfer",
+    "utc": "2026-10-04T05:15:18Z",
+    "label_sha256": "cddf33441ae480c6074e173c897d4715eb893f24a7078d3d3e1b79b200c7cd19",
+    "label_url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test_label/machine-1-1.txt",
+    "seal_commit": "37e7f32dd42e3b895e3cb622f2ea835ea7cdafd6",
+    "remote_commit": "37e7f32dd42e3b895e3cb622f2ea835ea7cdafd6",
+    "verified_utc": "2026-10-04T05:15:18Z",
+    "seal_sha256": "fb413d66f7755a0d012a7f0bdccb95d16d50652fb089d5b5495c4d8ac084a78b"
+  },
+  {
+    "machine": "machine-1-2",
+    "purpose": "step2c_frozen_transfer",
+    "utc": "2026-10-04T05:15:22Z",
+    "label_sha256": "c2dbb3e4f89c9eb48f30fd1ddae48b80e7ae7ad7ca9abf2ffd71b6557ef2bb20",
+    "label_url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test_label/machine-1-2.txt",
+    "seal_commit": "37e7f32dd42e3b895e3cb622f2ea835ea7cdafd6",
+    "remote_commit": "37e7f32dd42e3b895e3cb622f2ea835ea7cdafd6",
+    "verified_utc": "2026-10-04T05:15:22Z",
+    "seal_sha256": "fb413d66f7755a0d012a7f0bdccb95d16d50652fb089d5b5495c4d8ac084a78b"
+  },
+  {
+    "machine": "machine-1-3",
+    "purpose": "step2c_frozen_transfer",
+    "utc": "2026-10-04T05:15:27Z",
+    "label_sha256": "755d57179625682172ae85f9483749cff576ff3282d0af294271a40ab6ea7b28",
+    "label_url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test_label/machine-1-3.txt",
+    "seal_commit": "37e7f32dd42e3b895e3cb622f2ea835ea7cdafd6",
+    "remote_commit": "37e7f32dd42e3b895e3cb622f2ea835ea7cdafd6",
+    "verified_utc": "2026-10-04T05:15:26Z",
+    "seal_sha256": "fb413d66f7755a0d012a7f0bdccb95d16d50652fb089d5b5495c4d8ac084a78b"
+  },
+  {
+    "machine": "machine-2-2",
+    "purpose": "step2c_frozen_transfer",
+    "utc": "2026-10-04T05:15:30Z",
+    "label_sha256": "b09e71b3aafe71d9ee73a4058b30efcf67dc80df98d3b7b7a8ec019ea3b769c4",
+    "label_url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test_label/machine-2-2.txt",
+    "seal_commit": "37e7f32dd42e3b895e3cb622f2ea835ea7cdafd6",
+    "remote_commit": "37e7f32dd42e3b895e3cb622f2ea835ea7cdafd6",
+    "verified_utc": "2026-10-04T05:15:30Z",
+    "seal_sha256": "fb413d66f7755a0d012a7f0bdccb95d16d50652fb089d5b5495c4d8ac084a78b"
+  },
+  {
+    "machine": "machine-2-3",
+    "purpose": "step2c_frozen_transfer",
+    "utc": "2026-10-04T05:15:35Z",
+    "label_sha256": "5768ce5280cb5ce4bee6d8bb3c7105819574d5e82f7d517d61495efa9d4f566e",
+    "label_url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test_label/machine-2-3.txt",
+    "seal_commit": "37e7f32dd42e3b895e3cb622f2ea835ea7cdafd6",
+    "remote_commit": "37e7f32dd42e3b895e3cb622f2ea835ea7cdafd6",
+    "verified_utc": "2026-10-04T05:15:34Z",
+    "seal_sha256": "fb413d66f7755a0d012a7f0bdccb95d16d50652fb089d5b5495c4d8ac084a78b"
+  },
+  {
+    "machine": "machine-2-4",
+    "purpose": "step2c_frozen_transfer",
+    "utc": "2026-10-04T05:15:39Z",
+    "label_sha256": "c26a6dabfd2ab4aec34c40919100e13e52e17ad0e6b702dd038f582b2c633b01",
+    "label_url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test_label/machine-2-4.txt",
+    "seal_commit": "37e7f32dd42e3b895e3cb622f2ea835ea7cdafd6",
+    "remote_commit": "37e7f32dd42e3b895e3cb622f2ea835ea7cdafd6",
+    "verified_utc": "2026-10-04T05:15:38Z",
+    "seal_sha256": "fb413d66f7755a0d012a7f0bdccb95d16d50652fb089d5b5495c4d8ac084a78b"
+  },
+  {
+    "machine": "machine-3-1",
+    "purpose": "step2c_frozen_transfer",
+    "utc": "2026-10-04T05:15:43Z",
+    "label_sha256": "549348a9c63ed922e85157885bcb21289a8c9f5af94b50147a21cb7b928220ec",
+    "label_url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test_label/machine-3-1.txt",
+    "seal_commit": "37e7f32dd42e3b895e3cb622f2ea835ea7cdafd6",
+    "remote_commit": "37e7f32dd42e3b895e3cb622f2ea835ea7cdafd6",
+    "verified_utc": "2026-10-04T05:15:42Z",
+    "seal_sha256": "fb413d66f7755a0d012a7f0bdccb95d16d50652fb089d5b5495c4d8ac084a78b"
+  },
+  {
+    "machine": "machine-3-2",
+    "purpose": "step2c_frozen_transfer",
+    "utc": "2026-10-04T05:15:48Z",
+    "label_sha256": "1bbf4223cc6083f718f1d6022e2a48d48af44b08cdfa80048aa51af34d5111c3",
+    "label_url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test_label/machine-3-2.txt",
+    "seal_commit": "37e7f32dd42e3b895e3cb622f2ea835ea7cdafd6",
+    "remote_commit": "37e7f32dd42e3b895e3cb622f2ea835ea7cdafd6",
+    "verified_utc": "2026-10-04T05:15:47Z",
+    "seal_sha256": "fb413d66f7755a0d012a7f0bdccb95d16d50652fb089d5b5495c4d8ac084a78b"
+  },
+  {
+    "machine": "machine-3-3",
+    "purpose": "step2c_frozen_transfer",
+    "utc": "2026-10-04T05:15:52Z",
+    "label_sha256": "4e2c657f613759f11f167c5540d047723d41d8a3c76467fa4daafcc8a7112035",
+    "label_url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test_label/machine-3-3.txt",
+    "seal_commit": "37e7f32dd42e3b895e3cb622f2ea835ea7cdafd6",
+    "remote_commit": "37e7f32dd42e3b895e3cb622f2ea835ea7cdafd6",
+    "verified_utc": "2026-10-04T05:15:52Z",
+    "seal_sha256": "fb413d66f7755a0d012a7f0bdccb95d16d50652fb089d5b5495c4d8ac084a78b"
+  }
+]
