@@ -308,3 +308,8 @@ PyTorch         2.13.0 / 2.13.0+cu130
 6. `research/writable_neural_memory_p10/step1a1/STEP1A1_DIAGNOSTICS.md`
 
 目前 active research state 以 `research/p7-p10-segment-memory` 與 issue #15 最新紀錄為準。
+
+## P7/P10 Step 2c — pending review
+
+Step 2a：PASS；Step 2b：**exploratory PASS / pre-registered method FAIL**（Issue #15 review 5975468315）。
+[Step 2c frozen transfer protocol](research/writable_neural_memory_p10/step2c/PROTOCOL.md) 與 [exposure audit](research/writable_neural_memory_p10/step2c/STEP2C_DATA_AUDIT.md)：9 台新 SMD machines，frozen exploratory machine-transfer，非 strict confirmatory；`cv<=0.10` 不調參。New-normal promotion 無 source ground truth，NOT EVALUABLE；HAI / SWaT acquisition BLOCKED。所有結果 pending review，Step3 / RL 未授權。

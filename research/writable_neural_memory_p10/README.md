@@ -129,7 +129,7 @@ SMD test stream（machine-3-7 / 1-6 / 2-7），policy 只看 causal anomaly scor
 
 ---
 
-### Step 2b — delayed-evidence drift-vs-fault admission pilot：pending review
+### Step 2b — delayed-evidence drift-vs-fault admission pilot：exploratory PASS / pre-registered method FAIL
 
 同三台 SMD（development / exploratory，label 先前已 exposure-visible）。quarantine segment 每 128 步計算 causal delayed
 evidence（score variability、trial-write self-consistency、plateau ratio、channel structure、key novelty、operator disagreement），
@@ -154,7 +154,7 @@ evidence（score variability、trial-write self-consistency、plateau ratio、ch
 
 ## Next question
 
-待 review 決定（建議：sealed Step 2c，在未 label-inspected 的 SMD 機器或其他 labelled dataset 上驗證 `cv` 是否 transfer）。
+Issue #15 review 5975468315 已授權 Step 2c frozen transfer；`cv <= 0.10` 不再調整。
 
 尚未宣稱：
 
@@ -182,3 +182,7 @@ evidence（score variability、trial-write self-consistency、plateau ratio、ch
 - `step2b/`：delayed-evidence drift-vs-fault admission pilot（sealed main + post-hoc runs, results）
 
 舊的 `docs-only` / `no research GO` 狀態已不再適用。
+
+### Step 2c — Frozen Stabilisation Transfer Test：pending review
+
+[Protocol](step2c/PROTOCOL.md) / [data exposure audit](step2c/STEP2C_DATA_AUDIT.md)。9 個未參與 Step 2a/2b 的 SMD machines，歷史 labels 已 exposure，因此為 frozen exploratory machine-transfer，不能稱 strict confirmatory。DEph_cv 的 self<=1 / stat<=.5 / cv<=.10、block16 / check256+128 / trail256 全部凍結。HAI Git LFS 與 SWaT 原始資料 acquisition BLOCKED；new-normal promotion 無 source truth，NOT EVALUABLE。先推送 score seal 再開 labels；結果待 reviewer 判定，不自行進 Step3 / RL。
