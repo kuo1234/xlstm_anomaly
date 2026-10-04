@@ -316,6 +316,10 @@ Step 2a：PASS；Step 2b：**exploratory PASS / pre-registered method FAIL**（I
 
 Step 2c 結果：[Frozen transfer report](research/writable_neural_memory_p10/step2c/STEP2C_TRANSFER.md) — **PARTIAL_TRANSFER / protocol PASS**。9 machines，8/9 ΔAP 正向，macro ΔAP +0.0157 / ΔVUS-PR +0.0181；21 次 replicate-trajectory promotions 中 0 次碰到 labelled anomaly。但 primary CV direction 僅 2/9 台具兩個 class，operator robustness 在 2-2 反轉；沒有 benign-regime truth，new-normal adaptation NOT EVALUABLE。Point recall 約 .278，部分低於 τ 的長 anomaly 仍大量寫入；零 fault promotion 不代表全面 memory safety。未調整 frozen rule；Step3 / RL 未執行（Issue #15 review 5977728169，暫不 GO FOR RL）。
 
-## P7/P10 Step 2d — pending review
+## P7/P10 Step 2d — audit PASS / full TEP PARTIAL
 
 [Extended TEP audit](research/writable_neural_memory_p10/step2d/STEP2D_TEP_AUDIT.md)：**TEP_PROTOCOL_PARTIAL / pending review**。在 `ssh kuo` 完成官方 DTU v1 range acquisition、固定 Mode1 subset 與兩條 observation parser smoke；raw data 全在遠端，未下載完整 HDF5。已確認 fault / mode-transition / setpoint hierarchy，但 activation profile row、warm-up 與 settled-normal/PROMOTE-safe endpoint 尚未由來源證實；預選 Mode1→3 的 10 h completed case 缺失（只有 emergency-stopped counterpart），不補挑。9 tests PASS；沒有 benchmark、CV tuning 或 RL。
+
+## P7/P10 Step 2e — pending review
+
+[Restricted TEP protocol](research/writable_neural_memory_p10/step2e/PROTOCOL.md)：Issue #15 review 5978181304 授權 SP variation vs fault pilot。作者 thesis Appendix A.3.2 支持前30h nominal、SP 30–70h transition / 70h後 settled normal；fixed 3 SP + 2 fault cases，七 policies，`cv<=0.10` / point counts 不調整。所有 acquisition / experiment 留在 `ssh kuo`；Step3 / RL 仍未授權。

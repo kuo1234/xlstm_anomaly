@@ -1,0 +1,53 @@
+{
+  "utc": "2026-10-04T08:43:08.147849+00:00",
+  "cases": [
+    {
+      "id": "case01",
+      "path": "Mode1/SpVariation/SimulationCompleted/SP1/tRamp_10/SpMagnitude105",
+      "arm": "setpoint"
+    },
+    {
+      "id": "case02",
+      "path": "Mode1/SpVariation/SimulationCompleted/SP1/tRamp_10/SpMagnitude95",
+      "arm": "setpoint"
+    },
+    {
+      "id": "case03",
+      "path": "Mode1/SpVariation/SimulationCompleted/SP2/tRamp_10/SpMagnitude105",
+      "arm": "setpoint"
+    },
+    {
+      "id": "case04",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run1",
+      "arm": "fault"
+    },
+    {
+      "id": "case05",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV2/Mode1_IDVInfo_2_100/Run1",
+      "arm": "fault"
+    }
+  ],
+  "selection": "first task SP1+5%; two fixed optional cases SP1-5%,SP2+5%, ramp10h. IDV1/2 100% literal Run1. No replacement on missing/stopped. No detector outcome selection.",
+  "split": {
+    "train": "timestamps <20h",
+    "test": "timestamps >=20h",
+    "fit_fraction": 0.8
+  },
+  "label_semantics": "setpoint: [0,30) NORMAL_A, [30,70) TRANSITION, >=70 NORMAL_B; fault >=30 FAULT. Right endpoint observed-inclusive, use last+dt for half-open censoring.",
+  "physical_unit": "simulation run; three SP conditions not proof of independent plant replication",
+  "source": {
+    "url": "https://backend.orbit.dtu.dk/ws/portalfiles/portal/262630763/Thesis_Christopher_Clarc_Reinartz.pdf",
+    "sha256": "5d4e73b7d676ae77517e509d2f6653a75d151f256d2507bd65746b6d78723d67",
+    "pdf_pages": [
+      95,
+      96
+    ],
+    "printed_pages": [
+      74,
+      75
+    ],
+    "section": "Appendix A.3.1-A.3.2"
+  },
+  "evaluation_labels_previously_exposed": true,
+  "claim": "restricted controlled simulator pilot; frozen exploratory transfer, not strict confirmatory"
+}
