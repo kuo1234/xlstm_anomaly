@@ -1,0 +1,25 @@
+{
+  "utc": "2026-10-04T17:56:10.846413+00:00",
+  "freeze": {
+    "freeze_commit": "bd89ca252a1a84a3e68f38467984a05d0d2ea096",
+    "verified_remote_SHA": "bd89ca252a1a84a3e68f38467984a05d0d2ea096",
+    "check_utc": "2026-10-04T17:56:11.355477+00:00"
+  },
+  "run_manifest_sha256": "3fb2e02b3336bb08427c992ea5a3b7824748f7e33075c831edfa68183f44faa2",
+  "config_sha256": "b922fb8921cec7f74acfee91510c13f6046f6f2b1a6d56d53a37dc603ba5b194",
+  "ledger_schema_sha256": "119d2cabae8ccfc363a617447a09a39382e6ef82b8b847ab90a542f125c98c1c",
+  "trajectories": 135,
+  "ledger_rows": 622080,
+  "full_ledger_and_snapshot_hashes_verified": true,
+  "twin_pairs_equal": 45,
+  "Q1_immediate_parity": 15,
+  "runtime_labels_read": 0,
+  "new_normative_evaluation_before_trace_push": 0,
+  "historical_truth_exposed": true,
+  "models": 5,
+  "scientific_N": 5,
+  "technical_replicates": 1,
+  "all_wait_rows_retained": true,
+  "rollback": "NOT_IMPLEMENTED",
+  "raw_local_downloads": 0
+}
