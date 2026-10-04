@@ -1,0 +1,12 @@
+{
+  "utc": "2026-10-04T09:47:07.735322+00:00",
+  "matched_end_indices": [
+    1280,
+    1408,
+    1536
+  ],
+  "diagnostic_only": true,
+  "neural_arm": "NOT_RUN until A gate",
+  "controller_run": false,
+  "new_threshold_fitted": false
+}

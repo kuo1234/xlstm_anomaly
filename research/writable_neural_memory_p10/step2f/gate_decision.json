@@ -1,0 +1,10 @@
+{
+  "A_gate": "A_PASS_RESIDUAL_SUFFICIENT",
+  "final_verdict": "RESIDUAL_EVIDENCE_SUFFICIENT",
+  "scope": "Existing five cases: exploratory structural sufficiency, not validated admission or independent benign-seed transfer",
+  "neural_arm": "NEURAL_ARM_NOT_RUN",
+  "controller_run": false,
+  "new_threshold_fitted": false,
+  "posthoc_rule_fitted": false,
+  "reason": "Preregistered top5-energy concentration has fault-high ordering at all matched ages in every frozen view/seed/operator, across both heldout case sets. Combined A1/A2 probes fail reverse fold; these failures bound generalization, not absence of observed residual information. No replacement classifier or rule."
+}

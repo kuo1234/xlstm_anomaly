@@ -329,3 +329,5 @@ Step 2e 結果：[Restricted TEP report](research/writable_neural_memory_p10/ste
 ## P7/P10 Step 2f — pending review
 
 [Evidence audit protocol](research/writable_neural_memory_p10/step2f/PROTOCOL.md)：先做Step2f-A preprocessing / residual structure，strict FIT/CAL separation；current clip / no-clip fixed diagnostic，R0 frozen normal memory，residual-vector / normal-manifold / intervention-heldout upper-bound probes。A gate之前不啟動neural training；不做RL/LEFT/controller。所有資料和執行在`ssh kuo`。
+
+Step 2f 結果：[Evidence audit](research/writable_neural_memory_p10/step2f/STEP2F_EVIDENCE_AUDIT.md) — **pending review / RESIDUAL_EVIDENCE_SUFFICIENT（limited structural diagnostic）**。Top5 residual-energy concentration 在 fixed cases/seeds/operators/clip-no-clip 方向一致；A2 probe fold0 成立但 fold1 全敗，不能宣稱 generalizable classifier。Low-CV fault 移除 clipping 後仍存在。A_PASS_RESIDUAL_SUFFICIENT / NEURAL_ARM_NOT_RUN；無 admission rule/controller/RL/LEFT。只有一個 benign native seed，非 strict confirmatory。
