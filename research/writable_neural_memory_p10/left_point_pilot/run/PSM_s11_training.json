@@ -1,0 +1,242 @@
+[
+  {
+    "epoch": 1,
+    "step": 159,
+    "train_loss": 1.3360244395597927,
+    "healthy_validation_loss": 1.307146089001215,
+    "seconds": 29.20100450515747,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 2,
+    "step": 318,
+    "train_loss": 1.3208446337741875,
+    "healthy_validation_loss": 1.2974016200067944,
+    "seconds": 28.47060203552246,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 3,
+    "step": 477,
+    "train_loss": 1.310257944670863,
+    "healthy_validation_loss": 1.2934192121757564,
+    "seconds": 28.53814935684204,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 4,
+    "step": 636,
+    "train_loss": 1.3074023933530603,
+    "healthy_validation_loss": 1.2912651402443138,
+    "seconds": 28.643543004989624,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 5,
+    "step": 795,
+    "train_loss": 1.303001083667923,
+    "healthy_validation_loss": 1.28992329162607,
+    "seconds": 28.639103174209595,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 6,
+    "step": 954,
+    "train_loss": 1.297303612127244,
+    "healthy_validation_loss": 1.286772972505658,
+    "seconds": 28.626903295516968,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 7,
+    "step": 1113,
+    "train_loss": 1.2919796315379113,
+    "healthy_validation_loss": 1.2830474429142213,
+    "seconds": 28.63741135597229,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 8,
+    "step": 1272,
+    "train_loss": 1.2873843533437956,
+    "healthy_validation_loss": 1.279057417055797,
+    "seconds": 28.62994408607483,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 9,
+    "step": 1431,
+    "train_loss": 1.2845497843604419,
+    "healthy_validation_loss": 1.2778245773175527,
+    "seconds": 28.6309494972229,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 10,
+    "step": 1590,
+    "train_loss": 1.2838382690957508,
+    "healthy_validation_loss": 1.2771902402047715,
+    "seconds": 28.645377159118652,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 11,
+    "step": 1749,
+    "train_loss": 1.28329424888083,
+    "healthy_validation_loss": 1.276588555944578,
+    "seconds": 28.73351812362671,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 12,
+    "step": 1908,
+    "train_loss": 1.28268501068811,
+    "healthy_validation_loss": 1.275949766408552,
+    "seconds": 28.722174406051636,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 13,
+    "step": 2067,
+    "train_loss": 1.2813759352426108,
+    "healthy_validation_loss": 1.2734584199187224,
+    "seconds": 28.72587490081787,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 14,
+    "step": 2226,
+    "train_loss": 1.2780331695604625,
+    "healthy_validation_loss": 1.2693281686684905,
+    "seconds": 28.690062999725342,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 15,
+    "step": 2385,
+    "train_loss": 1.2744646402275037,
+    "healthy_validation_loss": 1.2663350204383832,
+    "seconds": 28.64168381690979,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 16,
+    "step": 2544,
+    "train_loss": 1.2719631105099085,
+    "healthy_validation_loss": 1.2643030954748027,
+    "seconds": 28.649351835250854,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 17,
+    "step": 2703,
+    "train_loss": 1.2701650130673774,
+    "healthy_validation_loss": 1.2630126505434367,
+    "seconds": 28.65520715713501,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 18,
+    "step": 2862,
+    "train_loss": 1.2693044149650718,
+    "healthy_validation_loss": 1.2621934795729397,
+    "seconds": 28.655392169952393,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 19,
+    "step": 3021,
+    "train_loss": 1.2687473079693392,
+    "healthy_validation_loss": 1.2617790850567059,
+    "seconds": 28.638119220733643,
+    "eligible_checkpoint": true
+  },
+  {
+    "epoch": 20,
+    "step": 3180,
+    "train_loss": 1.268383616171543,
+    "healthy_validation_loss": 1.2610621411526408,
+    "seconds": 28.701064586639404,
+    "eligible_checkpoint": true
+  },
+  {
+    "epoch": 21,
+    "step": 3339,
+    "train_loss": 1.268052598965243,
+    "healthy_validation_loss": 1.2606065261626302,
+    "seconds": 28.711366176605225,
+    "eligible_checkpoint": true
+  },
+  {
+    "epoch": 22,
+    "step": 3498,
+    "train_loss": 1.2676800916779716,
+    "healthy_validation_loss": 1.2603693973172847,
+    "seconds": 28.72639298439026,
+    "eligible_checkpoint": true
+  },
+  {
+    "epoch": 23,
+    "step": 3657,
+    "train_loss": 1.2671992576347206,
+    "healthy_validation_loss": 1.259798790248507,
+    "seconds": 28.70277166366577,
+    "eligible_checkpoint": true
+  },
+  {
+    "epoch": 24,
+    "step": 3816,
+    "train_loss": 1.2665673599303144,
+    "healthy_validation_loss": 1.2589148460798567,
+    "seconds": 28.690272569656372,
+    "eligible_checkpoint": true
+  },
+  {
+    "epoch": 25,
+    "step": 3975,
+    "train_loss": 1.265737607793988,
+    "healthy_validation_loss": 1.2579902127785905,
+    "seconds": 28.70803952217102,
+    "eligible_checkpoint": true
+  },
+  {
+    "epoch": 26,
+    "step": 4134,
+    "train_loss": 1.2648341550767046,
+    "healthy_validation_loss": 1.256960433094892,
+    "seconds": 28.730726957321167,
+    "eligible_checkpoint": true
+  },
+  {
+    "epoch": 27,
+    "step": 4293,
+    "train_loss": 1.2639004779311847,
+    "healthy_validation_loss": 1.25620716008697,
+    "seconds": 28.680479049682617,
+    "eligible_checkpoint": true
+  },
+  {
+    "epoch": 28,
+    "step": 4452,
+    "train_loss": 1.2628389431995415,
+    "healthy_validation_loss": 1.2550840934506255,
+    "seconds": 28.706204891204834,
+    "eligible_checkpoint": true
+  },
+  {
+    "epoch": 29,
+    "step": 4611,
+    "train_loss": 1.2617791831118506,
+    "healthy_validation_loss": 1.2541925598181838,
+    "seconds": 28.71121859550476,
+    "eligible_checkpoint": true
+  },
+  {
+    "epoch": 30,
+    "step": 4770,
+    "train_loss": 1.2607416829223153,
+    "healthy_validation_loss": 1.2531851906065252,
+    "seconds": 28.648914337158203,
+    "eligible_checkpoint": true
+  }
+]

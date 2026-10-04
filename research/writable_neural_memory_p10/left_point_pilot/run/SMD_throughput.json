@@ -1,0 +1,8 @@
+{
+  "seconds_per_step": 0.17326775789260865,
+  "steps_per_epoch": 159,
+  "max_epochs": 30,
+  "estimated_train_seconds": 826.4872051477433,
+  "budget_seconds": 3600,
+  "healthy_only": true
+}

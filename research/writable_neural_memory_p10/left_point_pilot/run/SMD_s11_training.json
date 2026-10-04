@@ -1,0 +1,242 @@
+[
+  {
+    "epoch": 1,
+    "step": 159,
+    "train_loss": 0.6883772405438453,
+    "healthy_validation_loss": 0.6585218145678271,
+    "seconds": 28.33819580078125,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 2,
+    "step": 318,
+    "train_loss": 0.6700803555032742,
+    "healthy_validation_loss": 0.6547778624777106,
+    "seconds": 28.236172437667847,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 3,
+    "step": 477,
+    "train_loss": 0.6666499852384411,
+    "healthy_validation_loss": 0.6531690338713033,
+    "seconds": 28.243773221969604,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 4,
+    "step": 636,
+    "train_loss": 0.6638695215279201,
+    "healthy_validation_loss": 0.6520504483675316,
+    "seconds": 28.239821434020996,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 5,
+    "step": 795,
+    "train_loss": 0.6626249476798676,
+    "healthy_validation_loss": 0.6515528413952125,
+    "seconds": 28.251063585281372,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 6,
+    "step": 954,
+    "train_loss": 0.6616168895607475,
+    "healthy_validation_loss": 0.650539077290113,
+    "seconds": 28.22873568534851,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 7,
+    "step": 1113,
+    "train_loss": 0.6593340327904659,
+    "healthy_validation_loss": 0.6488568285858136,
+    "seconds": 28.22961711883545,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 8,
+    "step": 1272,
+    "train_loss": 0.6579555925333275,
+    "healthy_validation_loss": 0.6480647732109779,
+    "seconds": 28.17750358581543,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 9,
+    "step": 1431,
+    "train_loss": 0.6566875771906391,
+    "healthy_validation_loss": 0.6473848880940369,
+    "seconds": 28.180232524871826,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 10,
+    "step": 1590,
+    "train_loss": 0.6559115663264532,
+    "healthy_validation_loss": 0.6470808150715817,
+    "seconds": 28.19471287727356,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 11,
+    "step": 1749,
+    "train_loss": 0.6554293838686913,
+    "healthy_validation_loss": 0.646925208912502,
+    "seconds": 28.154999494552612,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 12,
+    "step": 1908,
+    "train_loss": 0.654897854763007,
+    "healthy_validation_loss": 0.6465920890456015,
+    "seconds": 28.164034128189087,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 13,
+    "step": 2067,
+    "train_loss": 0.6544672880532607,
+    "healthy_validation_loss": 0.6463530696108755,
+    "seconds": 28.16697120666504,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 14,
+    "step": 2226,
+    "train_loss": 0.6540302652982796,
+    "healthy_validation_loss": 0.6459042805914191,
+    "seconds": 28.1452898979187,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 15,
+    "step": 2385,
+    "train_loss": 0.6534240976819452,
+    "healthy_validation_loss": 0.6451014886566946,
+    "seconds": 28.168636798858643,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 16,
+    "step": 2544,
+    "train_loss": 0.6525248757698251,
+    "healthy_validation_loss": 0.6438648151302104,
+    "seconds": 28.176019191741943,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 17,
+    "step": 2703,
+    "train_loss": 0.6516206137039376,
+    "healthy_validation_loss": 0.6430626683538292,
+    "seconds": 28.177863359451294,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 18,
+    "step": 2862,
+    "train_loss": 0.6509009258552167,
+    "healthy_validation_loss": 0.642359918370515,
+    "seconds": 28.2388174533844,
+    "eligible_checkpoint": false
+  },
+  {
+    "epoch": 19,
+    "step": 3021,
+    "train_loss": 0.6500930407512113,
+    "healthy_validation_loss": 0.6413574160456949,
+    "seconds": 28.241819381713867,
+    "eligible_checkpoint": true
+  },
+  {
+    "epoch": 20,
+    "step": 3180,
+    "train_loss": 0.6491730681755258,
+    "healthy_validation_loss": 0.6406334132903363,
+    "seconds": 28.259576082229614,
+    "eligible_checkpoint": true
+  },
+  {
+    "epoch": 21,
+    "step": 3339,
+    "train_loss": 0.6484735176998114,
+    "healthy_validation_loss": 0.6400854810525852,
+    "seconds": 28.24456810951233,
+    "eligible_checkpoint": true
+  },
+  {
+    "epoch": 22,
+    "step": 3498,
+    "train_loss": 0.6479263785500197,
+    "healthy_validation_loss": 0.6396374781149232,
+    "seconds": 28.25354027748108,
+    "eligible_checkpoint": true
+  },
+  {
+    "epoch": 23,
+    "step": 3657,
+    "train_loss": 0.6474553609044297,
+    "healthy_validation_loss": 0.639144477896702,
+    "seconds": 28.24771475791931,
+    "eligible_checkpoint": true
+  },
+  {
+    "epoch": 24,
+    "step": 3816,
+    "train_loss": 0.6468399841830416,
+    "healthy_validation_loss": 0.6384998201449518,
+    "seconds": 28.24565029144287,
+    "eligible_checkpoint": true
+  },
+  {
+    "epoch": 25,
+    "step": 3975,
+    "train_loss": 0.6462202008415319,
+    "healthy_validation_loss": 0.6379137998105261,
+    "seconds": 28.244540691375732,
+    "eligible_checkpoint": true
+  },
+  {
+    "epoch": 26,
+    "step": 4134,
+    "train_loss": 0.6454822353596957,
+    "healthy_validation_loss": 0.6371090498122143,
+    "seconds": 28.24641990661621,
+    "eligible_checkpoint": true
+  },
+  {
+    "epoch": 27,
+    "step": 4293,
+    "train_loss": 0.6446372705435602,
+    "healthy_validation_loss": 0.6363102639216957,
+    "seconds": 28.245002031326294,
+    "eligible_checkpoint": true
+  },
+  {
+    "epoch": 28,
+    "step": 4452,
+    "train_loss": 0.6438227352106346,
+    "healthy_validation_loss": 0.6354721503327703,
+    "seconds": 28.252412796020508,
+    "eligible_checkpoint": true
+  },
+  {
+    "epoch": 29,
+    "step": 4611,
+    "train_loss": 0.6431247220849091,
+    "healthy_validation_loss": 0.6347841152643516,
+    "seconds": 28.441794872283936,
+    "eligible_checkpoint": true
+  },
+  {
+    "epoch": 30,
+    "step": 4770,
+    "train_loss": 0.642424298532354,
+    "healthy_validation_loss": 0.6342810520624473,
+    "seconds": 28.50437068939209,
+    "eligible_checkpoint": true
+  }
+]

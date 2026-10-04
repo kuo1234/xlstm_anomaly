@@ -1,0 +1,36 @@
+[
+  {
+    "anchor": "PSM",
+    "seed": 11,
+    "checkpoint_file": "PSM_s11.pt",
+    "sha256": "6ed2e85662270cb49805eb185258342008543d03359b5913baeefa20ff819703",
+    "best_epoch": 30,
+    "best_step": 4770,
+    "healthy_validation_loss": 1.2531851906065252,
+    "parameter_count": 8395017,
+    "epochs_run": 30,
+    "steps_run": 4770,
+    "wall_seconds": 863.5381445884705,
+    "gpu_hours_upper_bound": 0.2398717071612676,
+    "healthy_train_windows": 20450,
+    "healthy_validation_windows": 1636,
+    "seed_robustness": "NOT_EVALUATED; single seed minimal pilot"
+  },
+  {
+    "anchor": "SMD",
+    "seed": 11,
+    "checkpoint_file": "SMD_s11.pt",
+    "sha256": "9ac71c0f8ace345fb782fc491c11fa075fd6e2dad62f726ea9340231290c69fc",
+    "best_epoch": 30,
+    "best_step": 4770,
+    "healthy_validation_loss": 0.6342810520624473,
+    "parameter_count": 13847860,
+    "epochs_run": 30,
+    "steps_run": 4770,
+    "wall_seconds": 851.7493724822998,
+    "gpu_hours_upper_bound": 0.23659704824288685,
+    "healthy_train_windows": 20450,
+    "healthy_validation_windows": 1636,
+    "seed_robustness": "NOT_EVALUATED; single seed minimal pilot"
+  }
+]

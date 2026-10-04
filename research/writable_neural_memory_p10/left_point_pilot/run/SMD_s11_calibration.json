@@ -1,0 +1,14 @@
+{
+  "tau": {
+    "score_time": 0.9518412083387386,
+    "score_freq": 0.9600507318973542,
+    "score_ms": 0.8464436829090121,
+    "prototype_gate": 0.902225786447525,
+    "cross_path_consistency": 0.44095345437526734,
+    "cycle": 5.222287058830261,
+    "score_total": 1.6875636100769043
+  },
+  "R0_shared_tau": 8.863966359051126,
+  "healthy_calibration_points": 1636,
+  "threshold_rule": "q.99 of independent healthy calibration endpoint means; not test stats"
+}
