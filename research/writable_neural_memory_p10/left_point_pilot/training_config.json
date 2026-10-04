@@ -1,0 +1,24 @@
+{
+  "model_seeds": [
+    11
+  ],
+  "epochs_max": 30,
+  "batch_size": 128,
+  "optimizer": "Adam",
+  "learning_rate": 0.0001,
+  "lr_schedule": "constant pre-registered; model/loss/config anchors unchanged",
+  "patience_epochs": 3,
+  "min_optimizer_steps_for_checkpoint": 3000,
+  "best_checkpoint": "lowest healthy validation official forward reconstruction/consistency loss among curriculum-completed checkpoints; no event scores",
+  "early_stop": "healthy validation only after curriculum complete; failure/nonfinite before completion means insufficient healthy training support, no event rescue",
+  "window_stride": 1,
+  "dtype": "float32",
+  "scaler": "train healthy mean/std only, sd_floor.02, clip20 fixed same engineering scale as R0; no test fitting",
+  "threshold": "q.99 on independent healthy calibration endpoint scores, components separately calibrated descriptive only",
+  "device": "cuda GB10",
+  "primary": "PSM model config enc_in53",
+  "robustness": "SMD model config enc_in53; both reported",
+  "smoke": "random tensors only; official forward/backward/infer both anchors finite; thrown-away smoke models",
+  "training_wall_budget_seconds_per_anchor": 3600,
+  "throughput_gate": "first20steps healthy-only pilot extrapolate before full continuation; >3600seconds estimated => report runtime protocol incompatibility, no scientific negative claim"
+}

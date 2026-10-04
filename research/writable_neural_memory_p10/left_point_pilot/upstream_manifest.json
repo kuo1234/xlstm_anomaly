@@ -1,0 +1,17 @@
+{
+  "upstream": "https://github.com/DezhengWang/Left",
+  "commit": "3fadb4811797075e233076b9faceb0d8ec59b697",
+  "files": {
+    "models/Left/LEFT.py": "059cc92f3e63a78ca3d348b9b046844f05668820cd7fcd008bd9a43546a41ace",
+    "models/Left/Attention_Blocks.py": "03a6923f7d312c2e58b207b9775c25fd39505c689a414e524da6b993c55e1863",
+    "models/Left/Tools.py": "0ad478d91e227eda0b3d75708f137673ab489240d220b2c68ad4dd422344ad7c",
+    "models/Left/Utils.py": "262290e1690d0dfc29fe6cf5cbbc0b1a7fcd2c4663f87eb6dfa7cb54d0a14a4a",
+    "models/Left/EncDec.py": "035c7704e6abfb9457c9e9e7ab061eadb40a4d02f7cbddf200bb736d41860c83",
+    "configs/PSM/model_configs_Left.json": "d90309c5c215c13135c334adc328ab63b3e703d5659e5e962c93860fd5f5b5d4",
+    "configs/SMD/model_configs_Left.json": "dd5aaf0238ea3e1f10bd5d944b6baacd53067eba8759db081c29e36620bc3bd4",
+    "exp/exp_anomaly_detection.py": "38d5b344d3548aadcd0ec826cb9a8188d83eb30c7aca409a3afc1950f3c4964f"
+  },
+  "paper": "https://arxiv.org/html/2602.08638v2",
+  "config_adaptation": "enc_in only25/38\u219253; all other model fields byte-value equivalent",
+  "runtime": "torch2.13.0+cu130 vs upstream requirements torch1.10.0; compatibility smoke finite, not original benchmark reproduction"
+}

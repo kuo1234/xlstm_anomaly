@@ -1,0 +1,387 @@
+{
+  "healthy": [
+    {
+      "id": "healthy100",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run100",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy101",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run101",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy102",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run102",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy103",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run103",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy104",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run104",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy105",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run105",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy106",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run106",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy107",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run107",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy108",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run108",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy109",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run109",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy110",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run110",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy111",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run111",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy112",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run112",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy113",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run113",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy114",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run114",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy115",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run115",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy116",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run116",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy117",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run117",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy118",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run118",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy119",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run119",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy120",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run120",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy121",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run121",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy122",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run122",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy123",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run123",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy124",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run124",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy125",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run125",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy126",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run126",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy127",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run127",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy128",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run128",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy129",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run129",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy130",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run130",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy131",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run131",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy132",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run132",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy133",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run133",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy134",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run134",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy135",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run135",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy136",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run136",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy137",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run137",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy138",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run138",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy139",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run139",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy140",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run140",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy141",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run141",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy142",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run142",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy143",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run143",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy144",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run144",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy145",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run145",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy146",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run146",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy147",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run147",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy148",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run148",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy149",
+      "role": "train",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run149",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy150",
+      "role": "validation",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run150",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy151",
+      "role": "validation",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run151",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy152",
+      "role": "validation",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run152",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy153",
+      "role": "validation",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run153",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy154",
+      "role": "calibration",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run154",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy155",
+      "role": "calibration",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run155",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy156",
+      "role": "calibration",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run156",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    },
+    {
+      "id": "healthy157",
+      "role": "calibration",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV1/Mode1_IDVInfo_1_100/Run157",
+      "extract": "t<30h ONLY; fault part never materialized/loaded by training"
+    }
+  ],
+  "events": [
+    {
+      "id": "left01",
+      "arm": "setpoint",
+      "path": "Mode1/SpVariation/SimulationCompleted/SP1/tRamp_40/SpMagnitude105"
+    },
+    {
+      "id": "left02",
+      "arm": "setpoint",
+      "path": "Mode1/SpVariation/SimulationCompleted/SP2/tRamp_20/SpMagnitude95"
+    },
+    {
+      "id": "left03",
+      "arm": "setpoint",
+      "path": "Mode1/SpVariation/SimulationCompleted/SP3/tRamp_0/SpMagnitude105"
+    },
+    {
+      "id": "left04",
+      "arm": "fault",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV3/Mode1_IDVInfo_3_100/Run2"
+    },
+    {
+      "id": "left05",
+      "arm": "fault",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV4/Mode1_IDVInfo_4_100/Run2"
+    },
+    {
+      "id": "left06",
+      "arm": "fault",
+      "path": "Mode1/SingleFault/SimulationCompleted/IDV5/Mode1_IDVInfo_5_100/Run2"
+    }
+  ],
+  "selection_basis": "Before LEFT event scoring: fixed IDV1 normal-prefix contiguous native Run100\u2013157 role blocks; new physical event Run2 for the same weak/strong IDV3/4/5 type anchors; three fixed unused SP literal paths with distinct ramp/native slots. No replacement on missing/stopped/overlap/incompatibility. Native seeds/hashes audited separately, never infer from RunID.",
+  "scope": "LEFT-score prospective, not globally label-unexposed; previously known source taxonomy and P1 weak/strong types disclosed. Healthy metadata curator separate from numerical loaders.",
+  "doi": "10.11583/DTU.13385936.v1"
+}
