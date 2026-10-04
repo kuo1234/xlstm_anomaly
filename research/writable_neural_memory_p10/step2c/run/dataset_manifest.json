@@ -1,0 +1,294 @@
+{
+  "datasets": [
+    {
+      "dataset_id": "SMD/machine-1-1",
+      "machine": "machine-1-1",
+      "upstream_commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+      "normal_train": "source-designated; no independent train labels",
+      "benign_transition_ground_truth": false,
+      "claim": "frozen exploratory machine-transfer",
+      "files": {
+        "train": {
+          "path": "/Users/kuo/.codex/worktrees/e993/xlstm_anomaly/data/step2c/observations/machine-1-1_train.txt",
+          "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/train/machine-1-1.txt",
+          "sha256": "ecebd2933ccdc1126e2abbfb538762dbde16410cebc77257a7b96e1e1fbcf753",
+          "shape": [
+            28479,
+            38
+          ],
+          "constant_channels": 8,
+          "order": "source row order; no timestamps"
+        },
+        "test": {
+          "path": "/Users/kuo/.codex/worktrees/e993/xlstm_anomaly/data/step2c/observations/machine-1-1_test.txt",
+          "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-1-1.txt",
+          "sha256": "bdb801d8d52ce6b0c4a20c310edf31b5cee9bc82eb84fb38e7d4a19309b16ddb",
+          "shape": [
+            28479,
+            38
+          ],
+          "constant_channels": 6,
+          "order": "source row order; no timestamps"
+        }
+      }
+    },
+    {
+      "dataset_id": "SMD/machine-1-2",
+      "machine": "machine-1-2",
+      "upstream_commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+      "normal_train": "source-designated; no independent train labels",
+      "benign_transition_ground_truth": false,
+      "claim": "frozen exploratory machine-transfer",
+      "files": {
+        "train": {
+          "path": "/Users/kuo/.codex/worktrees/e993/xlstm_anomaly/data/step2c/observations/machine-1-2_train.txt",
+          "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/train/machine-1-2.txt",
+          "sha256": "7f6f63ec34ce616c87b4c30d66fd52ad1b21149634ae3ff7bb1827a76d6ef79a",
+          "shape": [
+            23694,
+            38
+          ],
+          "constant_channels": 5,
+          "order": "source row order; no timestamps"
+        },
+        "test": {
+          "path": "/Users/kuo/.codex/worktrees/e993/xlstm_anomaly/data/step2c/observations/machine-1-2_test.txt",
+          "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-1-2.txt",
+          "sha256": "f409991af7c049d3f286a8cf89dc2fa99114bea8753f6c3aea4bd24cb03eb015",
+          "shape": [
+            23694,
+            38
+          ],
+          "constant_channels": 5,
+          "order": "source row order; no timestamps"
+        }
+      }
+    },
+    {
+      "dataset_id": "SMD/machine-1-3",
+      "machine": "machine-1-3",
+      "upstream_commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+      "normal_train": "source-designated; no independent train labels",
+      "benign_transition_ground_truth": false,
+      "claim": "frozen exploratory machine-transfer",
+      "files": {
+        "train": {
+          "path": "/Users/kuo/.codex/worktrees/e993/xlstm_anomaly/data/step2c/observations/machine-1-3_train.txt",
+          "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/train/machine-1-3.txt",
+          "sha256": "a4ef16a49d921e0ba9497ce2690d3833eb4a85f9a8a88392de4c3fde42e413ac",
+          "shape": [
+            23702,
+            38
+          ],
+          "constant_channels": 4,
+          "order": "source row order; no timestamps"
+        },
+        "test": {
+          "path": "/Users/kuo/.codex/worktrees/e993/xlstm_anomaly/data/step2c/observations/machine-1-3_test.txt",
+          "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-1-3.txt",
+          "sha256": "f3c134d45ffa7aed66587dba893111396c8c7ea3b6fa7f76895955b26b1a75ef",
+          "shape": [
+            23703,
+            38
+          ],
+          "constant_channels": 4,
+          "order": "source row order; no timestamps"
+        }
+      }
+    },
+    {
+      "dataset_id": "SMD/machine-2-2",
+      "machine": "machine-2-2",
+      "upstream_commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+      "normal_train": "source-designated; no independent train labels",
+      "benign_transition_ground_truth": false,
+      "claim": "frozen exploratory machine-transfer",
+      "files": {
+        "train": {
+          "path": "/Users/kuo/.codex/worktrees/e993/xlstm_anomaly/data/step2c/observations/machine-2-2_train.txt",
+          "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/train/machine-2-2.txt",
+          "sha256": "e2e0f52994c8c884f9552c6289e42268d9d988ba7c7abadcc0d8dcd8ba993c30",
+          "shape": [
+            23699,
+            38
+          ],
+          "constant_channels": 7,
+          "order": "source row order; no timestamps"
+        },
+        "test": {
+          "path": "/Users/kuo/.codex/worktrees/e993/xlstm_anomaly/data/step2c/observations/machine-2-2_test.txt",
+          "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-2-2.txt",
+          "sha256": "1cb0dd0a4b8738b184c62bb07700e6800e029f7a76a715fe0ee147c603b2f2c8",
+          "shape": [
+            23700,
+            38
+          ],
+          "constant_channels": 7,
+          "order": "source row order; no timestamps"
+        }
+      }
+    },
+    {
+      "dataset_id": "SMD/machine-2-3",
+      "machine": "machine-2-3",
+      "upstream_commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+      "normal_train": "source-designated; no independent train labels",
+      "benign_transition_ground_truth": false,
+      "claim": "frozen exploratory machine-transfer",
+      "files": {
+        "train": {
+          "path": "/Users/kuo/.codex/worktrees/e993/xlstm_anomaly/data/step2c/observations/machine-2-3_train.txt",
+          "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/train/machine-2-3.txt",
+          "sha256": "d2b0fc37d08cb727438598a1b09ced94f71f7792a9b4d057242e2ce8f2580e13",
+          "shape": [
+            23688,
+            38
+          ],
+          "constant_channels": 7,
+          "order": "source row order; no timestamps"
+        },
+        "test": {
+          "path": "/Users/kuo/.codex/worktrees/e993/xlstm_anomaly/data/step2c/observations/machine-2-3_test.txt",
+          "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-2-3.txt",
+          "sha256": "eaa24c78ff438eec2f847c09eb4de6ab8dbe8a0bb8d77b52ac4ecdee5bd21a7d",
+          "shape": [
+            23689,
+            38
+          ],
+          "constant_channels": 6,
+          "order": "source row order; no timestamps"
+        }
+      }
+    },
+    {
+      "dataset_id": "SMD/machine-2-4",
+      "machine": "machine-2-4",
+      "upstream_commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+      "normal_train": "source-designated; no independent train labels",
+      "benign_transition_ground_truth": false,
+      "claim": "frozen exploratory machine-transfer",
+      "files": {
+        "train": {
+          "path": "/Users/kuo/.codex/worktrees/e993/xlstm_anomaly/data/step2c/observations/machine-2-4_train.txt",
+          "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/train/machine-2-4.txt",
+          "sha256": "077a5c18649b9d260d8dcbd4cfbf10b16cb83719a52013410cf3b5dc6a802fa6",
+          "shape": [
+            23689,
+            38
+          ],
+          "constant_channels": 8,
+          "order": "source row order; no timestamps"
+        },
+        "test": {
+          "path": "/Users/kuo/.codex/worktrees/e993/xlstm_anomaly/data/step2c/observations/machine-2-4_test.txt",
+          "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-2-4.txt",
+          "sha256": "85ba3101b9ab6a7684cd897b2d4c78e85caa6f5ef1c4f0e153479f4fca01cf38",
+          "shape": [
+            23689,
+            38
+          ],
+          "constant_channels": 8,
+          "order": "source row order; no timestamps"
+        }
+      }
+    },
+    {
+      "dataset_id": "SMD/machine-3-1",
+      "machine": "machine-3-1",
+      "upstream_commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+      "normal_train": "source-designated; no independent train labels",
+      "benign_transition_ground_truth": false,
+      "claim": "frozen exploratory machine-transfer",
+      "files": {
+        "train": {
+          "path": "/Users/kuo/.codex/worktrees/e993/xlstm_anomaly/data/step2c/observations/machine-3-1_train.txt",
+          "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/train/machine-3-1.txt",
+          "sha256": "c1186ac085809c0590467dd42f4f12180012ebd994c1e615250dbed2a3588111",
+          "shape": [
+            28700,
+            38
+          ],
+          "constant_channels": 8,
+          "order": "source row order; no timestamps"
+        },
+        "test": {
+          "path": "/Users/kuo/.codex/worktrees/e993/xlstm_anomaly/data/step2c/observations/machine-3-1_test.txt",
+          "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-3-1.txt",
+          "sha256": "b110b204ba4919250351eba7aa253d73ab54af0cf18e272b9b284de5fa7df88d",
+          "shape": [
+            28700,
+            38
+          ],
+          "constant_channels": 7,
+          "order": "source row order; no timestamps"
+        }
+      }
+    },
+    {
+      "dataset_id": "SMD/machine-3-2",
+      "machine": "machine-3-2",
+      "upstream_commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+      "normal_train": "source-designated; no independent train labels",
+      "benign_transition_ground_truth": false,
+      "claim": "frozen exploratory machine-transfer",
+      "files": {
+        "train": {
+          "path": "/Users/kuo/.codex/worktrees/e993/xlstm_anomaly/data/step2c/observations/machine-3-2_train.txt",
+          "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/train/machine-3-2.txt",
+          "sha256": "7cabed178422f7772425c6cabc3c20a1f7dedc3ab2a950f90a9edfcef3b5b3e3",
+          "shape": [
+            23702,
+            38
+          ],
+          "constant_channels": 6,
+          "order": "source row order; no timestamps"
+        },
+        "test": {
+          "path": "/Users/kuo/.codex/worktrees/e993/xlstm_anomaly/data/step2c/observations/machine-3-2_test.txt",
+          "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-3-2.txt",
+          "sha256": "5f83ded5fbfb9b682030bdd7dd82eb53a77f9caa3773ddcc7e38db73c25db46e",
+          "shape": [
+            23703,
+            38
+          ],
+          "constant_channels": 6,
+          "order": "source row order; no timestamps"
+        }
+      }
+    },
+    {
+      "dataset_id": "SMD/machine-3-3",
+      "machine": "machine-3-3",
+      "upstream_commit": "7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4",
+      "normal_train": "source-designated; no independent train labels",
+      "benign_transition_ground_truth": false,
+      "claim": "frozen exploratory machine-transfer",
+      "files": {
+        "train": {
+          "path": "/Users/kuo/.codex/worktrees/e993/xlstm_anomaly/data/step2c/observations/machine-3-3_train.txt",
+          "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/train/machine-3-3.txt",
+          "sha256": "6bbad775c6ef6319abba08aaa6faa2befb2cd570f9db85b80413ae6fdf1047a4",
+          "shape": [
+            23703,
+            38
+          ],
+          "constant_channels": 2,
+          "order": "source row order; no timestamps"
+        },
+        "test": {
+          "path": "/Users/kuo/.codex/worktrees/e993/xlstm_anomaly/data/step2c/observations/machine-3-3_test.txt",
+          "url": "https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/7fb0e0acf89ea49908896bcc9f9e80fcfff6baf4/ServerMachineDataset/test/machine-3-3.txt",
+          "sha256": "ecc3140ce24869a44ebac9b03ca372fb1a6eb7e5bde96946f1a350283d4b152a",
+          "shape": [
+            23703,
+            38
+          ],
+          "constant_channels": 3,
+          "order": "source row order; no timestamps"
+        }
+      }
+    }
+  ],
+  "labels_read": 0,
+  "utc": "2026-10-04T05:04:45Z"
+}
