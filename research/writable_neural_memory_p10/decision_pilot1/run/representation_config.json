@@ -1,0 +1,43 @@
+{
+  "cases": [
+    "pilot01",
+    "pilot02",
+    "pilot03",
+    "pilot04",
+    "pilot05",
+    "pilot06"
+  ],
+  "seeds": [
+    11,
+    22,
+    33
+  ],
+  "ops": [
+    "W1",
+    "W2_f0995",
+    "W3_b01"
+  ],
+  "views": [
+    "fit_only_clip",
+    "fit_only_no_clip"
+  ],
+  "w": 8,
+  "dk": 128,
+  "k": 5,
+  "fit_frac": 0.8,
+  "sd_floor": 0.02,
+  "clip": 20.0,
+  "window": 256,
+  "stride": 128,
+  "start_end": 256,
+  "features": [
+    "log_score",
+    "cv",
+    "top5_energy"
+  ],
+  "direction": "fault-high top5",
+  "primary": "seed11/W1/fit_only_clip",
+  "cv_descriptive": 0.1,
+  "neural_training": false,
+  "test_writes": 0
+}
