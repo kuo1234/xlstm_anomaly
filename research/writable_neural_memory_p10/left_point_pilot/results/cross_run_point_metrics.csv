@@ -1,0 +1,19 @@
+anchor,seed,score,AP,AUROC,scope
+PSM,11,score_time,0.4055478126780271,0.3647658167551523,FAULT vs NORMAL_B >=70h matched time across6runs; correlated points not N
+PSM,11,score_freq,0.4074300345887134,0.3701772389580563,FAULT vs NORMAL_B >=70h matched time across6runs; correlated points not N
+PSM,11,score_ms,0.4292840787298036,0.4265412086652891,FAULT vs NORMAL_B >=70h matched time across6runs; correlated points not N
+PSM,11,prototype_gate,0.34726089513278924,0.21506861830393603,FAULT vs NORMAL_B >=70h matched time across6runs; correlated points not N
+PSM,11,cross_path_consistency,0.38516910392773845,0.3123471726576369,FAULT vs NORMAL_B >=70h matched time across6runs; correlated points not N
+PSM,11,cycle,0.40063372226678845,0.3508889633318968,FAULT vs NORMAL_B >=70h matched time across6runs; correlated points not N
+PSM,11,score_total,0.4105102920778946,0.37730254222871906,FAULT vs NORMAL_B >=70h matched time across6runs; correlated points not N
+PSM,11,R0_score,0.43228379802465844,0.43203983992907613,FAULT vs NORMAL_B >=70h matched time across6runs; correlated points not N
+PSM,11,R0_shared_fit,0.414666462940788,0.38833564198942483,FAULT vs NORMAL_B >=70h matched time across6runs; correlated points not N
+SMD,11,score_time,0.41568819222062203,0.3908497853918825,FAULT vs NORMAL_B >=70h matched time across6runs; correlated points not N
+SMD,11,score_freq,0.41707935845215355,0.39518101494120383,FAULT vs NORMAL_B >=70h matched time across6runs; correlated points not N
+SMD,11,score_ms,0.4230257597234912,0.41028848511247507,FAULT vs NORMAL_B >=70h matched time across6runs; correlated points not N
+SMD,11,prototype_gate,0.48411282454387394,0.5100924108429624,FAULT vs NORMAL_B >=70h matched time across6runs; correlated points not N
+SMD,11,cross_path_consistency,0.6657385979653468,0.585828942887755,FAULT vs NORMAL_B >=70h matched time across6runs; correlated points not N
+SMD,11,cycle,0.43156511562077504,0.43475224167276516,FAULT vs NORMAL_B >=70h matched time across6runs; correlated points not N
+SMD,11,score_total,0.42370490256649374,0.4125562283111681,FAULT vs NORMAL_B >=70h matched time across6runs; correlated points not N
+SMD,11,R0_score,0.43228379802465844,0.43203983992907613,FAULT vs NORMAL_B >=70h matched time across6runs; correlated points not N
+SMD,11,R0_shared_fit,0.414666462940788,0.38833564198942483,FAULT vs NORMAL_B >=70h matched time across6runs; correlated points not N

@@ -1,0 +1,9 @@
+{
+  "verdict": "LEFT_POINT_EVIDENCE_NOT_SUPPORTED",
+  "review_status": "pending review",
+  "Detect": "No consistent frozen-calibration weak-fault coverage gain over both controls; IDV4 already detected by R0.",
+  "Validate": "Primary PSM disagreement reverses. SMD-only cross-path partial positive contrasts retained, not stable across anchors or all fault families.",
+  "unsafe_operation": "NOT_EVALUABLE",
+  "next_experiment": "STOP pending reviewer task",
+  "retuning": false
+}

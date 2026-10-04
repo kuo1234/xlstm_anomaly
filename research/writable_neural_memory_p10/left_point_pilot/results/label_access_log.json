@@ -1,0 +1,38 @@
+[
+  {
+    "case": "left01",
+    "utc": "2026-10-04T13:05:09.777429+00:00",
+    "purpose": "P2 after pushed causal seal state evaluation",
+    "timestamp_sha256": "d9251e6d9fbd6c2bec6a17c11079cddcce91395e3d3b2ca1bcaa505f15ece440"
+  },
+  {
+    "case": "left02",
+    "utc": "2026-10-04T13:05:09.777825+00:00",
+    "purpose": "P2 after pushed causal seal state evaluation",
+    "timestamp_sha256": "d9251e6d9fbd6c2bec6a17c11079cddcce91395e3d3b2ca1bcaa505f15ece440"
+  },
+  {
+    "case": "left03",
+    "utc": "2026-10-04T13:05:09.777926+00:00",
+    "purpose": "P2 after pushed causal seal state evaluation",
+    "timestamp_sha256": "d9251e6d9fbd6c2bec6a17c11079cddcce91395e3d3b2ca1bcaa505f15ece440"
+  },
+  {
+    "case": "left04",
+    "utc": "2026-10-04T13:05:09.778001+00:00",
+    "purpose": "P2 after pushed causal seal state evaluation",
+    "timestamp_sha256": "d9251e6d9fbd6c2bec6a17c11079cddcce91395e3d3b2ca1bcaa505f15ece440"
+  },
+  {
+    "case": "left05",
+    "utc": "2026-10-04T13:05:09.778067+00:00",
+    "purpose": "P2 after pushed causal seal state evaluation",
+    "timestamp_sha256": "d9251e6d9fbd6c2bec6a17c11079cddcce91395e3d3b2ca1bcaa505f15ece440"
+  },
+  {
+    "case": "left06",
+    "utc": "2026-10-04T13:05:09.778132+00:00",
+    "purpose": "P2 after pushed causal seal state evaluation",
+    "timestamp_sha256": "d9251e6d9fbd6c2bec6a17c11079cddcce91395e3d3b2ca1bcaa505f15ece440"
+  }
+]

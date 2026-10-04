@@ -332,6 +332,10 @@ Step 2e 結果：[Restricted TEP report](research/writable_neural_memory_p10/ste
 
 Step 2f 結果：[Evidence audit](research/writable_neural_memory_p10/step2f/STEP2F_EVIDENCE_AUDIT.md) — **protocol PASS / limited structural diagnostic PASS**（Issue #15 review5978818835；RESIDUAL_EVIDENCE_SUFFICIENT 僅限已測case結構資訊）。Top5 residual-energy concentration 在 fixed cases/seeds/operators/clip-no-clip 方向一致；A2 probe fold0 成立但 fold1 全敗，不能宣稱 generalizable classifier。Low-CV fault 移除 clipping 後仍存在。A_PASS_RESIDUAL_SUFFICIENT / NEURAL_ARM_NOT_RUN；無 admission rule/controller/RL/LEFT。只有一個 benign native seed，非 strict confirmatory。
 
-## Open research decision / Pilot P1 — pending review
+## Open research decision / Pilot P1 — failure recorded; next task authorized
 
 [Research decision](research/writable_neural_memory_p10/decision_pilot1/RESEARCH_DECISION.md) 比較六條路，選最小frozen structural stress test；[Pilot report](research/writable_neural_memory_p10/decision_pilot1/PILOT_REPORT.md)：**STRUCTURAL_TRANSFER_NOT_SUPPORTED**。3new benign native seeds + IDV3/4/5，primary concentration case AUROC .3333；IDV3/5反轉、IDV4成立，no-clip不救。只有IDV4屬primary low-CV fault，不能誇大成所有conditional low-CV規則均已否證。無threshold/feature rescue、無第二pilot/NN/RL/controller；資料執行全在ssh kuo，停止等review。
+
+## Pilot P2 — LEFT causal point maps / pending review
+
+[Pilot report](research/writable_neural_memory_p10/left_point_pilot/PILOT_REPORT.md): **LEFT_POINT_EVIDENCE_NOT_SUPPORTED**。官方 LEFT pinned3fadb48，PSM/SMD仅enc_in=53；50/4/4 disjoint healthy runs，seed11、past192 endpoint-only。checkpoint/trace seal0c6f114已push後才source-state evaluation。IDV3/5 frozen recall<1.1%，SP1 NORMAL_B FPR100%；SMD cross-path局部增量保留，但primary PSM反轉、無stable cross-anchor evidence。Source disturbance≠unsafe operation，後者NOT_EVALUABLE。全程ssh kuo，未在本機下載raw，無retuning/admission/controller/RL/xLSTM；STOP等review。
