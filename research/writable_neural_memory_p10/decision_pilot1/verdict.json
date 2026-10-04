@@ -1,0 +1,12 @@
+{
+  "verdict": "STRUCTURAL_TRANSFER_NOT_SUPPORTED",
+  "scope": "Universal fault-high concentration ordering on preregistered new physical runs. Not a rejection of every conditional low-CV rule: only one new fault has primary CV<=.10.",
+  "direction_frozen": "fault-high",
+  "primary_case_AUROC": 0.3333333333333333,
+  "neural_training": false,
+  "new_threshold": false,
+  "posthoc_rule": false,
+  "controller": false,
+  "stop": true,
+  "reason": "IDV3/5 have lower concentration than every primary benign case, opposite to development ordering; IDV4 higher. Opposite directions survive no-clip, IDV5 all seeds/operators, IDV3 mostly with SP2 operator-dependent overlap. One new low-CV fault only means conditional stable-fault evidence remains underpowered, not universally disproven."
+}

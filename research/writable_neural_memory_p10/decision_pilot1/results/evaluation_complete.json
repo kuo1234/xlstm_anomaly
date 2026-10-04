@@ -1,0 +1,12 @@
+{
+  "utc": "2026-10-04T10:26:15.937082+00:00",
+  "matched_end_indices": [
+    1280,
+    1408,
+    1536
+  ],
+  "primary_unit": "physical run/native family; pair/window/seed/operator not independent N",
+  "classifier_fitted": false,
+  "new_threshold": false,
+  "controller": false
+}

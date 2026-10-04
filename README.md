@@ -326,8 +326,12 @@ Step 2c 結果：[Frozen transfer report](research/writable_neural_memory_p10/st
 
 Step 2e 結果：[Restricted TEP report](research/writable_neural_memory_p10/step2e/STEP2E_RESTRICTED_TEP.md) — **TRANSFER_NOT_SUPPORTED / protocol PASS**。Primary W1/seed11：IDV1/2 都誤 promote，fault-written 42.26%/75.45%（threshold 0%/0%）；SP1±5% 在51.95h提前 promote 後改善NORMAL_B FPR，但SP2較threshold差。Robustness：12次fault promotions、12次SP early promotions、0次全NORMAL_B安全promotion。三SP共享同一native seed與normal prefix，不能算三個獨立benign replications。Frozen .10 / checkpoint參數未調整；Step3 / RL未執行，停等review。
 
-## P7/P10 Step 2f — pending review
+## P7/P10 Step 2f — protocol PASS / limited diagnostic PASS
 
 [Evidence audit protocol](research/writable_neural_memory_p10/step2f/PROTOCOL.md)：先做Step2f-A preprocessing / residual structure，strict FIT/CAL separation；current clip / no-clip fixed diagnostic，R0 frozen normal memory，residual-vector / normal-manifold / intervention-heldout upper-bound probes。A gate之前不啟動neural training；不做RL/LEFT/controller。所有資料和執行在`ssh kuo`。
 
-Step 2f 結果：[Evidence audit](research/writable_neural_memory_p10/step2f/STEP2F_EVIDENCE_AUDIT.md) — **pending review / RESIDUAL_EVIDENCE_SUFFICIENT（limited structural diagnostic）**。Top5 residual-energy concentration 在 fixed cases/seeds/operators/clip-no-clip 方向一致；A2 probe fold0 成立但 fold1 全敗，不能宣稱 generalizable classifier。Low-CV fault 移除 clipping 後仍存在。A_PASS_RESIDUAL_SUFFICIENT / NEURAL_ARM_NOT_RUN；無 admission rule/controller/RL/LEFT。只有一個 benign native seed，非 strict confirmatory。
+Step 2f 結果：[Evidence audit](research/writable_neural_memory_p10/step2f/STEP2F_EVIDENCE_AUDIT.md) — **protocol PASS / limited structural diagnostic PASS**（Issue #15 review5978818835；RESIDUAL_EVIDENCE_SUFFICIENT 僅限已測case結構資訊）。Top5 residual-energy concentration 在 fixed cases/seeds/operators/clip-no-clip 方向一致；A2 probe fold0 成立但 fold1 全敗，不能宣稱 generalizable classifier。Low-CV fault 移除 clipping 後仍存在。A_PASS_RESIDUAL_SUFFICIENT / NEURAL_ARM_NOT_RUN；無 admission rule/controller/RL/LEFT。只有一個 benign native seed，非 strict confirmatory。
+
+## Open research decision / Pilot P1 — pending review
+
+[Research decision](research/writable_neural_memory_p10/decision_pilot1/RESEARCH_DECISION.md) 比較六條路，選最小frozen structural stress test；[Pilot report](research/writable_neural_memory_p10/decision_pilot1/PILOT_REPORT.md)：**STRUCTURAL_TRANSFER_NOT_SUPPORTED**。3new benign native seeds + IDV3/4/5，primary concentration case AUROC .3333；IDV3/5反轉、IDV4成立，no-clip不救。只有IDV4屬primary low-CV fault，不能誇大成所有conditional low-CV規則均已否證。無threshold/feature rescue、無第二pilot/NN/RL/controller；資料執行全在ssh kuo，停止等review。
