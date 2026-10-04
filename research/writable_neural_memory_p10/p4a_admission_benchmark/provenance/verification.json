@@ -1,0 +1,71 @@
+{
+  "utc": "2026-10-04T17:34:12.033543+00:00",
+  "host": "ssh kuo",
+  "freeze_commit": "e07b0b19093ce90b98c3d8f265e43867a054322a",
+  "remote_before_audit": "e07b0b19093ce90b98c3d8f265e43867a054322a",
+  "tests": {
+    "command": "OPENBLAS_NUM_THREADS=4 python3 research/writable_neural_memory_p10/p4a_admission_benchmark/scripts/test_protocol.py",
+    "passed": 12,
+    "scope": "data/protocol fixtures; no model causality execution"
+  },
+  "controlled": {
+    "physical_N": 5,
+    "streams": 15,
+    "probes": 5,
+    "all_file_hashes_verified": true
+  },
+  "TSB": {
+    "series": 47,
+    "matrix_hashes_verified": true,
+    "all_csv_hashes_checked_during_run": true,
+    "archive_hash_checked_during_run": true,
+    "physical_SMD_N": 15
+  },
+  "sources": {
+    "files": 29,
+    "all_hashes_verified": true
+  },
+  "old_P2_seal": {
+    "path": "research/writable_neural_memory_p10/left_point_pilot/run/seal.json",
+    "sha256": "37d50b1d51fb3c01c01e217432ce8cb05fa755bfd5512f680d46826bc371bd8b",
+    "byte_equal_base": true
+  },
+  "tracked_scope_vs_base": [
+    "README.md",
+    "research/writable_neural_memory_p10/p4a_admission_benchmark/CONTROLLED_PROTOCOL.md",
+    "research/writable_neural_memory_p10/p4a_admission_benchmark/METRICS_CONTRACT.md",
+    "research/writable_neural_memory_p10/p4a_admission_benchmark/PRIOR_ART_OVERLAP.md",
+    "research/writable_neural_memory_p10/p4a_admission_benchmark/README.md",
+    "research/writable_neural_memory_p10/p4a_admission_benchmark/TSB_AUDIT_PROTOCOL.md",
+    "research/writable_neural_memory_p10/p4a_admission_benchmark/controlled_config.json",
+    "research/writable_neural_memory_p10/p4a_admission_benchmark/metrics_contract.json",
+    "research/writable_neural_memory_p10/p4a_admission_benchmark/provenance/README.md",
+    "research/writable_neural_memory_p10/p4a_admission_benchmark/provenance/freeze_inputs.json",
+    "research/writable_neural_memory_p10/p4a_admission_benchmark/provenance/issue17_task.json",
+    "research/writable_neural_memory_p10/p4a_admission_benchmark/provenance/metric_decision.json",
+    "research/writable_neural_memory_p10/p4a_admission_benchmark/provenance/source_files.json",
+    "research/writable_neural_memory_p10/p4a_admission_benchmark/scripts/acquire_sources.py",
+    "research/writable_neural_memory_p10/p4a_admission_benchmark/scripts/common.py",
+    "research/writable_neural_memory_p10/p4a_admission_benchmark/scripts/controlled.py",
+    "research/writable_neural_memory_p10/p4a_admission_benchmark/scripts/test_protocol.py",
+    "research/writable_neural_memory_p10/p4a_admission_benchmark/scripts/tsb_audit.py",
+    "research/writable_neural_memory_p10/p4a_admission_benchmark/tsb_audit_config.json",
+    "research/writable_neural_memory_p10/p4a_admission_benchmark/tsb_candidate_inventory.json"
+  ],
+  "raw_tracked_files": 0,
+  "models": 0,
+  "policy_runs": 0,
+  "memory_writes": 0,
+  "local_raw_downloads": 0,
+  "runtime": {
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "numpy": "1.26.4",
+    "pandas": "3.0.3",
+    "scipy": "1.17.1",
+    "sklearn": "1.9.0"
+  },
+  "git_diff_check": "PASS",
+  "freeze_after_report_inputs_match": true,
+  "gate": "ADMISSION_BENCHMARK_READY",
+  "review": "pending"
+}

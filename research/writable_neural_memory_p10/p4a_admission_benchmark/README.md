@@ -1,5 +1,5 @@
 # P4-A — Admission benchmark qualification
-Issue #17 authorizes protocol/dataset qualification only. Status: frozen inputs awaiting data-only audit; no detector, adaptation, memory writes or P4-B.
+Issue #17 authorizes protocol/dataset qualification only. Status: **ADMISSION_BENCHMARK_READY / pending review**. Qualification completed; no detector, adaptation, memory writes or P4-B.
 
 - CONTROLLED_PROTOCOL.md / controlled_config.json: independent traceable M2N2-style normative timing, five physical seeds, paired stationary and identical-X semantic-fault controls.
 - TSB_AUDIT_PROTOCOL.md / tsb_audit_config.json: all 47 non-simulated original candidates; retain 28 source-simulated exclusions and every original tag in inventory. Historical label exposure, not confirmatory.
@@ -16,4 +16,4 @@ Reproduce after verifying the active research branch and installing existing aud
     python3 research/writable_neural_memory_p10/p4a_admission_benchmark/scripts/controlled.py
     OPENBLAS_NUM_THREADS=4 python3 research/writable_neural_memory_p10/p4a_admission_benchmark/scripts/tsb_audit.py
 
-The acquisition helper fetches only pinned small official source files and verifies their frozen byte hashes; it does not acquire datasets or execute models. Missing original archive is a blocker. Final qualification docs are added after the audit. No future P4-B execution is authorized by this README.
+The acquisition helper fetches only pinned small official source files and verifies their frozen byte hashes; it does not acquire datasets or execute models. Missing original archive is a blocker. Final findings: DATASET_QUALIFICATION.md and TSB_DRIFT_AUDIT.md. Controlled smoke: five physical groups / 15 streams; TSB: 46 supported / one unresolved of47, with only8/15 SMD mean-feature sensitivity. Strict confirmatory validation and real legitimate-admission timing remain unavailable. No future P4-B execution is authorized by this README.

@@ -1,0 +1,393 @@
+{
+  "reads": [
+    {
+      "utc": "2026-10-04T17:31:08.022144+00:00",
+      "file": "009_MSL_id_8_Sensor_tr_714_1st_1390.csv",
+      "sha256": "18843c9e5be378fa40bc4c7cc5a42374683c18041a7bd286c22b90388d285e07",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:08.044901+00:00",
+      "file": "018_Daphnet_id_1_HumanActivity_tr_9693_1st_20732.csv",
+      "sha256": "5da568d67c693756cdc934ac9ee3a19967a50b420835620f8dd77b45d01872b6",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:08.097350+00:00",
+      "file": "057_SMD_id_1_Facility_tr_4529_1st_4629.csv",
+      "sha256": "1679708d35fe5fae0d3592b429c0f0970ef36f3e95e686e0a2dda03f619dcc75",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:08.200647+00:00",
+      "file": "059_SMD_id_3_Facility_tr_757_1st_857.csv",
+      "sha256": "f024d779045d8934d38207a5b53c2a647a53ed5e876a3dcfb1e386f8c6f9b282",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:08.328077+00:00",
+      "file": "060_SMD_id_4_Facility_tr_7176_1st_10609.csv",
+      "sha256": "1d4faa37fc54af714d28c50cf7f8a59161699c6968291738c81e07335aa45a7b",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:08.437003+00:00",
+      "file": "061_SMD_id_5_Facility_tr_7176_1st_15144.csv",
+      "sha256": "2d6efb2292a9109717c0a4967a266c79ed22137c0699c31d6bf45590b11ab76a",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:08.546078+00:00",
+      "file": "064_SMD_id_8_Facility_tr_2272_1st_2372.csv",
+      "sha256": "3e4d7d5fe959ecaf5c460665b3c65e329c381fc7f09d468d2a156808bd570cdb",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:08.634158+00:00",
+      "file": "065_SMD_id_9_Facility_tr_737_1st_837.csv",
+      "sha256": "7203c302aff5fb34602711a6d4fd3dd27875e79f9cfd34fb2923bfde0a47ae60",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:08.761902+00:00",
+      "file": "066_SMD_id_10_Facility_tr_2634_1st_2734.csv",
+      "sha256": "c49d7ed53527a336d5d74bb02af9c4d8781cfa3223e3bfb8c7139dd98967382e",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:08.860710+00:00",
+      "file": "067_SMD_id_11_Facility_tr_1980_1st_2080.csv",
+      "sha256": "dfbdcf6c880f30166c0a923a7b681c7f09e9e17299aa514c88cbc8a6705e1e2e",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:08.957848+00:00",
+      "file": "068_SMD_id_12_Facility_tr_1099_1st_1199.csv",
+      "sha256": "2bb10ac16ead67c9dc5b2257daa7f7eb1f99cc0408427cccf55c4ca030b03381",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:09.097998+00:00",
+      "file": "071_SMD_id_15_Facility_tr_1109_1st_1209.csv",
+      "sha256": "3dc64086ec366cc2c75a5bfce31b2afc47c3aca69976a0687b76ca058cfe1c41",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:09.232983+00:00",
+      "file": "074_SMD_id_18_Facility_tr_7174_1st_21230.csv",
+      "sha256": "3d9aef3071aa195e266a515922a88d964fbf84206bf5aafaf9d965c551cc27a9",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:09.339394+00:00",
+      "file": "075_SMD_id_19_Facility_tr_564_1st_664.csv",
+      "sha256": "2e898edb5b017b0156b645c7c72dc1711683ca7c00e6bdf3deb70f270651ec85",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:09.480343+00:00",
+      "file": "076_SMD_id_20_Facility_tr_5925_1st_17580.csv",
+      "sha256": "eacc2ed48af7f90df8c5bee6d1e9850eacc5c5776614ce7dfaed2301a7bd358c",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:09.575579+00:00",
+      "file": "077_SMD_id_21_Facility_tr_3026_1st_3126.csv",
+      "sha256": "5d02602bd15d8550ff356a8f983a29a726698a9ea59a8c6e9e2069979a70f503",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:09.665644+00:00",
+      "file": "078_SMD_id_22_Facility_tr_500_1st_326.csv",
+      "sha256": "de71151d9e55c8d563aabc5122af1f45b96f8b76b03b77e411eee24f1b85d1d9",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:09.801699+00:00",
+      "file": "080_LTDB_id_2_Medical_tr_500_1st_266.csv",
+      "sha256": "d7909935a99670e80e125739331e17cb44be738de2315c5b1d9fce635d3f30a0",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:09.916799+00:00",
+      "file": "116_TAO_id_1_Environment_tr_500_1st_3.csv",
+      "sha256": "db19cb384cc448d14a567ca2c3f4f334d45458d5b026215f574e91cc98c45ec3",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:09.925216+00:00",
+      "file": "118_TAO_id_3_Environment_tr_500_1st_7.csv",
+      "sha256": "19134c4ecc19a92aabad173a4cbbcbfe7673e0a38ad56097f6f8e631ce459f17",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:09.933094+00:00",
+      "file": "119_TAO_id_4_Environment_tr_500_1st_1.csv",
+      "sha256": "3cb1f08c1894614b3b65070de3d7053427f53f53c1f1736ada4ca7f4b7e35448",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:09.940876+00:00",
+      "file": "122_TAO_id_7_Environment_tr_500_1st_19.csv",
+      "sha256": "67508aa9cad071e68a6dbcf51eeccfa4a8d6cd46a89a933555762e5a6f53f578",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:09.948547+00:00",
+      "file": "123_TAO_id_8_Environment_tr_500_1st_62.csv",
+      "sha256": "468d70a358ea781ee59c03119c164a0542d11a41193ae1adf79c0dc9cc23d1fa",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:09.956081+00:00",
+      "file": "124_TAO_id_9_Environment_tr_500_1st_1.csv",
+      "sha256": "a611a6c9a19a5378ad44a10fca4441fce08de174903bf4e860c9cc0912aee164",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:09.963631+00:00",
+      "file": "125_TAO_id_10_Environment_tr_500_1st_9.csv",
+      "sha256": "e7116ebb512e1839a459b15203e1f71fff045f90341c96e89aadd4b3e701c3df",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:09.971219+00:00",
+      "file": "127_TAO_id_12_Environment_tr_500_1st_24.csv",
+      "sha256": "dad4edea69e6376822b7484c94fd67e7facd7dc1c0509b7d4717c6f7762c9409",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:09.978864+00:00",
+      "file": "129_OPPORTUNITY_id_1_HumanActivity_tr_1801_1st_1901.csv",
+      "sha256": "8c4dd44dc307c2087a49cd5f63780c48400cf6e8616f4338e03a4b619fdc1a4e",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:10.710741+00:00",
+      "file": "130_OPPORTUNITY_id_2_HumanActivity_tr_1045_1st_1145.csv",
+      "sha256": "1a0863cb21e50e2c6fb4396ab012a90d90dfe6a536c8b2d0ec4ecb3be7f5a7a7",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:10.910779+00:00",
+      "file": "132_OPPORTUNITY_id_4_HumanActivity_tr_895_1st_995.csv",
+      "sha256": "d7938e28e7d877d655e3149d1f1fe5df2970422429f29870513d416abf1704e0",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:11.251168+00:00",
+      "file": "133_OPPORTUNITY_id_5_HumanActivity_tr_1745_1st_6500.csv",
+      "sha256": "cdb4b29e0b7cc6608a39c75ef085c9c1e55a74802fe572c4e14dc61911560c78",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:11.480487+00:00",
+      "file": "134_OPPORTUNITY_id_6_HumanActivity_tr_1477_1st_1577.csv",
+      "sha256": "8389a769be9d30f4dcd9cdad5decb098b200c76d46ec4f4637d7fd2b1a83e5f4",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:11.996743+00:00",
+      "file": "135_OPPORTUNITY_id_7_HumanActivity_tr_2085_1st_2185.csv",
+      "sha256": "9c36a2049d27ae2c1ee45e899cd7d02f7db4c75b93008991791fc96013d6532d",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:12.631876+00:00",
+      "file": "136_OPPORTUNITY_id_8_HumanActivity_tr_1495_1st_1595.csv",
+      "sha256": "a62347bacddf66f8b33ab737eb9d9f79177d94eb15c3076bec6ecf3d0bbb0998",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:13.478568+00:00",
+      "file": "137_CreditCard_id_1_Finance_tr_500_1st_541.csv",
+      "sha256": "da4c8913c6b78eec8868911826d049a0c7b506a7c102b89e1aa5eb57ac2d0324",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:19.448171+00:00",
+      "file": "148_SMAP_id_5_Sensor_tr_2011_1st_5060.csv",
+      "sha256": "8973ebcb8e4a843124b21a9b92f93122be3868a1541d7f103c1bb6f7760df9a9",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:19.487358+00:00",
+      "file": "154_SMAP_id_11_Sensor_tr_2117_1st_4770.csv",
+      "sha256": "532b19dfa64a6dea7964afc7204cdb60df4c8fd82579c6aed0167f217b30da3e",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:19.505632+00:00",
+      "file": "156_SMAP_id_13_Sensor_tr_1173_1st_2750.csv",
+      "sha256": "2d333dd2a533fcdbd43c176b2efcdb05f34c1d48c104d0cb126352843c7c76f6",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:19.514860+00:00",
+      "file": "166_SMAP_id_23_Sensor_tr_1113_1st_1890.csv",
+      "sha256": "8a20dded2a8dbe5b98e198aeaeb5fcdc43bfcccaf165e5aca37e7f7fb0448129",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:19.523758+00:00",
+      "file": "167_SMAP_id_24_Sensor_tr_2094_1st_5600.csv",
+      "sha256": "c703ce2e9704a733c4f225498c9878617d2401fa046ad0561808fa1681f1990c",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:19.542764+00:00",
+      "file": "171_SWaT_id_1_Sensor_tr_3749_1st_9522.csv",
+      "sha256": "91f3a03ba1ffcd9e4584a1f98c8ec0948f6d12ff80131d28111befb1c50a8c2b",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:19.616633+00:00",
+      "file": "172_SWaT_id_2_Sensor_tr_23700_1st_23800.csv",
+      "sha256": "8189bb3f05e3616a484cad733f39d2a153e2b96a166a6d0406f78a50163d133e",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:20.995908+00:00",
+      "file": "173_GECCO_id_1_Sensor_tr_16165_1st_16265.csv",
+      "sha256": "f65cfcf34db8e4d7fac73e8a6d1284a381cffa92bd8fccd8f7433b709d8ed32d",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:21.108449+00:00",
+      "file": "179_Exathlon_id_6_Facility_tr_11665_1st_13484.csv",
+      "sha256": "0abf09cafbfee44412ad0b795650d837be8de5d0e812719522f57f7bb01e1c99",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:21.289457+00:00",
+      "file": "188_Exathlon_id_15_Facility_tr_12538_1st_12638.csv",
+      "sha256": "ade5f3cdbffa2b3464497babe566041dff871bb9d5e9da9d1e17f3fefdedc16c",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:21.562816+00:00",
+      "file": "190_Exathlon_id_17_Facility_tr_12538_1st_12638.csv",
+      "sha256": "ade5f3cdbffa2b3464497babe566041dff871bb9d5e9da9d1e17f3fefdedc16c",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:21.840803+00:00",
+      "file": "198_Exathlon_id_25_Facility_tr_12538_1st_12638.csv",
+      "sha256": "ade5f3cdbffa2b3464497babe566041dff871bb9d5e9da9d1e17f3fefdedc16c",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    },
+    {
+      "utc": "2026-10-04T17:31:22.111155+00:00",
+      "file": "199_Exathlon_id_26_Facility_tr_12538_1st_12638.csv",
+      "sha256": "ade5f3cdbffa2b3464497babe566041dff871bb9d5e9da9d1e17f3fefdedc16c",
+      "labels_read": true,
+      "purpose": "authorized qualification mask only; not policy training/adaptation",
+      "historical_label_exposure": true
+    }
+  ],
+  "utc": "2026-10-04T17:31:22.404164+00:00",
+  "host": "ssh kuo",
+  "downloads_to_local": false,
+  "config_sha256": "af0ad293d76c446eb3b48ad575135bc126d35287302f1594742ac50784de8679",
+  "freeze": {
+    "freeze_commit": "e07b0b19093ce90b98c3d8f265e43867a054322a",
+    "remote_before_audit": "e07b0b19093ce90b98c3d8f265e43867a054322a",
+    "utc": "2026-10-04T17:31:06.792183+00:00"
+  },
+  "labels_role": "offline mask qualification only",
+  "historical_labels_already_exposed": true,
+  "normal_label_is_not_legitimacy": true,
+  "detector_runs": 0
+}

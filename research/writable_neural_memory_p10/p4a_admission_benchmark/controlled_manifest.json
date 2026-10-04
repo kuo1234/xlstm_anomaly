@@ -1,0 +1,994 @@
+{
+  "utc": "2026-10-04T17:31:05.804340+00:00",
+  "freeze_commit": "e07b0b19093ce90b98c3d8f265e43867a054322a",
+  "remote_before_audit": "e07b0b19093ce90b98c3d8f265e43867a054322a",
+  "config_sha256": "3c2a0bd506cab3aad8023856eb15bd32c0fe2d073ecebe28b519e7036c4a9075",
+  "physical_N": 5,
+  "stream_count": 15,
+  "records": [
+    {
+      "id": "seed101_benign_B_with_anomalies",
+      "physical_group": 101,
+      "arm": "benign_B_with_anomalies",
+      "shape": [
+        6144,
+        4
+      ],
+      "files": {
+        "observations": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed101_benign_B_with_anomalies_observations.npy",
+          "sha256": "3c65fd451e400173082a6904b08a0d04dc3ad443bf7366ebcdd391470a17db6c"
+        },
+        "truth_state": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed101_benign_B_with_anomalies_truth_state.npy",
+          "sha256": "9acf97ead10cc071e235a0133a3eba0782718bc333570dd29b6e5d4c1c797ff4"
+        },
+        "truth_anomaly": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed101_benign_B_with_anomalies_truth_anomaly.npy",
+          "sha256": "f394f54485f6f5ef075d7f486813347c16b9a412410aecdabbed88188133076d"
+        },
+        "scaler_mean": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed101_benign_B_with_anomalies_scaler_mean.npy",
+          "sha256": "c5b64a0a34f21f69f127c9164b97818e6ad2ce2dba851ffad8d6713217dfd4e1"
+        },
+        "scaler_sd": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed101_benign_B_with_anomalies_scaler_sd.npy",
+          "sha256": "d50844a87818734e3d129564e4208425f1d87152f34f74c907a0253be05fc663"
+        }
+      },
+      "state_counts": {
+        "BENIGN_TRANSITION": 256,
+        "NORMAL_A": 2048,
+        "NORMAL_B_SETTLED": 3200,
+        "TRUE_ANOMALY_UNDER_B": 640
+      },
+      "t_transition_start": 2048,
+      "t_settled_B": 2304,
+      "events": [
+        {
+          "id": "collective_under_B",
+          "start": 3072,
+          "end": 3200,
+          "dimensions": [
+            0
+          ],
+          "mechanism": "add3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        },
+        {
+          "id": "long_anomaly_under_B",
+          "start": 4096,
+          "end": 4608,
+          "dimensions": [
+            1
+          ],
+          "mechanism": "subtract3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        }
+      ],
+      "normality_truth": "synthetic normative intent; not operational unsafe",
+      "runtime_has_truth": false
+    },
+    {
+      "id": "seed101_stationary_A_with_anomalies",
+      "physical_group": 101,
+      "arm": "stationary_A_with_anomalies",
+      "shape": [
+        6144,
+        4
+      ],
+      "files": {
+        "observations": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed101_stationary_A_with_anomalies_observations.npy",
+          "sha256": "d6ef410fde177f3e43289c46ad13ca495a11bdf09d306cc5616b8e0fd046571b"
+        },
+        "truth_state": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed101_stationary_A_with_anomalies_truth_state.npy",
+          "sha256": "0eb04e03dd87193bb4e6cf15281274c553ba03779cac492d01ed60515b7e0fde"
+        },
+        "truth_anomaly": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed101_stationary_A_with_anomalies_truth_anomaly.npy",
+          "sha256": "f394f54485f6f5ef075d7f486813347c16b9a412410aecdabbed88188133076d"
+        },
+        "scaler_mean": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed101_stationary_A_with_anomalies_scaler_mean.npy",
+          "sha256": "c5b64a0a34f21f69f127c9164b97818e6ad2ce2dba851ffad8d6713217dfd4e1"
+        },
+        "scaler_sd": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed101_stationary_A_with_anomalies_scaler_sd.npy",
+          "sha256": "d50844a87818734e3d129564e4208425f1d87152f34f74c907a0253be05fc663"
+        }
+      },
+      "state_counts": {
+        "NORMAL_A": 5504,
+        "TRUE_ANOMALY_UNDER_A": 640
+      },
+      "t_transition_start": null,
+      "t_settled_B": null,
+      "events": [
+        {
+          "id": "collective_under_B",
+          "start": 3072,
+          "end": 3200,
+          "dimensions": [
+            0
+          ],
+          "mechanism": "add3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        },
+        {
+          "id": "long_anomaly_under_B",
+          "start": 4096,
+          "end": 4608,
+          "dimensions": [
+            1
+          ],
+          "mechanism": "subtract3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        }
+      ],
+      "normality_truth": "synthetic normative intent; not operational unsafe",
+      "runtime_has_truth": false
+    },
+    {
+      "id": "seed101_semantic_fault_twin",
+      "physical_group": 101,
+      "arm": "semantic_fault_twin",
+      "shape": [
+        6144,
+        4
+      ],
+      "files": {
+        "observations": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed101_semantic_fault_twin_observations.npy",
+          "sha256": "3c65fd451e400173082a6904b08a0d04dc3ad443bf7366ebcdd391470a17db6c"
+        },
+        "truth_state": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed101_semantic_fault_twin_truth_state.npy",
+          "sha256": "bf840960f3213ac9ce251802fc04801d1c9fa632d8f746de79b6161f3998d565"
+        },
+        "truth_anomaly": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed101_semantic_fault_twin_truth_anomaly.npy",
+          "sha256": "a9f4f616b69083a185d1862beb122ff8cc7551b7263545be3bcd373aafd932bf"
+        },
+        "scaler_mean": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed101_semantic_fault_twin_scaler_mean.npy",
+          "sha256": "c5b64a0a34f21f69f127c9164b97818e6ad2ce2dba851ffad8d6713217dfd4e1"
+        },
+        "scaler_sd": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed101_semantic_fault_twin_scaler_sd.npy",
+          "sha256": "d50844a87818734e3d129564e4208425f1d87152f34f74c907a0253be05fc663"
+        }
+      },
+      "state_counts": {
+        "NON_BENIGN_PERSISTENT_FAULT": 4096,
+        "NORMAL_A": 2048
+      },
+      "t_transition_start": 2048,
+      "t_settled_B": null,
+      "events": [
+        {
+          "id": "collective_under_B",
+          "start": 3072,
+          "end": 3200,
+          "dimensions": [
+            0
+          ],
+          "mechanism": "add3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        },
+        {
+          "id": "long_anomaly_under_B",
+          "start": 4096,
+          "end": 4608,
+          "dimensions": [
+            1
+          ],
+          "mechanism": "subtract3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        }
+      ],
+      "normality_truth": "synthetic normative intent; not operational unsafe",
+      "runtime_has_truth": false
+    },
+    {
+      "id": "seed101_old_A_probe",
+      "physical_group": 101,
+      "role": "read-only future snapshot evaluator only",
+      "shape": [
+        512,
+        4
+      ],
+      "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed101_old_A_probe.npy",
+      "sha256": "1aa29cd81405a9e5c0968e3138630b55a551acd27667d1ca831245b29ed2eaaf"
+    },
+    {
+      "id": "seed202_benign_B_with_anomalies",
+      "physical_group": 202,
+      "arm": "benign_B_with_anomalies",
+      "shape": [
+        6144,
+        4
+      ],
+      "files": {
+        "observations": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed202_benign_B_with_anomalies_observations.npy",
+          "sha256": "a5b6dd905d32623edcb264b279e9618ec1f66e963ac403694aeaf909b59c95b9"
+        },
+        "truth_state": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed202_benign_B_with_anomalies_truth_state.npy",
+          "sha256": "040ad98f457893c45a3cdecba2d4181f30eae1b75224ea6bc5da6181b0f3a748"
+        },
+        "truth_anomaly": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed202_benign_B_with_anomalies_truth_anomaly.npy",
+          "sha256": "430cb728f21cf87eca4e0b61872767f3a17ad77214da46360f2efb113073eedd"
+        },
+        "scaler_mean": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed202_benign_B_with_anomalies_scaler_mean.npy",
+          "sha256": "5257a79d780be89fb115e037590b82229848461289a2cad2c1e6e0c6fd11e3d8"
+        },
+        "scaler_sd": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed202_benign_B_with_anomalies_scaler_sd.npy",
+          "sha256": "78c8e4f8ede7dbb2b0abaa7039e500c08cde5635ee7b715143f7f5c38739dd06"
+        }
+      },
+      "state_counts": {
+        "BENIGN_TRANSITION": 256,
+        "NORMAL_A": 2112,
+        "NORMAL_B_SETTLED": 3136,
+        "TRUE_ANOMALY_UNDER_B": 640
+      },
+      "t_transition_start": 2112,
+      "t_settled_B": 2368,
+      "events": [
+        {
+          "id": "collective_under_B",
+          "start": 3136,
+          "end": 3264,
+          "dimensions": [
+            0
+          ],
+          "mechanism": "add3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        },
+        {
+          "id": "long_anomaly_under_B",
+          "start": 4160,
+          "end": 4672,
+          "dimensions": [
+            1
+          ],
+          "mechanism": "subtract3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        }
+      ],
+      "normality_truth": "synthetic normative intent; not operational unsafe",
+      "runtime_has_truth": false
+    },
+    {
+      "id": "seed202_stationary_A_with_anomalies",
+      "physical_group": 202,
+      "arm": "stationary_A_with_anomalies",
+      "shape": [
+        6144,
+        4
+      ],
+      "files": {
+        "observations": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed202_stationary_A_with_anomalies_observations.npy",
+          "sha256": "2246be1892de3e92e19eda3abfd8323685ba902d1bd75ca2355e07035a74eafb"
+        },
+        "truth_state": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed202_stationary_A_with_anomalies_truth_state.npy",
+          "sha256": "0359d50664befff7d957ac5d38936f19ee7a46b9bb14507f035f6f15cea228fe"
+        },
+        "truth_anomaly": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed202_stationary_A_with_anomalies_truth_anomaly.npy",
+          "sha256": "430cb728f21cf87eca4e0b61872767f3a17ad77214da46360f2efb113073eedd"
+        },
+        "scaler_mean": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed202_stationary_A_with_anomalies_scaler_mean.npy",
+          "sha256": "5257a79d780be89fb115e037590b82229848461289a2cad2c1e6e0c6fd11e3d8"
+        },
+        "scaler_sd": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed202_stationary_A_with_anomalies_scaler_sd.npy",
+          "sha256": "78c8e4f8ede7dbb2b0abaa7039e500c08cde5635ee7b715143f7f5c38739dd06"
+        }
+      },
+      "state_counts": {
+        "NORMAL_A": 5504,
+        "TRUE_ANOMALY_UNDER_A": 640
+      },
+      "t_transition_start": null,
+      "t_settled_B": null,
+      "events": [
+        {
+          "id": "collective_under_B",
+          "start": 3136,
+          "end": 3264,
+          "dimensions": [
+            0
+          ],
+          "mechanism": "add3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        },
+        {
+          "id": "long_anomaly_under_B",
+          "start": 4160,
+          "end": 4672,
+          "dimensions": [
+            1
+          ],
+          "mechanism": "subtract3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        }
+      ],
+      "normality_truth": "synthetic normative intent; not operational unsafe",
+      "runtime_has_truth": false
+    },
+    {
+      "id": "seed202_semantic_fault_twin",
+      "physical_group": 202,
+      "arm": "semantic_fault_twin",
+      "shape": [
+        6144,
+        4
+      ],
+      "files": {
+        "observations": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed202_semantic_fault_twin_observations.npy",
+          "sha256": "a5b6dd905d32623edcb264b279e9618ec1f66e963ac403694aeaf909b59c95b9"
+        },
+        "truth_state": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed202_semantic_fault_twin_truth_state.npy",
+          "sha256": "eb5b26fdbfa0b9b9a1a006460a8facf2acf9f3faf96e7334ec6bc253bd4bf466"
+        },
+        "truth_anomaly": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed202_semantic_fault_twin_truth_anomaly.npy",
+          "sha256": "456f573fcee441c3152bb107047a110fa676a4b72b82437e7e85f7e0a25abeb1"
+        },
+        "scaler_mean": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed202_semantic_fault_twin_scaler_mean.npy",
+          "sha256": "5257a79d780be89fb115e037590b82229848461289a2cad2c1e6e0c6fd11e3d8"
+        },
+        "scaler_sd": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed202_semantic_fault_twin_scaler_sd.npy",
+          "sha256": "78c8e4f8ede7dbb2b0abaa7039e500c08cde5635ee7b715143f7f5c38739dd06"
+        }
+      },
+      "state_counts": {
+        "NON_BENIGN_PERSISTENT_FAULT": 4032,
+        "NORMAL_A": 2112
+      },
+      "t_transition_start": 2112,
+      "t_settled_B": null,
+      "events": [
+        {
+          "id": "collective_under_B",
+          "start": 3136,
+          "end": 3264,
+          "dimensions": [
+            0
+          ],
+          "mechanism": "add3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        },
+        {
+          "id": "long_anomaly_under_B",
+          "start": 4160,
+          "end": 4672,
+          "dimensions": [
+            1
+          ],
+          "mechanism": "subtract3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        }
+      ],
+      "normality_truth": "synthetic normative intent; not operational unsafe",
+      "runtime_has_truth": false
+    },
+    {
+      "id": "seed202_old_A_probe",
+      "physical_group": 202,
+      "role": "read-only future snapshot evaluator only",
+      "shape": [
+        512,
+        4
+      ],
+      "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed202_old_A_probe.npy",
+      "sha256": "72a9c4441b6bc4fb749c46315648028a70b72cf54aebbef5ba9ea8be5656cc96"
+    },
+    {
+      "id": "seed303_benign_B_with_anomalies",
+      "physical_group": 303,
+      "arm": "benign_B_with_anomalies",
+      "shape": [
+        6144,
+        4
+      ],
+      "files": {
+        "observations": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed303_benign_B_with_anomalies_observations.npy",
+          "sha256": "ca88c58fd8e0cbb6782c486fcf8b5245fd3dd305a175e056338efa2030e47b37"
+        },
+        "truth_state": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed303_benign_B_with_anomalies_truth_state.npy",
+          "sha256": "582804a2a860e3b8369699b54f67f8488aaf86c789501d12ec5fffcd639eb10f"
+        },
+        "truth_anomaly": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed303_benign_B_with_anomalies_truth_anomaly.npy",
+          "sha256": "e488a67bbcf33fdb93aebc94363c930bad72f83ca295e1f31151e8d72fb288a2"
+        },
+        "scaler_mean": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed303_benign_B_with_anomalies_scaler_mean.npy",
+          "sha256": "41ee6ebb55f0460965e4327914d0e266e5772663c5501a7948683a44d0bcf7f0"
+        },
+        "scaler_sd": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed303_benign_B_with_anomalies_scaler_sd.npy",
+          "sha256": "159195378699d50d2257957bec1e72e9df6d89ac93cddd9fc9734698ec093be5"
+        }
+      },
+      "state_counts": {
+        "BENIGN_TRANSITION": 256,
+        "NORMAL_A": 1920,
+        "NORMAL_B_SETTLED": 3328,
+        "TRUE_ANOMALY_UNDER_B": 640
+      },
+      "t_transition_start": 1920,
+      "t_settled_B": 2176,
+      "events": [
+        {
+          "id": "collective_under_B",
+          "start": 2944,
+          "end": 3072,
+          "dimensions": [
+            0
+          ],
+          "mechanism": "add3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        },
+        {
+          "id": "long_anomaly_under_B",
+          "start": 3968,
+          "end": 4480,
+          "dimensions": [
+            1
+          ],
+          "mechanism": "subtract3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        }
+      ],
+      "normality_truth": "synthetic normative intent; not operational unsafe",
+      "runtime_has_truth": false
+    },
+    {
+      "id": "seed303_stationary_A_with_anomalies",
+      "physical_group": 303,
+      "arm": "stationary_A_with_anomalies",
+      "shape": [
+        6144,
+        4
+      ],
+      "files": {
+        "observations": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed303_stationary_A_with_anomalies_observations.npy",
+          "sha256": "c1e842764c65efbb8512db0ffa5e29f584869ef924caad346060085523ebd379"
+        },
+        "truth_state": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed303_stationary_A_with_anomalies_truth_state.npy",
+          "sha256": "a29ad33020b8bbea3846a26438c02c2875a8482e97dbc99d22bb28ca7fe2583f"
+        },
+        "truth_anomaly": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed303_stationary_A_with_anomalies_truth_anomaly.npy",
+          "sha256": "e488a67bbcf33fdb93aebc94363c930bad72f83ca295e1f31151e8d72fb288a2"
+        },
+        "scaler_mean": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed303_stationary_A_with_anomalies_scaler_mean.npy",
+          "sha256": "41ee6ebb55f0460965e4327914d0e266e5772663c5501a7948683a44d0bcf7f0"
+        },
+        "scaler_sd": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed303_stationary_A_with_anomalies_scaler_sd.npy",
+          "sha256": "159195378699d50d2257957bec1e72e9df6d89ac93cddd9fc9734698ec093be5"
+        }
+      },
+      "state_counts": {
+        "NORMAL_A": 5504,
+        "TRUE_ANOMALY_UNDER_A": 640
+      },
+      "t_transition_start": null,
+      "t_settled_B": null,
+      "events": [
+        {
+          "id": "collective_under_B",
+          "start": 2944,
+          "end": 3072,
+          "dimensions": [
+            0
+          ],
+          "mechanism": "add3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        },
+        {
+          "id": "long_anomaly_under_B",
+          "start": 3968,
+          "end": 4480,
+          "dimensions": [
+            1
+          ],
+          "mechanism": "subtract3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        }
+      ],
+      "normality_truth": "synthetic normative intent; not operational unsafe",
+      "runtime_has_truth": false
+    },
+    {
+      "id": "seed303_semantic_fault_twin",
+      "physical_group": 303,
+      "arm": "semantic_fault_twin",
+      "shape": [
+        6144,
+        4
+      ],
+      "files": {
+        "observations": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed303_semantic_fault_twin_observations.npy",
+          "sha256": "ca88c58fd8e0cbb6782c486fcf8b5245fd3dd305a175e056338efa2030e47b37"
+        },
+        "truth_state": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed303_semantic_fault_twin_truth_state.npy",
+          "sha256": "50bdf32c44a32321bafe3a6b7c3fcf4b29171936cf5346d43ba7cc6dd130ead6"
+        },
+        "truth_anomaly": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed303_semantic_fault_twin_truth_anomaly.npy",
+          "sha256": "05b1198fa25d8170c3d26156fddf129f990f12d8ce4eba969f0e4562e1e4e0f0"
+        },
+        "scaler_mean": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed303_semantic_fault_twin_scaler_mean.npy",
+          "sha256": "41ee6ebb55f0460965e4327914d0e266e5772663c5501a7948683a44d0bcf7f0"
+        },
+        "scaler_sd": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed303_semantic_fault_twin_scaler_sd.npy",
+          "sha256": "159195378699d50d2257957bec1e72e9df6d89ac93cddd9fc9734698ec093be5"
+        }
+      },
+      "state_counts": {
+        "NON_BENIGN_PERSISTENT_FAULT": 4224,
+        "NORMAL_A": 1920
+      },
+      "t_transition_start": 1920,
+      "t_settled_B": null,
+      "events": [
+        {
+          "id": "collective_under_B",
+          "start": 2944,
+          "end": 3072,
+          "dimensions": [
+            0
+          ],
+          "mechanism": "add3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        },
+        {
+          "id": "long_anomaly_under_B",
+          "start": 3968,
+          "end": 4480,
+          "dimensions": [
+            1
+          ],
+          "mechanism": "subtract3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        }
+      ],
+      "normality_truth": "synthetic normative intent; not operational unsafe",
+      "runtime_has_truth": false
+    },
+    {
+      "id": "seed303_old_A_probe",
+      "physical_group": 303,
+      "role": "read-only future snapshot evaluator only",
+      "shape": [
+        512,
+        4
+      ],
+      "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed303_old_A_probe.npy",
+      "sha256": "a2708da473c8aeb3313758a0d7d332579ff86bcbf477b785aba8639d7fbb8540"
+    },
+    {
+      "id": "seed404_benign_B_with_anomalies",
+      "physical_group": 404,
+      "arm": "benign_B_with_anomalies",
+      "shape": [
+        6144,
+        4
+      ],
+      "files": {
+        "observations": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed404_benign_B_with_anomalies_observations.npy",
+          "sha256": "41f2d18eee672b5f35014ca8a95284df2ae2a772d3e12000e4cc3afc7abee6e4"
+        },
+        "truth_state": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed404_benign_B_with_anomalies_truth_state.npy",
+          "sha256": "57d772db4236a1a4a9ba6b1dc74fbf486d710c2bc0e256d5138f15517671af87"
+        },
+        "truth_anomaly": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed404_benign_B_with_anomalies_truth_anomaly.npy",
+          "sha256": "dfbbf19712b6e21833bc66ff7980d338b199113ef28c06fc4c3f5807a410f32b"
+        },
+        "scaler_mean": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed404_benign_B_with_anomalies_scaler_mean.npy",
+          "sha256": "9b00fd9f97150c4c327355b70755dadbad2811a5b202c34a6483d603af4deeab"
+        },
+        "scaler_sd": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed404_benign_B_with_anomalies_scaler_sd.npy",
+          "sha256": "4b002c8d1ef6b402d46717e85cf9f87e80e0142cf36ac660625c7d029f36a6e4"
+        }
+      },
+      "state_counts": {
+        "BENIGN_TRANSITION": 256,
+        "NORMAL_A": 2240,
+        "NORMAL_B_SETTLED": 3008,
+        "TRUE_ANOMALY_UNDER_B": 640
+      },
+      "t_transition_start": 2240,
+      "t_settled_B": 2496,
+      "events": [
+        {
+          "id": "collective_under_B",
+          "start": 3264,
+          "end": 3392,
+          "dimensions": [
+            0
+          ],
+          "mechanism": "add3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        },
+        {
+          "id": "long_anomaly_under_B",
+          "start": 4288,
+          "end": 4800,
+          "dimensions": [
+            1
+          ],
+          "mechanism": "subtract3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        }
+      ],
+      "normality_truth": "synthetic normative intent; not operational unsafe",
+      "runtime_has_truth": false
+    },
+    {
+      "id": "seed404_stationary_A_with_anomalies",
+      "physical_group": 404,
+      "arm": "stationary_A_with_anomalies",
+      "shape": [
+        6144,
+        4
+      ],
+      "files": {
+        "observations": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed404_stationary_A_with_anomalies_observations.npy",
+          "sha256": "82a2257713b42221887774101f6042c02c30038cdb703837a98ce87cd33210a1"
+        },
+        "truth_state": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed404_stationary_A_with_anomalies_truth_state.npy",
+          "sha256": "68f2e3c1244e6ec714802ff9fb868f1d19f305a46208a16a6eb94152b2d3b4a7"
+        },
+        "truth_anomaly": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed404_stationary_A_with_anomalies_truth_anomaly.npy",
+          "sha256": "dfbbf19712b6e21833bc66ff7980d338b199113ef28c06fc4c3f5807a410f32b"
+        },
+        "scaler_mean": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed404_stationary_A_with_anomalies_scaler_mean.npy",
+          "sha256": "9b00fd9f97150c4c327355b70755dadbad2811a5b202c34a6483d603af4deeab"
+        },
+        "scaler_sd": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed404_stationary_A_with_anomalies_scaler_sd.npy",
+          "sha256": "4b002c8d1ef6b402d46717e85cf9f87e80e0142cf36ac660625c7d029f36a6e4"
+        }
+      },
+      "state_counts": {
+        "NORMAL_A": 5504,
+        "TRUE_ANOMALY_UNDER_A": 640
+      },
+      "t_transition_start": null,
+      "t_settled_B": null,
+      "events": [
+        {
+          "id": "collective_under_B",
+          "start": 3264,
+          "end": 3392,
+          "dimensions": [
+            0
+          ],
+          "mechanism": "add3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        },
+        {
+          "id": "long_anomaly_under_B",
+          "start": 4288,
+          "end": 4800,
+          "dimensions": [
+            1
+          ],
+          "mechanism": "subtract3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        }
+      ],
+      "normality_truth": "synthetic normative intent; not operational unsafe",
+      "runtime_has_truth": false
+    },
+    {
+      "id": "seed404_semantic_fault_twin",
+      "physical_group": 404,
+      "arm": "semantic_fault_twin",
+      "shape": [
+        6144,
+        4
+      ],
+      "files": {
+        "observations": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed404_semantic_fault_twin_observations.npy",
+          "sha256": "41f2d18eee672b5f35014ca8a95284df2ae2a772d3e12000e4cc3afc7abee6e4"
+        },
+        "truth_state": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed404_semantic_fault_twin_truth_state.npy",
+          "sha256": "e274daf0ab8ab55d342d83e2413806e584957607d3dbafd2214b303e61b98df2"
+        },
+        "truth_anomaly": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed404_semantic_fault_twin_truth_anomaly.npy",
+          "sha256": "c6b7a1f697969652932dbf99e48cc0b8f12ab8433c79d4080e6c7ba5d4813da9"
+        },
+        "scaler_mean": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed404_semantic_fault_twin_scaler_mean.npy",
+          "sha256": "9b00fd9f97150c4c327355b70755dadbad2811a5b202c34a6483d603af4deeab"
+        },
+        "scaler_sd": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed404_semantic_fault_twin_scaler_sd.npy",
+          "sha256": "4b002c8d1ef6b402d46717e85cf9f87e80e0142cf36ac660625c7d029f36a6e4"
+        }
+      },
+      "state_counts": {
+        "NON_BENIGN_PERSISTENT_FAULT": 3904,
+        "NORMAL_A": 2240
+      },
+      "t_transition_start": 2240,
+      "t_settled_B": null,
+      "events": [
+        {
+          "id": "collective_under_B",
+          "start": 3264,
+          "end": 3392,
+          "dimensions": [
+            0
+          ],
+          "mechanism": "add3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        },
+        {
+          "id": "long_anomaly_under_B",
+          "start": 4288,
+          "end": 4800,
+          "dimensions": [
+            1
+          ],
+          "mechanism": "subtract3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        }
+      ],
+      "normality_truth": "synthetic normative intent; not operational unsafe",
+      "runtime_has_truth": false
+    },
+    {
+      "id": "seed404_old_A_probe",
+      "physical_group": 404,
+      "role": "read-only future snapshot evaluator only",
+      "shape": [
+        512,
+        4
+      ],
+      "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed404_old_A_probe.npy",
+      "sha256": "7c2af8cd8f9e6da515252a5375caf011c41be50cab48250b3ab7799c3695eb54"
+    },
+    {
+      "id": "seed505_benign_B_with_anomalies",
+      "physical_group": 505,
+      "arm": "benign_B_with_anomalies",
+      "shape": [
+        6144,
+        4
+      ],
+      "files": {
+        "observations": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed505_benign_B_with_anomalies_observations.npy",
+          "sha256": "ef6b336975f37d8c4ad32661dffd7b06cd080da75e7774d837bb502e17dee173"
+        },
+        "truth_state": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed505_benign_B_with_anomalies_truth_state.npy",
+          "sha256": "56be1e840fa78f55f0f66d689334ed9393ac25df07b32e0f092006245bce0831"
+        },
+        "truth_anomaly": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed505_benign_B_with_anomalies_truth_anomaly.npy",
+          "sha256": "e7ddbedc0ce0110893b487a8e49780522d8a2bfa9e1876def745ecd6584febdb"
+        },
+        "scaler_mean": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed505_benign_B_with_anomalies_scaler_mean.npy",
+          "sha256": "f16028e4a2e21ce48ee8442a19c80b6f664e1451675208ef360d8da2fbe83ef4"
+        },
+        "scaler_sd": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed505_benign_B_with_anomalies_scaler_sd.npy",
+          "sha256": "4875b95aae29f564ee11ef09f7301a92c143293596218b1447b19feb35293707"
+        }
+      },
+      "state_counts": {
+        "BENIGN_TRANSITION": 256,
+        "NORMAL_A": 2016,
+        "NORMAL_B_SETTLED": 3232,
+        "TRUE_ANOMALY_UNDER_B": 640
+      },
+      "t_transition_start": 2016,
+      "t_settled_B": 2272,
+      "events": [
+        {
+          "id": "collective_under_B",
+          "start": 3040,
+          "end": 3168,
+          "dimensions": [
+            0
+          ],
+          "mechanism": "add3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        },
+        {
+          "id": "long_anomaly_under_B",
+          "start": 4064,
+          "end": 4576,
+          "dimensions": [
+            1
+          ],
+          "mechanism": "subtract3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        }
+      ],
+      "normality_truth": "synthetic normative intent; not operational unsafe",
+      "runtime_has_truth": false
+    },
+    {
+      "id": "seed505_stationary_A_with_anomalies",
+      "physical_group": 505,
+      "arm": "stationary_A_with_anomalies",
+      "shape": [
+        6144,
+        4
+      ],
+      "files": {
+        "observations": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed505_stationary_A_with_anomalies_observations.npy",
+          "sha256": "4543935f14095cc03034b501c6272c5fc14fd53491a436b3c2f86e0f6bb49f2a"
+        },
+        "truth_state": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed505_stationary_A_with_anomalies_truth_state.npy",
+          "sha256": "dbed0f7b55f1769a78689e12c8a6225a52862fe47c18ca759241956007279f6c"
+        },
+        "truth_anomaly": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed505_stationary_A_with_anomalies_truth_anomaly.npy",
+          "sha256": "e7ddbedc0ce0110893b487a8e49780522d8a2bfa9e1876def745ecd6584febdb"
+        },
+        "scaler_mean": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed505_stationary_A_with_anomalies_scaler_mean.npy",
+          "sha256": "f16028e4a2e21ce48ee8442a19c80b6f664e1451675208ef360d8da2fbe83ef4"
+        },
+        "scaler_sd": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed505_stationary_A_with_anomalies_scaler_sd.npy",
+          "sha256": "4875b95aae29f564ee11ef09f7301a92c143293596218b1447b19feb35293707"
+        }
+      },
+      "state_counts": {
+        "NORMAL_A": 5504,
+        "TRUE_ANOMALY_UNDER_A": 640
+      },
+      "t_transition_start": null,
+      "t_settled_B": null,
+      "events": [
+        {
+          "id": "collective_under_B",
+          "start": 3040,
+          "end": 3168,
+          "dimensions": [
+            0
+          ],
+          "mechanism": "add3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        },
+        {
+          "id": "long_anomaly_under_B",
+          "start": 4064,
+          "end": 4576,
+          "dimensions": [
+            1
+          ],
+          "mechanism": "subtract3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        }
+      ],
+      "normality_truth": "synthetic normative intent; not operational unsafe",
+      "runtime_has_truth": false
+    },
+    {
+      "id": "seed505_semantic_fault_twin",
+      "physical_group": 505,
+      "arm": "semantic_fault_twin",
+      "shape": [
+        6144,
+        4
+      ],
+      "files": {
+        "observations": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed505_semantic_fault_twin_observations.npy",
+          "sha256": "ef6b336975f37d8c4ad32661dffd7b06cd080da75e7774d837bb502e17dee173"
+        },
+        "truth_state": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed505_semantic_fault_twin_truth_state.npy",
+          "sha256": "32ae1b5b0cd8acbec3279b3060a2363d2d4f7194f6028cadc1895a339ac90e81"
+        },
+        "truth_anomaly": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed505_semantic_fault_twin_truth_anomaly.npy",
+          "sha256": "b85d4aba3598c22d0dae8c3495f294a40293cf9ee690cf5e8debb629f3d9528a"
+        },
+        "scaler_mean": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed505_semantic_fault_twin_scaler_mean.npy",
+          "sha256": "f16028e4a2e21ce48ee8442a19c80b6f664e1451675208ef360d8da2fbe83ef4"
+        },
+        "scaler_sd": {
+          "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed505_semantic_fault_twin_scaler_sd.npy",
+          "sha256": "4875b95aae29f564ee11ef09f7301a92c143293596218b1447b19feb35293707"
+        }
+      },
+      "state_counts": {
+        "NON_BENIGN_PERSISTENT_FAULT": 4128,
+        "NORMAL_A": 2016
+      },
+      "t_transition_start": 2016,
+      "t_settled_B": null,
+      "events": [
+        {
+          "id": "collective_under_B",
+          "start": 3040,
+          "end": 3168,
+          "dimensions": [
+            0
+          ],
+          "mechanism": "add3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        },
+        {
+          "id": "long_anomaly_under_B",
+          "start": 4064,
+          "end": 4576,
+          "dimensions": [
+            1
+          ],
+          "mechanism": "subtract3 * analytic A marginal SD",
+          "severity_sd_A": 3
+        }
+      ],
+      "normality_truth": "synthetic normative intent; not operational unsafe",
+      "runtime_has_truth": false
+    },
+    {
+      "id": "seed505_old_A_probe",
+      "physical_group": 505,
+      "role": "read-only future snapshot evaluator only",
+      "shape": [
+        512,
+        4
+      ],
+      "path": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory/data/p4a_admission_benchmark/controlled/seed505_old_A_probe.npy",
+      "sha256": "ce3463b18a779183c46787a5a32a42449beb32ed246b72c18df2cc6be77ed38e"
+    }
+  ],
+  "models": 0,
+  "scores": 0,
+  "memory_writes": 0,
+  "formal_acceptance_not_measured": true
+}
