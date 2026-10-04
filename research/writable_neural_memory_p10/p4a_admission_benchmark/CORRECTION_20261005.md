@@ -1,0 +1,2 @@
+# Docs-only correction (2026-10-05 Asia/Taipei)
+Reviewer #17 comment5982663692 identified stale mean-feature summary. Recount frozen tsb_audit_results.json with supported adjacent post-batches and .10-nat threshold: SMD059,065,067,068,071,075,078 =7/15, not8/15. README and qualification/audit prose corrected. Original result JSON, audit table, matrices, generator and freeze inputs are unchanged; no rerun or primary-gate change. Original completion comment preserved, separate correction note posted. P4-A remains accepted ADMISSION_BENCHMARK_READY.

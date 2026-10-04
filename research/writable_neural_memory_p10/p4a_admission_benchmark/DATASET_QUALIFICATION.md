@@ -6,7 +6,7 @@
 |---|---|---|
 | Controlled timing truth frozen prospectively | e07b0b19093ce90b98c3d8f265e43867a054322a; five physical seeds, 15 streams, five independent read-only A probes, deterministic finite ramp | M2N2-style independent generator, not exact official generator reproduction |
 | Settled endpoint independent of results | First target parameter law at transition+256, no detector/CV/loss used | Settled stochastic periodic law, not literal constant signal or physical safety |
-| Real masked persistent drift group | 14/15 native-mapped SMD machines; 46/47 non-simulated candidates under frozen max-feature criterion | Cause/legitimacy UNKNOWN; mean sensitivity only8/15 SMD; historically exposed labels |
+| Real masked persistent drift group | 14/15 native-mapped SMD machines; 46/47 non-simulated candidates under frozen max-feature criterion | Cause/legitimacy UNKNOWN; mean sensitivity only7/15 SMD; historically exposed labels |
 | Concrete prior-art overlap | M2N2 EMA and masked gradient; CANDI curated buffers, delayed updates and anomaly-selected counters; gated MemStream and conditional LODA semantics | Delayed selective updating is already prior art; novelty unresolved |
 | Admission metrics fixed | FAR, purity, formal acceptance, censoring, effective baseline exposure, transition burden, anomaly and old-normal retention | Actual policy instrumentation/metrics NOT_RUN; native baseline formal TTAccept N/A_NATIVE |
 
