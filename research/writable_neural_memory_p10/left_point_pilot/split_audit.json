@@ -1,0 +1,53 @@
+{
+  "healthy_counts": {
+    "train": 50,
+    "validation": 4,
+    "calibration": 4
+  },
+  "healthy_unique_native_seeds": {
+    "train": 50,
+    "validation": 4,
+    "calibration": 4
+  },
+  "healthy_saved_points": 34800,
+  "events": [
+    {
+      "id": "left01",
+      "seed": 3010004,
+      "ramp": 40.0,
+      "arm": "setpoint"
+    },
+    {
+      "id": "left02",
+      "seed": 3010002,
+      "ramp": 20.0,
+      "arm": "setpoint"
+    },
+    {
+      "id": "left03",
+      "seed": 3010000,
+      "ramp": 0.0,
+      "arm": "setpoint"
+    },
+    {
+      "id": "left04",
+      "seed": 11455,
+      "ramp": 1.0,
+      "arm": "fault"
+    },
+    {
+      "id": "left05",
+      "seed": 23463,
+      "ramp": 1.0,
+      "arm": "fault"
+    },
+    {
+      "id": "left06",
+      "seed": 45290,
+      "ramp": 1.0,
+      "arm": "fault"
+    }
+  ],
+  "train_validation_calibration_event_seed_disjoint": true,
+  "unsafe_truth": "NOT_EVALUABLE; source FAULT != unsafe operation"
+}

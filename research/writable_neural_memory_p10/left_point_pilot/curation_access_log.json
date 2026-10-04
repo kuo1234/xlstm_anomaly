@@ -1,0 +1,386 @@
+[
+  {
+    "id": "healthy100",
+    "utc": "2026-10-04T12:26:00.900452+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy101",
+    "utc": "2026-10-04T12:26:13.351761+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy102",
+    "utc": "2026-10-04T12:26:17.083609+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy103",
+    "utc": "2026-10-04T12:26:20.834021+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy104",
+    "utc": "2026-10-04T12:26:25.322423+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy105",
+    "utc": "2026-10-04T12:26:29.063584+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy106",
+    "utc": "2026-10-04T12:26:32.047164+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy107",
+    "utc": "2026-10-04T12:26:35.786125+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy108",
+    "utc": "2026-10-04T12:26:39.534065+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy109",
+    "utc": "2026-10-04T12:26:43.283192+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy110",
+    "utc": "2026-10-04T12:26:46.281679+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy111",
+    "utc": "2026-10-04T12:26:50.762872+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy112",
+    "utc": "2026-10-04T12:26:54.504317+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy113",
+    "utc": "2026-10-04T12:26:58.251620+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy114",
+    "utc": "2026-10-04T12:27:01.243724+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy115",
+    "utc": "2026-10-04T12:27:05.260468+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy116",
+    "utc": "2026-10-04T12:27:10.283832+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy117",
+    "utc": "2026-10-04T12:27:14.298433+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy118",
+    "utc": "2026-10-04T12:27:19.333876+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy119",
+    "utc": "2026-10-04T12:27:24.363232+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy120",
+    "utc": "2026-10-04T12:27:29.413324+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy121",
+    "utc": "2026-10-04T12:27:34.463261+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy122",
+    "utc": "2026-10-04T12:27:39.517254+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy123",
+    "utc": "2026-10-04T12:27:44.530408+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy124",
+    "utc": "2026-10-04T12:27:48.540921+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy125",
+    "utc": "2026-10-04T12:27:53.580582+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy126",
+    "utc": "2026-10-04T12:27:58.603948+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy127",
+    "utc": "2026-10-04T12:28:03.632324+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy128",
+    "utc": "2026-10-04T12:28:07.642466+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy129",
+    "utc": "2026-10-04T12:28:12.657020+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy130",
+    "utc": "2026-10-04T12:28:17.684103+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy131",
+    "utc": "2026-10-04T12:28:22.740540+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy132",
+    "utc": "2026-10-04T12:28:27.777427+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy133",
+    "utc": "2026-10-04T12:28:32.817008+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy134",
+    "utc": "2026-10-04T12:28:37.831297+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy135",
+    "utc": "2026-10-04T12:28:41.850873+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy136",
+    "utc": "2026-10-04T12:28:46.881148+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy137",
+    "utc": "2026-10-04T12:28:51.925101+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy138",
+    "utc": "2026-10-04T12:28:56.960579+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy139",
+    "utc": "2026-10-04T12:29:00.987102+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy140",
+    "utc": "2026-10-04T12:29:06.024612+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy141",
+    "utc": "2026-10-04T12:29:12.061253+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy142",
+    "utc": "2026-10-04T12:29:16.086401+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy143",
+    "utc": "2026-10-04T12:29:21.102800+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy144",
+    "utc": "2026-10-04T12:29:26.127909+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy145",
+    "utc": "2026-10-04T12:29:31.160078+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy146",
+    "utc": "2026-10-04T12:29:35.178543+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy147",
+    "utc": "2026-10-04T12:29:41.216422+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy148",
+    "utc": "2026-10-04T12:29:46.232273+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy149",
+    "utc": "2026-10-04T12:29:51.275147+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy150",
+    "utc": "2026-10-04T12:29:55.308524+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy151",
+    "utc": "2026-10-04T12:30:01.329695+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy152",
+    "utc": "2026-10-04T12:30:06.354247+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy153",
+    "utc": "2026-10-04T12:30:10.373471+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy154",
+    "utc": "2026-10-04T12:30:15.403761+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy155",
+    "utc": "2026-10-04T12:30:20.448663+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy156",
+    "utc": "2026-10-04T12:30:26.482274+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "healthy157",
+    "utc": "2026-10-04T12:30:29.503195+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "left01",
+    "utc": "2026-10-04T12:30:34.515805+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "left02",
+    "utc": "2026-10-04T12:30:50.582044+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "left03",
+    "utc": "2026-10-04T12:31:07.681391+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "left04",
+    "utc": "2026-10-04T12:31:26.048345+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "left05",
+    "utc": "2026-10-04T12:31:40.101543+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  },
+  {
+    "id": "left06",
+    "utc": "2026-10-04T12:31:55.196409+00:00",
+    "purpose": "source profile/normal-prefix/provenance compatibility curation, not model outcome",
+    "source_metadata_read": true
+  }
+]
