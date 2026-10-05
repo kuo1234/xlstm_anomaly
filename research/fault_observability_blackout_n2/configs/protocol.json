@@ -1,0 +1,17 @@
+{
+ "stage":"N2 external replication of fault-selective scoring observability blackout",
+ "authorization":"Direct autonomous user goal; no external reviewer approval claim. E1 lifecycle/N0/N1 outcomes remain unchanged.",
+ "discovery_exposure":"N1 three driver events had exactly32 otherwise-current-scorable targets blocked by history32. This hypothesis is post-discovery; remaining five traces/six driver events unanalysed before this protocol.",
+ "new_tests":["2_5_1000000_87","3_5_1000000_89","5_5_1000000_91","5_5_1000000_92","8_5_1000000_83"],
+ "preprocessing":"Exact frozen E1 causal19-feature code; observed native1s targets, sentinel handling and forwardfill5 unchanged; unknown context retained. No new model/threshold/fill policy.",
+ "availability_contracts":[0,8,16,32],
+ "contracts_mean":"Mask-only feasibility: observed target plus all19 features finite in[t-W,t]. W0 current-vector; W32 reproduces old PCA/LSTM score availability masks on discovery traces. W8/16 are structural diagnostics, NOT new detector results, retraining or changed LSTM context claims.",
+ "primary_events":"Every released driver_failure combined support in selected traces; do not expand point root or compute root-vs-effect. Keep overlap/context flags; no unique fault attribution or independent fleet inference.",
+ "controls":"Per event three duration-matched same-trace pre-support windows [start-4L,start-3L-1],[start-3L,start-2L-1],[start-2L,start-L-1]; require full raw temporal extent including32s history and no known/unknown annotation overlap; no replacement if unavailable. Other known types and unknown ranges retained secondary, not healthy.",
+ "metrics":["observed target fraction","current-feature availability","strict history32 availability","otherwise-current-scorable targets blocked by history32 /expected event targets","all control counterparts","post-input-recovery scoring opportunity lag; no actual alarm/detection latency claim"],
+ "gate":{"replicated":"At least4 of6 new driver events across>=3 apps have additional history-only blocked fraction>=0.25, each supported by>=1 eligible pre-control; median additional fraction in all eligible controls<=0.01. Independent mask implementation exact; exposure/types/windows unchanged.","insufficient":"Less than4 driver events or3 apps have valid native extent and>=1 control -> CONTROL_SUPPORT_INSUFFICIENT",
+ "otherwise":"NO_REPLICATED_FAULT_SELECTIVE_AMPLIFICATION; no threshold/window/type/control substitution"},
+ "causal_scope":"Changing only the scoring-availability requirement gives an exact deterministic contract intervention on fixed inputs, not proof of performance benefit from a gap-aware model or exclusive fault causality.",
+ "novelty":"Generic missing-data anomaly detection and observation-support gates already studied. Fault-selective endpoint conditioning/coverage as a concrete benchmark audit residual needs full-text comparison; no noveltyGO or methodGO from the gate alone.",
+ "no_detector_training_or_scoring":true,"bug_rule":"Stop affected execution; pushed amendment with scientific exposure record before changed rerun."
+}

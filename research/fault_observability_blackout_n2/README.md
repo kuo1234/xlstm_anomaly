@@ -1,0 +1,9 @@
+# N2 — fault-selective scoring blackout external replication
+
+Prospective continuation of the persistent user goal. Discovery N1 exposed a hypothesis: all three driver-failure events lost32 additional current-scorable targets under a finite32-history contract. N1 utility gate remains FAULT_SCORE_SUPPORT_INSUFFICIENT. N2 uses five different, previously unanalysed process traces with all six remaining driver events, fixed old preprocessing, and prespecified healthy-history controls. No xLSTM/LSTM improvement, lifecycle rescue, training or fault-threshold tuning.
+
+This is availability-only. Model parameters cannot affect the input-feasibility mask. W0/8/16/32 are structural mask contracts, not changed detector context performance. Fixed inputs permit exact attribution of additional blackout to the stricter finite-history rule; they do not prove a deployable repair, unique fault cause or novelty. Same-trace controls require annotation-clean history and fixed positions; unavailable controls cannot be replaced by easier windows. Prior Exathlon labels/schema were inspected; these new per-event feasibility outcomes were not.
+
+Execution requires raw/event/control identities and frozen code/protocol seal pushed before event-aligned availability analysis. Positive mechanism margin: at least4/6 driver events across3 apps lose>=25% otherwise-current-scorable target opportunities due to history, while eligible pre-controls median<=1%, exact independent masks. Generic missing-data treatment and observation-support gating are occupied; full-text residual audit remains required before a good research-result claim. Shared clusters, one fault family, overlaps and unknown contexts prevent a population/safety claim.
+
+Current stage: acquisition running; protocol is prospective, not yet a completed execution seal or result.
