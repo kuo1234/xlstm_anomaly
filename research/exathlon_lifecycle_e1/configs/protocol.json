@@ -1,0 +1,109 @@
+{
+  "issue": 26,
+  "seed": 21,
+  "cadence_seconds": 1,
+  "selected_apps": [
+    6,
+    9,
+    10
+  ],
+  "selection": "All bursty_input/stalled_input/cpu_contention traces in apps6/9/10; fixed deployment-visible apps selected prospectively for three-type, three-app coverage. All events retained in manifest with reasons. Normal: four smallest single ZIP archives per app (size, numeric ID tie), then numeric ID order assigns fit/validation/calibration/control.",
+  "baselines": [
+    "PCA_SPE",
+    "CAUSAL_LSTM_REFERENCE"
+  ],
+  "pca": {
+    "components": 8,
+    "score": "mean squared standardized reconstruction residual",
+    "fit": "all finite observed fit points; mean/std fit-only; deterministic float64 SVD"
+  },
+  "lstm": {
+    "window": 32,
+    "hidden_size": 32,
+    "layers": 1,
+    "dropout": 0,
+    "epochs": 10,
+    "batch_size": 128,
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "weight_decay": 0,
+    "clip_grad_norm": 1,
+    "fit_window_stride": 8,
+    "max_fit_windows": 8192,
+    "validation_max_windows": 4096,
+    "checkpoint": "final epoch only; no early stopping/model selection",
+    "score": "mean squared standardized one-step residual"
+  },
+  "baseline_C": "NOT_RUN_PRESEALED: DIVAD pinned TranAD custom TransformerEncoderLayer.forward lacks is_causal; DecoderLayer lacks tgt_is_causal/memory_is_causal required by available Torch2.9 wrappers. Native old framework parity or compatibility overlay not sealed. No fancy replacement; A+B meets two distinct family requirement.",
+  "features": "Exathlon official19-feature bundle definitions with separately declared causal preprocessing; no feature/model/type selection from detector outcomes",
+  "preprocessing": {
+    "duplicates": "first row at same timestamp in source order; no sorting to hide nonmonotonic input",
+    "timestamps": "strict integer native epoch1s; missing times inserted only as causal history, primary target must be observed",
+    "sentinel": "-1 and nonfinite per input become missing; causal ffill limit5 observations on full grid; no initial fill",
+    "executor_average": "same-time mean of raw active slots before fill; inactive -1 excluded; resulting mean causal ffill limit5 then backward difference",
+    "derivative": "backward one-step difference at target; first/invalid difference unavailable",
+    "scaler": "global mean/population std from finite observed fit rows only; zero std ->1; no clipping/test normalization",
+    "window": "LSTM history[t-32,t-1], target t observed; all history/input finite; no cross-trace state"
+  },
+  "threshold": {
+    "quantile": 0.995,
+    "method": "linear",
+    "source": "whole-trace normal calibration; global primary, app-normal secondary only; no test labels",
+    "degenerate_IQR": "N/A"
+  },
+  "phase": {
+    "RCI": "closed [start,end]",
+    "EEI": "(end,effect_end]",
+    "pre_seconds": 300,
+    "recovery_seconds": 300,
+    "overlap": "all other known/unknown annotated supports excluded; ambiguous delay censored",
+    "raw_primary_min_coverage": 0.95,
+    "rci_min_scores": 30,
+    "eei_min_scores": 10,
+    "pre_min_scores": 30,
+    "effect_only": "complete expected native RCI scores required, no eligible RCI alarm AND >=1 EEI alarm; gaps -> N/A",
+    "delay": "complete native RCI/EEI support and no ambiguous overlap; else N/A",
+    "primary_excluded": "point RCI,unknown,no_application_impact,application_crash,bursty_input_crash,absent EEI; excluded events remain secondary"
+  },
+  "controls": {
+    "stationary": "duration-matched RCI and EEI plus300s pre from independent heldout normal traces;10 equally spaced windows per trace/event if feasible, deduplicate starts; no result-informed matching",
+    "pre_event": "same-duration pseudo RCI/EEI ending301s before true RCI; reject other event contamination; never called undisturbed truth",
+    "no_impact": "native RCI plus60s post-end pseudo effect; NOT ground-truth EEI; descriptive negative control only",
+    "crash": "censoring audit only; no primary contribution"
+  },
+  "material": {
+    "units": "normal calibration IQR",
+    "median_Delta_effect": 1.0,
+    "stationary_control_median_max": 0.5,
+    "primary_minus_matched_normal_median_min": 1.0,
+    "effect_only_excess_vs_matched_normal_min": 0.1,
+    "min_primary_raw_eligible_fraction": 0.5,
+    "min_normal_controls_per_event": 5,
+    "rationale": "One full normal IQR is a prespecified substantial within-event phase shift rather than a tiny positive sign; normal contrast<=0.5 and excess>=1 reject similar normal ramps.10 percentage-point excess alarms prevents isolated q.995 chance positives. Engineering falsification margins, not literature guarantees.",
+    "context_pre_offset_IQR": 2.0
+  },
+  "gate_order": [
+    "EXECUTION_SEAL_FAIL",
+    "PHASE_RESOLUTION_INSUFFICIENT",
+    "THRESHOLD_ARTIFACT_ONLY",
+    "NO_ROOT_EFFECT_GAP",
+    "MODEL_SPECIFIC_ONLY",
+    "CONTEXT_SHIFT_DOMINANT",
+    "ROOT_CAUSE_EFFECT_GAP_SUPPORTED"
+  ],
+  "gate_rules": {
+    "execution": "any identity/leakage/runtime/availability invariant fails -> stop, amendment before changed execution",
+    "resolution": "either family raw eligible primary events<50%, <2 types/<3 apps or matched controls<5 for majority -> insufficient",
+    "no_gap": "Neither family reaches1IQR OR both reach pooled margin but type/app directions fail OR control corroboration fails without measured context offset -> NO_ROOT_EFFECT_GAP for a stable shared panel mechanism, not zero difference in every event.",
+    "model_specific": "only one family passes raw material contrast -> MODEL_SPECIFIC_ONLY",
+    "context": "Both raw contrasts pass but same-duration stationary normal ramp>=0.5IQR or normal-excess contrast<1IQR AND event pre-normal baseline differs by>=2IQR in both families -> CONTEXT_SHIFT_DOMINANT, descriptive confounding under unmatched context, not causal dominance proof.",
+    "threshold_only": "both raw medians<1 and effect-only excess>=0.1 -> THRESHOLD_ARTIFACT_ONLY; this check precedes NO_ROOT_EFFECT_GAP",
+    "supported": "both families median Delta>=1, each type/app median>0 across>=2types/3apps, excess-normal Delta>=1, stationary controls median<0.5, effect-only excess>=0.1 with >=50% events complete alarm support, crash/noimpact excluded, residual distinguishes native generic AD3 result. Supports mechanism only, no novelty/method GO"
+  },
+  "training_runs": 1,
+  "detector_seeds": 1,
+  "no_sweep": true,
+  "method_design_GO": false,
+  "limitations": "Small fixed global19-feature panel and single seed; event dependencies retained by trace/app. No iid p-values, no full benchmark, no native LSTM reproduction. No after-result rescue.",
+  "protocol_bug": "STOP; amendment commit+push and exposure disclosure before resuming; no silent rerun"
+}

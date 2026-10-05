@@ -1,0 +1,192 @@
+[
+  {
+    "trace": "6_0_100000_46",
+    "role": "fit",
+    "path": "data/raw/app6/6_0_100000_46.zip",
+    "git_blob_sha": "f6b5cc270382f1683d2bceecdb6d2dde1a791ee2",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app6/6_0_100000_46.zip",
+    "sha256": "07c1b845b50f51ca9c9200c7ad154a8440f3919d7ec216960e0e220392d52568",
+    "bytes": 4245749,
+    "local_path": "data/exathlon_lifecycle_e1/raw/6_0_100000_46.zip"
+  },
+  {
+    "trace": "6_0_50000_48",
+    "role": "validation",
+    "path": "data/raw/app6/6_0_50000_48.zip",
+    "git_blob_sha": "4c02ad8146c363975a52a4ed94082a27f051d2a4",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app6/6_0_50000_48.zip",
+    "sha256": "c5c251a3b2c6ad12451c895aeb61442f151abba1cdf9892e3d1785449c389a43",
+    "bytes": 3060720,
+    "local_path": "data/exathlon_lifecycle_e1/raw/6_0_50000_48.zip"
+  },
+  {
+    "trace": "6_0_50000_49",
+    "role": "calibration",
+    "path": "data/raw/app6/6_0_50000_49.zip",
+    "git_blob_sha": "f7c22787c8cd1c4a6cd4168f9582c760e440e73f",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app6/6_0_50000_49.zip",
+    "sha256": "d48dd1352e1d07a63493777bc0fa757ef0043e0ed5fd8745f91ceaf1719d1d22",
+    "bytes": 3429736,
+    "local_path": "data/exathlon_lifecycle_e1/raw/6_0_50000_49.zip"
+  },
+  {
+    "trace": "6_0_50000_51",
+    "role": "normal_control",
+    "path": "data/raw/app6/6_0_50000_51.zip",
+    "git_blob_sha": "01c89673ace40be3457e10312605d847944ec0ac",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app6/6_0_50000_51.zip",
+    "sha256": "b811e8ab7649991c35564e52b1d7b70886248d4cd082c606712575768442861b",
+    "bytes": 3073068,
+    "local_path": "data/exathlon_lifecycle_e1/raw/6_0_50000_51.zip"
+  },
+  {
+    "trace": "9_0_100000_1",
+    "role": "fit",
+    "path": "data/raw/app9/9_0_100000_1.zip",
+    "git_blob_sha": "9f70f26a755a388b947ecd6c10fe9f941f277047",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app9/9_0_100000_1.zip",
+    "sha256": "ec07c0a04a489384236859b4195bd5ee9d2f354a5bc93036e9bddded9fa3c865",
+    "bytes": 36668744,
+    "local_path": "data/exathlon_lifecycle_e1/raw/9_0_100000_1.zip"
+  },
+  {
+    "trace": "9_0_100000_3",
+    "role": "validation",
+    "path": "data/raw/app9/9_0_100000_3.zip",
+    "git_blob_sha": "ebef1ae08c86cf8402be0fd12ebe5e6b37ee39e5",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app9/9_0_100000_3.zip",
+    "sha256": "fb223ecb8fc63ef3d130ca9dfe7da7c4816766a1e9a994f102f1c23671ed1a65",
+    "bytes": 3750078,
+    "local_path": "data/exathlon_lifecycle_e1/raw/9_0_100000_3.zip"
+  },
+  {
+    "trace": "9_0_300000_5",
+    "role": "calibration",
+    "path": "data/raw/app9/9_0_300000_5.zip",
+    "git_blob_sha": "201f05f8bde485f13e07e500970c761e921beec1",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app9/9_0_300000_5.zip",
+    "sha256": "1f57d393c8bffa9e2fef426d934d010d978efddc10783f0711c8977989222add",
+    "bytes": 75826426,
+    "local_path": "data/exathlon_lifecycle_e1/raw/9_0_300000_5.zip"
+  },
+  {
+    "trace": "9_0_100000_6",
+    "role": "normal_control",
+    "path": "data/raw/app9/9_0_100000_6.zip",
+    "git_blob_sha": "b92363bdbf3d39acd79c577d7de28d1f7e14e4fd",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app9/9_0_100000_6.zip",
+    "sha256": "4325bb7691438b06a409d2dedfd997f3d96f613ec72b5fb3304527a8bdbb3ab1",
+    "bytes": 20092415,
+    "local_path": "data/exathlon_lifecycle_e1/raw/9_0_100000_6.zip"
+  },
+  {
+    "trace": "10_0_100000_8",
+    "role": "fit",
+    "path": "data/raw/app10/10_0_100000_8.zip",
+    "git_blob_sha": "ea97ec6aca6b0819632f31c5460db060c002bb42",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app10/10_0_100000_8.zip",
+    "sha256": "318a565481623e73198942ae22c1812432b136a26f4c1f858d07df0ccba74c36",
+    "bytes": 39375306,
+    "local_path": "data/exathlon_lifecycle_e1/raw/10_0_100000_8.zip"
+  },
+  {
+    "trace": "10_0_100000_9",
+    "role": "validation",
+    "path": "data/raw/app10/10_0_100000_9.zip",
+    "git_blob_sha": "4bdb07b6d0cf9aa1320e17bb62b655bdb45a0b03",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app10/10_0_100000_9.zip",
+    "sha256": "3ccbfc345bb7b67a1c2e5147d63c5e8e508aa41de1c8ec21a53c8a045d0d0175",
+    "bytes": 37565698,
+    "local_path": "data/exathlon_lifecycle_e1/raw/10_0_100000_9.zip"
+  },
+  {
+    "trace": "10_0_100000_10",
+    "role": "calibration",
+    "path": "data/raw/app10/10_0_100000_10.zip",
+    "git_blob_sha": "2d0f3bf7afbb9c4cf0adcac6cc0ddde1d74b08ff",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app10/10_0_100000_10.zip",
+    "sha256": "15379b1da6c9ead6d92ed964d0f062c061a663d19dcc67c751756e41137bfdaa",
+    "bytes": 20839876,
+    "local_path": "data/exathlon_lifecycle_e1/raw/10_0_100000_10.zip"
+  },
+  {
+    "trace": "10_0_100000_11",
+    "role": "normal_control",
+    "path": "data/raw/app10/10_0_100000_11.zip",
+    "git_blob_sha": "11c112b967f691e60fddfbeed5311f12ca2b3c4a",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app10/10_0_100000_11.zip",
+    "sha256": "e4c750d75b4d480ee4a7f6666a6bb8dcdb27ebb8159d06dfd72aa291104ba87b",
+    "bytes": 19277900,
+    "local_path": "data/exathlon_lifecycle_e1/raw/10_0_100000_11.zip"
+  },
+  {
+    "trace": "10_3_1000000_75",
+    "role": "disturbed",
+    "path": "data/raw/app10/10_3_1000000_75.zip",
+    "git_blob_sha": "fe45b7aaa740c3ae06eefc6661323db1caeaf956",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app10/10_3_1000000_75.zip",
+    "sha256": "6f617b7475162157c93d448e88806861f77fd7e3554e00136d0d168d006946c6",
+    "bytes": 69253718,
+    "local_path": "data/exathlon_lifecycle_e1/raw/10_3_1000000_75.zip"
+  },
+  {
+    "trace": "10_4_1000000_79",
+    "role": "disturbed",
+    "path": "data/raw/app10/10_4_1000000_79.zip",
+    "git_blob_sha": "31fb69b1517d029fd116e4dc91d0ac15511b8cf4",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app10/10_4_1000000_79.zip",
+    "sha256": "0f99cc76e0771a89b32d1d79ef1f6e5f87e6aae66622e62e5e4c4221d2db02d6",
+    "bytes": 72882315,
+    "local_path": "data/exathlon_lifecycle_e1/raw/10_4_1000000_79.zip"
+  },
+  {
+    "trace": "6_1_500000_65",
+    "role": "disturbed",
+    "path": "data/raw/app6/6_1_500000_65.zip",
+    "git_blob_sha": "b69a064843f3de9aa0368ffb5e17dac161ccb08e",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app6/6_1_500000_65.zip",
+    "sha256": "e8a77aa39bd79cfd923155a967f1294ecb7d4c53f180de1e983aac30c537c847",
+    "bytes": 70540023,
+    "local_path": "data/exathlon_lifecycle_e1/raw/6_1_500000_65.zip"
+  },
+  {
+    "trace": "6_3_200000_76",
+    "role": "disturbed",
+    "path": "data/raw/app6/6_3_200000_76.zip",
+    "git_blob_sha": "f11aa83fa173d4072c394e3f87226eb0db350a6c",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app6/6_3_200000_76.zip",
+    "sha256": "e9eca9560c35e5dfbf91431f3f2334bfd9de1e71987bdad00f2d22f6ab7b06e0",
+    "bytes": 62833250,
+    "local_path": "data/exathlon_lifecycle_e1/raw/6_3_200000_76.zip"
+  },
+  {
+    "trace": "9_3_500000_74",
+    "role": "disturbed",
+    "path": "data/raw/app9/9_3_500000_74.zip",
+    "git_blob_sha": "62d767285d864a69ec43d3e5ed82ade2b338d055",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app9/9_3_500000_74.zip",
+    "sha256": "beeb1f20d52f6cd149bdcbf2332f0f1e5df94d416261fb08d61da5f9470e77b5",
+    "bytes": 69226089,
+    "local_path": "data/exathlon_lifecycle_e1/raw/9_3_500000_74.zip"
+  },
+  {
+    "trace": "9_4_1000000_78",
+    "role": "disturbed",
+    "path": "data/raw/app9/9_4_1000000_78.zip",
+    "git_blob_sha": "141eb0b41c317538d53ff374e662ce9c005c8e1e",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app9/9_4_1000000_78.zip",
+    "sha256": "ad74b59277fe98da8b663578eb6bfda8de9455eb0660970b10c0c834c5bf863f",
+    "bytes": 81431063,
+    "local_path": "data/exathlon_lifecycle_e1/raw/9_4_1000000_78.zip"
+  },
+  {
+    "trace": "10_2_1000000_67",
+    "role": "crash_control",
+    "path": "data/raw/app10/10_2_1000000_67.zip",
+    "git_blob_sha": "38aa06283e180513959c32f198710bef36435d8b",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app10/10_2_1000000_67.zip",
+    "sha256": "e12026ea04ba2e7b6f42a51bc436e7acd3521756f03ee34a30b92ccf759df55e",
+    "bytes": 21561855,
+    "local_path": "data/exathlon_lifecycle_e1/raw/10_2_1000000_67.zip"
+  }
+]

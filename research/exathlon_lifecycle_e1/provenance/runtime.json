@@ -1,0 +1,43 @@
+{
+  "python": "3.14.6 (main, Jul 24 2026, 21:05:21) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "executable": "/tmp/m0e-issue22/venv/bin/python",
+  "torch": "2.9.0",
+  "numpy": "2.5.3",
+  "pandas": "3.0.6",
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "device": "CPU",
+  "source_commit": "47a0893eff719863e96e1156ea9ed1b4a9b92209",
+  "tranad_helper_sha256": "b80a17787d7205a2317e552e67c1282a4cbc7947a956f6b814ba2830960644e2",
+  "TranAD_exclusion": "Static modern-kwargs mismatch; no native/overlay runtime parity sealed",
+  "detector_training_runs_at_seal": 0,
+  "detector_inference_runs_at_seal": 0,
+  "torch_transformer_forward": "(self, src: torch.Tensor, mask: torch.Tensor | None = None, src_key_padding_mask: torch.Tensor | None = None, is_causal: bool | None = None) -> torch.Tensor",
+  "torch_decoder_forward": "(self, tgt: torch.Tensor, memory: torch.Tensor, tgt_mask: torch.Tensor | None = None, memory_mask: torch.Tensor | None = None, tgt_key_padding_mask: torch.Tensor | None = None, memory_key_padding_mask: torch.Tensor | None = None, tgt_is_causal: bool | None = None, memory_is_causal: bool = False) -> torch.Tensor",
+  "custom_source_forward_signatures": {
+    "TranAD": [
+      "self",
+      "src",
+      "tgt"
+    ],
+    "PositionalEncoding": [
+      "self",
+      "x",
+      "pos"
+    ],
+    "TransformerEncoderLayer": [
+      "self",
+      "src",
+      "src_mask",
+      "src_key_padding_mask"
+    ],
+    "TransformerDecoderLayer": [
+      "self",
+      "tgt",
+      "memory",
+      "tgt_mask",
+      "memory_mask",
+      "tgt_key_padding_mask",
+      "memory_key_padding_mask"
+    ]
+  }
+}
