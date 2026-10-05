@@ -1,0 +1,15 @@
+{
+  "verdict": "FAULT_SELECTIVE_BLACKOUT_REPLICATED",
+  "primary_events": 6,
+  "usable_events": 5,
+  "material_events": 5,
+  "material_apps": 4,
+  "eligible_controls": 15,
+  "all_fixed_controls_W0_fraction_at_least95pct": true,
+  "control_median_history_only_loss_fraction": 0.0,
+  "method_design_GO": false,
+  "novelty_GO": false,
+  "detector_training_or_scoring_runs": 0,
+  "seal_sha": "648016f67ac966452efdfc175b88f7d1e0ae6dd9",
+  "inferential_scope": "Conditional finite-history availability contract under exact fixed causal19-feature preprocessing, not all temporal detectors or independent physical units."
+}

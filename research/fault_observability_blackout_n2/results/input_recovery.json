@@ -1,0 +1,56 @@
+[
+  {
+    "event_id": "gt_row_066",
+    "trace": "2_5_1000000_87",
+    "current_features_recovered_at": 1528833428,
+    "first_W32_available_at": 1528833460,
+    "availability_lag_seconds": 32,
+    "within_annotation_end": true,
+    "not_detection_delay": true
+  },
+  {
+    "event_id": "gt_row_067",
+    "trace": "2_5_1000000_87",
+    "current_features_recovered_at": 1528853431,
+    "first_W32_available_at": 1528853463,
+    "availability_lag_seconds": 32,
+    "within_annotation_end": true,
+    "not_detection_delay": true
+  },
+  {
+    "event_id": "gt_row_068",
+    "trace": "3_5_1000000_89",
+    "current_features_recovered_at": 1528976381,
+    "first_W32_available_at": 1528976413,
+    "availability_lag_seconds": 32,
+    "within_annotation_end": false,
+    "not_detection_delay": true
+  },
+  {
+    "event_id": "gt_row_069",
+    "trace": "5_5_1000000_91",
+    "current_features_recovered_at": 1528852607,
+    "first_W32_available_at": 1528852639,
+    "availability_lag_seconds": 32,
+    "within_annotation_end": true,
+    "not_detection_delay": true
+  },
+  {
+    "event_id": "gt_row_070",
+    "trace": "5_5_1000000_92",
+    "current_features_recovered_at": 1528968748,
+    "first_W32_available_at": 1528968780,
+    "availability_lag_seconds": 32,
+    "within_annotation_end": true,
+    "not_detection_delay": true
+  },
+  {
+    "event_id": "gt_row_063",
+    "trace": "8_5_1000000_83",
+    "current_features_recovered_at": 1528975291,
+    "first_W32_available_at": 1528975323,
+    "availability_lag_seconds": 32,
+    "within_annotation_end": true,
+    "not_detection_delay": true
+  }
+]

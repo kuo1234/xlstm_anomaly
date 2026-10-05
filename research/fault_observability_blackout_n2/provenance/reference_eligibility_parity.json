@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "traces": 5,
+  "actual_original_LSTM_target_ids_source_sha256": "c114620dbdf18e92708b0a762bd75111991d8af4aa1c3e33457653e2e7eb3281",
+  "fixed_fit_only_scaler_sha256": "5bbd80fd42a3077f789de278eb531b58a84b1d1d4c781426d2704064d2cf2013",
+  "post_scaling_finiteness_equals_feature_finiteness": true,
+  "W32_masks_exact_original_LSTM_target_ids": true,
+  "W0_masks_exact_original_PCA_target_eligibility": true,
+  "actual_detector_forward_calls": 0,
+  "not_detector_performance": true
+}

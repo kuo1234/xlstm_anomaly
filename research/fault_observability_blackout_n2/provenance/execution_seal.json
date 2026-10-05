@@ -1,0 +1,18 @@
+{
+  "sha": "648016f67ac966452efdfc175b88f7d1e0ae6dd9",
+  "branch": "codex/fault-observability-blackout-n2",
+  "N2_event_control_outcomes_unexposed_before_push": true,
+  "files": {
+    "research/fault_observability_blackout_n2/README.md": "f952eb383220dd003f841693ba2aa61937039d794e3c6f26d01c017cb57a4452",
+    "research/fault_observability_blackout_n2/configs/controls.json": "675e06ac4c00bd787062ae901456e63c855c3652b3138ed91f2d1e82a30077e6",
+    "research/fault_observability_blackout_n2/configs/events.json": "b4e68d542e73ba1c2c51dc0bf55d72a0bfb199622d7d8211edc4c4ce8bbcec94",
+    "research/fault_observability_blackout_n2/configs/protocol.json": "40650acd9e126b6c20ef2f8eaddd9f6f0f459e27f643fd2a1d79f93db38219b4",
+    "research/fault_observability_blackout_n2/configs/test_manifest.json": "fcbcc873b3cb7fc7580a9f6b01140d099c0bf7bb78b8627be58319416cbee8cd",
+    "research/fault_observability_blackout_n2/provenance/preflight.json": "24dce410ea6bf9533093178d45070d893bcbabbba54b1c1bb26e707859ffeea5",
+    "research/fault_observability_blackout_n2/provenance/raw_sources.json": "dc455ab5438f3820062938fa1f7883a0e475fadae6c402515cb3b8a1cddbb873",
+    "research/fault_observability_blackout_n2/scripts/acquire.py": "0a094816cf972791e31f4645cfad60cf5bb05f12a8602c93364fde6283707117",
+    "research/fault_observability_blackout_n2/scripts/execute.py": "9b2fb5090cc3ad299af4c805051cec9b6625e4ba00fe9b1aa8dd6837c89e2cd0",
+    "research/fault_observability_blackout_n2/scripts/masks.py": "5c12352c5da419f86be8ede3fd4f6df4b02cb92e1be3dfd059fe832e0d41cb4c",
+    "research/fault_observability_blackout_n2/tests/test_masks.py": "df9dcf11b86277c8171f3976195d2873b13baa82938f27fb9a523ed93b219b92"
+  }
+}

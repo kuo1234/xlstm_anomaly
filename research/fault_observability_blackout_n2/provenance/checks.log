@@ -1,0 +1,21 @@
+test_gap_creates_exact_history_tail_without_future_fill (test_masks.Contracts.test_gap_creates_exact_history_tail_without_future_fill) ... ok
+test_missing_target_does_not_mean_missing_input_history (test_masks.Contracts.test_missing_target_does_not_mean_missing_input_history) ... ok
+test_outside_extent_is_not_fabricated_opportunity (test_masks.Contracts.test_outside_extent_is_not_fabricated_opportunity) ... ok
+test_prefix_invariance_and_no_partial_window_warmup (test_masks.Contracts.test_prefix_invariance_and_no_partial_window_warmup) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.009s
+
+OK
+{
+  "status": "PASS",
+  "scalar_full_trace_mask_endpoint_checks": 407844,
+  "independent_interval_count_checks": 30,
+  "raw_trace_and_array_hashes": 5,
+  "mask_artifact_hashes": 5,
+  "protocol_and_fixed_control_positions_unchanged": true,
+  "independent_gate_recalculation": true,
+  "contract_tests": 4,
+  "no_model_training_or_scoring": true,
+  "independent_implementation": "scalar Python history enumeration versus prefix-sum mask implementation; same agent, no external peer review"
+}

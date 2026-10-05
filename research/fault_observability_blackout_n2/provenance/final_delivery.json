@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "runtime": {
+    "python": "3.14.6 (main, Jul 24 2026, 21:05:21) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6"
+  },
+  "local_links": 15,
+  "figure_visual_QA": "Rendered PNG inspected: masks-only axis, all six events, unsupported-control marker and limitations readable",
+  "artifact_sha256": {
+    "RESULTS.md": "2021cd067fcb433a2b00b30d0e99cd46d840c29395c0d4a09f88207a1a76d784",
+    "PRIOR_ART.md": "51698d8fc2d474cdb6c6fc926c68a5f0a08dd0ea2c07fe9ee418e9da9a31f450",
+    "RESEARCH_DECISION.md": "de034df4fb6985275599b745781d2a2334c27711b5cfc9aa1afae6302a4baa58",
+    "COMPLETION_AUDIT.md": "98bdf80d3e537177ac3d90d99022224cbac5ba4e246f0503339414a6737e80f2",
+    "results/scoring_opportunity.png": "3ec0583978dc246cdc52b2049eb16b5f317c311f113d8ac2cb45310fa621ad5c",
+    "results/scoring_opportunity.pdf": "ba9f9006057c4278e31669f3c8dd4628016e25340c5f1c7047f73dd192156006"
+  },
+  "model_training_or_scoring": false,
+  "paper_novelty_cleared": false
+}

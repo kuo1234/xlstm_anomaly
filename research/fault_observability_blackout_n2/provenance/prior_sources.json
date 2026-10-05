@@ -1,0 +1,55 @@
+[
+  {
+    "name": "dietterich2018",
+    "url": "https://arxiv.org/html/1809.01605v1",
+    "path": "data/fault_observability_blackout_n2/prior_art/dietterich2018.html",
+    "sha256": "f8a106e553c617bcdc44b905ba303509146bd0d1972b147e93136f46937ceea5",
+    "bytes": 170685,
+    "status": "retrieved"
+  },
+  {
+    "name": "rcwmrad2026",
+    "url": "https://www.mdpi.com/1424-8220/26/18/5751",
+    "status": "unavailable",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "name": "imad2024",
+    "url": "https://arxiv.org/search/?query=Unsupervised+Anomaly+Detection+in+The+Presence+of+Missing+Values&searchtype=title",
+    "path": "data/fault_observability_blackout_n2/prior_art/imad2024.html",
+    "sha256": "25f44656081f425c4286bba7865dc0e2dbe61293bb8a746d27928ceb6f3f2e12",
+    "bytes": 16568,
+    "status": "retrieved",
+    "source_role": "Search lead page only; not the ImAD paper or used for technical claims"
+  },
+  {
+    "name": "ImAD2024_fulltext",
+    "url": "https://proceedings.neurips.cc/paper_files/paper/2024/file/f99f7b22ad47fa6ce151730cf8d17911-Paper-Conference.pdf",
+    "path": "data/fault_observability_blackout_n2/prior_art/imad2024.pdf",
+    "sha256": "810837d699a160895450ff4ebc99573ccf6326fe1bb1b0369377959b7d579086",
+    "bytes": 2896088,
+    "status": "retrieved",
+    "pages": 33,
+    "extraction_note": "pypdf produced isolated surrogate math characters; UTF8 replacement used only in derived text. Original PDF bytes preserved and hashed. Relevant introduction,experimental setup,conclusion and missingness appendices inspected."
+  },
+  {
+    "name": "MoPIN2025",
+    "url": "https://ieeexplore.ieee.org/abstract/document/11008721",
+    "doi": "10.1109/TNNLS.2025.3568019",
+    "status": "indexed_publisher_abstract_only",
+    "direct_access": "HTTP418 via web open",
+    "fulltext_reviewed": false
+  },
+  {
+    "name": "RC_WMRAD_indexed_sections",
+    "url": "https://www.mdpi.com/1424-8220/26/18/5751",
+    "status": "indexed_primary_technical_excerpts",
+    "sections": [
+      "3.3-3.5 equations18/21",
+      "4.3 evaluation"
+    ],
+    "direct_access": "HTTP403/429 recorded separately",
+    "full_version_fetched": false,
+    "claim_boundary": "generic support gating already explicit; exact overlap/global novelty unknown"
+  }
+]
