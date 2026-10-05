@@ -1,0 +1,5042 @@
+[
+  {
+    "job": [
+      "correlation",
+      0,
+      "lstm",
+      11
+    ],
+    "name": "correlation_g0_lstm_s11",
+    "b_support": {
+      "forecast_mse": 0.6036090850830078,
+      "baseline_mse": {
+        "last_value": 1.1135612726211548,
+        "moving_mean": 1.038772702217102,
+        "b_trained_linear_ar": 0.4881616361855238
+      },
+      "vs_best_simple_ratio": 0.5810790789887876,
+      "vs_b_ar_ratio": 1.2364943091382312,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 3.5762786865234375e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "7c0b85ee1426ad26c72a5e1d0bb02daa99a77dfcec07aa3973237840fccb1fed",
+    "common_b_suffix_hash": "51096bcf9e23b207be8f8bf453cd3a3d2dbeef6e2a683dd541d409f78c34e394",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "correlation",
+      0,
+      "lstm",
+      22
+    ],
+    "name": "correlation_g0_lstm_s22",
+    "b_support": {
+      "forecast_mse": 0.5993802547454834,
+      "baseline_mse": {
+        "last_value": 1.1135612726211548,
+        "moving_mean": 1.038772702217102,
+        "b_trained_linear_ar": 0.4881616361855238
+      },
+      "vs_best_simple_ratio": 0.5770080918243208,
+      "vs_b_ar_ratio": 1.2278315424969026,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 2.980232238769531e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "54db37138d55f4fa447ca178c1831b55a129a14c6f6499ce2b67fcb5bc66801b",
+    "common_b_suffix_hash": "51096bcf9e23b207be8f8bf453cd3a3d2dbeef6e2a683dd541d409f78c34e394",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "correlation",
+      0,
+      "lstm",
+      33
+    ],
+    "name": "correlation_g0_lstm_s33",
+    "b_support": {
+      "forecast_mse": 0.5962256193161011,
+      "baseline_mse": {
+        "last_value": 1.1135612726211548,
+        "moving_mean": 1.038772702217102,
+        "b_trained_linear_ar": 0.4881616361855238
+      },
+      "vs_best_simple_ratio": 0.5739712047145139,
+      "vs_b_ar_ratio": 1.221369266079541,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 3.5762786865234375e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "1de95fea3d32e2a4d57d5a00971f2fb75d5c8868e6797ba0c1d071b52eec235c",
+    "common_b_suffix_hash": "51096bcf9e23b207be8f8bf453cd3a3d2dbeef6e2a683dd541d409f78c34e394",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "correlation",
+      0,
+      "xlstm",
+      11
+    ],
+    "name": "correlation_g0_xlstm_s11",
+    "b_support": {
+      "forecast_mse": 0.5130664706230164,
+      "baseline_mse": {
+        "last_value": 1.1135612726211548,
+        "moving_mean": 1.038772702217102,
+        "b_trained_linear_ar": 0.4881616361855238
+      },
+      "vs_best_simple_ratio": 0.4939160121631558,
+      "vs_b_ar_ratio": 1.0510175986628076,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 5.364418029785156e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "4ba299dda55c92bfb344606d3b8502da300bf9812fb4724b54ccba1b10f9126a",
+    "common_b_suffix_hash": "51096bcf9e23b207be8f8bf453cd3a3d2dbeef6e2a683dd541d409f78c34e394",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "correlation",
+      0,
+      "xlstm",
+      22
+    ],
+    "name": "correlation_g0_xlstm_s22",
+    "b_support": {
+      "forecast_mse": 0.5090371966362,
+      "baseline_mse": {
+        "last_value": 1.1135612726211548,
+        "moving_mean": 1.038772702217102,
+        "b_trained_linear_ar": 0.4881616361855238
+      },
+      "vs_best_simple_ratio": 0.4900371328104191,
+      "vs_b_ar_ratio": 1.0427636235690232,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 6.556510925292969e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "6d0ca6cd197a129b6f738eda54cc0021e9fbb3a9f0a69f39a611e41428dfe018",
+    "common_b_suffix_hash": "51096bcf9e23b207be8f8bf453cd3a3d2dbeef6e2a683dd541d409f78c34e394",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "correlation",
+      0,
+      "xlstm",
+      33
+    ],
+    "name": "correlation_g0_xlstm_s33",
+    "b_support": {
+      "forecast_mse": 0.5217422246932983,
+      "baseline_mse": {
+        "last_value": 1.1135612726211548,
+        "moving_mean": 1.038772702217102,
+        "b_trained_linear_ar": 0.4881616361855238
+      },
+      "vs_best_simple_ratio": 0.5022679394440372,
+      "vs_b_ar_ratio": 1.0687898966624498,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 5.066394805908203e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "9490a370397b3a8c4a5399f710e448a607f32e838b397dc0a8beaff92a0b9468",
+    "common_b_suffix_hash": "51096bcf9e23b207be8f8bf453cd3a3d2dbeef6e2a683dd541d409f78c34e394",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "correlation",
+      1,
+      "lstm",
+      11
+    ],
+    "name": "correlation_g1_lstm_s11",
+    "b_support": {
+      "forecast_mse": 0.5868972539901733,
+      "baseline_mse": {
+        "last_value": 1.1676275730133057,
+        "moving_mean": 1.0233423709869385,
+        "b_trained_linear_ar": 0.4577861068893987
+      },
+      "vs_best_simple_ratio": 0.5735101669093933,
+      "vs_b_ar_ratio": 1.2820337820605114,
+      "pass": false
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 3.5762786865234375e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "62d014b5d888f4bd77a42d78fa908553c529084fd50d74946f22e71b5543c93d",
+    "common_b_suffix_hash": "3b3f213969f14a4fb546f1adbf9de39e4c7daeac1bfa038e67f609ff0fd44395",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "correlation",
+      1,
+      "lstm",
+      22
+    ],
+    "name": "correlation_g1_lstm_s22",
+    "b_support": {
+      "forecast_mse": 0.6145362854003906,
+      "baseline_mse": {
+        "last_value": 1.1676275730133057,
+        "moving_mean": 1.0233423709869385,
+        "b_trained_linear_ar": 0.4577861068893987
+      },
+      "vs_best_simple_ratio": 0.600518753863104,
+      "vs_b_ar_ratio": 1.3424092084753083,
+      "pass": false
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 2.384185791015625e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "c064565941a58c11a17c1c44e0b0cfc2aad1bdbe0c4e5223f2a9930289089e9e",
+    "common_b_suffix_hash": "3b3f213969f14a4fb546f1adbf9de39e4c7daeac1bfa038e67f609ff0fd44395",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "correlation",
+      1,
+      "lstm",
+      33
+    ],
+    "name": "correlation_g1_lstm_s33",
+    "b_support": {
+      "forecast_mse": 0.5957849621772766,
+      "baseline_mse": {
+        "last_value": 1.1676275730133057,
+        "moving_mean": 1.0233423709869385,
+        "b_trained_linear_ar": 0.4577861068893987
+      },
+      "vs_best_simple_ratio": 0.5821951470676288,
+      "vs_b_ar_ratio": 1.3014483253446976,
+      "pass": false
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 3.725290298461914e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "0abcd711d985a730e71a8a2c027c47dd75113e5755a48e633aa6a18e25abf7f3",
+    "common_b_suffix_hash": "3b3f213969f14a4fb546f1adbf9de39e4c7daeac1bfa038e67f609ff0fd44395",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "correlation",
+      1,
+      "xlstm",
+      11
+    ],
+    "name": "correlation_g1_xlstm_s11",
+    "b_support": {
+      "forecast_mse": 0.48958009481430054,
+      "baseline_mse": {
+        "last_value": 1.1676275730133057,
+        "moving_mean": 1.0233423709869385,
+        "b_trained_linear_ar": 0.4577861068893987
+      },
+      "vs_best_simple_ratio": 0.47841280562060234,
+      "vs_b_ar_ratio": 1.0694516225949673,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 7.450580596923828e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "e9716c6bf30f8740d722e1fbacb9fa36146e86bce1578dc385f27dfcd518f8c3",
+    "common_b_suffix_hash": "3b3f213969f14a4fb546f1adbf9de39e4c7daeac1bfa038e67f609ff0fd44395",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "correlation",
+      1,
+      "xlstm",
+      22
+    ],
+    "name": "correlation_g1_xlstm_s22",
+    "b_support": {
+      "forecast_mse": 0.4820084571838379,
+      "baseline_mse": {
+        "last_value": 1.1676275730133057,
+        "moving_mean": 1.0233423709869385,
+        "b_trained_linear_ar": 0.4577861068893987
+      },
+      "vs_best_simple_ratio": 0.4710138765376989,
+      "vs_b_ar_ratio": 1.0529119384138308,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 1.043081283569336e-06,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "f165cb61f435e485fa4e4b78d9d08332dbe54ed0775af4151fa9f7380c9394ad",
+    "common_b_suffix_hash": "3b3f213969f14a4fb546f1adbf9de39e4c7daeac1bfa038e67f609ff0fd44395",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "correlation",
+      1,
+      "xlstm",
+      33
+    ],
+    "name": "correlation_g1_xlstm_s33",
+    "b_support": {
+      "forecast_mse": 0.49119144678115845,
+      "baseline_mse": {
+        "last_value": 1.1676275730133057,
+        "moving_mean": 1.0233423709869385,
+        "b_trained_linear_ar": 0.4577861068893987
+      },
+      "vs_best_simple_ratio": 0.4799874027569487,
+      "vs_b_ar_ratio": 1.072971502168873,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 8.642673492431641e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "01e68523e0db913d30565a83ad56414499649b7c5c37ca69ffa9ff535ef1be1c",
+    "common_b_suffix_hash": "3b3f213969f14a4fb546f1adbf9de39e4c7daeac1bfa038e67f609ff0fd44395",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "correlation",
+      2,
+      "lstm",
+      11
+    ],
+    "name": "correlation_g2_lstm_s11",
+    "b_support": {
+      "forecast_mse": 0.5335087776184082,
+      "baseline_mse": {
+        "last_value": 1.0217247009277344,
+        "moving_mean": 1.0944654941558838,
+        "b_trained_linear_ar": 0.3822464226382622
+      },
+      "vs_best_simple_ratio": 0.5221649013026483,
+      "vs_b_ar_ratio": 1.3957194783829088,
+      "pass": false
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 2.980232238769531e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "5df7094ede14393fc36ddfacc2eea8ba221f8b188d6a644b624a5b44a5266870",
+    "common_b_suffix_hash": "9c1faedfd23d2d0a3e979b6f38ec453a35b23feec132984e0c0676293ed483e9",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "correlation",
+      2,
+      "lstm",
+      22
+    ],
+    "name": "correlation_g2_lstm_s22",
+    "b_support": {
+      "forecast_mse": 0.5143234729766846,
+      "baseline_mse": {
+        "last_value": 1.0217247009277344,
+        "moving_mean": 1.0944654941558838,
+        "b_trained_linear_ar": 0.3822464226382622
+      },
+      "vs_best_simple_ratio": 0.5033875294486613,
+      "vs_b_ar_ratio": 1.345528545242693,
+      "pass": false
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 4.76837158203125e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "009d56d068eab17c12126c6ffb0a77b47013449462a9ed5284ccb0d47231cf80",
+    "common_b_suffix_hash": "9c1faedfd23d2d0a3e979b6f38ec453a35b23feec132984e0c0676293ed483e9",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "correlation",
+      2,
+      "lstm",
+      33
+    ],
+    "name": "correlation_g2_lstm_s33",
+    "b_support": {
+      "forecast_mse": 0.49798882007598877,
+      "baseline_mse": {
+        "last_value": 1.0217247009277344,
+        "moving_mean": 1.0944654941558838,
+        "b_trained_linear_ar": 0.3822464226382622
+      },
+      "vs_best_simple_ratio": 0.48740019657331457,
+      "vs_b_ar_ratio": 1.3027952404076757,
+      "pass": false
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 3.5762786865234375e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "2fb8414a81b0cdee3e8d71b9656182ecbbd9ce827e3079c7d75f2eb90f7b20e7",
+    "common_b_suffix_hash": "9c1faedfd23d2d0a3e979b6f38ec453a35b23feec132984e0c0676293ed483e9",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "correlation",
+      2,
+      "xlstm",
+      11
+    ],
+    "name": "correlation_g2_xlstm_s11",
+    "b_support": {
+      "forecast_mse": 0.4153428077697754,
+      "baseline_mse": {
+        "last_value": 1.0217247009277344,
+        "moving_mean": 1.0944654941558838,
+        "b_trained_linear_ar": 0.3822464226382622
+      },
+      "vs_best_simple_ratio": 0.40651146771007957,
+      "vs_b_ar_ratio": 1.0865838976414277,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 6.556510925292969e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "35684c6b8b9aac4fc6d313936a4d865b1a9c4bebff36cdb1f89eb0e7d959bd30",
+    "common_b_suffix_hash": "9c1faedfd23d2d0a3e979b6f38ec453a35b23feec132984e0c0676293ed483e9",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "correlation",
+      2,
+      "xlstm",
+      22
+    ],
+    "name": "correlation_g2_xlstm_s22",
+    "b_support": {
+      "forecast_mse": 0.4269390106201172,
+      "baseline_mse": {
+        "last_value": 1.0217247009277344,
+        "moving_mean": 1.0944654941558838,
+        "b_trained_linear_ar": 0.3822464226382622
+      },
+      "vs_best_simple_ratio": 0.41786110312538505,
+      "vs_b_ar_ratio": 1.1169208796602648,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 7.748603820800781e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "27c0a5b2852798641c683fb9c62df81dedc60bf688cef147fea2f4040b7e501d",
+    "common_b_suffix_hash": "9c1faedfd23d2d0a3e979b6f38ec453a35b23feec132984e0c0676293ed483e9",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "correlation",
+      2,
+      "xlstm",
+      33
+    ],
+    "name": "correlation_g2_xlstm_s33",
+    "b_support": {
+      "forecast_mse": 0.41718143224716187,
+      "baseline_mse": {
+        "last_value": 1.0217247009277344,
+        "moving_mean": 1.0944654941558838,
+        "b_trained_linear_ar": 0.3822464226382622
+      },
+      "vs_best_simple_ratio": 0.40831099793159326,
+      "vs_b_ar_ratio": 1.0913939478302463,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 7.152557373046875e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "3cf024823561969aab944150d03b371c308f557791a20fe79a72e5f5f4d32e97",
+    "common_b_suffix_hash": "9c1faedfd23d2d0a3e979b6f38ec453a35b23feec132984e0c0676293ed483e9",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "correlation",
+      3,
+      "lstm",
+      11
+    ],
+    "name": "correlation_g3_lstm_s11",
+    "b_support": {
+      "forecast_mse": 0.5063682794570923,
+      "baseline_mse": {
+        "last_value": 1.0454480648040771,
+        "moving_mean": 0.9320366382598877,
+        "b_trained_linear_ar": 0.3484364154305355
+      },
+      "vs_best_simple_ratio": 0.5432922469684044,
+      "vs_b_ar_ratio": 1.4532587784529145,
+      "pass": false
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 3.5762786865234375e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "93ec2172d70a8ffc70204fb908fa845aa2b0725986ac7f6b950857a040937849",
+    "common_b_suffix_hash": "deb5c4c3507c2f1098143737df95154f76209aecae6514b0c58f5a70a0e6a5e5",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "correlation",
+      3,
+      "lstm",
+      22
+    ],
+    "name": "correlation_g3_lstm_s22",
+    "b_support": {
+      "forecast_mse": 0.5069546103477478,
+      "baseline_mse": {
+        "last_value": 1.0454480648040771,
+        "moving_mean": 0.9320366382598877,
+        "b_trained_linear_ar": 0.3484364154305355
+      },
+      "vs_best_simple_ratio": 0.5439213326358414,
+      "vs_b_ar_ratio": 1.4549415270540647,
+      "pass": false
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 2.384185791015625e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "4878712e19421ec772b1894dfe2c5da5c8e6bd6660c711c404ea1319c7f7d064",
+    "common_b_suffix_hash": "deb5c4c3507c2f1098143737df95154f76209aecae6514b0c58f5a70a0e6a5e5",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "correlation",
+      3,
+      "lstm",
+      33
+    ],
+    "name": "correlation_g3_lstm_s33",
+    "b_support": {
+      "forecast_mse": 0.5010040998458862,
+      "baseline_mse": {
+        "last_value": 1.0454480648040771,
+        "moving_mean": 0.9320366382598877,
+        "b_trained_linear_ar": 0.3484364154305355
+      },
+      "vs_best_simple_ratio": 0.5375369156959976,
+      "vs_b_ar_ratio": 1.4378637755954262,
+      "pass": false
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 4.172325134277344e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "373419bd9f612487d366e82d8d3e747c1e0a213c9740441053392ad684bfeaf3",
+    "common_b_suffix_hash": "deb5c4c3507c2f1098143737df95154f76209aecae6514b0c58f5a70a0e6a5e5",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "correlation",
+      3,
+      "xlstm",
+      11
+    ],
+    "name": "correlation_g3_xlstm_s11",
+    "b_support": {
+      "forecast_mse": 0.3693463206291199,
+      "baseline_mse": {
+        "last_value": 1.0454480648040771,
+        "moving_mean": 0.9320366382598877,
+        "b_trained_linear_ar": 0.3484364154305355
+      },
+      "vs_best_simple_ratio": 0.39627875715131694,
+      "vs_b_ar_ratio": 1.0600106770492046,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 9.5367431640625e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "a94a8def7db14fa2a77fb084da4824530d9f7abf3891bb4e77ab46536ca8e908",
+    "common_b_suffix_hash": "deb5c4c3507c2f1098143737df95154f76209aecae6514b0c58f5a70a0e6a5e5",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "correlation",
+      3,
+      "xlstm",
+      22
+    ],
+    "name": "correlation_g3_xlstm_s22",
+    "b_support": {
+      "forecast_mse": 0.3689214587211609,
+      "baseline_mse": {
+        "last_value": 1.0454480648040771,
+        "moving_mean": 0.9320366382598877,
+        "b_trained_linear_ar": 0.3484364154305355
+      },
+      "vs_best_simple_ratio": 0.3958229146548758,
+      "vs_b_ar_ratio": 1.058791338630073,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 1.1324882507324219e-06,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "4afd370bfde14ff3c6c76877842b9067674a359441bb4dff6080d03960cf76bb",
+    "common_b_suffix_hash": "deb5c4c3507c2f1098143737df95154f76209aecae6514b0c58f5a70a0e6a5e5",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "correlation",
+      3,
+      "xlstm",
+      33
+    ],
+    "name": "correlation_g3_xlstm_s33",
+    "b_support": {
+      "forecast_mse": 0.3815397620201111,
+      "baseline_mse": {
+        "last_value": 1.0454480648040771,
+        "moving_mean": 0.9320366382598877,
+        "b_trained_linear_ar": 0.3484364154305355
+      },
+      "vs_best_simple_ratio": 0.4093613344776293,
+      "vs_b_ar_ratio": 1.0950054159771803,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 6.854534149169922e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "0403154fc278a776406134e589e6f5b7014ac82d5e50294ad083e9958ae50a55",
+    "common_b_suffix_hash": "deb5c4c3507c2f1098143737df95154f76209aecae6514b0c58f5a70a0e6a5e5",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "correlation",
+      4,
+      "lstm",
+      11
+    ],
+    "name": "correlation_g4_lstm_s11",
+    "b_support": {
+      "forecast_mse": 0.4950109124183655,
+      "baseline_mse": {
+        "last_value": 1.0179091691970825,
+        "moving_mean": 0.9257301688194275,
+        "b_trained_linear_ar": 0.3107031183803177
+      },
+      "vs_best_simple_ratio": 0.5347248356933716,
+      "vs_b_ar_ratio": 1.5931958295070758,
+      "pass": false
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 3.5762786865234375e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "e3c6eaf2af3150cc8ec41f5dfa5fb8bec71101e8d1e8929f8e3b4241934541ae",
+    "common_b_suffix_hash": "66246663ac7dac1e441cf825b7a8026792cbd965eda6b74ab30aafb88b0ed145",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "correlation",
+      4,
+      "lstm",
+      22
+    ],
+    "name": "correlation_g4_lstm_s22",
+    "b_support": {
+      "forecast_mse": 0.4691017270088196,
+      "baseline_mse": {
+        "last_value": 1.0179091691970825,
+        "moving_mean": 0.9257301688194275,
+        "b_trained_linear_ar": 0.3107031183803177
+      },
+      "vs_best_simple_ratio": 0.5067369983275574,
+      "vs_b_ar_ratio": 1.5098069483635284,
+      "pass": false
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 4.172325134277344e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "4f2f37e398fa590be964a753b1d966ab45b104375adfc1890f6cb3bfe8078846",
+    "common_b_suffix_hash": "66246663ac7dac1e441cf825b7a8026792cbd965eda6b74ab30aafb88b0ed145",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "correlation",
+      4,
+      "lstm",
+      33
+    ],
+    "name": "correlation_g4_lstm_s33",
+    "b_support": {
+      "forecast_mse": 0.46565067768096924,
+      "baseline_mse": {
+        "last_value": 1.0179091691970825,
+        "moving_mean": 0.9257301688194275,
+        "b_trained_linear_ar": 0.3107031183803177
+      },
+      "vs_best_simple_ratio": 0.5030090769049992,
+      "vs_b_ar_ratio": 1.4986997237375235,
+      "pass": false
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 2.980232238769531e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "799ded709f54bd49dd9079a9b7e343b1ef0d82d52c98d998de44ca9d658a54ca",
+    "common_b_suffix_hash": "66246663ac7dac1e441cf825b7a8026792cbd965eda6b74ab30aafb88b0ed145",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "correlation",
+      4,
+      "xlstm",
+      11
+    ],
+    "name": "correlation_g4_xlstm_s11",
+    "b_support": {
+      "forecast_mse": 0.3383471369743347,
+      "baseline_mse": {
+        "last_value": 1.0179091691970825,
+        "moving_mean": 0.9257301688194275,
+        "b_trained_linear_ar": 0.3107031183803177
+      },
+      "vs_best_simple_ratio": 0.3654921794390959,
+      "vs_b_ar_ratio": 1.0889724529902503,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 9.5367431640625e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "124e87a6cb710dfeb7f9e01882c50e00d876c32f623e644c991b4f8106f11501",
+    "common_b_suffix_hash": "66246663ac7dac1e441cf825b7a8026792cbd965eda6b74ab30aafb88b0ed145",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "correlation",
+      4,
+      "xlstm",
+      22
+    ],
+    "name": "correlation_g4_xlstm_s22",
+    "b_support": {
+      "forecast_mse": 0.3451046645641327,
+      "baseline_mse": {
+        "last_value": 1.0179091691970825,
+        "moving_mean": 0.9257301688194275,
+        "b_trained_linear_ar": 0.3107031183803177
+      },
+      "vs_best_simple_ratio": 0.372791852515988,
+      "vs_b_ar_ratio": 1.1107215993297679,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 5.662441253662109e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "3f7676f7f518031f0c8c70dbd3e870a38b984526f3ac198fa777704129a66f85",
+    "common_b_suffix_hash": "66246663ac7dac1e441cf825b7a8026792cbd965eda6b74ab30aafb88b0ed145",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "correlation",
+      4,
+      "xlstm",
+      33
+    ],
+    "name": "correlation_g4_xlstm_s33",
+    "b_support": {
+      "forecast_mse": 0.34016919136047363,
+      "baseline_mse": {
+        "last_value": 1.0179091691970825,
+        "moving_mean": 0.9257301688194275,
+        "b_trained_linear_ar": 0.3107031183803177
+      },
+      "vs_best_simple_ratio": 0.3674604142957632,
+      "vs_b_ar_ratio": 1.0948367468397526,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 7.152557373046875e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "e5c2b6851f1577f2ed516d185b865cab7144ea9ae25a5356f8b8dfe12b0732c6",
+    "common_b_suffix_hash": "66246663ac7dac1e441cf825b7a8026792cbd965eda6b74ab30aafb88b0ed145",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "dynamics",
+      0,
+      "lstm",
+      11
+    ],
+    "name": "dynamics_g0_lstm_s11",
+    "b_support": {
+      "forecast_mse": 0.9684498906135559,
+      "baseline_mse": {
+        "last_value": 1.958963394165039,
+        "moving_mean": 1.0339432954788208,
+        "b_trained_linear_ar": 0.9118757339061133
+      },
+      "vs_best_simple_ratio": 0.9366566762880988,
+      "vs_b_ar_ratio": 1.0620415201368518,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 4.172325134277344e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "bb65990f5ccae14fdea04bfea82d450d0d792d61112bc3db4781173788df4550",
+    "common_b_suffix_hash": "ea62087b47b9117442e2f0c4ec2efa43b6e3a2b79e383d0d975e5f3de196fc41",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "dynamics",
+      0,
+      "lstm",
+      22
+    ],
+    "name": "dynamics_g0_lstm_s22",
+    "b_support": {
+      "forecast_mse": 0.9717592000961304,
+      "baseline_mse": {
+        "last_value": 1.958963394165039,
+        "moving_mean": 1.0339432954788208,
+        "b_trained_linear_ar": 0.9118757339061133
+      },
+      "vs_best_simple_ratio": 0.9398573445423882,
+      "vs_b_ar_ratio": 1.0656706434477645,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 2.980232238769531e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "06c40099c55ed650cfac691098874c1e8fe59fbfcb42936ee2f5cb4fd17d09c4",
+    "common_b_suffix_hash": "ea62087b47b9117442e2f0c4ec2efa43b6e3a2b79e383d0d975e5f3de196fc41",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "dynamics",
+      0,
+      "lstm",
+      33
+    ],
+    "name": "dynamics_g0_lstm_s33",
+    "b_support": {
+      "forecast_mse": 0.9670827984809875,
+      "baseline_mse": {
+        "last_value": 1.958963394165039,
+        "moving_mean": 1.0339432954788208,
+        "b_trained_linear_ar": 0.9118757339061133
+      },
+      "vs_best_simple_ratio": 0.935334464384848,
+      "vs_b_ar_ratio": 1.060542311328309,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 2.980232238769531e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "7fc4066f8c928faf2f19af057e66bd8f517ebb6ba7beeba2b43381ed8b04c12e",
+    "common_b_suffix_hash": "ea62087b47b9117442e2f0c4ec2efa43b6e3a2b79e383d0d975e5f3de196fc41",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "dynamics",
+      0,
+      "xlstm",
+      11
+    ],
+    "name": "dynamics_g0_xlstm_s11",
+    "b_support": {
+      "forecast_mse": 0.9578990936279297,
+      "baseline_mse": {
+        "last_value": 1.958963394165039,
+        "moving_mean": 1.0339432954788208,
+        "b_trained_linear_ar": 0.9118757339061133
+      },
+      "vs_best_simple_ratio": 0.9264522511211073,
+      "vs_b_ar_ratio": 1.0504710872441694,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 3.986060619354248e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "7005a1341856a4423cad285752cb8a15848565ca32e755ba127b045e26ace70b",
+    "common_b_suffix_hash": "ea62087b47b9117442e2f0c4ec2efa43b6e3a2b79e383d0d975e5f3de196fc41",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "dynamics",
+      0,
+      "xlstm",
+      22
+    ],
+    "name": "dynamics_g0_xlstm_s22",
+    "b_support": {
+      "forecast_mse": 0.950714647769928,
+      "baseline_mse": {
+        "last_value": 1.958963394165039,
+        "moving_mean": 1.0339432954788208,
+        "b_trained_linear_ar": 0.9118757339061133
+      },
+      "vs_best_simple_ratio": 0.9195036632348881,
+      "vs_b_ar_ratio": 1.0425923318492578,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 4.76837158203125e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "6221275e3d6814e7a46c70be03af9137ecd5527bb2bf6950445005f8cd0e81ae",
+    "common_b_suffix_hash": "ea62087b47b9117442e2f0c4ec2efa43b6e3a2b79e383d0d975e5f3de196fc41",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "dynamics",
+      0,
+      "xlstm",
+      33
+    ],
+    "name": "dynamics_g0_xlstm_s33",
+    "b_support": {
+      "forecast_mse": 0.9511184096336365,
+      "baseline_mse": {
+        "last_value": 1.958963394165039,
+        "moving_mean": 1.0339432954788208,
+        "b_trained_linear_ar": 0.9118757339061133
+      },
+      "vs_best_simple_ratio": 0.9198941700116853,
+      "vs_b_ar_ratio": 1.0430351135230052,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 5.960464477539062e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "46a1c4310f773b04aef26aa38c17dab4168303849036c92aba61f61b75a9d150",
+    "common_b_suffix_hash": "ea62087b47b9117442e2f0c4ec2efa43b6e3a2b79e383d0d975e5f3de196fc41",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "dynamics",
+      1,
+      "lstm",
+      11
+    ],
+    "name": "dynamics_g1_lstm_s11",
+    "b_support": {
+      "forecast_mse": 0.9411073923110962,
+      "baseline_mse": {
+        "last_value": 1.912846565246582,
+        "moving_mean": 1.0365447998046875,
+        "b_trained_linear_ar": 0.8806595848502718
+      },
+      "vs_best_simple_ratio": 0.9079273683958723,
+      "vs_b_ar_ratio": 1.0686392432452791,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 2.7939677238464355e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "6423fe3b350a4e20d0bed7e8ef6712fd5bfd489ee7d96c3ed84abfb809d7613d",
+    "common_b_suffix_hash": "720b7e62741dab3a67306006c002a1b113427892476d1013d2bfa208e276d829",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "dynamics",
+      1,
+      "lstm",
+      22
+    ],
+    "name": "dynamics_g1_lstm_s22",
+    "b_support": {
+      "forecast_mse": 0.9433579444885254,
+      "baseline_mse": {
+        "last_value": 1.912846565246582,
+        "moving_mean": 1.0365447998046875,
+        "b_trained_linear_ar": 0.8806595848502718
+      },
+      "vs_best_simple_ratio": 0.9100985742886164,
+      "vs_b_ar_ratio": 1.0711947734593876,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 2.682209014892578e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "4204b9559b89205d2514e7ab7add898d998bd33f0e556deb687c778f89ad7eb2",
+    "common_b_suffix_hash": "720b7e62741dab3a67306006c002a1b113427892476d1013d2bfa208e276d829",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "dynamics",
+      1,
+      "lstm",
+      33
+    ],
+    "name": "dynamics_g1_lstm_s33",
+    "b_support": {
+      "forecast_mse": 0.9374958276748657,
+      "baseline_mse": {
+        "last_value": 1.912846565246582,
+        "moving_mean": 1.0365447998046875,
+        "b_trained_linear_ar": 0.8806595848502718
+      },
+      "vs_best_simple_ratio": 0.904443134393723,
+      "vs_b_ar_ratio": 1.0645382663203025,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 3.129243850708008e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "01d8e6e951d116c06b374b659048704c733e4cb2a07250b1fac06d4f58515d51",
+    "common_b_suffix_hash": "720b7e62741dab3a67306006c002a1b113427892476d1013d2bfa208e276d829",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "dynamics",
+      1,
+      "xlstm",
+      11
+    ],
+    "name": "dynamics_g1_xlstm_s11",
+    "b_support": {
+      "forecast_mse": 0.920041561126709,
+      "baseline_mse": {
+        "last_value": 1.912846565246582,
+        "moving_mean": 1.0365447998046875,
+        "b_trained_linear_ar": 0.8806595848502718
+      },
+      "vs_best_simple_ratio": 0.8876042418041836,
+      "vs_b_ar_ratio": 1.0447187278193681,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 4.172325134277344e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "fd6b289bbda73ec005519d2af7f17904f6ff6de278dda9d911d801dc8693776a",
+    "common_b_suffix_hash": "720b7e62741dab3a67306006c002a1b113427892476d1013d2bfa208e276d829",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "dynamics",
+      1,
+      "xlstm",
+      22
+    ],
+    "name": "dynamics_g1_xlstm_s22",
+    "b_support": {
+      "forecast_mse": 0.9159581661224365,
+      "baseline_mse": {
+        "last_value": 1.912846565246582,
+        "moving_mean": 1.0365447998046875,
+        "b_trained_linear_ar": 0.8806595848502718
+      },
+      "vs_best_simple_ratio": 0.8836648124567575,
+      "vs_b_ar_ratio": 1.0400819815958355,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 4.470348358154297e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "e59079000cc10f8ac2e92d77822db208d3ca72be2053e8b7b3277ae1a51be8a4",
+    "common_b_suffix_hash": "720b7e62741dab3a67306006c002a1b113427892476d1013d2bfa208e276d829",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "dynamics",
+      1,
+      "xlstm",
+      33
+    ],
+    "name": "dynamics_g1_xlstm_s33",
+    "b_support": {
+      "forecast_mse": 0.9222918748855591,
+      "baseline_mse": {
+        "last_value": 1.912846565246582,
+        "moving_mean": 1.0365447998046875,
+        "b_trained_linear_ar": 0.8806595848502718
+      },
+      "vs_best_simple_ratio": 0.8897752176841206,
+      "vs_b_ar_ratio": 1.0472739873061911,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 4.842877388000488e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "7633028b32ca75ceed3d5eb1b4152aa6e9ed17e394954f7106901e091b7e8665",
+    "common_b_suffix_hash": "720b7e62741dab3a67306006c002a1b113427892476d1013d2bfa208e276d829",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "dynamics",
+      2,
+      "lstm",
+      11
+    ],
+    "name": "dynamics_g2_lstm_s11",
+    "b_support": {
+      "forecast_mse": 0.9159174561500549,
+      "baseline_mse": {
+        "last_value": 1.8937184810638428,
+        "moving_mean": 1.0217597484588623,
+        "b_trained_linear_ar": 0.8402082298865319
+      },
+      "vs_best_simple_ratio": 0.8964117616998994,
+      "vs_b_ar_ratio": 1.090107694224499,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 2.980232238769531e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "bfea1b707d2764f50df39c6fa1b5a68d885b49c4cc691446ec5ca5a77507a0b9",
+    "common_b_suffix_hash": "6f5a7b63de998ae70a3d68e8dddf5e2661030397a793cd8a5c3b03fe8791592a",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "dynamics",
+      2,
+      "lstm",
+      22
+    ],
+    "name": "dynamics_g2_lstm_s22",
+    "b_support": {
+      "forecast_mse": 0.9232120513916016,
+      "baseline_mse": {
+        "last_value": 1.8937184810638428,
+        "moving_mean": 1.0217597484588623,
+        "b_trained_linear_ar": 0.8402082298865319
+      },
+      "vs_best_simple_ratio": 0.9035510087220583,
+      "vs_b_ar_ratio": 1.0987895840014317,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 2.980232238769531e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "91a69f3d5778c9139efc5ad249c88f854f80abd27ed92c0ac87c17947a08585a",
+    "common_b_suffix_hash": "6f5a7b63de998ae70a3d68e8dddf5e2661030397a793cd8a5c3b03fe8791592a",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "dynamics",
+      2,
+      "lstm",
+      33
+    ],
+    "name": "dynamics_g2_lstm_s33",
+    "b_support": {
+      "forecast_mse": 0.9048336744308472,
+      "baseline_mse": {
+        "last_value": 1.8937184810638428,
+        "moving_mean": 1.0217597484588623,
+        "b_trained_linear_ar": 0.8402082298865319
+      },
+      "vs_best_simple_ratio": 0.8855640240238699,
+      "vs_b_ar_ratio": 1.0769159861157784,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 3.5762786865234375e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "43a1e01ed3ad9c6165ef121bc1b68569838629356a2229a5ba0b01ad9f4174c2",
+    "common_b_suffix_hash": "6f5a7b63de998ae70a3d68e8dddf5e2661030397a793cd8a5c3b03fe8791592a",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "dynamics",
+      2,
+      "xlstm",
+      11
+    ],
+    "name": "dynamics_g2_xlstm_s11",
+    "b_support": {
+      "forecast_mse": 0.8782178163528442,
+      "baseline_mse": {
+        "last_value": 1.8937184810638428,
+        "moving_mean": 1.0217597484588623,
+        "b_trained_linear_ar": 0.8402082298865319
+      },
+      "vs_best_simple_ratio": 0.859514986451047,
+      "vs_b_ar_ratio": 1.0452382934542852,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 5.364418029785156e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "9489190eb432763e4ed2977801cac10b644d7283683792fb8dd83e9cb660dfe9",
+    "common_b_suffix_hash": "6f5a7b63de998ae70a3d68e8dddf5e2661030397a793cd8a5c3b03fe8791592a",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "dynamics",
+      2,
+      "xlstm",
+      22
+    ],
+    "name": "dynamics_g2_xlstm_s22",
+    "b_support": {
+      "forecast_mse": 0.8849040865898132,
+      "baseline_mse": {
+        "last_value": 1.8937184810638428,
+        "moving_mean": 1.0217597484588623,
+        "b_trained_linear_ar": 0.8402082298865319
+      },
+      "vs_best_simple_ratio": 0.8660588635680053,
+      "vs_b_ar_ratio": 1.0531961662757308,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 4.3958425521850586e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "b2a4a760062f9c4e128d3bb24a01d1ac2ea8beeedf9d0efbb5072985dec80937",
+    "common_b_suffix_hash": "6f5a7b63de998ae70a3d68e8dddf5e2661030397a793cd8a5c3b03fe8791592a",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "dynamics",
+      2,
+      "xlstm",
+      33
+    ],
+    "name": "dynamics_g2_xlstm_s33",
+    "b_support": {
+      "forecast_mse": 0.873448371887207,
+      "baseline_mse": {
+        "last_value": 1.8937184810638428,
+        "moving_mean": 1.0217597484588623,
+        "b_trained_linear_ar": 0.8402082298865319
+      },
+      "vs_best_simple_ratio": 0.8548471137218354,
+      "vs_b_ar_ratio": 1.0395617905399048,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 4.172325134277344e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "b40bd314264c32353d406569f25e55c8719651cdf2d878cc851c82cd4183a96e",
+    "common_b_suffix_hash": "6f5a7b63de998ae70a3d68e8dddf5e2661030397a793cd8a5c3b03fe8791592a",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "dynamics",
+      3,
+      "lstm",
+      11
+    ],
+    "name": "dynamics_g3_lstm_s11",
+    "b_support": {
+      "forecast_mse": 0.8805528283119202,
+      "baseline_mse": {
+        "last_value": 1.9136916399002075,
+        "moving_mean": 1.0367791652679443,
+        "b_trained_linear_ar": 0.7887612192168764
+      },
+      "vs_best_simple_ratio": 0.8493157056106069,
+      "vs_b_ar_ratio": 1.1163743942509994,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 2.980232238769531e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "e9e4eaa8d3ab96a14e483734ddc09673b166c6a02bf163672957784f05243de1",
+    "common_b_suffix_hash": "93c888c32cd8e9c8af9a21eb38ea053896c4b45756f77b1245caf36d37995c46",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "dynamics",
+      3,
+      "lstm",
+      22
+    ],
+    "name": "dynamics_g3_lstm_s22",
+    "b_support": {
+      "forecast_mse": 0.8795120120048523,
+      "baseline_mse": {
+        "last_value": 1.9136916399002075,
+        "moving_mean": 1.0367791652679443,
+        "b_trained_linear_ar": 0.7887612192168764
+      },
+      "vs_best_simple_ratio": 0.8483118116841709,
+      "vs_b_ar_ratio": 1.1150548360859807,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 3.818422555923462e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "904a54a827d143ef7a270a1772dc8f71d11706ff7bc6c8da432c210107267a0f",
+    "common_b_suffix_hash": "93c888c32cd8e9c8af9a21eb38ea053896c4b45756f77b1245caf36d37995c46",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "dynamics",
+      3,
+      "lstm",
+      33
+    ],
+    "name": "dynamics_g3_lstm_s33",
+    "b_support": {
+      "forecast_mse": 0.876849889755249,
+      "baseline_mse": {
+        "last_value": 1.9136916399002075,
+        "moving_mean": 1.0367791652679443,
+        "b_trained_linear_ar": 0.7887612192168764
+      },
+      "vs_best_simple_ratio": 0.8457441267433616,
+      "vs_b_ar_ratio": 1.1116797687211748,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 2.980232238769531e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "ecb3b43493451dd7a1c5e6f294916c66d3b74180ba2d9bc51779389fc6382be2",
+    "common_b_suffix_hash": "93c888c32cd8e9c8af9a21eb38ea053896c4b45756f77b1245caf36d37995c46",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "dynamics",
+      3,
+      "xlstm",
+      11
+    ],
+    "name": "dynamics_g3_xlstm_s11",
+    "b_support": {
+      "forecast_mse": 0.8235112428665161,
+      "baseline_mse": {
+        "last_value": 1.9136916399002075,
+        "moving_mean": 1.0367791652679443,
+        "b_trained_linear_ar": 0.7887612192168764
+      },
+      "vs_best_simple_ratio": 0.7942976387393824,
+      "vs_b_ar_ratio": 1.0440564556205507,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 5.960464477539062e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "a6e35f37ef8f93942f82e3818f9ca6a4f460d3927953ffbebe5d43719959295a",
+    "common_b_suffix_hash": "93c888c32cd8e9c8af9a21eb38ea053896c4b45756f77b1245caf36d37995c46",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "dynamics",
+      3,
+      "xlstm",
+      22
+    ],
+    "name": "dynamics_g3_xlstm_s22",
+    "b_support": {
+      "forecast_mse": 0.8239791989326477,
+      "baseline_mse": {
+        "last_value": 1.9136916399002075,
+        "moving_mean": 1.0367791652679443,
+        "b_trained_linear_ar": 0.7887612192168764
+      },
+      "vs_best_simple_ratio": 0.7947489943238772,
+      "vs_b_ar_ratio": 1.0446497353796598,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 4.3213367462158203e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "c23aa4d49cf28d9c4ccadc80332b4d00799749fbb42f34555dff1ab890328258",
+    "common_b_suffix_hash": "93c888c32cd8e9c8af9a21eb38ea053896c4b45756f77b1245caf36d37995c46",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "dynamics",
+      3,
+      "xlstm",
+      33
+    ],
+    "name": "dynamics_g3_xlstm_s33",
+    "b_support": {
+      "forecast_mse": 0.8230090141296387,
+      "baseline_mse": {
+        "last_value": 1.9136916399002075,
+        "moving_mean": 1.0367791652679443,
+        "b_trained_linear_ar": 0.7887612192168764
+      },
+      "vs_best_simple_ratio": 0.7938132262881082,
+      "vs_b_ar_ratio": 1.0434197245989925,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 7.003545761108398e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "7b838347f7bca3c20bd30f2687632ee1558991d97ed9e18e0dbb71f474d0fcd4",
+    "common_b_suffix_hash": "93c888c32cd8e9c8af9a21eb38ea053896c4b45756f77b1245caf36d37995c46",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "dynamics",
+      4,
+      "lstm",
+      11
+    ],
+    "name": "dynamics_g4_lstm_s11",
+    "b_support": {
+      "forecast_mse": 0.8663324117660522,
+      "baseline_mse": {
+        "last_value": 1.8920691013336182,
+        "moving_mean": 0.9974679946899414,
+        "b_trained_linear_ar": 0.7453926641176305
+      },
+      "vs_best_simple_ratio": 0.868531538232811,
+      "vs_b_ar_ratio": 1.162249715445732,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 2.980232238769531e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "8aa4d7dd6e6802943315ed8cb395d4e15123fa99484d10457885deb55e552ce1",
+    "common_b_suffix_hash": "75a47f923b10d8f40c998dd7f7240ec030f22e5e2106c87695fe043a27aa2b2a",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "dynamics",
+      4,
+      "lstm",
+      22
+    ],
+    "name": "dynamics_g4_lstm_s22",
+    "b_support": {
+      "forecast_mse": 0.8505480289459229,
+      "baseline_mse": {
+        "last_value": 1.8920691013336182,
+        "moving_mean": 0.9974679946899414,
+        "b_trained_linear_ar": 0.7453926641176305
+      },
+      "vs_best_simple_ratio": 0.8527070878202082,
+      "vs_b_ar_ratio": 1.1410737855231934,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 3.5762786865234375e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "6e4b082045baa78dff46c9786bf13f668f34c2785f228a93653a164dbe960226",
+    "common_b_suffix_hash": "75a47f923b10d8f40c998dd7f7240ec030f22e5e2106c87695fe043a27aa2b2a",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "dynamics",
+      4,
+      "lstm",
+      33
+    ],
+    "name": "dynamics_g4_lstm_s33",
+    "b_support": {
+      "forecast_mse": 0.8469192981719971,
+      "baseline_mse": {
+        "last_value": 1.8920691013336182,
+        "moving_mean": 0.9974679946899414,
+        "b_trained_linear_ar": 0.7453926641176305
+      },
+      "vs_best_simple_ratio": 0.8490691457576623,
+      "vs_b_ar_ratio": 1.136205571830453,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 3.8743019104003906e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "a9b651161016aafad45acdb36f6feaa1f1bd6ff8fd16f32ba031d88edfba6d31",
+    "common_b_suffix_hash": "75a47f923b10d8f40c998dd7f7240ec030f22e5e2106c87695fe043a27aa2b2a",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "dynamics",
+      4,
+      "xlstm",
+      11
+    ],
+    "name": "dynamics_g4_xlstm_s11",
+    "b_support": {
+      "forecast_mse": 0.7906509637832642,
+      "baseline_mse": {
+        "last_value": 1.8920691013336182,
+        "moving_mean": 0.9974679946899414,
+        "b_trained_linear_ar": 0.7453926641176305
+      },
+      "vs_best_simple_ratio": 0.7926579779926017,
+      "vs_b_ar_ratio": 1.06071739345491,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 4.470348358154297e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "e2d2d64bd5f87a1797735e78e0a5fd0a60b47cd9e2ebfd9b062d381f4214318d",
+    "common_b_suffix_hash": "75a47f923b10d8f40c998dd7f7240ec030f22e5e2106c87695fe043a27aa2b2a",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "dynamics",
+      4,
+      "xlstm",
+      22
+    ],
+    "name": "dynamics_g4_xlstm_s22",
+    "b_support": {
+      "forecast_mse": 0.7918411493301392,
+      "baseline_mse": {
+        "last_value": 1.8920691013336182,
+        "moving_mean": 0.9974679946899414,
+        "b_trained_linear_ar": 0.7453926641176305
+      },
+      "vs_best_simple_ratio": 0.7938511847453106,
+      "vs_b_ar_ratio": 1.0623141163691123,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 5.960464477539062e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "664aa5bb0c8d7d58ddd648c2d63af6e5b25f061a63649c52597246b8d18761a4",
+    "common_b_suffix_hash": "75a47f923b10d8f40c998dd7f7240ec030f22e5e2106c87695fe043a27aa2b2a",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "dynamics",
+      4,
+      "xlstm",
+      33
+    ],
+    "name": "dynamics_g4_xlstm_s33",
+    "b_support": {
+      "forecast_mse": 0.7847718000411987,
+      "baseline_mse": {
+        "last_value": 1.8920691013336182,
+        "moving_mean": 0.9974679946899414,
+        "b_trained_linear_ar": 0.7453926641176305
+      },
+      "vs_best_simple_ratio": 0.7867638903894271,
+      "vs_b_ar_ratio": 1.0528300556461525,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 5.364418029785156e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "0d4ef7e9c7ca8abb7990fc768894c658030a4cb73291eadd2262d5f5944b6104",
+    "common_b_suffix_hash": "75a47f923b10d8f40c998dd7f7240ec030f22e5e2106c87695fe043a27aa2b2a",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "mean",
+      0,
+      "lstm",
+      11
+    ],
+    "name": "mean_g0_lstm_s11",
+    "b_support": {
+      "forecast_mse": 0.6585690975189209,
+      "baseline_mse": {
+        "last_value": 1.3717875480651855,
+        "moving_mean": 0.75777268409729,
+        "b_trained_linear_ar": 0.3541647174001694
+      },
+      "vs_best_simple_ratio": 0.8690852960785369,
+      "vs_b_ar_ratio": 1.8594994508580767,
+      "pass": false
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 1.2665987014770508e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "bd3a552a7fcb7d52e7cc4fe69678addff5323cca0672f586bd8732b08b0db32b",
+    "common_b_suffix_hash": "daf97b39c93e65dff0942163d97e4dae7ec3c67a86a4babfff7da8c4318f5cf3",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "mean",
+      0,
+      "lstm",
+      22
+    ],
+    "name": "mean_g0_lstm_s22",
+    "b_support": {
+      "forecast_mse": 0.6330514550209045,
+      "baseline_mse": {
+        "last_value": 1.3717875480651855,
+        "moving_mean": 0.75777268409729,
+        "b_trained_linear_ar": 0.3541647174001694
+      },
+      "vs_best_simple_ratio": 0.8354107614409962,
+      "vs_b_ar_ratio": 1.7874492401952677,
+      "pass": false
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 4.917383193969727e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "c93a5ac061ab9d8df5f5f5e28716fb7d99c380abeade43c4db5bda79ee925edc",
+    "common_b_suffix_hash": "daf97b39c93e65dff0942163d97e4dae7ec3c67a86a4babfff7da8c4318f5cf3",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "mean",
+      0,
+      "lstm",
+      33
+    ],
+    "name": "mean_g0_lstm_s33",
+    "b_support": {
+      "forecast_mse": 0.6540794968605042,
+      "baseline_mse": {
+        "last_value": 1.3717875480651855,
+        "moving_mean": 0.75777268409729,
+        "b_trained_linear_ar": 0.3541647174001694
+      },
+      "vs_best_simple_ratio": 0.8631605633022887,
+      "vs_b_ar_ratio": 1.8468228615824036,
+      "pass": false
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 1.1920928955078125e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "33263af019e9c323fb8a09d9890f790ffd5f00c2032272f0bf047f32bcb3e95d",
+    "common_b_suffix_hash": "daf97b39c93e65dff0942163d97e4dae7ec3c67a86a4babfff7da8c4318f5cf3",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "mean",
+      0,
+      "xlstm",
+      11
+    ],
+    "name": "mean_g0_xlstm_s11",
+    "b_support": {
+      "forecast_mse": 0.39405524730682373,
+      "baseline_mse": {
+        "last_value": 1.3717875480651855,
+        "moving_mean": 0.75777268409729,
+        "b_trained_linear_ar": 0.3541647174001694
+      },
+      "vs_best_simple_ratio": 0.520017751466258,
+      "vs_b_ar_ratio": 1.1126327043514674,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 4.76837158203125e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "064956e8bb851d98aab7c3ef738d2bcddc1983f991d64010149a90aa946f7898",
+    "common_b_suffix_hash": "daf97b39c93e65dff0942163d97e4dae7ec3c67a86a4babfff7da8c4318f5cf3",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "mean",
+      0,
+      "xlstm",
+      22
+    ],
+    "name": "mean_g0_xlstm_s22",
+    "b_support": {
+      "forecast_mse": 0.3860740661621094,
+      "baseline_mse": {
+        "last_value": 1.3717875480651855,
+        "moving_mean": 0.75777268409729,
+        "b_trained_linear_ar": 0.3541647174001694
+      },
+      "vs_best_simple_ratio": 0.5094853301845089,
+      "vs_b_ar_ratio": 1.090097480619126,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 7.152557373046875e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "61dae98a5a1c634f00cc77855e1cf5e1c80be9647dd66a0225278550359240f2",
+    "common_b_suffix_hash": "daf97b39c93e65dff0942163d97e4dae7ec3c67a86a4babfff7da8c4318f5cf3",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "mean",
+      0,
+      "xlstm",
+      33
+    ],
+    "name": "mean_g0_xlstm_s33",
+    "b_support": {
+      "forecast_mse": 0.39451807737350464,
+      "baseline_mse": {
+        "last_value": 1.3717875480651855,
+        "moving_mean": 0.75777268409729,
+        "b_trained_linear_ar": 0.3541647174001694
+      },
+      "vs_best_simple_ratio": 0.5206285283870864,
+      "vs_b_ar_ratio": 1.113939525849889,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 5.960464477539062e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "7cef270016d04ddfbe3b34250a61879cfab0796b96aadcfefad8fdba398882d1",
+    "common_b_suffix_hash": "daf97b39c93e65dff0942163d97e4dae7ec3c67a86a4babfff7da8c4318f5cf3",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "mean",
+      1,
+      "lstm",
+      11
+    ],
+    "name": "mean_g1_lstm_s11",
+    "b_support": {
+      "forecast_mse": 0.5940440893173218,
+      "baseline_mse": {
+        "last_value": 1.2519553899765015,
+        "moving_mean": 0.6935330629348755,
+        "b_trained_linear_ar": 0.29832285120977486
+      },
+      "vs_best_simple_ratio": 0.8565476126018581,
+      "vs_b_ar_ratio": 1.9912792027440145,
+      "pass": false
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 1.7881393432617188e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "bae7a66fe2e2d1dcdc8299b94dad872a2dd079028ff2449d72bc6d6cfae50e9d",
+    "common_b_suffix_hash": "7ce9d13665a87382021944b0b7267b95ed429b097ec5bbf22f07f54cfe4f56e0",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "mean",
+      1,
+      "lstm",
+      22
+    ],
+    "name": "mean_g1_lstm_s22",
+    "b_support": {
+      "forecast_mse": 0.5863394737243652,
+      "baseline_mse": {
+        "last_value": 1.2519553899765015,
+        "moving_mean": 0.6935330629348755,
+        "b_trained_linear_ar": 0.29832285120977486
+      },
+      "vs_best_simple_ratio": 0.845438386517737,
+      "vs_b_ar_ratio": 1.9654527681892617,
+      "pass": false
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 1.1920928955078125e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "6afa53dd99c7ec95f95f6d2139e2299e489ff6676c143fcfca5b3b67cfad22b6",
+    "common_b_suffix_hash": "7ce9d13665a87382021944b0b7267b95ed429b097ec5bbf22f07f54cfe4f56e0",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "mean",
+      1,
+      "lstm",
+      33
+    ],
+    "name": "mean_g1_lstm_s33",
+    "b_support": {
+      "forecast_mse": 0.5755857825279236,
+      "baseline_mse": {
+        "last_value": 1.2519553899765015,
+        "moving_mean": 0.6935330629348755,
+        "b_trained_linear_ar": 0.29832285120977486
+      },
+      "vs_best_simple_ratio": 0.8299327217251538,
+      "vs_b_ar_ratio": 1.9294056093717835,
+      "pass": false
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 1.341104507446289e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "1730f59450642938c4240913db9071e61f2ec284e223487c628d3d62fd6cfd20",
+    "common_b_suffix_hash": "7ce9d13665a87382021944b0b7267b95ed429b097ec5bbf22f07f54cfe4f56e0",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "mean",
+      1,
+      "xlstm",
+      11
+    ],
+    "name": "mean_g1_xlstm_s11",
+    "b_support": {
+      "forecast_mse": 0.33102113008499146,
+      "baseline_mse": {
+        "last_value": 1.2519553899765015,
+        "moving_mean": 0.6935330629348755,
+        "b_trained_linear_ar": 0.29832285120977486
+      },
+      "vs_best_simple_ratio": 0.47729682660576367,
+      "vs_b_ar_ratio": 1.1096070205236266,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 5.364418029785156e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "ce53a4f7b155d5f04d20ddc09f5bbd9d690c9ec7326e5ac5aa48b041354c663c",
+    "common_b_suffix_hash": "7ce9d13665a87382021944b0b7267b95ed429b097ec5bbf22f07f54cfe4f56e0",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "mean",
+      1,
+      "xlstm",
+      22
+    ],
+    "name": "mean_g1_xlstm_s22",
+    "b_support": {
+      "forecast_mse": 0.3306090533733368,
+      "baseline_mse": {
+        "last_value": 1.2519553899765015,
+        "moving_mean": 0.6935330629348755,
+        "b_trained_linear_ar": 0.29832285120977486
+      },
+      "vs_best_simple_ratio": 0.4767026563582619,
+      "vs_b_ar_ratio": 1.1082257092697834,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 6.556510925292969e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "9093659e38400b00c572931c9c2c0f052b84e591a03057b362cb655db4eb198a",
+    "common_b_suffix_hash": "7ce9d13665a87382021944b0b7267b95ed429b097ec5bbf22f07f54cfe4f56e0",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "mean",
+      1,
+      "xlstm",
+      33
+    ],
+    "name": "mean_g1_xlstm_s33",
+    "b_support": {
+      "forecast_mse": 0.3319661617279053,
+      "baseline_mse": {
+        "last_value": 1.2519553899765015,
+        "moving_mean": 0.6935330629348755,
+        "b_trained_linear_ar": 0.29832285120977486
+      },
+      "vs_best_simple_ratio": 0.4786594604777736,
+      "vs_b_ar_ratio": 1.1127748356577387,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 8.344650268554688e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "4a266c4489132185bf5924cda0fa8c30c374fd67c792d49d962964ff9b2ac2f5",
+    "common_b_suffix_hash": "7ce9d13665a87382021944b0b7267b95ed429b097ec5bbf22f07f54cfe4f56e0",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "mean",
+      2,
+      "lstm",
+      11
+    ],
+    "name": "mean_g2_lstm_s11",
+    "b_support": {
+      "forecast_mse": 0.5590701103210449,
+      "baseline_mse": {
+        "last_value": 1.1594659090042114,
+        "moving_mean": 0.6477246880531311,
+        "b_trained_linear_ar": 0.24321242333060866
+      },
+      "vs_best_simple_ratio": 0.8631292285638276,
+      "vs_b_ar_ratio": 2.2986905959202497,
+      "pass": false
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 1.4901161193847656e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "3f16aeb068414ab2ce4ab0663f7d1410d31b2799c02f3b89f40fd2a362acf605",
+    "common_b_suffix_hash": "92fae70a5f53be86b3fb1ba07fb6402a2b0ff6a9398e5cdbe57a8bb7c2a8f215",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "mean",
+      2,
+      "lstm",
+      22
+    ],
+    "name": "mean_g2_lstm_s22",
+    "b_support": {
+      "forecast_mse": 0.5604235529899597,
+      "baseline_mse": {
+        "last_value": 1.1594659090042114,
+        "moving_mean": 0.6477246880531311,
+        "b_trained_linear_ar": 0.24321242333060866
+      },
+      "vs_best_simple_ratio": 0.8652187624257881,
+      "vs_b_ar_ratio": 2.3042554542049563,
+      "pass": false
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 1.7881393432617188e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "9a89420ba0e20a0ecc0efa4aaeabfc97fc2be81f5070505ad493553fd8317b93",
+    "common_b_suffix_hash": "92fae70a5f53be86b3fb1ba07fb6402a2b0ff6a9398e5cdbe57a8bb7c2a8f215",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "mean",
+      2,
+      "lstm",
+      33
+    ],
+    "name": "mean_g2_lstm_s33",
+    "b_support": {
+      "forecast_mse": 0.5510702729225159,
+      "baseline_mse": {
+        "last_value": 1.1594659090042114,
+        "moving_mean": 0.6477246880531311,
+        "b_trained_linear_ar": 0.24321242333060866
+      },
+      "vs_best_simple_ratio": 0.8507785531208795,
+      "vs_b_ar_ratio": 2.265798207904139,
+      "pass": false
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 1.1920928955078125e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "009e0dd4176f5e8ee1cb2406c95ccc4357e0c7ea0b0271b62f5203a1a8e1b625",
+    "common_b_suffix_hash": "92fae70a5f53be86b3fb1ba07fb6402a2b0ff6a9398e5cdbe57a8bb7c2a8f215",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "mean",
+      2,
+      "xlstm",
+      11
+    ],
+    "name": "mean_g2_xlstm_s11",
+    "b_support": {
+      "forecast_mse": 0.2775401175022125,
+      "baseline_mse": {
+        "last_value": 1.1594659090042114,
+        "moving_mean": 0.6477246880531311,
+        "b_trained_linear_ar": 0.24321242333060866
+      },
+      "vs_best_simple_ratio": 0.42848469823871627,
+      "vs_b_ar_ratio": 1.1411428483031922,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 5.066394805908203e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "768cdbc22153009b6f21bb6da743b8942c7c28022295d51dc9fb13c6e310136e",
+    "common_b_suffix_hash": "92fae70a5f53be86b3fb1ba07fb6402a2b0ff6a9398e5cdbe57a8bb7c2a8f215",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "mean",
+      2,
+      "xlstm",
+      22
+    ],
+    "name": "mean_g2_xlstm_s22",
+    "b_support": {
+      "forecast_mse": 0.2957775592803955,
+      "baseline_mse": {
+        "last_value": 1.1594659090042114,
+        "moving_mean": 0.6477246880531311,
+        "b_trained_linear_ar": 0.24321242333060866
+      },
+      "vs_best_simple_ratio": 0.4566408610569027,
+      "vs_b_ar_ratio": 1.2161284988239802,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 6.556510925292969e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "190be5eb74ebfb7dd3704f90c093edd4c2edea5a94ad3b3aefc71602b70e80cd",
+    "common_b_suffix_hash": "92fae70a5f53be86b3fb1ba07fb6402a2b0ff6a9398e5cdbe57a8bb7c2a8f215",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "mean",
+      2,
+      "xlstm",
+      33
+    ],
+    "name": "mean_g2_xlstm_s33",
+    "b_support": {
+      "forecast_mse": 0.2748134732246399,
+      "baseline_mse": {
+        "last_value": 1.1594659090042114,
+        "moving_mean": 0.6477246880531311,
+        "b_trained_linear_ar": 0.24321242333060866
+      },
+      "vs_best_simple_ratio": 0.42427512536328965,
+      "vs_b_ar_ratio": 1.1299318902434299,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 5.662441253662109e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "7b116b111561e94d75715ecdb689ae02d10d15c157fa3f769bad1df053f69645",
+    "common_b_suffix_hash": "92fae70a5f53be86b3fb1ba07fb6402a2b0ff6a9398e5cdbe57a8bb7c2a8f215",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "mean",
+      3,
+      "lstm",
+      11
+    ],
+    "name": "mean_g3_lstm_s11",
+    "b_support": {
+      "forecast_mse": 0.48192980885505676,
+      "baseline_mse": {
+        "last_value": 1.0240159034729004,
+        "moving_mean": 0.562812089920044,
+        "b_trained_linear_ar": 0.19370905630111016
+      },
+      "vs_best_simple_ratio": 0.8562890127742676,
+      "vs_b_ar_ratio": 2.487905408541783,
+      "pass": false
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 1.1920928955078125e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "b84686e6f7595716e5b58eac2e5daf1ee70abd3ad671fe129ef846348f2df93b",
+    "common_b_suffix_hash": "d2dcfab9260e34fd424014ed01acaa7119d665dd2e2a92972f15f10aeca90b00",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "mean",
+      3,
+      "lstm",
+      22
+    ],
+    "name": "mean_g3_lstm_s22",
+    "b_support": {
+      "forecast_mse": 0.4838024377822876,
+      "baseline_mse": {
+        "last_value": 1.0240159034729004,
+        "moving_mean": 0.562812089920044,
+        "b_trained_linear_ar": 0.19370905630111016
+      },
+      "vs_best_simple_ratio": 0.8596162848083436,
+      "vs_b_ar_ratio": 2.4975726330019548,
+      "pass": false
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 1.1082738637924194e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "b26fe0fd149e6f773842bb3474d81960d3e6fffe6ddc143792984a2e866769d3",
+    "common_b_suffix_hash": "d2dcfab9260e34fd424014ed01acaa7119d665dd2e2a92972f15f10aeca90b00",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "mean",
+      3,
+      "lstm",
+      33
+    ],
+    "name": "mean_g3_lstm_s33",
+    "b_support": {
+      "forecast_mse": 0.4793161153793335,
+      "baseline_mse": {
+        "last_value": 1.0240159034729004,
+        "moving_mean": 0.562812089920044,
+        "b_trained_linear_ar": 0.19370905630111016
+      },
+      "vs_best_simple_ratio": 0.8516450232037973,
+      "vs_b_ar_ratio": 2.474412526352215,
+      "pass": false
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 1.4901161193847656e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "dbfeafdd374273823c6fdf691cb3377e96edc7ecf68f59669ebe53d9bad305bb",
+    "common_b_suffix_hash": "d2dcfab9260e34fd424014ed01acaa7119d665dd2e2a92972f15f10aeca90b00",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "mean",
+      3,
+      "xlstm",
+      11
+    ],
+    "name": "mean_g3_xlstm_s11",
+    "b_support": {
+      "forecast_mse": 0.24434317648410797,
+      "baseline_mse": {
+        "last_value": 1.0240159034729004,
+        "moving_mean": 0.562812089920044,
+        "b_trained_linear_ar": 0.19370905630111016
+      },
+      "vs_best_simple_ratio": 0.43414699303780174,
+      "vs_b_ar_ratio": 1.2613926325896185,
+      "pass": false
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 7.450580596923828e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "6e2020325e6a9e727b2255c9750989db7f89f65acaa5aae07a687499f1d011c9",
+    "common_b_suffix_hash": "d2dcfab9260e34fd424014ed01acaa7119d665dd2e2a92972f15f10aeca90b00",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "mean",
+      3,
+      "xlstm",
+      22
+    ],
+    "name": "mean_g3_xlstm_s22",
+    "b_support": {
+      "forecast_mse": 0.22752755880355835,
+      "baseline_mse": {
+        "last_value": 1.0240159034729004,
+        "moving_mean": 0.562812089920044,
+        "b_trained_linear_ar": 0.19370905630111016
+      },
+      "vs_best_simple_ratio": 0.4042691386318338,
+      "vs_b_ar_ratio": 1.1745840031860935,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 5.960464477539062e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "f0e8d2073ff0cc4bcdb7054aa0522bf43e93e2a6f23289c54e23909fe7f761ed",
+    "common_b_suffix_hash": "d2dcfab9260e34fd424014ed01acaa7119d665dd2e2a92972f15f10aeca90b00",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "mean",
+      3,
+      "xlstm",
+      33
+    ],
+    "name": "mean_g3_xlstm_s33",
+    "b_support": {
+      "forecast_mse": 0.22758913040161133,
+      "baseline_mse": {
+        "last_value": 1.0240159034729004,
+        "moving_mean": 0.562812089920044,
+        "b_trained_linear_ar": 0.19370905630111016
+      },
+      "vs_best_simple_ratio": 0.4043785385526168,
+      "vs_b_ar_ratio": 1.1749018592493499,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 7.301568984985352e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "e42ff3dd6a12d72ab1423a2806dfd2463d11568e579d340d65b2060dc5c8716a",
+    "common_b_suffix_hash": "d2dcfab9260e34fd424014ed01acaa7119d665dd2e2a92972f15f10aeca90b00",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "mean",
+      4,
+      "lstm",
+      11
+    ],
+    "name": "mean_g4_lstm_s11",
+    "b_support": {
+      "forecast_mse": 0.4155240058898926,
+      "baseline_mse": {
+        "last_value": 0.8744525909423828,
+        "moving_mean": 0.49043595790863037,
+        "b_trained_linear_ar": 0.1486822484437963
+      },
+      "vs_best_simple_ratio": 0.8472543645898531,
+      "vs_b_ar_ratio": 2.794711609751891,
+      "pass": false
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 1.043081283569336e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "c1a4bd5b02785fcdf384edb1bba481cbf60dddceb5233e81e94be482134f1037",
+    "common_b_suffix_hash": "04bc33fc84b1f5078de9ff8e33124281ecb0fa468c506c878290e39c192e26e2",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "mean",
+      4,
+      "lstm",
+      22
+    ],
+    "name": "mean_g4_lstm_s22",
+    "b_support": {
+      "forecast_mse": 0.4220483899116516,
+      "baseline_mse": {
+        "last_value": 0.8744525909423828,
+        "moving_mean": 0.49043595790863037,
+        "b_trained_linear_ar": 0.1486822484437963
+      },
+      "vs_best_simple_ratio": 0.860557598001981,
+      "vs_b_ar_ratio": 2.838593001713927,
+      "pass": false
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 8.940696716308594e-08,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "dc1176ce580d2c726e6e9c511ba14a13d36eedcb275ae7a33290fecf0c6a9e49",
+    "common_b_suffix_hash": "04bc33fc84b1f5078de9ff8e33124281ecb0fa468c506c878290e39c192e26e2",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "mean",
+      4,
+      "lstm",
+      33
+    ],
+    "name": "mean_g4_lstm_s33",
+    "b_support": {
+      "forecast_mse": 0.42222779989242554,
+      "baseline_mse": {
+        "last_value": 0.8744525909423828,
+        "moving_mean": 0.49043595790863037,
+        "b_trained_linear_ar": 0.1486822484437963
+      },
+      "vs_best_simple_ratio": 0.8609234153485291,
+      "vs_b_ar_ratio": 2.8397996688356026,
+      "pass": false
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 7.450580596923828e-08,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/0": [
+          2,
+          2,
+          20
+        ],
+        "/1": [
+          2,
+          2,
+          20
+        ]
+      }
+    },
+    "checkpoint_hash": "8a84b26a75cc53e1779b1287305f286cf5b3543be8f7bdded19e0ac36f191551",
+    "common_b_suffix_hash": "04bc33fc84b1f5078de9ff8e33124281ecb0fa468c506c878290e39c192e26e2",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "mean",
+      4,
+      "xlstm",
+      11
+    ],
+    "name": "mean_g4_xlstm_s11",
+    "b_support": {
+      "forecast_mse": 0.1838599443435669,
+      "baseline_mse": {
+        "last_value": 0.8744525909423828,
+        "moving_mean": 0.49043595790863037,
+        "b_trained_linear_ar": 0.1486822484437963
+      },
+      "vs_best_simple_ratio": 0.3748908320825459,
+      "vs_b_ar_ratio": 1.2365964751539804,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 9.5367431640625e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "5c24a2ac28cbf8b376c9bf46592343b6df11561db3002a4c05b0bcc63273769f",
+    "common_b_suffix_hash": "04bc33fc84b1f5078de9ff8e33124281ecb0fa468c506c878290e39c192e26e2",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "mean",
+      4,
+      "xlstm",
+      22
+    ],
+    "name": "mean_g4_xlstm_s22",
+    "b_support": {
+      "forecast_mse": 0.18602204322814941,
+      "baseline_mse": {
+        "last_value": 0.8744525909423828,
+        "moving_mean": 0.49043595790863037,
+        "b_trained_linear_ar": 0.1486822484437963
+      },
+      "vs_best_simple_ratio": 0.3792993564774585,
+      "vs_b_ar_ratio": 1.251138217071475,
+      "pass": false
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 6.807968020439148e-07,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "da0faf6fbbc39fa9fe6a4ab15e12c5b284ca4729b72a5d0a4674b4c55426eb80",
+    "common_b_suffix_hash": "04bc33fc84b1f5078de9ff8e33124281ecb0fa468c506c878290e39c192e26e2",
+    "parameters_frozen": true
+  },
+  {
+    "job": [
+      "mean",
+      4,
+      "xlstm",
+      33
+    ],
+    "name": "mean_g4_xlstm_s33",
+    "b_support": {
+      "forecast_mse": 0.17495499551296234,
+      "baseline_mse": {
+        "last_value": 0.8744525909423828,
+        "moving_mean": 0.49043595790863037,
+        "b_trained_linear_ar": 0.1486822484437963
+      },
+      "vs_best_simple_ratio": 0.35673362177403184,
+      "vs_b_ar_ratio": 1.1767039935443098,
+      "pass": true
+    },
+    "trained_random_state_audit": {
+      "full_step_max_abs": 1.1920928955078125e-06,
+      "capture_restore_and_deepcopy": "PASS",
+      "chunk_delivery_parity": "PASS",
+      "reset_native_fresh": "PASS",
+      "future_prefix_invariance": "PASS",
+      "batch_partition_permutation": "PASS",
+      "finite_parameters_buffers_frozen": "PASS",
+      "state_shapes": {
+        "/block_0/conv_state/0": [
+          2,
+          4,
+          16
+        ],
+        "/block_0/slstm_state": [
+          4,
+          2,
+          16
+        ],
+        "/block_1/mlstm_state/0": [
+          2,
+          4,
+          16,
+          16
+        ],
+        "/block_1/mlstm_state/1": [
+          2,
+          4,
+          16,
+          1
+        ],
+        "/block_1/mlstm_state/2": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "/block_1/conv_state/0": [
+          2,
+          4,
+          64
+        ]
+      },
+      "conv_history_negative_control": "PASS"
+    },
+    "checkpoint_hash": "a7534b7614a2ca40f364f7a4da80944e117d2d530993db85aae2da5f944bb746",
+    "common_b_suffix_hash": "04bc33fc84b1f5078de9ff8e33124281ecb0fa468c506c878290e39c192e26e2",
+    "parameters_frozen": true
+  }
+]

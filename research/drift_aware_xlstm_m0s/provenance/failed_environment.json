@@ -1,0 +1,14 @@
+{
+  "python": "3.12.3",
+  "platform": "Linux-6.17.0-1026-nvidia-aarch64-with-glibc2.39",
+  "packages": {
+    "torch": "2.13.0",
+    "numpy": "1.26.4",
+    "xlstm": "2.0.5"
+  },
+  "device": "cpu",
+  "deterministic_algorithms": true,
+  "threads": 1,
+  "workers": 3,
+  "cuda_used": false
+}

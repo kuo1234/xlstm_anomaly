@@ -1,0 +1,136 @@
+{
+  "mean": {
+    "xlstm": [],
+    "lstm": []
+  },
+  "dynamics": {
+    "xlstm": [
+      {
+        "group": 0,
+        "seed_count": 3,
+        "support": true,
+        "harm": false,
+        "oracle_recovery": true,
+        "stationary_control": true,
+        "long_context_benefit": false,
+        "context_suffices": true,
+        "mechanism_pre_ad": false,
+        "all_forecast_gates": false
+      },
+      {
+        "group": 1,
+        "seed_count": 3,
+        "support": true,
+        "harm": false,
+        "oracle_recovery": false,
+        "stationary_control": true,
+        "long_context_benefit": false,
+        "context_suffices": true,
+        "mechanism_pre_ad": false,
+        "all_forecast_gates": false
+      },
+      {
+        "group": 2,
+        "seed_count": 3,
+        "support": true,
+        "harm": false,
+        "oracle_recovery": true,
+        "stationary_control": true,
+        "long_context_benefit": false,
+        "context_suffices": true,
+        "mechanism_pre_ad": false,
+        "all_forecast_gates": false
+      },
+      {
+        "group": 3,
+        "seed_count": 3,
+        "support": true,
+        "harm": false,
+        "oracle_recovery": false,
+        "stationary_control": true,
+        "long_context_benefit": false,
+        "context_suffices": true,
+        "mechanism_pre_ad": false,
+        "all_forecast_gates": false
+      },
+      {
+        "group": 4,
+        "seed_count": 3,
+        "support": true,
+        "harm": false,
+        "oracle_recovery": true,
+        "stationary_control": true,
+        "long_context_benefit": false,
+        "context_suffices": true,
+        "mechanism_pre_ad": false,
+        "all_forecast_gates": false
+      }
+    ],
+    "lstm": [
+      {
+        "group": 0,
+        "seed_count": 3,
+        "support": true,
+        "harm": false,
+        "oracle_recovery": false,
+        "stationary_control": true,
+        "long_context_benefit": false,
+        "context_suffices": true,
+        "mechanism_pre_ad": false,
+        "all_forecast_gates": false
+      },
+      {
+        "group": 1,
+        "seed_count": 3,
+        "support": true,
+        "harm": false,
+        "oracle_recovery": false,
+        "stationary_control": true,
+        "long_context_benefit": false,
+        "context_suffices": true,
+        "mechanism_pre_ad": false,
+        "all_forecast_gates": false
+      },
+      {
+        "group": 2,
+        "seed_count": 3,
+        "support": true,
+        "harm": false,
+        "oracle_recovery": false,
+        "stationary_control": true,
+        "long_context_benefit": false,
+        "context_suffices": true,
+        "mechanism_pre_ad": false,
+        "all_forecast_gates": false
+      },
+      {
+        "group": 3,
+        "seed_count": 3,
+        "support": true,
+        "harm": false,
+        "oracle_recovery": false,
+        "stationary_control": true,
+        "long_context_benefit": false,
+        "context_suffices": true,
+        "mechanism_pre_ad": false,
+        "all_forecast_gates": false
+      },
+      {
+        "group": 4,
+        "seed_count": 3,
+        "support": true,
+        "harm": false,
+        "oracle_recovery": false,
+        "stationary_control": true,
+        "long_context_benefit": false,
+        "context_suffices": true,
+        "mechanism_pre_ad": false,
+        "all_forecast_gates": false
+      }
+    ]
+  },
+  "correlation": {
+    "xlstm": [],
+    "lstm": []
+  }
+}

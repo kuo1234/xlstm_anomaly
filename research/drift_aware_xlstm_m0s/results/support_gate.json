@@ -1,0 +1,74 @@
+{
+  "mean": {
+    "xlstm": {
+      "group_pass": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "groups_passed": 5,
+      "pass": true
+    },
+    "lstm": {
+      "group_pass": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "groups_passed": 0,
+      "pass": false
+    }
+  },
+  "dynamics": {
+    "xlstm": {
+      "group_pass": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "groups_passed": 5,
+      "pass": true
+    },
+    "lstm": {
+      "group_pass": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "groups_passed": 5,
+      "pass": true
+    }
+  },
+  "correlation": {
+    "xlstm": {
+      "group_pass": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "groups_passed": 5,
+      "pass": true
+    },
+    "lstm": {
+      "group_pass": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "groups_passed": 1,
+      "pass": false
+    }
+  }
+}

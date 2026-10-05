@@ -1,0 +1,262 @@
+{
+  "final_gate": "NO_STATE_STALENESS_SIGNAL",
+  "per_mechanism": {
+    "mean": {
+      "verdict": "MODEL_SUPPORT_INSUFFICIENT"
+    },
+    "dynamics": {
+      "verdict": "NO_STATE_STALENESS_SIGNAL",
+      "anomaly_harm_conditions": [],
+      "paired_xlstm_minus_lstm_group_harm": [
+        0.0029158060419810874,
+        0.0045258032800965745,
+        0.008372240516052338,
+        0.0013471053471461741,
+        0.0030040733619230552
+      ]
+    },
+    "correlation": {
+      "verdict": "MODEL_SUPPORT_INSUFFICIENT"
+    }
+  },
+  "group_values": {
+    "mean": {},
+    "dynamics": {
+      "xlstm": [
+        {
+          "group": 0,
+          "mean_history_harm": 0.002915810584278714,
+          "median_history_harm": 0.0014604178812775836,
+          "seed_harms": [
+            0.0014604178812775836,
+            0.0001866916578248963,
+            0.007100322213733663
+          ],
+          "mean_reset_recovery": 0.003057329750161321,
+          "long_context_benefit": {
+            "8": 0.005864369372526805,
+            "32": 0.001451675605494529
+          }
+        },
+        {
+          "group": 1,
+          "mean_history_harm": 0.0045257730642297555,
+          "median_history_harm": 0.002369926821813022,
+          "seed_harms": [
+            0.00221305994382482,
+            0.008994332427051424,
+            0.002369926821813022
+          ],
+          "mean_reset_recovery": 0.0021839620052511513,
+          "long_context_benefit": {
+            "8": 0.011251632900287708,
+            "32": 0.0023531728559949747
+          }
+        },
+        {
+          "group": 2,
+          "mean_history_harm": 0.008372240166454367,
+          "median_history_harm": 0.01307600919793101,
+          "seed_harms": [
+            0.01307600919793101,
+            -0.001153814189843754,
+            0.013194525491275845
+          ],
+          "mean_reset_recovery": 0.004467514717452597,
+          "long_context_benefit": {
+            "8": 0.011258840871353945,
+            "32": 0.002311762150687476
+          }
+        },
+        {
+          "group": 3,
+          "mean_history_harm": 0.0013471137793506487,
+          "median_history_harm": -0.00042498338121043814,
+          "seed_harms": [
+            -0.00042498338121043814,
+            -0.0006836913309913634,
+            0.005150016050253748
+          ],
+          "mean_reset_recovery": -0.0008643431556106727,
+          "long_context_benefit": {
+            "8": 0.013426800879339377,
+            "32": 0.0018305963603779674
+          }
+        },
+        {
+          "group": 4,
+          "mean_history_harm": 0.0030040789303647938,
+          "median_history_harm": 0.0027336076608277873,
+          "seed_harms": [
+            0.006588336736202825,
+            -0.00030970760593623136,
+            0.0027336076608277873
+          ],
+          "mean_reset_recovery": 0.00045875814363407786,
+          "long_context_benefit": {
+            "8": 0.014221759823461374,
+            "32": 0.001996173057705164
+          }
+        }
+      ],
+      "lstm": [
+        {
+          "group": 0,
+          "mean_history_harm": 4.542297626441095e-09,
+          "median_history_harm": 7.63688711672062e-09,
+          "seed_harms": [
+            7.63688711672062e-09,
+            -1.3334942706224807e-08,
+            1.932494846882747e-08
+          ],
+          "mean_reset_recovery": -1.6623311674623756e-07,
+          "long_context_benefit": {
+            "8": 3.629247657954693e-07,
+            "32": 1.8212821354760914e-07
+          }
+        },
+        {
+          "group": 1,
+          "mean_history_harm": -3.0215866819207995e-08,
+          "median_history_harm": -2.9724244716692828e-08,
+          "seed_harms": [
+            -5.582963305015825e-08,
+            -5.09372269077292e-09,
+            -2.9724244716692828e-08
+          ],
+          "mean_reset_recovery": -1.8280831334780534e-08,
+          "long_context_benefit": {
+            "8": -0.00042148468977150816,
+            "32": 7.424406097319054e-08
+          }
+        },
+        {
+          "group": 2,
+          "mean_history_harm": -3.4959797040137256e-10,
+          "median_history_harm": 3.6326408147902915e-09,
+          "seed_harms": [
+            5.538621812322714e-09,
+            -1.0220056538317123e-08,
+            3.6326408147902915e-09
+          ],
+          "mean_reset_recovery": -1.9317682075074025e-08,
+          "long_context_benefit": {
+            "8": 0.00015474926719131568,
+            "32": 3.5580325500698486e-08
+          }
+        },
+        {
+          "group": 3,
+          "mean_history_harm": 8.432204474497097e-09,
+          "median_history_harm": 8.206160318596674e-09,
+          "seed_harms": [
+            8.206160318596674e-09,
+            -1.6887375933717877e-09,
+            1.8779190698266403e-08
+          ],
+          "mean_reset_recovery": -8.182821202858277e-08,
+          "long_context_benefit": {
+            "8": 0.00023294381874923906,
+            "32": 4.298886106350134e-08
+          }
+        },
+        {
+          "group": 4,
+          "mean_history_harm": 5.568441738353766e-09,
+          "median_history_harm": -3.80154222181348e-09,
+          "seed_harms": [
+            -4.523401015843901e-09,
+            2.503026845271868e-08,
+            -3.80154222181348e-09
+          ],
+          "mean_reset_recovery": -2.263491381751355e-07,
+          "long_context_benefit": {
+            "8": 0.000511554884724319,
+            "32": 1.2096931906550405e-06
+          }
+        }
+      ]
+    },
+    "correlation": {}
+  },
+  "support_gate": {
+    "mean": {
+      "xlstm": {
+        "group_pass": [
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "groups_passed": 5,
+        "pass": true
+      },
+      "lstm": {
+        "group_pass": [
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "groups_passed": 0,
+        "pass": false
+      }
+    },
+    "dynamics": {
+      "xlstm": {
+        "group_pass": [
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "groups_passed": 5,
+        "pass": true
+      },
+      "lstm": {
+        "group_pass": [
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "groups_passed": 5,
+        "pass": true
+      }
+    },
+    "correlation": {
+      "xlstm": {
+        "group_pass": [
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "groups_passed": 5,
+        "pass": true
+      },
+      "lstm": {
+        "group_pass": [
+          true,
+          false,
+          false,
+          false,
+          false
+        ],
+        "groups_passed": 1,
+        "pass": false
+      }
+    }
+  },
+  "scope": "controlled training-supported stationary synthetic processes only",
+  "interpretation": "protocol decision; no deployment/novelty claim",
+  "scientific_n": 5,
+  "groups_per_mechanism": 5,
+  "total_group_mechanism_units": 15,
+  "independent_cross_mechanism_n": false
+}

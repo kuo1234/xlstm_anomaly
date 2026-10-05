@@ -1,0 +1,18 @@
+{
+  "freeze_commit": "3da4fee4979eb09b0338463c1e3dc4758d4513ce",
+  "config_sha256": "32dab4091c9a14a66a754efba118421060a8715e0f7987ff5ed85cfbf93650ee",
+  "training_runs": 90,
+  "support_runs": 90,
+  "mechanism_runs": 30,
+  "anomaly_runs": 0,
+  "anomaly_status": "NOT_RUN_GATED",
+  "elapsed_seconds": 2091.582077669911,
+  "scientific_N_per_mechanism": 5,
+  "model_seeds": [
+    11,
+    22,
+    33
+  ],
+  "test_replicates_per_group": 8,
+  "status": "EXECUTION_COMPLETE_REQUIRES_SUMMARY"
+}

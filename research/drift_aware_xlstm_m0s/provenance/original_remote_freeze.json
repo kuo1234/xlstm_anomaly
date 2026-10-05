@@ -1,0 +1,30 @@
+{
+  "commit": "ec87d80846f58caf504800079c17839e5a3acba0",
+  "remote_ref": "refs/heads/codex/issue-23-m0s-falsification",
+  "remote_sha": "ec87d80846f58caf504800079c17839e5a3acba0",
+  "verified_utc": "2026-10-05T13:27:26.043030+00:00",
+  "training_started": false,
+  "files": {
+    "research/drift_aware_xlstm_m0s/GENERATOR.md": "d94d6402d8e96b4e1d7b32318f58137673d1a8e22d59fb2d85d711bdfef31258",
+    "research/drift_aware_xlstm_m0s/METRICS.md": "b457341372d399c60f4cb2285c95e471d0d8d0baf580880bf536da9101f48515",
+    "research/drift_aware_xlstm_m0s/MODEL_CONTRACT.md": "49ed01ce1632fa1718faa152aafc798070fe339745ec3cad1c0edb73ff59f1df",
+    "research/drift_aware_xlstm_m0s/PROTOCOL.md": "3af51ced5183a644700eea50b44af0c17be9805b0e7096d0ca8c47e8bc6eeebb",
+    "research/drift_aware_xlstm_m0s/README.md": "dda3c7d27b1a0439c06835f004664307084bd18ba97c002fa57fb818a332aa89",
+    "research/drift_aware_xlstm_m0s/configs/protocol.json": "32dab4091c9a14a66a754efba118421060a8715e0f7987ff5ed85cfbf93650ee",
+    "research/drift_aware_xlstm_m0s/provenance/issue23_scope.json": "e3683988089eaf6c60d58edd3594001119e202475c24c3ff06c22dbd9f2e4e63",
+    "research/drift_aware_xlstm_m0s/provenance/preflight_local.json": "923b0bedb36cd683ac613ecac466e6683eb6d614160f147d37c600b8cf45261b",
+    "research/drift_aware_xlstm_m0s/provenance/preflight_local.log": "3750a8122511a21091289b45c8f39b740149763b92cf18b0a880708a6c52bd15",
+    "research/drift_aware_xlstm_m0s/provenance/preflight_remote.log": "86fa90dbbb759bb1edeec0b2993df6e2448583d9af0f7aecf6e081faf4700e4e",
+    "research/drift_aware_xlstm_m0s/provenance/xlstm_source_hashes.json": "b940502687be7f2e0fe02f5edccadede1dd2ee7355ef484a9d984b41df88741f",
+    "research/drift_aware_xlstm_m0s/scripts/audit.py": "f9496a52b0c4731c1b7b14be7f3206988ffdb4bb2801a8757578f5b022d32b6d",
+    "research/drift_aware_xlstm_m0s/scripts/common.py": "fdeaa023077e324cd2511e513ba39714934b0128e169b5f95c620fc9c710e5b7",
+    "research/drift_aware_xlstm_m0s/scripts/evaluate.py": "b1e0c54beba24321e28e5ff3e2201ee07ee3ed70e1d8c0ee090f358737f1214e",
+    "research/drift_aware_xlstm_m0s/scripts/generator.py": "f21591b08271845a2ffd182cd999d3dc443572e1716d3ed23037e18bbfb585ee",
+    "research/drift_aware_xlstm_m0s/scripts/metrics.py": "16c3d99ecfd3e3bd148ed3e57ded135d0d39cb655dc136e74238798e4190ac8e",
+    "research/drift_aware_xlstm_m0s/scripts/models.py": "dc4c91df791184b9136b5e9a111ea987384a892afbd99aeec5281da9552771aa",
+    "research/drift_aware_xlstm_m0s/scripts/run.py": "719916234acc4f2e4ada3a188a916e2a1260eefb02657d9d3fdfeeb56dc31074",
+    "research/drift_aware_xlstm_m0s/scripts/summarize.py": "8b0d98e20ca048dc6f9450a37d8799c9dca03e475b65cf8db7099d25ada58c28",
+    "research/drift_aware_xlstm_m0s/scripts/train.py": "daef89bb2b76ee5e07708e4426f4d416ecda743ee380ea38e72d3a30d320265b",
+    "research/drift_aware_xlstm_m0s/tests/test_contract.py": "3bd6a5f4e2c4c8f000f206b5dc9055a966d259714477870a5da1bb901f189d11"
+  }
+}
