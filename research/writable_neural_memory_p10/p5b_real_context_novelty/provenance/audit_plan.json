@@ -1,0 +1,20 @@
+{
+  "missions": [
+    1,
+    2
+  ],
+  "release": 12528696,
+  "allowed_basename": [
+    "channels.csv",
+    "telecommands.csv",
+    "labels.csv",
+    "anomaly_types.csv",
+    "events.csv"
+  ],
+  "max_member_uncompressed": 4194304,
+  "max_central_directory": 2097152,
+  "max_total_transfer": 16777216,
+  "observations": false,
+  "selection": "all available named metadata in fixed Mission1/2; no event selection",
+  "utc": "2026-10-05T05:38:06.614681+00:00"
+}

@@ -1,0 +1,332 @@
+[
+  {
+    "url": "https://zenodo.org/api/records/12528696/files/ESA-Mission1.zip/content",
+    "requested_range": [
+      3776180497,
+      3776246053
+    ],
+    "role": "ZIP EOCD/directory discovery",
+    "utc": "2026-10-05T05:38:06.614968+00:00",
+    "status_code": 206,
+    "content_range": "bytes 3776180497-3776246053/3776246054",
+    "final_url": "https://zenodo.org/api/records/12528696/files/ESA-Mission1.zip/content",
+    "status": "ACQUIRED",
+    "bytes": 65557,
+    "sha256": "638a8ff5b408cd54707488b42d5141f3aba3347647f398037c1d5b26951c473c"
+  },
+  {
+    "url": "https://zenodo.org/api/records/12528696/files/ESA-Mission1.zip/content",
+    "requested_range": [
+      3776175968,
+      3776246031
+    ],
+    "role": "ZIP central directory",
+    "utc": "2026-10-05T05:38:08.868912+00:00",
+    "status_code": 206,
+    "content_range": "bytes 3776175968-3776246031/3776246054",
+    "final_url": "https://zenodo.org/api/records/12528696/files/ESA-Mission1.zip/content",
+    "status": "ACQUIRED",
+    "bytes": 70064,
+    "sha256": "4ee2c9f1d08ddfdfbc2a09d716d8586d953aa7f74a9ed9ade4aa278c4c49be9f"
+  },
+  {
+    "url": "https://zenodo.org/api/records/12528696/files/ESA-Mission1.zip/content",
+    "requested_range": [
+      0,
+      29
+    ],
+    "role": "metadata local header",
+    "utc": "2026-10-05T05:38:10.144240+00:00",
+    "status_code": 206,
+    "content_range": "bytes 0-29/3776246054",
+    "final_url": "https://zenodo.org/api/records/12528696/files/ESA-Mission1.zip/content",
+    "status": "ACQUIRED",
+    "bytes": 30,
+    "sha256": "62408230fee055242efe3112d32e74069b7ffe251876bb409a145325b9b91db7"
+  },
+  {
+    "url": "https://zenodo.org/api/records/12528696/files/ESA-Mission1.zip/content",
+    "requested_range": [
+      60,
+      1162
+    ],
+    "role": "named CSV compressed member: ESA-Mission1/anomaly_types.csv",
+    "utc": "2026-10-05T05:38:10.938556+00:00",
+    "status_code": 206,
+    "content_range": "bytes 60-1162/3776246054",
+    "final_url": "https://zenodo.org/api/records/12528696/files/ESA-Mission1.zip/content",
+    "status": "ACQUIRED",
+    "bytes": 1103,
+    "sha256": "c895b51af4e1e3ef682bc319f76a3f63fa19716e6eff9684d13840b8ea3c04d2"
+  },
+  {
+    "url": "https://zenodo.org/api/records/12528696/files/ESA-Mission1.zip/content",
+    "requested_range": [
+      1163,
+      1192
+    ],
+    "role": "metadata local header",
+    "utc": "2026-10-05T05:38:11.714346+00:00",
+    "status_code": 206,
+    "content_range": "bytes 1163-1192/3776246054",
+    "final_url": "https://zenodo.org/api/records/12528696/files/ESA-Mission1.zip/content",
+    "status": "ACQUIRED",
+    "bytes": 30,
+    "sha256": "5162ae4ecb07101fa806c3862fae3ec74d7998b36cc4e865c47b07958f865a8e"
+  },
+  {
+    "url": "https://zenodo.org/api/records/12528696/files/ESA-Mission1.zip/content",
+    "requested_range": [
+      1218,
+      1614
+    ],
+    "role": "named CSV compressed member: ESA-Mission1/channels.csv",
+    "utc": "2026-10-05T05:38:12.487168+00:00",
+    "status_code": 206,
+    "content_range": "bytes 1218-1614/3776246054",
+    "final_url": "https://zenodo.org/api/records/12528696/files/ESA-Mission1.zip/content",
+    "status": "ACQUIRED",
+    "bytes": 397,
+    "sha256": "c79ec78c8b20d7f6a7e03287b222c5391e5fde8ccbe56fdc5cab880844774c67"
+  },
+  {
+    "url": "https://zenodo.org/api/records/12528696/files/ESA-Mission1.zip/content",
+    "requested_range": [
+      3767890512,
+      3767890541
+    ],
+    "role": "metadata local header",
+    "utc": "2026-10-05T05:38:13.286880+00:00",
+    "status_code": 206,
+    "content_range": "bytes 3767890512-3767890541/3776246054",
+    "final_url": "https://zenodo.org/api/records/12528696/files/ESA-Mission1.zip/content",
+    "status": "ACQUIRED",
+    "bytes": 30,
+    "sha256": "13819ba7c11469f6f3ab2ede0d9277f1a7a4b96610e9b43867882b4b51f3836f"
+  },
+  {
+    "url": "https://zenodo.org/api/records/12528696/files/ESA-Mission1.zip/content",
+    "requested_range": [
+      3767890565,
+      3767918514
+    ],
+    "role": "named CSV compressed member: ESA-Mission1/labels.csv",
+    "utc": "2026-10-05T05:38:14.062396+00:00",
+    "status_code": 206,
+    "content_range": "bytes 3767890565-3767918514/3776246054",
+    "final_url": "https://zenodo.org/api/records/12528696/files/ESA-Mission1.zip/content",
+    "status": "ACQUIRED",
+    "bytes": 27950,
+    "sha256": "7cdf86529987b63e2821085da4e548112c95e9d313b7274d3246ab099cf96d8f"
+  },
+  {
+    "url": "https://zenodo.org/api/records/12528696/files/ESA-Mission1.zip/content",
+    "requested_range": [
+      3767918515,
+      3767918544
+    ],
+    "role": "metadata local header",
+    "utc": "2026-10-05T05:38:15.101735+00:00",
+    "status_code": 206,
+    "content_range": "bytes 3767918515-3767918544/3776246054",
+    "final_url": "https://zenodo.org/api/records/12528696/files/ESA-Mission1.zip/content",
+    "status": "ACQUIRED",
+    "bytes": 30,
+    "sha256": "4a79381dba5faea44df2b201ec96ba21208e4985fadfc4b9c9fdf1f0a1ab0751"
+  },
+  {
+    "url": "https://zenodo.org/api/records/12528696/files/ESA-Mission1.zip/content",
+    "requested_range": [
+      3767918574,
+      3767920206
+    ],
+    "role": "named CSV compressed member: ESA-Mission1/telecommands.csv",
+    "utc": "2026-10-05T05:38:15.901986+00:00",
+    "status_code": 206,
+    "content_range": "bytes 3767918574-3767920206/3776246054",
+    "final_url": "https://zenodo.org/api/records/12528696/files/ESA-Mission1.zip/content",
+    "status": "ACQUIRED",
+    "bytes": 1633,
+    "sha256": "c535eeabeaa7e1f15f538681431a702f29fd4804d9db9d8189daf893695b59bd"
+  },
+  {
+    "url": "https://zenodo.org/api/records/12528696/files/ESA-Mission2.zip/content",
+    "requested_range": [
+      4098474355,
+      4098539911
+    ],
+    "role": "ZIP EOCD/directory discovery",
+    "utc": "2026-10-05T05:38:16.696809+00:00",
+    "status_code": 206,
+    "content_range": "bytes 4098474355-4098539911/4098539912",
+    "final_url": "https://zenodo.org/api/records/12528696/files/ESA-Mission2.zip/content",
+    "status": "ACQUIRED",
+    "bytes": 65557,
+    "sha256": "1bfe911e359ac1a2e67a4b3769d377fe5ffbb967a1c6a6208ed09e4a3320cc17"
+  },
+  {
+    "url": "https://zenodo.org/api/records/12528696/files/ESA-Mission2.zip/content",
+    "requested_range": [
+      4098520113,
+      4098539889
+    ],
+    "role": "ZIP central directory",
+    "utc": "2026-10-05T05:38:17.976006+00:00",
+    "status_code": 206,
+    "content_range": "bytes 4098520113-4098539889/4098539912",
+    "final_url": "https://zenodo.org/api/records/12528696/files/ESA-Mission2.zip/content",
+    "status": "ACQUIRED",
+    "bytes": 19777,
+    "sha256": "54e8af42be7534c7dfb962ee0ee9997dbc4bcf41d6cbccd842bd66674695147a"
+  },
+  {
+    "url": "https://zenodo.org/api/records/12528696/files/ESA-Mission2.zip/content",
+    "requested_range": [
+      0,
+      29
+    ],
+    "role": "metadata local header",
+    "utc": "2026-10-05T05:38:19.002318+00:00",
+    "status_code": 206,
+    "content_range": "bytes 0-29/4098539912",
+    "final_url": "https://zenodo.org/api/records/12528696/files/ESA-Mission2.zip/content",
+    "status": "ACQUIRED",
+    "bytes": 30,
+    "sha256": "7335ed9b0cbda3d43ade488a32e8794f4f2fe93b220b73f6f913110de21b8af3"
+  },
+  {
+    "url": "https://zenodo.org/api/records/12528696/files/ESA-Mission2.zip/content",
+    "requested_range": [
+      60,
+      2571
+    ],
+    "role": "named CSV compressed member: ESA-Mission2/anomaly_types.csv",
+    "utc": "2026-10-05T05:38:19.802608+00:00",
+    "status_code": 206,
+    "content_range": "bytes 60-2571/4098539912",
+    "final_url": "https://zenodo.org/api/records/12528696/files/ESA-Mission2.zip/content",
+    "status": "ACQUIRED",
+    "bytes": 2512,
+    "sha256": "889d061baf2bfcca44b02466cd6782792dc07ae82d76fd762fd16974f06682b1"
+  },
+  {
+    "url": "https://zenodo.org/api/records/12528696/files/ESA-Mission2.zip/content",
+    "requested_range": [
+      2572,
+      2601
+    ],
+    "role": "metadata local header",
+    "utc": "2026-10-05T05:38:20.577113+00:00",
+    "status_code": 206,
+    "content_range": "bytes 2572-2601/4098539912",
+    "final_url": "https://zenodo.org/api/records/12528696/files/ESA-Mission2.zip/content",
+    "status": "ACQUIRED",
+    "bytes": 30,
+    "sha256": "9579c54d9145901212dd01990b3722a0289defb19a8de26b74350e922dde4fa6"
+  },
+  {
+    "url": "https://zenodo.org/api/records/12528696/files/ESA-Mission2.zip/content",
+    "requested_range": [
+      2627,
+      3112
+    ],
+    "role": "named CSV compressed member: ESA-Mission2/channels.csv",
+    "utc": "2026-10-05T05:38:21.379680+00:00",
+    "status_code": 206,
+    "content_range": "bytes 2627-3112/4098539912",
+    "final_url": "https://zenodo.org/api/records/12528696/files/ESA-Mission2.zip/content",
+    "status": "ACQUIRED",
+    "bytes": 486,
+    "sha256": "4cc8169765001a3801201521f5d12d2717b26d417cab45bf85b478a65819c01a"
+  },
+  {
+    "url": "https://zenodo.org/api/records/12528696/files/ESA-Mission2.zip/content",
+    "requested_range": [
+      4086238083,
+      4086238112
+    ],
+    "role": "metadata local header",
+    "utc": "2026-10-05T05:38:22.150218+00:00",
+    "status_code": 206,
+    "content_range": "bytes 4086238083-4086238112/4098539912",
+    "final_url": "https://zenodo.org/api/records/12528696/files/ESA-Mission2.zip/content",
+    "status": "ACQUIRED",
+    "bytes": 30,
+    "sha256": "cd4571567627f0be4ec3bceaeb20ae805b34990f19fbef7fdefaf17441c25e1a"
+  },
+  {
+    "url": "https://zenodo.org/api/records/12528696/files/ESA-Mission2.zip/content",
+    "requested_range": [
+      4086238136,
+      4086246527
+    ],
+    "role": "named CSV compressed member: ESA-Mission2/events.csv",
+    "utc": "2026-10-05T05:38:22.940666+00:00",
+    "status_code": 206,
+    "content_range": "bytes 4086238136-4086246527/4098539912",
+    "final_url": "https://zenodo.org/api/records/12528696/files/ESA-Mission2.zip/content",
+    "status": "ACQUIRED",
+    "bytes": 8392,
+    "sha256": "21e61ae15a1029df8ca0a8c707398722975bdc5e05a403caa57b191b2e1ddca1"
+  },
+  {
+    "url": "https://zenodo.org/api/records/12528696/files/ESA-Mission2.zip/content",
+    "requested_range": [
+      4086246528,
+      4086246557
+    ],
+    "role": "metadata local header",
+    "utc": "2026-10-05T05:38:23.736580+00:00",
+    "status_code": 206,
+    "content_range": "bytes 4086246528-4086246557/4098539912",
+    "final_url": "https://zenodo.org/api/records/12528696/files/ESA-Mission2.zip/content",
+    "status": "ACQUIRED",
+    "bytes": 30,
+    "sha256": "c34e0998c54a437ee4108ae6026deb1da24128126f7f6ca51787985c9f40dcf3"
+  },
+  {
+    "url": "https://zenodo.org/api/records/12528696/files/ESA-Mission2.zip/content",
+    "requested_range": [
+      4086246581,
+      4086350155
+    ],
+    "role": "named CSV compressed member: ESA-Mission2/labels.csv",
+    "utc": "2026-10-05T05:38:24.520768+00:00",
+    "status_code": 206,
+    "content_range": "bytes 4086246581-4086350155/4098539912",
+    "final_url": "https://zenodo.org/api/records/12528696/files/ESA-Mission2.zip/content",
+    "status": "ACQUIRED",
+    "bytes": 103575,
+    "sha256": "09a56be9493662a0087052972f3af2f83befc59b177af4d3f5d4005649cfb43d"
+  },
+  {
+    "url": "https://zenodo.org/api/records/12528696/files/ESA-Mission2.zip/content",
+    "requested_range": [
+      4086350156,
+      4086350185
+    ],
+    "role": "metadata local header",
+    "utc": "2026-10-05T05:38:25.993612+00:00",
+    "status_code": 206,
+    "content_range": "bytes 4086350156-4086350185/4098539912",
+    "final_url": "https://zenodo.org/api/records/12528696/files/ESA-Mission2.zip/content",
+    "status": "ACQUIRED",
+    "bytes": 30,
+    "sha256": "ab6d0188e2bb7be6600aa54e028e52fccff0cbef533eb7af87bd41ef767dd732"
+  },
+  {
+    "url": "https://zenodo.org/api/records/12528696/files/ESA-Mission2.zip/content",
+    "requested_range": [
+      4086350215,
+      4086350518
+    ],
+    "role": "named CSV compressed member: ESA-Mission2/telecommands.csv",
+    "utc": "2026-10-05T05:38:26.783400+00:00",
+    "status_code": 206,
+    "content_range": "bytes 4086350215-4086350518/4098539912",
+    "final_url": "https://zenodo.org/api/records/12528696/files/ESA-Mission2.zip/content",
+    "status": "ACQUIRED",
+    "bytes": 304,
+    "sha256": "6bef4239cd286a7888cf93cc582cbb45d971346bdf8ea45a827460f552d3101f"
+  }
+]

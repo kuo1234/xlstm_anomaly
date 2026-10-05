@@ -1,0 +1,22 @@
+{
+  "base_git_commit": "f8e98c30645b869760e9eb1e10c723ff7dab2d9e",
+  "issue": "https://github.com/kuo1234/xlstm_anomaly/issues/20",
+  "issue_state_at_start": "OPEN; GO bounded qualification; no comments",
+  "p5a_review": "https://github.com/kuo1234/xlstm_anomaly/issues/19#issuecomment-5988610414",
+  "raw_observation_arrays_read": 0,
+  "raw_telecommand_arrays_read": 0,
+  "labels_exposed": true,
+  "scope": "all Mission1/2 labels.csv intervals and anomaly_types.csv categories; source qualification only, no evaluation",
+  "label_member_acquisition_utc": [
+    "2026-10-05T05:38:14.062396+00:00",
+    "2026-10-05T05:38:24.520768+00:00"
+  ],
+  "prior_exposure": "P5-A paper example intervals were already inspected; full metadata exposure now",
+  "selection_fixed_before_metadata": "audit_plan: fixed Mission1/2, all allowed named CSVs, no favorable outcome selection",
+  "policy_or_model_run": false,
+  "scaler_or_detector_fit": false,
+  "strict_confirmatory": false,
+  "local_desktop_source_downloads": false,
+  "whole_archives_downloaded": false,
+  "created_utc": "2026-10-05T05:47:09.447488+00:00"
+}

@@ -1,0 +1,63 @@
+[
+  {
+    "id": "esa_repo",
+    "url": "https://raw.githubusercontent.com/esa/anomaly-dataset/main/README.md",
+    "retrieved_utc": "2026-10-04T18:16:34.159715+00:00",
+    "kind": "source_document_not_dataset_raw",
+    "status": "ACQUIRED",
+    "sha256": "99c57c9c09bab6d071884dd14783c11692d917cb52e86a78b21b16bd70bc4d23",
+    "bytes": 1661,
+    "path": "data/p5a_context_legitimacy/sources/esa_repo.md",
+    "final_url": "https://raw.githubusercontent.com/esa/anomaly-dataset/main/README.md",
+    "reuse_role": "P5-A source reused; SHA256 verified in P5-B"
+  },
+  {
+    "id": "esa_paper_pdf",
+    "url": "https://arxiv.org/pdf/2406.17826",
+    "retrieved_utc": "2026-10-04T18:17:08.988465+00:00",
+    "kind": "source_document_not_dataset_raw",
+    "status": "ACQUIRED",
+    "sha256": "6beae98ce075bba378d088e34f8505b032121bfe1fda34faf883c4363d389fd8",
+    "bytes": 5078057,
+    "path": "data/p5a_context_legitimacy/sources/esa_paper_pdf.pdf",
+    "final_url": "https://arxiv.org/pdf/2406.17826",
+    "text_extraction": "OK",
+    "reuse_role": "P5-A source reused; SHA256 verified in P5-B"
+  },
+  {
+    "id": "esa_record",
+    "url": "https://zenodo.org/api/records/12528696",
+    "retrieved_utc": "2026-10-04T18:18:30.184863+00:00",
+    "kind": "source_document_not_dataset_raw",
+    "status": "ACQUIRED",
+    "sha256": "3f1ba666d3cacd149d8cd4581e966a9aa806b69ba60686c08838c72639d71707",
+    "bytes": 6425,
+    "path": "data/p5a_context_legitimacy/sources/esa_record.json",
+    "final_url": "https://zenodo.org/api/records/12528696",
+    "reuse_role": "P5-A source reused; SHA256 verified in P5-B"
+  },
+  {
+    "id": "vgcl_src_base_model_py",
+    "url": "https://raw.githubusercontent.com/DerKuhno/validation-gated-continual-learning/636ac05995f52d3a12b6c7186646757a28c900eb/src/base_model.py",
+    "retrieved_utc": "2026-10-04T18:17:07.338828+00:00",
+    "kind": "source_document_not_dataset_raw",
+    "status": "ACQUIRED",
+    "sha256": "9618bdca7093b31d27ddfa1acb8e9f2eb61736da5fb6f9af822f24ca4731907a",
+    "bytes": 2783,
+    "path": "data/p5a_context_legitimacy/sources/vgcl_src_base_model_py.txt",
+    "final_url": "https://raw.githubusercontent.com/DerKuhno/validation-gated-continual-learning/636ac05995f52d3a12b6c7186646757a28c900eb/src/base_model.py",
+    "reuse_role": "static model inheritance/optimizer/state_dict boundary at VGCL pin636ac059; no execution"
+  },
+  {
+    "id": "vgcl_src_telemanom_model_py",
+    "url": "https://raw.githubusercontent.com/DerKuhno/validation-gated-continual-learning/636ac05995f52d3a12b6c7186646757a28c900eb/src/telemanom_model.py",
+    "retrieved_utc": "2026-10-04T18:17:07.675450+00:00",
+    "kind": "source_document_not_dataset_raw",
+    "status": "ACQUIRED",
+    "sha256": "53d7da38c624de008ba0e18a9dbdc14d402476eb3d16ea92b4a75adaaee4a326",
+    "bytes": 7408,
+    "path": "data/p5a_context_legitimacy/sources/vgcl_src_telemanom_model_py.txt",
+    "final_url": "https://raw.githubusercontent.com/DerKuhno/validation-gated-continual-learning/636ac05995f52d3a12b6c7186646757a28c900eb/src/telemanom_model.py",
+    "reuse_role": "static model inheritance/optimizer/state_dict boundary at VGCL pin636ac059; no execution"
+  }
+]

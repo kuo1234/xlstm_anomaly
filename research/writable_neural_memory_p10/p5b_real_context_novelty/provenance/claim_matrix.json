@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "claim": "Unknown-regime detection",
+    "status": "PARTIAL_OVERLAP",
+    "reason": "VGCL addresses absent prior new-condition data; ConCord adapts changes; inspected schedule does not certify regime detection",
+    "evidence": "VGCL_OVERLAP.md"
+  },
+  {
+    "id": 2,
+    "claim": "Non-oracle context-assisted eligibility",
+    "status": "UNRESOLVED",
+    "reason": "Context-conditioned monitoring overlaps; independent receipt/legitimacy intersection not established; full methods blocked",
+    "evidence": "ESA_CONTEXT_QUALIFICATION.md"
+  },
+  {
+    "id": 3,
+    "claim": "Explicit WAIT / REJECT / PROMOTE",
+    "status": "PARTIAL_OVERLAP",
+    "reason": "Checkpoint validation gives effective accept/reject and non-update; renamed actions alone add no novelty",
+    "evidence": "VGCL_OVERLAP.md"
+  },
+  {
+    "id": 4,
+    "claim": "Formal persistent-reference commit",
+    "status": "UNRESOLVED",
+    "reason": "Selected deployed weights overlap; normative payload/reference lineage not established; no global gap inference",
+    "evidence": "VGCL_OVERLAP.md"
+  },
+  {
+    "id": 5,
+    "claim": "Full-state shadow isolation",
+    "status": "PARTIAL_OVERLAP",
+    "reason": "Candidate training/checkpoint preservation overlap; manager mutates data before training",
+    "evidence": "VGCL_OVERLAP.md"
+  },
+  {
+    "id": 6,
+    "claim": "Exact rollback",
+    "status": "PARTIAL_OVERLAP",
+    "reason": "Weight recovery exists; inspected checkpoint excludes optimizer/replay/validation transaction; engineering gap not novelty proof",
+    "evidence": "VGCL_OVERLAP.md"
+  },
+  {
+    "id": 7,
+    "claim": "Admission-delay / contamination metrics",
+    "status": "PARTIAL_OVERLAP",
+    "reason": "P4A/P4B already report project measures; generic adaptation/performance metrics prior; no new learner claim",
+    "evidence": "../p4a_admission_benchmark/PRIOR_ART_OVERLAP.md"
+  },
+  {
+    "id": 8,
+    "claim": "Unresolved identical-(X,C) abstention",
+    "status": "UNRESOLVED",
+    "reason": "Identifiability boundary mandatory; no inspected counterfactual found, missing full methods cannot establish literature gap",
+    "evidence": "../p5a_context_legitimacy/CONTEXT_LEVELS.md"
+  },
+  {
+    "id": 9,
+    "claim": "Real context with causal receipt semantics",
+    "status": "NOT_EVALUABLE",
+    "reason": "ESA metadata lacks arrival/publication history and qualified persistent reference",
+    "evidence": "ESA_CONTEXT_QUALIFICATION.md"
+  }
+]

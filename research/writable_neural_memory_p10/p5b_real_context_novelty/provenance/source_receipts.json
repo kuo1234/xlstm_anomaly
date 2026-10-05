@@ -1,0 +1,352 @@
+[
+  {
+    "id": "esa_release",
+    "url": "https://zenodo.org/api/records/12528696",
+    "utc": "2026-10-05T05:33:21.642264+00:00",
+    "role": "metadata/document only",
+    "status": "ACQUIRED",
+    "bytes": 6425,
+    "sha256": "547ae800142cd541715d78f149ae9ccc63fdab17e8254bfbc6fdccba3253717c",
+    "path": "data/p5b_real_context_novelty/esa_release.json",
+    "final_url": "https://zenodo.org/api/records/12528696"
+  },
+  {
+    "id": "vgcl_publisher",
+    "url": "https://www.sciencedirect.com/science/article/pii/S0094576526005187",
+    "utc": "2026-10-05T05:33:22.536603+00:00",
+    "role": "metadata/document only",
+    "status": "BLOCKED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "id": "concord_publisher",
+    "url": "https://www.sciencedirect.com/science/article/pii/S0888327025009550",
+    "utc": "2026-10-05T05:33:22.685969+00:00",
+    "role": "metadata/document only",
+    "status": "BLOCKED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "id": "esa_README.md",
+    "url": "https://raw.githubusercontent.com/kplabs-pl/ESA-ADB/67194d389c4aa33a9a61fa0715ebdac3002b11b2/README.md",
+    "git_commit": "67194d389c4aa33a9a61fa0715ebdac3002b11b2",
+    "upstream_path": "README.md",
+    "utc": "2026-10-05T05:33:23.182056+00:00",
+    "status": "ACQUIRED",
+    "bytes": 9386,
+    "sha256": "b1f19becbf0ae72fbcb028db437ab435fb6f0e00d1ad34998a053df24dd5a5dd",
+    "path": "data/p5b_real_context_novelty/esa_README.md",
+    "role": "static official code inspection only"
+  },
+  {
+    "id": "esa_notebooks_data-prep_Mission1_semisupervised_prep_from_raw.py",
+    "url": "https://raw.githubusercontent.com/kplabs-pl/ESA-ADB/67194d389c4aa33a9a61fa0715ebdac3002b11b2/notebooks/data-prep/Mission1_semisupervised_prep_from_raw.py",
+    "git_commit": "67194d389c4aa33a9a61fa0715ebdac3002b11b2",
+    "upstream_path": "notebooks/data-prep/Mission1_semisupervised_prep_from_raw.py",
+    "utc": "2026-10-05T05:33:23.559197+00:00",
+    "status": "ACQUIRED",
+    "bytes": 11924,
+    "sha256": "ab8a183189bdc52853af7e57fb8c1113d018b0e9e1d78419d27edb3ee44262d7",
+    "path": "data/p5b_real_context_novelty/esa_notebooks_data-prep_Mission1_semisupervised_prep_from_raw.py",
+    "role": "static official code inspection only"
+  },
+  {
+    "id": "esa_notebooks_data-prep_Mission2_semiunsupervised_prep_from_raw.py",
+    "url": "https://raw.githubusercontent.com/kplabs-pl/ESA-ADB/67194d389c4aa33a9a61fa0715ebdac3002b11b2/notebooks/data-prep/Mission2_semiunsupervised_prep_from_raw.py",
+    "git_commit": "67194d389c4aa33a9a61fa0715ebdac3002b11b2",
+    "upstream_path": "notebooks/data-prep/Mission2_semiunsupervised_prep_from_raw.py",
+    "utc": "2026-10-05T05:33:23.878907+00:00",
+    "status": "ACQUIRED",
+    "bytes": 12047,
+    "sha256": "c5ebfa3d6611ed661949fff0f3c8bd97c57c256a0d2cc347c596b04fc61a9fe1",
+    "path": "data/p5b_real_context_novelty/esa_notebooks_data-prep_Mission2_semiunsupervised_prep_from_raw.py",
+    "role": "static official code inspection only"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/kplabs-pl/ESA-ADB/67194d389c4aa33a9a61fa0715ebdac3002b11b2/notebooks/data-prep/utils.py",
+    "path": "data/p5b_real_context_novelty/esa_utils.py",
+    "role": "static ESA official encoding",
+    "utc": "2026-10-05T05:38:37.229886+00:00",
+    "status": "ACQUIRED",
+    "bytes": 1178,
+    "sha256": "4a35224ba069bdf32df1b1f89d5c8b95802598aa3034720a55d27aa7f41432ca"
+  },
+  {
+    "url": "https://api.github.com/repos/DerKuhno/validation-gated-continual-learning/commits/HEAD",
+    "path": "data/p5b_real_context_novelty/vgcl_head.json",
+    "role": "official code pin discovery",
+    "utc": "2026-10-05T05:38:37.617906+00:00",
+    "status": "ACQUIRED",
+    "bytes": 5786,
+    "sha256": "e40dd4e36d20c16f2b8ebaef61ab5a361b4f377ef1503fa1bd3b131763aada88"
+  },
+  {
+    "url": "https://api.github.com/repos/DerKuhno/validation-gated-continual-learning/git/trees/636ac05995f52d3a12b6c7186646757a28c900eb?recursive=1",
+    "path": "data/p5b_real_context_novelty/vgcl_tree.json",
+    "role": "official code inventory",
+    "utc": "2026-10-05T05:38:38.241064+00:00",
+    "status": "ACQUIRED",
+    "bytes": 11521,
+    "sha256": "7023ccb382725692279597e7d4603349a68aaa1c5dad0395127d22909be44a90"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/DerKuhno/validation-gated-continual-learning/636ac05995f52d3a12b6c7186646757a28c900eb/src/CL_methods/EpisodeBalancedBuffer.py",
+    "upstream_path": "src/CL_methods/EpisodeBalancedBuffer.py",
+    "path": "data/p5b_real_context_novelty/vgcl_src_CL_methods_EpisodeBalancedBuffer.py",
+    "git_commit": "636ac05995f52d3a12b6c7186646757a28c900eb",
+    "utc": "2026-10-05T05:39:11.048371+00:00",
+    "role": "static official code only",
+    "status": "ACQUIRED",
+    "sha256": "37aa0d10c7f8cd631002d0e6f682081246c22c51e5397a981aa10c1e316e1211",
+    "bytes": 4872
+  },
+  {
+    "url": "https://raw.githubusercontent.com/DerKuhno/validation-gated-continual-learning/636ac05995f52d3a12b6c7186646757a28c900eb/src/CL_methods/agem.py",
+    "upstream_path": "src/CL_methods/agem.py",
+    "path": "data/p5b_real_context_novelty/vgcl_src_CL_methods_agem.py",
+    "git_commit": "636ac05995f52d3a12b6c7186646757a28c900eb",
+    "utc": "2026-10-05T05:39:11.385282+00:00",
+    "role": "static official code only",
+    "status": "ACQUIRED",
+    "sha256": "e32a65a010c37a2275c156db2db0ea8dbe27c0fdaf95a28b8b2adc0118987a9a",
+    "bytes": 9248
+  },
+  {
+    "url": "https://raw.githubusercontent.com/DerKuhno/validation-gated-continual-learning/636ac05995f52d3a12b6c7186646757a28c900eb/src/CL_methods/cl_method_params.py",
+    "upstream_path": "src/CL_methods/cl_method_params.py",
+    "path": "data/p5b_real_context_novelty/vgcl_src_CL_methods_cl_method_params.py",
+    "git_commit": "636ac05995f52d3a12b6c7186646757a28c900eb",
+    "utc": "2026-10-05T05:39:11.710957+00:00",
+    "role": "static official code only",
+    "status": "ACQUIRED",
+    "sha256": "22e7717cc435de8962fc046b603cea26f165f43be42b0031fcd13278f2191e7e",
+    "bytes": 3767
+  },
+  {
+    "url": "https://raw.githubusercontent.com/DerKuhno/validation-gated-continual-learning/636ac05995f52d3a12b6c7186646757a28c900eb/src/CL_methods/continual_learning_manager.py",
+    "upstream_path": "src/CL_methods/continual_learning_manager.py",
+    "path": "data/p5b_real_context_novelty/vgcl_src_CL_methods_continual_learning_manager.py",
+    "git_commit": "636ac05995f52d3a12b6c7186646757a28c900eb",
+    "utc": "2026-10-05T05:39:12.039294+00:00",
+    "role": "static official code only",
+    "status": "ACQUIRED",
+    "sha256": "ee683687618da2ead0b22285594a30e8191c35fec9df7501a2f7340b455d8556",
+    "bytes": 12632
+  },
+  {
+    "url": "https://raw.githubusercontent.com/DerKuhno/validation-gated-continual-learning/636ac05995f52d3a12b6c7186646757a28c900eb/src/CL_methods/der.py",
+    "upstream_path": "src/CL_methods/der.py",
+    "path": "data/p5b_real_context_novelty/vgcl_src_CL_methods_der.py",
+    "git_commit": "636ac05995f52d3a12b6c7186646757a28c900eb",
+    "utc": "2026-10-05T05:39:12.354847+00:00",
+    "role": "static official code only",
+    "status": "ACQUIRED",
+    "sha256": "15a5cbcd5edee10961e3b655f4c6fec00b408294abb6d78dec6480f2b72bdf1d",
+    "bytes": 7801
+  },
+  {
+    "url": "https://raw.githubusercontent.com/DerKuhno/validation-gated-continual-learning/636ac05995f52d3a12b6c7186646757a28c900eb/src/CL_methods/er.py",
+    "upstream_path": "src/CL_methods/er.py",
+    "path": "data/p5b_real_context_novelty/vgcl_src_CL_methods_er.py",
+    "git_commit": "636ac05995f52d3a12b6c7186646757a28c900eb",
+    "utc": "2026-10-05T05:39:12.715589+00:00",
+    "role": "static official code only",
+    "status": "ACQUIRED",
+    "sha256": "31d09b9c888022658377e46c5518a13288abe2c4da15334c0096d339bbbfa9fd",
+    "bytes": 7898
+  },
+  {
+    "url": "https://raw.githubusercontent.com/DerKuhno/validation-gated-continual-learning/636ac05995f52d3a12b6c7186646757a28c900eb/src/CL_methods/finetuning.py",
+    "upstream_path": "src/CL_methods/finetuning.py",
+    "path": "data/p5b_real_context_novelty/vgcl_src_CL_methods_finetuning.py",
+    "git_commit": "636ac05995f52d3a12b6c7186646757a28c900eb",
+    "utc": "2026-10-05T05:39:13.097340+00:00",
+    "role": "static official code only",
+    "status": "ACQUIRED",
+    "sha256": "fed8cb7361c6a598e488d60521290f6cde27dee3e74fe7d8a11637679f2217cb",
+    "bytes": 6366
+  },
+  {
+    "url": "https://raw.githubusercontent.com/DerKuhno/validation-gated-continual-learning/636ac05995f52d3a12b6c7186646757a28c900eb/src/CL_methods/gem.py",
+    "upstream_path": "src/CL_methods/gem.py",
+    "path": "data/p5b_real_context_novelty/vgcl_src_CL_methods_gem.py",
+    "git_commit": "636ac05995f52d3a12b6c7186646757a28c900eb",
+    "utc": "2026-10-05T05:39:13.448516+00:00",
+    "role": "static official code only",
+    "status": "ACQUIRED",
+    "sha256": "0786d9b1659ebe519ba8b9b8ccd6c61639d8f9af6f5b1d889f3ee315d82851e1",
+    "bytes": 10475
+  },
+  {
+    "url": "https://raw.githubusercontent.com/DerKuhno/validation-gated-continual-learning/636ac05995f52d3a12b6c7186646757a28c900eb/src/CL_methods/gss_greedy.py",
+    "upstream_path": "src/CL_methods/gss_greedy.py",
+    "path": "data/p5b_real_context_novelty/vgcl_src_CL_methods_gss_greedy.py",
+    "git_commit": "636ac05995f52d3a12b6c7186646757a28c900eb",
+    "utc": "2026-10-05T05:39:13.772420+00:00",
+    "role": "static official code only",
+    "status": "ACQUIRED",
+    "sha256": "cd7da756582c28327b34ef3e8756be4a258b53697dd37060dbee9b6563c5a7d3",
+    "bytes": 12668
+  },
+  {
+    "url": "https://raw.githubusercontent.com/DerKuhno/validation-gated-continual-learning/636ac05995f52d3a12b6c7186646757a28c900eb/src/CL_methods/latent_greedy.py",
+    "upstream_path": "src/CL_methods/latent_greedy.py",
+    "path": "data/p5b_real_context_novelty/vgcl_src_CL_methods_latent_greedy.py",
+    "git_commit": "636ac05995f52d3a12b6c7186646757a28c900eb",
+    "utc": "2026-10-05T05:39:14.163502+00:00",
+    "role": "static official code only",
+    "status": "ACQUIRED",
+    "sha256": "d6ef052d73eea6de982e36ebbb6ecfb20e5dd9b95ad32f05a3db6529d8de25c8",
+    "bytes": 11141
+  },
+  {
+    "url": "https://raw.githubusercontent.com/DerKuhno/validation-gated-continual-learning/636ac05995f52d3a12b6c7186646757a28c900eb/src/CL_methods/loss_greedy.py",
+    "upstream_path": "src/CL_methods/loss_greedy.py",
+    "path": "data/p5b_real_context_novelty/vgcl_src_CL_methods_loss_greedy.py",
+    "git_commit": "636ac05995f52d3a12b6c7186646757a28c900eb",
+    "utc": "2026-10-05T05:39:14.488836+00:00",
+    "role": "static official code only",
+    "status": "ACQUIRED",
+    "sha256": "962493daed5d1649e9ad502aba3b31e2b04eadeef78716e9a11d46bb3fa62367",
+    "bytes": 6679
+  },
+  {
+    "url": "https://raw.githubusercontent.com/DerKuhno/validation-gated-continual-learning/636ac05995f52d3a12b6c7186646757a28c900eb/src/CL_methods/lower_bound.py",
+    "upstream_path": "src/CL_methods/lower_bound.py",
+    "path": "data/p5b_real_context_novelty/vgcl_src_CL_methods_lower_bound.py",
+    "git_commit": "636ac05995f52d3a12b6c7186646757a28c900eb",
+    "utc": "2026-10-05T05:39:14.812920+00:00",
+    "role": "static official code only",
+    "status": "ACQUIRED",
+    "sha256": "d7f303d0793092e595ba1b83909cf4b523351b901845b9ca7fa87bb45bdf21a6",
+    "bytes": 5920
+  },
+  {
+    "url": "https://raw.githubusercontent.com/DerKuhno/validation-gated-continual-learning/636ac05995f52d3a12b6c7186646757a28c900eb/src/CL_methods/mir.py",
+    "upstream_path": "src/CL_methods/mir.py",
+    "path": "data/p5b_real_context_novelty/vgcl_src_CL_methods_mir.py",
+    "git_commit": "636ac05995f52d3a12b6c7186646757a28c900eb",
+    "utc": "2026-10-05T05:39:15.135129+00:00",
+    "role": "static official code only",
+    "status": "ACQUIRED",
+    "sha256": "3aab408dcfe1019dad43ca038fab882893578117cf3bd8301e8b7d81da1edc9a",
+    "bytes": 9309
+  },
+  {
+    "url": "https://raw.githubusercontent.com/DerKuhno/validation-gated-continual-learning/636ac05995f52d3a12b6c7186646757a28c900eb/src/CL_methods/ser.py",
+    "upstream_path": "src/CL_methods/ser.py",
+    "path": "data/p5b_real_context_novelty/vgcl_src_CL_methods_ser.py",
+    "git_commit": "636ac05995f52d3a12b6c7186646757a28c900eb",
+    "utc": "2026-10-05T05:39:15.456840+00:00",
+    "role": "static official code only",
+    "status": "ACQUIRED",
+    "sha256": "b2b8a86a0babcbb5f82d14784ceafb0d84308839d52984732db6c1b0ec8dfe9a",
+    "bytes": 7906
+  },
+  {
+    "url": "https://raw.githubusercontent.com/DerKuhno/validation-gated-continual-learning/636ac05995f52d3a12b6c7186646757a28c900eb/src/CL_methods/upper_bound.py",
+    "upstream_path": "src/CL_methods/upper_bound.py",
+    "path": "data/p5b_real_context_novelty/vgcl_src_CL_methods_upper_bound.py",
+    "git_commit": "636ac05995f52d3a12b6c7186646757a28c900eb",
+    "utc": "2026-10-05T05:39:15.786385+00:00",
+    "role": "static official code only",
+    "status": "ACQUIRED",
+    "sha256": "329cb3a28eaec10e65a9a5b467d10c41c1354208260ab5cd99ed4f5415d401c2",
+    "bytes": 5663
+  },
+  {
+    "url": "https://raw.githubusercontent.com/DerKuhno/validation-gated-continual-learning/636ac05995f52d3a12b6c7186646757a28c900eb/src/CL_methods/utils.py",
+    "upstream_path": "src/CL_methods/utils.py",
+    "path": "data/p5b_real_context_novelty/vgcl_src_CL_methods_utils.py",
+    "git_commit": "636ac05995f52d3a12b6c7186646757a28c900eb",
+    "utc": "2026-10-05T05:39:16.118299+00:00",
+    "role": "static official code only",
+    "status": "ACQUIRED",
+    "sha256": "0f5e234850213bbf7a4b8fbc06d3fd6de722870f7d7bad59903d41604cbf47db",
+    "bytes": 1311
+  },
+  {
+    "url": "https://raw.githubusercontent.com/DerKuhno/validation-gated-continual-learning/636ac05995f52d3a12b6c7186646757a28c900eb/src/CL_methods/variance_greedy.py",
+    "upstream_path": "src/CL_methods/variance_greedy.py",
+    "path": "data/p5b_real_context_novelty/vgcl_src_CL_methods_variance_greedy.py",
+    "git_commit": "636ac05995f52d3a12b6c7186646757a28c900eb",
+    "utc": "2026-10-05T05:39:16.436503+00:00",
+    "role": "static official code only",
+    "status": "ACQUIRED",
+    "sha256": "40241c60a8ed18683e81da83ba31580d459d859bb207ebff88433732f753fae6",
+    "bytes": 5540
+  },
+  {
+    "url": "https://raw.githubusercontent.com/DerKuhno/validation-gated-continual-learning/636ac05995f52d3a12b6c7186646757a28c900eb/src/Main_loop.py",
+    "upstream_path": "src/Main_loop.py",
+    "path": "data/p5b_real_context_novelty/vgcl_src_Main_loop.py",
+    "git_commit": "636ac05995f52d3a12b6c7186646757a28c900eb",
+    "utc": "2026-10-05T05:39:16.769614+00:00",
+    "role": "static official code only",
+    "status": "ACQUIRED",
+    "sha256": "4487ccb5edfef2957605b66d2a46c553aaf19389ec7a1f2026edaa9dcbfb2b0d",
+    "bytes": 9234
+  },
+  {
+    "url": "https://raw.githubusercontent.com/DerKuhno/validation-gated-continual-learning/636ac05995f52d3a12b6c7186646757a28c900eb/src/dataset.py",
+    "upstream_path": "src/dataset.py",
+    "path": "data/p5b_real_context_novelty/vgcl_src_dataset.py",
+    "git_commit": "636ac05995f52d3a12b6c7186646757a28c900eb",
+    "utc": "2026-10-05T05:39:17.087934+00:00",
+    "role": "static official code only",
+    "status": "ACQUIRED",
+    "sha256": "d42f88558dbe611a40c6a9020cd9b95e2b1cab78a0be1af943d901d1016f2cc4",
+    "bytes": 12988
+  },
+  {
+    "url": "https://raw.githubusercontent.com/DerKuhno/validation-gated-continual-learning/636ac05995f52d3a12b6c7186646757a28c900eb/src/dataset_manager.py",
+    "upstream_path": "src/dataset_manager.py",
+    "path": "data/p5b_real_context_novelty/vgcl_src_dataset_manager.py",
+    "git_commit": "636ac05995f52d3a12b6c7186646757a28c900eb",
+    "utc": "2026-10-05T05:39:17.406151+00:00",
+    "role": "static official code only",
+    "status": "ACQUIRED",
+    "sha256": "7a4dad97f99f7de6f6a8796d504aeaa1e280c368687f398c99ba2da27b4fbdeb",
+    "bytes": 15200
+  },
+  {
+    "url": "https://raw.githubusercontent.com/DerKuhno/validation-gated-continual-learning/636ac05995f52d3a12b6c7186646757a28c900eb/src/esaadb_dataset.py",
+    "upstream_path": "src/esaadb_dataset.py",
+    "path": "data/p5b_real_context_novelty/vgcl_src_esaadb_dataset.py",
+    "git_commit": "636ac05995f52d3a12b6c7186646757a28c900eb",
+    "utc": "2026-10-05T05:39:17.720217+00:00",
+    "role": "static official code only",
+    "status": "ACQUIRED",
+    "sha256": "c4a0d0407b177dcf198e96697df12e3fa1d5329ca03508ca9ea7a8a4020f603c",
+    "bytes": 14381
+  },
+  {
+    "url": "https://raw.githubusercontent.com/DerKuhno/validation-gated-continual-learning/636ac05995f52d3a12b6c7186646757a28c900eb/src/experiment_config.py",
+    "upstream_path": "src/experiment_config.py",
+    "path": "data/p5b_real_context_novelty/vgcl_src_experiment_config.py",
+    "git_commit": "636ac05995f52d3a12b6c7186646757a28c900eb",
+    "utc": "2026-10-05T05:39:18.065490+00:00",
+    "role": "static official code only",
+    "status": "ACQUIRED",
+    "sha256": "0b5fa9420d7ff62fc3d4fd687ed9f68dbd78499d5e6f45323e6c26259111dba2",
+    "bytes": 8211
+  },
+  {
+    "url": "https://api.openalex.org/works/https://doi.org/10.1016/j.actaastro.2026.07.065",
+    "role": "OA location discovery only; not method evidence",
+    "utc": "2026-10-05T05:39:36.406355+00:00",
+    "path": "data/p5b_real_context_novelty/vgcl_openalex.json",
+    "status": "ACQUIRED",
+    "sha256": "60fd2516f92f8dfe1ca5458f4a3fe102be8653d8b00f9b61733a582b9e15bec9",
+    "bytes": 12961
+  },
+  {
+    "url": "https://api.openalex.org/works/https://doi.org/10.1016/j.ymssp.2025.113254",
+    "role": "OA location discovery only; not method evidence",
+    "utc": "2026-10-05T05:39:37.508617+00:00",
+    "path": "data/p5b_real_context_novelty/concord_openalex.json",
+    "status": "ACQUIRED",
+    "sha256": "7357347fd8bec28370e3cf7c01c73ee555f93262a815e9c1b5e1eec2b3f685b5",
+    "bytes": 11586
+  }
+]

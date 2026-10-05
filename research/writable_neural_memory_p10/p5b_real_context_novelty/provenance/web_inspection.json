@@ -1,0 +1,32 @@
+{
+  "utc": "2026-10-05T05:47:09.447488+00:00",
+  "sources": [
+    {
+      "id": "VGCL-publisher-preview",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0094576526005187",
+      "doi": "10.1016/j.actaastro.2026.07.065",
+      "access": "web search-indexed publisher introduction and section previews; not full text",
+      "read_scope": "problem setting, contribution bullets, CL strategies, experiment and conclusion previews; characterization of ConCord is competing authors' evidence",
+      "full_text_status": "BLOCKED_HTTP_403",
+      "computed_fulltext_hash": null
+    },
+    {
+      "id": "ConCord-publisher-preview",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0888327025009550",
+      "doi": "10.1016/j.ymssp.2025.113254",
+      "access": "web search-indexed publisher introduction and Methodology/Experimental studies snippets; not only abstract, not full text",
+      "read_scope": "four-stage method excerpt: upon condition change new group treated as training data; SSL normal features, hybrid contrast, distillation and representative rehearsal; exact task contract unknown",
+      "full_text_status": "BLOCKED_HTTP_403",
+      "computed_fulltext_hash": null
+    }
+  ],
+  "discovery_queries": [
+    "exact ConCord title + pdf code",
+    "ConCord continual Hu code github",
+    "exact VGCL title + full text author pdf",
+    "Validation-gated continual learning for time-series anomaly detection arxiv Kuhn"
+  ],
+  "OA_discovery": "OpenAlex locations for both DOIs list publisher only, no repository PDF; discovery not method evidence",
+  "unverified_mirrors_used": false,
+  "publisher_recommended_articles": "excluded; not attributed to ConCord"
+}

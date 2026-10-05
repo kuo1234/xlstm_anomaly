@@ -1,0 +1,128 @@
+[
+  {
+    "archive": "ESA-Mission1.zip",
+    "publisher_checksum": "md5:80750189d171f5f398fb3d96c49df12b",
+    "publisher_size": 3776246054,
+    "whole_archive_computed_hash": null,
+    "members": [
+      {
+        "name": "ESA-Mission1/anomaly_types.csv",
+        "flags": 0,
+        "method": 8,
+        "crc32": 3411003618,
+        "compressed_bytes": 1103,
+        "uncompressed_bytes": 13299,
+        "local_offset": 0,
+        "path": "data/p5b_real_context_novelty/metadata/ESA-Mission1/anomaly_types.csv",
+        "sha256": "e0cadee4ee9697c5ca8d4f9e81067454d7d7a00d063ee0de33cbc77660eec8bc",
+        "crc_verified": true
+      },
+      {
+        "name": "ESA-Mission1/channels.csv",
+        "flags": 0,
+        "method": 8,
+        "crc32": 3340695587,
+        "compressed_bytes": 397,
+        "uncompressed_bytes": 3542,
+        "local_offset": 1163,
+        "path": "data/p5b_real_context_novelty/metadata/ESA-Mission1/channels.csv",
+        "sha256": "92fe4582f1907e42129a764e52afddaef02de8e555e4c47302acd4225222abbf",
+        "crc_verified": true
+      },
+      {
+        "name": "ESA-Mission1/labels.csv",
+        "flags": 0,
+        "method": 8,
+        "crc32": 925865475,
+        "compressed_bytes": 27950,
+        "uncompressed_bytes": 245564,
+        "local_offset": 3767890512,
+        "path": "data/p5b_real_context_novelty/metadata/ESA-Mission1/labels.csv",
+        "sha256": "1564d630f1ec1387d699ec81531ce57118051a220c8b7cba050a446a652b9082",
+        "crc_verified": true
+      },
+      {
+        "name": "ESA-Mission1/telecommands.csv",
+        "flags": 0,
+        "method": 8,
+        "crc32": 2065517448,
+        "compressed_bytes": 1633,
+        "uncompressed_bytes": 13176,
+        "local_offset": 3767918515,
+        "path": "data/p5b_real_context_novelty/metadata/ESA-Mission1/telecommands.csv",
+        "sha256": "32519ed13c68067cfafeef0df9ac5f04aeaf534cf03e526ce9e76c02c2a5c09d",
+        "crc_verified": true
+      }
+    ],
+    "status": "METADATA_ACQUIRED"
+  },
+  {
+    "archive": "ESA-Mission2.zip",
+    "publisher_checksum": "md5:0b7505b7f0731ca037ee889ca2a520ce",
+    "publisher_size": 4098539912,
+    "whole_archive_computed_hash": null,
+    "members": [
+      {
+        "name": "ESA-Mission2/anomaly_types.csv",
+        "flags": 0,
+        "method": 8,
+        "crc32": 1246653357,
+        "compressed_bytes": 2512,
+        "uncompressed_bytes": 43593,
+        "local_offset": 0,
+        "path": "data/p5b_real_context_novelty/metadata/ESA-Mission2/anomaly_types.csv",
+        "sha256": "3da0dd5f6640a277549e56852d1e41cf16842c0d4997307f16e33f7270a8e5a5",
+        "crc_verified": true
+      },
+      {
+        "name": "ESA-Mission2/channels.csv",
+        "flags": 0,
+        "method": 8,
+        "crc32": 2188513461,
+        "compressed_bytes": 486,
+        "uncompressed_bytes": 4178,
+        "local_offset": 2572,
+        "path": "data/p5b_real_context_novelty/metadata/ESA-Mission2/channels.csv",
+        "sha256": "0ec9b1b2c9150b55871c0589dff35c184d1188c450b028a1b706a13c0f7f8d4e",
+        "crc_verified": true
+      },
+      {
+        "name": "ESA-Mission2/events.csv",
+        "flags": 0,
+        "method": 8,
+        "crc32": 2598443089,
+        "compressed_bytes": 8392,
+        "uncompressed_bytes": 36252,
+        "local_offset": 4086238083,
+        "path": "data/p5b_real_context_novelty/metadata/ESA-Mission2/events.csv",
+        "sha256": "f0351d3868023f5caafff113d82da35b8ee1fb1e8156ef4a626457a87146c0c3",
+        "crc_verified": true
+      },
+      {
+        "name": "ESA-Mission2/labels.csv",
+        "flags": 0,
+        "method": 8,
+        "crc32": 729596629,
+        "compressed_bytes": 103575,
+        "uncompressed_bytes": 767994,
+        "local_offset": 4086246528,
+        "path": "data/p5b_real_context_novelty/metadata/ESA-Mission2/labels.csv",
+        "sha256": "4e0c27e566c3d1585cd527f57a19617aba97afec5dca6cf87f94135ad64d2794",
+        "crc_verified": true
+      },
+      {
+        "name": "ESA-Mission2/telecommands.csv",
+        "flags": 0,
+        "method": 8,
+        "crc32": 860007392,
+        "compressed_bytes": 304,
+        "uncompressed_bytes": 2251,
+        "local_offset": 4086350156,
+        "path": "data/p5b_real_context_novelty/metadata/ESA-Mission2/telecommands.csv",
+        "sha256": "200479ede9c32bbd5f8c983dcd72d77ec85e92a1b708ef71251680293887b18e",
+        "crc_verified": true
+      }
+    ],
+    "status": "METADATA_ACQUIRED"
+  }
+]

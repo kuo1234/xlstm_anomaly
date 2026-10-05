@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "gate": "ESA_CONTEXT_INSUFFICIENT",
+  "review_status": "pending_review",
+  "base_git_commit": "f8e98c30645b869760e9eb1e10c723ff7dab2d9e",
+  "branch": "research/p7-p10-segment-memory",
+  "created_utc": "2026-10-05T05:47:09.447488+00:00",
+  "execution_host": "ssh kuo",
+  "execution_root": "/home/p76141495/home/xlstm_anomaly/.worktrees/p7-p10-segment-memory",
+  "scope": "bounded metadata/static official code; no model/detector/adaptation/policy/shadow/rollback execution",
+  "source_documents": "provenance/source_receipts.json",
+  "reused_documents": "provenance/reused_sources.json",
+  "publisher_preview_scope": "provenance/web_inspection.json",
+  "archive_members": "provenance/metadata_receipts.json",
+  "ranges": "provenance/range_receipts.json",
+  "archive_response_body_bytes": 367577,
+  "metadata_csv_count": 9,
+  "raw_observation_arrays_read": 0,
+  "raw_telecommand_arrays_read": 0,
+  "labels_exposed": true,
+  "strict_confirmatory": false,
+  "ESA_release_record": 12528696,
+  "ESA_dataset_repo_pin": "a969698e464788c961dbb646d3da24595c7c7a2b",
+  "ESA_ADB_code_pin": "67194d389c4aa33a9a61fa0715ebdac3002b11b2",
+  "VGCL_code_pin": "636ac05995f52d3a12b6c7186646757a28c900eb",
+  "ESA_context": {
+    "raw_recorded_TC": "UNQUALIFIED_runtime_receipt_contract",
+    "TC_priority_table": "UNQUALIFIED_static_descriptor_not_event_delivery",
+    "Mission2_events": "UNQUALIFIED_runtime_plan_publication_contract",
+    "labels": "RETROSPECTIVE_ONLY",
+    "official_preprocessed_features": "EVENT_ONLY_NONCAUSAL",
+    "L2_authorization": "UNQUALIFIED",
+    "persistent_reference": "REAL_PERSISTENT_REFERENCE_UNAVAILABLE"
+  },
+  "ESA_summary": {
+    "ESA-Mission1": {
+      "labels_rows": 3589,
+      "unique_event_ids": 200,
+      "categories": {
+        "Rare Event": 78,
+        "Anomaly": 118,
+        "Communication Gap": 4
+      },
+      "rare_ids": 78,
+      "rare_duration_median_seconds": 43800.0,
+      "max_envelope_days": 23.728706909722224,
+      "rare_temporally_overlap_anomaly_count": 11,
+      "rare_same_channel_overlap_anomaly_count": 4,
+      "qualified_persistent_reference": 0,
+      "channels_rows": 76,
+      "telecommands_rows": 698,
+      "events_rows": null
+    },
+    "ESA-Mission2": {
+      "labels_rows": 11167,
+      "unique_event_ids": 644,
+      "categories": {
+        "Rare Event": 613,
+        "Anomaly": 31
+      },
+      "rare_ids": 613,
+      "rare_duration_median_seconds": 3186.006,
+      "max_envelope_days": 2.025003472222222,
+      "rare_temporally_overlap_anomaly_count": 5,
+      "rare_same_channel_overlap_anomaly_count": 0,
+      "qualified_persistent_reference": 0,
+      "channels_rows": 100,
+      "telecommands_rows": 123,
+      "events_rows": 604
+    }
+  },
+  "novelty": "UNRESOLVED; blocked full methods do not establish gap",
+  "ConCord_full_method": "BLOCKED",
+  "VGCL_full_paper": "BLOCKED; all six official rehearsal strategies and finetuning statically inspected",
+  "full_state_rollback": "not in inspected strategy/manager paths; no universal assertion about unavailable full paper",
+  "next_experiment_authorized": false
+}

@@ -1,0 +1,59 @@
+{
+  "utc": "2026-10-05T05:52:16.556880+00:00",
+  "status": "PASS",
+  "source_file_hashes_verified": 36,
+  "metadata_members_SHA256_length_CRC32_verified": 9,
+  "HTTP206_range_requests": 22,
+  "archive_response_body_bytes": 367577,
+  "unique_rare_IDs_all_source_categories_reconciled": 691,
+  "derived_event_taxonomy": {
+    "UNKNOWN": 690,
+    "COMMAND_CORRELATED_EVENT": 1
+  },
+  "atomic_claim_rows": 9,
+  "VGCL_python_files_AST_parsed_static_only": 22,
+  "rehearsal_and_finetuning_checkpoint_paths": [
+    "agem",
+    "gem",
+    "mir",
+    "er",
+    "der",
+    "ser",
+    "finetuning"
+  ],
+  "model_or_policy_tests_run": false,
+  "limitations": [
+    "No full archive digest verification",
+    "Compressed member/header request digests recorded at acquisition, not all response files retained",
+    "No raw arrays verified",
+    "Full publisher methods blocked403; preview acquisition not full-text",
+    "No unsafe/settled reference ground truth inferred"
+  ],
+  "errors": [],
+  "json_files_parsed": 11,
+  "relative_links_checked": 52,
+  "prior_P4_P5A_scripts_tests_unchanged": true,
+  "tracked_existing_files_changed": [
+    "README.md"
+  ],
+  "artifact_sha256": {
+    "CLAIM_OVERLAP_MATRIX.md": "e74ad07e620a13362e978064630b56b0b6ff16f8da9f02f02e8cec8c702349d0",
+    "CONCORD_OVERLAP.md": "69bfae98c51db3f5a45fe0187b142faa230c12612c7ac60d1d2d9e683db1d7c3",
+    "ESA_CONTEXT_QUALIFICATION.md": "94c4fc2ae3ba577e5aab11faa13f096f965187c57d4ee04269d6f45efb6f8b67",
+    "ESA_RARE_NOMINAL_AUDIT.md": "9cdcc361d024bf5e222515ba888870b71ff743b9ec986bf447e668283f64c846",
+    "FINAL_GATE.md": "d17af927c3eab1d4d108673995f0415a8c1ee3092fbbaed0e707f6cd8bcfb72b",
+    "README.md": "afdaa9e291b252013e200206b7e6a4f02c64e86a9eec773b31b677c57c314433",
+    "VGCL_OVERLAP.md": "25bfd83776699d6f5050e1b599f3c9e1a5753a1127e43adf05381865390d8832",
+    "provenance/README.md": "3eb8b8bc4d3fa00a85597490d658636a63f5377b42cef9580584e737e3f6b42a",
+    "provenance/audit_plan.json": "971b876ff92d532c6be336a299dd0631370ed517e468e325b6fa27c96a11ec6b",
+    "provenance/chronology.json": "f9eda5b392ed6dce584f896fd78a97a60aa5eeb9399de495d6514d7363927a27",
+    "provenance/claim_matrix.json": "456f60713b23cda6c920b054d7362bd0e94c50550d92e5abab0a417acf0d2de1",
+    "provenance/metadata_receipts.json": "e14eab71ea0030cbca88c3ef2dc5a69307ae511bc577493a92185f4852919fe7",
+    "provenance/range_receipts.json": "d6c9b65a6fd8a835c2272e992c1469635dd284b89fffa25c800b0ef77e3e5adb",
+    "provenance/rare_nominal_audit.json": "965bde0df19aeab20917e08f33449e1c2e5ce453a68db86ba8c16027637f7431",
+    "provenance/reused_sources.json": "2b8e4e988fa234ddfe09e0349e3caa76eb88aa73118896b6568da60d0e766429",
+    "provenance/source_receipts.json": "1bfbbe82888f4ab4f31884ba6c64acd56c648c7023e951e47ff671455238ef9d",
+    "provenance/web_inspection.json": "f5e7b1973a60243bade5327d366bb2bb0eea50598b66bef4f15ef6e67ea21650",
+    "source_inventory.json": "12e2824da0137868fec42c41b40d6596971e91ef4d2ff6e73df14e17cfa6ab0b"
+  }
+}
