@@ -2,12 +2,12 @@
 
 Exact rules are in provenance/protocol.json and scripts/lifecycle_metrics.py. No detector result, model, threshold or selected test subset was inspected. The helper is tested on artificial boundary fixtures only; it does not train or score telemetry.
 
-RCI=[start,end], including point events. EEI=(end,effect_end], absent if no effect endpoint. Pre-RCI and recovery windows are300 native seconds, excluding all labeled event support; recovery right-censored at trace end. Shared event times are excluded from unique attribution and counted. Coverage uses the expected native1s grid, including absent timestamps. No observed root alarm with incomplete RCI evidence is N/A, not false. Score absence, future availability, native missing times, mixed-phase sampled bins and zero normal scale are explicit non-estimability, never model failure.
+RCI=[start,end], including point events. EEI=(end,effect_end], absent if no effect endpoint. Pre-RCI and recovery windows are300 native seconds, excluding all labeled event support; recovery right-censored at trace end. Shared event times are excluded from unique attribution and counted. Coverage uses the epoch-zero native1s grid, including absent timestamps; off-grid score timestamps are rejected. Overlap exclusions count expected native instants even if unobserved, with observed overlap counts reported separately. No observed root alarm with incomplete RCI evidence is N/A, not false. Score absence, future availability, native missing times, mixed-phase sampled bins and zero normal scale are explicit non-estimability, never model failure.
 
 | Metric | Fixed definition |
 |---|---|
 | Root-Cause Capture | Any eligible causal raw score strictly above normal-only threshold during RCI; report eligible support, normal FPR and duration-matched normal false-alarm capture alongside |
-| Effect-Only Detection | Eligible RCI scores exist, none alarm; eligible EEI alarm exists. Missing RCI/EEI -> N/A |
+| Effect-Only Detection | Complete eligible native RCI evidence, none alarm; eligible EEI alarm exists. Incomplete RCI or missing EEI -> N/A |
 | Detection Delay | First causal event alarm minus RCI start only with full native event support/no ambiguous overlap; first observed partial alarm stored separately |
 | RCI-vs-EEI contrast | (median RCI − median EEI) / heldout normal calibration IQR; zero IQR -> N/A |
 | Pre-RCI contrast | (median RCI − median pre-RCI normal) / same fixed scale |

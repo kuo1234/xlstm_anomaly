@@ -44,15 +44,20 @@ def event_summary(timestamps,scores,available_at,start,end,effect_end,threshold,
     t=np.asarray(timestamps,dtype=float);s=np.asarray(scores,dtype=float);a=np.asarray(available_at,dtype=float)
     if t.ndim!=1 or t.shape!=s.shape or t.shape!=a.shape or not len(t) or np.any(np.diff(t)<=0) or not np.isfinite(t).all():
         raise ValueError('unique increasing timestamps and matching score/availability arrays required')
-    if not np.isfinite(threshold) or not np.isfinite(normal_iqr) or normal_iqr<=0 or cadence<=0:
+    if not np.isfinite(threshold) or not np.isfinite(normal_iqr) or normal_iqr<=0 or not np.isfinite(cadence) or cadence<=0:
         raise ValueError('normal-only threshold, positive fixed scale/cadence required')
+    # The expected grid is anchored at epoch zero. Extra off-grid samples must
+    # never compensate for missing native timestamps; use absolute tolerance
+    # because a relative tolerance would accept fractions at Unix-time scale.
+    if not np.isclose(t/cadence,np.rint(t/cadence),rtol=0,atol=1e-6).all():
+        raise ValueError('timestamps must lie on the epoch-zero native cadence grid')
     r,e,pre,post=phase_masks(t,start,end,effect_end,context_seconds)
     original_r=r.copy();original_e=e.copy();overlap=np.zeros(len(t),bool)
     for lo,hi in other_ranges:overlap|=(t>=lo)&(t<=hi)
     r&=~overlap;e&=~overlap;pre&=~overlap;post&=~overlap
     valid=np.isfinite(s)&np.isfinite(a)&(a<=t)
-    result={'point_rci':bool(start==end),'overlap_excluded_rci_count':int((original_r&overlap).sum()),
-            'overlap_excluded_eei_count':int((original_e&overlap).sum()),
+    result={'point_rci':bool(start==end),'overlap_observed_rci_count':int((original_r&overlap).sum()),
+            'overlap_observed_eei_count':int((original_e&overlap).sum()),
             'future_unavailable_score_count':int((np.isfinite(s)&np.isfinite(a)&(a>t)).sum())}
     for name,mask in [('rci',r),('eei',e),('pre_rci',pre),('recovery',post)]:
         result.update({name+'_'+k:v for k,v in _continuity(t,s,mask,valid,threshold,normal_iqr,cadence).items()})
@@ -65,6 +70,8 @@ def event_summary(timestamps,scores,available_at,start,end,effect_end,threshold,
     masks=phase_masks(grid,start,end,effect_end,context_seconds)
     grid_overlap=np.zeros(len(grid),bool)
     for lo,hi in other_ranges:grid_overlap|=(grid>=lo)&(grid<=hi)
+    result['overlap_excluded_rci_count']=int((masks[0]&grid_overlap).sum())
+    result['overlap_excluded_eei_count']=int((masks[1]&grid_overlap).sum())
     for name,mask in zip(['rci','eei','pre_rci','recovery'],masks):
         expected=int((mask&~grid_overlap).sum())
         result[name+'_expected_native_score_count']=expected

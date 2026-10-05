@@ -63,5 +63,23 @@ class LifecycleTests(unittest.TestCase):
         self.assertIsNone(v['effect_only_detection']);self.assertIsNone(v['detection_delay_seconds'])
         self.assertEqual(v['first_observed_alarm_delay_seconds'],3)
 
+    def test_absent_overlapping_native_instant_censors_delay(self):
+        t=[0,1,2,4,5,6]
+        v=event_summary(t,[0,0,0,0,10,10],t,2,4,6,5,1,other_ranges=[(3,3)])
+        self.assertEqual(v['overlap_excluded_rci_count'],1)
+        self.assertEqual(v['overlap_observed_rci_count'],0)
+        self.assertEqual(v['first_observed_alarm_delay_seconds'],3)
+        self.assertIsNone(v['detection_delay_seconds'])
+
+    def test_off_grid_timestamp_cannot_replace_missing_native_instant(self):
+        t=[0,1,2,2.5,4,5,6]
+        with self.assertRaisesRegex(ValueError,'native cadence grid'):
+            event_summary(t,[0,0,0,0,0,10,10],t,2,4,6,5,1)
+
+    def test_epoch_off_grid_timestamp_is_rejected(self):
+        t=np.array([0,1,2,2.5,4,5,6])+1528853422
+        with self.assertRaisesRegex(ValueError,'native cadence grid'):
+            event_summary(t,[0,0,0,0,0,10,10],t,t[2],t[4],t[6],5,1)
+
 
 if __name__=='__main__':unittest.main()

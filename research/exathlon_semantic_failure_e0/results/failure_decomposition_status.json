@@ -1,0 +1,114 @@
+[
+  {
+    "conditional_candidate": "native_AE",
+    "analysis": "F1_RCI_EEI",
+    "status": "NOT_MEASURED_NO_ADMISSIBLE_SCORE_BUNDLE",
+    "metric_value": null,
+    "trained": false
+  },
+  {
+    "conditional_candidate": "native_AE",
+    "analysis": "F2_fragmentation",
+    "status": "NOT_MEASURED_NO_ADMISSIBLE_SCORE_BUNDLE",
+    "metric_value": null,
+    "trained": false
+  },
+  {
+    "conditional_candidate": "native_AE",
+    "analysis": "F3_calibration",
+    "status": "NOT_MEASURED_NO_ADMISSIBLE_SCORE_BUNDLE",
+    "metric_value": null,
+    "trained": false
+  },
+  {
+    "conditional_candidate": "native_AE",
+    "analysis": "F4_type_context",
+    "status": "NOT_MEASURED_NO_ADMISSIBLE_SCORE_BUNDLE",
+    "metric_value": null,
+    "trained": false
+  },
+  {
+    "conditional_candidate": "native_LSTM",
+    "analysis": "F1_RCI_EEI",
+    "status": "NOT_MEASURED_NO_ADMISSIBLE_SCORE_BUNDLE",
+    "metric_value": null,
+    "trained": false
+  },
+  {
+    "conditional_candidate": "native_LSTM",
+    "analysis": "F2_fragmentation",
+    "status": "NOT_MEASURED_NO_ADMISSIBLE_SCORE_BUNDLE",
+    "metric_value": null,
+    "trained": false
+  },
+  {
+    "conditional_candidate": "native_LSTM",
+    "analysis": "F3_calibration",
+    "status": "NOT_MEASURED_NO_ADMISSIBLE_SCORE_BUNDLE",
+    "metric_value": null,
+    "trained": false
+  },
+  {
+    "conditional_candidate": "native_LSTM",
+    "analysis": "F4_type_context",
+    "status": "NOT_MEASURED_NO_ADMISSIBLE_SCORE_BUNDLE",
+    "metric_value": null,
+    "trained": false
+  },
+  {
+    "conditional_candidate": "DIVAD_PCA",
+    "analysis": "F1_RCI_EEI",
+    "status": "NOT_MEASURED_NO_ADMISSIBLE_SCORE_BUNDLE",
+    "metric_value": null,
+    "trained": false
+  },
+  {
+    "conditional_candidate": "DIVAD_PCA",
+    "analysis": "F2_fragmentation",
+    "status": "NOT_MEASURED_NO_ADMISSIBLE_SCORE_BUNDLE",
+    "metric_value": null,
+    "trained": false
+  },
+  {
+    "conditional_candidate": "DIVAD_PCA",
+    "analysis": "F3_calibration",
+    "status": "NOT_MEASURED_NO_ADMISSIBLE_SCORE_BUNDLE",
+    "metric_value": null,
+    "trained": false
+  },
+  {
+    "conditional_candidate": "DIVAD_PCA",
+    "analysis": "F4_type_context",
+    "status": "NOT_MEASURED_NO_ADMISSIBLE_SCORE_BUNDLE",
+    "metric_value": null,
+    "trained": false
+  },
+  {
+    "conditional_candidate": "DIVAD_TranAD",
+    "analysis": "F1_RCI_EEI",
+    "status": "NOT_MEASURED_NO_ADMISSIBLE_SCORE_BUNDLE",
+    "metric_value": null,
+    "trained": false
+  },
+  {
+    "conditional_candidate": "DIVAD_TranAD",
+    "analysis": "F2_fragmentation",
+    "status": "NOT_MEASURED_NO_ADMISSIBLE_SCORE_BUNDLE",
+    "metric_value": null,
+    "trained": false
+  },
+  {
+    "conditional_candidate": "DIVAD_TranAD",
+    "analysis": "F3_calibration",
+    "status": "NOT_MEASURED_NO_ADMISSIBLE_SCORE_BUNDLE",
+    "metric_value": null,
+    "trained": false
+  },
+  {
+    "conditional_candidate": "DIVAD_TranAD",
+    "analysis": "F4_type_context",
+    "status": "NOT_MEASURED_NO_ADMISSIBLE_SCORE_BUNDLE",
+    "metric_value": null,
+    "trained": false
+  }
+]

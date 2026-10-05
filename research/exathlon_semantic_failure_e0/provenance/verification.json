@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-06",
+  "mode": "final",
+  "status": "PASS",
+  "main_source_sha256_checks": 250,
+  "prior_art_sha256_checks": 70,
+  "deterministic_replay": true,
+  "replay_commands": [
+    {
+      "argv": [
+        "audit_data.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"events\": 109,\n  \"trace_files\": 93,\n  \"undisturbed_runs\": 59,\n  \"disturbed_runs\": 34,\n  \"point_rci_events\": 19,\n  \"missing_eei_events\": 28,\n  \"overlap_pairs\": 2,\n  \"strict_overlap_pairs\": 0,\n  \"source_ground_truth_sha256\": \"9ddb86e96efb029b2530d4ef620fff5fa44a5d678ed1f8db955677f727e9453d\",\n  \"raw_inspected_traces\": 7,\n  \"raw_inspected_events\": 9,\n  \"metadata_only_traces\": 86,\n  \"all_native_features_verified\": false,\n  \"score_vectors_available\": false,\n  \"metadata_module_executed\": \"DIVAD declarative Spark metadata only; no model import\",\n  \"context_support_is_documented_not_reverified\": true,\n  \"orphan_executor_metadata_keys\": [\n    \"5_5_1500000_92\"\n  ]\n}",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "readout_trace.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"fixture\": \"constant arbitrary window scores=1; no data/model/labels/threshold used\",\n  \"n\": 100,\n  \"window\": 40,\n  \"cadence_seconds\": 1,\n  \"max_future_window_availability_lag_seconds\": 39,\n  \"targets_with_later_window_information\": 99,\n  \"last_readout_with_constant_input\": 0.025,\n  \"tail_expected_if_count_normalized\": 1.0,\n  \"scope\": \"actual inspected readout body only; not release-score reproduction or artifact dominance\"\n}",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "reports.py",
+        "--final"
+      ],
+      "exit_code": 0,
+      "stdout": "final reports",
+      "stderr": ""
+    }
+  ],
+  "test_exit_code": 0,
+  "test_output": "test_absent_overlapping_native_instant_censors_delay (__main__.LifecycleTests.test_absent_overlapping_native_instant_censors_delay) ... ok\ntest_actual_native_ae_readout_latency_and_tail (__main__.LifecycleTests.test_actual_native_ae_readout_latency_and_tail) ... ok\ntest_closed_rci_and_disjoint_eei (__main__.LifecycleTests.test_closed_rci_and_disjoint_eei) ... ok\ntest_effect_only_alarm_and_delay (__main__.LifecycleTests.test_effect_only_alarm_and_delay) ... ok\ntest_epoch_off_grid_timestamp_is_rejected (__main__.LifecycleTests.test_epoch_off_grid_timestamp_is_rejected) ... ok\ntest_fragmentation_not_bridged_across_missing_scores (__main__.LifecycleTests.test_fragmentation_not_bridged_across_missing_scores) ... ok\ntest_future_available_scores_and_missing_eei (__main__.LifecycleTests.test_future_available_scores_and_missing_eei) ... ok\ntest_missing_native_time_cannot_establish_no_root_capture (__main__.LifecycleTests.test_missing_native_time_cannot_establish_no_root_capture) ... ok\ntest_missing_score_censors_first_alarm_delay (__main__.LifecycleTests.test_missing_score_censors_first_alarm_delay) ... ok\ntest_off_grid_timestamp_cannot_replace_missing_native_instant (__main__.LifecycleTests.test_off_grid_timestamp_cannot_replace_missing_native_instant) ... ok\ntest_overlap_exclusion_and_censored_recovery (__main__.LifecycleTests.test_overlap_exclusion_and_censored_recovery) ... ok\ntest_point_rci_missing_is_not_effect_only_detection (__main__.LifecycleTests.test_point_rci_missing_is_not_effect_only_detection) ... ok\ntest_threshold_refuses_anomalous_calibration_labels (__main__.LifecycleTests.test_threshold_refuses_anomalous_calibration_labels) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 0.051s\n\nOK\n",
+  "independent_stdlib_type_counts": {
+    "bursty_input": 29,
+    "bursty_input_crash": 7,
+    "cpu_contention": 26,
+    "driver_failure": 9,
+    "executor_failure": 10,
+    "stalled_input": 16,
+    "unknown": 12
+  },
+  "independent_missing_EEI": 28,
+  "independent_point_RCI": 19,
+  "local_links_checked": 16,
+  "artifact_sha256": {
+    "CALIBRATION_ANALYSIS.md": "e2bd71791fe964346a2de347bb46a6cff9018d9ac5a204b7ff56736508f98ee6",
+    "DATA_GROUND_TRUTH_AUDIT.md": "b54b8e60f24c73fa196e353456e93d8c96b46432c6dd0e846423dd39c82de24e",
+    "FAILURE_METRICS.md": "9ad30ebde7a99f1f361578d8df61313cab944192ce1747f46575e3ee4f8f6b20",
+    "FINAL_GATE.md": "8d24b449608ce319ab366a3be76ee75fe7a7efd37026487dd90c01a464a851b0",
+    "FRAGMENTATION_ANALYSIS.md": "133ca020ff04bb05835264747987932c7e4805ff671dfef40fcdfb55e06d81e6",
+    "PLAN.md": "e6e6661666580dba8be4a8489c50ccc2f377b51158be10564723aec2bcf887af",
+    "PRIOR_ART_OVERLAP.md": "f39e4754df0d1008460b91fbb84e9017d9d2a7e14da66db76b9f58b20cb630a8",
+    "README.md": "050454258eea484b901972e7f61a95116733c86fa553bee2587567a1a02219e9",
+    "ROOT_CAUSE_EFFECT_ANALYSIS.md": "e73d575fcf9fa3440b1a8d969296a273e096189259fe4c061527146ef776e962",
+    "SCORE_ARTIFACT_INVENTORY.md": "87d9a2bf3402ca880921749558aff37d7077dff87f146617c81c3b67dfc22c54",
+    "TYPE_APP_CONTEXT_COVERAGE.md": "dc1124af623cfc03d262357c488c4b537b4761f792466c41c83b823473fe9d1d",
+    "results/artifact_tree_inventory.json": "db6dc5b79511124e00ee91062ce7b4f6061a61007dc886dffeaefd21abe1b637",
+    "results/event_coverage.csv": "0730c7de3e4c92c1933bc21fad8eb7d6b1b66652fb73b8e3014e27d18950038c",
+    "results/event_overlap.csv": "cd939a74f95babd58e807e5b5796840fb0ba09000e425bbae3b280534582c899",
+    "results/failure_decomposition_status.json": "681cc0cf98f3c7eb70d0736120f8e82db374dedd1cb0b88a66326f520ab0be40",
+    "results/final_gate.json": "9aee2243d4cd6095892b62b0ff9088d48963523d7e4a7520382993dde062fb2b",
+    "results/native_readout_trace.json": "82960eef027a80e9ef7ad7e8b1eb04789a05ee35987c88c676e52eff6784a8f5",
+    "results/normal_raw_feature_variation.csv": "c0b2b96c97da7fac7e5aca909cd960b349b881532c6706fc35fab5584786fa71",
+    "results/normal_trace_support.csv": "b960135f42e5add920a5e40d400408e122593de2636b50cc249648f0c13e0364",
+    "results/phase_bin_support.csv": "e19f444105c80ac192944699cc20e5e2c3648942b0a1815e5c06c2074ec22af7",
+    "results/raw_event_timestamp_support.csv": "bb90609d3ae3bd2da95805d60e399ba2e98d7b8c045d7a4ba9d98604ba36b8a8",
+    "results/raw_sample_audit.csv": "7f1dc55c442516754bc2da32a40bf8abfb52cbcbafc1c0d4777bb3e9b40e198c",
+    "results/shared_start_candidates.csv": "eeb1a4041d0631d6b8dc59772129d0d36ea0515e24ce9dddcad1fe0d81afaac1",
+    "results/source_status.json": "3e9c44ff38b7cda74900a1926343c3ad42be9ca3bc6e097e9f5b4c804eba6c56",
+    "results/trace_context_inventory.csv": "d04815192a0d778a27de1a66dc5719470b8513708a12de644d0d9348934148de",
+    "results/type_app_context_coverage.csv": "c87a846a38eeb9df3e6bbe8f0ebe15825191c33d3f94943c516a0bba5caa329d",
+    "results/type_summary.csv": "1d9c881773eaa07052c4d1418b3501b2c72395bb7721c1cff83135e4a7355fd9"
+  },
+  "detector_training_runs": 0,
+  "detector_inference_runs": 0,
+  "historical_scope": "no existing P4/P5/M0-S/D0 files changed; tracked scope checked separately",
+  "limitations": [
+    "109 GT rows and93 archive identities; raw inspection7 traces/9 events only",
+    "No scientific detector performance or baseline parity verified",
+    "No causal training/normal-calibration execution seal",
+    "Bounded public output/literature search; unavailable external/private artifacts remain unknown"
+  ]
+}

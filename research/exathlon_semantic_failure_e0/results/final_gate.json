@@ -1,0 +1,14 @@
+{
+  "verdict": "DATA_OR_ARTIFACT_INSUFFICIENT",
+  "method_design_GO": false,
+  "detector_models_run": 0,
+  "detector_training_runs": 0,
+  "RCI_EEI_failure_measured": false,
+  "calibration_dominance_measured": false,
+  "fragmentation_dominance_measured": false,
+  "no_actionable_failure_claimed": false,
+  "bounded_rerun_needed": true,
+  "bounded_rerun_executed": false,
+  "reason": "No admissible per-trace causal score/split/checkpoint bundle; native preprocessing/readout and context support cannot be bypassed with guessed substitutions",
+  "STOP_for_reviewer": true
+}

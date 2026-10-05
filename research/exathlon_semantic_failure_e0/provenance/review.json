@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-06",
+  "reviewer": "independent read-only e0_review",
+  "base_commit": "f4ee55623798fe0549af1cf3a4c32ad9af113736",
+  "freeze_commit": "9971abb2e8d642c8847ce4ad7444781d1faf3851",
+  "critical_findings": [],
+  "important_findings": [
+    {
+      "id": "R1",
+      "finding": "Unobserved native overlap instant did not censor delay",
+      "root_severity": "Important",
+      "resolution": "Count overlap on expected native grid, retain separate observed counts, censor ambiguous delay",
+      "regression": "test_absent_overlapping_native_instant_censors_delay",
+      "status": "FIXED_RED_THEN_GREEN"
+    },
+    {
+      "id": "R2",
+      "finding": "Off-grid sample could replace missing native timestamp in completeness counts",
+      "root_severity": "Important",
+      "resolution": "Reject off-grid timestamp arrays with absolute tolerance and zero relative tolerance, including Unix epoch fixtures",
+      "regressions": [
+        "test_off_grid_timestamp_cannot_replace_missing_native_instant",
+        "test_epoch_off_grid_timestamp_is_rejected"
+      ],
+      "status": "FIXED_RED_THEN_GREEN"
+    }
+  ],
+  "fix_passes": 1,
+  "tests_before_fix": "13 run; three new tests failed;10 existing passed",
+  "tests_after_fix": "13 run; all passed",
+  "reviewer_independent_checks": [
+    "250 main source hashes and70 prior-art hashes",
+    "10 pre-fix existing tests",
+    "109 events/19 point RCIs/28 absent EEIs",
+    "native AE source readout",
+    "no historical tracked file changes"
+  ],
+  "scope_ruling": "DATA_OR_ARTIFACT_INSUFFICIENT is allowed and truthful. Conditional rerun permission is not an obligation to execute an unsealed experiment. Missing manifest/dependencies do not imply impossibility or prohibition; preparing a bounded execution seal remains potential follow-up work.",
+  "declined_to_judge": [
+    {
+      "topic": "Actual detector performance, threshold validity, native runtime parity",
+      "root_ruling": "NOT_MEASURED; no executed models/admissible scores; no scientific performance or parity claim"
+    },
+    {
+      "topic": "Full raw-feature quality and unsampled timestamps",
+      "root_ruling": "UNKNOWN beyond seven archives and selected timestamp/feature inspection; retain scope limits"
+    },
+    {
+      "topic": "Exhaustive prior-art absence",
+      "root_ruling": "UNKNOWN globally; bounded search only, no novelty claim"
+    },
+    {
+      "topic": "Final synchronization",
+      "root_ruling": "Will be verified with remote SHA after final commit; not asserted by reviewer"
+    }
+  ],
+  "deferred_minor_findings": [],
+  "detector_training_runs": 0,
+  "detector_inference_runs": 0
+}

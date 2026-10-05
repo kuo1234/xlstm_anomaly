@@ -1,0 +1,7 @@
+{
+  "commit_A": "9971abb2e8d642c8847ce4ad7444781d1faf3851",
+  "remote_sha_verified": "9971abb2e8d642c8847ce4ad7444781d1faf3851",
+  "branch": "codex/issue-25-exathlon-semantic-e0",
+  "no_detector_training_before_freeze": true,
+  "freeze_kind": "audit/metric only; not complete training execution seal"
+}

@@ -37,7 +37,7 @@
   },
   "F1": {
     "root_cause_capture": "any score>normal-only threshold at eligible RCI timestamp; report event-length false-alarm reference and raw separation alongside; no observed alarm with incomplete RCI support -> N/A, not false",
-    "effect_only_detection": "RCI has eligible score(s), none alarm, EEI has eligible alarm(s); otherwise N/A",
+    "effect_only_detection": "complete eligible native RCI evidence, none alarm, EEI has eligible alarm(s); incomplete RCI or missing EEI -> N/A",
     "delay_seconds": "first causal event alarm minus rootstart only with complete event support/no ambiguous overlap; otherwise N/A, first observed alarm delay kept separately as partial evidence",
     "score_contrast": "(median_RCI-median_EEI)/normal_calibration_IQR; zero IQR -> N/A DEGENERATE_NORMAL_SCALE",
     "separation": "phase median versus pre-RCI median and heldout normal quantiles; no score-positive-only ratio"
@@ -106,5 +106,13 @@
     "original_dependencies": "README Python3.7; tensorflow2.7.0,numpy1.19.5",
     "divad_dependencies": "README Python3.9.19; tensorflow2.14.0,torch1.13.1,numpy1.26.4; DeepOD unpinned Git",
     "status": "no native runtime prepared or run; not an impossibility proof"
+  },
+  "post_freeze_contract_clarification": {
+    "date": "2026-10-06",
+    "freeze_commit": "9971abb2e8d642c8847ce4ad7444781d1faf3851",
+    "reason": "Independent review fixes to enforce existing native-grid completeness and unambiguous delay definitions; no detector results read or computed",
+    "timestamp_grid": "epoch-zero cadence1s; off-grid score timestamps rejected",
+    "overlap_counts": "expected native-grid exclusions include unobserved shared instants; observed exclusions separate",
+    "detector_results_before_or_after": false
   }
 }
