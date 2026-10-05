@@ -1,0 +1,189 @@
+{
+  "audit_date": "2026-10-05",
+  "scope": "Issue #22 M0-E architecture/dataset fitness audit only",
+  "no_model_execution": true,
+  "no_model_result_csv_inspection": true,
+  "allowed_metadata_exception": "StrAD results/benchmark_eval_results/CD.csv",
+  "sources": [
+    {
+      "id": "strad_cd",
+      "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/results/benchmark_eval_results/CD.csv",
+      "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+      "current_verification": "GET succeeded; 18579 bytes; exactly equal to local historical CD.csv",
+      "sha256": "e109da612a90ce3d7b2fcdf51f1a0982358b889ad38f49e85d5049ba0d2eef5c",
+      "fields": [
+        "file",
+        "jsd",
+        "jsd_mean",
+        "CD",
+        "type",
+        "CD_rate"
+      ],
+      "total_rows": 180,
+      "CD_1_rows": 75,
+      "nonexclusive_tags": {
+        "continuous": 45,
+        "change_point": 53,
+        "periodic": 8,
+        "random_walk": 41
+      },
+      "evidence": "Series-level drift membership and tags only; no timestamp-level recovery truth."
+    },
+    {
+      "id": "strad_readme",
+      "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/README.md",
+      "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+      "current_verification": "GET succeeded; 10596 bytes",
+      "sha256": "97b5e5bea970baa80dd61a173dc3e81e77d3e4ca2ad22f5cbb789946b92993ac",
+      "sections": [
+        "TSB-drift",
+        "Benchmark Composition",
+        "Get Started label extraction"
+      ],
+      "evidence": "Documented batch JSD ranking; 75-series description; separate Label column. Qualitative findings not used as evidence; no benchmark metric values inspected."
+    },
+    {
+      "id": "strad_jsd_code",
+      "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/TSB-drift/jsd_drift.py",
+      "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+      "current_verification": "GET succeeded; source inspection only; not executed",
+      "sha256": "0e016d22bb4fc506644bae2f2b0287c81bd302b87738344570f08be9c10bf26a",
+      "symbols": [
+        "make_batches_index",
+        "compute_kl_matrices",
+        "jsd_matrix_from_probs",
+        "aggregate_feature_matrices"
+      ],
+      "evidence": "Per-feature marginal histograms and inter-batch divergence; no ground-truth benign-shift/recovery semantics."
+    },
+    {
+      "id": "strad_tree",
+      "url": "https://api.github.com/repos/magaliparrino/StrAD/git/trees/7078876bbd9398481a65c22b7689702ce9e0d558?recursive=1",
+      "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+      "current_verification": "GET succeeded; only TSB-drift path names reported",
+      "evidence": "One MSL example and synthetic examples; analysis/matrix/heatmap values not inspected."
+    },
+    {
+      "id": "tsb_dataset_readme",
+      "url": "https://raw.githubusercontent.com/TheDatumOrg/TSB-AD/6beac72e11d1155ade40870492c00d0d1cfdcaaf/Datasets/README.md",
+      "commit": "6beac72e11d1155ade40870492c00d0d1cfdcaaf",
+      "current_verification": "GET succeeded; 974 bytes",
+      "sha256": "ccd718505d33de6e0aa222282b0c9bc4a583a51da02ff23321ffa000554148c2",
+      "evidence": "Public archive link, U/M distinction and released filename/cutoff convention; not proof of native trace identity."
+    },
+    {
+      "id": "tsb_archive",
+      "url": "https://www.thedatum.org/datasets/TSB-AD-M.zip",
+      "commit": null,
+      "current_verification": "Standard urllib HTTP HEAD returned 403 Forbidden; full GET not attempted; archive absent at data/phase_a/TSB-AD-M.zip in this worktree",
+      "current_sha256": null,
+      "historical_sha256": "7de86ac27f30eeb48d833bb061055670e3f3de07defd995cf2bd5db10ccc9a0d",
+      "historical_bytes": 540383983,
+      "historical_evidence": "reports/phase_a/downloads.json; reports/phase_a/README.md; reports/phase_a_v4/README.md",
+      "limits": "Historical byte/numeric verification is not repeated here. HEAD denial does not prove all downloads fail. Mutable URL snapshot identity to StrAD author experiments unknown."
+    },
+    {
+      "id": "ghl_origin",
+      "url": "https://arxiv.org/abs/1612.06676v2",
+      "version": "v2",
+      "current_verification": "Original paper abstract rechecked through web source",
+      "evidence": "Modelica simulation of gasoil plant; no paper performance values read."
+    },
+    {
+      "id": "catsv2_origin",
+      "url": "https://zenodo.org/records/8338435",
+      "version": "2",
+      "current_verification": "Creator description rechecked through web source",
+      "evidence": "Simulated complex dynamical system with injected anomalies; no data download."
+    }
+  ],
+  "local_evidence": [
+    {
+      "path": "reports/phase_a/README.md",
+      "sha256": "7adec8b2ebfab9b2f07cfd72a81620dddcc882f786d962fc4cbbe4987e8be1b8",
+      "verification": "Current local artifact hash only; raw dataset verification remains historical"
+    },
+    {
+      "path": "reports/phase_a/downloads.json",
+      "sha256": "7a3b0e1d7b6b51ca2dbe7314e73ff6ffed1e2642e7f9461643b32c5bdd6f197b",
+      "verification": "Current local artifact hash only; raw dataset verification remains historical"
+    },
+    {
+      "path": "reports/phase_a/CD.csv",
+      "sha256": "e109da612a90ce3d7b2fcdf51f1a0982358b889ad38f49e85d5049ba0d2eef5c",
+      "verification": "Current local artifact hash only; raw dataset verification remains historical"
+    },
+    {
+      "path": "reports/phase_a_v4/candidate_inventory.json",
+      "sha256": "45f315fe8cc0ffe47945b22942ddb537eee1c3ce6e3e21f17804e06101874b55",
+      "verification": "Current local artifact hash only; raw dataset verification remains historical"
+    },
+    {
+      "path": "reports/phase_a_v4/manifest.json",
+      "sha256": "b86ab8cb61474fd1ea801086d6bd05de8bf69d60987676d92c65eb903bc5fb12",
+      "verification": "Current local artifact hash only; raw dataset verification remains historical"
+    },
+    {
+      "path": "reports/phase_a_v4/selection_summary.json",
+      "sha256": "ba5ee684a6c5679a9e50de5a5adcf49f100b1ab9ab402f5c191ecbbd08890a83",
+      "verification": "Current local artifact hash only; raw dataset verification remains historical"
+    },
+    {
+      "path": "reports/m0_protocol.md",
+      "sha256": "59250d1ea7acb5e91c86fda179ecb951a93c965a7ac986369d9cee45ace10950",
+      "verification": "Current local artifact hash only; raw dataset verification remains historical"
+    },
+    {
+      "path": "reports/m0_amendment_v4.md",
+      "sha256": "aa2bcc3b312aee491cf50f7baeab33a5e32b8a07e200e85fe4444f630ab9c278",
+      "verification": "Current local artifact hash only; raw dataset verification remains historical"
+    },
+    {
+      "path": "reports/m0_v3_source_correction.md",
+      "sha256": "f5b9a2b36747a0bc85b3e3e275e251a010656852806ea6c1ecde42f798f75b01",
+      "verification": "Current local artifact hash only; raw dataset verification remains historical"
+    }
+  ],
+  "historical_inventory_recalculated_now": {
+    "series": 75,
+    "D_min": 3,
+    "D_max": 248,
+    "finite": 75,
+    "binary_labels": 75,
+    "numeric_prefix_pass": 65,
+    "eligible_final_v4": 37,
+    "native_unresolved": 60,
+    "released_families": {
+      "MSL": 1,
+      "Daphnet": 1,
+      "GHL": 23,
+      "SMD": 15,
+      "LTDB": 1,
+      "TAO": 8,
+      "OPPORTUNITY": 7,
+      "CreditCard": 1,
+      "CATSv2": 5,
+      "SMAP": 5,
+      "SWaT": 2,
+      "GECCO": 1,
+      "Exathlon": 5
+    },
+    "nonexclusive_exclusions": {
+      "synthetic_source_excluded_by_protocol": 28,
+      "contaminated_original_training_prefix": 10
+    }
+  },
+  "decision": {
+    "status": "REFRAME",
+    "real_role": "auxiliary released-series anomaly stress testing",
+    "exact_real_shift_recovery_metric": "N/A without independently frozen annotations",
+    "synthetic_requirement": "Controlled causal staleness/reset test needs known evaluator-only legitimate regimes and anomaly truth under currently verified evidence",
+    "execution_authorization": "none from this audit"
+  },
+  "blockers": [
+    "current all-75 raw byte availability not reverified",
+    "independent legitimate transition and recovery boundary annotations not established",
+    "60 of 75 native mappings unresolved in historical audit",
+    "approved state-isolating future experiment protocol and applicable research gates"
+  ]
+}

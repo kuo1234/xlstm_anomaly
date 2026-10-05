@@ -1,0 +1,209 @@
+{
+  "date": "2026-10-05",
+  "scope": "random_input_API_probe_not_performance",
+  "seed": 22,
+  "shape": [
+    2,
+    23,
+    8
+  ],
+  "embedding": 40,
+  "context_length": 64,
+  "nonzero_recurrent_fixture": true,
+  "backend": "vanilla_cpu_float32",
+  "atol": 1e-05,
+  "rtol": 0.0001,
+  "python": "3.14.6 (main, Jul 24 2026, 21:05:21) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "versions": {
+    "torch": "2.9.0",
+    "xlstm": "2.0.5",
+    "lightning": "2.6.1",
+    "numpy": "2.5.3"
+  },
+  "elapsed_seconds": 0.22175029100617394,
+  "checks": {
+    "native_forward_vs_recurrent_output": {
+      "pass_": true,
+      "max_abs": 3.129243850708008e-07,
+      "exact": false
+    },
+    "recurrent_vs_chunked_output": {
+      "pass_": true,
+      "max_abs": 0.0,
+      "exact": true
+    },
+    "recurrent_vs_chunked_final_state": {
+      "pass_": true,
+      "max_abs": 0.0,
+      "exact": true
+    },
+    "serialized_restore_output": {
+      "pass_": true,
+      "max_abs": 0.0,
+      "exact": true
+    },
+    "serialized_restore_final_state": {
+      "pass_": true,
+      "max_abs": 0.0,
+      "exact": true
+    },
+    "deep_snapshot_immutable": {
+      "pass_": true
+    },
+    "live_state_mutates_negative_control": {
+      "pass_": true
+    },
+    "whole_reset_equals_native_fresh_output": {
+      "pass_": true,
+      "max_abs": 4.172325134277344e-07,
+      "exact": false
+    },
+    "conv_only_history_negative_control": {
+      "pass_": true,
+      "max_abs": 0.10981784760951996
+    },
+    "native_future_prefix_invariance": {
+      "pass_": true,
+      "max_abs": 0.0,
+      "exact": true
+    },
+    "recurrent_future_prefix_invariance": {
+      "pass_": true,
+      "max_abs": 0.0,
+      "exact": true
+    },
+    "batch_permutation": {
+      "pass_": true,
+      "max_abs": 0.0,
+      "exact": true
+    },
+    "batch_partition": {
+      "pass_": true,
+      "max_abs": 3.2782554626464844e-07,
+      "exact": false
+    },
+    "new_stream_no_prior_history": {
+      "pass_": true,
+      "max_abs": 2.905726432800293e-07,
+      "exact": false
+    },
+    "score_before_action_equal": {
+      "pass_": true,
+      "max_abs": 0.0,
+      "exact": true
+    },
+    "action_changes_only_later_output": {
+      "pass_": true
+    },
+    "all_state_finite": {
+      "pass_": true
+    },
+    "parameters_and_registered_buffers_unchanged": {
+      "pass_": true
+    },
+    "rng_unchanged_during_eval": {
+      "pass_": true
+    }
+  },
+  "state_shapes": {
+    "/encoder/block_0/conv_state/0": [
+      2,
+      4,
+      40
+    ],
+    "/encoder/block_0/slstm_state": [
+      4,
+      2,
+      40
+    ],
+    "/encoder/block_1/conv_state/0": [
+      2,
+      4,
+      40
+    ],
+    "/encoder/block_1/slstm_state": [
+      4,
+      2,
+      40
+    ],
+    "/encoder/block_2/mlstm_state/0": [
+      2,
+      4,
+      20,
+      20
+    ],
+    "/encoder/block_2/mlstm_state/1": [
+      2,
+      4,
+      20,
+      1
+    ],
+    "/encoder/block_2/mlstm_state/2": [
+      2,
+      4,
+      1,
+      1
+    ],
+    "/encoder/block_2/conv_state/0": [
+      2,
+      8,
+      80
+    ],
+    "/decoder/block_0/conv_state/0": [
+      2,
+      4,
+      40
+    ],
+    "/decoder/block_0/slstm_state": [
+      4,
+      2,
+      40
+    ],
+    "/decoder/block_1/conv_state/0": [
+      2,
+      4,
+      40
+    ],
+    "/decoder/block_1/slstm_state": [
+      4,
+      2,
+      40
+    ],
+    "/decoder/block_2/mlstm_state/0": [
+      2,
+      4,
+      20,
+      20
+    ],
+    "/decoder/block_2/mlstm_state/1": [
+      2,
+      4,
+      20,
+      1
+    ],
+    "/decoder/block_2/mlstm_state/2": [
+      2,
+      4,
+      1,
+      1
+    ],
+    "/decoder/block_2/conv_state/0": [
+      2,
+      8,
+      80
+    ]
+  },
+  "parameter_buffer_sha256": "e6c3ab234ea9c23d252292b662ebde50b33b460e04b898d5d798b7fcf5fcd70d",
+  "script_sha256": "3f3cba169afa3cc6599ffb19ba71984104de4fdd585252fb3506497dd4269c3b",
+  "upstream_sha256": "6e0d615e0237413e7d565c181276a455b7c663559b880916ff18b58cc467e49a",
+  "not_tested": [
+    "forecast-trained checkpoint",
+    "long-horizon numerical stability",
+    "CUDA",
+    "optimized chunk kernel",
+    "heterogeneous per-row resets",
+    "performance",
+    "drift observer"
+  ]
+}

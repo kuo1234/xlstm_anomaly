@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-05",
+  "base_commit": "60fd1ce872bb7089068b963d52a0e17f727bfcce",
+  "branch": "codex/issue-22-m0e-stateful-audit",
+  "verification": {
+    "fresh_random_probe": "PASS 19/19; all check results identical to saved record",
+    "script_hash": "PASS",
+    "python_syntax": "PASS",
+    "json_parse": "PASS",
+    "markdown_local_links": "PASS",
+    "historical_source_hash_matches": 40,
+    "installed_xlstm_source_hash_matches": 33,
+    "checkpoint_byte_hash": "4729a3ba385b285078aa987fce176e61fd382715c5357fc92f2635a929a0ae41",
+    "checkpoint_loaded": false,
+    "requirements_A_through_J": "mapped in README; static/prototype evidence and untested gates separated"
+  },
+  "review_limitations": [
+    "Independent literature and dataset audits completed; no completed independent final cross-document review was returned. Integrated review performed by primary agent.",
+    "No scientific performance, forecast checkpoint, long-stream or CUDA verification."
+  ],
+  "artifact_sha256": {
+    "ARCHITECTURE_REALITY_CHECK.md": "e2ed4fcee8fbb4fde5703bfeefe48aa04934b56f3c0acd5062396b619c19279b",
+    "DATASET_FIT.md": "5c91b204b3e779a3b81a9d727492c5f91a3423d8037bbdbf18bb833299258c8a",
+    "PARITY_FEASIBILITY.md": "d1ed88833a876a0d7ffebb8c434598c1f62c28c3818482f33547bdc9c5cdd019",
+    "PRIOR_ART.md": "ed0802d40c6e1d751afb3aa8a002eebcf948f79e68653ff5f93c404e29aff12e",
+    "README.md": "6f394686687f40e04c1ce688f9926155f36ad52252d42b88619bfb696bf66820",
+    "RECOMMENDATION.md": "195ce7c514abc5d9bebdceac30255e3e3519c944a955f2b078fd8e8458f2a4d3",
+    "RED_TEAM.md": "a70393fd00d0f81fa3f2350e4c6f779dacd76c2da6e10ac88e4ba19c5ce2a315",
+    "STATE_BOUNDARY.md": "f6e0999f844434dfcc2c09cf9c0db08ba65a5b840a5d9dd43cd23315f28c69b0",
+    "STREAMING_DESIGN_OPTIONS.md": "3ea82e8a7e564508a015b0b73c7f1ffaa14ccb7182b8e29594b555e15300390b",
+    "optional_minimal_prototypes/state_probe.py": "3f3cba169afa3cc6599ffb19ba71984104de4fdd585252fb3506497dd4269c3b",
+    "provenance/code_sources.json": "e06a9e90866a391b3ae40fca71aed01f6e0905da74ebd7b9b0773d123df452c8",
+    "provenance/dataset_sources.json": "894f21855457ce165e88618af533ccd2a8e0caa5518220bea5e47443c5b3e8ed",
+    "provenance/issue22_scope.json": "35d0e326a00fe542f461a6fda67f6a9d41af1ead30fdb085f408aadf2359b228",
+    "provenance/prior_art_sources.json": "62d976afee49e29c15961574992659d07199e9087b0a8dabdcaf0a9ff147bb2f",
+    "provenance/probe_environment.txt": "79b65edb103edd2c59c2b18b208180a2636a30c12f5b24b4eec441c671fb07ca",
+    "provenance/state_probe.json": "e15eb294075c2dfa6c9c87f3491b6623c60a542ed3464e356e177912aa75fb74"
+  }
+}

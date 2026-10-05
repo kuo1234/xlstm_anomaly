@@ -1,0 +1,291 @@
+{
+  "date": "2026-10-05",
+  "base_commit": "60fd1ce",
+  "sources": [
+    {
+      "path": "data/phase_e2/official_xlstmad/xlstmad.py",
+      "url": "https://raw.githubusercontent.com/Nyderx/xlstmad/e8b56ba27352733bb83729e85b1d6196dca70c99/xlstmad.py",
+      "sha256": "6e0d615e0237413e7d565c181276a455b7c663559b880916ff18b58cc467e49a",
+      "historical_sha256": "6e0d615e0237413e7d565c181276a455b7c663559b880916ff18b58cc467e49a",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/official_xlstmad/dataset.py",
+      "url": "https://raw.githubusercontent.com/Nyderx/xlstmad/e8b56ba27352733bb83729e85b1d6196dca70c99/dataset.py",
+      "sha256": "d98f843651d81254599604a33de1a10e2d7532629726a380dc2393820e494bc6",
+      "historical_sha256": "d98f843651d81254599604a33de1a10e2d7532629726a380dc2393820e494bc6",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e/official_xlstmad/ReadMe.md",
+      "url": "https://raw.githubusercontent.com/Nyderx/xlstmad/3a1b0b5aab747bf6381fa4e5a90d895f06ed2fc6/ReadMe.md",
+      "sha256": "18a50cc3e1d979991d2615d53896c8456c1918cc7e4e9d9462cc7bdf26abfd4c",
+      "historical_sha256": "18a50cc3e1d979991d2615d53896c8456c1918cc7e4e9d9462cc7bdf26abfd4c",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e/official_xlstmad/models/forecast_dataset.py",
+      "url": "https://raw.githubusercontent.com/Nyderx/xlstmad/3a1b0b5aab747bf6381fa4e5a90d895f06ed2fc6/models/forecast_dataset.py",
+      "sha256": "a8cc282631227efdb28dfd427d299c247588fdd42ca4a796e8ac561813ff3aaa",
+      "historical_sha256": "a8cc282631227efdb28dfd427d299c247588fdd42ca4a796e8ac561813ff3aaa",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e/official_xlstmad/models/reconstruct_dataset.py",
+      "url": "https://raw.githubusercontent.com/Nyderx/xlstmad/3a1b0b5aab747bf6381fa4e5a90d895f06ed2fc6/models/reconstruct_dataset.py",
+      "sha256": "34d0fa66e2e5ac379989d9a837a0d24372232652a93f12117a844c242a8736bc",
+      "historical_sha256": "34d0fa66e2e5ac379989d9a837a0d24372232652a93f12117a844c242a8736bc",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e/official_xlstmad/models/xlstmad_pred.py",
+      "url": "https://raw.githubusercontent.com/Nyderx/xlstmad/3a1b0b5aab747bf6381fa4e5a90d895f06ed2fc6/models/xlstmad_pred.py",
+      "sha256": "4f56aa245f734bca2d1aedfeac06657f2a00e04836e0102c4d8ebd585c879d37",
+      "historical_sha256": "4f56aa245f734bca2d1aedfeac06657f2a00e04836e0102c4d8ebd585c879d37",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e/official_xlstmad/models/xlstmad_rec_ad.py",
+      "url": "https://raw.githubusercontent.com/Nyderx/xlstmad/3a1b0b5aab747bf6381fa4e5a90d895f06ed2fc6/models/xlstmad_rec_ad.py",
+      "sha256": "c9f3bd73ef4b9bf2a37b3aee0088ccc943c3ba26c8d33d9bfc83534a5aeaf5a3",
+      "historical_sha256": "c9f3bd73ef4b9bf2a37b3aee0088ccc943c3ba26c8d33d9bfc83534a5aeaf5a3",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/__init__.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "36fd97207beebc8050ade7f17e3f62c29a25afadeee8ca89b26c6ad16ee3ac7a",
+      "historical_sha256": "36fd97207beebc8050ade7f17e3f62c29a25afadeee8ca89b26c6ad16ee3ac7a",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/__init__.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "historical_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/mlstm/__init__.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "historical_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/mlstm/backends.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "6fff15777a4c703db7657ed1a8220e5bb35de03cd179ad15c4154abcfa06521e",
+      "historical_sha256": "6fff15777a4c703db7657ed1a8220e5bb35de03cd179ad15c4154abcfa06521e",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/mlstm/block.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "e3ea407e5444accf288326b3ebcf93b6aea23ac00ccd9dc84e6ec97e10d0d6ea",
+      "historical_sha256": "e3ea407e5444accf288326b3ebcf93b6aea23ac00ccd9dc84e6ec97e10d0d6ea",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/mlstm/cell.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "552df10fa5349d5b56771edfcf2931561d5e734f57d2c46463eb74ce8fa40526",
+      "historical_sha256": "552df10fa5349d5b56771edfcf2931561d5e734f57d2c46463eb74ce8fa40526",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/mlstm/layer.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "c17901e25664f03100d231022e517399a324ce478a818c4b6781bba627ad6625",
+      "historical_sha256": "c17901e25664f03100d231022e517399a324ce478a818c4b6781bba627ad6625",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/__init__.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "historical_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/block.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "1b9a4f154f7e5daa4153151ba75bd62d2503bf8a19854cbe0f29da09778952fb",
+      "historical_sha256": "1b9a4f154f7e5daa4153151ba75bd62d2503bf8a19854cbe0f29da09778952fb",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/cell.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "177b1eaa3cbf9931bd5c07f52534984f251b987c6576bc04621534ab50e3760c",
+      "historical_sha256": "177b1eaa3cbf9931bd5c07f52534984f251b987c6576bc04621534ab50e3760c",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/layer.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "a63ae229ba5d961599cc9ac35ff88550b34a1c4ee7732c1b1d609c43a750ddf6",
+      "historical_sha256": "a63ae229ba5d961599cc9ac35ff88550b34a1c4ee7732c1b1d609c43a750ddf6",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/__init__.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "historical_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/cuda_init.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "c2441dc2f53822898eb2a68081e40a0b47ec346153f71f8c06fcb1f696cf1a9c",
+      "historical_sha256": "c2441dc2f53822898eb2a68081e40a0b47ec346153f71f8c06fcb1f696cf1a9c",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/vanilla/__init__.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "3aead96de1ea14830eea288f56e4570035d99ad91320d559deb33a7843cd50d2",
+      "historical_sha256": "3aead96de1ea14830eea288f56e4570035d99ad91320d559deb33a7843cd50d2",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/vanilla/lstm.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "73c92a25d0afdab7243fa860beecdb44d066aacc1189a5b787726db57e5ebe09",
+      "historical_sha256": "73c92a25d0afdab7243fa860beecdb44d066aacc1189a5b787726db57e5ebe09",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/slstm/src/vanilla/slstm.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "3bcd6660239fe391f35a8b70cd7a2dd90214ddbf64f85868e6dd8a4098c4a560",
+      "historical_sha256": "3bcd6660239fe391f35a8b70cd7a2dd90214ddbf64f85868e6dd8a4098c4a560",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/blocks/xlstm_block.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "2864f5cff00306b30f47f02d452d2d283e030270ebe5b6154a6f0910305f004a",
+      "historical_sha256": "2864f5cff00306b30f47f02d452d2d283e030270ebe5b6154a6f0910305f004a",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/components/__init__.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "historical_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/components/conv.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "3f70852e0dede2fb17adfb9e168f05e971d6fc30b44dbc058387d6f5c07a1b34",
+      "historical_sha256": "3f70852e0dede2fb17adfb9e168f05e971d6fc30b44dbc058387d6f5c07a1b34",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/components/feedforward.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "810df701d4f5b01ee906f9e09ee2970895940e46aeeb312feeeb4c8680c83f3e",
+      "historical_sha256": "810df701d4f5b01ee906f9e09ee2970895940e46aeeb312feeeb4c8680c83f3e",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/components/init.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "ae06b2344be99cb1674f86105fa9b13c301c2f92f34ccaa4abb4fe2f8c599c75",
+      "historical_sha256": "ae06b2344be99cb1674f86105fa9b13c301c2f92f34ccaa4abb4fe2f8c599c75",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/components/linear_headwise.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "b3c47a124cbc1c4a32d853ccce3bb5c905e0d0636832bdd44a58e5d4fae3d37a",
+      "historical_sha256": "b3c47a124cbc1c4a32d853ccce3bb5c905e0d0636832bdd44a58e5d4fae3d37a",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/components/ln.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "9e14304221e3e877c504a268458f38057632a316c3a2bf2e11c60f3a3507c748",
+      "historical_sha256": "9e14304221e3e877c504a268458f38057632a316c3a2bf2e11c60f3a3507c748",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/components/util.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "0974dc1b6f63bee59c7118e4f1bd7b0bcf620b24a88759654717c5ec1d446699",
+      "historical_sha256": "0974dc1b6f63bee59c7118e4f1bd7b0bcf620b24a88759654717c5ec1d446699",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/utils.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "fbc8beb277d6236a62c165d515d3d590fe32e1397509d3336b1f079ba94f0171",
+      "historical_sha256": "fbc8beb277d6236a62c165d515d3d590fe32e1397509d3336b1f079ba94f0171",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/xlstm_block_stack.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "29437bd3ad072db144ff979331445deebe54098de2b9a6a111c6d7d76ad4c0c0",
+      "historical_sha256": "29437bd3ad072db144ff979331445deebe54098de2b9a6a111c6d7d76ad4c0c0",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/xlstm_large/__init__.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "e0c5987e11bbaa96f747d96a0acc6368fcf594b9583b51ad4315809decf71ea6",
+      "historical_sha256": "e0c5987e11bbaa96f747d96a0acc6368fcf594b9583b51ad4315809decf71ea6",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/xlstm_large/components.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "fe433f383a4daa326d89c7bf8f20539acfe5872d7e50257ff7b6d45b3bbe5cfd",
+      "historical_sha256": "fe433f383a4daa326d89c7bf8f20539acfe5872d7e50257ff7b6d45b3bbe5cfd",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/xlstm_large/from_pretrained.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "3648d214a6497547d0b3ff205ff278a49143852cf9a6917ff3f36cead66c8aed",
+      "historical_sha256": "3648d214a6497547d0b3ff205ff278a49143852cf9a6917ff3f36cead66c8aed",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/xlstm_large/generate.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "abf1f6f7801f2cbf39ec120f73bc3180b5976c8430604e9f7b8e8673432068bc",
+      "historical_sha256": "abf1f6f7801f2cbf39ec120f73bc3180b5976c8430604e9f7b8e8673432068bc",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/xlstm_large/model.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "19032c3f998940b3062e0ec209dcf72f1e5b5c0e30f2acc29ee250c8aa422b01",
+      "historical_sha256": "19032c3f998940b3062e0ec209dcf72f1e5b5c0e30f2acc29ee250c8aa422b01",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/xlstm_large/utils.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "4bf9b8439c3d649130fb9181b9c6dd1972979c3f3347352d951f8ec62816dc26",
+      "historical_sha256": "4bf9b8439c3d649130fb9181b9c6dd1972979c3f3347352d951f8ec62816dc26",
+      "matches_historical": true
+    },
+    {
+      "path": "data/phase_e2/venv/lib/python3.12/site-packages/xlstm/xlstm_lm_model.py",
+      "url": "https://pypi.org/project/xlstm/2.0.5/",
+      "sha256": "267b83f3b0f3bf84f77bf4e6c5fd21c459351973ffd8c2391bb2011084745c55",
+      "historical_sha256": "267b83f3b0f3bf84f77bf4e6c5fd21c459351973ffd8c2391bb2011084745c55",
+      "matches_historical": true
+    }
+  ],
+  "wheel": {
+    "url": "https://files.pythonhosted.org/packages/06/eb/dfed3802021a75cf564db4473bee0dad04e8075a409ca031c6a4dc25a639/xlstm-2.0.5-py3-none-any.whl",
+    "sha256": "b847636e14b06fc580e4f9cf4f2bd584273466b6dea737b96290857595020766"
+  },
+  "historical_mismatches": []
+}
