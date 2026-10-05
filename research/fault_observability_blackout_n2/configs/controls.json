@@ -1,0 +1,224 @@
+[
+  {
+    "event_id": "gt_row_066",
+    "trace": "2_5_1000000_87",
+    "start": 1528833152,
+    "end": 1528833216,
+    "k": 4,
+    "eligible": true,
+    "native_extent_including32history": true,
+    "overlap_event_ids": [],
+    "eligibility_uses_feature_values": false,
+    "semantic_status": "annotation-clean pre-control; no verified natural healthy label beyond released annotations"
+  },
+  {
+    "event_id": "gt_row_066",
+    "trace": "2_5_1000000_87",
+    "start": 1528833217,
+    "end": 1528833281,
+    "k": 3,
+    "eligible": true,
+    "native_extent_including32history": true,
+    "overlap_event_ids": [],
+    "eligibility_uses_feature_values": false,
+    "semantic_status": "annotation-clean pre-control; no verified natural healthy label beyond released annotations"
+  },
+  {
+    "event_id": "gt_row_066",
+    "trace": "2_5_1000000_87",
+    "start": 1528833282,
+    "end": 1528833346,
+    "k": 2,
+    "eligible": true,
+    "native_extent_including32history": true,
+    "overlap_event_ids": [],
+    "eligibility_uses_feature_values": false,
+    "semantic_status": "annotation-clean pre-control; no verified natural healthy label beyond released annotations"
+  },
+  {
+    "event_id": "gt_row_067",
+    "trace": "2_5_1000000_87",
+    "start": 1528853170,
+    "end": 1528853232,
+    "k": 4,
+    "eligible": false,
+    "native_extent_including32history": true,
+    "overlap_event_ids": [
+      "gt_row_075"
+    ],
+    "eligibility_uses_feature_values": false,
+    "semantic_status": "annotation-clean pre-control; no verified natural healthy label beyond released annotations"
+  },
+  {
+    "event_id": "gt_row_067",
+    "trace": "2_5_1000000_87",
+    "start": 1528853233,
+    "end": 1528853295,
+    "k": 3,
+    "eligible": false,
+    "native_extent_including32history": true,
+    "overlap_event_ids": [
+      "gt_row_075"
+    ],
+    "eligibility_uses_feature_values": false,
+    "semantic_status": "annotation-clean pre-control; no verified natural healthy label beyond released annotations"
+  },
+  {
+    "event_id": "gt_row_067",
+    "trace": "2_5_1000000_87",
+    "start": 1528853296,
+    "end": 1528853358,
+    "k": 2,
+    "eligible": false,
+    "native_extent_including32history": true,
+    "overlap_event_ids": [
+      "gt_row_075"
+    ],
+    "eligibility_uses_feature_values": false,
+    "semantic_status": "annotation-clean pre-control; no verified natural healthy label beyond released annotations"
+  },
+  {
+    "event_id": "gt_row_068",
+    "trace": "3_5_1000000_89",
+    "start": 1528976086,
+    "end": 1528976149,
+    "k": 4,
+    "eligible": true,
+    "native_extent_including32history": true,
+    "overlap_event_ids": [],
+    "eligibility_uses_feature_values": false,
+    "semantic_status": "annotation-clean pre-control; no verified natural healthy label beyond released annotations"
+  },
+  {
+    "event_id": "gt_row_068",
+    "trace": "3_5_1000000_89",
+    "start": 1528976150,
+    "end": 1528976213,
+    "k": 3,
+    "eligible": true,
+    "native_extent_including32history": true,
+    "overlap_event_ids": [],
+    "eligibility_uses_feature_values": false,
+    "semantic_status": "annotation-clean pre-control; no verified natural healthy label beyond released annotations"
+  },
+  {
+    "event_id": "gt_row_068",
+    "trace": "3_5_1000000_89",
+    "start": 1528976214,
+    "end": 1528976277,
+    "k": 2,
+    "eligible": true,
+    "native_extent_including32history": true,
+    "overlap_event_ids": [],
+    "eligibility_uses_feature_values": false,
+    "semantic_status": "annotation-clean pre-control; no verified natural healthy label beyond released annotations"
+  },
+  {
+    "event_id": "gt_row_069",
+    "trace": "5_5_1000000_91",
+    "start": 1528852333,
+    "end": 1528852397,
+    "k": 4,
+    "eligible": true,
+    "native_extent_including32history": true,
+    "overlap_event_ids": [],
+    "eligibility_uses_feature_values": false,
+    "semantic_status": "annotation-clean pre-control; no verified natural healthy label beyond released annotations"
+  },
+  {
+    "event_id": "gt_row_069",
+    "trace": "5_5_1000000_91",
+    "start": 1528852398,
+    "end": 1528852462,
+    "k": 3,
+    "eligible": true,
+    "native_extent_including32history": true,
+    "overlap_event_ids": [],
+    "eligibility_uses_feature_values": false,
+    "semantic_status": "annotation-clean pre-control; no verified natural healthy label beyond released annotations"
+  },
+  {
+    "event_id": "gt_row_069",
+    "trace": "5_5_1000000_91",
+    "start": 1528852463,
+    "end": 1528852527,
+    "k": 2,
+    "eligible": true,
+    "native_extent_including32history": true,
+    "overlap_event_ids": [],
+    "eligibility_uses_feature_values": false,
+    "semantic_status": "annotation-clean pre-control; no verified natural healthy label beyond released annotations"
+  },
+  {
+    "event_id": "gt_row_070",
+    "trace": "5_5_1000000_92",
+    "start": 1528968475,
+    "end": 1528968538,
+    "k": 4,
+    "eligible": true,
+    "native_extent_including32history": true,
+    "overlap_event_ids": [],
+    "eligibility_uses_feature_values": false,
+    "semantic_status": "annotation-clean pre-control; no verified natural healthy label beyond released annotations"
+  },
+  {
+    "event_id": "gt_row_070",
+    "trace": "5_5_1000000_92",
+    "start": 1528968539,
+    "end": 1528968602,
+    "k": 3,
+    "eligible": true,
+    "native_extent_including32history": true,
+    "overlap_event_ids": [],
+    "eligibility_uses_feature_values": false,
+    "semantic_status": "annotation-clean pre-control; no verified natural healthy label beyond released annotations"
+  },
+  {
+    "event_id": "gt_row_070",
+    "trace": "5_5_1000000_92",
+    "start": 1528968603,
+    "end": 1528968666,
+    "k": 2,
+    "eligible": true,
+    "native_extent_including32history": true,
+    "overlap_event_ids": [],
+    "eligibility_uses_feature_values": false,
+    "semantic_status": "annotation-clean pre-control; no verified natural healthy label beyond released annotations"
+  },
+  {
+    "event_id": "gt_row_063",
+    "trace": "8_5_1000000_83",
+    "start": 1528974985,
+    "end": 1528975054,
+    "k": 4,
+    "eligible": true,
+    "native_extent_including32history": true,
+    "overlap_event_ids": [],
+    "eligibility_uses_feature_values": false,
+    "semantic_status": "annotation-clean pre-control; no verified natural healthy label beyond released annotations"
+  },
+  {
+    "event_id": "gt_row_063",
+    "trace": "8_5_1000000_83",
+    "start": 1528975055,
+    "end": 1528975124,
+    "k": 3,
+    "eligible": true,
+    "native_extent_including32history": true,
+    "overlap_event_ids": [],
+    "eligibility_uses_feature_values": false,
+    "semantic_status": "annotation-clean pre-control; no verified natural healthy label beyond released annotations"
+  },
+  {
+    "event_id": "gt_row_063",
+    "trace": "8_5_1000000_83",
+    "start": 1528975125,
+    "end": 1528975194,
+    "k": 2,
+    "eligible": true,
+    "native_extent_including32history": true,
+    "overlap_event_ids": [],
+    "eligibility_uses_feature_values": false,
+    "semantic_status": "annotation-clean pre-control; no verified natural healthy label beyond released annotations"
+  }
+]

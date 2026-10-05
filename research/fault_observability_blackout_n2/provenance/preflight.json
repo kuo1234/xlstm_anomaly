@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "raw_traces": 5,
+  "driver_events": 6,
+  "controls_proposed": 18,
+  "controls_eligible_by_metadata": 15,
+  "source_array_identity_checks": 5,
+  "contract_tests": 4,
+  "N2_event_aligned_availability_exposed": false,
+  "detector_training_or_scoring_runs": 0,
+  "inherited_sha256": {
+    "research/exathlon_lifecycle_e1/scripts/prepare.py": "3af2cf084db8d69dbe00cc9e2d04b48bf9cd85d78c943208e5b0fe234b1a295c",
+    "research/exathlon_semantic_failure_e0/results/event_coverage.csv": "0730c7de3e4c92c1933bc21fad8eb7d6b1b66652fb73b8e3014e27d18950038c"
+  }
+}
