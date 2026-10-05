@@ -1,0 +1,22 @@
+{
+  "inherited_commit": "558bd56771da0d71488564a2328f10987a9810aa",
+  "preprocessing_source": "research/exathlon_lifecycle_e1/scripts/prepare.py",
+  "models_source": "research/exathlon_lifecycle_e1/scripts/models.py",
+  "inherited_model_hashes": {
+    "PCA_SPE": "2ebb88bd08eb6617c3f9a712f0e84488cfa9d69cd93dd879bf4efd7c0651a57d",
+    "CAUSAL_LSTM_REFERENCE": "e92d082a655d63ac467ecf83233debc25abf06ec94073a91fc425fa2c1a23b93"
+  },
+  "inherited_scaler_hash": "5bbd80fd42a3077f789de278eb531b58a84b1d1d4c781426d2704064d2cf2013",
+  "source_file_sha256": {
+    "research/exathlon_lifecycle_e1/scripts/prepare.py": "3af2cf084db8d69dbe00cc9e2d04b48bf9cd85d78c943208e5b0fe234b1a295c",
+    "research/exathlon_lifecycle_e1/scripts/models.py": "c114620dbdf18e92708b0a762bd75111991d8af4aa1c3e33457653e2e7eb3281"
+  },
+  "primary_source_pages_read": [
+    "https://arxiv.org/abs/1904.06019",
+    "https://proceedings.mlr.press/v337/wen26a.html",
+    "https://arxiv.org/abs/2605.14260"
+  ],
+  "prior_art_depth": "Opened primary landing pages/abstracts; not full-text or exhaustive novelty audit",
+  "legacy_scope": "E1 killed lifecycle and P5 paused efficacy unchanged; direct user objective authorizes distinct N0 normal-only intervention",
+  "new_inference_runs_at_protocol_construction": 0
+}

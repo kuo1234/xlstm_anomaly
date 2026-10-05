@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "native_undisturbed_metadata_and_no_GT_events": 3,
+  "canonical_array_hash_checks": 3,
+  "new_detector_inference_before_seal": 0,
+  "tests": 2,
+  "record_multiplicity_changes_unique_information": false,
+  "prior_scientific_exposure": "E1 outcomes known, all N0 test scores unopened"
+}

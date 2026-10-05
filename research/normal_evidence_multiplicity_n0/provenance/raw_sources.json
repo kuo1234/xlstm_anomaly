@@ -1,0 +1,38 @@
+[
+  {
+    "trace": "6_0_100000_42",
+    "path": "data/raw/app6/6_0_100000_42.zip",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app6/6_0_100000_42.zip",
+    "git_blob_sha": "aaa2e38905e9e281f4082f2f5729cc72f756b6bd",
+    "sha256": "3df19af8bf2addbe200143d385c0d2828b9e688857aa38029ea8d7f91a32af1d",
+    "bytes": 38449180,
+    "local_path": "data/normal_evidence_multiplicity_n0/raw/6_0_100000_42/6_0_100000_42.zip"
+  },
+  {
+    "trace": "9_0_100000_4",
+    "path": "data/raw/app9/9_0_100000_4/9_0_100000_4.z01",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app9/9_0_100000_4/9_0_100000_4.z01",
+    "git_blob_sha": "56d09b709e63288962489beea779e780054edc78",
+    "sha256": "3e8542ebd027772114bc4f2ca09412873f27c9870033006770134ab85941f1b1",
+    "bytes": 52428800,
+    "local_path": "data/normal_evidence_multiplicity_n0/raw/9_0_100000_4/9_0_100000_4.z01"
+  },
+  {
+    "trace": "9_0_100000_4",
+    "path": "data/raw/app9/9_0_100000_4/9_0_100000_4.zip",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app9/9_0_100000_4/9_0_100000_4.zip",
+    "git_blob_sha": "970c0e8ca14d69aa9d18f374e51309fc95e0b4fd",
+    "sha256": "36db4a674770190336b0448660a70f82b3312a00891632206ab5e11b49978b95",
+    "bytes": 49432159,
+    "local_path": "data/normal_evidence_multiplicity_n0/raw/9_0_100000_4/9_0_100000_4.zip"
+  },
+  {
+    "trace": "10_0_100000_13",
+    "path": "data/raw/app10/10_0_100000_13.zip",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app10/10_0_100000_13.zip",
+    "git_blob_sha": "c785c8c19fd9e2e0fe4280cac432ce322035de05",
+    "sha256": "195b6927b8450a7b6d782a30dc1967e83e624e3d442bce0aafa8bc82e514660d",
+    "bytes": 40013103,
+    "local_path": "data/normal_evidence_multiplicity_n0/raw/10_0_100000_13/10_0_100000_13.zip"
+  }
+]

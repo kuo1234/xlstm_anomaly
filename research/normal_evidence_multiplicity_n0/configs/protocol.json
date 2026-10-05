@@ -1,0 +1,18 @@
+{
+ "experiment":"N0 normal evidence multiplicity, independent of stopped E1 lifecycle/P5 efficacy",
+ "authorization":"Direct persistent user goal permits designing/executing next bounded experiment; no claimed external reviewer GO; old killed routes unchanged",
+ "scope":"Frozen E1 PCA/LSTM; no retraining, faults, recall, xLSTM, sequential stopper or P5 target efficacy",
+ "already_exposed":"E1 calibration/normal_control/validation outcomes known. New test runs6_0_100000_42,9_0_100000_4,10_0_100000_13 have not been scored; acquisition sees only raw quality. This is prospective external normal replication, not fully blind discovery.",
+ "fixed_calibration":["6_0_50000_49","9_0_300000_5","10_0_100000_10"],
+ "new_tests":["6_0_100000_42","9_0_100000_4","10_0_100000_13"],
+ "families":["PCA_SPE","CAUSAL_LSTM_REFERENCE"],
+ "arms":["row_pooled","trace_balanced","identity_deduplicated_pooled"],
+ "multiplicity":[1,4,16,64],
+ "intervention":"Duplicate one entire calibration trace at a time, preserving raw_trace_id+target_timestamp+score and all unique information. Multiplicity changes only row weights; no new independent evidence. All three traces intervened; no winner selection.",
+ "quantile":0.995,"quantile_method":"All arms same weighted inverse empirical CDF, first score reachingq; not E1 linear quantile; estimator differences are not called intervention effects",
+ "unit_balanced":"Each known trace has1/3 mass, each unique within-trace score1/n mass; replay copies jointly divide same trace mass. Predetermined identity/context available.",
+ "deduplicated":"Source identity+timestamp are reliable immutable keys; exact repeated rows only; pooled original unique rows. Uncertain provenance not merged.",
+ "metrics":["threshold_shift divided by original calibration IQR","heldout normalFPR per app/trace","maximum testFPR spread across doses per intervened trace","unique evidence count invariant","balanced/dedup threshold and alarms invariant"],
+ "material_gate":{"supported":"In both families, at least2 of3 new test traces have>=0.01 absolute FPR spread under at least one calibration-trace duplication, with threshold range>=1 original calibration IQR; balanced and dedup controls invariant; no claim all traces independent or remedy deployable.","otherwise":"NO_MATERIAL_EXTERNAL_EFFECT; no dose/threshold/model/test selection rescue"},
+ "limits":"Only normal false alarms; no detection utility improvement claim, no conformal guarantee, no statistical population significance, one detector seed. Equal trace weights encode target mixture assumption, do not guarantee each groupFPR. Generic pooling/group calibration/weighted quantiles already occupied; positive mechanism alone not novelty."
+}
