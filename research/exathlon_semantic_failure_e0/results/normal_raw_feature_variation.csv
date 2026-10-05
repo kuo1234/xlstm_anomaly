@@ -1,0 +1,10 @@
+trace,app,metric,values,finite_nonnegative_count,minus_one_sentinel_count,median,q25,q75,context
+5_0_100000_37,5,StreamingMetrics_streaming_lastCompletedBatch_processingDelay_value,3581,3568,13,1073,829,1287,100000
+5_0_100000_37,5,StreamingMetrics_streaming_lastCompletedBatch_schedulingDelay_value,3581,3568,13,0,0,1,100000
+5_0_100000_37,5,node5_CPU001_Idle%,3581,3572,9,100,100,100,100000
+5_0_50000_39,5,StreamingMetrics_streaming_lastCompletedBatch_processingDelay_value,2721,2709,12,518,473,719,50000
+5_0_50000_39,5,StreamingMetrics_streaming_lastCompletedBatch_schedulingDelay_value,2721,2709,12,0,0,1,50000
+5_0_50000_39,5,node5_CPU001_Idle%,2721,2712,9,98,91,100,50000
+9_0_100000_3,9,StreamingMetrics_streaming_lastCompletedBatch_processingDelay_value,3338,3321,17,700,644,770,50000
+9_0_100000_3,9,StreamingMetrics_streaming_lastCompletedBatch_schedulingDelay_value,3338,3321,17,0,0,0,50000
+9_0_100000_3,9,node5_CPU001_Idle%,3338,3329,9,96,95,97,50000

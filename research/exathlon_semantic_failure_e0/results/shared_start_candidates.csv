@@ -1,0 +1,10 @@
+anomaly_type,root_cause_start,events,apps,traces,status
+cpu_contention,1528984532,2,2,3_4_1000000_81|5_4_1000000_82,shared_start_dependency_candidate; not independent batches
+cpu_contention,1528999019,4,4,10_4_1000000_79|1_4_1000000_80|8_4_1000000_77|9_4_1000000_78,shared_start_dependency_candidate; not independent batches
+cpu_contention,1529002179,4,4,10_4_1000000_79|1_4_1000000_80|8_4_1000000_77|9_4_1000000_78,shared_start_dependency_candidate; not independent batches
+cpu_contention,1529007602,4,4,10_4_1000000_79|1_4_1000000_80|8_4_1000000_77|9_4_1000000_78,shared_start_dependency_candidate; not independent batches
+cpu_contention,1529015034,3,3,1_4_1000000_80|8_4_1000000_77|9_4_1000000_78,shared_start_dependency_candidate; not independent batches
+cpu_contention,1529023063,4,4,10_4_1000000_79|1_4_1000000_80|8_4_1000000_77|9_4_1000000_78,shared_start_dependency_candidate; not independent batches
+cpu_contention,1529030089,4,4,10_4_1000000_79|1_4_1000000_80|8_4_1000000_77|9_4_1000000_78,shared_start_dependency_candidate; not independent batches
+unknown,1528966670,4,4,2_5_1000000_88|4_5_1000000_90|5_5_1000000_92|6_5_1000000_93,shared_start_dependency_candidate; not independent batches
+unknown,1528975206,3,3,10_5_1000000_85|8_5_1000000_83|9_5_1000000_84,shared_start_dependency_candidate; not independent batches

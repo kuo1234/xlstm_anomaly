@@ -1,0 +1,143 @@
+{
+  "audit_date": "2026-10-06",
+  "search_engine": "web.run",
+  "scope": "Bounded public English-language search; primary sources only for scientific conclusions; Exathlon 2021, DIVAD 2025, 2024-2026 Exathlon/cloud telemetry candidates.",
+  "queries": [
+    {
+      "q": "Exathlon \"root cause\" \"extended effect\" detection 2024 2025 2026",
+      "date": "2026-10-06",
+      "id": 1
+    },
+    {
+      "q": "Exathlon anomaly detection calibration fragmentation continuity 2024 2025 2026",
+      "date": "2026-10-06",
+      "id": 2
+    },
+    {
+      "q": "Exathlon transformer Mamba xLSTM domain generalization 2024 2025 2026",
+      "date": "2026-10-06",
+      "id": 3
+    },
+    {
+      "q": "\"Exathlon\" \"2024\" anomaly detection",
+      "date": "2026-10-06",
+      "id": 4
+    },
+    {
+      "q": "\"Exathlon\" \"2025\" anomaly detection",
+      "date": "2026-10-06",
+      "id": 5
+    },
+    {
+      "q": "\"Exathlon\" \"2026\" anomaly detection",
+      "date": "2026-10-06",
+      "id": 6
+    },
+    {
+      "q": "\"Exathlon\" \"root cause\" \"extended effect\"",
+      "date": "2026-10-06",
+      "id": 7
+    },
+    {
+      "q": "\"MIXAD\" memory anomaly detection paper",
+      "date": "2026-10-06",
+      "id": 8
+    },
+    {
+      "q": "\"Exathlon\" \"score\" calibration",
+      "date": "2026-10-06",
+      "id": 9
+    },
+    {
+      "q": "\"Exathlon\" \"fragmentation\"",
+      "date": "2026-10-06",
+      "id": 10
+    },
+    {
+      "q": "\"Exathlon\" \"xLSTM\"",
+      "date": "2026-10-06",
+      "id": 11
+    },
+    {
+      "q": "\"Exathlon\" \"Mamba\"",
+      "date": "2026-10-06",
+      "id": 12
+    },
+    {
+      "q": "\"xLSTMAD: A Powerful\" arxiv",
+      "date": "2026-10-06",
+      "id": 13
+    },
+    {
+      "q": "\"Exathlon\" \"Mamba\" anomaly detection -wrestling -Myzteziz",
+      "date": "2026-10-06",
+      "id": 14
+    },
+    {
+      "q": "\"8LfB8HD1WU\"",
+      "date": "2026-10-06",
+      "id": 15
+    },
+    {
+      "q": "\"mTSBench\" arxiv",
+      "date": "2026-10-06",
+      "id": 16
+    },
+    {
+      "q": "\"Exathlon\" \"Mamba\" \"anomaly\"",
+      "date": "2026-10-06",
+      "id": 17
+    },
+    {
+      "q": "\"Exathlon\" \"RCI\" \"EEI\" detection 2024 2025 2026",
+      "date": "2026-10-06",
+      "id": 18
+    },
+    {
+      "q": "\"Benchmarking Anomaly Detection Across Heterogeneous Cloud Telemetry Datasets\" github",
+      "date": "2026-10-06",
+      "id": 19
+    }
+  ],
+  "reviewed_primary_urls": [
+    "https://people.csail.mit.edu/tatbul/publications/exathlon_vldb21.pdf",
+    "https://www.vldb.org/pvldb/vol18/p1691-jacob.pdf",
+    "https://www.lix.polytechnique.fr/~yanlei.diao/publications/VLDB2025_Jacob.pdf",
+    "https://blog.metu.edu.tr/ttemizel/files/2025/08/Post_Inference_Guided_Transformer_for_Anomaly_Interval_Localization_in_Multivariate_Time_Series.pdf",
+    "https://arxiv.org/pdf/2410.22735v1",
+    "https://arxiv.org/pdf/2506.22837v2",
+    "https://arxiv.org/pdf/2602.13288v1",
+    "https://arxiv.org/pdf/2506.21550v2",
+    "https://github.com/exathlonbenchmark/divad",
+    "https://github.com/Nyderx/xlstmad",
+    "https://github.com/mhkim9714/MIXAD",
+    "https://github.com/XiaonaZhou/mTSBench",
+    "https://github.com/AMiR-Research/anomaly-dataset-benchmark-public"
+  ],
+  "discovered_unreviewed_leads": [
+    {
+      "title": "Multivariate Time Series Anomaly Detection Using Directed Hypergraph Neural Networks",
+      "url": "https://doi.org/10.1080/08839514.2025.2538519",
+      "status": "UNKNOWN",
+      "reason": "Search lead only; full primary paper not read in bounded scope."
+    },
+    {
+      "title": "CRAFTIIF: Cross-Resolution Analytic Four-Type Interpretable Isolation Forest",
+      "url": "https://arxiv.org/abs/2606.13486",
+      "status": "UNKNOWN",
+      "reason": "Search lead only; morphology types cannot be equated with Exathlon injected event classes."
+    },
+    {
+      "title": "Fast, robust, and accurate anomaly detection for multivariate time series",
+      "url": "https://doi.org/10.1007/s11634-026-00667-8",
+      "status": "UNKNOWN",
+      "reason": "Search lead only; not inspected in bounded scope."
+    }
+  ],
+  "limitations": [
+    "Search terms with Exathlon and Mamba returned unrelated sports/vision hits; excluded, no Mamba absence claim.",
+    "No exhaustive venue/database citation search, Scopus/WoS screening, or full-text review of all leads.",
+    "NOT_FOUND_IN_SCOPE is a search status, never novelty proof.",
+    "HTTP403 at OpenReview preserved; official arxiv2506.21550v2 used as explicit alternate, not claimed byte-identical."
+  ]
+}

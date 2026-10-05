@@ -1,0 +1,21 @@
+{
+  "events": 109,
+  "trace_files": 93,
+  "undisturbed_runs": 59,
+  "disturbed_runs": 34,
+  "point_rci_events": 19,
+  "missing_eei_events": 28,
+  "overlap_pairs": 2,
+  "strict_overlap_pairs": 0,
+  "source_ground_truth_sha256": "9ddb86e96efb029b2530d4ef620fff5fa44a5d678ed1f8db955677f727e9453d",
+  "raw_inspected_traces": 7,
+  "raw_inspected_events": 9,
+  "metadata_only_traces": 86,
+  "all_native_features_verified": false,
+  "score_vectors_available": false,
+  "metadata_module_executed": "DIVAD declarative Spark metadata only; no model import",
+  "context_support_is_documented_not_reverified": true,
+  "orphan_executor_metadata_keys": [
+    "5_5_1500000_92"
+  ]
+}

@@ -1,0 +1,3 @@
+trace,event_a,event_b,type_a,type_b,overlap_start,overlap_end,elapsed_seconds,boundary_only
+2_5_1000000_87,gt_row_067,gt_row_075,driver_failure,executor_failure,1528853422,1528853422,0,True
+8_5_1000000_83,gt_row_063,gt_row_098,driver_failure,unknown,1528975265,1528975265,0,True

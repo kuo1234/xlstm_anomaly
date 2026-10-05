@@ -1,0 +1,93 @@
+[
+  {
+    "repo": "exathlonbenchmark/exathlon",
+    "commit": "4101f6087f902fa150e392b65c957976faa84e40",
+    "path": "data/raw/app1/1_2_100000_68.zip",
+    "cache_path": "raw_samples/1_2_100000_68.zip",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app1/1_2_100000_68.zip",
+    "expected_bytes": 5139145,
+    "git_blob_sha": "a598f1af0452b55ffa22b436660b8d104a8ac295",
+    "purpose": "bounded raw schema/timestamp/normal-context audit; not detector input or training",
+    "bytes": 5139145,
+    "sha256": "af7e2a0866274d5a46cd51e5f3b4c194d5327927aad63769dbab275d142fabe6",
+    "status": "retrieved"
+  },
+  {
+    "repo": "exathlonbenchmark/exathlon",
+    "commit": "4101f6087f902fa150e392b65c957976faa84e40",
+    "path": "data/raw/app4/4_5_1000000_90.zip",
+    "cache_path": "raw_samples/4_5_1000000_90.zip",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app4/4_5_1000000_90.zip",
+    "expected_bytes": 7056009,
+    "git_blob_sha": "6c2383b905369bbd7fc7453cd6cf0f9ec2883b57",
+    "purpose": "bounded raw schema/timestamp/normal-context audit; not detector input or training",
+    "bytes": 7056009,
+    "sha256": "2570ee75bf79d0aae4e0d53ebcea36c9de47b4a3ba34fa6b52029f7b31adb733",
+    "status": "retrieved"
+  },
+  {
+    "repo": "exathlonbenchmark/exathlon",
+    "commit": "4101f6087f902fa150e392b65c957976faa84e40",
+    "path": "data/raw/app9/9_5_1000000_84.zip",
+    "cache_path": "raw_samples/9_5_1000000_84.zip",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app9/9_5_1000000_84.zip",
+    "expected_bytes": 12020392,
+    "git_blob_sha": "e14e32accb60ddd629e3a3d02220cfb0802871e4",
+    "purpose": "bounded raw schema/timestamp/normal-context audit; not detector input or training",
+    "bytes": 12020392,
+    "sha256": "7f5860c4b89b0b7ea28424210380b1bc6c64e8956ed77102482d812fb32f13d4",
+    "status": "retrieved"
+  },
+  {
+    "repo": "exathlonbenchmark/exathlon",
+    "commit": "4101f6087f902fa150e392b65c957976faa84e40",
+    "path": "data/raw/app5/5_4_1000000_82.zip",
+    "cache_path": "raw_samples/5_4_1000000_82.zip",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app5/5_4_1000000_82.zip",
+    "expected_bytes": 7918090,
+    "git_blob_sha": "a449dc684635b1d2c29b9beb3f0c213f0c531341",
+    "purpose": "bounded raw schema/timestamp/normal-context audit; not detector input or training",
+    "bytes": 7918090,
+    "sha256": "50ddac8e21a4d4410f6466b631350ec355f6be04fc66cbefb877e1c166f97d0c",
+    "status": "retrieved"
+  },
+  {
+    "repo": "exathlonbenchmark/exathlon",
+    "commit": "4101f6087f902fa150e392b65c957976faa84e40",
+    "path": "data/raw/app5/5_0_100000_37.zip",
+    "cache_path": "raw_samples/5_0_100000_37.zip",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app5/5_0_100000_37.zip",
+    "expected_bytes": 4139524,
+    "git_blob_sha": "7232609a4112faa467300d035f209fdfa0344d06",
+    "purpose": "bounded raw schema/timestamp/normal-context audit; not detector input or training",
+    "bytes": 4139524,
+    "sha256": "8fb1ee024a27ad4fa02ce1bf823479e458b9a7575a4c909302056a69791a740e",
+    "status": "retrieved"
+  },
+  {
+    "repo": "exathlonbenchmark/exathlon",
+    "commit": "4101f6087f902fa150e392b65c957976faa84e40",
+    "path": "data/raw/app5/5_0_50000_39.zip",
+    "cache_path": "raw_samples/5_0_50000_39.zip",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app5/5_0_50000_39.zip",
+    "expected_bytes": 3232846,
+    "git_blob_sha": "64455a68b00c4b523371bed5ae4693957f318041",
+    "purpose": "bounded raw schema/timestamp/normal-context audit; not detector input or training",
+    "bytes": 3232846,
+    "sha256": "d8ba5938dc08087b4cf2ae9d2e00dfe4abcfef0b57b408fd3ecb987d19e201d2",
+    "status": "retrieved"
+  },
+  {
+    "repo": "exathlonbenchmark/exathlon",
+    "commit": "4101f6087f902fa150e392b65c957976faa84e40",
+    "path": "data/raw/app9/9_0_100000_3.zip",
+    "cache_path": "raw_samples/9_0_100000_3.zip",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app9/9_0_100000_3.zip",
+    "expected_bytes": 3750078,
+    "git_blob_sha": "ebef1ae08c86cf8402be0fd12ebe5e6b37ee39e5",
+    "purpose": "bounded raw schema/timestamp/normal-context audit; not detector input or training",
+    "bytes": 3750078,
+    "sha256": "fb223ecb8fc63ef3d130ca9dfe7da7c4816766a1e9a994f102f1c23671ed1a65",
+    "status": "retrieved"
+  }
+]

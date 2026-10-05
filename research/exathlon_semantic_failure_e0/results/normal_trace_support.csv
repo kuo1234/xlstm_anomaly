@@ -1,0 +1,11 @@
+app,undisturbed_runs,disturbed_runs,documented_normal_contexts,documented_test_contexts,disturbed_traces_with_exact_normal_context,disturbed_traces_with_unknown_context,disturbed_traces_with_matching_input_rate_only,exact_supported_traces,native_train_test,current_run_split
+1,6,3,4,3,0,0,1,,undisturbed_to_train_disturbed_to_test; original all-app excludes7/8,NOT_RUN
+2,3,4,2,4,0,0,1,,undisturbed_to_train_disturbed_to_test; original all-app excludes7/8,NOT_RUN
+3,4,4,2,4,0,0,0,,undisturbed_to_train_disturbed_to_test; original all-app excludes7/8,NOT_RUN
+4,6,2,2,2,0,0,1,,undisturbed_to_train_disturbed_to_test; original all-app excludes7/8,NOT_RUN
+5,8,7,2,6,0,1,2,,undisturbed_to_train_disturbed_to_test; original all-app excludes7/8,NOT_RUN
+6,12,3,5,3,0,0,0,,undisturbed_to_train_disturbed_to_test; original all-app excludes7/8,NOT_RUN
+7,7,0,2,0,0,0,0,,undisturbed_to_train_disturbed_to_test; original all-app excludes7/8,NOT_RUN
+8,0,3,0,3,0,0,0,,undisturbed_to_train_disturbed_to_test; original all-app excludes7/8,NOT_RUN
+9,6,4,4,3,0,0,0,,undisturbed_to_train_disturbed_to_test; original all-app excludes7/8,NOT_RUN
+10,7,4,3,3,0,0,0,,undisturbed_to_train_disturbed_to_test; original all-app excludes7/8,NOT_RUN

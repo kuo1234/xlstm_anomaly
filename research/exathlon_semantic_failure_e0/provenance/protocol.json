@@ -1,0 +1,110 @@
+{
+  "issue": 25,
+  "audit_date": "2026-10-06",
+  "scope": "E0 semantic data/artifact/occupancy audit; no method development",
+  "freeze_status": "AUDIT_AND_METRIC_FREEZE; not a training execution seal",
+  "native_source_commit": "4101f6087f902fa150e392b65c957976faa84e40",
+  "divad_source_commit": "47a0893eff719863e96e1156ea9ed1b4a9b92209",
+  "phase_contract": {
+    "RCI": "closed [root_cause_start,root_cause_end], including point intervals",
+    "EEI": "(root_cause_end,extended_effect_end], missing end means absent EEI",
+    "pre_normal_seconds": 300,
+    "recovery_seconds": 300,
+    "overlap": "exclude shared event time support from phase-specific attribution and report exclusions; do not drop events",
+    "point_RCI": "require actual observed timestamp and causally available score; no widening root label",
+    "crash": "right-censor recovery; never fabricate EEI/recovery",
+    "downsampling": "retain native timestamp masks; mixed-phase bins not eligible for primary RCI/EEI attribution; no max-type union substitute"
+  },
+  "score_contract": {
+    "fields": [
+      "raw_trace_id",
+      "original_timestamp",
+      "target_timestamp",
+      "available_at",
+      "score",
+      "baseline_id",
+      "source_commit",
+      "checkpoint_sha256",
+      "preprocessing_id",
+      "fit_split_id",
+      "calibration_split_id"
+    ],
+    "primary": "finite raw higher-is-anomalous scores available no later than assigned target timestamp; no future enclosing-window averaging, backfill, warmup zero, EWMA or label-informed padding",
+    "cadence_seconds": 1,
+    "missing_score": "missingness and support counted; never zero/model failure",
+    "causal_availability_required": true,
+    "coverage": "expected native1s grid, including absent timestamps; shared-event instants excluded and counted"
+  },
+  "F1": {
+    "root_cause_capture": "any score>normal-only threshold at eligible RCI timestamp; report event-length false-alarm reference and raw separation alongside; no observed alarm with incomplete RCI support -> N/A, not false",
+    "effect_only_detection": "RCI has eligible score(s), none alarm, EEI has eligible alarm(s); otherwise N/A",
+    "delay_seconds": "first causal event alarm minus rootstart only with complete event support/no ambiguous overlap; otherwise N/A, first observed alarm delay kept separately as partial evidence",
+    "score_contrast": "(median_RCI-median_EEI)/normal_calibration_IQR; zero IQR -> N/A DEGENERATE_NORMAL_SCALE",
+    "separation": "phase median versus pre-RCI median and heldout normal quantiles; no score-positive-only ratio"
+  },
+  "F2": {
+    "alarm": "strict score>threshold; no smoothing",
+    "fragment": "consecutive eligible timestamps at native1s cadence; missing timestamp/score breaks runs",
+    "dropout": "fraction eligible phase scores <=threshold; report missing coverage separately",
+    "raw_continuity": "median adjacent absolute score change / normal calibration IQR; same valid cadence only",
+    "comparison": "joint point AP/rangeAD2/earlyAD3/exactly_onceAD4 only if same native phase/split contract; no optimized same-AP subset selection"
+  },
+  "F3": {
+    "global_threshold_quantile": 0.995,
+    "quantile_method": "linear",
+    "calibration": "heldout normal validation scores only; anomalous labels prohibited",
+    "per_app": "same normal-only quantile only with deployment-available app ID and adequate calibration support",
+    "per_trace_oracle": "ORACLE only, not performed",
+    "normal_location_scale": "median/IQR/normal-score quantiles by trace/app/documented context; heldout-normal FPR and event-duration-matched normal alarm rates required",
+    "interpretation": "baseline shift plus preserved separation required for dominance; no latent representation claim from aggregate F1"
+  },
+  "F4": {
+    "unit": "event descriptions nested within trace/app/shared cluster execution; no iid event or windows-as-N inference",
+    "small_cells": "1-2 events are not independent scientific strata",
+    "unknown": "retain own stratum; no reinterpretation as known injected fault",
+    "no_application_impact": "retain descriptor, separate from application-impact CPU events; do not silently recode normal/unknown",
+    "context": "joint app/corrected-input-rate/batch/executors/memory support and shared-batch dependence; uncertain metadata stays unknown"
+  },
+  "conditional_bounded_panel": [
+    "original Exathlon AE reconstruction",
+    "original Exathlon LSTM prediction",
+    "DIVAD PCA non-neural",
+    "DIVAD TranAD Transformer (static feasibility only)"
+  ],
+  "training_policy": {
+    "max_fixed_baselines": 4,
+    "seed_if_rerun": 21,
+    "split_if_rerun": "undisturbed traces only for fit/validation/calibration; chronological70/15/15 within each verified native trace with window-size guard; hold out whole normal traces for cross-trace FPR; exact membership and hashes require separate execution seal",
+    "no_test_anomaly_training_threshold_or_model_selection": true,
+    "no_hp_sweep": true,
+    "training_in_this_audit": false,
+    "bounded_rerun_needed_for_model_failure_question": true,
+    "not_a_claim_rerun_is_impossible": true,
+    "execution_prerequisites": [
+      "complete raw-feature quality and exact train/validation/normal-holdout membership per selected app/context",
+      "native dependency/checkpoint lineage, fixed architecture/window/epochs and common training budget",
+      "preserved original timestamps and point-RCI/overlap/missing-value/causal-score readout contract",
+      "counterfactual native-versus-causal preprocessing/readout audit before interpreting early detection"
+    ],
+    "reason_not_execute": "Released sources do not supply an admissible score bundle or an execution manifest. This audit exposes source contracts that change apparent lifecycle attribution; fitting arbitrary small replacements would not resolve those contracts. No native runtime/configuration parity is asserted; the audit-only freeze is explicitly not a training execution seal."
+  },
+  "gates_allowed": [
+    "ROOT_CAUSE_EFFECT_GAP_ACTIONABLE",
+    "CALIBRATION_FAILURE_DOMINANT",
+    "TEMPORAL_FRAGMENTATION_DOMINANT",
+    "TYPE_APP_CONFOUNDED",
+    "PRIOR_ART_REPRODUCTION_ONLY",
+    "DATA_OR_ARTIFACT_INSUFFICIENT",
+    "NO_ACTIONABLE_FAILURE"
+  ],
+  "positive_gate_requirements": "replicatedtypes/apps, distinct baseline families, raw score separation + normal-only thresholds, no crash/truncation/sampling or single-context explanation, residual beyond explicit priorart; no positive gate from missing data",
+  "execution_runtime_probe": {
+    "python": "3.12.14",
+    "machine": "arm64",
+    "tensorflow_installed": false,
+    "torch_installed": false,
+    "original_dependencies": "README Python3.7; tensorflow2.7.0,numpy1.19.5",
+    "divad_dependencies": "README Python3.9.19; tensorflow2.14.0,torch1.13.1,numpy1.26.4; DeepOD unpinned Git",
+    "status": "no native runtime prepared or run; not an impossibility proof"
+  }
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "repo": "exathlon",
+    "commit": "4101f6087f902fa150e392b65c957976faa84e40",
+    "tree_entries": 242,
+    "truncated": false,
+    "potential_score_model_or_csv_paths": [],
+    "notebooks": [
+      {
+        "path": "notebooks/reproducibility.ipynb",
+        "code_cells": 14,
+        "cells_with_output": 0
+      }
+    ],
+    "score_vectors_found": false
+  },
+  {
+    "repo": "divad",
+    "commit": "47a0893eff719863e96e1156ea9ed1b4a9b92209",
+    "tree_entries": 188,
+    "truncated": false,
+    "potential_score_model_or_csv_paths": [],
+    "notebooks": [],
+    "score_vectors_found": false
+  }
+]

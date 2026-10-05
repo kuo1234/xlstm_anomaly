@@ -1,0 +1,10 @@
+event_id,trace,anomaly_type,rci_observations,eei_observations,rci_point,missing_eei,combined_end_minus_trace_end,recovery_300s_right_censored
+gt_row_032,1_2_100000_68,bursty_input_crash,2314,0,False,True,0,True
+gt_row_079,4_5_1000000_90,executor_failure,1,94,True,False,-1821,False
+gt_row_105,4_5_1000000_90,unknown,533,0,False,True,-2584,False
+gt_row_064,9_5_1000000_84,driver_failure,1,64,True,False,-3338,False
+gt_row_073,9_5_1000000_84,executor_failure,1,326,True,False,-4997,False
+gt_row_099,9_5_1000000_84,unknown,116,0,False,True,-2919,False
+gt_row_062,5_4_1000000_82,cpu_contention,598,346,False,False,-1505,False
+gt_row_106,5_4_1000000_82,unknown,155,0,False,True,-3976,False
+gt_row_107,5_4_1000000_82,unknown,224,0,False,True,0,True

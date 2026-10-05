@@ -1,0 +1,10 @@
+event_id,trace,anomaly_type,candidate_bin_seconds,native_rci_observations,rci_occupied_bins,eei_occupied_bins,mixed_rci_eei_bins,status
+gt_row_032,1_2_100000_68,bursty_input_crash,15,2314,156,0,0,observed_native_timestamp_phase_counts; not benchmark-score reproduction
+gt_row_079,4_5_1000000_90,executor_failure,15,1,1,7,1,observed_native_timestamp_phase_counts; not benchmark-score reproduction
+gt_row_105,4_5_1000000_90,unknown,15,533,36,0,0,observed_native_timestamp_phase_counts; not benchmark-score reproduction
+gt_row_064,9_5_1000000_84,driver_failure,15,1,1,6,1,observed_native_timestamp_phase_counts; not benchmark-score reproduction
+gt_row_073,9_5_1000000_84,executor_failure,15,1,1,23,1,observed_native_timestamp_phase_counts; not benchmark-score reproduction
+gt_row_099,9_5_1000000_84,unknown,15,116,9,0,0,observed_native_timestamp_phase_counts; not benchmark-score reproduction
+gt_row_062,5_4_1000000_82,cpu_contention,15,598,41,24,1,observed_native_timestamp_phase_counts; not benchmark-score reproduction
+gt_row_106,5_4_1000000_82,unknown,15,155,11,0,0,observed_native_timestamp_phase_counts; not benchmark-score reproduction
+gt_row_107,5_4_1000000_82,unknown,15,224,16,0,0,observed_native_timestamp_phase_counts; not benchmark-score reproduction

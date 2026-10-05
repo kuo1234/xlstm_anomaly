@@ -1,0 +1,1482 @@
+{
+  "sha": "47a0893eff719863e96e1156ea9ed1b4a9b92209",
+  "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/trees/47a0893eff719863e96e1156ea9ed1b4a9b92209",
+  "tree": [
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3571987bece38407ae5eaaacd51c90d361c8b3ac",
+      "size": 444,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/3571987bece38407ae5eaaacd51c90d361c8b3ac"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "37c8398d194b539ff3600833e06f6b112aaac985",
+      "size": 10762,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/37c8398d194b539ff3600833e06f6b112aaac985"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4ed1ecf8be7597c1ac609873a31635e546a64314",
+      "size": 9061,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/4ed1ecf8be7597c1ac609873a31635e546a64314"
+    },
+    {
+      "path": "conf",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8bbae1d13b89d03bbdee95beb5d7c15aae174ede",
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/trees/8bbae1d13b89d03bbdee95beb5d7c15aae174ede"
+    },
+    {
+      "path": "conf/config.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "77e2920bdf1349e112f56be87a108ddcbd2700e7",
+      "size": 4949,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/77e2920bdf1349e112f56be87a108ddcbd2700e7"
+    },
+    {
+      "path": "conf/dataset",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "0f83a206478b47603ada777533e58de9fb274c29",
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/trees/0f83a206478b47603ada777533e58de9fb274c29"
+    },
+    {
+      "path": "conf/dataset/asd.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e8274ff3a5f11d46d39c7c585d0db6054f0f590b",
+      "size": 1638,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/e8274ff3a5f11d46d39c7c585d0db6054f0f590b"
+    },
+    {
+      "path": "conf/dataset/spark.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dd6577fc190f92df026a3c6a3edf9dc576281776",
+      "size": 2283,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/dd6577fc190f92df026a3c6a3edf9dc576281776"
+    },
+    {
+      "path": "conf/detector",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "27e2889ea0aafef26ea09f538da877e3c5afbb86",
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/trees/27e2889ea0aafef26ea09f538da877e3c5afbb86"
+    },
+    {
+      "path": "conf/detector/autoencoder.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa44006d90c4d2792ded91299c447cc02b6fccb5",
+      "size": 1476,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/aa44006d90c4d2792ded91299c447cc02b6fccb5"
+    },
+    {
+      "path": "conf/detector/dc_detector.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d8d5c54c47e2cf956116ccacc1e53bc3c0a49624",
+      "size": 838,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/d8d5c54c47e2cf956116ccacc1e53bc3c0a49624"
+    },
+    {
+      "path": "conf/detector/deep_sad.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "73a3cce6f7fa246126d2a8718275fdbbd371ba66",
+      "size": 1628,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/73a3cce6f7fa246126d2a8718275fdbbd371ba66"
+    },
+    {
+      "path": "conf/detector/deep_svdd.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "05f6528d6446eb5e634e1c0d1de2fd6804dca3e1",
+      "size": 1466,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/05f6528d6446eb5e634e1c0d1de2fd6804dca3e1"
+    },
+    {
+      "path": "conf/detector/divad.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cbc80eee2f7e193fc13fe5201741ca616b4a95df",
+      "size": 2952,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/cbc80eee2f7e193fc13fe5201741ca616b4a95df"
+    },
+    {
+      "path": "conf/detector/iforest.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "59420f000a694b015be1979d811e4f323e27fc39",
+      "size": 635,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/59420f000a694b015be1979d811e4f323e27fc39"
+    },
+    {
+      "path": "conf/detector/lstm_ad.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "620615b42ae2f573c88daf68f7d35acbc65be2ab",
+      "size": 1323,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/620615b42ae2f573c88daf68f7d35acbc65be2ab"
+    },
+    {
+      "path": "conf/detector/mscred.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8c4edf15b2f899189601968084a388c2f45b1b62",
+      "size": 870,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/8c4edf15b2f899189601968084a388c2f45b1b62"
+    },
+    {
+      "path": "conf/detector/pca.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6e9a62ca6b750affa89aff499f53b3097b1caa95",
+      "size": 739,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/6e9a62ca6b750affa89aff499f53b3097b1caa95"
+    },
+    {
+      "path": "conf/detector/tranad.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9bd371730ed5a4fa519a852ed0a0b2a64044d6b4",
+      "size": 773,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/9bd371730ed5a4fa519a852ed0a0b2a64044d6b4"
+    },
+    {
+      "path": "conf/detector/vae.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "451084f44392aadab7200c686c8effaa03592adb",
+      "size": 1599,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/451084f44392aadab7200c686c8effaa03592adb"
+    },
+    {
+      "path": "conf/detector/xgboost_.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "95cbe37f2758059c5064a24fe419e6ae510275e9",
+      "size": 891,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/95cbe37f2758059c5064a24fe419e6ae510275e9"
+    },
+    {
+      "path": "conf/explainer",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f2471f193620d1d60f53273f06ffcd15c8efc23c",
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/trees/f2471f193620d1d60f53273f06ffcd15c8efc23c"
+    },
+    {
+      "path": "conf/explainer/macrobase.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6865d87786252c0bed3035a5af358576cdb7a925",
+      "size": 129,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/6865d87786252c0bed3035a5af358576cdb7a925"
+    },
+    {
+      "path": "exathlon",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a5850800511538f4224998c69ea3f6f2b13025c8",
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/trees/a5850800511538f4224998c69ea3f6f2b13025c8"
+    },
+    {
+      "path": "exathlon/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "exathlon/data",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "59678e1abce2b0b12aa9be33f49ebfe00919952b",
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/trees/59678e1abce2b0b12aa9be33f49ebfe00919952b"
+    },
+    {
+      "path": "exathlon/data/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "exathlon/data/helpers.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bb7f5992ff15f9bc2aa20b03136ab39229d3d7bd",
+      "size": 35901,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/bb7f5992ff15f9bc2aa20b03136ab39229d3d7bd"
+    },
+    {
+      "path": "exathlon/data/make_datasets.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "35b3717436596c1506553c3c952da5964ad56833",
+      "size": 1173,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/35b3717436596c1506553c3c952da5964ad56833"
+    },
+    {
+      "path": "exathlon/data/managers",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ffb2fe159d8429bb911d446b5813a05df91726d2",
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/trees/ffb2fe159d8429bb911d446b5813a05df91726d2"
+    },
+    {
+      "path": "exathlon/data/managers/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "exathlon/data/managers/asd_manager.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "de47ee98589764f02378d10bd61c5c8b904180ff",
+      "size": 9172,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/de47ee98589764f02378d10bd61c5c8b904180ff"
+    },
+    {
+      "path": "exathlon/data/managers/base_manager.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "70905c9cc201205eaadd4aa3b6c53dd75ba1a826",
+      "size": 5740,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/70905c9cc201205eaadd4aa3b6c53dd75ba1a826"
+    },
+    {
+      "path": "exathlon/data/managers/spark_manager.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0095e48a5a62fe6506599ef35c032ad6e921453c",
+      "size": 51980,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/0095e48a5a62fe6506599ef35c032ad6e921453c"
+    },
+    {
+      "path": "exathlon/detection",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6fb1ff72fe8c3d3772d275e8e0bdd6a9a70c7732",
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/trees/6fb1ff72fe8c3d3772d275e8e0bdd6a9a70c7732"
+    },
+    {
+      "path": "exathlon/detection/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "exathlon/detection/detectors",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6870cb143b821ce2472825141d005f15657a041b",
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/trees/6870cb143b821ce2472825141d005f15657a041b"
+    },
+    {
+      "path": "exathlon/detection/detectors/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "exathlon/detection/detectors/autoencoder.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b56f3ca521770b4c39f24233144cf2ab0230c1e6",
+      "size": 13652,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/b56f3ca521770b4c39f24233144cf2ab0230c1e6"
+    },
+    {
+      "path": "exathlon/detection/detectors/base.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "74e18610d9e57d14ea94870c9d89537ce47ae043",
+      "size": 19876,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/74e18610d9e57d14ea94870c9d89537ce47ae043"
+    },
+    {
+      "path": "exathlon/detection/detectors/dc_detector.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f4c504de0a53eb25007e2d898f269679561d3545",
+      "size": 13371,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/f4c504de0a53eb25007e2d898f269679561d3545"
+    },
+    {
+      "path": "exathlon/detection/detectors/deep_sad.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "348c85e6c30f553a804474fb4e2e2b945d42a1e0",
+      "size": 19035,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/348c85e6c30f553a804474fb4e2e2b945d42a1e0"
+    },
+    {
+      "path": "exathlon/detection/detectors/deep_svdd.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7953048e8877a13616dd19f34daa2120a3fb822d",
+      "size": 12964,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/7953048e8877a13616dd19f34daa2120a3fb822d"
+    },
+    {
+      "path": "exathlon/detection/detectors/divad.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7aaa731042df2c6b4ba06913e6095bd38d1aac07",
+      "size": 40665,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/7aaa731042df2c6b4ba06913e6095bd38d1aac07"
+    },
+    {
+      "path": "exathlon/detection/detectors/helpers",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f341ee91308a24ae36437aed85360b91e456ae7e",
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/trees/f341ee91308a24ae36437aed85360b91e456ae7e"
+    },
+    {
+      "path": "exathlon/detection/detectors/helpers/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "exathlon/detection/detectors/helpers/general.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "22bb99f85f36f3523b99bc6674d3b82b0c2f4348",
+      "size": 8519,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/22bb99f85f36f3523b99bc6674d3b82b0c2f4348"
+    },
+    {
+      "path": "exathlon/detection/detectors/helpers/tf_autoencoder.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d81bb5ba1726a4dafa8cd660f703f46794b61e04",
+      "size": 24317,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/d81bb5ba1726a4dafa8cd660f703f46794b61e04"
+    },
+    {
+      "path": "exathlon/detection/detectors/helpers/tf_cov_weighting.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bd39b093c9c8af74c3e143e233069c9b498c4d15",
+      "size": 5703,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/bd39b093c9c8af74c3e143e233069c9b498c4d15"
+    },
+    {
+      "path": "exathlon/detection/detectors/helpers/tf_deep_svdd.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1530bd03524476a2d8338ad9348b82570675fade",
+      "size": 9604,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/1530bd03524476a2d8338ad9348b82570675fade"
+    },
+    {
+      "path": "exathlon/detection/detectors/helpers/tf_divad.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c904a356990805c84e40d973d753352a0b84b7de",
+      "size": 36711,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/c904a356990805c84e40d973d753352a0b84b7de"
+    },
+    {
+      "path": "exathlon/detection/detectors/helpers/tf_helpers.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "844f36b821d5f5a8c45b13382c96b13c922de0d1",
+      "size": 26158,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/844f36b821d5f5a8c45b13382c96b13c922de0d1"
+    },
+    {
+      "path": "exathlon/detection/detectors/helpers/tf_rnn.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9a9449ec8def23d0d5d8aaafe5655691c2ddac5c",
+      "size": 5284,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/9a9449ec8def23d0d5d8aaafe5655691c2ddac5c"
+    },
+    {
+      "path": "exathlon/detection/detectors/helpers/tf_vae.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d22ab1671b1147c75a48c28b466d0e83739da8a7",
+      "size": 29594,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/d22ab1671b1147c75a48c28b466d0e83739da8a7"
+    },
+    {
+      "path": "exathlon/detection/detectors/helpers/tf_vae_other.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b29df8da974486973804b3dd82412e632fc9385a",
+      "size": 16029,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/b29df8da974486973804b3dd82412e632fc9385a"
+    },
+    {
+      "path": "exathlon/detection/detectors/helpers/tfp_helpers.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dd8667fe7267a396c43317cf1905068fefafdeca",
+      "size": 4727,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/dd8667fe7267a396c43317cf1905068fefafdeca"
+    },
+    {
+      "path": "exathlon/detection/detectors/helpers/torch_dc_detector.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8bce7c3ab333db722ca574b91583404078c84d80",
+      "size": 7672,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/8bce7c3ab333db722ca574b91583404078c84d80"
+    },
+    {
+      "path": "exathlon/detection/detectors/helpers/torch_deep_sad.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8696edec9d0bc37b5cc037d8b50c3e3b337fef83",
+      "size": 8503,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/8696edec9d0bc37b5cc037d8b50c3e3b337fef83"
+    },
+    {
+      "path": "exathlon/detection/detectors/helpers/torch_deep_sad_helpers.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "df3a304b9260841d8386cc6f237dcb10c1f55086",
+      "size": 11928,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/df3a304b9260841d8386cc6f237dcb10c1f55086"
+    },
+    {
+      "path": "exathlon/detection/detectors/helpers/torch_helpers.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "61f3351c70c97a8760bf40351a25df7d77f87f56",
+      "size": 3852,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/61f3351c70c97a8760bf40351a25df7d77f87f56"
+    },
+    {
+      "path": "exathlon/detection/detectors/helpers/torch_mscred.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "07fb93c1ecfd761ed76dd5f302dd511f822e44a3",
+      "size": 10445,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/07fb93c1ecfd761ed76dd5f302dd511f822e44a3"
+    },
+    {
+      "path": "exathlon/detection/detectors/helpers/torch_mscred_helpers",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4650457bf5fcef88ffb6671b76f0df4667db8ce1",
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/trees/4650457bf5fcef88ffb6671b76f0df4667db8ce1"
+    },
+    {
+      "path": "exathlon/detection/detectors/helpers/torch_mscred_helpers/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "exathlon/detection/detectors/helpers/torch_mscred_helpers/convlstm.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "df71e651c28043c2ae35c422f19828769dfaa592",
+      "size": 4202,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/df71e651c28043c2ae35c422f19828769dfaa592"
+    },
+    {
+      "path": "exathlon/detection/detectors/helpers/torch_mscred_helpers/correlation_matrix.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "706627c55683cdc85ab383348684c0c779ba6af4",
+      "size": 4041,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/706627c55683cdc85ab383348684c0c779ba6af4"
+    },
+    {
+      "path": "exathlon/detection/detectors/helpers/torch_tranad.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "95fb656ca6c2442953a9e160d4026af8dd78875b",
+      "size": 7271,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/95fb656ca6c2442953a9e160d4026af8dd78875b"
+    },
+    {
+      "path": "exathlon/detection/detectors/helpers/torch_tranad_helpers.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "019c15a5d8778015eef570b1be579dcc14453f32",
+      "size": 6472,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/019c15a5d8778015eef570b1be579dcc14453f32"
+    },
+    {
+      "path": "exathlon/detection/detectors/iforest.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "54cc5b82d492df62eddb8a87ec16300fc45e6c25",
+      "size": 2663,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/54cc5b82d492df62eddb8a87ec16300fc45e6c25"
+    },
+    {
+      "path": "exathlon/detection/detectors/lstm_ad.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "903b82e7e3fffd157440af0c9e1bc8ac833c6df0",
+      "size": 16988,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/903b82e7e3fffd157440af0c9e1bc8ac833c6df0"
+    },
+    {
+      "path": "exathlon/detection/detectors/mscred.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "278824b7db7604770c91518d6881551e192722aa",
+      "size": 12409,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/278824b7db7604770c91518d6881551e192722aa"
+    },
+    {
+      "path": "exathlon/detection/detectors/pca.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e404aa467a52cb85d2ede07559a5c3c1466ce0e5",
+      "size": 5852,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/e404aa467a52cb85d2ede07559a5c3c1466ce0e5"
+    },
+    {
+      "path": "exathlon/detection/detectors/tranad.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "09068f9b2797fc0a4548c94e7a1aa0a17bb41eea",
+      "size": 10650,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/09068f9b2797fc0a4548c94e7a1aa0a17bb41eea"
+    },
+    {
+      "path": "exathlon/detection/detectors/vae.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "318f696b430047f50b92b53a7aeee0b6db4497a8",
+      "size": 17723,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/318f696b430047f50b92b53a7aeee0b6db4497a8"
+    },
+    {
+      "path": "exathlon/detection/detectors/xgboost_.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ca08b42537d725509a27ad79447ee3cca5ac9101",
+      "size": 12581,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/ca08b42537d725509a27ad79447ee3cca5ac9101"
+    },
+    {
+      "path": "exathlon/detection/evaluate_online_detector.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f9cddc2b5d7fef6d3ae100313b843412f384c609",
+      "size": 4963,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/f9cddc2b5d7fef6d3ae100313b843412f384c609"
+    },
+    {
+      "path": "exathlon/detection/evaluate_online_scorer.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0099b152f1f53c0b04b87aa2387221b8c1551d7f",
+      "size": 5597,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/0099b152f1f53c0b04b87aa2387221b8c1551d7f"
+    },
+    {
+      "path": "exathlon/detection/make_window_datasets.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d43df16a19d61779dbb74741e874d5fd40f071eb",
+      "size": 1802,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/d43df16a19d61779dbb74741e874d5fd40f071eb"
+    },
+    {
+      "path": "exathlon/detection/metrics",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "842779acd223810f73a5b095690256b8d366c3c4",
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/trees/842779acd223810f73a5b095690256b8d366c3c4"
+    },
+    {
+      "path": "exathlon/detection/metrics/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "exathlon/detection/metrics/evaluation.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "244ecda49b1c5dc4409b66f479687316d2c829c8",
+      "size": 10984,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/244ecda49b1c5dc4409b66f479687316d2c829c8"
+    },
+    {
+      "path": "exathlon/detection/metrics/evaluators",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d27c658d863a48e3917810b613bc32c670f5ee75",
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/trees/d27c658d863a48e3917810b613bc32c670f5ee75"
+    },
+    {
+      "path": "exathlon/detection/metrics/evaluators/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "exathlon/detection/metrics/evaluators/base.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "45c669495cfe6e51ea4976560484a6ad25b51ec4",
+      "size": 7684,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/45c669495cfe6e51ea4976560484a6ad25b51ec4"
+    },
+    {
+      "path": "exathlon/detection/metrics/evaluators/point.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e2651551a157cd7dc0def57dd39e82b9299d2915",
+      "size": 5339,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/e2651551a157cd7dc0def57dd39e82b9299d2915"
+    },
+    {
+      "path": "exathlon/detection/metrics/evaluators/range.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7f6442643c6ec5a23f2dbe75e72539bdcc5a91d2",
+      "size": 20010,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/7f6442643c6ec5a23f2dbe75e72539bdcc5a91d2"
+    },
+    {
+      "path": "exathlon/detection/metrics/helpers.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "62b07d0468fb08c4d0d420f4c6be60ffc5ceca7c",
+      "size": 6231,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/62b07d0468fb08c4d0d420f4c6be60ffc5ceca7c"
+    },
+    {
+      "path": "exathlon/detection/train_online_detector.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8adfdb13a2af707d3ea3d27cdd57f196b7d2470f",
+      "size": 3467,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/8adfdb13a2af707d3ea3d27cdd57f196b7d2470f"
+    },
+    {
+      "path": "exathlon/detection/train_online_scorer.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1cab8ed0bab1e6da3376e8a83f638ab39787d8b7",
+      "size": 2628,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/1cab8ed0bab1e6da3376e8a83f638ab39787d8b7"
+    },
+    {
+      "path": "exathlon/detection/train_window_model.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "80f4b6340879564a3d8233eba8041fec72b1e199",
+      "size": 1336,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/80f4b6340879564a3d8233eba8041fec72b1e199"
+    },
+    {
+      "path": "exathlon/detection/train_window_scorer.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ae1def70bbe912587a2e8137b59871f0efc726c8",
+      "size": 1977,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/ae1def70bbe912587a2e8137b59871f0efc726c8"
+    },
+    {
+      "path": "exathlon/detection/windows",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b1dc84e0ec6a1a58c67b6f2a1a217f7113a32aff",
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/trees/b1dc84e0ec6a1a58c67b6f2a1a217f7113a32aff"
+    },
+    {
+      "path": "exathlon/detection/windows/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "exathlon/detection/windows/helpers",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4ab5dcd59db307b1c4344929a56753d277355ed1",
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/trees/4ab5dcd59db307b1c4344929a56753d277355ed1"
+    },
+    {
+      "path": "exathlon/detection/windows/helpers/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "exathlon/detection/windows/helpers/asd.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "68ee69d12f7e4409c45f1ebb6a10708fb2103d1f",
+      "size": 3534,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/68ee69d12f7e4409c45f1ebb6a10708fb2103d1f"
+    },
+    {
+      "path": "exathlon/detection/windows/helpers/general.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "617971a60bb5a4393fa4dcb7b862c31dc323f62c",
+      "size": 4157,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/617971a60bb5a4393fa4dcb7b862c31dc323f62c"
+    },
+    {
+      "path": "exathlon/detection/windows/helpers/spark.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dac0ce5daa27cc85187a3104ab4d8f3bd2c1d3dc",
+      "size": 12144,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/dac0ce5daa27cc85187a3104ab4d8f3bd2c1d3dc"
+    },
+    {
+      "path": "exathlon/detection/windows/window_manager.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fb885a71cf4410b632f323da340e91c8bfe0c4c1",
+      "size": 47684,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/fb885a71cf4410b632f323da340e91c8bfe0c4c1"
+    },
+    {
+      "path": "exathlon/explanation",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9599c78a1826467a47b97e598e126b788a2a8988",
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/trees/9599c78a1826467a47b97e598e126b788a2a8988"
+    },
+    {
+      "path": "exathlon/explanation/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "exathlon/explanation/evaluate_explainer.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4a006140ac85c18be2de88edbf78f04266ca20c0",
+      "size": 7227,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/4a006140ac85c18be2de88edbf78f04266ca20c0"
+    },
+    {
+      "path": "exathlon/explanation/explainers",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b8f2b4a318b27f297d98c92e1aef9381002c12fe",
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/trees/b8f2b4a318b27f297d98c92e1aef9381002c12fe"
+    },
+    {
+      "path": "exathlon/explanation/explainers/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "exathlon/explanation/explainers/base_explainer.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ff9b71277c444be2f9e6679287b9e75ea63c6ab6",
+      "size": 4456,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/ff9b71277c444be2f9e6679287b9e75ea63c6ab6"
+    },
+    {
+      "path": "exathlon/explanation/explainers/data_explainers",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5173231aaeb1e8ebbbc54b5203fa16f5350b63ad",
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/trees/5173231aaeb1e8ebbbc54b5203fa16f5350b63ad"
+    },
+    {
+      "path": "exathlon/explanation/explainers/data_explainers/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "exathlon/explanation/explainers/data_explainers/base_data_explainer.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "03648946ba912bdbe125e777da1368b669465785",
+      "size": 1686,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/03648946ba912bdbe125e777da1368b669465785"
+    },
+    {
+      "path": "exathlon/explanation/explainers/data_explainers/helpers",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "576228fb7f3248fcc6916e65ad8b74d5aaac4d99",
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/trees/576228fb7f3248fcc6916e65ad8b74d5aaac4d99"
+    },
+    {
+      "path": "exathlon/explanation/explainers/data_explainers/helpers/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "exathlon/explanation/explainers/data_explainers/helpers/general.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d6dd7dd6597ce413873fa03214e5c3547186639e",
+      "size": 1401,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/d6dd7dd6597ce413873fa03214e5c3547186639e"
+    },
+    {
+      "path": "exathlon/explanation/explainers/data_explainers/macrobase.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e247e3d5421b6c9265cbe415c6a605fd08854062",
+      "size": 9371,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/e247e3d5421b6c9265cbe415c6a605fd08854062"
+    },
+    {
+      "path": "exathlon/explanation/explainers/model_explainers",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9d1dcfdaf1a6857c5f83dc27019c7600e1ffaff8",
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/trees/9d1dcfdaf1a6857c5f83dc27019c7600e1ffaff8"
+    },
+    {
+      "path": "exathlon/explanation/explainers/model_explainers/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "exathlon/explanation/metrics",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "0aa4fe560c171283bbac80dbf06b45939654e743",
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/trees/0aa4fe560c171283bbac80dbf06b45939654e743"
+    },
+    {
+      "path": "exathlon/explanation/metrics/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "exathlon/explanation/metrics/evaluation.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fbcb7b2fae51db12797daeb252c96dfc784e7b73",
+      "size": 5894,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/fbcb7b2fae51db12797daeb252c96dfc784e7b73"
+    },
+    {
+      "path": "exathlon/explanation/metrics/evaluators",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ccea0f9ac04dcd8af035fee4e3a51437603a7b4c",
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/trees/ccea0f9ac04dcd8af035fee4e3a51437603a7b4c"
+    },
+    {
+      "path": "exathlon/explanation/metrics/evaluators/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "exathlon/explanation/metrics/evaluators/base_explainer_evaluator.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fe13cd3c76eda6c827109939ca87a8e137cad19c",
+      "size": 27389,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/fe13cd3c76eda6c827109939ca87a8e137cad19c"
+    },
+    {
+      "path": "exathlon/explanation/metrics/evaluators/data_explainer_evaluator.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "392d6c58120bd6486dfab2ed62751761fd466974",
+      "size": 10501,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/392d6c58120bd6486dfab2ed62751761fd466974"
+    },
+    {
+      "path": "exathlon/explanation/metrics/evaluators/model_explainer_evaluator.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "033151fb8757472954b4c8a3f5f6cfa4beaf70ce",
+      "size": 19101,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/033151fb8757472954b4c8a3f5f6cfa4beaf70ce"
+    },
+    {
+      "path": "exathlon/explanation/train_explainer.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "633d22bffed46be316f72ec1eacd50784738f42e",
+      "size": 3456,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/633d22bffed46be316f72ec1eacd50784738f42e"
+    },
+    {
+      "path": "exathlon/features",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "57a351f7763bcee74bca55a9276b6e72e880ac2c",
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/trees/57a351f7763bcee74bca55a9276b6e72e880ac2c"
+    },
+    {
+      "path": "exathlon/features/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "exathlon/features/build_features.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "47f82d29a9f2bab45aae9b6a4baa641146741e3e",
+      "size": 7410,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/47f82d29a9f2bab45aae9b6a4baa641146741e3e"
+    },
+    {
+      "path": "exathlon/features/crafters",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8da5631c7df38e7d953d3c6c9a27db1783224801",
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/trees/8da5631c7df38e7d953d3c6c9a27db1783224801"
+    },
+    {
+      "path": "exathlon/features/crafters/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "exathlon/features/crafters/base_crafter.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d8db212ffc8f4ffb228bb0b146e31b5eea379ca9",
+      "size": 6324,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/d8db212ffc8f4ffb228bb0b146e31b5eea379ca9"
+    },
+    {
+      "path": "exathlon/features/crafters/spark_crafter.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "680399eaeea0527cba41bdab5a13613b7701da40",
+      "size": 20279,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/680399eaeea0527cba41bdab5a13613b7701da40"
+    },
+    {
+      "path": "exathlon/features/hidr.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9285a0284d2d0ac223e38b1fb8483d58ed705493",
+      "size": 12775,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/9285a0284d2d0ac223e38b1fb8483d58ed705493"
+    },
+    {
+      "path": "exathlon/features/transformers.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6c12c0b66ee2b1b3ab408ec727e781ea1cfea7f5",
+      "size": 37514,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/6c12c0b66ee2b1b3ab408ec727e781ea1cfea7f5"
+    },
+    {
+      "path": "exathlon/run.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "facb42cba120ae46658aa3f978493276704f5956",
+      "size": 11937,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/facb42cba120ae46658aa3f978493276704f5956"
+    },
+    {
+      "path": "exathlon/utils",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "7e5af2547be5e36a7138408306ce32afb6a65078",
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/trees/7e5af2547be5e36a7138408306ce32afb6a65078"
+    },
+    {
+      "path": "exathlon/utils/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "exathlon/utils/config.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a206f17f2487544b9ab79cfa79bee78d702a9ac1",
+      "size": 5143,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/a206f17f2487544b9ab79cfa79bee78d702a9ac1"
+    },
+    {
+      "path": "exathlon/utils/data.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f631c25969b6ab299aab473e51c0789801daff42",
+      "size": 461,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/f631c25969b6ab299aab473e51c0789801daff42"
+    },
+    {
+      "path": "exathlon/utils/explanation.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1a3c221e117186c7ac8e4ccc4f60abe4be3cd1f0",
+      "size": 2790,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/1a3c221e117186c7ac8e4ccc4f60abe4be3cd1f0"
+    },
+    {
+      "path": "exathlon/utils/guarding.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a753fbae8e315039fa16ed8b56ad2c97efb53f8c",
+      "size": 1789,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/a753fbae8e315039fa16ed8b56ad2c97efb53f8c"
+    },
+    {
+      "path": "exathlon/utils/logging_.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "07bfa502f5170be849eade088d165f18f9e4f8ff",
+      "size": 175,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/07bfa502f5170be849eade088d165f18f9e4f8ff"
+    },
+    {
+      "path": "exathlon/utils/spark",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "03f47c4d2a86a62df7fc2b99cf9a1e9cb5710502",
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/trees/03f47c4d2a86a62df7fc2b99cf9a1e9cb5710502"
+    },
+    {
+      "path": "exathlon/utils/spark/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "exathlon/utils/spark/features.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b596cde5f13e2f7a63beb956ca8eea3f7badbcb",
+      "size": 101263,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/2b596cde5f13e2f7a63beb956ca8eea3f7badbcb"
+    },
+    {
+      "path": "exathlon/utils/spark/metadata.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "90b93b25d9db5be3572ae4e10a2cc81eb61ef4d1",
+      "size": 6259,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/90b93b25d9db5be3572ae4e10a2cc81eb61ef4d1"
+    },
+    {
+      "path": "exathlon/utils/spark/period_info.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aaef7e55a1bbe745b631230ca8c078a78a67e9f3",
+      "size": 1631,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/aaef7e55a1bbe745b631230ca8c078a78a67e9f3"
+    },
+    {
+      "path": "exathlon/utils/spark/pruned_ranges_options.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "be8668d610599b8bf6cae18fe25af8510d61ee9b",
+      "size": 10596,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/be8668d610599b8bf6cae18fe25af8510d61ee9b"
+    },
+    {
+      "path": "extract_data.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "21563022cfea8053767c0f7e9c94944cef4401ba",
+      "size": 644,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/21563022cfea8053767c0f7e9c94944cef4401ba"
+    },
+    {
+      "path": "pyproject.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d7109364e3fb9d482b4215dd0e3b1a8d68a2f185",
+      "size": 1707,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/d7109364e3fb9d482b4215dd0e3b1a8d68a2f185"
+    },
+    {
+      "path": "scripts",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "7d821e4d5ff161cb915f428cbb1d494e2551f102",
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/trees/7d821e4d5ff161cb915f428cbb1d494e2551f102"
+    },
+    {
+      "path": "scripts/asd",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "bec5883b9b1cba8416c57a61845c94e3ebebf8f3",
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/trees/bec5883b9b1cba8416c57a61845c94e3ebebf8f3"
+    },
+    {
+      "path": "scripts/asd/build_features.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dbbba419d819c1fb6c2267aa745e32c8c9f088ff",
+      "size": 1174,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/dbbba419d819c1fb6c2267aa745e32c8c9f088ff"
+    },
+    {
+      "path": "scripts/asd/evaluate_all_divads.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f32837dd94c81d43ede2d1ff8ddd523b9c7ccb49",
+      "size": 769,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/f32837dd94c81d43ede2d1ff8ddd523b9c7ccb49"
+    },
+    {
+      "path": "scripts/asd/evaluate_all_tranads.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "af656b148daf76bffa6da78c5ddb32b1b5a07686",
+      "size": 180,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/af656b148daf76bffa6da78c5ddb32b1b5a07686"
+    },
+    {
+      "path": "scripts/asd/evaluate_deep_sad.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d88e9e93ced82fd9a5df8d581c393341085b6a30",
+      "size": 7550,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/d88e9e93ced82fd9a5df8d581c393341085b6a30"
+    },
+    {
+      "path": "scripts/asd/evaluate_divad.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "81287c3ee0b393b0707a757ee5e66d3fae64babf",
+      "size": 18591,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/81287c3ee0b393b0707a757ee5e66d3fae64babf"
+    },
+    {
+      "path": "scripts/asd/evaluate_tranad.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "116c211fe8ecb88fb42d539b914fc0d377a886a3",
+      "size": 4935,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/116c211fe8ecb88fb42d539b914fc0d377a886a3"
+    },
+    {
+      "path": "scripts/asd/make_datasets.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7257e8ad4b89984f73011fafd321b3e58019bd01",
+      "size": 570,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/7257e8ad4b89984f73011fafd321b3e58019bd01"
+    },
+    {
+      "path": "scripts/asd/train_deep_sad.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "baf52b85a2cc57b7320b0b7041bd3da7f88fec0d",
+      "size": 6531,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/baf52b85a2cc57b7320b0b7041bd3da7f88fec0d"
+    },
+    {
+      "path": "scripts/asd/train_divad.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e066f9ed9e7ac5793664c994339a0480308a8bfd",
+      "size": 9387,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/e066f9ed9e7ac5793664c994339a0480308a8bfd"
+    },
+    {
+      "path": "scripts/asd/train_tranad.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d48886cb61c0e614c739ab1cea4b4ead5f08cb0e",
+      "size": 3958,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/d48886cb61c0e614c739ab1cea4b4ead5f08cb0e"
+    },
+    {
+      "path": "scripts/asd/utils.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d9cdf91aab5a555e1f147ea443b74e673967c9eb",
+      "size": 1475,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/d9cdf91aab5a555e1f147ea443b74e673967c9eb"
+    },
+    {
+      "path": "scripts/spark",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "bc6fa2d3b5f10856b5a77423f90e124c2beced66",
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/trees/bc6fa2d3b5f10856b5a77423f90e124c2beced66"
+    },
+    {
+      "path": "scripts/spark/build_features.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1f8453729949273982e8f93b62a65399195e6e8a",
+      "size": 1703,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/1f8453729949273982e8f93b62a65399195e6e8a"
+    },
+    {
+      "path": "scripts/spark/evaluate_autoencoder.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "26c289b7ba9ba835c5c399567fd22f521242d5b1",
+      "size": 7036,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/26c289b7ba9ba835c5c399567fd22f521242d5b1"
+    },
+    {
+      "path": "scripts/spark/evaluate_dc_detector.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ea67270767e4ff26884a95efd9dfda969a6a4235",
+      "size": 6098,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/ea67270767e4ff26884a95efd9dfda969a6a4235"
+    },
+    {
+      "path": "scripts/spark/evaluate_deep_sad.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0005d14a07a060ed6267c47872a65d75aef2e63d",
+      "size": 8544,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/0005d14a07a060ed6267c47872a65d75aef2e63d"
+    },
+    {
+      "path": "scripts/spark/evaluate_deep_svdd.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fa79f731e47558fc254df54a9ed8df959ae94233",
+      "size": 4583,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/fa79f731e47558fc254df54a9ed8df959ae94233"
+    },
+    {
+      "path": "scripts/spark/evaluate_divad.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c7c136fdca40a3fed3a78c6d167b519cc75a8a34",
+      "size": 24884,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/c7c136fdca40a3fed3a78c6d167b519cc75a8a34"
+    },
+    {
+      "path": "scripts/spark/evaluate_iforest.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9331549ca6ed3ea0c5ee68dce4695d64ce705b92",
+      "size": 4535,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/9331549ca6ed3ea0c5ee68dce4695d64ce705b92"
+    },
+    {
+      "path": "scripts/spark/evaluate_iforest_grid.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2130632d3c2a14e9bb930f1a0a81aeaa1da5d1d9",
+      "size": 805,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/2130632d3c2a14e9bb930f1a0a81aeaa1da5d1d9"
+    },
+    {
+      "path": "scripts/spark/evaluate_lstm_ad.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d96e8f595bf11c38b5a2dfff082d6ab4065c9833",
+      "size": 6289,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/d96e8f595bf11c38b5a2dfff082d6ab4065c9833"
+    },
+    {
+      "path": "scripts/spark/evaluate_mscred.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "83199724ccee668c137b98f29ce5cbe0a0cb767b",
+      "size": 5739,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/83199724ccee668c137b98f29ce5cbe0a0cb767b"
+    },
+    {
+      "path": "scripts/spark/evaluate_pca.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9227fdf67dce3f63dd78453dfcc3bcc6c195a5cc",
+      "size": 4646,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/9227fdf67dce3f63dd78453dfcc3bcc6c195a5cc"
+    },
+    {
+      "path": "scripts/spark/evaluate_tranad.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f2bf7ec9601b6635bbdba63d5bfc1c309199008f",
+      "size": 5639,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/f2bf7ec9601b6635bbdba63d5bfc1c309199008f"
+    },
+    {
+      "path": "scripts/spark/evaluate_vae.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e3e78c73ac9a0f394486cc062d4992897cb828d3",
+      "size": 13040,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/e3e78c73ac9a0f394486cc062d4992897cb828d3"
+    },
+    {
+      "path": "scripts/spark/evaluate_xgboost.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2605ad7d0c8b20d1ee8494701a74dc2284e6b6e5",
+      "size": 5089,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/2605ad7d0c8b20d1ee8494701a74dc2284e6b6e5"
+    },
+    {
+      "path": "scripts/spark/make_datasets.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e7066da180769fe07933e0ccd665af952d70f966",
+      "size": 1137,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/e7066da180769fe07933e0ccd665af952d70f966"
+    },
+    {
+      "path": "scripts/spark/train_autoencoder.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4ce837ab830eda098c4545695be354055022c086",
+      "size": 5928,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/4ce837ab830eda098c4545695be354055022c086"
+    },
+    {
+      "path": "scripts/spark/train_dc_detector.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "65875a07186be969757e8acd2576f64f62c80a6d",
+      "size": 4790,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/65875a07186be969757e8acd2576f64f62c80a6d"
+    },
+    {
+      "path": "scripts/spark/train_deep_sad.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "44369644d6577f4c1a6c2efc0c7c5bd242d5ed67",
+      "size": 7510,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/44369644d6577f4c1a6c2efc0c7c5bd242d5ed67"
+    },
+    {
+      "path": "scripts/spark/train_deep_svdd.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fa360660e3fa106177d3c83be388eb037b05b552",
+      "size": 3997,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/fa360660e3fa106177d3c83be388eb037b05b552"
+    },
+    {
+      "path": "scripts/spark/train_divad.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "793e5ea519a0c2cbbec9b3808988d2170cca8fa3",
+      "size": 15053,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/793e5ea519a0c2cbbec9b3808988d2170cca8fa3"
+    },
+    {
+      "path": "scripts/spark/train_lstm_ad.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "23fb001dd37e4bde267b68ec2a17fececec91d60",
+      "size": 5076,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/23fb001dd37e4bde267b68ec2a17fececec91d60"
+    },
+    {
+      "path": "scripts/spark/train_mscred.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2280d1c58672b1cdf4e5258d8cdf198b8ad9f2b5",
+      "size": 4745,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/2280d1c58672b1cdf4e5258d8cdf198b8ad9f2b5"
+    },
+    {
+      "path": "scripts/spark/train_tranad.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "571fda4335b07d41520eaadb3fd4aaff821267b3",
+      "size": 4649,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/571fda4335b07d41520eaadb3fd4aaff821267b3"
+    },
+    {
+      "path": "scripts/spark/train_vae.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "65403a1a75f7853444fc38d414062c282163165c",
+      "size": 6639,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/65403a1a75f7853444fc38d414062c282163165c"
+    },
+    {
+      "path": "scripts/spark/train_xgboost.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2e8a84361315f655846f2349449cf78a3a5366f1",
+      "size": 4106,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/2e8a84361315f655846f2349449cf78a3a5366f1"
+    },
+    {
+      "path": "scripts/spark/utils.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3024dac4ad75e5c2139742dc0b4af72f1260277d",
+      "size": 3691,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/3024dac4ad75e5c2139742dc0b4af72f1260277d"
+    },
+    {
+      "path": "scripts/utils.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bdf1220c75bb31a2976d2a30fff98f006592f223",
+      "size": 43462,
+      "url": "https://api.github.com/repos/exathlonbenchmark/divad/git/blobs/bdf1220c75bb31a2976d2a30fff98f006592f223"
+    }
+  ],
+  "truncated": false
+}
