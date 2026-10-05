@@ -32,6 +32,10 @@ def main():
         import torch
         from models import Predictor,infer_lstm,pca_score
         art=json.loads((ROOT/'provenance/score_artifacts.json').read_text());assert len(art)==38
+        training=json.loads((ROOT/'results/training.json').read_text())
+        assert sha(CACHE/'pca.npz')==training['checkpoints']['PCA_SPE']
+        assert sha(CACHE/'lstm.pt')==training['checkpoints']['CAUSAL_LSTM_REFERENCE']
+        assert sha(CACHE/'scaler.npz')==training['scaler_hash']
         scaler=np.load(CACHE/'scaler.npz');mean=scaler['mean'];std=scaler['std'];basis=np.load(CACHE/'pca.npz')['basis']
         model=Predictor();model.load_state_dict(torch.load(CACHE/'lstm.pt',weights_only=True));model.eval();torch.set_num_threads(2)
         maxerr=0;count=0
@@ -51,7 +55,12 @@ def main():
         np.testing.assert_allclose(s1[:cut+1],s2[:cut+1],rtol=1e-5,atol=1e-5,equal_nan=True)
         np.testing.assert_allclose(pca_score(z[:cut+1],basis),pca_score(mut[:cut+1],basis),equal_nan=True)
         # Independent rederive scaler from fit rows only; calibration/control cannot affect it.
-        fitx=np.concatenate([np.load(REPO[x['prepared_path']])['x'][np.load(REPO[x['prepared_path']])['observed']&np.isfinite(np.load(REPO[x['prepared_path']])['x']).all(axis=1)] for x in m if x['role']=='fit'])
+        fit_parts=[]
+        for row in m:
+            fit_array=np.load(REPO/row['prepared_path'])
+            valid=fit_array['observed']&np.isfinite(fit_array['x']).all(axis=1)
+            fit_parts.append(fit_array['x'][valid]) if row['role']=='fit' else None
+        fitx=np.concatenate(fit_parts)
         np.testing.assert_array_equal(mean,fitx.mean(axis=0,dtype=np.float64));ds=fitx.std(axis=0,dtype=np.float64);ds[ds==0]=1;np.testing.assert_array_equal(std,ds)
         for thr in json.loads((ROOT/'results/thresholds.json').read_text()):
             vals=np.concatenate([pd.read_csv(REPO[r['path']]).score.to_numpy() for r in art if r['baseline']==thr['baseline'] and r['role']=='calibration' and (thr['app'] is None or int(r['trace'].split('_')[0])==thr['app'])]);vals=vals[np.isfinite(vals)]
@@ -61,6 +70,6 @@ def main():
         subprocess.run([sys.executable,str(ROOT/'scripts/analyze.py')],check=True,capture_output=True)
         subprocess.run([sys.executable,str(ROOT/'scripts/document.py'),'--final'],check=True,capture_output=True)
         after={x.name:sha(x) for x in outputs if x.is_file() and x.name!='verification.json'};assert before==after
-        checks.update({'score_artifacts_checked':len(art),'independent_single_target_readouts':count,'max_absolute_readout_error':maxerr,'actual_checkpoint_future_suffix_invariance':True,'fit_only_scaler_rederived':True,'normal_only_thresholds_rederived':True,'deterministic_metric_replay':True,'no_after_result_protocol_change':True})
+        checks.update({'score_artifacts_checked':len(art),'independent_single_target_readouts':count,'max_absolute_readout_error':maxerr,'actual_checkpoint_future_suffix_invariance':True,'fit_only_scaler_rederived':True,'normal_only_thresholds_rederived':True,'deterministic_metric_replay':True,'no_after_result_scientific_protocol_change':True,'verification_only_amendment':'AMENDMENT_01.md'})
     save(ROOT/'provenance'/('result_verification.json' if final else 'seal_verification.json'),checks);print(json.dumps(checks,indent=2))
 if __name__=='__main__':main()
