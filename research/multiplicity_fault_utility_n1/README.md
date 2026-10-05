@@ -9,3 +9,5 @@ Selected traces6_5_1000000_93,9_5_1000000_84,10_5_1000000_85 contain four known 
 Before any new inference commit/push protocol, exact raw/CSV/canonical-array hashes and event manifest. All N0 thresholds remain fixed. Positive utility instability needs the same predefined duplication source to cause>=10 percentage-point fault alarm-fraction range in>=2/3 apps for both families, paired with<=0.5percentage-point normal FPR spread. If any family lacks eligible events in all3 traces, gate FAULT_SCORE_SUPPORT_INSUFFICIENT. Otherwise preserve NO_REPLICATED_FAULT_UTILITY_EFFECT when unsupported. Balanced/dedup controls invariant.
 
 Four-event/shared-cluster/unmatched-context/single-executor-event limits remain. Generic ranking-vs-threshold utility and weighted calibration are established; no novelty, population significance or new-method GO follows. E1/N0 outcomes and original labels/raw schema were seen; selected detector scores unexposed before seal. Numerical gate alone does not finish the overall research goal.
+
+Completed: [RESULTS](RESULTS.md), [verification](provenance/verification.json). Main gate FAULT_SCORE_SUPPORT_INSUFFICIENT; overall goal still active.

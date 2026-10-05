@@ -1,0 +1,72 @@
+[
+  {
+    "trace": "6_5_1000000_93",
+    "event": "gt_row_071",
+    "type": "driver_failure",
+    "expected_native_targets": 64,
+    "source_missing_targets": 3,
+    "observed_targets_with_invalid_current_feature": 7,
+    "additional_targets_blocked_only_by_history32": 32,
+    "all_trace_PCA_and_LSTM_validity_masks_exactly_match_independent_feature_formula": true
+  },
+  {
+    "trace": "6_5_1000000_93",
+    "event": "gt_row_109",
+    "type": "unknown",
+    "expected_native_targets": 644,
+    "source_missing_targets": 2,
+    "observed_targets_with_invalid_current_feature": 0,
+    "additional_targets_blocked_only_by_history32": 0,
+    "all_trace_PCA_and_LSTM_validity_masks_exactly_match_independent_feature_formula": true
+  },
+  {
+    "trace": "9_5_1000000_84",
+    "event": "gt_row_064",
+    "type": "driver_failure",
+    "expected_native_targets": 69,
+    "source_missing_targets": 4,
+    "observed_targets_with_invalid_current_feature": 23,
+    "additional_targets_blocked_only_by_history32": 32,
+    "all_trace_PCA_and_LSTM_validity_masks_exactly_match_independent_feature_formula": true
+  },
+  {
+    "trace": "9_5_1000000_84",
+    "event": "gt_row_073",
+    "type": "executor_failure",
+    "expected_native_targets": 328,
+    "source_missing_targets": 1,
+    "observed_targets_with_invalid_current_feature": 0,
+    "additional_targets_blocked_only_by_history32": 0,
+    "all_trace_PCA_and_LSTM_validity_masks_exactly_match_independent_feature_formula": true
+  },
+  {
+    "trace": "9_5_1000000_84",
+    "event": "gt_row_099",
+    "type": "unknown",
+    "expected_native_targets": 116,
+    "source_missing_targets": 0,
+    "observed_targets_with_invalid_current_feature": 0,
+    "additional_targets_blocked_only_by_history32": 0,
+    "all_trace_PCA_and_LSTM_validity_masks_exactly_match_independent_feature_formula": true
+  },
+  {
+    "trace": "10_5_1000000_85",
+    "event": "gt_row_065",
+    "type": "driver_failure",
+    "expected_native_targets": 64,
+    "source_missing_targets": 3,
+    "observed_targets_with_invalid_current_feature": 15,
+    "additional_targets_blocked_only_by_history32": 32,
+    "all_trace_PCA_and_LSTM_validity_masks_exactly_match_independent_feature_formula": true
+  },
+  {
+    "trace": "10_5_1000000_85",
+    "event": "gt_row_100",
+    "type": "unknown",
+    "expected_native_targets": 109,
+    "source_missing_targets": 1,
+    "observed_targets_with_invalid_current_feature": 0,
+    "additional_targets_blocked_only_by_history32": 0,
+    "all_trace_PCA_and_LSTM_validity_masks_exactly_match_independent_feature_formula": true
+  }
+]

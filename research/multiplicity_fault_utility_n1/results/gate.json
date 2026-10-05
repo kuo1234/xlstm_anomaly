@@ -1,0 +1,100 @@
+{
+  "verdict": "FAULT_SCORE_SUPPORT_INSUFFICIENT",
+  "all_sources": [
+    {
+      "duplicated_trace": "6_0_50000_49",
+      "families": [
+        {
+          "baseline": "PCA_SPE",
+          "eligible_traces": 1,
+          "material_traces": 1,
+          "paired_normal_max_FPR_spread": 0.002740457749341,
+          "spreads": [
+            {
+              "trace": "9_5_1000000_84",
+              "fault_alarm_fraction_range": 0.2018348623853211
+            }
+          ]
+        },
+        {
+          "baseline": "CAUSAL_LSTM_REFERENCE",
+          "eligible_traces": 1,
+          "material_traces": 0,
+          "paired_normal_max_FPR_spread": 0.0027066271708194997,
+          "spreads": [
+            {
+              "trace": "9_5_1000000_84",
+              "fault_alarm_fraction_range": 0.00917431192660545
+            }
+          ]
+        }
+      ],
+      "supported": false
+    },
+    {
+      "duplicated_trace": "9_0_300000_5",
+      "families": [
+        {
+          "baseline": "PCA_SPE",
+          "eligible_traces": 1,
+          "material_traces": 0,
+          "paired_normal_max_FPR_spread": 0.00010450898196639937,
+          "spreads": [
+            {
+              "trace": "9_5_1000000_84",
+              "fault_alarm_fraction_range": 0.003058103975535187
+            }
+          ]
+        },
+        {
+          "baseline": "CAUSAL_LSTM_REFERENCE",
+          "eligible_traces": 1,
+          "material_traces": 0,
+          "paired_normal_max_FPR_spread": 3.4900359473699974e-05,
+          "spreads": [
+            {
+              "trace": "9_5_1000000_84",
+              "fault_alarm_fraction_range": 0.003058103975535187
+            }
+          ]
+        }
+      ],
+      "supported": false
+    },
+    {
+      "duplicated_trace": "10_0_100000_10",
+      "families": [
+        {
+          "baseline": "PCA_SPE",
+          "eligible_traces": 1,
+          "material_traces": 1,
+          "paired_normal_max_FPR_spread": 0.004168747169548401,
+          "spreads": [
+            {
+              "trace": "9_5_1000000_84",
+              "fault_alarm_fraction_range": 0.363914373088685
+            }
+          ]
+        },
+        {
+          "baseline": "CAUSAL_LSTM_REFERENCE",
+          "eligible_traces": 1,
+          "material_traces": 0,
+          "paired_normal_max_FPR_spread": 0.002985421385839601,
+          "spreads": [
+            {
+              "trace": "9_5_1000000_84",
+              "fault_alarm_fraction_range": 0.00917431192660545
+            }
+          ]
+        }
+      ],
+      "supported": false
+    }
+  ],
+  "method_design_GO": false,
+  "novelty_GO": false,
+  "seal_sha": "dd59bc0d2c4f3f323afd06d91ae79c713805dab5",
+  "training_runs": 0,
+  "lifecycle_inference": false
+}

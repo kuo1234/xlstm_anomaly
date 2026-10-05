@@ -1,0 +1,50 @@
+[
+  {
+    "baseline": "PCA_SPE",
+    "trace": "6_5_1000000_93",
+    "score_path": "data/multiplicity_fault_utility_n1/PCA_SPE_6_5_1000000_93.npz",
+    "sha256": "71c14f562763c54500d082bd8dde44ae768abef5fd63721a3f957f9481d05a15",
+    "model_hash": "2ebb88bd08eb6617c3f9a712f0e84488cfa9d69cd93dd879bf4efd7c0651a57d",
+    "scaler_hash": "5bbd80fd42a3077f789de278eb531b58a84b1d1d4c781426d2704064d2cf2013"
+  },
+  {
+    "baseline": "PCA_SPE",
+    "trace": "9_5_1000000_84",
+    "score_path": "data/multiplicity_fault_utility_n1/PCA_SPE_9_5_1000000_84.npz",
+    "sha256": "67a0646181b4798cf9516d2ca7603d0f425823355b78baaee646668565814974",
+    "model_hash": "2ebb88bd08eb6617c3f9a712f0e84488cfa9d69cd93dd879bf4efd7c0651a57d",
+    "scaler_hash": "5bbd80fd42a3077f789de278eb531b58a84b1d1d4c781426d2704064d2cf2013"
+  },
+  {
+    "baseline": "PCA_SPE",
+    "trace": "10_5_1000000_85",
+    "score_path": "data/multiplicity_fault_utility_n1/PCA_SPE_10_5_1000000_85.npz",
+    "sha256": "c0121db381929e62dc7039c55b38a7cdf5f3bdfd483f77cdbf174dfb6b648213",
+    "model_hash": "2ebb88bd08eb6617c3f9a712f0e84488cfa9d69cd93dd879bf4efd7c0651a57d",
+    "scaler_hash": "5bbd80fd42a3077f789de278eb531b58a84b1d1d4c781426d2704064d2cf2013"
+  },
+  {
+    "baseline": "CAUSAL_LSTM_REFERENCE",
+    "trace": "6_5_1000000_93",
+    "score_path": "data/multiplicity_fault_utility_n1/CAUSAL_LSTM_REFERENCE_6_5_1000000_93.npz",
+    "sha256": "098a98711458b00617209739f480af4d21a8a5b61f06ea4592b56fc72576f376",
+    "model_hash": "e92d082a655d63ac467ecf83233debc25abf06ec94073a91fc425fa2c1a23b93",
+    "scaler_hash": "5bbd80fd42a3077f789de278eb531b58a84b1d1d4c781426d2704064d2cf2013"
+  },
+  {
+    "baseline": "CAUSAL_LSTM_REFERENCE",
+    "trace": "9_5_1000000_84",
+    "score_path": "data/multiplicity_fault_utility_n1/CAUSAL_LSTM_REFERENCE_9_5_1000000_84.npz",
+    "sha256": "36b27e6a9f3792a6869abcf69ed6b31c51d3b25a4723adc1fa47e0b8607f1a8f",
+    "model_hash": "e92d082a655d63ac467ecf83233debc25abf06ec94073a91fc425fa2c1a23b93",
+    "scaler_hash": "5bbd80fd42a3077f789de278eb531b58a84b1d1d4c781426d2704064d2cf2013"
+  },
+  {
+    "baseline": "CAUSAL_LSTM_REFERENCE",
+    "trace": "10_5_1000000_85",
+    "score_path": "data/multiplicity_fault_utility_n1/CAUSAL_LSTM_REFERENCE_10_5_1000000_85.npz",
+    "sha256": "a83ad2498edcf82a1a30731d5a9704164f8027ab81f9e47d9b20ba070e887813",
+    "model_hash": "e92d082a655d63ac467ecf83233debc25abf06ec94073a91fc425fa2c1a23b93",
+    "scaler_hash": "5bbd80fd42a3077f789de278eb531b58a84b1d1d4c781426d2704064d2cf2013"
+  }
+]

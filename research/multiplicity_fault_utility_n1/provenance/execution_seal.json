@@ -1,0 +1,17 @@
+{
+  "sha": "dd59bc0d2c4f3f323afd06d91ae79c713805dab5",
+  "branch": "codex/normal-multiplicity-fault-utility-n1",
+  "new_fault_scores_exposed_before_push": false,
+  "files": {
+    "research/multiplicity_fault_utility_n1/README.md": "2a0c395bbb30310f4bb014bb9d5ffe93fab9b17bd76ac77ee0c585480eb2e61c",
+    "research/multiplicity_fault_utility_n1/configs/events.json": "f55012cc08daa79a0fd9f10fc7f6dfcc1170fc1df3882c6ffcc5526b563b2a7a",
+    "research/multiplicity_fault_utility_n1/configs/protocol.json": "b0d8a3ac4dc4eb2b57b21ed5530ab8f541ccc4971190f9cb9ec63fbbc2b9af77",
+    "research/multiplicity_fault_utility_n1/configs/test_manifest.json": "42638ccccae4a6a375b9035f965a716867da41d510daf4e0db320331098a5638",
+    "research/multiplicity_fault_utility_n1/provenance/preflight.json": "dc9e676d16b3eebba6982c054c494675220afa873fddfad0dbf5bc73f5d4d39d",
+    "research/multiplicity_fault_utility_n1/provenance/raw_sources.json": "4d0f9918de823d302911dbf6b09be36a5b083df8fcee3e696f6f196a7120b33c",
+    "research/multiplicity_fault_utility_n1/scripts/acquire.py": "dd166ad3cc85909c8c554edd3d3b473bf34a0e46a963df61156350c9d6f26559",
+    "research/multiplicity_fault_utility_n1/scripts/execute.py": "470b2c4847578b2d86ca7bb9c2af23b87dfae6ea7f49498f5a5b737f8819a678",
+    "research/multiplicity_fault_utility_n1/scripts/utility.py": "8c49aa061412c35c3fe405d0e3feb13adc88f6f3c9b4b94215f23cb9ce35947c",
+    "research/multiplicity_fault_utility_n1/tests/test_utility.py": "2001dbc99cceb606058bd79c7d3d0e573aa424a1fd1bff7ee5e86de5b4e03ae1"
+  }
+}

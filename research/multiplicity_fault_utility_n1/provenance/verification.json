@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "independent_event_operating_point_checks": 288,
+  "event_availability_checks": 14,
+  "score_artifact_hashes": 6,
+  "inherited_operating_points_and_frozen_code_unchanged": true,
+  "missing_scores_not_normal": true,
+  "no_retraining": true,
+  "independent_implementation": "direct per-target interval/threshold enumeration; same agent, not scientific peer review"
+}

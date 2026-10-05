@@ -1,0 +1,156 @@
+[
+  {
+    "baseline": "PCA_SPE",
+    "event_id": "gt_row_071",
+    "trace": "6_5_1000000_93",
+    "anomaly_type": "driver_failure",
+    "primary": true,
+    "count": 54,
+    "expected": 64,
+    "coverage": 0.84375,
+    "eligible": false
+  },
+  {
+    "baseline": "PCA_SPE",
+    "event_id": "gt_row_109",
+    "trace": "6_5_1000000_93",
+    "anomaly_type": "unknown",
+    "primary": false,
+    "count": 642,
+    "expected": 644,
+    "coverage": 0.9968944099378882,
+    "eligible": true
+  },
+  {
+    "baseline": "PCA_SPE",
+    "event_id": "gt_row_064",
+    "trace": "9_5_1000000_84",
+    "anomaly_type": "driver_failure",
+    "primary": true,
+    "count": 42,
+    "expected": 69,
+    "coverage": 0.6086956521739131,
+    "eligible": false
+  },
+  {
+    "baseline": "PCA_SPE",
+    "event_id": "gt_row_073",
+    "trace": "9_5_1000000_84",
+    "anomaly_type": "executor_failure",
+    "primary": true,
+    "count": 327,
+    "expected": 328,
+    "coverage": 0.9969512195121951,
+    "eligible": true
+  },
+  {
+    "baseline": "PCA_SPE",
+    "event_id": "gt_row_099",
+    "trace": "9_5_1000000_84",
+    "anomaly_type": "unknown",
+    "primary": false,
+    "count": 116,
+    "expected": 116,
+    "coverage": 1.0,
+    "eligible": true
+  },
+  {
+    "baseline": "PCA_SPE",
+    "event_id": "gt_row_065",
+    "trace": "10_5_1000000_85",
+    "anomaly_type": "driver_failure",
+    "primary": true,
+    "count": 46,
+    "expected": 64,
+    "coverage": 0.71875,
+    "eligible": false
+  },
+  {
+    "baseline": "PCA_SPE",
+    "event_id": "gt_row_100",
+    "trace": "10_5_1000000_85",
+    "anomaly_type": "unknown",
+    "primary": false,
+    "count": 108,
+    "expected": 109,
+    "coverage": 0.9908256880733946,
+    "eligible": true
+  },
+  {
+    "baseline": "CAUSAL_LSTM_REFERENCE",
+    "event_id": "gt_row_071",
+    "trace": "6_5_1000000_93",
+    "anomaly_type": "driver_failure",
+    "primary": true,
+    "count": 22,
+    "expected": 64,
+    "coverage": 0.34375,
+    "eligible": false
+  },
+  {
+    "baseline": "CAUSAL_LSTM_REFERENCE",
+    "event_id": "gt_row_109",
+    "trace": "6_5_1000000_93",
+    "anomaly_type": "unknown",
+    "primary": false,
+    "count": 642,
+    "expected": 644,
+    "coverage": 0.9968944099378882,
+    "eligible": true
+  },
+  {
+    "baseline": "CAUSAL_LSTM_REFERENCE",
+    "event_id": "gt_row_064",
+    "trace": "9_5_1000000_84",
+    "anomaly_type": "driver_failure",
+    "primary": true,
+    "count": 10,
+    "expected": 69,
+    "coverage": 0.14492753623188406,
+    "eligible": false
+  },
+  {
+    "baseline": "CAUSAL_LSTM_REFERENCE",
+    "event_id": "gt_row_073",
+    "trace": "9_5_1000000_84",
+    "anomaly_type": "executor_failure",
+    "primary": true,
+    "count": 327,
+    "expected": 328,
+    "coverage": 0.9969512195121951,
+    "eligible": true
+  },
+  {
+    "baseline": "CAUSAL_LSTM_REFERENCE",
+    "event_id": "gt_row_099",
+    "trace": "9_5_1000000_84",
+    "anomaly_type": "unknown",
+    "primary": false,
+    "count": 116,
+    "expected": 116,
+    "coverage": 1.0,
+    "eligible": true
+  },
+  {
+    "baseline": "CAUSAL_LSTM_REFERENCE",
+    "event_id": "gt_row_065",
+    "trace": "10_5_1000000_85",
+    "anomaly_type": "driver_failure",
+    "primary": true,
+    "count": 14,
+    "expected": 64,
+    "coverage": 0.21875,
+    "eligible": false
+  },
+  {
+    "baseline": "CAUSAL_LSTM_REFERENCE",
+    "event_id": "gt_row_100",
+    "trace": "10_5_1000000_85",
+    "anomaly_type": "unknown",
+    "primary": false,
+    "count": 108,
+    "expected": 109,
+    "coverage": 0.9908256880733946,
+    "eligible": true
+  }
+]
