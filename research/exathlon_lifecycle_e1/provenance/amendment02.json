@@ -1,0 +1,25 @@
+{
+  "amendment": 2,
+  "original_seal": "e971f592b8bcd269719de2027bca238812b1203a",
+  "previous_amendment": "b8a87e403827bf625b847a68909b6892502bd217",
+  "error": "Same erroneous REPO[path] at independent calibration-threshold rederivation, not found by amendment01",
+  "scientific_results_already_exposed": true,
+  "exposed_verdict": "NO_ROOT_EFFECT_GAP",
+  "changes": "Repair second verifier path; add AST regression scanning all scripts for Path constant subscripts. No scientific execution/score/metric/gate changes.",
+  "training_reruns": 0,
+  "detector_score_regeneration": false,
+  "unchanged_scientific_output_sha256_before_amendment": {
+    "results/final_gate.json": "b2a0a015b7b57a8d61b07be4a0c90ecfd8ee4c41237abef575ce9d758f0b78fc",
+    "results/training.json": "d71f323ec05ed227ef6adc713ed3578e0a84bb7b84052960ed2c6be8664fce5d",
+    "results/control_metrics.json": "a938908c85e5a728dca7d2c41a0c5dc00c19d5f5cfbb71a83cf8b9ebce190e8b",
+    "results/event_metrics.csv": "aaf3b26d98fd063e60dd81948746116c5f6f8ffe0c6729aa3c88b777ebaa314c",
+    "results/aggregations.json": "548f04e4a8d5d5f752afa645420a7ce5f8a285c6ab7b8225ab946b5f177bb677",
+    "results/family_summary.json": "1c2bc4a3dc2250ecf41b8fe674d92948357d8979fb7284116d167173ecb7e562",
+    "results/event_metrics.json": "a2eb5fc32cd5fd95520126e79d2c893100af18cdfcd1dd2123a051fb032cbd9a",
+    "results/normal_scores.json": "39bcb62c4a4c4b6d66ebaf85ae9777ca46f74951e360c3b56fa01ef1c4d5b268",
+    "results/thresholds.json": "e03aaa05411c7a16094194d2b2e3db4253d06c22dccc62de3a6b8646d2b0f003",
+    "results/burden_control_summary.json": "75a6e17af81217016ca4915e5296dd4adaf0d57765f79228b4946f4b2c87f1ff",
+    "results/normal_scores.csv": "6165ca6a3a7d1cd121db4a72210305b9abe4b97f95a1b8fdec8aaacc16786b3e",
+    "provenance/score_artifacts.json": "9651894e5f23584aef831cac0fbae9c984d3ff4d6a6855ce626d93a0867238f0"
+  }
+}

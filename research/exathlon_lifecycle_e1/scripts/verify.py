@@ -27,7 +27,7 @@ def main():
             if target.startswith(('http:','https:')):continue
             assert (doc.parent/target.split('#')[0]).exists(),(doc,target);links+=1
     for path in ROOT.rglob('*.json'):json.loads(path.read_text(),parse_constant=lambda s:(_ for _ in ()).throw(ValueError(s)))
-    checks={'status':'PASS','phase':'result' if final else 'seal','raw_archive_and_canonical_array_checks':identities,'whole_trace_disjoint_roles':True,'primary_events':len(primary),'local_links_checked':links,'unit_tests':9,'training_before_pushed_seal':False}
+    checks={'status':'PASS','phase':'result' if final else 'seal','raw_archive_and_canonical_array_checks':identities,'whole_trace_disjoint_roles':True,'primary_events':len(primary),'local_links_checked':links,'unit_tests':10,'training_before_pushed_seal':False}
     if final:
         import torch
         from models import Predictor,infer_lstm,pca_score
@@ -63,13 +63,13 @@ def main():
         fitx=np.concatenate(fit_parts)
         np.testing.assert_array_equal(mean,fitx.mean(axis=0,dtype=np.float64));ds=fitx.std(axis=0,dtype=np.float64);ds[ds==0]=1;np.testing.assert_array_equal(std,ds)
         for thr in json.loads((ROOT/'results/thresholds.json').read_text()):
-            vals=np.concatenate([pd.read_csv(REPO[r['path']]).score.to_numpy() for r in art if r['baseline']==thr['baseline'] and r['role']=='calibration' and (thr['app'] is None or int(r['trace'].split('_')[0])==thr['app'])]);vals=vals[np.isfinite(vals)]
+            vals=np.concatenate([pd.read_csv(REPO/r['path']).score.to_numpy() for r in art if r['baseline']==thr['baseline'] and r['role']=='calibration' and (thr['app'] is None or int(r['trace'].split('_')[0])==thr['app'])]);vals=vals[np.isfinite(vals)]
             np.testing.assert_allclose(thr['threshold'],np.quantile(vals,.995,method='linear'),rtol=1e-12)
         # Deterministic metric replay, without model retraining/scoring or touching outcome choices.
         outputs=list((ROOT/'results').glob('*'));before={x.name:sha(x) for x in outputs if x.is_file() and x.name!='verification.json'}
         subprocess.run([sys.executable,str(ROOT/'scripts/analyze.py')],check=True,capture_output=True)
         subprocess.run([sys.executable,str(ROOT/'scripts/document.py'),'--final'],check=True,capture_output=True)
         after={x.name:sha(x) for x in outputs if x.is_file() and x.name!='verification.json'};assert before==after
-        checks.update({'score_artifacts_checked':len(art),'independent_single_target_readouts':count,'max_absolute_readout_error':maxerr,'actual_checkpoint_future_suffix_invariance':True,'fit_only_scaler_rederived':True,'normal_only_thresholds_rederived':True,'deterministic_metric_replay':True,'no_after_result_scientific_protocol_change':True,'verification_only_amendment':'AMENDMENT_01.md'})
+        checks.update({'score_artifacts_checked':len(art),'independent_single_target_readouts':count,'max_absolute_readout_error':maxerr,'actual_checkpoint_future_suffix_invariance':True,'fit_only_scaler_rederived':True,'normal_only_thresholds_rederived':True,'deterministic_metric_replay':True,'no_after_result_scientific_protocol_change':True,'verification_only_amendments':['AMENDMENT_01.md','AMENDMENT_02.md']})
     save(ROOT/'provenance'/('result_verification.json' if final else 'seal_verification.json'),checks);print(json.dumps(checks,indent=2))
 if __name__=='__main__':main()
