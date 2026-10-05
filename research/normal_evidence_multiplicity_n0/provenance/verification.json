@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "literal_replication_order_statistics": 24,
+  "row_FPR_checks": 216,
+  "frozen_score_artifacts": 6,
+  "unique_information_and_checkpoint_weights_preserved": true,
+  "independent_check": "literal rows plus direct threshold alarm counting; not separate researcher review",
+  "novelty_verified": false,
+  "fault_recall_checked": false
+}

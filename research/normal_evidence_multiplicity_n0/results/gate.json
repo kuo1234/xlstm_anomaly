@@ -1,0 +1,149 @@
+{
+  "verdict": "NO_MATERIAL_EXTERNAL_EFFECT",
+  "summary": [
+    {
+      "baseline": "PCA_SPE",
+      "witnesses": [
+        {
+          "test_trace": "10_0_100000_13",
+          "duplicated_trace": "10_0_100000_10",
+          "FPR_spread": 0.001220149904131079,
+          "threshold_range_IQR": 12.504977597394747,
+          "material": false
+        },
+        {
+          "test_trace": "10_0_100000_13",
+          "duplicated_trace": "6_0_50000_49",
+          "FPR_spread": 0.00048805996165243157,
+          "threshold_range_IQR": 10.09460364146669,
+          "material": false
+        },
+        {
+          "test_trace": "10_0_100000_13",
+          "duplicated_trace": "9_0_300000_5",
+          "FPR_spread": 0.0,
+          "threshold_range_IQR": 0.903597125915458,
+          "material": false
+        },
+        {
+          "test_trace": "6_0_100000_42",
+          "duplicated_trace": "10_0_100000_10",
+          "FPR_spread": 0.0007695267410542516,
+          "threshold_range_IQR": 12.504977597394747,
+          "material": false
+        },
+        {
+          "test_trace": "6_0_100000_42",
+          "duplicated_trace": "6_0_50000_49",
+          "FPR_spread": 0.00038476337052712584,
+          "threshold_range_IQR": 10.09460364146669,
+          "material": false
+        },
+        {
+          "test_trace": "6_0_100000_42",
+          "duplicated_trace": "9_0_300000_5",
+          "FPR_spread": 0.0,
+          "threshold_range_IQR": 0.903597125915458,
+          "material": false
+        },
+        {
+          "test_trace": "9_0_100000_4",
+          "duplicated_trace": "10_0_100000_10",
+          "FPR_spread": 0.004168747169548405,
+          "threshold_range_IQR": 12.504977597394747,
+          "material": false
+        },
+        {
+          "test_trace": "9_0_100000_4",
+          "duplicated_trace": "6_0_50000_49",
+          "FPR_spread": 0.002740457749341013,
+          "threshold_range_IQR": 10.09460364146669,
+          "material": false
+        },
+        {
+          "test_trace": "9_0_100000_4",
+          "duplicated_trace": "9_0_300000_5",
+          "FPR_spread": 0.00010450898196639503,
+          "threshold_range_IQR": 0.903597125915458,
+          "material": false
+        }
+      ],
+      "material_test_traces": 0
+    },
+    {
+      "baseline": "CAUSAL_LSTM_REFERENCE",
+      "witnesses": [
+        {
+          "test_trace": "10_0_100000_13",
+          "duplicated_trace": "10_0_100000_10",
+          "FPR_spread": 0.0010121104247373743,
+          "threshold_range_IQR": 7.664093047527922,
+          "material": false
+        },
+        {
+          "test_trace": "10_0_100000_13",
+          "duplicated_trace": "6_0_50000_49",
+          "FPR_spread": 0.0006631068300003489,
+          "threshold_range_IQR": 6.740159802618769,
+          "material": false
+        },
+        {
+          "test_trace": "10_0_100000_13",
+          "duplicated_trace": "9_0_300000_5",
+          "FPR_spread": 3.4900359473702576e-05,
+          "threshold_range_IQR": 0.3697497150080116,
+          "material": false
+        },
+        {
+          "test_trace": "6_0_100000_42",
+          "duplicated_trace": "10_0_100000_10",
+          "FPR_spread": 0.00010517090271691502,
+          "threshold_range_IQR": 7.664093047527922,
+          "material": false
+        },
+        {
+          "test_trace": "6_0_100000_42",
+          "duplicated_trace": "6_0_50000_49",
+          "FPR_spread": 3.5056967572305044e-05,
+          "threshold_range_IQR": 6.740159802618769,
+          "material": false
+        },
+        {
+          "test_trace": "6_0_100000_42",
+          "duplicated_trace": "9_0_300000_5",
+          "FPR_spread": 0.0,
+          "threshold_range_IQR": 0.3697497150080116,
+          "material": false
+        },
+        {
+          "test_trace": "9_0_100000_4",
+          "duplicated_trace": "10_0_100000_10",
+          "FPR_spread": 0.0029854213858395776,
+          "threshold_range_IQR": 7.664093047527922,
+          "material": false
+        },
+        {
+          "test_trace": "9_0_100000_4",
+          "duplicated_trace": "6_0_50000_49",
+          "FPR_spread": 0.0027066271708195387,
+          "threshold_range_IQR": 6.740159802618769,
+          "material": false
+        },
+        {
+          "test_trace": "9_0_100000_4",
+          "duplicated_trace": "9_0_300000_5",
+          "FPR_spread": 1.1616425625834807e-05,
+          "threshold_range_IQR": 0.3697497150080116,
+          "material": false
+        }
+      ],
+      "material_test_traces": 0
+    }
+  ],
+  "method_design_GO": false,
+  "novelty": "UNRESOLVED; generic weights/group mixture occupied",
+  "normal_only": true,
+  "fault_recall_measured": false,
+  "training_runs": 0,
+  "seal_sha": "4cbf897a5103785f668921e2a2711166c08c5938"
+}

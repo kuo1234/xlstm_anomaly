@@ -1,0 +1,62 @@
+[
+  {
+    "baseline": "PCA_SPE",
+    "trace": "6_0_100000_42",
+    "score_path": "data/normal_evidence_multiplicity_n0/PCA_SPE_6_0_100000_42.npz",
+    "sha256": "00d67d305ba51348cb015d28ce0daac489cf0bda86aca3938fcddeadfb917e11",
+    "scores": 28589,
+    "model_hash": "2ebb88bd08eb6617c3f9a712f0e84488cfa9d69cd93dd879bf4efd7c0651a57d",
+    "target_availability": "target timestamp; only observed finite targets",
+    "scaler_hash": "5bbd80fd42a3077f789de278eb531b58a84b1d1d4c781426d2704064d2cf2013"
+  },
+  {
+    "baseline": "PCA_SPE",
+    "trace": "9_0_100000_4",
+    "score_path": "data/normal_evidence_multiplicity_n0/PCA_SPE_9_0_100000_4.npz",
+    "sha256": "c00f57e449193d361b0c7c1b7fcb7608d244a7ddfe9e01126a7afb6f406711e5",
+    "scores": 86117,
+    "model_hash": "2ebb88bd08eb6617c3f9a712f0e84488cfa9d69cd93dd879bf4efd7c0651a57d",
+    "target_availability": "target timestamp; only observed finite targets",
+    "scaler_hash": "5bbd80fd42a3077f789de278eb531b58a84b1d1d4c781426d2704064d2cf2013"
+  },
+  {
+    "baseline": "PCA_SPE",
+    "trace": "10_0_100000_13",
+    "score_path": "data/normal_evidence_multiplicity_n0/PCA_SPE_10_0_100000_13.npz",
+    "sha256": "9c58c5c5ccaa214c8bb1f4fd3d492154d2985e0a39003f9d8d195d1b1258924b",
+    "scores": 28685,
+    "model_hash": "2ebb88bd08eb6617c3f9a712f0e84488cfa9d69cd93dd879bf4efd7c0651a57d",
+    "target_availability": "target timestamp; only observed finite targets",
+    "scaler_hash": "5bbd80fd42a3077f789de278eb531b58a84b1d1d4c781426d2704064d2cf2013"
+  },
+  {
+    "baseline": "CAUSAL_LSTM_REFERENCE",
+    "trace": "6_0_100000_42",
+    "score_path": "data/normal_evidence_multiplicity_n0/CAUSAL_LSTM_REFERENCE_6_0_100000_42.npz",
+    "sha256": "ef1b7471105b44aae519ea50768a90199844656247fb5cd1850e542e51ab3cc4",
+    "scores": 28525,
+    "model_hash": "e92d082a655d63ac467ecf83233debc25abf06ec94073a91fc425fa2c1a23b93",
+    "target_availability": "target timestamp; only observed finite targets",
+    "scaler_hash": "5bbd80fd42a3077f789de278eb531b58a84b1d1d4c781426d2704064d2cf2013"
+  },
+  {
+    "baseline": "CAUSAL_LSTM_REFERENCE",
+    "trace": "9_0_100000_4",
+    "score_path": "data/normal_evidence_multiplicity_n0/CAUSAL_LSTM_REFERENCE_9_0_100000_4.npz",
+    "sha256": "f5dcc6006a0f621467f2175dc9fa35243ac0d63a2b175eacd719feb52dd1de7e",
+    "scores": 86085,
+    "model_hash": "e92d082a655d63ac467ecf83233debc25abf06ec94073a91fc425fa2c1a23b93",
+    "target_availability": "target timestamp; only observed finite targets",
+    "scaler_hash": "5bbd80fd42a3077f789de278eb531b58a84b1d1d4c781426d2704064d2cf2013"
+  },
+  {
+    "baseline": "CAUSAL_LSTM_REFERENCE",
+    "trace": "10_0_100000_13",
+    "score_path": "data/normal_evidence_multiplicity_n0/CAUSAL_LSTM_REFERENCE_10_0_100000_13.npz",
+    "sha256": "77bf21bb11cc977ce7c38149832d391f325e202965de8c70b5cc879398e19dc0",
+    "scores": 28653,
+    "model_hash": "e92d082a655d63ac467ecf83233debc25abf06ec94073a91fc425fa2c1a23b93",
+    "target_availability": "target timestamp; only observed finite targets",
+    "scaler_hash": "5bbd80fd42a3077f789de278eb531b58a84b1d1d4c781426d2704064d2cf2013"
+  }
+]
