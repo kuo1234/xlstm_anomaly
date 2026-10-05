@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "events": 7,
+  "primary_known_events": 4,
+  "unknown_events": 3,
+  "old_outputs_exposed": true,
+  "new_fault_score_exposure_before_seal": false,
+  "contract_tests": 2,
+  "immutable_inputs": {
+    "research/exathlon_lifecycle_e1/scripts/prepare.py": "3af2cf084db8d69dbe00cc9e2d04b48bf9cd85d78c943208e5b0fe234b1a295c",
+    "research/exathlon_lifecycle_e1/scripts/models.py": "c114620dbdf18e92708b0a762bd75111991d8af4aa1c3e33457653e2e7eb3281",
+    "research/exathlon_lifecycle_e1/results/training.json": "d71f323ec05ed227ef6adc713ed3578e0a84bb7b84052960ed2c6be8664fce5d",
+    "research/normal_evidence_multiplicity_n0/results/intervention.csv": "b2a45365bf52b955834f7fb06fd65c93c44302eb6845e3e87f16af838d82ee4f"
+  }
+}

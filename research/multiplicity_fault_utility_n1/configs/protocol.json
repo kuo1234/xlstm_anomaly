@@ -1,0 +1,32 @@
+{
+  "stage": "N1 fault utility under fixed N0 calibration multiplicity; not E1 lifecycle rescue",
+  "authorization": "Direct autonomous user research goal; no external reviewer approval claim; independent additional question with unexposed fault scores",
+  "prior_exposure": "E1 and all N0 normal outcomes known. N0 NO_MATERIAL_EXTERNAL_EFFECT remains unchanged. N1 fault scores not computed before seal.",
+  "families": [
+    "PCA_SPE",
+    "CAUSAL_LSTM_REFERENCE"
+  ],
+  "new_tests": [
+    "6_5_1000000_93",
+    "9_5_1000000_84",
+    "10_5_1000000_85"
+  ],
+  "known_types": [
+    "driver_failure",
+    "executor_failure"
+  ],
+  "labels": "Use official closed native combined support [root_cause_start,extended_effect_end or root_end]. This is score-conditional known fault alarm-time coverage, NOT root-time detection, phase separation or lifecycle hypothesis. Point roots are not widened; their released extended-effect support is used for ordinary fault utility. Unknown excluded from primary and retained as unknown; never treated normal.",
+  "primary": "per event fraction of finite native observed scores>threshold; aggregate event mean within trace; each event>=95% expected native score coverage and>=30 scores. No any-alarm/point adjustment as primary. Missing observations not zero/normal.",
+  "operating_points": "Every N0 predefined source\u00d7dose\u00d7arm q.995 inverseCDF threshold reused unchanged; no fault-informed threshold/model/source selection.",
+  "gate": {
+    "supported": "One same predeclared duplicated calibration source yields>=0.10 absolute trace-macro fault alarm-fraction range across doses in>=2 of3 new traces for BOTH families, with eligible fault evidence in all3 apps and paired N0 normalFPR spread<=0.005 in all3 normal tests for each family. Balance/dedup controls invariant. Report all sources, not only witness. This means ordinary operating-point utility changes despite benign normalFPR; no novel method, early detection or safety guarantee.",
+    "otherwise": "NO_REPLICATED_FAULT_UTILITY_EFFECT; no changed doses/subset/polarity/threshold/score",
+    "support_insufficient": "FAULT_SCORE_SUPPORT_INSUFFICIENT if any family lacks>=1 eligible known fault event in each of all3 selected traces; no negative utility inference from unavailable scores"
+  },
+  "no_training": true,
+  "no_sweep": true,
+  "no_weight_or_scaler_change": true,
+  "scientific_limits": "Only4 released known process-failure events,3 apps; shared Spark cluster dependencies, unknown ranges, no exact matched normal context. One executor event is not an independent scientific stratum. Descriptive controlled arithmetic effects only, not population significance. Generic ranking-vs-operatingpoint and weighted-group calibration are occupied prior art. Goal not complete merely because a numerical gate passes.",
+  "bug_rule": "Stop affected computation, pushed amendment + exposure record before resumed modified computation. No silently repaired result.",
+  "availability_diagnostic": "Report known-event score availability versus separate N0 undisturbed score availability; explanatory diagnostic, not post-hoc primary positive gate or detector failure claim."
+}

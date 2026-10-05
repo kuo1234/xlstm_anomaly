@@ -1,0 +1,29 @@
+[
+  {
+    "trace": "6_5_1000000_93",
+    "path": "data/raw/app6/6_5_1000000_93.zip",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app6/6_5_1000000_93.zip",
+    "git_blob_sha": "c4a0ac5abdf0ea6660dd1f9ca1308cd1ca938f58",
+    "sha256": "cf6d41ac316eab47f8d0959657636d5e98018d95254572484f635d14fc220fc1",
+    "bytes": 6843492,
+    "local_path": "data/multiplicity_fault_utility_n1/raw/6_5_1000000_93/6_5_1000000_93.zip"
+  },
+  {
+    "trace": "9_5_1000000_84",
+    "path": "data/raw/app9/9_5_1000000_84.zip",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app9/9_5_1000000_84.zip",
+    "git_blob_sha": "e14e32accb60ddd629e3a3d02220cfb0802871e4",
+    "sha256": "7f5860c4b89b0b7ea28424210380b1bc6c64e8956ed77102482d812fb32f13d4",
+    "bytes": 12020392,
+    "local_path": "data/multiplicity_fault_utility_n1/raw/9_5_1000000_84/9_5_1000000_84.zip"
+  },
+  {
+    "trace": "10_5_1000000_85",
+    "path": "data/raw/app10/10_5_1000000_85.zip",
+    "url": "https://raw.githubusercontent.com/exathlonbenchmark/exathlon/4101f6087f902fa150e392b65c957976faa84e40/data/raw/app10/10_5_1000000_85.zip",
+    "git_blob_sha": "12204b26cd1d3bcc578df2caf9a38a700e14c9dc",
+    "sha256": "fb795c6606f2f16743dbadd6e721f37f1c2e0383b303a3d06eb3df4e4d0b5420",
+    "bytes": 10958314,
+    "local_path": "data/multiplicity_fault_utility_n1/raw/10_5_1000000_85/10_5_1000000_85.zip"
+  }
+]
