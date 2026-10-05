@@ -15,6 +15,7 @@ Cached-evidence verification from repository root:
 
 ```sh
 /tmp/m0e-issue22/venv/bin/python research/fault_observability_blackout_n2/scripts/check_results.py
+/tmp/m0e-issue22/venv/bin/python research/fault_observability_blackout_n2/scripts/check_reference_parity.py
 ```
 
 `acquire.py` restores exact public raw/prepared inputs. `execute.py` intentionally requires a verified execution seal at the remote branch before new analysis; after result delivery, another execution requires an appropriate new authorized seal. The scientific replay was already performed before results were pushed. Raw/mask/article assets remain ignored, with hashes tracked. Numerical verification is independent code by the same agent; external scientific review is still welcome and not implied.
