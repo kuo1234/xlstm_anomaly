@@ -1,0 +1,13 @@
+epoch {'epoch': 1, 'fit_mean_batch_loss': 0.9441939413547515, 'normal_validation_mean_batch_loss': 2908604.6466272743}
+epoch {'epoch': 2, 'fit_mean_batch_loss': 0.8025570352872212, 'normal_validation_mean_batch_loss': 2908570.857235265}
+epoch {'epoch': 3, 'fit_mean_batch_loss': 0.6949237758914629, 'normal_validation_mean_batch_loss': 2908491.585268336}
+epoch {'epoch': 4, 'fit_mean_batch_loss': 0.6390404971937339, 'normal_validation_mean_batch_loss': 2908460.15489782}
+epoch {'epoch': 5, 'fit_mean_batch_loss': 0.6103536193569501, 'normal_validation_mean_batch_loss': 2908403.7616466098}
+epoch {'epoch': 6, 'fit_mean_batch_loss': 0.5883673474192619, 'normal_validation_mean_batch_loss': 2908368.128222979}
+epoch {'epoch': 7, 'fit_mean_batch_loss': 0.569086404144764, 'normal_validation_mean_batch_loss': 2908304.113275119}
+epoch {'epoch': 8, 'fit_mean_batch_loss': 0.554991148908933, 'normal_validation_mean_batch_loss': 2908257.4123088405}
+epoch {'epoch': 9, 'fit_mean_batch_loss': 0.5413348277409872, 'normal_validation_mean_batch_loss': 2908240.65579853}
+epoch {'epoch': 10, 'fit_mean_batch_loss': 0.5266325287520885, 'normal_validation_mean_batch_loss': 2908201.811036063}
+scores PCA_SPE
+scores CAUSAL_LSTM_REFERENCE
+execution complete 20.31079077720642

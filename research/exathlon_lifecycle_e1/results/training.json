@@ -1,0 +1,78 @@
+{
+  "seal_commit": "e971f592b8bcd269719de2027bca238812b1203a",
+  "runtime": {
+    "python": "3.14.6 (main, Jul 24 2026, 21:05:21) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "torch": "2.9.0",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "hardware": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+    "threads": 2,
+    "device": "cpu"
+  },
+  "fit_points": 60824,
+  "fit_windows": 7589,
+  "epochs": [
+    {
+      "epoch": 1,
+      "fit_mean_batch_loss": 0.9441939413547515,
+      "normal_validation_mean_batch_loss": 2908604.6466272743
+    },
+    {
+      "epoch": 2,
+      "fit_mean_batch_loss": 0.8025570352872212,
+      "normal_validation_mean_batch_loss": 2908570.857235265
+    },
+    {
+      "epoch": 3,
+      "fit_mean_batch_loss": 0.6949237758914629,
+      "normal_validation_mean_batch_loss": 2908491.585268336
+    },
+    {
+      "epoch": 4,
+      "fit_mean_batch_loss": 0.6390404971937339,
+      "normal_validation_mean_batch_loss": 2908460.15489782
+    },
+    {
+      "epoch": 5,
+      "fit_mean_batch_loss": 0.6103536193569501,
+      "normal_validation_mean_batch_loss": 2908403.7616466098
+    },
+    {
+      "epoch": 6,
+      "fit_mean_batch_loss": 0.5883673474192619,
+      "normal_validation_mean_batch_loss": 2908368.128222979
+    },
+    {
+      "epoch": 7,
+      "fit_mean_batch_loss": 0.569086404144764,
+      "normal_validation_mean_batch_loss": 2908304.113275119
+    },
+    {
+      "epoch": 8,
+      "fit_mean_batch_loss": 0.554991148908933,
+      "normal_validation_mean_batch_loss": 2908257.4123088405
+    },
+    {
+      "epoch": 9,
+      "fit_mean_batch_loss": 0.5413348277409872,
+      "normal_validation_mean_batch_loss": 2908240.65579853
+    },
+    {
+      "epoch": 10,
+      "fit_mean_batch_loss": 0.5266325287520885,
+      "normal_validation_mean_batch_loss": 2908201.811036063
+    }
+  ],
+  "checkpoints": {
+    "PCA_SPE": "2ebb88bd08eb6617c3f9a712f0e84488cfa9d69cd93dd879bf4efd7c0651a57d",
+    "CAUSAL_LSTM_REFERENCE": "e92d082a655d63ac467ecf83233debc25abf06ec94073a91fc425fa2c1a23b93"
+  },
+  "scaler_hash": "5bbd80fd42a3077f789de278eb531b58a84b1d1d4c781426d2704064d2cf2013",
+  "fit_split_id": "8a2b60e73c07fa19a1a5959b6c31c207a2c3f6ead9c6f17d7aa3a1e050c8cf96",
+  "calibration_split_id": "b09a5f075129d365d9ade35f717a43e1d28c63791b96a9a46f653e0279260ad3",
+  "seconds": 20.310016870498657,
+  "seeds": [
+    21
+  ],
+  "checkpoint_selection": "final epoch; val diagnostic only"
+}

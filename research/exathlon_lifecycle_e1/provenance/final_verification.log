@@ -1,0 +1,37 @@
+test_degenerate_scale_unavailable (test_contracts.Contracts.test_degenerate_scale_unavailable) ... ok
+test_history_excludes_target_and_cannot_cross_missing_features (test_contracts.Contracts.test_history_excludes_target_and_cannot_cross_missing_features) ... ok
+test_inactive_executor_does_not_reenter_average_via_fill (test_contracts.Contracts.test_inactive_executor_does_not_reenter_average_via_fill) ... ok
+test_missing_root_score_cannot_be_effect_only (test_contracts.Contracts.test_missing_root_score_cannot_be_effect_only) ... ok
+test_no_initial_future_fill (test_contracts.Contracts.test_no_initial_future_fill) ... ok
+test_out_of_trace_coverage_not_complete (test_contracts.Contracts.test_out_of_trace_coverage_not_complete) ... ok
+test_prefix_causal_features_with_gap_sentinel_and_duplicate (test_contracts.Contracts.test_prefix_causal_features_with_gap_sentinel_and_duplicate) ... ok
+test_raw_contrast_and_effect_only (test_contracts.Contracts.test_raw_contrast_and_effect_only) ... ok
+test_unobserved_overlap_censors_delay (test_contracts.Contracts.test_unobserved_overlap_censors_delay) ... ok
+test_path_constants_are_not_subscripted (test_verifier_paths.VerifierPaths.test_path_constants_are_not_subscripted) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.035s
+
+OK
+{
+  "status": "PASS",
+  "phase": "result",
+  "raw_archive_and_canonical_array_checks": 19,
+  "whole_trace_disjoint_roles": true,
+  "primary_events": 24,
+  "local_links_checked": 38,
+  "unit_tests": 10,
+  "training_before_pushed_seal": false,
+  "score_artifacts_checked": 38,
+  "independent_single_target_readouts": 190,
+  "max_absolute_readout_error": 1.9073486328125e-06,
+  "actual_checkpoint_future_suffix_invariance": true,
+  "fit_only_scaler_rederived": true,
+  "normal_only_thresholds_rederived": true,
+  "deterministic_metric_replay": true,
+  "no_after_result_scientific_protocol_change": true,
+  "verification_only_amendments": [
+    "AMENDMENT_01.md",
+    "AMENDMENT_02.md"
+  ]
+}

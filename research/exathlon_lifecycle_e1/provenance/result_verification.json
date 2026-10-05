@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "phase": "result",
+  "raw_archive_and_canonical_array_checks": 19,
+  "whole_trace_disjoint_roles": true,
+  "primary_events": 24,
+  "local_links_checked": 38,
+  "unit_tests": 10,
+  "training_before_pushed_seal": false,
+  "score_artifacts_checked": 38,
+  "independent_single_target_readouts": 190,
+  "max_absolute_readout_error": 1.9073486328125e-06,
+  "actual_checkpoint_future_suffix_invariance": true,
+  "fit_only_scaler_rederived": true,
+  "normal_only_thresholds_rederived": true,
+  "deterministic_metric_replay": true,
+  "no_after_result_scientific_protocol_change": true,
+  "verification_only_amendments": [
+    "AMENDMENT_01.md",
+    "AMENDMENT_02.md"
+  ]
+}

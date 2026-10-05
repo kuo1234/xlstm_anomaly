@@ -1,0 +1,54 @@
+{
+  "verdict": "NO_ROOT_EFFECT_GAP",
+  "reason": "Neither family reaches the prespecified1-normal-IQR trace-macro effect increase.",
+  "method_design_GO": false,
+  "family_evidence": [
+    {
+      "baseline": "PCA_SPE",
+      "primary_events": 24,
+      "eligible_events": 24,
+      "eligible_fraction": 1.0,
+      "eligible_types": 3,
+      "eligible_apps": 3,
+      "trace_macro_Delta": -0.12078079781520895,
+      "event_median_Delta": -0.17792877396895324,
+      "stationary_event_balanced_Delta": 0.002086471266418934,
+      "paired_normal_excess_Delta": -0.17587905033620044,
+      "events_with_5_normal_controls": 24,
+      "complete_RCI_alarm_events": 0,
+      "complete_RCI_alarm_fraction": 0.0,
+      "effect_only_rate": null,
+      "effect_only_excess_vs_normal": null,
+      "pre_normal_offset_abs_IQR": 1.1341289324627883,
+      "heldout_normal_FPR": 0.0
+    },
+    {
+      "baseline": "CAUSAL_LSTM_REFERENCE",
+      "primary_events": 24,
+      "eligible_events": 24,
+      "eligible_fraction": 1.0,
+      "eligible_types": 3,
+      "eligible_apps": 3,
+      "trace_macro_Delta": -1.131805478416729,
+      "event_median_Delta": -1.9850220910315137,
+      "stationary_event_balanced_Delta": 0.0011475614319856886,
+      "paired_normal_excess_Delta": -1.9861200812186273,
+      "events_with_5_normal_controls": 24,
+      "complete_RCI_alarm_events": 0,
+      "complete_RCI_alarm_fraction": 0.0,
+      "effect_only_rate": null,
+      "effect_only_excess_vs_normal": null,
+      "pre_normal_offset_abs_IQR": 2.2939622954570735,
+      "heldout_normal_FPR": 0.0002029890132196595
+    }
+  ],
+  "all_type_app_directions_positive": false,
+  "native_LSTM_reproduction": false,
+  "baseline_C_run": false,
+  "detector_seeds": [
+    21
+  ],
+  "kill_route": true,
+  "inferential_scope": "descriptive bounded single-seed global19-feature panel; no universal absence/causal dominance/novelty proof",
+  "prior_art_residual": "RCI/EEI within-event standardized contrast, duration-matched normal burden and explicit available-at differ from native unionAD3; unvalidated novelty, method GO withheld"
+}

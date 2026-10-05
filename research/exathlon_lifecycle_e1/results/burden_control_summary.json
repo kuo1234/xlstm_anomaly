@@ -1,0 +1,20 @@
+[
+  {
+    "baseline": "PCA_SPE",
+    "primary_observed_root_capture": 0.9166666666666666,
+    "normal_event_balanced_observed_root_capture": 0.0,
+    "primary_median_root_alarm_fraction": 0.20744988865,
+    "normal_event_balanced_root_alarm_fraction": 0.0,
+    "stationary_controls": 720,
+    "pre_event_controls": 24
+  },
+  {
+    "baseline": "CAUSAL_LSTM_REFERENCE",
+    "primary_observed_root_capture": 1.0,
+    "normal_event_balanced_observed_root_capture": 0.06609195402298851,
+    "primary_median_root_alarm_fraction": 0.2914171123,
+    "normal_event_balanced_root_alarm_fraction": 0.0,
+    "stationary_controls": 696,
+    "pre_event_controls": 24
+  }
+]

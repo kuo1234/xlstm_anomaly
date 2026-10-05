@@ -1,0 +1,7 @@
+{
+  "post_result_changes": "Descriptive figure and review/report annotations only; no scientific metric or execution change",
+  "figure_review": "Rendered PNG inspected; symlog axis and frozen margin explicit; no new result selection",
+  "matplotlib_version": "3.11.2",
+  "independent_checks_script_sha256": "8413e06c1eae150e62c10dde9cc4f0adbb1c13f00939d962b2acc17abbc39d95",
+  "renderer_reporting_only_changes": "Final figure/review/amendment links and cached verification instructions; replace incorrect Python3.12 shorthand with exact runtime.json Python3.14.6. Original runtime.json is unchanged and truthful. No model/data/metrics/threshold/gate changes."
+}

@@ -1,0 +1,39 @@
+{
+  "cwd": "/Users/kuo/.codex/worktrees/3ce8/xlstm_anomaly",
+  "python": "/tmp/m0e-issue22/venv/bin/python",
+  "date_Asia_Taipei": "2026-10-06",
+  "pre_seal": [
+    "prepare.py (raw identity and causal arrays; pre-result active-average correction then replay)",
+    "document.py",
+    "verify.py (9 tests at seal; no model training/inference)"
+  ],
+  "execution_after_remote_verified_e971f59": [
+    "run.py (once; PCA fit, LSTM10epochs, scores;20.3108seconds)",
+    "analyze.py",
+    "document.py --final"
+  ],
+  "verification_amendments": [
+    "b8a87e4: scaler checker path repair and explicit saved artifact SHA checks, exposure disclosed",
+    "4cb865d: calibration checker path repair, whole scripts AST regression, exposure disclosed"
+  ],
+  "verification_after_pushed_amendments": [
+    "verify.py --final (10 tests,38 hashes,190 readouts,future suffix,independent scaler/threshold,metric replay)",
+    "independent_checks.py (48 phase pairs, unchanged scientific hashes)"
+  ],
+  "reporting_after_results": [
+    "plot_results.py (descriptive figure, PNG inspected)",
+    "REVIEW_NOTES.md (interpretation and limits)",
+    "document.py reporting-only exact-runtime/link correction; scientific scripts/configs unchanged"
+  ],
+  "training_executions": 1,
+  "pca_fits": 1,
+  "detector_seeds": [
+    21
+  ],
+  "training_reruns": 0,
+  "detector_score_regeneration": false,
+  "logs_sha256": {
+    "execution.log": "4bdfee75ea23f053ab32322455eab0cc88e46a076d439ee62f3f6cfc3238af33",
+    "final_verification.log": "aeabdf9b37ba7c5a8f836c1a187b507e89633bc02fa82bafe86e426aa21f70db"
+  }
+}

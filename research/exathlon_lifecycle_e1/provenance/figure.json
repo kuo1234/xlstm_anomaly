@@ -1,0 +1,9 @@
+{
+  "plot": "post-result descriptive figure; no frozen scientific contract changed",
+  "PNG_sha256": "d7f5dc955f5c8f1f13b589f563a901f0b07beb597b59416b3744bebd3c99c904",
+  "PDF_sha256": "1f3eaed43d304349fe7366044db0ac3f2368f1d2e48e31818d2ccc658e75496a",
+  "input_sha256": {
+    "aggregations.json": "548f04e4a8d5d5f752afa645420a7ce5f8a285c6ab7b8225ab946b5f177bb677",
+    "family_summary.json": "1c2bc4a3dc2250ecf41b8fe674d92948357d8979fb7284116d167173ecb7e562"
+  }
+}
