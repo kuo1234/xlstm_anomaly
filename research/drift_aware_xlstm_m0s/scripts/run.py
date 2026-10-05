@@ -3,6 +3,7 @@ import argparse
 import concurrent.futures
 import importlib.metadata
 import json
+import multiprocessing
 import os
 from pathlib import Path
 import platform
@@ -70,7 +71,7 @@ def evaluate_anomalies(job,artifacts):
 
 def map_jobs(function,jobs,workers,*args):
     records=[]
-    with concurrent.futures.ProcessPoolExecutor(max_workers=workers) as pool:
+    with concurrent.futures.ProcessPoolExecutor(max_workers=workers,mp_context=multiprocessing.get_context('spawn')) as pool:
         futures={pool.submit(function,job,*args):job for job in jobs}
         for future in concurrent.futures.as_completed(futures):records.append(future.result())
     return sorted(records,key=lambda r:r['name'])

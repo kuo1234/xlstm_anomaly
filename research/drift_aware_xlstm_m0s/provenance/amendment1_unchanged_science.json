@@ -1,0 +1,17 @@
+{
+  "original_freeze": "ec87d80846f58caf504800079c17839e5a3acba0",
+  "unchanged_scientific_files_sha256": {
+    "configs/protocol.json": "32dab4091c9a14a66a754efba118421060a8715e0f7987ff5ed85cfbf93650ee",
+    "scripts/generator.py": "f21591b08271845a2ffd182cd999d3dc443572e1716d3ed23037e18bbfb585ee",
+    "scripts/models.py": "dc4c91df791184b9136b5e9a111ea987384a892afbd99aeec5281da9552771aa",
+    "scripts/train.py": "daef89bb2b76ee5e07708e4426f4d416ecda743ee380ea38e72d3a30d320265b",
+    "scripts/evaluate.py": "b1e0c54beba24321e28e5ff3e2201ee07ee3ed70e1d8c0ee090f358737f1214e",
+    "scripts/metrics.py": "16c3d99ecfd3e3bd148ed3e57ded135d0d39cb655dc136e74238798e4190ac8e",
+    "scripts/summarize.py": "8b0d98e20ca048dc6f9450a37d8799c9dca03e475b65cf8db7099d25ada58c28"
+  },
+  "failed_attempt_checkpoint_count": 0,
+  "failed_attempt_files_count": 0,
+  "failed_attempt_job_directories": 90,
+  "reason": "optimizer accelerator health check before first update",
+  "scientific_outcomes_observed": false
+}

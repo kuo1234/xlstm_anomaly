@@ -1,0 +1,13 @@
+W1005 21:32:03.368000 1971050 torch/utils/cpp_extension.py:178] No CUDA runtime is found, using CUDA_HOME='/usr'
+test_anomaly_design_labels_only_observed_stream (test_contract.ContractTests.test_anomaly_design_labels_only_observed_stream) ... ok
+test_cpu_optimizer_readiness_on_random_fixture (test_contract.ContractTests.test_cpu_optimizer_readiness_on_random_fixture) ... ok
+test_joint_seed_gate_cannot_mix_different_witnesses (test_contract.ContractTests.test_joint_seed_gate_cannot_mix_different_witnesses) ... ok
+test_linear_baseline_is_past_only (test_contract.ContractTests.test_linear_baseline_is_past_only) ... ok
+test_metric_alignment_and_average_precision_ties (test_contract.ContractTests.test_metric_alignment_and_average_precision_ties) ... ok
+test_predict_before_ingest_and_exact_recent_history (test_contract.ContractTests.test_predict_before_ingest_and_exact_recent_history) ... ok
+test_process_state_parity_and_parameter_invariants (test_contract.ContractTests.test_process_state_parity_and_parameter_invariants) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 3.527s
+
+OK

@@ -36,6 +36,8 @@ def write_json(path, value):
 
 
 def configure():
+    if load_config()['model']['device']=='cpu':
+        assert not torch.cuda.is_available(), 'CPU protocol requires CUDA_VISIBLE_DEVICES empty before import'
     torch.set_num_threads(load_config()['training']['threads'])
     torch.use_deterministic_algorithms(True)
     torch.backends.cudnn.benchmark = False

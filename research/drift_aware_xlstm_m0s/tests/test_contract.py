@@ -65,6 +65,16 @@ class ContractTests(unittest.TestCase):
         self.assertFalse(group_decision(rows)['mechanism_pre_ad'])
         self.assertTrue(group_decision([row,row,rows[0]])['all_forecast_gates'])
 
+    def test_cpu_optimizer_readiness_on_random_fixture(self):
+        self.assertFalse(torch.cuda.is_available())
+        x=torch.randn(2,12,8,generator=torch.Generator().manual_seed(98765))
+        for backbone in ['xlstm','lstm']:
+            model=build(backbone,11);optimizer=torch.optim.Adam(model.parameters(),lr=.002)
+            before=model_hash(model);loss=model(x[:,:-1]).sub(x[:,1:]).square().mean()
+            self.assertTrue(torch.isfinite(loss))
+            loss.backward();optimizer.step()
+            self.assertNotEqual(before,model_hash(model))
+
     def test_linear_baseline_is_past_only(self):
         rng=np.random.default_rng(45);x=rng.normal(size=(2,50,8));scaler={'mean':np.zeros(8),'std':np.ones(8)}
         fit=linear_ar_fit(x,.001);base=baseline_losses(x[:,:32],x[:,32:],scaler,fit)

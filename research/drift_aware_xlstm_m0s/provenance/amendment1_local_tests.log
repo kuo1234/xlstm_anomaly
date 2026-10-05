@@ -1,0 +1,14 @@
+/tmp/m0e-issue22/venv/lib/python3.14/site-packages/torch/__init__.py:1617: UserWarning: Please use the new API settings to control TF32 behavior, such as torch.backends.cudnn.conv.fp32_precision = 'tf32' or torch.backends.cuda.matmul.fp32_precision = 'ieee'. Old settings, e.g, torch.backends.cuda.matmul.allow_tf32 = True, torch.backends.cudnn.allow_tf32 = True, allowTF32CuDNN() and allowTF32CuBLAS() will be deprecated after Pytorch 2.9. Please see https://pytorch.org/docs/main/notes/cuda.html#tensorfloat-32-tf32-on-ampere-and-later-devices (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/Context.cpp:85.)
+  _C._set_float32_matmul_precision(precision)
+test_anomaly_design_labels_only_observed_stream (test_contract.ContractTests.test_anomaly_design_labels_only_observed_stream) ... ok
+test_cpu_optimizer_readiness_on_random_fixture (test_contract.ContractTests.test_cpu_optimizer_readiness_on_random_fixture) ... ok
+test_joint_seed_gate_cannot_mix_different_witnesses (test_contract.ContractTests.test_joint_seed_gate_cannot_mix_different_witnesses) ... ok
+test_linear_baseline_is_past_only (test_contract.ContractTests.test_linear_baseline_is_past_only) ... ok
+test_metric_alignment_and_average_precision_ties (test_contract.ContractTests.test_metric_alignment_and_average_precision_ties) ... ok
+test_predict_before_ingest_and_exact_recent_history (test_contract.ContractTests.test_predict_before_ingest_and_exact_recent_history) ... ok
+test_process_state_parity_and_parameter_invariants (test_contract.ContractTests.test_process_state_parity_and_parameter_invariants) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 1.601s
+
+OK

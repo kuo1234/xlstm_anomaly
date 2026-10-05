@@ -1,0 +1,105 @@
+PROTOCOL_FAIL RuntimeError("Cannot re-initialize CUDA in forked subprocess. To use CUDA with multiprocessing, you must use the 'spawn' start method")
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/concurrent/futures/process.py", line 263, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/p76141495/home/xlstm_anomaly-m0s-issue23/research/drift_aware_xlstm_m0s/scripts/train.py", line 29, in train_one
+    loss.backward();torch.nn.utils.clip_grad_norm_(model.parameters(),cfg['training']['gradient_clip_norm']);opt.step()
+                                                                                                             ^^^^^^^^^^
+  File "/home/p76141495/.local/lib/python3.12/site-packages/torch/optim/optimizer.py", line 530, in wrapper
+    out = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/p76141495/.local/lib/python3.12/site-packages/torch/optim/optimizer.py", line 80, in _use_grad
+    ret = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/p76141495/.local/lib/python3.12/site-packages/torch/optim/adam.py", line 222, in step
+    self._accelerator_graph_capture_health_check()
+  File "/home/p76141495/.local/lib/python3.12/site-packages/torch/optim/optimizer.py", line 466, in _accelerator_graph_capture_health_check
+    capturing = torch.accelerator.current_stream().is_capturing()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/p76141495/.local/lib/python3.12/site-packages/torch/accelerator/__init__.py", line 231, in current_stream
+    device_index = _get_device_index(device, optional=True)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/p76141495/.local/lib/python3.12/site-packages/torch/accelerator/_utils.py", line 25, in _get_device_index
+    return torch.accelerator.current_device_index()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/p76141495/.local/lib/python3.12/site-packages/torch/accelerator/__init__.py", line 140, in current_device_index
+    return torch._C._accelerator_getDeviceIndex()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/p76141495/.local/lib/python3.12/site-packages/torch/cuda/__init__.py", line 517, in _lazy_init
+    raise RuntimeError(
+RuntimeError: Cannot re-initialize CUDA in forked subprocess. To use CUDA with multiprocessing, you must use the 'spawn' start method
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/p76141495/home/xlstm_anomaly-m0s-issue23/research/drift_aware_xlstm_m0s/scripts/run.py", line 126, in <module>
+    try:main()
+        ^^^^^^
+  File "/home/p76141495/home/xlstm_anomaly-m0s-issue23/research/drift_aware_xlstm_m0s/scripts/run.py", line 87, in main
+    training=map_jobs(train_one,jobs,cfg['runtime']['workers'],args.artifacts);write_json(args.output/'training.json',training)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/p76141495/home/xlstm_anomaly-m0s-issue23/research/drift_aware_xlstm_m0s/scripts/run.py", line 75, in map_jobs
+    for future in concurrent.futures.as_completed(futures):records.append(future.result())
+                                                                          ^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+RuntimeError: Cannot re-initialize CUDA in forked subprocess. To use CUDA with multiprocessing, you must use the 'spawn' start method
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/concurrent/futures/process.py", line 263, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/p76141495/home/xlstm_anomaly-m0s-issue23/research/drift_aware_xlstm_m0s/scripts/train.py", line 29, in train_one
+    loss.backward();torch.nn.utils.clip_grad_norm_(model.parameters(),cfg['training']['gradient_clip_norm']);opt.step()
+                                                                                                             ^^^^^^^^^^
+  File "/home/p76141495/.local/lib/python3.12/site-packages/torch/optim/optimizer.py", line 530, in wrapper
+    out = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/p76141495/.local/lib/python3.12/site-packages/torch/optim/optimizer.py", line 80, in _use_grad
+    ret = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/p76141495/.local/lib/python3.12/site-packages/torch/optim/adam.py", line 222, in step
+    self._accelerator_graph_capture_health_check()
+  File "/home/p76141495/.local/lib/python3.12/site-packages/torch/optim/optimizer.py", line 466, in _accelerator_graph_capture_health_check
+    capturing = torch.accelerator.current_stream().is_capturing()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/p76141495/.local/lib/python3.12/site-packages/torch/accelerator/__init__.py", line 231, in current_stream
+    device_index = _get_device_index(device, optional=True)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/p76141495/.local/lib/python3.12/site-packages/torch/accelerator/_utils.py", line 25, in _get_device_index
+    return torch.accelerator.current_device_index()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/p76141495/.local/lib/python3.12/site-packages/torch/accelerator/__init__.py", line 140, in current_device_index
+    return torch._C._accelerator_getDeviceIndex()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/p76141495/.local/lib/python3.12/site-packages/torch/cuda/__init__.py", line 517, in _lazy_init
+    raise RuntimeError(
+RuntimeError: Cannot re-initialize CUDA in forked subprocess. To use CUDA with multiprocessing, you must use the 'spawn' start method
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/p76141495/home/xlstm_anomaly-m0s-issue23/research/drift_aware_xlstm_m0s/scripts/run.py", line 126, in <module>
+    try:main()
+        ^^^^^^
+  File "/home/p76141495/home/xlstm_anomaly-m0s-issue23/research/drift_aware_xlstm_m0s/scripts/run.py", line 87, in main
+    training=map_jobs(train_one,jobs,cfg['runtime']['workers'],args.artifacts);write_json(args.output/'training.json',training)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/p76141495/home/xlstm_anomaly-m0s-issue23/research/drift_aware_xlstm_m0s/scripts/run.py", line 75, in map_jobs
+    for future in concurrent.futures.as_completed(futures):records.append(future.result())
+                                                                          ^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+RuntimeError: Cannot re-initialize CUDA in forked subprocess. To use CUDA with multiprocessing, you must use the 'spawn' start method
