@@ -1,0 +1,193 @@
+{
+  "version": "m0s-v1",
+  "issue": 23,
+  "dimension": 8,
+  "mechanisms": [
+    "mean",
+    "dynamics",
+    "correlation"
+  ],
+  "groups": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "model_seeds": [
+    11,
+    22,
+    33
+  ],
+  "backbones": [
+    "xlstm",
+    "lstm"
+  ],
+  "generator": {
+    "group_seed_base": 41000,
+    "split_seed_base": {
+      "train": 51000,
+      "validation": 61000,
+      "calibration": 71000,
+      "test": 81000,
+      "anomaly": 91000
+    },
+    "burn_in": 512,
+    "corr_a": 0.1,
+    "corr_b": 0.6,
+    "group_rho": [
+      0.72,
+      0.75,
+      0.78,
+      0.81,
+      0.84
+    ],
+    "group_rho_b_dynamics": [
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5
+    ],
+    "group_mean_magnitude": [
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0
+    ]
+  },
+  "data": {
+    "train_sequences_per_regime": 64,
+    "train_length": 128,
+    "validation_sequences_per_regime": 16,
+    "validation_length": 128,
+    "calibration_sequences_per_regime": 16,
+    "calibration_length": 256,
+    "test_replicates": 8,
+    "prefix_length": 128,
+    "suffix_length": 256
+  },
+  "model": {
+    "xlstm_version": "2.0.5",
+    "embedding": 16,
+    "xlstm_blocks": 2,
+    "slstm_at": [
+      0
+    ],
+    "heads": 4,
+    "conv_kernel": 4,
+    "feedforward": false,
+    "lstm_layers": 2,
+    "lstm_hidden": 20,
+    "parameter_count_relative_tolerance": 0.05,
+    "backend": "vanilla",
+    "dtype": "float32",
+    "device": "cpu"
+  },
+  "training": {
+    "epochs": 30,
+    "batch_size": 32,
+    "optimizer": "Adam",
+    "learning_rate": 0.002,
+    "weight_decay": 0.0,
+    "gradient_clip_norm": 1.0,
+    "checkpoint_selection": "lowest_stationary_validation_forecast_mse_earliest_tie",
+    "warmup_tokens": 8,
+    "threads": 1
+  },
+  "inference": {
+    "fixed_l": [
+      8,
+      32
+    ],
+    "primary_offsets": [
+      32,
+      64
+    ],
+    "reported_bins": [
+      [
+        0,
+        8
+      ],
+      [
+        8,
+        16
+      ],
+      [
+        16,
+        32
+      ],
+      [
+        32,
+        64
+      ],
+      [
+        64,
+        128
+      ],
+      [
+        128,
+        256
+      ]
+    ],
+    "epsilon": 0.01,
+    "sustained_recovery_width": 16,
+    "periodic_reset": false
+  },
+  "baselines": {
+    "moving_mean_l": 32,
+    "linear_ar_ridge": 0.001
+  },
+  "gates": {
+    "support_vs_best_simple_max_ratio": 0.98,
+    "support_vs_b_ar_max_ratio": 1.25,
+    "support_groups_required": 4,
+    "model_seeds_required": 2,
+    "history_harm_min_normalized": 0.05,
+    "oracle_recovery_min_fraction": 0.5,
+    "stationary_deterioration_max_normalized": 0.05,
+    "long_context_benefit_min_normalized": 0.02,
+    "xlstm_minus_lstm_harm_min_normalized": 0.03,
+    "anomaly_ap_drop_max": 0.02,
+    "anomaly_event_recall_drop_max": 0.1,
+    "anomaly_missed_rate_increase_max": 0.1
+  },
+  "anomalies": {
+    "types": [
+      {
+        "name": "spike",
+        "duration": 1
+      },
+      {
+        "name": "short_collective",
+        "duration": 8
+      },
+      {
+        "name": "long_collective",
+        "duration": 32
+      }
+    ],
+    "onsets": [
+      0,
+      32,
+      96
+    ],
+    "amplitude_train_std": 4.0,
+    "affected_channels": 2,
+    "false_alarm_quantile": 0.95
+  },
+  "statistics": {
+    "unit": "physical_generator_group_within_mechanism",
+    "model_seeds": "paired_replicates_not_scientific_N",
+    "test_replicates": "paired_replicates_not_scientific_N",
+    "bootstrap_draws": 0,
+    "iid_p_values": false
+  },
+  "runtime": {
+    "max_total_wall_seconds": 14400,
+    "max_training_seconds_per_run": 180,
+    "workers": 3,
+    "gpu": false
+  }
+}

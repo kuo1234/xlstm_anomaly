@@ -1,0 +1,15 @@
+# Generator contract
+
+For mechanism m and physical group g, a fixed seeded permutation and sign vector construct a signed cyclic orthogonal matrix P_g. Each regime is Gaussian stationary VAR(1):
+
+`x_t = mu_r + A_r (x_(t-1) - mu_r) + eps_t`, `eps_t ~ N(0,Q_r)`.
+
+`Sigma_r = (1-c_r) I + c_r v_g v_g^T` with v entries ±1; `Q_r = Sigma_r - A_r Sigma_r A_r^T`. Signed P leaves Sigma invariant; when `A=rho P`, `Q=(1-rho²)Sigma` is positive definite. Initialize from N(mu,Sigma), discard512 burn-in. Compute in float64, store float32. No sample-based renormalization, seed exclusion or rejection sampling.
+
+Fixed five A rhos: .72,.75,.78,.81,.84. B dynamics rhos: .30,.35,.40,.45,.50. Mean magnitudes: .60,.70,.80,.90,1.00. Both means are zero except mean mechanism A=−magnitude*v, B=+magnitude*v. Mean mechanism preserves A/Q/Sigma; dynamics mechanism preserves means/Sigma and changes A with matching finite Q; correlation mechanism preserves A/mean and diagonal Sigma=1, changes c_A=.10 to c_B=.60. Thus scale-only change is not a primary driver. The innovations' temporal independence and theoretical covariance/stability, not finite-sample moments, establish stationarity.
+
+Group transform seeds41000+g; split bases train51000, validation61000, calibration71000, test81000, anomaly91000. Address = split_base + mechanism_index*2000 + group*300 + regime_B*100 + realization. Addresses are unique within all enumerated split/model data designs. Same physical group supports both regimes; no group is removed or shared between train and test *realizations*. Matrix/process identity is deliberately shared across splits to test training-supported regimes; realizations and their innovations are independent.
+
+Training/validation/calibration tensors are equal counts of separate stationary A and B sequences; no transition samples or cross-boundary target. Eight paired test prefixes have length128. Common suffix256 uses separate realization addresses8..15 from prefixes0..7. Both A and B paired prefixes are independent of the common suffix, so compatible B has no privileged noise correlation; the entire numeric suffix is reused without copy-altering labels. Actual recent context becomes exactly equal after k shared observations. A suffix is retained similarly. Physical continuous controls use realization16..23 and prefix/suffix slices from a single uninterrupted stationary trajectory. No transient latent-state reinitialization is mistaken for a realistic switch: paired splices are explicitly counterfactual.
+
+All process truth, source/seed and event metadata stays in evaluator/generator records. Model receives only normalized observations. Anomalies affect observed suffix copies, never the latent simulator, and apply identical onset/duration/amplitude/channel draw distributions to A and B. The same A/B paired arms receive byte/numerically identical contaminated suffixes. Persist original/suffix hashes and event details. Correlation changes alone need not change the optimal conditional VAR predictor; that is a deliberate null mechanism rather than a difficulty bug to tune away.

@@ -1,0 +1,312 @@
+{
+  "mean_0_A": {
+    "spectral_radius": 0.7199999999999995,
+    "min_sigma_eigenvalue": 0.8999999999999995,
+    "min_q_eigenvalue": 0.4334399999999997,
+    "lyapunov_max_abs": 0.0,
+    "symmetry_max_abs": 0.0,
+    "diagonal_variance_max_deviation": 0.0
+  },
+  "mean_0_B": {
+    "spectral_radius": 0.7199999999999995,
+    "min_sigma_eigenvalue": 0.8999999999999995,
+    "min_q_eigenvalue": 0.4334399999999997,
+    "lyapunov_max_abs": 0.0,
+    "symmetry_max_abs": 0.0,
+    "diagonal_variance_max_deviation": 0.0
+  },
+  "mean_1_A": {
+    "spectral_radius": 0.7500000000000003,
+    "min_sigma_eigenvalue": 0.8999999999999997,
+    "min_q_eigenvalue": 0.39374999999999954,
+    "lyapunov_max_abs": 0.0,
+    "symmetry_max_abs": 0.0,
+    "diagonal_variance_max_deviation": 0.0
+  },
+  "mean_1_B": {
+    "spectral_radius": 0.7500000000000003,
+    "min_sigma_eigenvalue": 0.8999999999999997,
+    "min_q_eigenvalue": 0.39374999999999954,
+    "lyapunov_max_abs": 0.0,
+    "symmetry_max_abs": 0.0,
+    "diagonal_variance_max_deviation": 0.0
+  },
+  "mean_2_A": {
+    "spectral_radius": 0.780000000000001,
+    "min_sigma_eigenvalue": 0.8999999999999995,
+    "min_q_eigenvalue": 0.3524399999999994,
+    "lyapunov_max_abs": 0.0,
+    "symmetry_max_abs": 0.0,
+    "diagonal_variance_max_deviation": 0.0
+  },
+  "mean_2_B": {
+    "spectral_radius": 0.780000000000001,
+    "min_sigma_eigenvalue": 0.8999999999999995,
+    "min_q_eigenvalue": 0.3524399999999994,
+    "lyapunov_max_abs": 0.0,
+    "symmetry_max_abs": 0.0,
+    "diagonal_variance_max_deviation": 0.0
+  },
+  "mean_3_A": {
+    "spectral_radius": 0.8100000000000014,
+    "min_sigma_eigenvalue": 0.8999999999999997,
+    "min_q_eigenvalue": 0.3095099999999996,
+    "lyapunov_max_abs": 0.0,
+    "symmetry_max_abs": 0.0,
+    "diagonal_variance_max_deviation": 0.0
+  },
+  "mean_3_B": {
+    "spectral_radius": 0.8100000000000014,
+    "min_sigma_eigenvalue": 0.8999999999999997,
+    "min_q_eigenvalue": 0.3095099999999996,
+    "lyapunov_max_abs": 0.0,
+    "symmetry_max_abs": 0.0,
+    "diagonal_variance_max_deviation": 0.0
+  },
+  "mean_4_A": {
+    "spectral_radius": 0.8400000000000003,
+    "min_sigma_eigenvalue": 0.8999999999999995,
+    "min_q_eigenvalue": 0.26496,
+    "lyapunov_max_abs": 0.0,
+    "symmetry_max_abs": 0.0,
+    "diagonal_variance_max_deviation": 0.0
+  },
+  "mean_4_B": {
+    "spectral_radius": 0.8400000000000003,
+    "min_sigma_eigenvalue": 0.8999999999999995,
+    "min_q_eigenvalue": 0.26496,
+    "lyapunov_max_abs": 0.0,
+    "symmetry_max_abs": 0.0,
+    "diagonal_variance_max_deviation": 0.0
+  },
+  "dynamics_0_A": {
+    "spectral_radius": 0.7199999999999995,
+    "min_sigma_eigenvalue": 0.8999999999999995,
+    "min_q_eigenvalue": 0.4334399999999997,
+    "lyapunov_max_abs": 0.0,
+    "symmetry_max_abs": 0.0,
+    "diagonal_variance_max_deviation": 0.0
+  },
+  "dynamics_0_B": {
+    "spectral_radius": 0.30000000000000043,
+    "min_sigma_eigenvalue": 0.8999999999999995,
+    "min_q_eigenvalue": 0.8189999999999993,
+    "lyapunov_max_abs": 0.0,
+    "symmetry_max_abs": 0.0,
+    "diagonal_variance_max_deviation": 0.0
+  },
+  "dynamics_1_A": {
+    "spectral_radius": 0.7500000000000003,
+    "min_sigma_eigenvalue": 0.8999999999999997,
+    "min_q_eigenvalue": 0.39374999999999954,
+    "lyapunov_max_abs": 0.0,
+    "symmetry_max_abs": 0.0,
+    "diagonal_variance_max_deviation": 0.0
+  },
+  "dynamics_1_B": {
+    "spectral_radius": 0.35000000000000014,
+    "min_sigma_eigenvalue": 0.8999999999999997,
+    "min_q_eigenvalue": 0.7897499999999995,
+    "lyapunov_max_abs": 0.0,
+    "symmetry_max_abs": 0.0,
+    "diagonal_variance_max_deviation": 0.0
+  },
+  "dynamics_2_A": {
+    "spectral_radius": 0.780000000000001,
+    "min_sigma_eigenvalue": 0.8999999999999995,
+    "min_q_eigenvalue": 0.3524399999999994,
+    "lyapunov_max_abs": 0.0,
+    "symmetry_max_abs": 0.0,
+    "diagonal_variance_max_deviation": 0.0
+  },
+  "dynamics_2_B": {
+    "spectral_radius": 0.4000000000000004,
+    "min_sigma_eigenvalue": 0.8999999999999995,
+    "min_q_eigenvalue": 0.7559999999999993,
+    "lyapunov_max_abs": 0.0,
+    "symmetry_max_abs": 0.0,
+    "diagonal_variance_max_deviation": 0.0
+  },
+  "dynamics_3_A": {
+    "spectral_radius": 0.8100000000000014,
+    "min_sigma_eigenvalue": 0.8999999999999997,
+    "min_q_eigenvalue": 0.3095099999999996,
+    "lyapunov_max_abs": 0.0,
+    "symmetry_max_abs": 0.0,
+    "diagonal_variance_max_deviation": 0.0
+  },
+  "dynamics_3_B": {
+    "spectral_radius": 0.45000000000000057,
+    "min_sigma_eigenvalue": 0.8999999999999997,
+    "min_q_eigenvalue": 0.7177499999999994,
+    "lyapunov_max_abs": 0.0,
+    "symmetry_max_abs": 0.0,
+    "diagonal_variance_max_deviation": 0.0
+  },
+  "dynamics_4_A": {
+    "spectral_radius": 0.8400000000000003,
+    "min_sigma_eigenvalue": 0.8999999999999995,
+    "min_q_eigenvalue": 0.26496,
+    "lyapunov_max_abs": 0.0,
+    "symmetry_max_abs": 0.0,
+    "diagonal_variance_max_deviation": 0.0
+  },
+  "dynamics_4_B": {
+    "spectral_radius": 0.5000000000000006,
+    "min_sigma_eigenvalue": 0.8999999999999995,
+    "min_q_eigenvalue": 0.6749999999999997,
+    "lyapunov_max_abs": 0.0,
+    "symmetry_max_abs": 0.0,
+    "diagonal_variance_max_deviation": 0.0
+  },
+  "correlation_0_A": {
+    "spectral_radius": 0.7199999999999995,
+    "min_sigma_eigenvalue": 0.8999999999999995,
+    "min_q_eigenvalue": 0.4334399999999997,
+    "lyapunov_max_abs": 0.0,
+    "symmetry_max_abs": 0.0,
+    "diagonal_variance_max_deviation": 0.0
+  },
+  "correlation_0_B": {
+    "spectral_radius": 0.7199999999999995,
+    "min_sigma_eigenvalue": 0.39999999999999963,
+    "min_q_eigenvalue": 0.19263999999999976,
+    "lyapunov_max_abs": 0.0,
+    "symmetry_max_abs": 0.0,
+    "diagonal_variance_max_deviation": 0.0
+  },
+  "correlation_1_A": {
+    "spectral_radius": 0.7500000000000003,
+    "min_sigma_eigenvalue": 0.8999999999999997,
+    "min_q_eigenvalue": 0.39374999999999954,
+    "lyapunov_max_abs": 0.0,
+    "symmetry_max_abs": 0.0,
+    "diagonal_variance_max_deviation": 0.0
+  },
+  "correlation_1_B": {
+    "spectral_radius": 0.7500000000000003,
+    "min_sigma_eigenvalue": 0.39999999999999963,
+    "min_q_eigenvalue": 0.17499999999999968,
+    "lyapunov_max_abs": 0.0,
+    "symmetry_max_abs": 0.0,
+    "diagonal_variance_max_deviation": 0.0
+  },
+  "correlation_2_A": {
+    "spectral_radius": 0.780000000000001,
+    "min_sigma_eigenvalue": 0.8999999999999995,
+    "min_q_eigenvalue": 0.3524399999999994,
+    "lyapunov_max_abs": 0.0,
+    "symmetry_max_abs": 0.0,
+    "diagonal_variance_max_deviation": 0.0
+  },
+  "correlation_2_B": {
+    "spectral_radius": 0.780000000000001,
+    "min_sigma_eigenvalue": 0.39999999999999963,
+    "min_q_eigenvalue": 0.1566399999999997,
+    "lyapunov_max_abs": 0.0,
+    "symmetry_max_abs": 0.0,
+    "diagonal_variance_max_deviation": 0.0
+  },
+  "correlation_3_A": {
+    "spectral_radius": 0.8100000000000014,
+    "min_sigma_eigenvalue": 0.8999999999999997,
+    "min_q_eigenvalue": 0.3095099999999996,
+    "lyapunov_max_abs": 0.0,
+    "symmetry_max_abs": 0.0,
+    "diagonal_variance_max_deviation": 0.0
+  },
+  "correlation_3_B": {
+    "spectral_radius": 0.8100000000000014,
+    "min_sigma_eigenvalue": 0.39999999999999963,
+    "min_q_eigenvalue": 0.1375599999999995,
+    "lyapunov_max_abs": 0.0,
+    "symmetry_max_abs": 0.0,
+    "diagonal_variance_max_deviation": 0.0
+  },
+  "correlation_4_A": {
+    "spectral_radius": 0.8400000000000003,
+    "min_sigma_eigenvalue": 0.8999999999999995,
+    "min_q_eigenvalue": 0.26496,
+    "lyapunov_max_abs": 0.0,
+    "symmetry_max_abs": 0.0,
+    "diagonal_variance_max_deviation": 0.0
+  },
+  "correlation_4_B": {
+    "spectral_radius": 0.8400000000000003,
+    "min_sigma_eigenvalue": 0.39999999999999963,
+    "min_q_eigenvalue": 0.11776000000000002,
+    "lyapunov_max_abs": 0.0,
+    "symmetry_max_abs": 0.0,
+    "diagonal_variance_max_deviation": 0.0
+  },
+  "parameter_counts": {
+    "xlstm": 6832,
+    "lstm": 7016
+  },
+  "xlstm": {
+    "full_step_max_abs": 6.258487701416016e-07,
+    "capture_restore_and_deepcopy": "PASS",
+    "chunk_delivery_parity": "PASS",
+    "reset_native_fresh": "PASS",
+    "future_prefix_invariance": "PASS",
+    "batch_partition_permutation": "PASS",
+    "finite_parameters_buffers_frozen": "PASS",
+    "state_shapes": {
+      "/block_0/conv_state/0": [
+        2,
+        4,
+        16
+      ],
+      "/block_0/slstm_state": [
+        4,
+        2,
+        16
+      ],
+      "/block_1/mlstm_state/0": [
+        2,
+        4,
+        16,
+        16
+      ],
+      "/block_1/mlstm_state/1": [
+        2,
+        4,
+        16,
+        1
+      ],
+      "/block_1/mlstm_state/2": [
+        2,
+        4,
+        1,
+        1
+      ],
+      "/block_1/conv_state/0": [
+        2,
+        4,
+        64
+      ]
+    },
+    "conv_history_negative_control": "PASS"
+  },
+  "lstm": {
+    "full_step_max_abs": 2.9802322387695312e-08,
+    "capture_restore_and_deepcopy": "PASS",
+    "chunk_delivery_parity": "PASS",
+    "reset_native_fresh": "PASS",
+    "future_prefix_invariance": "PASS",
+    "batch_partition_permutation": "PASS",
+    "finite_parameters_buffers_frozen": "PASS",
+    "state_shapes": {
+      "/0": [
+        2,
+        2,
+        20
+      ],
+      "/1": [
+        2,
+        2,
+        20
+      ]
+    }
+  }
+}
