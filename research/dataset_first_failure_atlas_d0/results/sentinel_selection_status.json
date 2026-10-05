@@ -1,0 +1,32 @@
+{
+  "candidate_counts": {
+    "robust_streaming_win": 4,
+    "robust_online_win": 69,
+    "near_tie": 46,
+    "high_dim": 7,
+    "sequence_candidate": 132
+  },
+  "shortfall": {
+    "robust_streaming_win": 0,
+    "robust_online_win": 0,
+    "near_tie": 0,
+    "high_dim": 0,
+    "sequence_candidate": 0
+  },
+  "selected_count": 12,
+  "family_counts": {
+    "MSL": 1,
+    "SMD": 2,
+    "Exathlon": 1,
+    "SMAP": 1,
+    "SWaT": 1,
+    "SVDB": 1,
+    "LTDB": 1,
+    "OPPORTUNITY": 2,
+    "MITDB": 1,
+    "Daphnet": 1
+  },
+  "family_target_met": true,
+  "rules_relaxed": false,
+  "D1_executed": false
+}

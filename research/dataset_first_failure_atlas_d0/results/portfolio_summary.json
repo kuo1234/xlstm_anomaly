@@ -1,0 +1,199 @@
+{
+  "ALL_RELEASED": {
+    "series": 180,
+    "families": 17,
+    "series_mean_gap": -0.07826626724990203,
+    "series_median_gap": -0.062469158350641096,
+    "positive_series": 46,
+    "negative_series": 134,
+    "ties": 0,
+    "equal_family_mean_gap": -0.07486726810283327,
+    "family_median_gap": -0.05891565989397369,
+    "positive_families": [
+      "OPPORTUNITY"
+    ],
+    "negative_families": [
+      "CATSv2",
+      "CreditCard",
+      "Daphnet",
+      "Exathlon",
+      "GECCO",
+      "GHL",
+      "Genesis",
+      "LTDB",
+      "MITDB",
+      "MSL",
+      "PSM",
+      "SMAP",
+      "SMD",
+      "SVDB",
+      "SWaT",
+      "TAO"
+    ],
+    "equal_family_online": 0.2930766605651258,
+    "equal_family_streaming": 0.21820939246229254,
+    "series_online_mean": 0.3374124356995227,
+    "series_streaming_mean": 0.2591461684496207
+  },
+  "TSB_DRIFT": {
+    "series": 75,
+    "families": 13,
+    "series_mean_gap": -0.03990574259308291,
+    "series_median_gap": -0.00017482861476504977,
+    "positive_series": 35,
+    "negative_series": 40,
+    "ties": 0,
+    "equal_family_mean_gap": -0.04778076845267484,
+    "family_median_gap": -0.029343500523610254,
+    "positive_families": [
+      "MSL",
+      "OPPORTUNITY"
+    ],
+    "negative_families": [
+      "CATSv2",
+      "CreditCard",
+      "Daphnet",
+      "Exathlon",
+      "GECCO",
+      "GHL",
+      "LTDB",
+      "SMAP",
+      "SMD",
+      "SWaT",
+      "TAO"
+    ],
+    "equal_family_online": 0.3089287639496701,
+    "equal_family_streaming": 0.26114799549699524,
+    "series_online_mean": 0.2748009715107467,
+    "series_streaming_mean": 0.23489522891766385
+  },
+  "NON_DRIFT": {
+    "series": 105,
+    "families": 10,
+    "series_mean_gap": -0.10566664200477281,
+    "series_median_gap": -0.08196453071515897,
+    "positive_series": 11,
+    "negative_series": 94,
+    "ties": 0,
+    "equal_family_mean_gap": -0.08522224850522893,
+    "family_median_gap": -0.06793632801076673,
+    "positive_families": [],
+    "negative_families": [
+      "Exathlon",
+      "Genesis",
+      "LTDB",
+      "MITDB",
+      "MSL",
+      "PSM",
+      "SMAP",
+      "SMD",
+      "SVDB",
+      "TAO"
+    ],
+    "equal_family_online": 0.3365992289660072,
+    "equal_family_streaming": 0.2513769804607783,
+    "series_online_mean": 0.38213491012007694,
+    "series_streaming_mean": 0.2764682681153041
+  },
+  "MEASURED_SOURCE_ONLY": {
+    "series": 151,
+    "families": 14,
+    "series_mean_gap": -0.09007187299783932,
+    "series_median_gap": -0.07160194778853048,
+    "positive_series": 29,
+    "negative_series": 122,
+    "ties": 0,
+    "equal_family_mean_gap": -0.08429646599855722,
+    "family_median_gap": -0.06566620512921073,
+    "positive_families": [
+      "OPPORTUNITY"
+    ],
+    "negative_families": [
+      "Daphnet",
+      "Exathlon",
+      "GECCO",
+      "Genesis",
+      "LTDB",
+      "MITDB",
+      "MSL",
+      "PSM",
+      "SMAP",
+      "SMD",
+      "SVDB",
+      "SWaT",
+      "TAO"
+    ],
+    "equal_family_online": 0.336594920032775,
+    "equal_family_streaming": 0.2522984540342178,
+    "series_online_mean": 0.3938630562902647,
+    "series_streaming_mean": 0.3037911832924254
+  },
+  "MEASURED_DRIFT": {
+    "series": 46,
+    "families": 10,
+    "series_mean_gap": -0.05447511765592585,
+    "series_median_gap": -0.010073039155894283,
+    "positive_series": 18,
+    "negative_series": 28,
+    "ties": 0,
+    "equal_family_mean_gap": -0.05285569561164087,
+    "family_median_gap": -0.03799034267310314,
+    "positive_families": [
+      "MSL",
+      "OPPORTUNITY"
+    ],
+    "negative_families": [
+      "Daphnet",
+      "Exathlon",
+      "GECCO",
+      "LTDB",
+      "SMAP",
+      "SMD",
+      "SWaT",
+      "TAO"
+    ],
+    "equal_family_online": 0.3746099582197423,
+    "equal_family_streaming": 0.32175426260810136,
+    "series_online_mean": 0.4206338247222151,
+    "series_streaming_mean": 0.36615870706628934
+  },
+  "SIMULATED_SOURCE": {
+    "series": 28,
+    "families": 2,
+    "series_mean_gap": -0.01712264787093219,
+    "series_median_gap": 0.0022533202980020883,
+    "positive_series": 17,
+    "negative_series": 11,
+    "ties": 0,
+    "equal_family_mean_gap": -0.042475945922917945,
+    "family_median_gap": -0.042475945922917945,
+    "positive_families": [],
+    "negative_families": [
+      "CATSv2",
+      "GHL"
+    ],
+    "equal_family_online": 0.0837959870605417,
+    "equal_family_streaming": 0.041320041137623754,
+    "series_online_mean": 0.041376233966317955,
+    "series_streaming_mean": 0.024253586095385766
+  },
+  "UNKNOWN_SOURCE": {
+    "series": 1,
+    "families": 1,
+    "series_mean_gap": -0.007641141922528363,
+    "series_median_gap": -0.007641141922528363,
+    "positive_series": 0,
+    "negative_series": 1,
+    "ties": 0,
+    "equal_family_mean_gap": -0.007641141922528363,
+    "family_median_gap": -0.007641141922528363,
+    "positive_families": [],
+    "negative_families": [
+      "CreditCard"
+    ],
+    "equal_family_online": 0.10238237502720518,
+    "equal_family_streaming": 0.09474123310467682,
+    "series_online_mean": 0.10238237502720518,
+    "series_streaming_mean": 0.09474123310467682
+  }
+}

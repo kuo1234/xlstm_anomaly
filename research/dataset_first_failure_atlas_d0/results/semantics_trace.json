@@ -1,0 +1,30 @@
+{
+  "no_models_run": true,
+  "SWKNN_overlap_trace": {
+    "n": 512,
+    "window": 64,
+    "driver_calls": 449,
+    "backend_rows_consumed": 28736,
+    "maximum_ingestions_per_observation": 64,
+    "middle_observation_ingestions": 64,
+    "one_new_point_per_call": false,
+    "scope": "wrapper input trace; no claim about release score impact or internal dSalmon implementation"
+  },
+  "LEAP_batch_trace": {
+    "n": 512,
+    "window": 256,
+    "slide": 32,
+    "driver_calls": 257,
+    "nonempty_calls": 8,
+    "backend_rows_consumed": 256,
+    "ingests_only_newest_point_per_call": true,
+    "score_timestamp_alignment": "PASS with spy IDs",
+    "batch_availability_lag_min": 0,
+    "batch_availability_lag_max": 31,
+    "unemitted_tail_points": 1,
+    "scope": "availability/index trace; no Java model scores or accuracy recomputed"
+  },
+  "generic_padding": "positions0..W-2 backfilled from score atW, one step after first available targetW-1",
+  "initial_training_replay": "drivers fit an initial prefix then stream over complete data; implementation-specific initialization varies",
+  "raw_score_sensitivity": "NOT_AVAILABLE; no detector score vectors found in Git tree or paper-linked Zenodo archive"
+}

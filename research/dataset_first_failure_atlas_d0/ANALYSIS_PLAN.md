@@ -1,0 +1,17 @@
+# D0 analysis rules before atlas / sentinel selection
+
+Issue #24 authorizes public StrAD result/metadata reading. This supersedes the old M0 restriction on opening model-result CSVs **only for this D0 audit**; no historical experiments/results are altered and no training, raw-data benchmark or D1 run is authorized.
+
+Pin current main and the previously audited release at `7078876bbd9398481a65c22b7689702ce9e0d558`. Its 180-row result/metadata CSVs match the paper-linked Zenodo archive byte-for-byte. Keep sources intact in an ignored cache, record URLs/commit/SHA256, check unique keys, exact joins and method availability. Do not replace missing values with zeros or promote method performance envelopes into a selector.
+
+Primary comparison: each fixed method, all16 cross-pairs of the prescribed Online4 and Streaming4, and equally averaged fixed-method portfolio AUC-PR. That mean is an analysis summary of four fixed methods, not a score-level ensemble. Give equal weight to released source-family means; show series summaries as descriptive. Keep ALL_RELEASED, DOCUMENTED_MEASURED_FAMILY_ONLY, SIMULATED_SOURCE and UNKNOWN_SOURCE. Family documentation does not certify native trace identity. Preserve multi-label tags. No iid p-values or windows-as-N.
+
+Use explicit bins and margins in `provenance/analysis_rules.json`, plus raw feature values/ranks. Family-conditioned contrasts require >=2 series on each side; retain unsupported cells as missing. Examine CD differences only within families with both strata. Check family and method leave-one-out, simulated-source removal, OPPORTUNITY and combined SMAP/MSL removal. A result must survive fixed-method comparisons and execution audit before being called actionable. Published metrics alone cannot prove warm-up effects absent.
+
+Static↔Online comparisons use the19 shared methods, not static-only Donut. Audit fit scope, window construction, padding, first-score timestamp, score-before/after-update, replay of initial training data, metric semantics, dependencies and release-to-driver provenance. Do not describe whole-series unsupervised fit as the same trained model as prefix-only Online. Current drivers and archived drivers are identical but lack per-run manifests and all process only a debug file index153.
+
+For efficiency, use the official throughput/inference-std tables as released observations, not fresh benchmarks or a latency SLA. Calculate source-family-balanced fronts for all series and drift subset; show aggregation sensitivity. LEAP reports batches, and wrapper call/point counts require a units audit. No made-up training amortization, p99, memory or hardware equivalence.
+
+Sentinels are chosen **after** the atlas is computed, from predeclared fixed-portfolio margins/cross-pair vote/leave-one-method robustness. Slots3 Streaming win,3 Online win,2 near tie,2 D>80,2 average anomaly length>=100; unique files, no repeated known duplicate group, measured documented families first and family diversity. Do not relax thresholds when robust Streaming candidates are scarce. Lists are conditional D1 candidates, not permission to run them; D1 requires ACTIONABLE_FAILURE_STRUCTURE and external review.
+
+The final gate must be one of the five Issue categories. Source confounding is reported when a headline is driven by one/two families. Evaluation artifact dominance requires evidence of domination, not merely a suspicious code path. Otherwise withhold actionable interpretation rather than guessing cause or relabeling heterogeneity as a router problem.

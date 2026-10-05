@@ -1,0 +1,9 @@
+tag,family,n_tag,n_other_drift,gap_tag_minus_other_drift
+continuous,SMAP,2,3,-0.125496081542
+continuous,SMD,5,10,0.0135177056798
+change_point,GHL,21,2,-0.00781772741061
+change_point,SMAP,3,2,0.125496081542
+change_point,SMD,13,2,0.0386469859672
+periodic,CATSv2,3,2,0.107982594978
+periodic,SMD,4,11,0.169620042952
+random_walk,SMD,3,12,0.104926247991

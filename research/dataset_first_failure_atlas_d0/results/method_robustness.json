@@ -1,0 +1,426 @@
+{
+  "change_point": [
+    {
+      "removed": "Online:CNN",
+      "families": 4,
+      "mean_family_effect": 0.0862882365180825,
+      "material_positive_families": [
+        "Exathlon",
+        "SMAP"
+      ],
+      "material_negative_families": []
+    },
+    {
+      "removed": "Online:KNN",
+      "families": 4,
+      "mean_family_effect": 0.09471142834081941,
+      "material_positive_families": [
+        "Exathlon",
+        "SMAP",
+        "SMD"
+      ],
+      "material_negative_families": []
+    },
+    {
+      "removed": "Online:TimesNet",
+      "families": 4,
+      "mean_family_effect": 0.10464025659099284,
+      "material_positive_families": [
+        "Exathlon",
+        "SMAP",
+        "SMD"
+      ],
+      "material_negative_families": []
+    },
+    {
+      "removed": "Online:USAD",
+      "families": 4,
+      "mean_family_effect": 0.04152708722059595,
+      "material_positive_families": [
+        "Exathlon",
+        "SMAP"
+      ],
+      "material_negative_families": []
+    },
+    {
+      "removed": "Streaming:MCOD",
+      "families": 4,
+      "mean_family_effect": 0.08139509079096871,
+      "material_positive_families": [
+        "Exathlon",
+        "SMAP",
+        "SMD"
+      ],
+      "material_negative_families": []
+    },
+    {
+      "removed": "Streaming:MemStream",
+      "families": 4,
+      "mean_family_effect": 0.09598052601514848,
+      "material_positive_families": [
+        "Exathlon",
+        "SMAP"
+      ],
+      "material_negative_families": []
+    },
+    {
+      "removed": "Streaming:SDOstream",
+      "families": 4,
+      "mean_family_effect": 0.09206025204127198,
+      "material_positive_families": [
+        "Exathlon",
+        "SMAP"
+      ],
+      "material_negative_families": []
+    },
+    {
+      "removed": "Streaming:SWKNN",
+      "families": 4,
+      "mean_family_effect": 0.05773113982310157,
+      "material_positive_families": [
+        "Exathlon",
+        "SMAP",
+        "SMD"
+      ],
+      "material_negative_families": []
+    },
+    {
+      "removed": "none",
+      "families": 4,
+      "mean_family_effect": 0.08179175216762266,
+      "material_positive_families": [
+        "Exathlon",
+        "SMAP",
+        "SMD"
+      ],
+      "material_negative_families": []
+    }
+  ],
+  "duration>100": [
+    {
+      "removed": "Online:CNN",
+      "families": 3,
+      "mean_family_effect": -0.11155208889077144,
+      "material_positive_families": [],
+      "material_negative_families": [
+        "MSL",
+        "SMAP",
+        "SMD"
+      ]
+    },
+    {
+      "removed": "Online:KNN",
+      "families": 3,
+      "mean_family_effect": -0.08363599062959955,
+      "material_positive_families": [],
+      "material_negative_families": [
+        "MSL",
+        "SMAP",
+        "SMD"
+      ]
+    },
+    {
+      "removed": "Online:TimesNet",
+      "families": 3,
+      "mean_family_effect": -0.11200032444610047,
+      "material_positive_families": [],
+      "material_negative_families": [
+        "MSL",
+        "SMAP",
+        "SMD"
+      ]
+    },
+    {
+      "removed": "Online:USAD",
+      "families": 3,
+      "mean_family_effect": -0.04210152322064462,
+      "material_positive_families": [],
+      "material_negative_families": [
+        "MSL",
+        "SMD"
+      ]
+    },
+    {
+      "removed": "Streaming:MCOD",
+      "families": 3,
+      "mean_family_effect": -0.07101019895291116,
+      "material_positive_families": [],
+      "material_negative_families": [
+        "MSL",
+        "SMAP",
+        "SMD"
+      ]
+    },
+    {
+      "removed": "Streaming:MemStream",
+      "families": 3,
+      "mean_family_effect": -0.12593455166760079,
+      "material_positive_families": [],
+      "material_negative_families": [
+        "MSL",
+        "SMAP",
+        "SMD"
+      ]
+    },
+    {
+      "removed": "Streaming:SDOstream",
+      "families": 3,
+      "mean_family_effect": -0.06878342965211333,
+      "material_positive_families": [],
+      "material_negative_families": [
+        "MSL",
+        "SMAP",
+        "SMD"
+      ]
+    },
+    {
+      "removed": "Streaming:SWKNN",
+      "families": 3,
+      "mean_family_effect": -0.08356174691449085,
+      "material_positive_families": [],
+      "material_negative_families": [
+        "MSL",
+        "SMAP",
+        "SMD"
+      ]
+    },
+    {
+      "removed": "none",
+      "families": 3,
+      "mean_family_effect": -0.08732248179677903,
+      "material_positive_families": [],
+      "material_negative_families": [
+        "MSL",
+        "SMAP",
+        "SMD"
+      ]
+    }
+  ],
+  "prevalence>0.05": [
+    {
+      "removed": "Online:CNN",
+      "families": 7,
+      "mean_family_effect": -0.06345749883050518,
+      "material_positive_families": [],
+      "material_negative_families": [
+        "MITDB",
+        "MSL",
+        "OPPORTUNITY",
+        "SMAP",
+        "SMD",
+        "SVDB"
+      ]
+    },
+    {
+      "removed": "Online:KNN",
+      "families": 7,
+      "mean_family_effect": -0.0660019958727767,
+      "material_positive_families": [],
+      "material_negative_families": [
+        "MSL",
+        "OPPORTUNITY",
+        "SMD",
+        "SVDB",
+        "TAO"
+      ]
+    },
+    {
+      "removed": "Online:TimesNet",
+      "families": 7,
+      "mean_family_effect": -0.08467035499466091,
+      "material_positive_families": [],
+      "material_negative_families": [
+        "MITDB",
+        "MSL",
+        "OPPORTUNITY",
+        "SMAP",
+        "SMD",
+        "SVDB"
+      ]
+    },
+    {
+      "removed": "Online:USAD",
+      "families": 7,
+      "mean_family_effect": -0.04211874815715796,
+      "material_positive_families": [
+        "TAO"
+      ],
+      "material_negative_families": [
+        "MSL",
+        "OPPORTUNITY",
+        "SMD"
+      ]
+    },
+    {
+      "removed": "Streaming:MCOD",
+      "families": 7,
+      "mean_family_effect": -0.07016423310184793,
+      "material_positive_families": [],
+      "material_negative_families": [
+        "MSL",
+        "OPPORTUNITY",
+        "SMD",
+        "TAO"
+      ]
+    },
+    {
+      "removed": "Streaming:MemStream",
+      "families": 7,
+      "mean_family_effect": -0.07951652251685921,
+      "material_positive_families": [
+        "TAO"
+      ],
+      "material_negative_families": [
+        "MITDB",
+        "MSL",
+        "OPPORTUNITY",
+        "SMAP",
+        "SMD",
+        "SVDB"
+      ]
+    },
+    {
+      "removed": "Streaming:SDOstream",
+      "families": 7,
+      "mean_family_effect": -0.0511917657371655,
+      "material_positive_families": [],
+      "material_negative_families": [
+        "MITDB",
+        "MSL",
+        "OPPORTUNITY",
+        "SMD",
+        "SVDB"
+      ]
+    },
+    {
+      "removed": "Streaming:SWKNN",
+      "families": 7,
+      "mean_family_effect": -0.055376076499228044,
+      "material_positive_families": [],
+      "material_negative_families": [
+        "MSL",
+        "OPPORTUNITY",
+        "SMAP",
+        "SMD",
+        "SVDB",
+        "TAO"
+      ]
+    },
+    {
+      "removed": "none",
+      "families": 7,
+      "mean_family_effect": -0.06406214946377518,
+      "material_positive_families": [],
+      "material_negative_families": [
+        "MSL",
+        "OPPORTUNITY",
+        "SMAP",
+        "SMD",
+        "SVDB"
+      ]
+    }
+  ],
+  "CD": [
+    {
+      "removed": "Online:CNN",
+      "families": 4,
+      "mean_family_effect": 0.06790523088523696,
+      "material_positive_families": [
+        "Exathlon",
+        "SMAP"
+      ],
+      "material_negative_families": [
+        "TAO"
+      ]
+    },
+    {
+      "removed": "Online:KNN",
+      "families": 4,
+      "mean_family_effect": 0.10449616959521514,
+      "material_positive_families": [
+        "Exathlon",
+        "SMAP",
+        "SMD",
+        "TAO"
+      ],
+      "material_negative_families": []
+    },
+    {
+      "removed": "Online:TimesNet",
+      "families": 4,
+      "mean_family_effect": 0.07234631369655374,
+      "material_positive_families": [
+        "Exathlon",
+        "SMAP"
+      ],
+      "material_negative_families": [
+        "TAO"
+      ]
+    },
+    {
+      "removed": "Online:USAD",
+      "families": 4,
+      "mean_family_effect": 0.027338384741006375,
+      "material_positive_families": [
+        "Exathlon",
+        "SMAP"
+      ],
+      "material_negative_families": [
+        "TAO"
+      ]
+    },
+    {
+      "removed": "Streaming:MCOD",
+      "families": 4,
+      "mean_family_effect": 0.0708466246148338,
+      "material_positive_families": [
+        "Exathlon",
+        "SMAP",
+        "SMD"
+      ],
+      "material_negative_families": []
+    },
+    {
+      "removed": "Streaming:MemStream",
+      "families": 4,
+      "mean_family_effect": 0.07071886718925222,
+      "material_positive_families": [
+        "Exathlon",
+        "SMAP"
+      ],
+      "material_negative_families": [
+        "TAO"
+      ]
+    },
+    {
+      "removed": "Streaming:SDOstream",
+      "families": 4,
+      "mean_family_effect": 0.07803781392848386,
+      "material_positive_families": [
+        "Exathlon",
+        "SMAP"
+      ],
+      "material_negative_families": []
+    },
+    {
+      "removed": "Streaming:SWKNN",
+      "families": 4,
+      "mean_family_effect": 0.0524827931854423,
+      "material_positive_families": [
+        "Exathlon",
+        "SMAP"
+      ],
+      "material_negative_families": []
+    },
+    {
+      "removed": "none",
+      "families": 4,
+      "mean_family_effect": 0.06802152472950303,
+      "material_positive_families": [
+        "Exathlon",
+        "SMAP"
+      ],
+      "material_negative_families": []
+    }
+  ]
+}

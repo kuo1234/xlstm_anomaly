@@ -1,0 +1,72 @@
+[
+  {
+    "path": "strad_paper.pdf",
+    "url": "https://arxiv.org/pdf/2609.39215v1",
+    "bytes": 2635268,
+    "sha256": "bb53ca55128753c0ab3f4ab93e81d6c607f9b919579f1ccdafe2346a19785074",
+    "status": "retrieved"
+  },
+  {
+    "path": "TSB_HP_list.py",
+    "url": "https://raw.githubusercontent.com/TheDatumOrg/TSB-AD/6beac72e11d1155ade40870492c00d0d1cfdcaaf/TSB_AD/HP_list.py",
+    "bytes": 11851,
+    "sha256": "8e7db8805134edbd4e70257c7c6c1dcf7f8bd8e36715886ee203da85d74a35a8",
+    "status": "retrieved"
+  },
+  {
+    "path": "TSB_basic_metrics.py",
+    "url": "https://raw.githubusercontent.com/TheDatumOrg/TSB-AD/6beac72e11d1155ade40870492c00d0d1cfdcaaf/TSB_AD/evaluation/basic_metrics.py",
+    "bytes": 29267,
+    "sha256": "1fcddedf5ada1d5221f39ee568c7fddb9e7181bd7e1c19636c2cbecf40c97707",
+    "status": "retrieved"
+  },
+  {
+    "path": "TSB_metrics.py",
+    "url": "https://raw.githubusercontent.com/TheDatumOrg/TSB-AD/6beac72e11d1155ade40870492c00d0d1cfdcaaf/TSB_AD/evaluation/metrics.py",
+    "bytes": 2340,
+    "sha256": "13957d15d3ebb2b743a4bebfa3a68af31e82a58ecc568557b4081ad90e38094d",
+    "status": "retrieved"
+  },
+  {
+    "path": "TSB_dataset_README.md",
+    "url": "https://raw.githubusercontent.com/TheDatumOrg/TSB-AD/6beac72e11d1155ade40870492c00d0d1cfdcaaf/Datasets/README.md",
+    "bytes": 974,
+    "sha256": "ccd718505d33de6e0aa222282b0c9bc4a583a51da02ff23321ffa000554148c2",
+    "status": "retrieved"
+  },
+  {
+    "path": "TSB-AD-M.csv",
+    "url": "https://raw.githubusercontent.com/TheDatumOrg/TSB-AD/6beac72e11d1155ade40870492c00d0d1cfdcaaf/Datasets/File_List/TSB-AD-M.csv",
+    "bytes": 9013,
+    "sha256": "698eb770bb2a04efc2578695d4115f894780960d7a23f62e59701523427a4950",
+    "status": "retrieved"
+  },
+  {
+    "path": "TSB-AD-M-Eva.csv",
+    "url": "https://raw.githubusercontent.com/TheDatumOrg/TSB-AD/6beac72e11d1155ade40870492c00d0d1cfdcaaf/Datasets/File_List/TSB-AD-M-Eva.csv",
+    "bytes": 8110,
+    "sha256": "ef6353b5aad8519fb2e5ff366ae21cf626ecd56d1a05942ac3b5c02d9e4b32a4",
+    "status": "retrieved"
+  },
+  {
+    "path": "TSB-AD-M-Tuning.csv",
+    "url": "https://raw.githubusercontent.com/TheDatumOrg/TSB-AD/6beac72e11d1155ade40870492c00d0d1cfdcaaf/Datasets/File_List/TSB-AD-M-Tuning.csv",
+    "bytes": 912,
+    "sha256": "b388541efcd8972cb2084f0aabe7c36bcf0e1ecd52adc6d0ef874afec335fa51",
+    "status": "retrieved"
+  },
+  {
+    "path": "strad_paper.html",
+    "url": "https://arxiv.org/html/2609.39215v1",
+    "bytes": 456260,
+    "sha256": "836808b5f636c6552e9928d72af5486794177fe11ed8c4992afbeb0ac67c27b5",
+    "status": "retrieved"
+  },
+  {
+    "path": "strad_archived.zip",
+    "url": "https://zenodo.org/api/records/20310652/files/magaliparrino/StrAD-v1.0.0.zip/content",
+    "bytes": 6988090,
+    "sha256": "17d15274be222f78e5559207e42fe3b42ad6b9dde6ae05f8fc5114de88f35b83",
+    "status": "retrieved"
+  }
+]

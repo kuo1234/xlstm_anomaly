@@ -1,0 +1,185 @@
+{
+  "ALL_RELEASED": {
+    "family_balanced_front": [
+      "CNN",
+      "HBOS",
+      "KNN",
+      "LEAP",
+      "MCD",
+      "PCA",
+      "RobustPCA"
+    ],
+    "family_harmonic_front": [
+      "CNN",
+      "HBOS",
+      "KNN",
+      "LEAP",
+      "MCD",
+      "PCA",
+      "RobustPCA"
+    ],
+    "series_arithmetic_speed_front": [
+      "CNN",
+      "HBOS",
+      "KNN",
+      "LEAP",
+      "MCD",
+      "PCA",
+      "RobustPCA"
+    ]
+  },
+  "TSB_DRIFT": {
+    "family_balanced_front": [
+      "KNN",
+      "LEAP",
+      "MCD",
+      "RobustPCA",
+      "SWKNN"
+    ],
+    "family_harmonic_front": [
+      "KNN",
+      "LEAP",
+      "MCD",
+      "MemStream",
+      "RobustPCA",
+      "SWKNN"
+    ],
+    "series_arithmetic_speed_front": [
+      "KNN",
+      "LEAP",
+      "MCD",
+      "MemStream",
+      "RobustPCA",
+      "SWKNN"
+    ]
+  },
+  "NON_DRIFT": {
+    "family_balanced_front": [
+      "CNN",
+      "KNN",
+      "LEAP",
+      "MCD",
+      "OCSVM",
+      "PCA",
+      "RobustPCA"
+    ],
+    "family_harmonic_front": [
+      "CNN",
+      "KNN",
+      "LEAP",
+      "MCD",
+      "OCSVM",
+      "PCA",
+      "RobustPCA"
+    ],
+    "series_arithmetic_speed_front": [
+      "CNN",
+      "KNN",
+      "LEAP",
+      "MCD",
+      "OCSVM",
+      "PCA",
+      "RobustPCA"
+    ]
+  },
+  "MEASURED_SOURCE_ONLY": {
+    "family_balanced_front": [
+      "CNN",
+      "HBOS",
+      "KNN",
+      "LEAP",
+      "MCD",
+      "PCA",
+      "RobustPCA"
+    ],
+    "family_harmonic_front": [
+      "CNN",
+      "HBOS",
+      "KNN",
+      "LEAP",
+      "MCD",
+      "PCA",
+      "RobustPCA"
+    ],
+    "series_arithmetic_speed_front": [
+      "CNN",
+      "HBOS",
+      "KNN",
+      "LEAP",
+      "MCD",
+      "PCA",
+      "RobustPCA"
+    ]
+  },
+  "MEASURED_DRIFT": {
+    "family_balanced_front": [
+      "KNN",
+      "LEAP",
+      "MCD",
+      "RobustPCA",
+      "SWKNN"
+    ],
+    "family_harmonic_front": [
+      "KNN",
+      "LEAP",
+      "MCD",
+      "MemStream",
+      "RobustPCA",
+      "SWKNN"
+    ],
+    "series_arithmetic_speed_front": [
+      "KNN",
+      "LEAP",
+      "MCD",
+      "MemStream",
+      "RobustPCA",
+      "SWKNN"
+    ]
+  },
+  "SIMULATED_SOURCE": {
+    "family_balanced_front": [
+      "KMeansAD",
+      "LEAP",
+      "PCA",
+      "RobustPCA",
+      "SDOstream"
+    ],
+    "family_harmonic_front": [
+      "KMeansAD",
+      "LEAP",
+      "PCA",
+      "RobustPCA",
+      "SDOstream"
+    ],
+    "series_arithmetic_speed_front": [
+      "KMeansAD",
+      "LEAP",
+      "PCA",
+      "RobustPCA",
+      "SDOstream"
+    ]
+  },
+  "UNKNOWN_SOURCE": {
+    "family_balanced_front": [
+      "HBOS",
+      "LEAP",
+      "MemStream",
+      "OCSVM",
+      "SDOstream"
+    ],
+    "family_harmonic_front": [
+      "HBOS",
+      "LEAP",
+      "MemStream",
+      "OCSVM",
+      "SDOstream"
+    ],
+    "series_arithmetic_speed_front": [
+      "HBOS",
+      "LEAP",
+      "MemStream",
+      "OCSVM",
+      "SDOstream"
+    ]
+  }
+}

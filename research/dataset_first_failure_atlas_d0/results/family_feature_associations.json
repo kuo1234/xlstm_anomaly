@@ -1,0 +1,50 @@
+[
+  {
+    "feature": "anomaly_ratio",
+    "subset": "ALL",
+    "family_count": 17,
+    "family_spearman": -0.40196078431372556
+  },
+  {
+    "feature": "anomaly_ratio",
+    "subset": "CD",
+    "family_count": 13,
+    "family_spearman": -0.46153846153846156
+  },
+  {
+    "feature": "avg_anomaly_len",
+    "subset": "ALL",
+    "family_count": 17,
+    "family_spearman": -0.10294117647058824
+  },
+  {
+    "feature": "avg_anomaly_len",
+    "subset": "CD",
+    "family_count": 13,
+    "family_spearman": -0.1043956043956044
+  },
+  {
+    "feature": "num_anomaly",
+    "subset": "ALL",
+    "family_count": 17,
+    "family_spearman": -0.1985294117647059
+  },
+  {
+    "feature": "num_anomaly",
+    "subset": "CD",
+    "family_count": 13,
+    "family_spearman": -0.6822564913721044
+  },
+  {
+    "feature": "features",
+    "subset": "ALL",
+    "family_count": 17,
+    "family_spearman": 0.2860655557010508
+  },
+  {
+    "feature": "features",
+    "subset": "CD",
+    "family_count": 13,
+    "family_spearman": 0.3719022376391383
+  }
+]

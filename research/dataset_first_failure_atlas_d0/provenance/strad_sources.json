@@ -1,0 +1,443 @@
+[
+  {
+    "path": "AD_multi.csv",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/AD_multi.csv",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 1016,
+    "sha256": "ff8cc22feff382f2ab6c0191fcbc135b21262da1dd699c761271a8d66dd010f2"
+  },
+  {
+    "path": "HP_list.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/HP_list.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 1943,
+    "sha256": "e610fd0edabc45e76bc1d0a22815be13f643e32a6687fc21c3e43a0b4685560a"
+  },
+  {
+    "path": "LICENSE",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/LICENSE",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 34523,
+    "sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef"
+  },
+  {
+    "path": "NOTICE",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/NOTICE",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 1671,
+    "sha256": "c849e959b0045cb6572688889bab00bb09bb079a00b85411de50536f0adc8d91"
+  },
+  {
+    "path": "README.md",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/README.md",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 10596,
+    "sha256": "97b5e5bea970baa80dd61a173dc3e81e77d3e4ca2ad22f5cbb789946b92993ac"
+  },
+  {
+    "path": "TSB-drift/__init__.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/TSB-drift/__init__.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "TSB-drift/jsd_drift.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/TSB-drift/jsd_drift.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 8934,
+    "sha256": "0e016d22bb4fc506644bae2f2b0287c81bd302b87738344570f08be9c10bf26a"
+  },
+  {
+    "path": "TSB-drift/jsd_plot_generator.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/TSB-drift/jsd_plot_generator.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 2630,
+    "sha256": "89ab0760e8359c4a70aecf4ae6c0a07b53bbd56c1a9d2136cc498ab431062fd3"
+  },
+  {
+    "path": "TSB-drift/plot_jsd_heatmaps.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/TSB-drift/plot_jsd_heatmaps.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 3879,
+    "sha256": "30af2729ca6bdc99e24d0771265f870cdd9994c4d55956f4d48aa7c703f63545"
+  },
+  {
+    "path": "__init__.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/__init__.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "exp/Run_Online_Detector.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/exp/Run_Online_Detector.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 8635,
+    "sha256": "f997a9c0a699574ff2672e779312ca7208fc51e8712260042a1f2243a4044d63"
+  },
+  {
+    "path": "exp/Run_Static_Detector_M.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/exp/Run_Static_Detector_M.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 4273,
+    "sha256": "44a55ce8e3098a30832e566c6fdbc67be59130b5a6afa15939036cfd9ee474ce"
+  },
+  {
+    "path": "exp/Run_Streaming_Detector_M.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/exp/Run_Streaming_Detector_M.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 9106,
+    "sha256": "657c33607ac506b21c58df0396cdef370d986c596d9a8343546cded19909f8dd"
+  },
+  {
+    "path": "exp/__init__.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/exp/__init__.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "exp/online_model_wrapper.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/exp/online_model_wrapper.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 6288,
+    "sha256": "8d0bbba2842a0485a669f12255ebaf3b6357875951f65635f001d1d7fa6480ad"
+  },
+  {
+    "path": "exp/static_model_wrapper.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/exp/static_model_wrapper.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 7376,
+    "sha256": "9b5f7a1752462c0faa0322b650890c6943ea7a1342056b0ac6dbed8d89cab099"
+  },
+  {
+    "path": "exp/streaming_model_wrapper.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/exp/streaming_model_wrapper.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 4027,
+    "sha256": "198e13654881115c4e8ed2acb365c84edce3a286e282abdba1493df13cc2f19b"
+  },
+  {
+    "path": "meta_features.csv",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/meta_features.csv",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 16912,
+    "sha256": "bf18aac5cb1a0db5fcfc40c64782edf9258468235528ed655ebc1449b086b24f"
+  },
+  {
+    "path": "models/README.md",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/models/README.md",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 10287,
+    "sha256": "ac25657dc818bd5ddc1d915230f1ed7edd6357c074178eb76f5499511b65209a"
+  },
+  {
+    "path": "models/online/AE.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/models/online/AE.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 15887,
+    "sha256": "ac0b7fe8d080e5bd8b8390415731b5d0b6a1ea391aaa70ff12771375c788ad21"
+  },
+  {
+    "path": "models/online/AnomalyTransformer.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/models/online/AnomalyTransformer.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 22700,
+    "sha256": "8c8a79d744a7bc27b622658fb7e596e12f6636f00fde03ad79f7bf811cb6bc91"
+  },
+  {
+    "path": "models/online/CBLOF.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/models/online/CBLOF.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 14400,
+    "sha256": "2051ddc112f80f7c109f4147da6f9b1026d675842b871963308875aabd48fbdf"
+  },
+  {
+    "path": "models/online/CNN.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/models/online/CNN.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 11449,
+    "sha256": "ae8d7ff08aae95e64a3013d1c554bd7ea2d28c092f649d90a60bb299373fd64d"
+  },
+  {
+    "path": "models/online/FITS.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/models/online/FITS.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 9559,
+    "sha256": "2c47336da8fb3c3018ada5ce935e4a2b10c48a99d42223a142df73e0717ff3a4"
+  },
+  {
+    "path": "models/online/HBOS.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/models/online/HBOS.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 16076,
+    "sha256": "1a4af5add65c627c21bb20daa003525ebf082b9dee4f0ee6a951667fc03aa60e"
+  },
+  {
+    "path": "models/online/IForest.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/models/online/IForest.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 13690,
+    "sha256": "8a50000e232ee28b599cfb83803d05dc0762cf8106f97e192452ddb3cb8f4955"
+  },
+  {
+    "path": "models/online/KMeansAD.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/models/online/KMeansAD.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 4137,
+    "sha256": "ba8afd6b403d48894332874391cc31155500ffdad1a5bc8a070b0e29d1160414"
+  },
+  {
+    "path": "models/online/KNN.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/models/online/KNN.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 12459,
+    "sha256": "98d9d706280b834a29685630f33befe16304958c09ea9bb7074421868894db69"
+  },
+  {
+    "path": "models/online/LOF.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/models/online/LOF.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 11701,
+    "sha256": "e217f4605cb76ad23b35f090fa0d0fad66ebfd43308a9e6ce2883bcf54c8dbcd"
+  },
+  {
+    "path": "models/online/LSTMAD.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/models/online/LSTMAD.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 10554,
+    "sha256": "fad77f04493fad95b10082c1239ea3a9781c90087c12994c9b223ee43224fde2"
+  },
+  {
+    "path": "models/online/MCD.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/models/online/MCD.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 11057,
+    "sha256": "d47ce11ef3202a825bf42aec1ac745aef65e01ffca4dd307cfadfe84db4b4a46"
+  },
+  {
+    "path": "models/online/OCSVM.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/models/online/OCSVM.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 10340,
+    "sha256": "347c395c07946717899b0b0e68624322ac34c7f07a12f9c51a5b2eff85e0fe97"
+  },
+  {
+    "path": "models/online/OmniAnomaly.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/models/online/OmniAnomaly.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 9489,
+    "sha256": "0d53a5385044dd862c3bfa9b4ac9ccbd9969df4e1f3573331b70a15661161b59"
+  },
+  {
+    "path": "models/online/PCA.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/models/online/PCA.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 16975,
+    "sha256": "2e0533e2e4ddc42a87cb4ad497b1d855554a227249775819f2894fed2b007d8a"
+  },
+  {
+    "path": "models/online/RobustPCA.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/models/online/RobustPCA.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 4391,
+    "sha256": "442ec138f3881306db20efa32fa53964813746046c3ce2562d8feff092e2da11"
+  },
+  {
+    "path": "models/online/TimesNet.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/models/online/TimesNet.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 13366,
+    "sha256": "e7e74066d947c25e81d429a3af1e9523a0770e5714ca641876cf529909916600"
+  },
+  {
+    "path": "models/online/TranAD.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/models/online/TranAD.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 11946,
+    "sha256": "2ec82868933d0e7c7d144b5fabd2bef8be7c055d3fe3c071494bdcbbf72bb13d"
+  },
+  {
+    "path": "models/online/USAD.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/models/online/USAD.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 9260,
+    "sha256": "6fe7b508730940d43ed781a230f98a7abd5b754c5400864337c4f38b3f7a54e8"
+  },
+  {
+    "path": "models/online/__init__.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/models/online/__init__.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "models/online/base.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/models/online/base.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 20825,
+    "sha256": "e18e8363fd81b1de5ecf37e815f92ea1622c693bd49e0cc319c216d84b910d17"
+  },
+  {
+    "path": "models/online/distance.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/models/online/distance.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 29454,
+    "sha256": "873a10606f4846b1a84ede61b6ca4219332242e5497188554f3bf336572d6f5e"
+  },
+  {
+    "path": "models/online/feature.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/models/online/feature.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 12819,
+    "sha256": "f17f4f32f2cbbabb32020d526f06f44dd31660f5124024ea5714ac598ce40ce8"
+  },
+  {
+    "path": "models/streaming/LEAP.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/models/streaming/LEAP.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 8741,
+    "sha256": "30a7c93ce3539b8847b9b1d29dbed5cb0e655b1e47b190c7dad74e4698e0159b"
+  },
+  {
+    "path": "models/streaming/LODA.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/models/streaming/LODA.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 7953,
+    "sha256": "a358c4512645503c683bae8a2265ef766f5d7b1a5b42f79856bc34602020201c"
+  },
+  {
+    "path": "models/streaming/MCOD.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/models/streaming/MCOD.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 6405,
+    "sha256": "9831fa5aac981d084684185ad28f69979dd7ed965e88f3993a82eb99e19ad864"
+  },
+  {
+    "path": "models/streaming/MemStream.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/models/streaming/MemStream.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 12141,
+    "sha256": "7bb45be72cffeca85a32a7bd1e5e5321d4e308949cc253fc04e32c6f0136182f"
+  },
+  {
+    "path": "models/streaming/__init__.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/models/streaming/__init__.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "models/streaming/base_model_adapter.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/models/streaming/base_model_adapter.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 3243,
+    "sha256": "5a1a1038ec7e7f4af6c8a1410a2f48ae233bc2db54414924dbe1ad280e2b66d9"
+  },
+  {
+    "path": "requirements.txt",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/requirements.txt",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 416,
+    "sha256": "bf749f78badad11edd30f4bc5fcfa738306a3193e052f91067a3517b2482386e"
+  },
+  {
+    "path": "results/benchmark_eval_results/CD.csv",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/results/benchmark_eval_results/CD.csv",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 18579,
+    "sha256": "e109da612a90ce3d7b2fcdf51f1a0982358b889ad38f49e85d5049ba0d2eef5c"
+  },
+  {
+    "path": "results/benchmark_eval_results/online/AUC-PR.csv",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/results/benchmark_eval_results/online/AUC-PR.csv",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 72468,
+    "sha256": "3a2672235b321aadd3cf987c2d0d0680c519073a6a51a46bfd701a34ef45310c"
+  },
+  {
+    "path": "results/benchmark_eval_results/online/AUC-ROC.csv",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/results/benchmark_eval_results/online/AUC-ROC.csv",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 72416,
+    "sha256": "84dd87ea6f4bd65c4eafe7cb006dd9461139d4d3227875344dfde7d5999eb0da"
+  },
+  {
+    "path": "results/benchmark_eval_results/static/AUC-PR.csv",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/results/benchmark_eval_results/static/AUC-PR.csv",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 75942,
+    "sha256": "1832b6ff1bc1f664c9bd8e4fcf7e9133057bc05f19dd004f7f783e0134770107"
+  },
+  {
+    "path": "results/benchmark_eval_results/static/AUC-ROC.csv",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/results/benchmark_eval_results/static/AUC-ROC.csv",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 75836,
+    "sha256": "84642cdccd54eee0ab2990b0096cf2ac3cfc6cdaaec82de32ca945faed51f422"
+  },
+  {
+    "path": "results/benchmark_eval_results/streaming/AUC-PR.csv",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/results/benchmark_eval_results/streaming/AUC-PR.csv",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 42158,
+    "sha256": "a89d3c1005718a180598b67cbef3ee126f9fb360b91d9aebcadbde723021da6b"
+  },
+  {
+    "path": "results/benchmark_eval_results/streaming/AUC-ROC.csv",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/results/benchmark_eval_results/streaming/AUC-ROC.csv",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 42100,
+    "sha256": "8b68875ad8d3cf2edc71fddc205af667fc00c72d9da1f434fd9cfd78004c3ec9"
+  },
+  {
+    "path": "results/benchmark_eval_results/time/mean_throughput.csv",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/results/benchmark_eval_results/time/mean_throughput.csv",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 103283,
+    "sha256": "742679bdecd2b592c2562867587e63d5ca682d6f8d410f2fbcb4ed8078e7f221"
+  },
+  {
+    "path": "results/benchmark_eval_results/time/std_inference.csv",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/results/benchmark_eval_results/time/std_inference.csv",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 116921,
+    "sha256": "7077af2a1b9acda4c1bd271b3fc543803760962bdaa45906e1bbfa0f388fafd6"
+  },
+  {
+    "path": "utils/__init__.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/utils/__init__.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "utils/dataset_stream.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/utils/dataset_stream.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 7626,
+    "sha256": "db2194e4c758bce1e00fb59041c7c2cc43e084d96fee27922df2ebdc1ccfc1aa"
+  },
+  {
+    "path": "utils/multiSlidingWindows.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/utils/multiSlidingWindows.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 2845,
+    "sha256": "9d5b1c5e895de15785c36ef478cfbc750ef21cb969fdac4e7a69b68b2333cd91"
+  },
+  {
+    "path": "utils/stream_analysis.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/utils/stream_analysis.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 1095,
+    "sha256": "2e5080168860a8cccd0f272c6b2b23e0a11e618b5c4756e4020ab5a6ea970cee"
+  },
+  {
+    "path": "utils/utility.py",
+    "url": "https://raw.githubusercontent.com/magaliparrino/StrAD/7078876bbd9398481a65c22b7689702ce9e0d558/utils/utility.py",
+    "commit": "7078876bbd9398481a65c22b7689702ce9e0d558",
+    "bytes": 27602,
+    "sha256": "e9b0c58275e06a2ee77041492fde261417731c225bd05893cc295e305cb01144"
+  }
+]

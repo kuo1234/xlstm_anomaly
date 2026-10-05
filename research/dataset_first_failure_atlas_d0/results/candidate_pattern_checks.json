@@ -1,0 +1,187 @@
+[
+  {
+    "contrast": "CD",
+    "supported_families": 4,
+    "material_positive_families": [
+      "Exathlon",
+      "SMAP"
+    ],
+    "material_negative_families": [],
+    "mean_family_contrast": 0.06802152472950303,
+    "leave_one_family_mean_range": [
+      0.03931379124173828,
+      0.09359505459831241
+    ],
+    "descriptive_replicated_positive": false,
+    "causal_artifact_exclusion": "NOT_ESTABLISHED_without_raw_scores"
+  },
+  {
+    "contrast": "highD>80",
+    "supported_families": 0,
+    "material_positive_families": [],
+    "material_negative_families": [],
+    "mean_family_contrast": null,
+    "leave_one_family_mean_range": null,
+    "descriptive_replicated_positive": false,
+    "causal_artifact_exclusion": "NOT_ESTABLISHED_without_raw_scores"
+  },
+  {
+    "contrast": "point_flag",
+    "supported_families": 0,
+    "material_positive_families": [],
+    "material_negative_families": [],
+    "mean_family_contrast": null,
+    "leave_one_family_mean_range": null,
+    "descriptive_replicated_positive": false,
+    "causal_artifact_exclusion": "NOT_ESTABLISHED_without_raw_scores"
+  },
+  {
+    "contrast": "duration>100",
+    "supported_families": 3,
+    "material_positive_families": [],
+    "material_negative_families": [
+      "MSL",
+      "SMAP",
+      "SMD"
+    ],
+    "mean_family_contrast": -0.08732248179677903,
+    "leave_one_family_mean_range": [
+      -0.10209300443587915,
+      -0.07618562679353601
+    ],
+    "descriptive_replicated_positive": false,
+    "causal_artifact_exclusion": "NOT_ESTABLISHED_without_raw_scores"
+  },
+  {
+    "contrast": "prevalence>0.05",
+    "supported_families": 7,
+    "material_positive_families": [],
+    "material_negative_families": [
+      "MSL",
+      "OPPORTUNITY",
+      "SMAP",
+      "SMD",
+      "SVDB"
+    ],
+    "mean_family_contrast": -0.06406214946377518,
+    "leave_one_family_mean_range": [
+      -0.07434423780128208,
+      -0.04485617324704566
+    ],
+    "descriptive_replicated_positive": false,
+    "causal_artifact_exclusion": "NOT_ESTABLISHED_without_raw_scores"
+  },
+  {
+    "contrast": "events>10",
+    "supported_families": 4,
+    "material_positive_families": [
+      "MITDB",
+      "SMD"
+    ],
+    "material_negative_families": [
+      "CATSv2"
+    ],
+    "mean_family_contrast": -0.0026289627553533635,
+    "leave_one_family_mean_range": [
+      -0.01910440479548624,
+      0.033544713174643505
+    ],
+    "descriptive_replicated_positive": false,
+    "causal_artifact_exclusion": "NOT_ESTABLISHED_without_raw_scores"
+  },
+  {
+    "contrast": "train_ratio>0.2",
+    "supported_families": 6,
+    "material_positive_families": [
+      "SMD"
+    ],
+    "material_negative_families": [
+      "CATSv2",
+      "MITDB",
+      "OPPORTUNITY"
+    ],
+    "mean_family_contrast": -0.04893683244940104,
+    "leave_one_family_mean_range": [
+      -0.06304927205703006,
+      -0.03144622419430268
+    ],
+    "descriptive_replicated_positive": false,
+    "causal_artifact_exclusion": "NOT_ESTABLISHED_without_raw_scores"
+  },
+  {
+    "contrast": "length>20000",
+    "supported_families": 1,
+    "material_positive_families": [
+      "OPPORTUNITY"
+    ],
+    "material_negative_families": [],
+    "mean_family_contrast": 0.12909623319100572,
+    "leave_one_family_mean_range": null,
+    "descriptive_replicated_positive": false,
+    "causal_artifact_exclusion": "NOT_ESTABLISHED_without_raw_scores"
+  },
+  {
+    "contrast": "continuous",
+    "supported_families": 3,
+    "material_positive_families": [
+      "SMAP"
+    ],
+    "material_negative_families": [],
+    "mean_family_contrast": 0.01988538921261902,
+    "leave_one_family_mean_range": [
+      0.003731273368505386,
+      0.03417761625739109
+    ],
+    "descriptive_replicated_positive": false,
+    "causal_artifact_exclusion": "NOT_ESTABLISHED_without_raw_scores"
+  },
+  {
+    "contrast": "change_point",
+    "supported_families": 4,
+    "material_positive_families": [
+      "Exathlon",
+      "SMAP",
+      "SMD"
+    ],
+    "material_negative_families": [],
+    "mean_family_contrast": 0.08179175216762266,
+    "leave_one_family_mean_range": [
+      0.04333058896167465,
+      0.11166157869370587
+    ],
+    "descriptive_replicated_positive": true,
+    "causal_artifact_exclusion": "NOT_ESTABLISHED_without_raw_scores"
+  },
+  {
+    "contrast": "periodic",
+    "supported_families": 2,
+    "material_positive_families": [
+      "CATSv2",
+      "SMD"
+    ],
+    "material_negative_families": [],
+    "mean_family_contrast": 0.1336771952528466,
+    "leave_one_family_mean_range": [
+      0.10798259497785062,
+      0.15937179552784259
+    ],
+    "descriptive_replicated_positive": false,
+    "causal_artifact_exclusion": "NOT_ESTABLISHED_without_raw_scores"
+  },
+  {
+    "contrast": "random_walk",
+    "supported_families": 2,
+    "material_positive_families": [
+      "Exathlon",
+      "SMD"
+    ],
+    "material_negative_families": [],
+    "mean_family_contrast": 0.13274922878930023,
+    "leave_one_family_mean_range": [
+      0.10241223919576001,
+      0.16308621838284043
+    ],
+    "descriptive_replicated_positive": false,
+    "causal_artifact_exclusion": "NOT_ESTABLISHED_without_raw_scores"
+  }
+]

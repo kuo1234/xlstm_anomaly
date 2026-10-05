@@ -1,0 +1,8 @@
+contrast,family,prevalence_bin,n_yes,n_no,effect
+change_point,Exathlon,"(0.05, 0.2]",5,20,0.114202818906
+change_point,GHL,"(-inf, 0.01]",14,2,-0.0111422328653
+duration>100,MSL,"(0.01, 0.05]",3,3,0.12452292242
+change_point,SMAP,"(-inf, 0.01]",2,6,0.159932348675
+duration>100,SMAP,"(0.01, 0.05]",8,5,-0.110223352387
+change_point,SMD,"(0.01, 0.05]",10,5,0.0700922571743
+duration>100,SMD,"(0.01, 0.05]",4,11,-0.0880590615146

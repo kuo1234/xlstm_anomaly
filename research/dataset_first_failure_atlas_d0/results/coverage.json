@@ -1,0 +1,104 @@
+{
+  "join_rows": 180,
+  "families": {
+    "SVDB": 28,
+    "Exathlon": 25,
+    "SMAP": 25,
+    "GHL": 23,
+    "SMD": 20,
+    "MSL": 14,
+    "MITDB": 11,
+    "TAO": 11,
+    "OPPORTUNITY": 7,
+    "CATSv2": 5,
+    "LTDB": 4,
+    "SWaT": 2,
+    "GECCO": 1,
+    "Genesis": 1,
+    "CreditCard": 1,
+    "Daphnet": 1,
+    "PSM": 1
+  },
+  "online_methods": [
+    "CNN",
+    "OmniAnomaly",
+    "USAD",
+    "AutoEncoder",
+    "KMeansAD",
+    "CBLOF",
+    "OCSVM",
+    "FITS",
+    "LOF",
+    "HBOS",
+    "MCD",
+    "AnomalyTransformer",
+    "KNN",
+    "TimesNet",
+    "TranAD",
+    "IForest",
+    "PCA",
+    "RobustPCA",
+    "LSTMAD"
+  ],
+  "streaming_methods": [
+    "LODA",
+    "RRCF",
+    "HSTree",
+    "RSHash",
+    "MemStream",
+    "MCOD",
+    "LEAP",
+    "xStream",
+    "SWKNN",
+    "SDOstream"
+  ],
+  "static_methods": [
+    "CNN",
+    "OmniAnomaly",
+    "USAD",
+    "AutoEncoder",
+    "KMeansAD",
+    "CBLOF",
+    "OCSVM",
+    "FITS",
+    "LOF",
+    "HBOS",
+    "MCD",
+    "AnomalyTransformer",
+    "KNN",
+    "TimesNet",
+    "TranAD",
+    "IForest",
+    "PCA",
+    "Donut",
+    "RobustPCA",
+    "LSTMAD"
+  ],
+  "static_only_methods": [
+    "Donut"
+  ],
+  "method_property_rows": 29,
+  "CD_tag_counts": {
+    "continuous": 45,
+    "change_point": 53,
+    "periodic": 8,
+    "random_walk": 41
+  },
+  "point_sequence_combinations": {
+    "(0, 1)": 167,
+    "(1, 1)": 13
+  },
+  "metadata_identity_checks": true,
+  "historical_dimensions_mismatched": [],
+  "historical_lengths_mismatched": [],
+  "declared_first_vs_actual_mismatched": [],
+  "known_duplicate_groups": [
+    [
+      "188_Exathlon_id_15_Facility_tr_12538_1st_12638.csv",
+      "190_Exathlon_id_17_Facility_tr_12538_1st_12638.csv",
+      "198_Exathlon_id_25_Facility_tr_12538_1st_12638.csv",
+      "199_Exathlon_id_26_Facility_tr_12538_1st_12638.csv"
+    ]
+  ],
+  "raw_model_score_vectors_available": false
+}

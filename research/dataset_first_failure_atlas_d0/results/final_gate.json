@@ -1,0 +1,24 @@
+{
+  "prominent_high_dim_pattern": {
+    "families": [
+      "OPPORTUNITY"
+    ],
+    "series": 7,
+    "family_conditioned_identifiable": false
+  },
+  "robust_streaming_win": {
+    "series": 4,
+    "families": [
+      "MSL",
+      "SMD"
+    ],
+    "at_least_3_families": false
+  },
+  "cross_family_descriptors_exist": true,
+  "warmup_score_impact_quantified": false,
+  "raw_score_traces_available": false,
+  "evaluation_artifact_dominance_proven": false,
+  "no_deployable_selector_or_new_method_claim": true,
+  "final_gate": "FAMILY_CONFOUNDED",
+  "D1_GO": false
+}

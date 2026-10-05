@@ -1,0 +1,77 @@
+[
+  {
+    "path": "AD_multi.csv",
+    "archived_sha256": "ff8cc22feff382f2ab6c0191fcbc135b21262da1dd699c761271a8d66dd010f2",
+    "same_as_pinned_main": true
+  },
+  {
+    "path": "HP_list.py",
+    "archived_sha256": "e610fd0edabc45e76bc1d0a22815be13f643e32a6687fc21c3e43a0b4685560a",
+    "same_as_pinned_main": true
+  },
+  {
+    "path": "exp/Run_Online_Detector.py",
+    "archived_sha256": "f997a9c0a699574ff2672e779312ca7208fc51e8712260042a1f2243a4044d63",
+    "same_as_pinned_main": true
+  },
+  {
+    "path": "exp/Run_Static_Detector_M.py",
+    "archived_sha256": "44a55ce8e3098a30832e566c6fdbc67be59130b5a6afa15939036cfd9ee474ce",
+    "same_as_pinned_main": true
+  },
+  {
+    "path": "exp/Run_Streaming_Detector_M.py",
+    "archived_sha256": "657c33607ac506b21c58df0396cdef370d986c596d9a8343546cded19909f8dd",
+    "same_as_pinned_main": true
+  },
+  {
+    "path": "meta_features.csv",
+    "archived_sha256": "bf18aac5cb1a0db5fcfc40c64782edf9258468235528ed655ebc1449b086b24f",
+    "same_as_pinned_main": true
+  },
+  {
+    "path": "results/benchmark_eval_results/CD.csv",
+    "archived_sha256": "e109da612a90ce3d7b2fcdf51f1a0982358b889ad38f49e85d5049ba0d2eef5c",
+    "same_as_pinned_main": true
+  },
+  {
+    "path": "results/benchmark_eval_results/online/AUC-PR.csv",
+    "archived_sha256": "3a2672235b321aadd3cf987c2d0d0680c519073a6a51a46bfd701a34ef45310c",
+    "same_as_pinned_main": true
+  },
+  {
+    "path": "results/benchmark_eval_results/online/AUC-ROC.csv",
+    "archived_sha256": "84dd87ea6f4bd65c4eafe7cb006dd9461139d4d3227875344dfde7d5999eb0da",
+    "same_as_pinned_main": true
+  },
+  {
+    "path": "results/benchmark_eval_results/static/AUC-PR.csv",
+    "archived_sha256": "1832b6ff1bc1f664c9bd8e4fcf7e9133057bc05f19dd004f7f783e0134770107",
+    "same_as_pinned_main": true
+  },
+  {
+    "path": "results/benchmark_eval_results/static/AUC-ROC.csv",
+    "archived_sha256": "84642cdccd54eee0ab2990b0096cf2ac3cfc6cdaaec82de32ca945faed51f422",
+    "same_as_pinned_main": true
+  },
+  {
+    "path": "results/benchmark_eval_results/streaming/AUC-PR.csv",
+    "archived_sha256": "a89d3c1005718a180598b67cbef3ee126f9fb360b91d9aebcadbde723021da6b",
+    "same_as_pinned_main": true
+  },
+  {
+    "path": "results/benchmark_eval_results/streaming/AUC-ROC.csv",
+    "archived_sha256": "8b68875ad8d3cf2edc71fddc205af667fc00c72d9da1f434fd9cfd78004c3ec9",
+    "same_as_pinned_main": true
+  },
+  {
+    "path": "results/benchmark_eval_results/time/mean_throughput.csv",
+    "archived_sha256": "742679bdecd2b592c2562867587e63d5ca682d6f8d410f2fbcb4ed8078e7f221",
+    "same_as_pinned_main": true
+  },
+  {
+    "path": "results/benchmark_eval_results/time/std_inference.csv",
+    "archived_sha256": "7077af2a1b9acda4c1bd271b3fc543803760962bdaa45906e1bbfa0f388fafd6",
+    "same_as_pinned_main": true
+  }
+]

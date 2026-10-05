@@ -1,0 +1,411 @@
+{
+  "ALL_RELEASED": {
+    "series": 180,
+    "families": 17,
+    "series_mean_gap": -0.10464191336891082,
+    "series_median_gap": -0.05685189724499746,
+    "positive_series": 22,
+    "negative_series": 158,
+    "ties": 0,
+    "equal_family_mean_gap": -0.0916552272054303,
+    "family_median_gap": -0.08078999860769309,
+    "positive_families": [
+      "Genesis",
+      "OPPORTUNITY"
+    ],
+    "negative_families": [
+      "CATSv2",
+      "CreditCard",
+      "Daphnet",
+      "Exathlon",
+      "GECCO",
+      "GHL",
+      "LTDB",
+      "MITDB",
+      "MSL",
+      "PSM",
+      "SMAP",
+      "SMD",
+      "SVDB",
+      "SWaT",
+      "TAO"
+    ],
+    "label": "ORACLE_ENVELOPE",
+    "online_winners": {
+      "CNN": 26,
+      "KMeansAD": 23,
+      "MCD": 19,
+      "RobustPCA": 17,
+      "OmniAnomaly": 16,
+      "OCSVM": 15,
+      "USAD": 15,
+      "IForest": 10,
+      "PCA": 8,
+      "TimesNet": 7,
+      "HBOS": 4,
+      "KNN": 4,
+      "AutoEncoder": 4,
+      "AnomalyTransformer": 3,
+      "LOF": 3,
+      "FITS": 2,
+      "LSTMAD": 1,
+      "CBLOF": 1,
+      "OCSVM|MCD|TranAD": 1,
+      "MCD|TranAD": 1
+    },
+    "streaming_winners": {
+      "SWKNN": 57,
+      "MemStream": 44,
+      "MCOD": 22,
+      "LODA": 19,
+      "SDOstream": 15,
+      "HSTree": 8,
+      "RRCF": 5,
+      "RSHash": 4,
+      "xStream": 3,
+      "LEAP": 3
+    },
+    "stream_win_winner_concentration": {
+      "MCOD": 6,
+      "LODA": 5,
+      "SWKNN": 3,
+      "MemStream": 2,
+      "RSHash": 2,
+      "RRCF": 1,
+      "HSTree": 1,
+      "xStream": 1,
+      "LEAP": 1
+    }
+  },
+  "TSB_DRIFT": {
+    "series": 75,
+    "families": 13,
+    "series_mean_gap": -0.041055956405127686,
+    "series_median_gap": -0.0241729302243352,
+    "positive_series": 18,
+    "negative_series": 57,
+    "ties": 0,
+    "equal_family_mean_gap": -0.03903096058011354,
+    "family_median_gap": -0.056329313217844665,
+    "positive_families": [
+      "MSL",
+      "OPPORTUNITY"
+    ],
+    "negative_families": [
+      "CATSv2",
+      "CreditCard",
+      "Daphnet",
+      "Exathlon",
+      "GECCO",
+      "GHL",
+      "LTDB",
+      "SMAP",
+      "SMD",
+      "SWaT",
+      "TAO"
+    ],
+    "label": "ORACLE_ENVELOPE",
+    "online_winners": {
+      "RobustPCA": 16,
+      "MCD": 12,
+      "IForest": 9,
+      "TimesNet": 6,
+      "CNN": 6,
+      "HBOS": 4,
+      "KMeansAD": 3,
+      "OCSVM": 3,
+      "KNN": 3,
+      "OmniAnomaly": 2,
+      "PCA": 2,
+      "AnomalyTransformer": 2,
+      "FITS": 2,
+      "LOF": 1,
+      "CBLOF": 1,
+      "OCSVM|MCD|TranAD": 1,
+      "MCD|TranAD": 1,
+      "USAD": 1
+    },
+    "streaming_winners": {
+      "MCOD": 20,
+      "SWKNN": 19,
+      "MemStream": 12,
+      "LODA": 12,
+      "SDOstream": 4,
+      "RRCF": 3,
+      "RSHash": 3,
+      "HSTree": 1,
+      "LEAP": 1
+    },
+    "stream_win_winner_concentration": {
+      "MCOD": 6,
+      "LODA": 5,
+      "MemStream": 2,
+      "RSHash": 2,
+      "SWKNN": 1,
+      "HSTree": 1,
+      "LEAP": 1
+    }
+  },
+  "NON_DRIFT": {
+    "series": 105,
+    "families": 10,
+    "series_mean_gap": -0.15006045405732735,
+    "series_median_gap": -0.09378401220586108,
+    "positive_series": 4,
+    "negative_series": 101,
+    "ties": 0,
+    "equal_family_mean_gap": -0.10757904486971867,
+    "family_median_gap": -0.1007825937155587,
+    "positive_families": [
+      "Genesis"
+    ],
+    "negative_families": [
+      "Exathlon",
+      "LTDB",
+      "MITDB",
+      "MSL",
+      "PSM",
+      "SMAP",
+      "SMD",
+      "SVDB",
+      "TAO"
+    ],
+    "label": "ORACLE_ENVELOPE",
+    "online_winners": {
+      "CNN": 20,
+      "KMeansAD": 20,
+      "OmniAnomaly": 14,
+      "USAD": 14,
+      "OCSVM": 12,
+      "MCD": 7,
+      "PCA": 6,
+      "AutoEncoder": 4,
+      "LOF": 2,
+      "IForest": 1,
+      "TimesNet": 1,
+      "LSTMAD": 1,
+      "RobustPCA": 1,
+      "AnomalyTransformer": 1,
+      "KNN": 1
+    },
+    "streaming_winners": {
+      "SWKNN": 38,
+      "MemStream": 32,
+      "SDOstream": 11,
+      "HSTree": 7,
+      "LODA": 7,
+      "xStream": 3,
+      "RRCF": 2,
+      "MCOD": 2,
+      "LEAP": 2,
+      "RSHash": 1
+    },
+    "stream_win_winner_concentration": {
+      "SWKNN": 2,
+      "RRCF": 1,
+      "xStream": 1
+    }
+  },
+  "MEASURED_SOURCE_ONLY": {
+    "series": 151,
+    "families": 14,
+    "series_mean_gap": -0.11155650581509757,
+    "series_median_gap": -0.06379081036327311,
+    "positive_series": 17,
+    "negative_series": 134,
+    "ties": 0,
+    "equal_family_mean_gap": -0.09515180165967659,
+    "family_median_gap": -0.08480926523689689,
+    "positive_families": [
+      "Genesis",
+      "OPPORTUNITY"
+    ],
+    "negative_families": [
+      "Daphnet",
+      "Exathlon",
+      "GECCO",
+      "LTDB",
+      "MITDB",
+      "MSL",
+      "PSM",
+      "SMAP",
+      "SMD",
+      "SVDB",
+      "SWaT",
+      "TAO"
+    ],
+    "label": "ORACLE_ENVELOPE",
+    "online_winners": {
+      "CNN": 25,
+      "KMeansAD": 22,
+      "MCD": 16,
+      "OmniAnomaly": 16,
+      "USAD": 15,
+      "OCSVM": 14,
+      "IForest": 8,
+      "PCA": 8,
+      "TimesNet": 7,
+      "AutoEncoder": 4,
+      "RobustPCA": 3,
+      "KNN": 3,
+      "HBOS": 2,
+      "LOF": 2,
+      "CBLOF": 1,
+      "LSTMAD": 1,
+      "OCSVM|MCD|TranAD": 1,
+      "MCD|TranAD": 1,
+      "AnomalyTransformer": 1,
+      "FITS": 1
+    },
+    "streaming_winners": {
+      "SWKNN": 54,
+      "MemStream": 43,
+      "SDOstream": 13,
+      "MCOD": 11,
+      "LODA": 10,
+      "HSTree": 8,
+      "RSHash": 4,
+      "xStream": 3,
+      "LEAP": 3,
+      "RRCF": 2
+    },
+    "stream_win_winner_concentration": {
+      "MCOD": 4,
+      "SWKNN": 3,
+      "LODA": 2,
+      "MemStream": 2,
+      "RSHash": 2,
+      "RRCF": 1,
+      "HSTree": 1,
+      "xStream": 1,
+      "LEAP": 1
+    }
+  },
+  "MEASURED_DRIFT": {
+    "series": 46,
+    "families": 10,
+    "series_mean_gap": -0.023667058740442618,
+    "series_median_gap": -0.0081261443342997,
+    "positive_series": 13,
+    "negative_series": 33,
+    "ties": 0,
+    "equal_family_mean_gap": -0.0281388848284633,
+    "family_median_gap": -0.0387933828873991,
+    "positive_families": [
+      "MSL",
+      "OPPORTUNITY"
+    ],
+    "negative_families": [
+      "Daphnet",
+      "Exathlon",
+      "GECCO",
+      "LTDB",
+      "SMAP",
+      "SMD",
+      "SWaT",
+      "TAO"
+    ],
+    "label": "ORACLE_ENVELOPE",
+    "online_winners": {
+      "MCD": 9,
+      "IForest": 7,
+      "TimesNet": 6,
+      "CNN": 5,
+      "OmniAnomaly": 2,
+      "OCSVM": 2,
+      "PCA": 2,
+      "KNN": 2,
+      "KMeansAD": 2,
+      "RobustPCA": 2,
+      "HBOS": 2,
+      "CBLOF": 1,
+      "OCSVM|MCD|TranAD": 1,
+      "MCD|TranAD": 1,
+      "FITS": 1,
+      "USAD": 1
+    },
+    "streaming_winners": {
+      "SWKNN": 16,
+      "MemStream": 11,
+      "MCOD": 9,
+      "LODA": 3,
+      "RSHash": 3,
+      "SDOstream": 2,
+      "HSTree": 1,
+      "LEAP": 1
+    },
+    "stream_win_winner_concentration": {
+      "MCOD": 4,
+      "LODA": 2,
+      "MemStream": 2,
+      "RSHash": 2,
+      "SWKNN": 1,
+      "HSTree": 1,
+      "LEAP": 1
+    }
+  },
+  "SIMULATED_SOURCE": {
+    "series": 28,
+    "families": 2,
+    "series_mean_gap": -0.06971932417335412,
+    "series_median_gap": -0.04024072267899625,
+    "positive_series": 5,
+    "negative_series": 23,
+    "ties": 0,
+    "equal_family_mean_gap": -0.09382134389327121,
+    "family_median_gap": -0.09382134389327121,
+    "positive_families": [],
+    "negative_families": [
+      "CATSv2",
+      "GHL"
+    ],
+    "label": "ORACLE_ENVELOPE",
+    "online_winners": {
+      "RobustPCA": 14,
+      "MCD": 3,
+      "HBOS": 2,
+      "IForest": 2,
+      "AnomalyTransformer": 2,
+      "KNN": 1,
+      "LOF": 1,
+      "FITS": 1,
+      "KMeansAD": 1,
+      "CNN": 1
+    },
+    "streaming_winners": {
+      "MCOD": 11,
+      "LODA": 9,
+      "RRCF": 3,
+      "SDOstream": 2,
+      "SWKNN": 2,
+      "MemStream": 1
+    },
+    "stream_win_winner_concentration": {
+      "LODA": 3,
+      "MCOD": 2
+    }
+  },
+  "UNKNOWN_SOURCE": {
+    "series": 1,
+    "families": 1,
+    "series_mean_gap": -0.0383709514703007,
+    "series_median_gap": -0.0383709514703007,
+    "positive_series": 0,
+    "negative_series": 1,
+    "ties": 0,
+    "equal_family_mean_gap": -0.0383709514703007,
+    "family_median_gap": -0.0383709514703007,
+    "positive_families": [],
+    "negative_families": [
+      "CreditCard"
+    ],
+    "label": "ORACLE_ENVELOPE",
+    "online_winners": {
+      "OCSVM": 1
+    },
+    "streaming_winners": {
+      "SWKNN": 1
+    },
+    "stream_win_winner_concentration": {}
+  }
+}
