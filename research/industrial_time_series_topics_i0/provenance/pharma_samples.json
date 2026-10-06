@@ -1,0 +1,404 @@
+[
+  {
+    "article_id": 16676263,
+    "article_version": 1,
+    "file_id": 30966250,
+    "filename": "Laboratory.csv",
+    "url": "https://ndownloader.figshare.com/files/30966250",
+    "declared_bytes": 293492,
+    "declared_md5": "74b091a88dc88e0fed44f79877b22b66",
+    "path": "data/industrial_time_series_topics_i0/Laboratory.csv",
+    "sha256": "a3b0f16c7c3fa8052b38d767e38fda731a751acc4ec139b52d01577b32dc6483",
+    "status": "retrieved_and_md5_verified",
+    "inspection": {
+      "header": [
+        "batch",
+        "code",
+        "strength",
+        "size",
+        "start",
+        "api_code",
+        "api_batch",
+        "smcc_batch",
+        "lactose_batch",
+        "starch_batch",
+        "api_water",
+        "api_total_impurities",
+        "api_l_impurity",
+        "api_content",
+        "api_ps01",
+        "api_ps05",
+        "api_ps09",
+        "lactose_water",
+        "lactose_sieve0045",
+        "lactose_sieve015",
+        "lactose_sieve025",
+        "smcc_water",
+        "smcc_td",
+        "smcc_bd",
+        "smcc_ps01",
+        "smcc_ps05",
+        "smcc_ps09",
+        "starch_ph",
+        "starch_water",
+        "tbl_min_thickness",
+        "tbl_max_thickness",
+        "fct_min_thickness",
+        "fct_max_thickness",
+        "tbl_min_weight",
+        "tbl_max_weight",
+        "tbl_rsd_weight",
+        "fct_rsd_weight",
+        "tbl_min_hardness",
+        "tbl_max_hardness",
+        "tbl_av_hardness",
+        "fct_min_hardness",
+        "fct_max_hardness",
+        "fct_av_hardness",
+        "tbl_max_diameter",
+        "fct_max_diameter",
+        "tbl_tensile",
+        "fct_tensile",
+        "tbl_yield",
+        "batch_yield",
+        "dissolution_av",
+        "dissolution_min",
+        "resodual_solvent",
+        "impurities_total",
+        "impurity_o",
+        "impurity_l"
+      ],
+      "rows": 1005,
+      "delimiter": ";",
+      "widths": [
+        55
+      ],
+      "empty_fields": 36,
+      "first_two_rows": [
+        [
+          "1",
+          "25",
+          "5MG",
+          "240000",
+          "nov.18",
+          "5",
+          "2",
+          "1",
+          "2",
+          "1",
+          "1.53",
+          "0.25",
+          "0.13",
+          "94.5",
+          "1.27",
+          "18.52",
+          "109.999",
+          "0.05",
+          "17",
+          "50",
+          "82",
+          "4.251",
+          "0.45",
+          "0.33",
+          "31.156",
+          "112.141",
+          "245.499",
+          "4.4",
+          "3.012",
+          "3.3",
+          "3.4",
+          "3.4",
+          "3.4",
+          "111",
+          "116",
+          "0.92",
+          "0.72",
+          "56.84",
+          "68.6",
+          "46",
+          "37",
+          "56",
+          "62.72",
+          "6.1",
+          "6.1",
+          "1.412698315",
+          "1.926183442",
+          "95.785",
+          "94.697",
+          "93.83",
+          "86",
+          "0.06",
+          "0.33",
+          "0.05",
+          "0.16"
+        ],
+        [
+          "2",
+          "25",
+          "5MG",
+          "240000",
+          "nov.18",
+          "5",
+          "2",
+          "1",
+          "2",
+          "1",
+          "1.53",
+          "0.25",
+          "0.13",
+          "94.5",
+          "1.27",
+          "18.52",
+          "109.999",
+          "0.05",
+          "17",
+          "50",
+          "82",
+          "4.251",
+          "0.45",
+          "0.33",
+          "31.156",
+          "112.141",
+          "245.499",
+          "4.4",
+          "3.012",
+          "3.3",
+          "3.4",
+          "3.4",
+          "3.4",
+          "112",
+          "116",
+          "0.89",
+          "0.8",
+          "56.84",
+          "70.56",
+          "46",
+          "39",
+          "56",
+          "64.68",
+          "6.1",
+          "6.1",
+          "1.412698315",
+          "1.986376675",
+          "98.467",
+          "97.348",
+          "99.67",
+          "92",
+          "0.04",
+          "0.34",
+          "0.06",
+          "0.16"
+        ]
+      ],
+      "model_runs": 0
+    }
+  },
+  {
+    "article_id": 16676320,
+    "article_version": 1,
+    "file_id": 30874219,
+    "filename": "Process.zip",
+    "url": "https://ndownloader.figshare.com/files/30874219",
+    "declared_bytes": 29811605,
+    "declared_md5": "0525b635081c2c29dc8d4b24aa1e4b09",
+    "path": "data/industrial_time_series_topics_i0/Process.zip",
+    "sha256": "8a401f1c7ac9880c763e3350f595c45c90487c0950db48caa9cda729582f5c25",
+    "status": "retrieved_and_md5_verified",
+    "archive_files": [
+      {
+        "name": "Process/",
+        "uncompressed_bytes": 0,
+        "compressed_bytes": 0
+      },
+      {
+        "name": "Process/1.csv",
+        "uncompressed_bytes": 7665501,
+        "compressed_bytes": 801860
+      },
+      {
+        "name": "Process/10.csv",
+        "uncompressed_bytes": 7626350,
+        "compressed_bytes": 714158
+      },
+      {
+        "name": "Process/11.csv",
+        "uncompressed_bytes": 3594679,
+        "compressed_bytes": 288417
+      },
+      {
+        "name": "Process/12.csv",
+        "uncompressed_bytes": 13530873,
+        "compressed_bytes": 1300912
+      },
+      {
+        "name": "Process/13.csv",
+        "uncompressed_bytes": 71077061,
+        "compressed_bytes": 5718916
+      },
+      {
+        "name": "Process/14.csv",
+        "uncompressed_bytes": 19477957,
+        "compressed_bytes": 1633738
+      },
+      {
+        "name": "Process/15.csv",
+        "uncompressed_bytes": 36102202,
+        "compressed_bytes": 2503261
+      },
+      {
+        "name": "Process/16.csv",
+        "uncompressed_bytes": 4415086,
+        "compressed_bytes": 373928
+      },
+      {
+        "name": "Process/17.csv",
+        "uncompressed_bytes": 60117355,
+        "compressed_bytes": 4808625
+      },
+      {
+        "name": "Process/18.csv",
+        "uncompressed_bytes": 493620,
+        "compressed_bytes": 61191
+      },
+      {
+        "name": "Process/19.csv",
+        "uncompressed_bytes": 1366524,
+        "compressed_bytes": 130591
+      },
+      {
+        "name": "Process/2.csv",
+        "uncompressed_bytes": 11743861,
+        "compressed_bytes": 1165960
+      },
+      {
+        "name": "Process/20.csv",
+        "uncompressed_bytes": 1423321,
+        "compressed_bytes": 156561
+      },
+      {
+        "name": "Process/21.csv",
+        "uncompressed_bytes": 5853370,
+        "compressed_bytes": 576203
+      },
+      {
+        "name": "Process/22.csv",
+        "uncompressed_bytes": 24924036,
+        "compressed_bytes": 2501127
+      },
+      {
+        "name": "Process/23.csv",
+        "uncompressed_bytes": 49159732,
+        "compressed_bytes": 4518746
+      },
+      {
+        "name": "Process/24.csv",
+        "uncompressed_bytes": 3856987,
+        "compressed_bytes": 326482
+      },
+      {
+        "name": "Process/25.csv",
+        "uncompressed_bytes": 2878819,
+        "compressed_bytes": 293524
+      },
+      {
+        "name": "Process/3.csv",
+        "uncompressed_bytes": 3970314,
+        "compressed_bytes": 431941
+      },
+      {
+        "name": "Process/4.csv",
+        "uncompressed_bytes": 4214946,
+        "compressed_bytes": 483573
+      },
+      {
+        "name": "Process/5.csv",
+        "uncompressed_bytes": 3349406,
+        "compressed_bytes": 285100
+      },
+      {
+        "name": "Process/6.csv",
+        "uncompressed_bytes": 2596713,
+        "compressed_bytes": 184312
+      },
+      {
+        "name": "Process/7.csv",
+        "uncompressed_bytes": 3829484,
+        "compressed_bytes": 345039
+      },
+      {
+        "name": "Process/8.csv",
+        "uncompressed_bytes": 2277795,
+        "compressed_bytes": 166427
+      },
+      {
+        "name": "Process/9.csv",
+        "uncompressed_bytes": 339336,
+        "compressed_bytes": 37381
+      }
+    ],
+    "prefix_inspection": {
+      "archive_member": "Process/1.csv",
+      "delimiter": ";",
+      "header": [
+        "timestamp",
+        "campaign",
+        "batch",
+        "code",
+        "tbl_speed",
+        "fom",
+        "main_comp",
+        "tbl_fill",
+        "SREL",
+        "pre_comp",
+        "produced",
+        "waste",
+        "cyl_main",
+        "cyl_pre",
+        "stiffness",
+        "ejection"
+      ],
+      "rows": 256,
+      "first_two_rows": [
+        [
+          "2018-11-22 23:07:27",
+          "4",
+          "26",
+          "1",
+          "0",
+          "0",
+          "0.2",
+          "4.09",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1.06",
+          "4",
+          "3",
+          "90"
+        ],
+        [
+          "2018-11-22 23:07:37",
+          "4",
+          "26",
+          "1",
+          "0",
+          "0",
+          "0.2",
+          "4.09",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1.06",
+          "4",
+          "3",
+          "90"
+        ]
+      ],
+      "prefix_byte_sha256": "aa6b016c91831aa64bc5c4a5e2ed9143597354b85a3b5ac4d73affc71458f5b2",
+      "whole_member_hash_not_verified": true,
+      "no_model_runs": true
+    }
+  }
+]

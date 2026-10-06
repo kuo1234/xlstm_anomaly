@@ -1,0 +1,2206 @@
+{
+  "no_model_or_correlation_runs": true,
+  "pharma": {
+    "lab_rows": 1005,
+    "lab_columns": 55,
+    "unique_batch_ids": 1005,
+    "product_codes": {
+      "25": 34,
+      "2": 17,
+      "3": 16,
+      "4": 22,
+      "14": 11,
+      "15": 64,
+      "1": 95,
+      "24": 6,
+      "23": 187,
+      "12": 21,
+      "10": 27,
+      "22": 41,
+      "16": 2,
+      "20": 4,
+      "9": 4,
+      "7": 8,
+      "11": 15,
+      "21": 68,
+      "18": 1,
+      "19": 17,
+      "5": 3,
+      "8": 2,
+      "13": 131,
+      "17": 207,
+      "6": 2
+    },
+    "lot_counts": {
+      "api_batch": {
+        "unique_nonmissing_lots": 260,
+        "largest_batch_count": 29,
+        "lots_shared_by_multiple_batches": 218
+      },
+      "smcc_batch": {
+        "unique_nonmissing_lots": 18,
+        "largest_batch_count": 117,
+        "lots_shared_by_multiple_batches": 18
+      },
+      "lactose_batch": {
+        "unique_nonmissing_lots": 22,
+        "largest_batch_count": 105,
+        "lots_shared_by_multiple_batches": 22
+      },
+      "starch_batch": {
+        "unique_nonmissing_lots": 17,
+        "largest_batch_count": 89,
+        "lots_shared_by_multiple_batches": 17
+      }
+    },
+    "genealogy_components": 1,
+    "largest_components": [
+      1005
+    ],
+    "identity_assumption": "Typed lot fields, API lot scoped by api_code; missing values do not form edges. Anonymized ID stability across all product codes remains a source-semantic caveat.",
+    "lab_has_exact_result_return_time": false,
+    "full_process_member": "Process/1.csv",
+    "member_sha256": "807f0e7b5026615f7d64a50b8ca405c7b5468112ca28da9ed41a812bb10de92e",
+    "member_bytes": 7665501,
+    "member_rows": 106878,
+    "sampled_batches": [
+      {
+        "batch": "26",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1238,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 12370.0,
+        "zero_speed_rows": 407,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1237
+        },
+        "campaign_ids": [
+          "4"
+        ]
+      },
+      {
+        "batch": "27",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1053,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10520.0,
+        "zero_speed_rows": 209,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1052
+        },
+        "campaign_ids": [
+          "4"
+        ]
+      },
+      {
+        "batch": "28",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1124,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11230.0,
+        "zero_speed_rows": 277,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1123
+        },
+        "campaign_ids": [
+          "4"
+        ]
+      },
+      {
+        "batch": "29",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1143,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11420.0,
+        "zero_speed_rows": 275,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1142
+        },
+        "campaign_ids": [
+          "4"
+        ]
+      },
+      {
+        "batch": "30",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1225,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 12240.0,
+        "zero_speed_rows": 369,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1224
+        },
+        "campaign_ids": [
+          "4"
+        ]
+      },
+      {
+        "batch": "31",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1018,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10170.0,
+        "zero_speed_rows": 172,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1017
+        },
+        "campaign_ids": [
+          "4"
+        ]
+      },
+      {
+        "batch": "32",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1216,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 12150.0,
+        "zero_speed_rows": 353,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1215
+        },
+        "campaign_ids": [
+          "4"
+        ]
+      },
+      {
+        "batch": "33",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1395,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 13940.0,
+        "zero_speed_rows": 552,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1394
+        },
+        "campaign_ids": [
+          "4"
+        ]
+      },
+      {
+        "batch": "34",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 993,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 9920.0,
+        "zero_speed_rows": 149,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 992
+        },
+        "campaign_ids": [
+          "4"
+        ]
+      },
+      {
+        "batch": "35",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1045,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10440.0,
+        "zero_speed_rows": 194,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1044
+        },
+        "campaign_ids": [
+          "4"
+        ]
+      },
+      {
+        "batch": "36",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1015,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10140.0,
+        "zero_speed_rows": 161,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1014
+        },
+        "campaign_ids": [
+          "4"
+        ]
+      },
+      {
+        "batch": "37",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1019,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10180.0,
+        "zero_speed_rows": 172,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1018
+        },
+        "campaign_ids": [
+          "4"
+        ]
+      },
+      {
+        "batch": "40",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1025,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10240.0,
+        "zero_speed_rows": 177,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1024
+        },
+        "campaign_ids": [
+          "8"
+        ]
+      },
+      {
+        "batch": "41",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1101,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11000.0,
+        "zero_speed_rows": 250,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1100
+        },
+        "campaign_ids": [
+          "8"
+        ]
+      },
+      {
+        "batch": "42",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1295,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 12940.0,
+        "zero_speed_rows": 425,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1294
+        },
+        "campaign_ids": [
+          "8"
+        ]
+      },
+      {
+        "batch": "43",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1142,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11410.0,
+        "zero_speed_rows": 288,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1141
+        },
+        "campaign_ids": [
+          "8"
+        ]
+      },
+      {
+        "batch": "44",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1052,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10510.0,
+        "zero_speed_rows": 208,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1051
+        },
+        "campaign_ids": [
+          "8"
+        ]
+      },
+      {
+        "batch": "45",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1189,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11880.0,
+        "zero_speed_rows": 340,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1188
+        },
+        "campaign_ids": [
+          "8"
+        ]
+      },
+      {
+        "batch": "46",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1185,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11840.0,
+        "zero_speed_rows": 336,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1184
+        },
+        "campaign_ids": [
+          "8"
+        ]
+      },
+      {
+        "batch": "47",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1017,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10160.0,
+        "zero_speed_rows": 171,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1016
+        },
+        "campaign_ids": [
+          "8"
+        ]
+      },
+      {
+        "batch": "48",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1134,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11330.0,
+        "zero_speed_rows": 281,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1133
+        },
+        "campaign_ids": [
+          "8"
+        ]
+      },
+      {
+        "batch": "49",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1318,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 13170.0,
+        "zero_speed_rows": 469,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1317
+        },
+        "campaign_ids": [
+          "8"
+        ]
+      },
+      {
+        "batch": "50",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1088,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10870.0,
+        "zero_speed_rows": 237,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1087
+        },
+        "campaign_ids": [
+          "8"
+        ]
+      },
+      {
+        "batch": "51",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1105,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11040.0,
+        "zero_speed_rows": 252,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1104
+        },
+        "campaign_ids": [
+          "8"
+        ]
+      },
+      {
+        "batch": "52",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1056,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10550.0,
+        "zero_speed_rows": 219,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1055
+        },
+        "campaign_ids": [
+          "8"
+        ]
+      },
+      {
+        "batch": "53",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1119,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11180.0,
+        "zero_speed_rows": 266,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1118
+        },
+        "campaign_ids": [
+          "8"
+        ]
+      },
+      {
+        "batch": "54",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1085,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10840.0,
+        "zero_speed_rows": 242,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1084
+        },
+        "campaign_ids": [
+          "8"
+        ]
+      },
+      {
+        "batch": "55",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1273,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 12720.0,
+        "zero_speed_rows": 439,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1272
+        },
+        "campaign_ids": [
+          "8"
+        ]
+      },
+      {
+        "batch": "56",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1070,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10690.0,
+        "zero_speed_rows": 219,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1069
+        },
+        "campaign_ids": [
+          "8"
+        ]
+      },
+      {
+        "batch": "124",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1314,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 13130.0,
+        "zero_speed_rows": 495,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1313
+        },
+        "campaign_ids": [
+          "31"
+        ]
+      },
+      {
+        "batch": "125",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1073,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10720.0,
+        "zero_speed_rows": 240,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1072
+        },
+        "campaign_ids": [
+          "31"
+        ]
+      },
+      {
+        "batch": "126",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1059,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10580.0,
+        "zero_speed_rows": 200,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1058
+        },
+        "campaign_ids": [
+          "31"
+        ]
+      },
+      {
+        "batch": "127",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1207,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 12060.0,
+        "zero_speed_rows": 359,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1206
+        },
+        "campaign_ids": [
+          "31"
+        ]
+      },
+      {
+        "batch": "128",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1259,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 12580.0,
+        "zero_speed_rows": 412,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1258
+        },
+        "campaign_ids": [
+          "31"
+        ]
+      },
+      {
+        "batch": "129",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1114,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11130.0,
+        "zero_speed_rows": 278,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1113
+        },
+        "campaign_ids": [
+          "31"
+        ]
+      },
+      {
+        "batch": "130",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1124,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11230.0,
+        "zero_speed_rows": 279,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1123
+        },
+        "campaign_ids": [
+          "31"
+        ]
+      },
+      {
+        "batch": "131",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1101,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11000.0,
+        "zero_speed_rows": 261,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1100
+        },
+        "campaign_ids": [
+          "31"
+        ]
+      },
+      {
+        "batch": "132",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1083,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10820.0,
+        "zero_speed_rows": 231,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1082
+        },
+        "campaign_ids": [
+          "31"
+        ]
+      },
+      {
+        "batch": "133",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1117,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11160.0,
+        "zero_speed_rows": 275,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1116
+        },
+        "campaign_ids": [
+          "31"
+        ]
+      },
+      {
+        "batch": "262",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1129,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11280.0,
+        "zero_speed_rows": 294,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1128
+        },
+        "campaign_ids": [
+          "65"
+        ]
+      },
+      {
+        "batch": "263",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1072,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10710.0,
+        "zero_speed_rows": 210,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1071
+        },
+        "campaign_ids": [
+          "65"
+        ]
+      },
+      {
+        "batch": "264",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1043,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10420.0,
+        "zero_speed_rows": 182,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1042
+        },
+        "campaign_ids": [
+          "65"
+        ]
+      },
+      {
+        "batch": "265",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1143,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11420.0,
+        "zero_speed_rows": 266,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1142
+        },
+        "campaign_ids": [
+          "65"
+        ]
+      },
+      {
+        "batch": "266",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1077,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10760.0,
+        "zero_speed_rows": 213,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1076
+        },
+        "campaign_ids": [
+          "65"
+        ]
+      },
+      {
+        "batch": "267",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1106,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11050.0,
+        "zero_speed_rows": 256,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1105
+        },
+        "campaign_ids": [
+          "65"
+        ]
+      },
+      {
+        "batch": "268",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1143,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11420.0,
+        "zero_speed_rows": 286,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1142
+        },
+        "campaign_ids": [
+          "65"
+        ]
+      },
+      {
+        "batch": "269",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1157,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11560.0,
+        "zero_speed_rows": 295,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1156
+        },
+        "campaign_ids": [
+          "65"
+        ]
+      },
+      {
+        "batch": "270",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1054,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10530.0,
+        "zero_speed_rows": 192,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1053
+        },
+        "campaign_ids": [
+          "65"
+        ]
+      },
+      {
+        "batch": "271",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1198,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11970.0,
+        "zero_speed_rows": 345,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1197
+        },
+        "campaign_ids": [
+          "65"
+        ]
+      },
+      {
+        "batch": "272",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1147,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11460.0,
+        "zero_speed_rows": 273,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1146
+        },
+        "campaign_ids": [
+          "65"
+        ]
+      },
+      {
+        "batch": "273",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1034,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10330.0,
+        "zero_speed_rows": 182,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1033
+        },
+        "campaign_ids": [
+          "65"
+        ]
+      },
+      {
+        "batch": "274",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1029,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10280.0,
+        "zero_speed_rows": 166,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1028
+        },
+        "campaign_ids": [
+          "65"
+        ]
+      },
+      {
+        "batch": "275",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1084,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10840.0,
+        "zero_speed_rows": 183,
+        "empty_speed_rows": 40,
+        "empty_fields": 480,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 180,
+          "60": 360
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1082,
+          "20.0": 1
+        },
+        "campaign_ids": [
+          "65"
+        ]
+      },
+      {
+        "batch": "276",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1084,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10830.0,
+        "zero_speed_rows": 217,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1083
+        },
+        "campaign_ids": [
+          "65"
+        ]
+      },
+      {
+        "batch": "284",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1186,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11850.0,
+        "zero_speed_rows": 334,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1185
+        },
+        "campaign_ids": [
+          "66"
+        ]
+      },
+      {
+        "batch": "285",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1282,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 12810.0,
+        "zero_speed_rows": 421,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1281
+        },
+        "campaign_ids": [
+          "66"
+        ]
+      },
+      {
+        "batch": "286",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1073,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10720.0,
+        "zero_speed_rows": 210,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1072
+        },
+        "campaign_ids": [
+          "66"
+        ]
+      },
+      {
+        "batch": "287",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1035,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10340.0,
+        "zero_speed_rows": 181,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1034
+        },
+        "campaign_ids": [
+          "66"
+        ]
+      },
+      {
+        "batch": "288",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1077,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10760.0,
+        "zero_speed_rows": 214,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1076
+        },
+        "campaign_ids": [
+          "66"
+        ]
+      },
+      {
+        "batch": "289",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1065,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10640.0,
+        "zero_speed_rows": 199,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1064
+        },
+        "campaign_ids": [
+          "66"
+        ]
+      },
+      {
+        "batch": "290",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1132,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11310.0,
+        "zero_speed_rows": 277,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1131
+        },
+        "campaign_ids": [
+          "66"
+        ]
+      },
+      {
+        "batch": "291",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1207,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 12060.0,
+        "zero_speed_rows": 334,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1206
+        },
+        "campaign_ids": [
+          "66"
+        ]
+      },
+      {
+        "batch": "292",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1044,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10430.0,
+        "zero_speed_rows": 188,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1043
+        },
+        "campaign_ids": [
+          "66"
+        ]
+      },
+      {
+        "batch": "293",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1304,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 13030.0,
+        "zero_speed_rows": 429,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1303
+        },
+        "campaign_ids": [
+          "66"
+        ]
+      },
+      {
+        "batch": "294",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1108,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11070.0,
+        "zero_speed_rows": 247,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1107
+        },
+        "campaign_ids": [
+          "66"
+        ]
+      },
+      {
+        "batch": "295",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1059,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10580.0,
+        "zero_speed_rows": 203,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1058
+        },
+        "campaign_ids": [
+          "66"
+        ]
+      },
+      {
+        "batch": "296",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1093,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10920.0,
+        "zero_speed_rows": 232,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1092
+        },
+        "campaign_ids": [
+          "66"
+        ]
+      },
+      {
+        "batch": "297",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1027,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10260.0,
+        "zero_speed_rows": 163,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1026
+        },
+        "campaign_ids": [
+          "66"
+        ]
+      },
+      {
+        "batch": "298",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1098,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10970.0,
+        "zero_speed_rows": 233,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1097
+        },
+        "campaign_ids": [
+          "66"
+        ]
+      },
+      {
+        "batch": "306",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1079,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10780.0,
+        "zero_speed_rows": 215,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1078
+        },
+        "campaign_ids": [
+          "67"
+        ]
+      },
+      {
+        "batch": "307",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1126,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11250.0,
+        "zero_speed_rows": 257,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1125
+        },
+        "campaign_ids": [
+          "67"
+        ]
+      },
+      {
+        "batch": "308",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1089,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10880.0,
+        "zero_speed_rows": 212,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1088
+        },
+        "campaign_ids": [
+          "67"
+        ]
+      },
+      {
+        "batch": "309",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1151,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11500.0,
+        "zero_speed_rows": 286,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1150
+        },
+        "campaign_ids": [
+          "67"
+        ]
+      },
+      {
+        "batch": "310",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1081,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10800.0,
+        "zero_speed_rows": 218,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1080
+        },
+        "campaign_ids": [
+          "67"
+        ]
+      },
+      {
+        "batch": "311",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1076,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10750.0,
+        "zero_speed_rows": 215,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1075
+        },
+        "campaign_ids": [
+          "67"
+        ]
+      },
+      {
+        "batch": "312",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1069,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10680.0,
+        "zero_speed_rows": 210,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1068
+        },
+        "campaign_ids": [
+          "67"
+        ]
+      },
+      {
+        "batch": "313",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1104,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11030.0,
+        "zero_speed_rows": 241,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1103
+        },
+        "campaign_ids": [
+          "67"
+        ]
+      },
+      {
+        "batch": "314",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1154,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11530.0,
+        "zero_speed_rows": 295,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1153
+        },
+        "campaign_ids": [
+          "67"
+        ]
+      },
+      {
+        "batch": "315",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1080,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10790.0,
+        "zero_speed_rows": 220,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1079
+        },
+        "campaign_ids": [
+          "67"
+        ]
+      },
+      {
+        "batch": "316",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1054,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10530.0,
+        "zero_speed_rows": 190,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1053
+        },
+        "campaign_ids": [
+          "67"
+        ]
+      },
+      {
+        "batch": "317",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1077,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10760.0,
+        "zero_speed_rows": 217,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1076
+        },
+        "campaign_ids": [
+          "67"
+        ]
+      },
+      {
+        "batch": "318",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1125,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11240.0,
+        "zero_speed_rows": 266,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1124
+        },
+        "campaign_ids": [
+          "67"
+        ]
+      },
+      {
+        "batch": "319",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1253,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 12520.0,
+        "zero_speed_rows": 393,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1252
+        },
+        "campaign_ids": [
+          "67"
+        ]
+      },
+      {
+        "batch": "320",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1110,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11090.0,
+        "zero_speed_rows": 253,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1109
+        },
+        "campaign_ids": [
+          "67"
+        ]
+      },
+      {
+        "batch": "443",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1303,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 13020.0,
+        "zero_speed_rows": 493,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1302
+        },
+        "campaign_ids": [
+          "109"
+        ]
+      },
+      {
+        "batch": "444",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1131,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11300.0,
+        "zero_speed_rows": 283,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1130
+        },
+        "campaign_ids": [
+          "109"
+        ]
+      },
+      {
+        "batch": "445",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1099,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10980.0,
+        "zero_speed_rows": 249,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1098
+        },
+        "campaign_ids": [
+          "109"
+        ]
+      },
+      {
+        "batch": "446",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1259,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 12580.0,
+        "zero_speed_rows": 409,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1258
+        },
+        "campaign_ids": [
+          "109"
+        ]
+      },
+      {
+        "batch": "447",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1075,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10740.0,
+        "zero_speed_rows": 232,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1074
+        },
+        "campaign_ids": [
+          "109"
+        ]
+      },
+      {
+        "batch": "448",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1012,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10110.0,
+        "zero_speed_rows": 169,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1011
+        },
+        "campaign_ids": [
+          "109"
+        ]
+      },
+      {
+        "batch": "449",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1030,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 10290.0,
+        "zero_speed_rows": 183,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1029
+        },
+        "campaign_ids": [
+          "109"
+        ]
+      },
+      {
+        "batch": "450",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1400,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 13990.0,
+        "zero_speed_rows": 546,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1399
+        },
+        "campaign_ids": [
+          "109"
+        ]
+      },
+      {
+        "batch": "451",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1138,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11370.0,
+        "zero_speed_rows": 292,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1137
+        },
+        "campaign_ids": [
+          "109"
+        ]
+      },
+      {
+        "batch": "452",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1217,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 12160.0,
+        "zero_speed_rows": 364,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1216
+        },
+        "campaign_ids": [
+          "109"
+        ]
+      },
+      {
+        "batch": "453",
+        "laboratory_join": true,
+        "code_matches_lab": true,
+        "rows": 1107,
+        "duplicate_timestamps": 0,
+        "duration_seconds": 11060.0,
+        "zero_speed_rows": 262,
+        "empty_speed_rows": 0,
+        "empty_fields": 0,
+        "fixed_elapsed_prefix_rows": {
+          "15": 91,
+          "30": 181,
+          "60": 361
+        },
+        "timestamp_delta_seconds": {
+          "10.0": 1106
+        },
+        "campaign_ids": [
+          "109"
+        ]
+      }
+    ],
+    "target_fields": [
+      "dissolution_av",
+      "dissolution_min",
+      "resodual_solvent",
+      "impurities_total",
+      "impurity_o",
+      "impurity_l"
+    ]
+  },
+  "MP": {
+    "rows": 3614,
+    "delta_seconds_counts": {
+      "3600.0": 3465,
+      "7200.0": 97,
+      "10800.0": 31,
+      "1148400.0": 1,
+      "118800.0": 1,
+      "14400.0": 8,
+      "28800.0": 2,
+      "68400.0": 1,
+      "25200.0": 2,
+      "734400.0": 1,
+      "18000.0": 3,
+      "32400.0": 1
+    },
+    "strictly_increasing": true,
+    "fields_include_other_lab_quality": true,
+    "label_return_timestamp_present": false
+  },
+  "PyScrew_s01": {
+    "rows": 5000,
+    "workpieces": 100,
+    "locations": {
+      "left": 2500,
+      "right": 2500
+    },
+    "result_counts": {
+      "OK": 4089,
+      "NOK": 911
+    },
+    "usage_range": [
+      0,
+      24
+    ],
+    "raw_trajectory_downloaded": false,
+    "independent_joint_strength_labels_verified": false
+  }
+}

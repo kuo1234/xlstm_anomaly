@@ -1,0 +1,47 @@
+[
+  {
+    "model": "DAGRU",
+    "url": "https://raw.githubusercontent.com/YuAn-06/Industrial-Time-Series-Soft-Sensor/5d1887f2e192093bbd5534a3618d5a66196e7472/models/DAGRU/model_arch.py",
+    "commit": "5d1887f2e192093bbd5534a3618d5a66196e7472",
+    "executed": false,
+    "path": "data/industrial_time_series_topics_i0/DAGRU_model_arch.py",
+    "sha256": "e7b3117ccc9f328404889a1165e677e71a809af8441a37094679a1914d2f1ab7",
+    "status": "retrieved"
+  },
+  {
+    "model": "GCT",
+    "url": "https://raw.githubusercontent.com/YuAn-06/Industrial-Time-Series-Soft-Sensor/5d1887f2e192093bbd5534a3618d5a66196e7472/models/GCT/model_arch.py",
+    "commit": "5d1887f2e192093bbd5534a3618d5a66196e7472",
+    "executed": false,
+    "path": "data/industrial_time_series_topics_i0/GCT_model_arch.py",
+    "sha256": "ddcfba4c4eb8d3bd7145b06f09981cd9eed6282903f10361a90b9896864c8d63",
+    "status": "retrieved"
+  },
+  {
+    "model": "HSAM_dGRUs",
+    "url": "https://raw.githubusercontent.com/YuAn-06/Industrial-Time-Series-Soft-Sensor/5d1887f2e192093bbd5534a3618d5a66196e7472/models/HSAM_dGRUs/model_arch.py",
+    "commit": "5d1887f2e192093bbd5534a3618d5a66196e7472",
+    "executed": false,
+    "path": "data/industrial_time_series_topics_i0/HSAM_dGRUs_model_arch.py",
+    "sha256": "eb1fbc90f53776ef40f764d07569b5877c0046830738b5e0d49f15df435a35c8",
+    "status": "retrieved"
+  },
+  {
+    "model": "STALSTM",
+    "url": "https://raw.githubusercontent.com/YuAn-06/Industrial-Time-Series-Soft-Sensor/5d1887f2e192093bbd5534a3618d5a66196e7472/models/STALSTM/model_arch.py",
+    "commit": "5d1887f2e192093bbd5534a3618d5a66196e7472",
+    "executed": false,
+    "path": "data/industrial_time_series_topics_i0/STALSTM_model_arch.py",
+    "sha256": "5985fceedcabbbd6632dfe737a038c1d0528814dee51d3f02ca6a268fbbbd1bd",
+    "status": "retrieved"
+  },
+  {
+    "model": "TSLambdaGRU",
+    "url": "https://raw.githubusercontent.com/YuAn-06/Industrial-Time-Series-Soft-Sensor/5d1887f2e192093bbd5534a3618d5a66196e7472/models/TSLambdaGRU/model_arch.py",
+    "commit": "5d1887f2e192093bbd5534a3618d5a66196e7472",
+    "executed": false,
+    "path": "data/industrial_time_series_topics_i0/TSLambdaGRU_model_arch.py",
+    "sha256": "33b6e0f5371e74fdf32b9f84005abaf4244d2bd2d21e9aff4e71621921c49231",
+    "status": "retrieved"
+  }
+]

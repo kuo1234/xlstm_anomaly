@@ -1,0 +1,22 @@
+[
+  {
+    "id": "Honti2024",
+    "url": "https://real.mtak.hu/205761/1/Cikk_Honti_Explainable.pdf",
+    "status": "retrieved",
+    "path": "data/industrial_time_series_topics_i0/Honti2024.pdf",
+    "sha256": "81ed16828f3c0839ce6eb18eb518748e9aa1bb3ab839f2ae1cccb80ade910c69",
+    "bytes": 2453217
+  },
+  {
+    "id": "PharmaQAI2026",
+    "url": "https://www.preprints.org/manuscript/202603.0225",
+    "status": "unavailable",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "id": "SSRNcalibration",
+    "url": "https://papers.ssrn.com/sol3/Delivery.cfm?abstractid=7181724",
+    "status": "unavailable",
+    "error": "HTTP Error 403: Forbidden"
+  }
+]

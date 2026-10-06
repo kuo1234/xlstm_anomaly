@@ -1,0 +1,16 @@
+# Broad industrial application screen
+
+此表是有primary-source支持的targeted search，不是所有工業應用的systematic coverage；未搜尋到同名不是新意。優先品質，但保留其他方向的資格限制。
+
+| 應用 | 真實業務問題 / 時序角色 | 最近直接威脅與資料 | 初步選題判斷 |
+|---|---|---|---|
+| 軟感測與實驗室品質 | 從process sensors估計concentration/purity；quality low-rate/delayed，sensor/label clocks不同 | [InduTS-SS](https://github.com/YuAn-06/Industrial-Time-Series-Soft-Sensor)提供regression/forecast tasks；ASSLD2025（DOI未核對；可靠核對鍵為）[PII S0019057825005129](https://www.sciencedirect.com/science/article/abs/pii/S0019057825005129)；[multi-rate soft sensor2026](https://doi.org/10.1016/j.chemolab.2026.105768) | 高價值應用，generic delayed labels / mask / semi-supervision已撞題。先確認sample/return/clock與可用quality history。 |
+| 批次最終品質與早期預測 | Process trajectory尚未完成時預估final quality，決定何時有足夠資訊 | [pharma1005 batches](https://www.nature.com/articles/s41597-022-01203-x)、[Honti2024](https://doi.org/10.1016/j.ijpharm.2024.124509)、[PharmaQAI2026](https://www.preprints.org/manuscript/202603.0225) | 公開真實資料相對完整，已取得bytes；deadline/lot/proxy semantics可能留下可測evaluation問題，非泛用LSTM品質預測新意。 |
+| 在線批次對齊／完成時間 | Unequal duration、phase/stop造成elapsedtime與production progress不一致 | [onlineDTW2011](https://doi.org/10.1016/j.chemolab.2011.01.003)、[harvest-time2018](https://doi.org/10.1016/j.compchemeng.2018.05.019)、[unequal-length softsensor2021](https://www.sciencedirect.com/science/article/pii/S0957417421006552) | 工業缺口是真實operational lead time，onlinealignment本身已研究；genericnewwarpingSTOP。需readclosestfullmethod再定位。 |
+| 機加工與工具品質 | Wear、surface integrity、part acceptance；cut/part是樣本單位 | [milling2025](https://www.nature.com/articles/s41597-025-04923-y)、[wearwholelife2025](https://www.nature.com/articles/s41597-024-04345-2)、[physics-guided uncertainty2026](https://doi.org/10.1016/j.ymssp.2026.114583) | 資料描述可讀，但wearprediction + uncertainty很擁擠；需physicalquality與cut/tool-disjoint，非只是window切割。 |
+| 組裝／螺絲接合品質 | Torque/angle/time曲線、材料條件、使用累積影響terminalcontroller decision | [PyScrew2025](https://arxiv.org/html/2505.11925v1)、[officialrepo](https://github.com/nikolaiwest/pyscrew) | 已取得5000操作metadata、100workpieces，無rawtraces/独立jointstrength確認。不能把controllerOK等physical可靠性。 |
+| 維護與壽命決策 | Telemetry對part replacement/failure與inspection timing | [NGAFID](https://arxiv.org/abs/2210.07317)、[RUL foundation embeddings2026](https://arxiv.org/abs/2606.11990)、[traceable maintenance2026](https://www.nature.com/articles/s41598-026-52210-6) | Maintenance≠natural failure、replacement會censor/RULlabel需要定義；後者主要syntheticdataset，不拿來證明realphysicaldeployment。優先級低於品質。 |
+| 能源與生產排程 | Forecast影響cost/constraints，error下降不一定降低decisioncost | [decision-focused online scheduling2026](https://www.nature.com/articles/s41598-026-67967-z)、[conformal chance-constrained scheduling2025](https://arxiv.org/abs/2510.04053) | Genericpredict-then-optimize/decision-focused不是新意。公開signals通常缺action/cost/counterfactual；需可重放optimizer/constraints與真实inputs，否則不能驗證savings。 |
+| Evidence/context assembly | 將時序、process semantics與decisions的證據相接，受deadline/budget限制 | 與先前context-compiler研究規劃相關，但本輪沒有把舊spec當已驗證新意 | 不以LLM摘要代替qualitygroundtruth；目前不是首選，需不同任務的獨立prior-art/data審查。 |
+
+文獻狀態按來源分層：Honti是正式2024published version；PharmaQAI是未peer-reviewed2026preprint；InduTS是公開benchmark implementation，不等全部baseline都author-original。Data descriptors提供source，不證明newmodelutility。Full publisher403與abstract-depth仍是blocker，不能以方便的弱競品清空novelty空間。

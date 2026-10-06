@@ -1,0 +1,206 @@
+[
+  {
+    "repo": "YuAn-06/Industrial-Time-Series-Soft-Sensor",
+    "commit": "5d1887f2e192093bbd5534a3618d5a66196e7472",
+    "upstream_path": "data/DC/debutanizer_column.csv",
+    "url": "https://raw.githubusercontent.com/YuAn-06/Industrial-Time-Series-Soft-Sensor/5d1887f2e192093bbd5534a3618d5a66196e7472/data/DC/debutanizer_column.csv",
+    "path": "data/industrial_time_series_topics_i0/InduTS_repo_data_DC_debutanizer_column.csv",
+    "sha256": "d17dc356604195acf874ecc2b03324067dd30c0c13eef209a898d66348246741",
+    "bytes": 208845,
+    "status": "retrieved",
+    "inspection": {
+      "columns": [
+        "x_1",
+        "x_2",
+        "x_3",
+        "x_4",
+        "x_5",
+        "x_6",
+        "x_7",
+        "y_1"
+      ],
+      "rows": 2394,
+      "widths": [
+        8
+      ],
+      "empty_fields": 0,
+      "first_two_rows": [
+        [
+          "0.26890035",
+          "0.65089438",
+          "0.83274183",
+          "0.58342045",
+          "0.7847593",
+          "0.84307935",
+          "0.8220792",
+          "0.18029533"
+        ],
+        [
+          "0.2684825",
+          "0.65013964",
+          "0.85215319",
+          "0.57751002",
+          "0.77648749",
+          "0.83860539",
+          "0.8220792",
+          "0.17712402"
+        ]
+      ],
+      "model_runs": 0
+    }
+  },
+  {
+    "repo": "YuAn-06/Industrial-Time-Series-Soft-Sensor",
+    "commit": "5d1887f2e192093bbd5534a3618d5a66196e7472",
+    "upstream_path": "data/MP/MP_data.csv",
+    "url": "https://raw.githubusercontent.com/YuAn-06/Industrial-Time-Series-Soft-Sensor/5d1887f2e192093bbd5534a3618d5a66196e7472/data/MP/MP_data.csv",
+    "path": "data/industrial_time_series_topics_i0/InduTS_repo_data_MP_MP_data.csv",
+    "sha256": "161c03e28df8523e5a1543773041f77c84da8ab6f219ea1c25f011b5bedc6794",
+    "bytes": 699357,
+    "status": "retrieved",
+    "inspection": {
+      "columns": [
+        "date",
+        "% Iron Feed",
+        "% Silica Feed",
+        "Starch Flow",
+        "Amina Flow",
+        "Ore Pulp Flow",
+        "Ore Pulp pH",
+        "Ore Pulp Density",
+        "Flotation Column 01 Air Flow",
+        "Flotation Column 02 Air Flow",
+        "Flotation Column 03 Air Flow",
+        "Flotation Column 04 Air Flow",
+        "Flotation Column 05 Air Flow",
+        "Flotation Column 06 Air Flow",
+        "Flotation Column 07 Air Flow",
+        "Flotation Column 01 Level",
+        "Flotation Column 02 Level",
+        "Flotation Column 03 Level",
+        "Flotation Column 04 Level",
+        "Flotation Column 05 Level",
+        "Flotation Column 06 Level",
+        "Flotation Column 07 Level",
+        "% Iron Concentrate",
+        "% Silica Concentrate"
+      ],
+      "rows": 3614,
+      "widths": [
+        24
+      ],
+      "empty_fields": 0,
+      "first_two_rows": [
+        [
+          "2017/3/10 1:00",
+          "55.2",
+          "16.98",
+          "3019.53",
+          "557.434",
+          "395.713",
+          "10.0664",
+          "1.74",
+          "249.214",
+          "253.235",
+          "250.576",
+          "295.096",
+          "306.4",
+          "250.225",
+          "250.884",
+          "457.396",
+          "432.962",
+          "424.954",
+          "443.558",
+          "502.255",
+          "446.37",
+          "523.344",
+          "66.91",
+          "1.31"
+        ],
+        [
+          "2017/3/10 2:00",
+          "55.2",
+          "16.98",
+          "3170.41",
+          "539.673",
+          "399.697",
+          "10.1589",
+          "1.6691",
+          "249.291",
+          "248.269",
+          "248.313",
+          "295.096",
+          "306.4",
+          "250.488",
+          "249.774",
+          "462.601",
+          "488.724",
+          "441.674",
+          "433.629",
+          "448.477",
+          "480.866",
+          "489.382",
+          "67.06",
+          "1.11"
+        ]
+      ],
+      "model_runs": 0
+    }
+  },
+  {
+    "repo": "nikolaiwest/pyscrew",
+    "commit": "7d6e2ecd48c6a9e95d3053ca3ca9a0dfaed4a2dd",
+    "upstream_path": "data/csv/s01_variations-in-thread-degradation.csv",
+    "url": "https://raw.githubusercontent.com/nikolaiwest/pyscrew/7d6e2ecd48c6a9e95d3053ca3ca9a0dfaed4a2dd/data/csv/s01_variations-in-thread-degradation.csv",
+    "path": "data/industrial_time_series_topics_i0/pyscrew_repo_data_csv_s01_variations-in-thread-degradation.csv",
+    "sha256": "92c2a328f298388b45b3943045fe2142a9b0c1aec13a102926042251db03db14",
+    "bytes": 511558,
+    "status": "retrieved",
+    "inspection": {
+      "columns": [
+        "run_id",
+        "file_name",
+        "class_value",
+        "workpiece_id",
+        "workpiece_date",
+        "workpiece_usage",
+        "workpiece_result",
+        "workpiece_location",
+        "scenario_condition",
+        "scenario_exception"
+      ],
+      "rows": 5000,
+      "widths": [
+        10
+      ],
+      "empty_fields": 0,
+      "first_two_rows": [
+        [
+          "1596334",
+          "Ch_000001596334.json",
+          "001_control-group",
+          "30000000008730",
+          "2022-09-05 13:43:39",
+          "0",
+          "OK",
+          "left",
+          "normal",
+          "0"
+        ],
+        [
+          "1596335",
+          "Ch_000001596335.json",
+          "001_control-group",
+          "30000000008730",
+          "2022-09-05 13:43:44",
+          "0",
+          "OK",
+          "right",
+          "normal",
+          "0"
+        ]
+      ],
+      "model_runs": 0
+    }
+  }
+]

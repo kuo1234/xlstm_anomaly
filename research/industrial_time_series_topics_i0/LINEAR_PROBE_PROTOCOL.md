@@ -1,0 +1,11 @@
+# Bounded feasibility probe — freeze before fit
+
+Purpose：回答Q1/Q4是否有可測資料與初步incrementalqualitysignal；不是新方法、大型benchmark、M0/C0reopening。User要求驗證選題可行性；此處僅既有Ridge/mean的CPU診斷。
+
+Exactseal在provenance/linear_probe_seal.json，script與dataSHA、95orderedbatchIDs、66train/9val/20test都鎖定。Onelexicographicproductcode1；target固定dissolution_av。按firstloggedsource-time排序，15/60minprefix僅取cutoff前signal；不能用actualend完成百分比當inputs。六variant包括trainmean、material/recipe-only、兩prefix、matchedfeaturecountGaussian-sham、whole-batchoracle（不可部署）。19raw-materialnumericcertificate+plannedsize/strength；排除batch/lotIDs、intermediate/finallabquality；certificateavailability是明示assumption，nativeas-of未驗證。
+
+ExistingRidge：train-medianimputation、trainzscore、unpenalizedintercept，alpha{1,10,100}由9batchvalidationMSE選，exacttie偏largeralpha；然後train+valrefit一次，test一次。NumPylinearsolve，normal-equationresidualcheck，不用自創network。20ridgefits上限24、0neural、0HPOexpansion。Shamseed20261006在結果前固定。ReportMSE/MAE/RMSE/R²原尺度，材料baseline的relativeMSEgain；3%只是pre-resultmaterialityreference，不是paperGO。
+
+Interpretation：Test只有20batches、單一family且sharedlots，validation只有9；positive只是feasibility线索。與sham/wholebatchcomparisons全部報告，cannotthrowawaynegativecontrol或挑cutoff後更名confirmatory。任何null/modelruntime/schemafailure保留STOP、不替換樣本/target。
+
+Order：commit+pushseal和program→verifyremote→runonce→separateresultscommit+push→interpretremainingresearchgap。不得以runtime可執行代替literature novelty，不由此啟動neural模型。

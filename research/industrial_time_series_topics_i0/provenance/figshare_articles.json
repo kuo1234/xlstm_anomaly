@@ -1,0 +1,77 @@
+[
+  {
+    "id": 16676320,
+    "url": "https://api.figshare.com/v2/articles/16676320",
+    "path": "data/industrial_time_series_topics_i0/figshare_article_16676320.json",
+    "sha256": "8850e02d03d81636feb89d98b62411d6947a75e8cb91663e47be108a3be3d407",
+    "version": 1,
+    "doi": "10.6084/m9.figshare.16676320.v1",
+    "license": {
+      "value": 1,
+      "name": "CC BY 4.0",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    "files": [
+      {
+        "id": 30874219,
+        "name": "Process.zip",
+        "size": 29811605,
+        "is_link_only": false,
+        "download_url": "https://ndownloader.figshare.com/files/30874219",
+        "supplied_md5": "0525b635081c2c29dc8d4b24aa1e4b09",
+        "computed_md5": "0525b635081c2c29dc8d4b24aa1e4b09",
+        "mimetype": "application/zip"
+      }
+    ]
+  },
+  {
+    "id": 16676263,
+    "url": "https://api.figshare.com/v2/articles/16676263",
+    "path": "data/industrial_time_series_topics_i0/figshare_article_16676263.json",
+    "sha256": "79404019255547b70fbf9f202d3c5e79f8fa9674e34548ead1ead4e8b3a98407",
+    "version": 1,
+    "doi": "10.6084/m9.figshare.16676263.v1",
+    "license": {
+      "value": 1,
+      "name": "CC BY 4.0",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    "files": [
+      {
+        "id": 30966250,
+        "name": "Laboratory.csv",
+        "size": 293492,
+        "is_link_only": false,
+        "download_url": "https://ndownloader.figshare.com/files/30966250",
+        "supplied_md5": "74b091a88dc88e0fed44f79877b22b66",
+        "computed_md5": "74b091a88dc88e0fed44f79877b22b66",
+        "mimetype": "text/plain"
+      }
+    ]
+  },
+  {
+    "id": 16676260,
+    "url": "https://api.figshare.com/v2/articles/16676260",
+    "path": "data/industrial_time_series_topics_i0/figshare_article_16676260.json",
+    "sha256": "9dd2b8779ace24cb3d90034d413f435d8daf0a7e507967ba32be92d45bb5da7c",
+    "version": 1,
+    "doi": "10.6084/m9.figshare.16676260.v1",
+    "license": {
+      "value": 1,
+      "name": "CC BY 4.0",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    "files": [
+      {
+        "id": 30874192,
+        "name": "Process.csv",
+        "size": 257208,
+        "is_link_only": false,
+        "download_url": "https://ndownloader.figshare.com/files/30874192",
+        "supplied_md5": "a7495d0cbdc1574f136ddc9a36d8e668",
+        "computed_md5": "a7495d0cbdc1574f136ddc9a36d8e668",
+        "mimetype": "text/plain"
+      }
+    ]
+  }
+]

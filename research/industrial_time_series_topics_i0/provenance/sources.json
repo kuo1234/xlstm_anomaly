@@ -1,0 +1,65 @@
+[
+  {
+    "id": "pharma",
+    "url": "https://www.nature.com/articles/s41597-022-01203-x",
+    "status": "retrieved",
+    "path": "data/industrial_time_series_topics_i0/pharma.html",
+    "sha256": "44749d692ee8a779e055b01190009cd1f8e3be3f2e5850118f3b51d25b08577d",
+    "bytes": 296704,
+    "final_url": "https://www.nature.com/articles/s41597-022-01203-x?error=cookies_not_supported&code=309dec09-05d8-47c0-abda-ddb84ed76f64"
+  },
+  {
+    "id": "milling2025",
+    "url": "https://www.nature.com/articles/s41597-025-04923-y",
+    "status": "retrieved",
+    "path": "data/industrial_time_series_topics_i0/milling2025.html",
+    "sha256": "6a381f59d3407296075587345581b63ff39e2cf24bb4a6608fc9aa06892038e5",
+    "bytes": 354054,
+    "final_url": "https://www.nature.com/articles/s41597-025-04923-y?error=cookies_not_supported&code=f2cdfbac-dfd4-45f1-8a63-0f13f6950225"
+  },
+  {
+    "id": "toolwear2025",
+    "url": "https://www.nature.com/articles/s41597-024-04345-2",
+    "status": "retrieved",
+    "path": "data/industrial_time_series_topics_i0/toolwear2025.html",
+    "sha256": "1058f344e53d77c2b7ad3d34ce7c9a9bfd40886640c6d855556a22433fc1f860",
+    "bytes": 345917,
+    "final_url": "https://www.nature.com/articles/s41597-024-04345-2?error=cookies_not_supported&code=0917dc57-ead3-4139-95a6-bb11d74f2b26"
+  },
+  {
+    "id": "pyscrew",
+    "url": "https://arxiv.org/html/2505.11925v1",
+    "status": "retrieved",
+    "path": "data/industrial_time_series_topics_i0/pyscrew.html",
+    "sha256": "5e1b32c674bdc2cb9a8d321a79ee46bc3182d4e32c84789472423de2caf0cd55",
+    "bytes": 261908,
+    "final_url": "https://arxiv.org/html/2505.11925v1"
+  },
+  {
+    "id": "causal_softsensor",
+    "url": "https://arxiv.org/html/2601.14099v1",
+    "status": "unavailable",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "id": "NGAFID",
+    "url": "https://arxiv.org/html/2210.07317v1",
+    "status": "retrieved",
+    "path": "data/industrial_time_series_topics_i0/NGAFID.html",
+    "sha256": "0048a22b287d4d21389064d437044c4b71f91b3dc28456098e92462623475038",
+    "bytes": 153737,
+    "final_url": "https://arxiv.org/html/2210.07317v1"
+  },
+  {
+    "id": "labdelay",
+    "url": "https://www.sciencedirect.com/science/article/abs/pii/S0019057825005129",
+    "status": "unavailable",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "id": "activeJIT",
+    "url": "https://www.sciencedirect.com/science/article/abs/pii/S0959152426000417",
+    "status": "unavailable",
+    "error": "HTTP Error 403: Forbidden"
+  }
+]

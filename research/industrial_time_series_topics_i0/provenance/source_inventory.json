@@ -1,0 +1,82 @@
+[
+  {
+    "id": "figshare_collection",
+    "url": "https://api.figshare.com/v2/collections/5645578",
+    "status": "retrieved",
+    "path": "data/industrial_time_series_topics_i0/figshare_collection.json",
+    "sha256": "af2b27c3b38ebfd0d5770220762f4b128bf8e06bea1e40a4e34426393ad224b1"
+  },
+  {
+    "id": "figshare_v3_articles",
+    "url": "https://api.figshare.com/v2/collections/5645578/versions/3/articles",
+    "status": "unavailable",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "id": "figshare_v1_articles",
+    "url": "https://api.figshare.com/v2/collections/5645578/versions/1/articles",
+    "status": "unavailable",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "id": "InduTS_repo",
+    "url": "https://api.github.com/repos/YuAn-06/Industrial-Time-Series-Soft-Sensor",
+    "status": "retrieved",
+    "path": "data/industrial_time_series_topics_i0/InduTS_repo.json",
+    "sha256": "67b39285a743f209e50b8c6db615fc42f3608efcfb8abdae04bbd71958680608",
+    "commit": "5d1887f2e192093bbd5534a3618d5a66196e7472",
+    "tree_path": "data/industrial_time_series_topics_i0/InduTS_repo_tree.json",
+    "tree_sha256": "5d60d6d51ec15b00dd72b6fa6e53f3cd80712e2a85d08164de5fe0f15e0cc197",
+    "tree_truncated": false,
+    "data_paths": [
+      "data/DC/debutanizer_column.csv",
+      "data/DC/mode_labels.txt",
+      "data/MP/MP_data.csv",
+      "data/PPGAS/gt_2012.csv",
+      "data/SRU/SRU_data.csv",
+      "data/__init__.py",
+      "data/data_loader.py",
+      "data/data_provider.py",
+      "data/data_visualization.py"
+    ],
+    "readme": {
+      "url": "https://raw.githubusercontent.com/YuAn-06/Industrial-Time-Series-Soft-Sensor/5d1887f2e192093bbd5534a3618d5a66196e7472/readme.md",
+      "path": "data/industrial_time_series_topics_i0/InduTS_repo_README.md",
+      "sha256": "4addea1d22d4fe80a2a172a7661bc5d0a62dc27a678eb9d8d4b17da52a7ba332"
+    }
+  },
+  {
+    "id": "pyscrew_repo",
+    "url": "https://api.github.com/repos/nikolaiwest/pyscrew",
+    "status": "retrieved",
+    "path": "data/industrial_time_series_topics_i0/pyscrew_repo.json",
+    "sha256": "bf6f2df6a867b70c27394b05a845dab4f90fef5ed8f3568c5843f783c91342cf",
+    "commit": "7d6e2ecd48c6a9e95d3053ca3ca9a0dfaed4a2dd",
+    "tree_path": "data/industrial_time_series_topics_i0/pyscrew_repo_tree.json",
+    "tree_sha256": "53bcda961942cc176c3fd47c6215ab3378dbdb9a7171454b9c69f19319e41dce",
+    "tree_truncated": false,
+    "data_paths": [
+      "data/csv/s01_variations-in-thread-degradation.csv",
+      "data/csv/s02_variations-in-surface-friction.csv",
+      "data/csv/s03_variations-in-assembly-conditions-1.csv",
+      "data/csv/s04_variations-in-assembly-conditions-2.csv",
+      "data/csv/s05_variations-in-upper-workpiece-fabrication.csv",
+      "data/csv/s06_variations-in-lower-workpiece-fabrication.csv",
+      "data/metrics/s01_variations-in-thread-degradation_metrics.json",
+      "data/metrics/s02_variations-in-surface-friction_metrics.json",
+      "data/metrics/s03_variations-in-assembly-conditions-1_metrics.json",
+      "data/metrics/s04_variations-in-assembly-conditions-2_metrics.json",
+      "data/metrics/s05_variations-in-upper-workpiece-fabrication_metrics.json",
+      "data/metrics/s06_variations-in-lower-workpiece-fabrication_metrics.json",
+      "data/notes/s04_experiment-notes.csv",
+      "data/notes/s05_experiment-notes.csv",
+      "data/notes/s06_experiment-notes.csv",
+      "tests/data/extracted/s0X_mock-data/labels.csv"
+    ],
+    "readme": {
+      "url": "https://raw.githubusercontent.com/nikolaiwest/pyscrew/7d6e2ecd48c6a9e95d3053ca3ca9a0dfaed4a2dd/README.md",
+      "path": "data/industrial_time_series_topics_i0/pyscrew_repo_README.md",
+      "sha256": "862868199c540faef20a032bc2dfc3804769390b243c7181a49e1416915d1b37"
+    }
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "id": "figshare_articles",
+    "url": "https://api.figshare.com/v2/collections/5645578/articles",
+    "path": "data/industrial_time_series_topics_i0/figshare_articles.json",
+    "sha256": "002aa89fae20b95fe52b4de6ddd75fe17dcd64baa596c884bd84b9bac037bb0a",
+    "status": "retrieved"
+  },
+  {
+    "id": "figshare_versions",
+    "url": "https://api.figshare.com/v2/collections/5645578/versions",
+    "path": "data/industrial_time_series_topics_i0/figshare_versions.json",
+    "sha256": "5b9d1971c42a9554a098eeeb26853ffde33981aa8c2fe048512fa80a6b0e98f6",
+    "status": "retrieved"
+  }
+]
