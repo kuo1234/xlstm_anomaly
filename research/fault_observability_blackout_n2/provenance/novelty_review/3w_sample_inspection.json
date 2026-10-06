@@ -1,0 +1,788 @@
+{
+  "inspection": "Three fixed lexicographic real-instance Parquet samples; exploratory field/label/null feasibility only",
+  "engine": "1.4.3",
+  "model_runs": 0,
+  "samples": [
+    {
+      "path": "dataset/0/WELL-00001_20170201010207.parquet",
+      "sha256": "1df6fd74bc3b943570a70ffa075f53ca5b50d606eadea600acca977fc633146e",
+      "rows": 21474,
+      "schema": [
+        {
+          "name": "ABER-CKGL",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "ABER-CKP",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "ESTADO-DHSV",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "ESTADO-M1",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "ESTADO-M2",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "ESTADO-PXO",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "ESTADO-SDV-GL",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "ESTADO-SDV-P",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "ESTADO-W1",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "ESTADO-W2",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "ESTADO-XO",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "P-ANULAR",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "P-JUS-BS",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "P-JUS-CKGL",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "P-JUS-CKP",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "P-MON-CKGL",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "P-MON-CKP",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "P-MON-SDV-P",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "P-PDG",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "PT-P",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "P-TPT",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "QBS",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "QGL",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "T-JUS-CKP",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "T-MON-CKP",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "T-PDG",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "T-TPT",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "class",
+          "dtype": "SMALLINT"
+        },
+        {
+          "name": "state",
+          "dtype": "SMALLINT"
+        },
+        {
+          "name": "timestamp",
+          "dtype": "TIMESTAMP_NS"
+        }
+      ],
+      "label_counts": {
+        "class": [
+          [
+            0,
+            17874
+          ],
+          [
+            null,
+            3600
+          ]
+        ],
+        "state": [
+          [
+            0,
+            17874
+          ],
+          [
+            null,
+            3600
+          ]
+        ]
+      },
+      "all_missing_channels": [
+        "ABER-CKGL",
+        "ABER-CKP",
+        "P-JUS-BS",
+        "P-JUS-CKP",
+        "P-MON-CKGL",
+        "P-MON-SDV-P",
+        "PT-P",
+        "QBS",
+        "T-MON-CKP"
+      ],
+      "intermittently_missing_channels": [],
+      "by_released_class": [
+        {
+          "released_class": 0,
+          "rows": 17874,
+          "sensor_missing_fraction": {
+            "ABER-CKGL": 1.0,
+            "ABER-CKP": 1.0,
+            "ESTADO-DHSV": 0.0,
+            "ESTADO-M1": 0.0,
+            "ESTADO-M2": 0.0,
+            "ESTADO-PXO": 0.0,
+            "ESTADO-SDV-GL": 0.0,
+            "ESTADO-SDV-P": 0.0,
+            "ESTADO-W1": 0.0,
+            "ESTADO-W2": 0.0,
+            "ESTADO-XO": 0.0,
+            "P-ANULAR": 0.0,
+            "P-JUS-BS": 1.0,
+            "P-JUS-CKGL": 0.0,
+            "P-JUS-CKP": 1.0,
+            "P-MON-CKGL": 1.0,
+            "P-MON-CKP": 0.0,
+            "P-MON-SDV-P": 1.0,
+            "P-PDG": 0.0,
+            "PT-P": 1.0,
+            "P-TPT": 0.0,
+            "QBS": 1.0,
+            "QGL": 0.0,
+            "T-JUS-CKP": 0.0,
+            "T-MON-CKP": 1.0,
+            "T-PDG": 0.0,
+            "T-TPT": 0.0
+          }
+        },
+        {
+          "released_class": null,
+          "rows": 3600,
+          "sensor_missing_fraction": {
+            "ABER-CKGL": 1.0,
+            "ABER-CKP": 1.0,
+            "ESTADO-DHSV": 0.0,
+            "ESTADO-M1": 0.0,
+            "ESTADO-M2": 0.0,
+            "ESTADO-PXO": 0.0,
+            "ESTADO-SDV-GL": 0.0,
+            "ESTADO-SDV-P": 0.0,
+            "ESTADO-W1": 0.0,
+            "ESTADO-W2": 0.0,
+            "ESTADO-XO": 0.0,
+            "P-ANULAR": 0.0,
+            "P-JUS-BS": 1.0,
+            "P-JUS-CKGL": 0.0,
+            "P-JUS-CKP": 1.0,
+            "P-MON-CKGL": 1.0,
+            "P-MON-CKP": 0.0,
+            "P-MON-SDV-P": 1.0,
+            "P-PDG": 0.0,
+            "PT-P": 1.0,
+            "P-TPT": 0.0,
+            "QBS": 1.0,
+            "QGL": 0.0,
+            "T-JUS-CKP": 0.0,
+            "T-MON-CKP": 1.0,
+            "T-PDG": 0.0,
+            "T-TPT": 0.0
+          }
+        }
+      ],
+      "installed_sensor_semantics_unknown": true,
+      "not_cross_dataset_replication": true
+    },
+    {
+      "path": "dataset/2/WELL-00002_20131104004101.parquet",
+      "sha256": "d0ad21a089741bb97c08823eee1e00df2db9915715c8f8c3561dd9ee1e8644e0",
+      "rows": 12721,
+      "schema": [
+        {
+          "name": "ABER-CKGL",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "ABER-CKP",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "ESTADO-DHSV",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "ESTADO-M1",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "ESTADO-M2",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "ESTADO-PXO",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "ESTADO-SDV-GL",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "ESTADO-SDV-P",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "ESTADO-W1",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "ESTADO-W2",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "ESTADO-XO",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "P-ANULAR",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "P-JUS-BS",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "P-JUS-CKGL",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "P-JUS-CKP",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "P-MON-CKGL",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "P-MON-CKP",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "P-MON-SDV-P",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "P-PDG",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "PT-P",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "P-TPT",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "QBS",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "QGL",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "T-JUS-CKP",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "T-MON-CKP",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "T-PDG",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "T-TPT",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "class",
+          "dtype": "SMALLINT"
+        },
+        {
+          "name": "state",
+          "dtype": "SMALLINT"
+        },
+        {
+          "name": "timestamp",
+          "dtype": "TIMESTAMP_NS"
+        }
+      ],
+      "label_counts": {
+        "class": [
+          [
+            0,
+            3755
+          ],
+          [
+            2,
+            217
+          ],
+          [
+            102,
+            5149
+          ],
+          [
+            null,
+            3600
+          ]
+        ],
+        "state": [
+          [
+            0,
+            9121
+          ],
+          [
+            null,
+            3600
+          ]
+        ]
+      },
+      "all_missing_channels": [
+        "ABER-CKGL",
+        "ABER-CKP",
+        "ESTADO-DHSV",
+        "ESTADO-M1",
+        "ESTADO-M2",
+        "ESTADO-PXO",
+        "ESTADO-SDV-GL",
+        "ESTADO-SDV-P",
+        "ESTADO-W1",
+        "ESTADO-W2",
+        "ESTADO-XO",
+        "P-JUS-BS",
+        "P-JUS-CKGL",
+        "P-JUS-CKP",
+        "P-MON-CKGL",
+        "P-MON-CKP",
+        "P-MON-SDV-P",
+        "PT-P",
+        "QBS",
+        "QGL",
+        "T-JUS-CKP",
+        "T-MON-CKP",
+        "T-PDG"
+      ],
+      "intermittently_missing_channels": [],
+      "by_released_class": [
+        {
+          "released_class": 0,
+          "rows": 3755,
+          "sensor_missing_fraction": {
+            "ABER-CKGL": 1.0,
+            "ABER-CKP": 1.0,
+            "ESTADO-DHSV": 1.0,
+            "ESTADO-M1": 1.0,
+            "ESTADO-M2": 1.0,
+            "ESTADO-PXO": 1.0,
+            "ESTADO-SDV-GL": 1.0,
+            "ESTADO-SDV-P": 1.0,
+            "ESTADO-W1": 1.0,
+            "ESTADO-W2": 1.0,
+            "ESTADO-XO": 1.0,
+            "P-ANULAR": 0.0,
+            "P-JUS-BS": 1.0,
+            "P-JUS-CKGL": 1.0,
+            "P-JUS-CKP": 1.0,
+            "P-MON-CKGL": 1.0,
+            "P-MON-CKP": 1.0,
+            "P-MON-SDV-P": 1.0,
+            "P-PDG": 0.0,
+            "PT-P": 1.0,
+            "P-TPT": 0.0,
+            "QBS": 1.0,
+            "QGL": 1.0,
+            "T-JUS-CKP": 1.0,
+            "T-MON-CKP": 1.0,
+            "T-PDG": 1.0,
+            "T-TPT": 0.0
+          }
+        },
+        {
+          "released_class": 2,
+          "rows": 217,
+          "sensor_missing_fraction": {
+            "ABER-CKGL": 1.0,
+            "ABER-CKP": 1.0,
+            "ESTADO-DHSV": 1.0,
+            "ESTADO-M1": 1.0,
+            "ESTADO-M2": 1.0,
+            "ESTADO-PXO": 1.0,
+            "ESTADO-SDV-GL": 1.0,
+            "ESTADO-SDV-P": 1.0,
+            "ESTADO-W1": 1.0,
+            "ESTADO-W2": 1.0,
+            "ESTADO-XO": 1.0,
+            "P-ANULAR": 0.0,
+            "P-JUS-BS": 1.0,
+            "P-JUS-CKGL": 1.0,
+            "P-JUS-CKP": 1.0,
+            "P-MON-CKGL": 1.0,
+            "P-MON-CKP": 1.0,
+            "P-MON-SDV-P": 1.0,
+            "P-PDG": 0.0,
+            "PT-P": 1.0,
+            "P-TPT": 0.0,
+            "QBS": 1.0,
+            "QGL": 1.0,
+            "T-JUS-CKP": 1.0,
+            "T-MON-CKP": 1.0,
+            "T-PDG": 1.0,
+            "T-TPT": 0.0
+          }
+        },
+        {
+          "released_class": 102,
+          "rows": 5149,
+          "sensor_missing_fraction": {
+            "ABER-CKGL": 1.0,
+            "ABER-CKP": 1.0,
+            "ESTADO-DHSV": 1.0,
+            "ESTADO-M1": 1.0,
+            "ESTADO-M2": 1.0,
+            "ESTADO-PXO": 1.0,
+            "ESTADO-SDV-GL": 1.0,
+            "ESTADO-SDV-P": 1.0,
+            "ESTADO-W1": 1.0,
+            "ESTADO-W2": 1.0,
+            "ESTADO-XO": 1.0,
+            "P-ANULAR": 0.0,
+            "P-JUS-BS": 1.0,
+            "P-JUS-CKGL": 1.0,
+            "P-JUS-CKP": 1.0,
+            "P-MON-CKGL": 1.0,
+            "P-MON-CKP": 1.0,
+            "P-MON-SDV-P": 1.0,
+            "P-PDG": 0.0,
+            "PT-P": 1.0,
+            "P-TPT": 0.0,
+            "QBS": 1.0,
+            "QGL": 1.0,
+            "T-JUS-CKP": 1.0,
+            "T-MON-CKP": 1.0,
+            "T-PDG": 1.0,
+            "T-TPT": 0.0
+          }
+        },
+        {
+          "released_class": null,
+          "rows": 3600,
+          "sensor_missing_fraction": {
+            "ABER-CKGL": 1.0,
+            "ABER-CKP": 1.0,
+            "ESTADO-DHSV": 1.0,
+            "ESTADO-M1": 1.0,
+            "ESTADO-M2": 1.0,
+            "ESTADO-PXO": 1.0,
+            "ESTADO-SDV-GL": 1.0,
+            "ESTADO-SDV-P": 1.0,
+            "ESTADO-W1": 1.0,
+            "ESTADO-W2": 1.0,
+            "ESTADO-XO": 1.0,
+            "P-ANULAR": 0.0,
+            "P-JUS-BS": 1.0,
+            "P-JUS-CKGL": 1.0,
+            "P-JUS-CKP": 1.0,
+            "P-MON-CKGL": 1.0,
+            "P-MON-CKP": 1.0,
+            "P-MON-SDV-P": 1.0,
+            "P-PDG": 0.0,
+            "PT-P": 1.0,
+            "P-TPT": 0.0,
+            "QBS": 1.0,
+            "QGL": 1.0,
+            "T-JUS-CKP": 1.0,
+            "T-MON-CKP": 1.0,
+            "T-PDG": 1.0,
+            "T-TPT": 0.0
+          }
+        }
+      ],
+      "installed_sensor_semantics_unknown": true,
+      "not_cross_dataset_replication": true
+    },
+    {
+      "path": "dataset/3/WELL-00001_20170320120025.parquet",
+      "sha256": "1ba4c1385ff94b09d5bf9e424bebc77d05b61e99469b4f22a305e6722dc86672",
+      "rows": 21576,
+      "schema": [
+        {
+          "name": "ABER-CKGL",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "ABER-CKP",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "ESTADO-DHSV",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "ESTADO-M1",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "ESTADO-M2",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "ESTADO-PXO",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "ESTADO-SDV-GL",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "ESTADO-SDV-P",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "ESTADO-W1",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "ESTADO-W2",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "ESTADO-XO",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "P-ANULAR",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "P-JUS-BS",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "P-JUS-CKGL",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "P-JUS-CKP",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "P-MON-CKGL",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "P-MON-CKP",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "P-MON-SDV-P",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "P-PDG",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "PT-P",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "P-TPT",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "QBS",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "QGL",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "T-JUS-CKP",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "T-MON-CKP",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "T-PDG",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "T-TPT",
+          "dtype": "DOUBLE"
+        },
+        {
+          "name": "class",
+          "dtype": "SMALLINT"
+        },
+        {
+          "name": "state",
+          "dtype": "SMALLINT"
+        },
+        {
+          "name": "timestamp",
+          "dtype": "TIMESTAMP_NS"
+        }
+      ],
+      "label_counts": {
+        "class": [
+          [
+            3,
+            17976
+          ],
+          [
+            null,
+            3600
+          ]
+        ],
+        "state": [
+          [
+            0,
+            17976
+          ],
+          [
+            null,
+            3600
+          ]
+        ]
+      },
+      "all_missing_channels": [
+        "ABER-CKGL",
+        "ABER-CKP",
+        "P-JUS-BS",
+        "P-JUS-CKP",
+        "P-MON-CKGL",
+        "P-MON-SDV-P",
+        "PT-P",
+        "QBS",
+        "T-MON-CKP"
+      ],
+      "intermittently_missing_channels": [],
+      "by_released_class": [
+        {
+          "released_class": 3,
+          "rows": 17976,
+          "sensor_missing_fraction": {
+            "ABER-CKGL": 1.0,
+            "ABER-CKP": 1.0,
+            "ESTADO-DHSV": 0.0,
+            "ESTADO-M1": 0.0,
+            "ESTADO-M2": 0.0,
+            "ESTADO-PXO": 0.0,
+            "ESTADO-SDV-GL": 0.0,
+            "ESTADO-SDV-P": 0.0,
+            "ESTADO-W1": 0.0,
+            "ESTADO-W2": 0.0,
+            "ESTADO-XO": 0.0,
+            "P-ANULAR": 0.0,
+            "P-JUS-BS": 1.0,
+            "P-JUS-CKGL": 0.0,
+            "P-JUS-CKP": 1.0,
+            "P-MON-CKGL": 1.0,
+            "P-MON-CKP": 0.0,
+            "P-MON-SDV-P": 1.0,
+            "P-PDG": 0.0,
+            "PT-P": 1.0,
+            "P-TPT": 0.0,
+            "QBS": 1.0,
+            "QGL": 0.0,
+            "T-JUS-CKP": 0.0,
+            "T-MON-CKP": 1.0,
+            "T-PDG": 0.0,
+            "T-TPT": 0.0
+          }
+        },
+        {
+          "released_class": null,
+          "rows": 3600,
+          "sensor_missing_fraction": {
+            "ABER-CKGL": 1.0,
+            "ABER-CKP": 1.0,
+            "ESTADO-DHSV": 0.0,
+            "ESTADO-M1": 0.0,
+            "ESTADO-M2": 0.0,
+            "ESTADO-PXO": 0.0,
+            "ESTADO-SDV-GL": 0.0,
+            "ESTADO-SDV-P": 0.0,
+            "ESTADO-W1": 0.0,
+            "ESTADO-W2": 0.0,
+            "ESTADO-XO": 0.0,
+            "P-ANULAR": 0.0,
+            "P-JUS-BS": 1.0,
+            "P-JUS-CKGL": 0.0,
+            "P-JUS-CKP": 1.0,
+            "P-MON-CKGL": 1.0,
+            "P-MON-CKP": 0.0,
+            "P-MON-SDV-P": 1.0,
+            "P-PDG": 0.0,
+            "PT-P": 1.0,
+            "P-TPT": 0.0,
+            "QBS": 1.0,
+            "QGL": 0.0,
+            "T-JUS-CKP": 0.0,
+            "T-MON-CKP": 1.0,
+            "T-PDG": 0.0,
+            "T-TPT": 0.0
+          }
+        }
+      ],
+      "installed_sensor_semantics_unknown": true,
+      "not_cross_dataset_replication": true
+    }
+  ]
+}

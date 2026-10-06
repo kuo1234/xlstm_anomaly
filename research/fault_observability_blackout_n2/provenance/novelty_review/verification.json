@@ -1,0 +1,145 @@
+{
+  "date": "2026-10-06",
+  "baseline_commit": "497a4f73eee4aef72fbaf395c61703e89d127156",
+  "baseline_tracked_files_checked": 2392,
+  "baseline_tracked_files_changed": [],
+  "source_asset_checks": [
+    {
+      "id": "LSD2026",
+      "sha256_verified": true,
+      "raw_asset_ignored": true
+    },
+    {
+      "id": "GSProcess2024",
+      "sha256_verified": true,
+      "raw_asset_ignored": true
+    },
+    {
+      "id": "SelectiveNet2019",
+      "sha256_verified": true,
+      "raw_asset_ignored": true
+    },
+    {
+      "id": "MaskCP2025",
+      "sha256_verified": true,
+      "raw_asset_ignored": true
+    },
+    {
+      "id": "GRUD2018",
+      "sha256_verified": true,
+      "raw_asset_ignored": true
+    },
+    {
+      "id": "M2SC2_2026",
+      "sha256_verified": true,
+      "raw_asset_ignored": true
+    },
+    {
+      "id": "3w_ini",
+      "sha256_verified": true,
+      "raw_asset_ignored": true
+    },
+    {
+      "id": "qappd_readme",
+      "sha256_verified": true,
+      "raw_asset_ignored": true
+    },
+    {
+      "id": "3w_paper",
+      "sha256_verified": true,
+      "raw_asset_ignored": true
+    },
+    {
+      "id": "wind_masked_autoencoder",
+      "sha256_verified": true,
+      "raw_asset_ignored": true
+    },
+    {
+      "id": "sre_slo",
+      "sha256_verified": true,
+      "raw_asset_ignored": true
+    },
+    {
+      "id": "group_selective",
+      "sha256_verified": true,
+      "raw_asset_ignored": true
+    },
+    {
+      "id": "README.md",
+      "sha256_verified": true,
+      "raw_asset_ignored": true
+    },
+    {
+      "id": "dataset/README.md",
+      "sha256_verified": true,
+      "raw_asset_ignored": true
+    },
+    {
+      "id": "CITATION.md",
+      "sha256_verified": true,
+      "raw_asset_ignored": true
+    },
+    {
+      "id": "dataset/0/WELL-00001_20170201010207.parquet",
+      "sha256_verified": true,
+      "raw_asset_ignored": true
+    },
+    {
+      "id": "dataset/2/WELL-00002_20131104004101.parquet",
+      "sha256_verified": true,
+      "raw_asset_ignored": true
+    },
+    {
+      "id": "dataset/3/WELL-00001_20170320120025.parquet",
+      "sha256_verified": true,
+      "raw_asset_ignored": true
+    }
+  ],
+  "three_sample_read_only_replay": {
+    "duckdb": "1.4.3",
+    "samples": [
+      {
+        "path": "dataset/0/WELL-00001_20170201010207.parquet",
+        "rows": 21474,
+        "all_missing_channels": 9,
+        "intermittently_missing_channels": 0,
+        "byte_schema_label_null_parity": true
+      },
+      {
+        "path": "dataset/2/WELL-00002_20131104004101.parquet",
+        "rows": 12721,
+        "all_missing_channels": 23,
+        "intermittently_missing_channels": 0,
+        "byte_schema_label_null_parity": true
+      },
+      {
+        "path": "dataset/3/WELL-00001_20170320120025.parquet",
+        "rows": 21576,
+        "all_missing_channels": 9,
+        "intermittently_missing_channels": 0,
+        "byte_schema_label_null_parity": true
+      }
+    ],
+    "model_runs": 0
+  },
+  "review_requirements_manual_checks": {
+    "A1_A4_reviewed": true,
+    "five_full_methodology_evaluation_sources": true,
+    "specified_threats_with_access_depth_and_unknowns": true,
+    "three_distinct_candidates_each_ten_questions": true,
+    "D1_D9_plus_own_D10_D11": true,
+    "primary_and_secondary_verdicts_explicit": true,
+    "next_task_protocol_draft_only": true,
+    "model_training_inference_or_scores": 0,
+    "cross_dataset_replication_claimed": false,
+    "new_model_or_historical_result_changes": false
+  },
+  "git_diff_check": "passed",
+  "limitations": [
+    "No model/score/alarm/utility experiment",
+    "No cross-dataset natural-fault replication",
+    "Publisher full-text blockers remain",
+    "Three-file sample does not establish whole-3W coverage",
+    "Full-text reading is not implementation or metric-denominator replay"
+  ]
+}

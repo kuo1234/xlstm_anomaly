@@ -1,0 +1,68 @@
+[
+  {
+    "repo": "petrobras/3W",
+    "commit": "d57c058af6baf65f1b285f3e56f46e4f018a07d9",
+    "path": "README.md",
+    "url": "https://raw.githubusercontent.com/petrobras/3W/d57c058af6baf65f1b285f3e56f46e4f018a07d9/README.md",
+    "local_path": "data/fault_observability_blackout_n2/novelty_review/3w/README.md",
+    "git_blob_sha": "7aaef25eb684468978afe236dd0f46c9d3e5dbb8",
+    "sha256": "e427932d9db173c0ff2c613cd321b65eec02f38dbd680a8d41e502509e8579d5",
+    "bytes": 11125,
+    "status": "retrieved"
+  },
+  {
+    "repo": "petrobras/3W",
+    "commit": "d57c058af6baf65f1b285f3e56f46e4f018a07d9",
+    "path": "dataset/README.md",
+    "url": "https://raw.githubusercontent.com/petrobras/3W/d57c058af6baf65f1b285f3e56f46e4f018a07d9/dataset/README.md",
+    "local_path": "data/fault_observability_blackout_n2/novelty_review/3w/dataset/README.md",
+    "git_blob_sha": "f0508402f2ce452435f961847287362365f6cb91",
+    "sha256": "8081cce1af323266434d901c3896f7cc77b6e110853093f16ac130162046825a",
+    "bytes": 3721,
+    "status": "retrieved"
+  },
+  {
+    "repo": "petrobras/3W",
+    "commit": "d57c058af6baf65f1b285f3e56f46e4f018a07d9",
+    "path": "CITATION.md",
+    "url": "https://raw.githubusercontent.com/petrobras/3W/d57c058af6baf65f1b285f3e56f46e4f018a07d9/CITATION.md",
+    "local_path": "data/fault_observability_blackout_n2/novelty_review/3w/CITATION.md",
+    "git_blob_sha": "86861ddcedbead65a291cccf58f192d6b5531560",
+    "sha256": "b9395170a4c3b1cf8f65f7e056a29f1dbaf9487142419e91b7323ee938ee6b56",
+    "bytes": 1391,
+    "status": "retrieved"
+  },
+  {
+    "repo": "petrobras/3W",
+    "commit": "d57c058af6baf65f1b285f3e56f46e4f018a07d9",
+    "path": "dataset/0/WELL-00001_20170201010207.parquet",
+    "url": "https://raw.githubusercontent.com/petrobras/3W/d57c058af6baf65f1b285f3e56f46e4f018a07d9/dataset/0/WELL-00001_20170201010207.parquet",
+    "local_path": "data/fault_observability_blackout_n2/novelty_review/3w/dataset/0/WELL-00001_20170201010207.parquet",
+    "git_blob_sha": "785b48aa0da4d11467a49aa63415b08aba1d227d",
+    "sha256": "1df6fd74bc3b943570a70ffa075f53ca5b50d606eadea600acca977fc633146e",
+    "bytes": 407562,
+    "status": "retrieved"
+  },
+  {
+    "repo": "petrobras/3W",
+    "commit": "d57c058af6baf65f1b285f3e56f46e4f018a07d9",
+    "path": "dataset/2/WELL-00002_20131104004101.parquet",
+    "url": "https://raw.githubusercontent.com/petrobras/3W/d57c058af6baf65f1b285f3e56f46e4f018a07d9/dataset/2/WELL-00002_20131104004101.parquet",
+    "local_path": "data/fault_observability_blackout_n2/novelty_review/3w/dataset/2/WELL-00002_20131104004101.parquet",
+    "git_blob_sha": "f748732cb0f8521872187dc3a8172d0678d67782",
+    "sha256": "d0ad21a089741bb97c08823eee1e00df2db9915715c8f8c3561dd9ee1e8644e0",
+    "bytes": 169673,
+    "status": "retrieved"
+  },
+  {
+    "repo": "petrobras/3W",
+    "commit": "d57c058af6baf65f1b285f3e56f46e4f018a07d9",
+    "path": "dataset/3/WELL-00001_20170320120025.parquet",
+    "url": "https://raw.githubusercontent.com/petrobras/3W/d57c058af6baf65f1b285f3e56f46e4f018a07d9/dataset/3/WELL-00001_20170320120025.parquet",
+    "local_path": "data/fault_observability_blackout_n2/novelty_review/3w/dataset/3/WELL-00001_20170320120025.parquet",
+    "git_blob_sha": "bb4d668a5055f0eeae39b6564033aafa98744bea",
+    "sha256": "1ba4c1385ff94b09d5bf9e424bebc77d05b61e99469b4f22a305e6722dc86672",
+    "bytes": 468294,
+    "status": "retrieved"
+  }
+]

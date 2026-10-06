@@ -1,0 +1,50 @@
+[
+  {
+    "id": "3w_ini",
+    "url": "https://raw.githubusercontent.com/petrobras/3W/d57c058af6baf65f1b285f3e56f46e4f018a07d9/dataset/dataset.ini",
+    "status": "retrieved",
+    "path": "data/fault_observability_blackout_n2/novelty_review/3w_ini.html",
+    "bytes": 4699,
+    "sha256": "c5ffad72bc1c46bccffa1e18412f2ddb87ca0e96eb7d2dfba92a4bc38a45bba2"
+  },
+  {
+    "id": "qappd_readme",
+    "url": "https://raw.githubusercontent.com/JRC-ISIA/industrial-federated-learning/7936f683ccc222c216ccfcc00bd56bd8eeb5ed76/README.md",
+    "status": "retrieved",
+    "path": "data/fault_observability_blackout_n2/novelty_review/qappd_readme.html",
+    "bytes": 6599,
+    "sha256": "746e19caf789ede3958ad2594d1481b22791e2f677cb832283a8285612955db2"
+  },
+  {
+    "id": "3w_paper",
+    "url": "https://arxiv.org/html/2507.01048v1",
+    "status": "retrieved",
+    "path": "data/fault_observability_blackout_n2/novelty_review/3w_paper.html",
+    "bytes": 208291,
+    "sha256": "fdf7840d6c71875b75953882a5b913e046ef2a887de63c15a89d08b26e0f48d0"
+  },
+  {
+    "id": "wind_masked_autoencoder",
+    "url": "https://wes.copernicus.org/articles/11/1163/2026/index.html",
+    "status": "retrieved",
+    "path": "data/fault_observability_blackout_n2/novelty_review/wind_masked_autoencoder.html",
+    "bytes": 297629,
+    "sha256": "c6774295ca61569e2247e4c1aba89f44d07bd982470bc579f4a05dd8b7a8b72d"
+  },
+  {
+    "id": "sre_slo",
+    "url": "https://sre.google/sre-book/service-level-objectives/",
+    "status": "retrieved",
+    "path": "data/fault_observability_blackout_n2/novelty_review/sre_slo.html",
+    "bytes": 45445,
+    "sha256": "449fb54ce65e05102fac46c797a08b86c5ab93ade2c70c63ae25e7648d687d7d"
+  },
+  {
+    "id": "group_selective",
+    "url": "https://arxiv.org/html/2010.14134v1",
+    "status": "retrieved",
+    "path": "data/fault_observability_blackout_n2/novelty_review/group_selective.html",
+    "bytes": 730679,
+    "sha256": "2c0576f6bcb1df398106645c9170ce295bbe3f019f91587284b632b681ddb871"
+  }
+]

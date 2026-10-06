@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-06",
+  "queries": [
+    "adaptive window anomaly detection variable context multivariate time series paper",
+    "mixture of experts missing data time series anomaly detection fallback",
+    "multi resolution anomaly detection missing observations variable length history",
+    "censored unavailable predictions sensor missingness abstention anomaly detection"
+  ],
+  "sources": [
+    {
+      "id": "DATECT",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0306457323001206",
+      "depth": "primary indexed publisher preview",
+      "full_methodology_verified": false
+    },
+    {
+      "id": "STMoE",
+      "url": "https://www.sciencedirect.com/science/article/pii/S095741742601050X",
+      "depth": "primary indexed publisher preview",
+      "full_methodology_verified": false
+    },
+    {
+      "id": "GraphMoE",
+      "url": "https://arxiv.org/abs/2412.19108",
+      "depth": "primary indexed abstract",
+      "full_methodology_verified": false
+    },
+    {
+      "id": "VariableLengthLSTM",
+      "url": "https://fatih-ilhan.github.io/publications/UOAD",
+      "depth": "primary author abstract page",
+      "full_methodology_verified": false
+    }
+  ],
+  "not_systematic_review": true
+}

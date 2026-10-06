@@ -1,0 +1,82 @@
+[
+  {
+    "id": "LSD2026",
+    "url": "https://arxiv.org/html/2606.18898v1",
+    "status": "retrieved",
+    "final_url": "https://arxiv.org/html/2606.18898v1",
+    "path": "data/fault_observability_blackout_n2/novelty_review/LSD2026.html",
+    "sha256": "f860da78b2a6f744ab14f69710183ae872acf9fa017e21f0a4ce17b08f01ca93",
+    "bytes": 533500,
+    "text_path": "data/fault_observability_blackout_n2/novelty_review/LSD2026.txt",
+    "method_evaluation_verified": true
+  },
+  {
+    "id": "GSProcess2024",
+    "url": "https://arxiv.org/html/2401.05800v1",
+    "status": "retrieved",
+    "final_url": "https://arxiv.org/html/2401.05800v1",
+    "path": "data/fault_observability_blackout_n2/novelty_review/GSProcess2024.html",
+    "sha256": "e403b10e7ad1ec94c9ec7741b2e6ad2ef523076dd6371cb5c6f637692799f9b9",
+    "bytes": 286352,
+    "text_path": "data/fault_observability_blackout_n2/novelty_review/GSProcess2024.txt",
+    "method_evaluation_verified": true
+  },
+  {
+    "id": "SelectiveNet2019",
+    "url": "https://proceedings.mlr.press/v97/geifman19a/geifman19a.pdf",
+    "status": "retrieved",
+    "final_url": "https://proceedings.mlr.press/v97/geifman19a/geifman19a.pdf",
+    "path": "data/fault_observability_blackout_n2/novelty_review/SelectiveNet2019.pdf",
+    "sha256": "121c044e3fc396f0b274a1bdbbddd1f73f016814ee76a7aed8a6898fb51388f9",
+    "bytes": 677034,
+    "pages": 9,
+    "text_path": "data/fault_observability_blackout_n2/novelty_review/SelectiveNet2019.txt",
+    "method_evaluation_verified": true
+  },
+  {
+    "id": "MaskCP2025",
+    "url": "https://arxiv.org/html/2512.14221v1",
+    "status": "retrieved",
+    "final_url": "https://arxiv.org/html/2512.14221v1",
+    "path": "data/fault_observability_blackout_n2/novelty_review/MaskCP2025.html",
+    "sha256": "25bcf01d725052ad0525f0b9694909603a44859cdb969125e53d1493a3c6c058",
+    "bytes": 720101,
+    "text_path": "data/fault_observability_blackout_n2/novelty_review/MaskCP2025.txt",
+    "method_evaluation_verified": true
+  },
+  {
+    "id": "GRUD2018",
+    "url": "https://www.nature.com/articles/s41598-018-24271-9",
+    "status": "retrieved",
+    "final_url": "https://www.nature.com/articles/s41598-018-24271-9?error=cookies_not_supported&code=94612c54-24fb-4ff1-a22d-8dadb1fbc74e",
+    "path": "data/fault_observability_blackout_n2/novelty_review/GRUD2018.html",
+    "sha256": "bc65429bcd52c42f369ff320ee301fcaff1d88badd318800b1c0dd47271ec980",
+    "bytes": 367337,
+    "text_path": "data/fault_observability_blackout_n2/novelty_review/GRUD2018.txt",
+    "method_evaluation_verified": true
+  },
+  {
+    "id": "SFAFormer2026",
+    "url": "https://www.sciencedirect.com/science/article/pii/S0020025526000253",
+    "status": "unavailable",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "id": "M2SC2_2026",
+    "url": "https://doi.org/10.1016/j.ipm.2026.104948",
+    "status": "metadata_redirect_not_fulltext",
+    "final_url": "https://linkinghub.elsevier.com/retrieve/pii/S0306457326003390",
+    "path": "data/fault_observability_blackout_n2/novelty_review/M2SC2_2026.html",
+    "sha256": "ec081835649264d4905a1e170a3bd5383a75da545351621b0544295985ec8e65",
+    "bytes": 2736,
+    "text_path": "data/fault_observability_blackout_n2/novelty_review/M2SC2_2026.txt",
+    "method_evaluation_verified": false,
+    "note": "2736-byte Elsevier redirect; DOI/PII identity only. Direct ScienceDirect full text returned 403."
+  },
+  {
+    "id": "RCWMRAD2026",
+    "url": "https://www.mdpi.com/1424-8220/26/18/5751",
+    "status": "unavailable",
+    "error": "HTTP Error 403: Forbidden"
+  }
+]
