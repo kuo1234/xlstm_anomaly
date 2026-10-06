@@ -1,0 +1,11 @@
+{
+  "seal_commit": "7000cc9eb24bc4e6e7daa88200a641137bebb2e0",
+  "remote_sha_verified_before_run": true,
+  "command": "/Users/kuo/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 research/industrial_time_series_topics_i0/scripts/injection_probe.py",
+  "exit_code": 0,
+  "result_path": "research/industrial_time_series_topics_i0/results/injection_probe.json",
+  "result_sha256": "64639e8b9a6390da9272f43bc9083a18ec84c994dd102f885f3b6097b494449a",
+  "ridge_fits": 4,
+  "neural_runs": 0,
+  "no_outcome_replacement": true
+}

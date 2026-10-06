@@ -22,3 +22,15 @@
 - MP `_get_feature_columns`僅排date/mode/selectedtarget，因而可能把另一個labquality作source。該值returntime/onlineavailabilityunknown，不能由欄位numeric就當即時sensor。
 
 這些證據支持先做availability/clockaudit，不支持newnetwork。即使只是benchmarkimplementationbug，也應定位可重現evaluationreview，不把repair當methodnovelty。
+
+## 射出首選的最近威脅（2026-10-06補查）
+
+| Source / 深度 | 直接collision與可測邊界 |
+|---|---|
+| [Bogedale2023](https://doi.org/10.3390/polym15040978)，primaryindexedmethod/evaluation＋authorrepo，directPMCrecaptcha/MDPI403，非取得cache全文 | Scalar/curvequalityprediction與nestedrandomCV已有，weight/dimension自動量測給independenttarget。Data/runtime可重現，本輪不是原作者models reproduction。Futurecyclevalidity是不同evaluationestimand，非指控randombenchmark非法。 |
+| [Uddin/Lofstrom2023](https://proceedings.mlr.press/v204/uddin23a.html)，19頁formalPDF，§3.2–3.4 read | Industrialweight intervals、RF+Crepes/MAPIE/EnbPI已有。文中未測change-point，並明示sharpness與usefuloperatingrange需要工廠experiment。AddingCP不是novelty；必須比已有update/normalizedmethods，不能只靠staticRidge失敗。 |
+| [Wang2026](https://doi.org/10.36001/phmconf.2026.v18i1.4829)，15頁formalPDF，§2.1/model/split/evaluation read | CAE/qualityprediction/decoder-Jacobianattribution已有；70/15/15randomsplit與train-onlynormalization。本輪不把explainability當gap，也不指控scalerleakage。Futureproductionvalidity仍需不同qualification。 |
+| [Stage-aware2026](https://doi.org/10.1016/j.engappai.2026.115823)，primarypublisherpreview，fullunknown | Stageheads/channelattention等直接存在；全部其baselines/split/uncertainty未取得fulltext，不能排除overlap。 |
+| [PCRpart-masscontrol2026](https://doi.org/10.1016/j.jprocont.2026.103725)，primaryTU-Delftabstract+RWTHdatarecord | Learning-enabledNMPC/GPR與跨PCRmaterialmasscontrol已直接研究；genericclosed-loopadaptationSTOP。RawRWTHarchive本輪未取得，不稱已驗證效益。 |
+
+Primaryfullsource hashes見provenance/injection_prior_sources.json，authorreleasepin/hash/schema/IDs見injection_inventory/assets/qualification。App-specificevaluationframing是proposal；沒有globalpriority或新方法clearance。

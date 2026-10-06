@@ -14,3 +14,7 @@
 | Evidence/context assembly | 將時序、process semantics與decisions的證據相接，受deadline/budget限制 | 與先前context-compiler研究規劃相關，但本輪沒有把舊spec當已驗證新意 | 不以LLM摘要代替qualitygroundtruth；目前不是首選，需不同任務的獨立prior-art/data審查。 |
 
 文獻狀態按來源分層：Honti是正式2024published version；PharmaQAI是未peer-reviewed2026preprint；InduTS是公開benchmark implementation，不等全部baseline都author-original。Data descriptors提供source，不證明newmodelutility。Full publisher403與abstract-depth仍是blocker，不能以方便的弱競品清空novelty空間。
+
+## 本輪補查射出品質
+
+新增作者公開scatimdata（實測重量/尺寸，非controllerOK）與current2026stage-aware/latentattribution研究；原研究已做scalar/curves，industrialCP2023已套conformal，PCR2026已做learning-enabledmasscontrol。因此genericstageaware/CP/原料adaptation不列methodnovelty。Qualifiedresidual是前瞻qualityvalidity的可測研究問題；實際資料/4-fit結果與風險見FINAL_RECOMMENDATIONS.md。

@@ -1,15 +1,17 @@
-# I0 — 工業時序应用缺口與選題可行性審查（進行中）
+# I0 — 工業時序应用缺口與選題可行性審查
 
 2026-10-06。原始目標：不再限定 anomaly，查詢工業時序相關應用缺口、提出題目並驗證可行性。使用者已指定**製程品質／軟感測優先**，保留設備、組裝、能源與決策的 broader screening；不把這個偏好改成只研究一個資料集。
 
 Branch `codex/industrial-timeseries-topic-audit`；基準 `08cec9b402990831790c2e1be8849f4d531be8cf`。#31/C0 的 STOP 保留。I0 是另一個由使用者直接提出的研究 audit，未解鎖任何舊 anomaly / adaptation gates。
 
-**Goal status：ACTIVE / INCOMPLETE。** 第一輪已從題目搜尋推進到 exact data bytes、批次 join、原料 genealogy、時間間隔與原生 model input contract 核對。已依pushedseal完成20次既有Ridge fit、0neural、沒有新architecture；單一產品的quality可行性檢查是負向。本文不是最終完成報告，也沒有 paper novelty GO。
+**選題與有界可行性審查：完成；method novelty / deployment GO：未給予。** 第一輪已從題目搜尋推進到 exact data bytes、批次 join、原料 genealogy、時間間隔與原生 model input contract 核對。已依兩個pushedseals完成24次既有Ridge fit、0neural、沒有新architecture；單一產品的quality可行性檢查是負向。最終排序與投入建議見 [FINAL_RECOMMENDATIONS.md](FINAL_RECOMMENDATIONS.md)，沒有 paper novelty GO。
 
-目前最值得深入驗證的候選是「**未知結束時間與停機條件下，批次品質預測的有效提前量與誤差**」。Data feasibility 有實際支持，但固定15/60minprefix的初始Ridge增量訊號未通過；generic online alignment / early quality modeling 已有成熟 prior art，剩餘貢獻需限定於可追溯的 operational evaluation，不得宣稱首次處理不等長批次。
+首選已改為「**射出成型品質軟感測的前瞻可信度**」，因已取得独立實物品質量測與有界prototype的證據。原批次候選的負結果完整保留。Data feasibility 有實際支持，但固定15/60minprefix的初始Ridge增量訊號未通過；generic online alignment / early quality modeling 已有成熟 prior art，剩餘貢獻需限定於可追溯的 operational evaluation，不得宣稱首次處理不等長批次。
 
 | 文件 | 本輪已完成的證據 / 尚缺 |
 |---|---|
+| [FINAL_RECOMMENDATIONS.md](FINAL_RECOMMENDATIONS.md) | 最終首選／備選／STOP排序、射出4-fit證據、方法新意與部署界線 |
+| [COMPLETION_AUDIT.md](COMPLETION_AUDIT.md) | 原始goal逐項驗證與完成範圍 |
 | [LANDSCAPE.md](LANDSCAPE.md) | 跨應用初篩與近鄰；部分 source 仍 abstract/preview depth |
 | [TOPIC_CARDS.md](TOPIC_CARDS.md) | 四個品質候選及其他方向，明確 data/method/utility gates |
 | [DATA_FEASIBILITY.md](DATA_FEASIBILITY.md) | exact bytes、CSV/archive/label/clock/genealogy 檢查 |

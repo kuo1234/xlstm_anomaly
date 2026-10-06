@@ -1,0 +1,8 @@
+{
+  "seal_commit": "7000cc9eb24bc4e6e7daa88200a641137bebb2e0",
+  "immutable_program_and_seal": true,
+  "four_fits_no_neural": true,
+  "split_ids_metric_arithmetic_label_variance_coverage_denominator": "passed",
+  "additional_fits": 0,
+  "not_a_method_or_deployment_certificate": true
+}

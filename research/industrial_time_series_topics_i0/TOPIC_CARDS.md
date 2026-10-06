@@ -1,4 +1,4 @@
-# Provisional topic cards：題目不是已通過novelty的claim
+# 第一輪候選紀錄：Q1–Q4保留當時提問與負結果，最終排序見FINAL_RECOMMENDATIONS.md
 
 ## Q1. 未知完成時間下的批次品質預測：有效提前量與誤差
 
@@ -64,3 +64,7 @@
 - PyScrewearlyphysicalquality：5000metadata操作有100workpieces，OK/NOK是controller outcome；rawtraces和pullout/jointstrength未核對。可研究terminalcontrollerclassification，但不能假裝已驗證獨立assembly品質。物理品質版本HOLD。
 - Toolwear+uncertainty、RUL+foundationmodel：強prior且notqualitygroundtruth等價，先不投入newnetwork。
 - Forecast→energy/scheduling：必須有完整optimization/actions/constraints與counterfactualevaluation；signalsalone不能驗證savings，prioritylower。
+
+## Q5. 射出成型品質軟感測的前瞻可信度（最終首選）
+
+獨立實物weight/dimension與兩種曲線的1167cyclejoins驗證；封存後四個Ridge/split-conformalfits已完成。Randomdiagnostic有曲線訊號，futurecycles的point/interval表現不足。Data/runtime/measurementtask可行，evaluationframing可先投入研究資格驗證；methodnovelty仍uncleared。詳細近鄰、數值、限制與停損見FINAL_RECOMMENDATIONS.md。這不是換資料救Q1，而是不同來源、物理target與前瞻可信度question，舊seal/results未更動。
