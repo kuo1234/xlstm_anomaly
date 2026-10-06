@@ -1,0 +1,32 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/sc4t1m/scatimdata/7bd35941d75c97a3f276439377dc430ab47402be/README.md",
+    "commit": "7bd35941d75c97a3f276439377dc430ab47402be",
+    "path": "data/industrial_time_series_topics_i0/injection_README.md",
+    "sha256": "56d19fc3806c106e23af559842bc6df1d00fa8c85be22887f86ea6eccb2cb584",
+    "git_blob_sha": "8e7e09c51c5d24d998a7ba98a96aaee86e71ddb5",
+    "bytes": 816
+  },
+  {
+    "url": "https://raw.githubusercontent.com/sc4t1m/scatimdata/7bd35941d75c97a3f276439377dc430ab47402be/dataset1.zip",
+    "commit": "7bd35941d75c97a3f276439377dc430ab47402be",
+    "path": "data/industrial_time_series_topics_i0/injection_dataset1.zip",
+    "sha256": "f8c7f6363ecbd541735b374746ce8549aaa50dae754aaaa2efa980c227b19c09",
+    "git_blob_sha": "3c6796453f724fd99e4c692edd1c9a6ad4a84c4f",
+    "bytes": 5431885,
+    "members": [
+      {
+        "name": "dataset1/ds1_scalar_and_quality.csv",
+        "bytes": 285243
+      },
+      {
+        "name": "dataset1/ds1_timeseries_injectionflow.csv",
+        "bytes": 24972716
+      },
+      {
+        "name": "dataset1/ds1_timeseries_injectionpressure.csv",
+        "bytes": 35913190
+      }
+    ]
+  }
+]

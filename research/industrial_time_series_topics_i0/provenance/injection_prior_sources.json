@@ -1,0 +1,26 @@
+[
+  {
+    "id": "IndustrialCP2023",
+    "url": "https://proceedings.mlr.press/v204/uddin23a/uddin23a.pdf",
+    "status": "retrieved",
+    "path": "data/industrial_time_series_topics_i0/IndustrialCP2023.pdf",
+    "sha256": "d4570e80666e86f63f8120a498edcd7bf67c92a3bb73cc79d824214eaca36017",
+    "bytes": 1470060
+  },
+  {
+    "id": "TemporalAttribution2026",
+    "url": "https://papers.phmsociety.org/index.php/phmconf/article/download/4829/phmc_26_4829",
+    "status": "retrieved",
+    "path": "data/industrial_time_series_topics_i0/TemporalAttribution2026.pdf",
+    "sha256": "009635bfe3e7e7788dccd6e5df9aa7a9bc978a87fc62f520a297b8c164b14617",
+    "bytes": 4699157
+  },
+  {
+    "id": "RWTH_metadata",
+    "url": "https://publications.rwth-aachen.de/record/1016199",
+    "status": "retrieved",
+    "path": "data/industrial_time_series_topics_i0/RWTH_metadata.html",
+    "sha256": "4681fa6e4303ecc351521fa1c7c836c9f3d6774b11725d39885ec3bf8ff16561",
+    "bytes": 248
+  }
+]

@@ -1,0 +1,46 @@
+{
+  "repo": "sc4t1m/scatimdata",
+  "commit": "7bd35941d75c97a3f276439377dc430ab47402be",
+  "tree_url": "https://api.github.com/repos/sc4t1m/scatimdata/git/trees/7bd35941d75c97a3f276439377dc430ab47402be?recursive=1",
+  "path": "data/industrial_time_series_topics_i0/injection_tree.json",
+  "sha256": "ae1a648b2ab3b0257ed6dceb742f8ddcb7b5af53fa303aeadebe00815bfa8ac9",
+  "tree": {
+    "sha": "7bd35941d75c97a3f276439377dc430ab47402be",
+    "url": "https://api.github.com/repos/sc4t1m/scatimdata/git/trees/7bd35941d75c97a3f276439377dc430ab47402be",
+    "tree": [
+      {
+        "path": "README.md",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "8e7e09c51c5d24d998a7ba98a96aaee86e71ddb5",
+        "size": 816,
+        "url": "https://api.github.com/repos/sc4t1m/scatimdata/git/blobs/8e7e09c51c5d24d998a7ba98a96aaee86e71ddb5"
+      },
+      {
+        "path": "dataset1.zip",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "3c6796453f724fd99e4c692edd1c9a6ad4a84c4f",
+        "size": 5431885,
+        "url": "https://api.github.com/repos/sc4t1m/scatimdata/git/blobs/3c6796453f724fd99e4c692edd1c9a6ad4a84c4f"
+      },
+      {
+        "path": "dataset2.zip",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "f271b73093612d21d153dbbe3f7f7b2457206941",
+        "size": 8708313,
+        "url": "https://api.github.com/repos/sc4t1m/scatimdata/git/blobs/f271b73093612d21d153dbbe3f7f7b2457206941"
+      },
+      {
+        "path": "dataset3.zip",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "697cb54676b0af9b25768eb7ec2c0768a1beeb20",
+        "size": 7754358,
+        "url": "https://api.github.com/repos/sc4t1m/scatimdata/git/blobs/697cb54676b0af9b25768eb7ec2c0768a1beeb20"
+      }
+    ],
+    "truncated": false
+  }
+}
