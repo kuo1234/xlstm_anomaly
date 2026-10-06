@@ -1,0 +1,18 @@
+{
+  "verified_research_delivery_commit": "daac26f76e0b58f64325b76e9bfb03f89d1e3924",
+  "branch": "codex/industrial-timeseries-topic-audit",
+  "remote_sha": "daac26f76e0b58f64325b76e9bfb03f89d1e3924",
+  "ahead_behind": [
+    0,
+    0
+  ],
+  "worktree_clean_at_verification": true,
+  "goal_objective_preserved": true,
+  "delivered_scope": "industrial topic review, ranked proposals and bounded feasibility validation; no method-novelty/deployment claim",
+  "report_sha256": "0cbf17515ba14939ba1cdf082c7e259de6b55f171bc8919a9d55468ac699722c",
+  "first_probe_fits": 20,
+  "second_probe_fits": 4,
+  "neural_runs": 0,
+  "all_negative_and_hold_findings_retained": true,
+  "record_note": "This delivery evidence is committed after verification of the research/results commit; final record commit is pushed and checked separately."
+}
