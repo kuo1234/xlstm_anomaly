@@ -4,9 +4,9 @@
 
 Branch `codex/industrial-timeseries-topic-audit`；基準 `08cec9b402990831790c2e1be8849f4d531be8cf`。#31/C0 的 STOP 保留。I0 是另一個由使用者直接提出的研究 audit，未解鎖任何舊 anomaly / adaptation gates。
 
-**Goal status：ACTIVE / INCOMPLETE。** 第一輪已從題目搜尋推進到 exact data bytes、批次 join、原料 genealogy、時間間隔與原生 model input contract 核對。沒有模型訓練、推論、quality risk 比較或新 architecture。本文不是最終完成報告，也沒有 paper novelty GO。
+**Goal status：ACTIVE / INCOMPLETE。** 第一輪已從題目搜尋推進到 exact data bytes、批次 join、原料 genealogy、時間間隔與原生 model input contract 核對。已依pushedseal完成20次既有Ridge fit、0neural、沒有新architecture；單一產品的quality可行性檢查是負向。本文不是最終完成報告，也沒有 paper novelty GO。
 
-目前最值得深入驗證的候選是「**未知結束時間與停機條件下，批次品質預測的有效提前量與誤差**」。Data feasibility 有實際支持；generic online alignment / early quality modeling 已有成熟 prior art，剩餘貢獻需限定於可追溯的 operational evaluation，不得宣稱首次處理不等長批次。
+目前最值得深入驗證的候選是「**未知結束時間與停機條件下，批次品質預測的有效提前量與誤差**」。Data feasibility 有實際支持，但固定15/60minprefix的初始Ridge增量訊號未通過；generic online alignment / early quality modeling 已有成熟 prior art，剩餘貢獻需限定於可追溯的 operational evaluation，不得宣稱首次處理不等長批次。
 
 | 文件 | 本輪已完成的證據 / 尚缺 |
 |---|---|
@@ -15,6 +15,7 @@ Branch `codex/industrial-timeseries-topic-audit`；基準 `08cec9b402990831790c2
 | [DATA_FEASIBILITY.md](DATA_FEASIBILITY.md) | exact bytes、CSV/archive/label/clock/genealogy 檢查 |
 | [PRIOR_ART_AND_CONTRACTS.md](PRIOR_ART_AND_CONTRACTS.md) | Honti2024 full methods、PharmaQAI2026 methods、延遲/對齊強威脅及 static code |
 | [TASK_STATE.md](TASK_STATE.md) | 原始scope、完成要求、未完成工作與下一步 |
+| [LINEAR_FEASIBILITY_RESULTS.md](LINEAR_FEASIBILITY_RESULTS.md) | 預封存線性pilot的完整負結果與不外推範圍 |
 | [provenance/qualification_checks.json](provenance/qualification_checks.json) | 來源定義下的數據核對，非 forecast performance |
 
 兩個已足以改變選題的反證：

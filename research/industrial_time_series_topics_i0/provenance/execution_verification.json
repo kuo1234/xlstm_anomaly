@@ -1,0 +1,9 @@
+{
+  "seal_commit": "e95ba3657e16bda8d3cc060fef714425cdb472ab",
+  "program_and_manifest_unchanged": true,
+  "result_hash_verified": true,
+  "fixed_splits_counts_metric_arithmetic_and_validation_selection": "passed",
+  "prefix_future_invariance_15_60": "passed",
+  "additional_fits": 0,
+  "no_method_or_generalization_go": true
+}

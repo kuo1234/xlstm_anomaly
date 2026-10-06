@@ -1,0 +1,12 @@
+{
+  "seal_commit": "e95ba3657e16bda8d3cc060fef714425cdb472ab",
+  "seal_remote_verified_before_run": true,
+  "command": "/Users/kuo/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 research/industrial_time_series_topics_i0/scripts/linear_feasibility.py",
+  "exit_code": 0,
+  "fit_count": 20,
+  "neural_runs": 0,
+  "results_path": "research/industrial_time_series_topics_i0/results/linear_feasibility.json",
+  "results_sha256": "84861ab00caa77cd822d05b6203b3f32f4b280683cfaadeafe0e60aa994e24f6",
+  "scope": "One source family/product code; fixed20-batch test, initial linear feasibility premise not supported",
+  "no_post_result_replacement": true
+}

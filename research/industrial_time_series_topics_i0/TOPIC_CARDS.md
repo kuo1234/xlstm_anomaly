@@ -14,7 +14,7 @@
 
 **最小否證**：固定historycutoffs+train-onlyscaler，對比preprocessknownmaterials/recipe-only、processprefix、retrospectivefullprocess（oracle diagnostic），在futurebatches與predeclaredpause/lengthstrata檢查incrementalquality及actualtimelead。若material-only足夠，或gain只由completion/targetproxy洩漏提供，STOP。不能用test結果重選cutoff/target。
 
-**當前判斷**：DATA_FEASIBILITY_SUPPORTED_FOR_ONE_PRODUCT_CODE / NOVELTY_UNRESOLVED / PILOT_NOT_RUN。最優先深入，還不能給newmethodGO。
+**更新後判斷**：DATA_FEASIBLE / INITIAL_LINEAR_PREMISE_NOT_SUPPORTED / NO_METHOD_GO。固定15/60minprefix的testMSE分別比materialsbaseline高32.40%/65.71%；fulloracle也差。此scope停止簡單incremental-signal主張，不換target/data/model救結果，且不能由一個Ridge否定全部訊號。詳見LINEAR_FEASIBILITY_RESULTS.md。
 
 ## Q2. 實驗室延遲下軟感測的資訊可用性審查
 
@@ -56,7 +56,7 @@
 
 **否證**：同informationcutoff/容量下比較prefixprocess-only、waste-derivedprefixfeatures、recipe/materialcontrols，僅測independentlabtargets；若gain只在predictcounter本身、品質effect不穩定或已由材料baseline解釋，STOP。
 
-**當前判斷**：DATA_FEASIBLE_FOR_SCOPED_COMPARISON / PREDICTIVE_UTILITY_UNTESTED / NOVELTY_UNRESOLVED。可併入Q1，尚不強推獨立methodpaper。
+**更新後判斷**：DATA_FEASIBLE_FOR_SCOPED_COMPARISON / NO_INITIAL_LINEAR_GAIN / NOVELTY_UNRESOLVED。含waste等12signals的prefix沒有改善dissolution_av；尚未單獨分解proxyeffect，不把整個featurearm的負結果當所有proxy都無用。
 
 ## 非首選／暫停題目
 
