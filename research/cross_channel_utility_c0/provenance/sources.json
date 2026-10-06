@@ -1,0 +1,76 @@
+[
+  {
+    "id": "MSFLOW",
+    "url": "https://raw.githubusercontent.com/mlresearch/v306/main/assets/zhang26at/zhang26at.pdf",
+    "status": "retrieved",
+    "path": "data/cross_channel_utility_c0/MSFLOW.pdf",
+    "final_url": "https://raw.githubusercontent.com/mlresearch/v306/main/assets/zhang26at/zhang26at.pdf",
+    "sha256": "9c719e235481e3f1048092c3d20e208378b18ff1fc71881893173ff0b6b82c3f",
+    "bytes": 2599475,
+    "text_path": "data/cross_channel_utility_c0/MSFLOW.txt",
+    "depth": "full methodology/evaluation/ablation read; implementation/runtime not reproduced"
+  },
+  {
+    "id": "Rethinking",
+    "url": "https://arxiv.org/html/2609.32187v1",
+    "status": "retrieved",
+    "path": "data/cross_channel_utility_c0/Rethinking.html",
+    "final_url": "https://arxiv.org/html/2609.32187v1",
+    "sha256": "3d0e4e83c9569f931f2b7319a25998323ffb759642bff13edcebd5770104706b",
+    "bytes": 481377,
+    "text_path": "data/cross_channel_utility_c0/Rethinking.txt",
+    "depth": "full methodology/evaluation/ablation read; implementation/runtime not reproduced"
+  },
+  {
+    "id": "MixBench",
+    "url": "https://arxiv.org/html/2609.32656v1",
+    "status": "retrieved",
+    "path": "data/cross_channel_utility_c0/MixBench.html",
+    "final_url": "https://arxiv.org/html/2609.32656v1",
+    "sha256": "0908985322979cbc163b6d5ae968e33b7ea2d7e25d3a217ffd627fc3db85988e",
+    "bytes": 955997,
+    "text_path": "data/cross_channel_utility_c0/MixBench.txt",
+    "depth": "full methodology/evaluation/ablation read; implementation/runtime not reproduced"
+  },
+  {
+    "id": "UCast",
+    "url": "https://arxiv.org/html/2507.15119v1",
+    "status": "retrieved",
+    "path": "data/cross_channel_utility_c0/UCast.html",
+    "final_url": "https://arxiv.org/html/2507.15119v1",
+    "sha256": "17ef27ca223521566850d6cdc2be04fa6dd7324359ed253487242706698a37ae",
+    "bytes": 512380,
+    "text_path": "data/cross_channel_utility_c0/UCast.txt",
+    "depth": "full methodology/evaluation/ablation read; implementation/runtime not reproduced"
+  },
+  {
+    "id": "DUET",
+    "url": "https://arxiv.org/html/2412.10859v1",
+    "status": "retrieved",
+    "path": "data/cross_channel_utility_c0/DUET.html",
+    "final_url": "https://arxiv.org/html/2412.10859v1",
+    "sha256": "bbc6eb53cc0af0f615873c0430a1abf81d05c78c397b0b24e68a7f82c8a15bc0",
+    "bytes": 433086,
+    "text_path": "data/cross_channel_utility_c0/DUET.txt",
+    "depth": "full methodology/evaluation/ablation read; implementation/runtime not reproduced"
+  },
+  {
+    "id": "CPiRi",
+    "url": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/ebba182cb97864368fdb6ae00773a5e4-Paper-Conference.pdf",
+    "status": "unavailable",
+    "error": "HTTP Error 404: Not Found",
+    "resolution": "Initial hash-directory PDF URL 404; corrected official file-directory PDF retrieved with hash in additional_evidence.json."
+  },
+  {
+    "id": "DyTimeNet",
+    "url": "https://www.sciencedirect.com/science/article/pii/S0925231226003619",
+    "status": "unavailable",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "id": "CLOC",
+    "url": "https://www.mdpi.com/2227-7390/14/17/3132",
+    "status": "unavailable",
+    "error": "HTTP Error 403: Forbidden"
+  }
+]

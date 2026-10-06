@@ -1,0 +1,115 @@
+[
+  {
+    "id": "CPiRi_pdf",
+    "url": "https://proceedings.iclr.cc/paper_files/paper/2026/file/ebba182cb97864368fdb6ae00773a5e4-Paper-Conference.pdf",
+    "status": "retrieved",
+    "path": "data/cross_channel_utility_c0/CPiRi_pdf.pdf",
+    "sha256": "bca6377a420117384d0810721c61fe542d4f6971298f8e8e3cbe1c39e54e4ac4",
+    "bytes": 1545961,
+    "final_url": "https://proceedings.iclr.cc/paper_files/paper/2026/file/ebba182cb97864368fdb6ae00773a5e4-Paper-Conference.pdf"
+  },
+  {
+    "id": "MixBench_release",
+    "url": "https://anonymous.4open.science/r/mixbench-ts-B027/",
+    "status": "frontend_only",
+    "path": "data/cross_channel_utility_c0/MixBench_release.asset",
+    "sha256": "1743fc650624130953dd37a0bc09042a45f2d55d65e42d57c90c49ae1120b788",
+    "bytes": 16324,
+    "final_url": "https://anonymous.4open.science/r/mixbench-ts-B027/",
+    "note": "Public SPA HTML retrieved; exact released data asset/revision not resolved. Not a data download or evidence that the release is unavailable."
+  },
+  {
+    "id": "TimeHD_metadata",
+    "url": "https://huggingface.co/api/datasets/Time-HD-Anonymous/High_Dimensional_Time_Series",
+    "status": "retrieved",
+    "path": "data/cross_channel_utility_c0/TimeHD_metadata.asset",
+    "sha256": "7f5a65f7fc94271b26936bd4770156dc1970dba7e1a4601f07a96baf4b938d35",
+    "bytes": 3882,
+    "final_url": "https://huggingface.co/api/datasets/Time-HD-Anonymous/High_Dimensional_Time_Series"
+  },
+  {
+    "id": "Cola-Fsm_MS-FLOW_models_MS-FLOW.py",
+    "url": "https://raw.githubusercontent.com/Cola-Fsm/MS-FLOW/36b4687035e6e98cdd71ab52abc7a5d98d63dc26/models/MS-FLOW.py",
+    "status": "retrieved",
+    "path": "data/cross_channel_utility_c0/Cola-Fsm_MS-FLOW_models_MS-FLOW.py.asset",
+    "sha256": "aaff07cfab9bf14d6792472db5d4e282b39dedb1fff888f8189ead54bd430686",
+    "bytes": 8152,
+    "final_url": "https://raw.githubusercontent.com/Cola-Fsm/MS-FLOW/36b4687035e6e98cdd71ab52abc7a5d98d63dc26/models/MS-FLOW.py"
+  },
+  {
+    "id": "UnifiedTSAI_Time-HD-Lib_download_dataset.py",
+    "url": "https://raw.githubusercontent.com/UnifiedTSAI/Time-HD-Lib/a46a5032605c0dfd7f6193a94138cf15d245d9be/download_dataset.py",
+    "status": "retrieved",
+    "path": "data/cross_channel_utility_c0/UnifiedTSAI_Time-HD-Lib_download_dataset.py.asset",
+    "sha256": "c68ab4cb0595c9f0a23f31f5a30e306fa25d4d3e5520538820b3600675d48aea",
+    "bytes": 388,
+    "final_url": "https://raw.githubusercontent.com/UnifiedTSAI/Time-HD-Lib/a46a5032605c0dfd7f6193a94138cf15d245d9be/download_dataset.py"
+  },
+  {
+    "id": "UnifiedTSAI_Time-HD-Lib_models_UCast.py",
+    "url": "https://raw.githubusercontent.com/UnifiedTSAI/Time-HD-Lib/a46a5032605c0dfd7f6193a94138cf15d245d9be/models/UCast.py",
+    "status": "retrieved",
+    "path": "data/cross_channel_utility_c0/UnifiedTSAI_Time-HD-Lib_models_UCast.py.asset",
+    "sha256": "6df6ecab5a9a6295037c238368a4f3c90e6d3668f82e640105c2c1b03a47a60a",
+    "bytes": 11444,
+    "final_url": "https://raw.githubusercontent.com/UnifiedTSAI/Time-HD-Lib/a46a5032605c0dfd7f6193a94138cf15d245d9be/models/UCast.py"
+  },
+  {
+    "id": "UnifiedTSAI_Time-HD-Lib_core_data_data_loader.py",
+    "url": "https://raw.githubusercontent.com/UnifiedTSAI/Time-HD-Lib/a46a5032605c0dfd7f6193a94138cf15d245d9be/core/data/data_loader.py",
+    "status": "retrieved",
+    "path": "data/cross_channel_utility_c0/UnifiedTSAI_Time-HD-Lib_core_data_data_loader.py.asset",
+    "sha256": "9a22d09e52e1a1b113511fab31f7b1374110a309328bd4d6b2a4310e37b03d91",
+    "bytes": 11336,
+    "final_url": "https://raw.githubusercontent.com/UnifiedTSAI/Time-HD-Lib/a46a5032605c0dfd7f6193a94138cf15d245d9be/core/data/data_loader.py"
+  },
+  {
+    "id": "NEUMelon_CLOC_model_CLOC.py",
+    "url": "https://raw.githubusercontent.com/NEUMelon/CLOC/72042c60b7b4eefb06dc71fb58387aa0504e24e8/model/CLOC.py",
+    "status": "retrieved",
+    "path": "data/cross_channel_utility_c0/NEUMelon_CLOC_model_CLOC.py.asset",
+    "sha256": "a0072e8a7c0b0f9786991f5e8e9103faf358216acb299009396d59c29c8b8f14",
+    "bytes": 29442,
+    "final_url": "https://raw.githubusercontent.com/NEUMelon/CLOC/72042c60b7b4eefb06dc71fb58387aa0504e24e8/model/CLOC.py"
+  },
+  {
+    "id": "decisionintelligence_DUET_ts_benchmark_baselines_duet_duet.py",
+    "url": "https://raw.githubusercontent.com/decisionintelligence/DUET/dcc6e6780a9138731b64b9b5398a94a1d97033f0/ts_benchmark/baselines/duet/duet.py",
+    "status": "retrieved",
+    "path": "data/cross_channel_utility_c0/decisionintelligence_DUET_ts_benchmark_baselines_duet_duet.py.asset",
+    "sha256": "fc26a8d6d4b53d342219b33face13c551115aada57611fdbbfac7b582fc9b46b",
+    "bytes": 1789,
+    "final_url": "https://raw.githubusercontent.com/decisionintelligence/DUET/dcc6e6780a9138731b64b9b5398a94a1d97033f0/ts_benchmark/baselines/duet/duet.py"
+  },
+  {
+    "id": "zhouhaoyi_ETDataset_ETT-small_ETTh1.csv",
+    "url": "https://raw.githubusercontent.com/zhouhaoyi/ETDataset/1d16c8f4f943005d613b5bc962e9eeb06058cf07/ETT-small/ETTh1.csv",
+    "status": "retrieved",
+    "path": "data/cross_channel_utility_c0/zhouhaoyi_ETDataset_ETT-small_ETTh1.csv.asset",
+    "sha256": "f18de3ad269cef59bb07b5438d79bb3042d3be49bdeecf01c1cd6d29695ee066",
+    "bytes": 2589657,
+    "final_url": "https://raw.githubusercontent.com/zhouhaoyi/ETDataset/1d16c8f4f943005d613b5bc962e9eeb06058cf07/ETT-small/ETTh1.csv",
+    "inspection": {
+      "rows": 17420,
+      "channels": [
+        "HUFL",
+        "HULL",
+        "MUFL",
+        "MULL",
+        "LUFL",
+        "LULL",
+        "OT"
+      ],
+      "D": 7,
+      "first_timestamp": "2016-07-01 00:00:00",
+      "last_timestamp": "2018-06-26 19:00:00",
+      "cadence_seconds_unique": [
+        3600.0
+      ],
+      "empty_fields": 0,
+      "model_runs": 0,
+      "no_scaling_or_correlations": true,
+      "numeric_nonfinite_fields": 0
+    }
+  }
+]

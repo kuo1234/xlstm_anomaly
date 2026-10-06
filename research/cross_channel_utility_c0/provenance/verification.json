@@ -1,0 +1,136 @@
+{
+  "baseline": "53e00cd460e9b4196fdd2a95f3cacbd224caa876",
+  "baseline_tracked_files_preserved": 2403,
+  "source_checks": [
+    {
+      "path": "data/cross_channel_utility_c0/MSFLOW.pdf",
+      "hash_verified": true,
+      "ignored": true
+    },
+    {
+      "path": "data/cross_channel_utility_c0/Rethinking.html",
+      "hash_verified": true,
+      "ignored": true
+    },
+    {
+      "path": "data/cross_channel_utility_c0/MixBench.html",
+      "hash_verified": true,
+      "ignored": true
+    },
+    {
+      "path": "data/cross_channel_utility_c0/UCast.html",
+      "hash_verified": true,
+      "ignored": true
+    },
+    {
+      "path": "data/cross_channel_utility_c0/DUET.html",
+      "hash_verified": true,
+      "ignored": true
+    },
+    {
+      "path": "data/cross_channel_utility_c0/CPiRi_pdf.pdf",
+      "hash_verified": true,
+      "ignored": true
+    },
+    {
+      "path": "data/cross_channel_utility_c0/MixBench_release.asset",
+      "hash_verified": true,
+      "ignored": true
+    },
+    {
+      "path": "data/cross_channel_utility_c0/TimeHD_metadata.asset",
+      "hash_verified": true,
+      "ignored": true
+    },
+    {
+      "path": "data/cross_channel_utility_c0/Cola-Fsm_MS-FLOW_models_MS-FLOW.py.asset",
+      "hash_verified": true,
+      "ignored": true
+    },
+    {
+      "path": "data/cross_channel_utility_c0/UnifiedTSAI_Time-HD-Lib_download_dataset.py.asset",
+      "hash_verified": true,
+      "ignored": true
+    },
+    {
+      "path": "data/cross_channel_utility_c0/UnifiedTSAI_Time-HD-Lib_models_UCast.py.asset",
+      "hash_verified": true,
+      "ignored": true
+    },
+    {
+      "path": "data/cross_channel_utility_c0/UnifiedTSAI_Time-HD-Lib_core_data_data_loader.py.asset",
+      "hash_verified": true,
+      "ignored": true
+    },
+    {
+      "path": "data/cross_channel_utility_c0/NEUMelon_CLOC_model_CLOC.py.asset",
+      "hash_verified": true,
+      "ignored": true
+    },
+    {
+      "path": "data/cross_channel_utility_c0/decisionintelligence_DUET_ts_benchmark_baselines_duet_duet.py.asset",
+      "hash_verified": true,
+      "ignored": true
+    },
+    {
+      "path": "data/cross_channel_utility_c0/zhouhaoyi_ETDataset_ETT-small_ETTh1.csv.asset",
+      "hash_verified": true,
+      "ignored": true
+    },
+    {
+      "path": "data/cross_channel_utility_c0/weather.csv.prefix",
+      "hash_verified": true,
+      "ignored": true
+    },
+    {
+      "path": "data/cross_channel_utility_c0/smart_meters_in_london.csv.prefix",
+      "hash_verified": true,
+      "ignored": true
+    },
+    {
+      "repo": "Cola-Fsm/MS-FLOW",
+      "commit": "36b4687035e6e98cdd71ab52abc7a5d98d63dc26",
+      "readme_hash_verified": true
+    },
+    {
+      "repo": "decisionintelligence/DUET",
+      "commit": "dcc6e6780a9138731b64b9b5398a94a1d97033f0",
+      "readme_hash_verified": true
+    },
+    {
+      "repo": "UnifiedTSAI/Time-HD-Lib",
+      "commit": "a46a5032605c0dfd7f6193a94138cf15d245d9be",
+      "readme_hash_verified": true
+    },
+    {
+      "repo": "JasonStraka/CPiRi",
+      "commit": "3f1e00f62b42782062c3484792f47fe905e5b743",
+      "readme_hash_verified": true
+    },
+    {
+      "repo": "dearyonghoon/rethinking-cross-channel",
+      "commit": "b95eacbb986f6b5f3f11fb6fc63d96b610bc26f7",
+      "readme_hash_verified": true
+    },
+    {
+      "repo": "NEUMelon/CLOC",
+      "commit": "72042c60b7b4eefb06dc71fb58387aa0504e24e8",
+      "readme_hash_verified": true
+    },
+    {
+      "repo": "SJTU-DMTai/LIFT",
+      "commit": "79cf8f157bb9a616c9733daf1e9c2cfefdc98c94",
+      "readme_hash_verified": true
+    },
+    {
+      "repo": "zhouhaoyi/ETDataset",
+      "commit": "1d16c8f4f943005d613b5bc962e9eeb06058cf07",
+      "readme_hash_verified": true
+    }
+  ],
+  "ETTh1_schema_cadence_empty_parity": true,
+  "prefix_count_header_empty_parity": true,
+  "model_runs": 0,
+  "diff_check": "passed",
+  "not_a_forecast_or_novelty_reproduction": true
+}
